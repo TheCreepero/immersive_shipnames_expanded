@@ -51,6 +51,7 @@ This document serves as an instruction and reference guide for maintaining and u
 
 | File | Nation | Tag | Status in Description |
 | :--- | :--- | :--- | :--- |
+| `ISNE_AUS_ship_names.txt` | Austria | `AUS` | Included (Destroyers, Submarines, Light Cruisers, Heavy Cruisers, Battleships, Carriers, Thematic Topics) |
 | `ISNE_FIN_ship_names.txt` | Finland | `FIN` | Included (Destroyers, Submarines, Coastal Defense, Light Cruisers, Carriers) |
 
 ---
@@ -68,6 +69,15 @@ Never run dry on ship names during extended campaigns or alternate-history naval
 - [b]Language Accuracy:[/b] Authentic native spelling and diacritics.
 
 [h1]Included nations:[/h1]
+[b]Austria[/b]
+- Destroyers & Torpedo Craft: [i]Huszár, Ulan, Streiter, Wildfang, Tátra, Balaton, Kaiman, Blitz, Komet, Meteor, Donner, Sturm[/i]
+- Submarines: [i]Forelle, Hecht, Karpfen, Stör, Wels, Muräne, Seeteufel, Nautilus, Donaunixe, Otter, Biber, Salamander[/i]
+- Light Cruisers: [i]Novara, Saida, Helgoland, Zenta, Aspern, Admiral Spaun, Wien, Linz, Salzburg, Graz, Innsbruck, Bregenz[/i]
+- Heavy & Armored Cruisers: [i]Kaiserin und Königin Maria Theresia, Kaiser Karl VI, Sankt Georg, Tegetthoff, Prinz Eugen, Radetzky[/i]
+- Battleships & Capital Ships: [i]Viribus Unitis, Tegetthoff, Prinz Eugen, Szent István, Monarch, Habsburg, Erzherzog Karl, Österreich[/i]
+- Aircraft Carriers: [i]Igo Etrich, Wilhelm Kress, Walther von der Vogelweide, Kaiseradler, Steinadler, Seeadler, Falke, Phönix[/i]
+- Universal Thematic Pools: Monarchs, Cities, Crown Lands, Rivers & Lakes, Alpine Peaks, Historic Battles, Heroes, Folklore, Birds, Beasts, Martial Virtues
+
 [b]Finland[/b]
 - Destroyers & Torpedo Boats: [i]Hämeenmaa, Uusimaa, Karjala, Turunmaa, Matti Kurki, Sisu, Hurja, Isku, Syöksy, Nuoli[/i]
 - Submarines: [i]Vetehinen, Vesihiisi, Iku-Turso, Saukko, Vesikko, Näkki, Vellamo[/i]

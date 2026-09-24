@@ -27,7 +27,6 @@ param(
     [switch]$DryRun
 )
 
-Set-StrictMode -Version Latest
 $ErrorActionPreference = "Stop"
 
 $RepoRoot   = Split-Path -Parent $PSScriptRoot
@@ -39,25 +38,22 @@ Write-Host "=== ISNE Wiki Push Script ===" -ForegroundColor Cyan
 Write-Host "Source : $WikiSource"
 Write-Host "Remote : $WikiRemote"
 Write-Host "Temp   : $WikiClone"
-if ($DryRun) { Write-Host "[DRY RUN — no changes will be pushed]" -ForegroundColor Yellow }
+if ($DryRun) { Write-Host "[DRY RUN - no changes will be pushed]" -ForegroundColor Yellow }
 Write-Host ""
 
 # --- Step 1: Clone or update the wiki repo ---
 if (Test-Path -LiteralPath $WikiClone) {
     Write-Host "Updating existing wiki clone..." -ForegroundColor Yellow
     git -C $WikiClone fetch origin
-    $global:LASTEXITCODE = 0
     git -C $WikiClone reset --hard origin/master 2>$null
-    if ($global:LASTEXITCODE -ne 0) {
-        $global:LASTEXITCODE = 0
+    if ($LASTEXITCODE -ne 0) {
         git -C $WikiClone reset --hard origin/main 2>$null
     }
 } else {
     Write-Host "Cloning wiki repository..." -ForegroundColor Yellow
-    $global:LASTEXITCODE = 0
     git clone $WikiRemote $WikiClone
-    if ($global:LASTEXITCODE -ne 0) {
-        Write-Error "Failed to clone wiki. Make sure the wiki has been initialized on GitHub (create at least one page via the web UI first)."
+    if ($LASTEXITCODE -ne 0) {
+        Write-Error 'Failed to clone wiki. Make sure the wiki has been initialized on GitHub (create at least one page via the web UI first).'
         exit 1
     }
 }
@@ -77,7 +73,7 @@ foreach ($f in $mdFiles) {
 $status = git -C $WikiClone status --porcelain
 if (-not $status) {
     Write-Host ""
-    Write-Host "Nothing to commit — wiki is already up to date." -ForegroundColor Green
+    Write-Host "Nothing to commit - wiki is already up to date." -ForegroundColor Green
     exit 0
 }
 

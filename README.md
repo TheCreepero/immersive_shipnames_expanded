@@ -76,6 +76,7 @@ powershell -File .\build.ps1 -PublishSteam -ChangeNote "Add Finnish ship namelis
 
 | Tag | Nation | Source File |
 | :--- | :--- | :--- |
+| `AUS` | Austria | `ISNE_AUS_ship_names.txt` |
 | `FIN` | Finland | `ISNE_FIN_ship_names.txt` |
 
 *(Refer to [WORKSHOP_DESCRIPTION_GUIDELINES.md](WORKSHOP_DESCRIPTION_GUIDELINES.md) for full descriptions, examples, and Steam BBCode formatting rules).*

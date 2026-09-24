@@ -1,0 +1,326 @@
+##### AUSTRIA NAVAL NAME LISTS (ISNE) #####
+
+### DESTROYERS & ESCORTS ###
+AUS_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { AUS }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	fallback_name = "Zerstörer %d"
+
+	unique = {
+		# Historic K.u.K. Torpedobootszerstörer (Huszár & Tátra classes)
+		"Huszár" "Ulan" "Streiter" "Wildfang" "Scharfschütze" "Uskoke" "Turul" "Pandúr" "Csikós" "Réka" "Dinara" "Velebit"
+		"Tátra" "Balaton" "Csepel" "Lika" "Orjen" "Triglav" "Dukla" "Uzsok" "Karpaten"
+		# Historic Torpedoboote (Kaiman, Falke, Greif, Blitz, Komet classes)
+		"Kaiman" "Anaconda" "Alligator" "Krokodil" "Wal" "Seehund" "Delphin" "Hai" "Drache" "Greif" "Phönix"
+		"Blitz" "Komet" "Meteor" "Planet" "Satellit" "Trabant" "Magnet" "Streiflicht" "Funke" "Strahl"
+		"Falke" "Habicht" "Sperber" "Kondor" "Geier" "Adler" "Möwe" "Schwalbe"
+		# Plausible expansion names (Martial descriptors, weather & alpine winds)
+		"Donner" "Sturm" "Bö" "Wirbel" "Orkan" "Taifun" "Zyklon" "Kühnheit" "Trotz" "Mut"
+		"Rächer" "Vorposten" "Wächter" "Pfeil" "Lanze" "Klinge" "Säbel" "Dolch"
+	}
+}
+
+### SUBMARINES ###
+AUS_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { AUS }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	fallback_name = "Unterseeboot %d"
+
+	unique = {
+		# Aquatic life, predators & Danube fish
+		"Forelle" "Hecht" "Karpfen" "Stör" "Wels" "Muräne" "Seeteufel" "Krake" "Nautilus" "Donaunixe"
+		"Otter" "Biber" "Salamander" "Seehund" "Wal" "Delphin" "Hai" "Schwertfisch" "Zitterrochen" "Manta"
+		"Barbe" "Zander" "Äsche" "Huchen" "Schleie" "Seesaibling" "Bachforelle" "Regenbogenforelle" "Rotfeder" "Bitterling"
+		"Kallichthys" "Piranha" "Hammerhai" "Tigerhai" "Kupferhai" "Riesenhai" "Dornhai" "Meerneunauge"
+	}
+}
+
+### LIGHT CRUISERS ###
+AUS_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { AUS }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	fallback_name = "Leichter Kreuzer %d"
+
+	unique = {
+		# Historic K.u.K. rapid cruisers & scout cruisers (Zenta, Novara, Admiral Spaun classes)
+		"Novara" "Saida" "Helgoland" "Zenta" "Aspern" "Szigetvár" "Admiral Spaun"
+		# Major Austrian federal capitals, trade hubs & historic river cities
+		"Wien" "Linz" "Salzburg" "Graz" "Innsbruck" "Klagenfurt" "Villach" "Bregenz" "Sankt Pölten" "Steyr"
+		"Wels" "Dornbirn" "Eisenstadt" "Krems" "Baden" "Hallstatt" "Kitzbühel" "Kufstein" "Gmunden" "Lienz"
+		"Wolfsberg" "Leoben" "Amstetten" "Kapfenberg" "Feldkirch" "Schwaz" "Bad Ischl" "Braunau" "Tulln"
+	}
+}
+
+### HEAVY CRUISERS & ARMORED CRUISERS ###
+AUS_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { AUS }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	fallback_name = "Schwerer Kreuzer %d"
+
+	unique = {
+		# Historic armored cruisers & capital commanders
+		"Kaiserin und Königin Maria Theresia" "Kaiser Karl VI" "Sankt Georg" "Kaiser Franz Joseph I" "Kaiserin Elisabeth"
+		"Tegetthoff" "Prinz Eugen" "Erzherzog Karl" "Feldmarschall Radetzky" "Graf von Starhemberg" "Gideon von Laudon"
+		"Andreas Hofer" "Ludwig von Benedek" "Maximilian von Daun" "Graf von Mercy" "Franz von Mercy" "Montecuccoli"
+		"Graf von Khevenhüller" "Graf von Mercy" "Erzherzog Albrecht" "Erzherzog Johann" "Graf von Clam-Gallas"
+		"Graf von Gyulay" "Feldmarschall Daun" "Feldmarschall Lacy" "Feldzeugmeister Wurmser"
+	}
+}
+
+### BATTLESHIPS & CAPITAL SHIPS ###
+AUS_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { AUS }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship battle_cruiser }
+
+	fallback_name = "Schlachtschiff %d"
+
+	unique = {
+		# Historic dreadnoughts & pre-dreadnoughts (Tegetthoff, Erzherzog Karl, Habsburg, Monarch classes)
+		"Viribus Unitis" "Tegetthoff" "Prinz Eugen" "Szent István" "Monarch" "Wien" "Budapest"
+		"Habsburg" "Árpád" "Babenberg" "Erzherzog Ferdinand Max" "Erzherzog Friedrich" "Erzherzog Franz Ferdinand"
+		"Erzherzog Karl" "Radetzky" "Zrínyi"
+		# Dynastic rulers, crown lands & great-power projects
+		"Kaiser Franz Joseph I" "Kaiser Karl I" "Kaiserin Maria Theresia" "Kaiser Maximilian I" "Kaiser Rudolf I"
+		"Österreich" "Niederösterreich" "Oberösterreich" "Steiermark" "Tirol" "Kärnten" "Salzburg" "Burgenland" "Vorarlberg"
+		"Küstenland" "Istrien" "Dalmatien" "Krain" "Böhmen" "Mähren" "Schlesien" "Galizien" "Bukowina"
+	}
+}
+
+### AIRCRAFT CARRIERS ###
+AUS_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { AUS }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	fallback_name = "Flugzeugträger %d"
+
+	unique = {
+		# Austrian aviation pioneers & sky masters
+		"Igo Etrich" "Wilhelm Kress" "Walther von der Vogelweide"
+		# Birds of prey, sky avians & mythical flyers
+		"Kaiseradler" "Steinadler" "Seeadler" "Falke" "Habicht" "Sperber" "Kondor" "Geier" "Albatros"
+		"Phönix" "Pegasus" "Ikarus" "Milan" "Bussard" "Turmfalke" "Wanderfalke" "Horst" "Sturmvogel"
+	}
+}
+
+### UNIVERSAL TOPIC: RULERS ###
+AUS_RULERS = {
+	name = "Habsburg & Babenberg Monarchs"
+
+	for_countries = { AUS }
+
+	type = ship
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Babenberger
+		"Markgraf Leopold I" "Heinrich II Jasomirgott" "Leopold V" "Leopold VI der Glorreiche" "Friedrich II der Streitbare"
+		# Habsburger
+		"Rudolf I von Habsburg" "Albrecht I" "Friedrich der Schöne" "Albrecht II" "Rudolf IV der Stifter"
+		"Friedrich III" "Maximilian I" "Karl V" "Ferdinand I" "Maximilian II" "Rudolf II" "Matthias"
+		"Ferdinand II" "Ferdinand III" "Leopold I" "Joseph I" "Karl VI" "Maria Theresia" "Joseph II"
+		"Leopold II" "Franz II" "Ferdinand I der Gütige" "Franz Joseph I" "Karl I" "Otto von Habsburg"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES ###
+AUS_CITIES = {
+	name = "Austrian Cities"
+
+	for_countries = { AUS }
+
+	type = ship
+
+	fallback_name = "Stadt %d"
+
+	unique = {
+		"Wien" "Graz" "Linz" "Salzburg" "Innsbruck" "Klagenfurt" "Villach" "Wels" "Sankt Pölten" "Dornbirn"
+		"Steyr" "Feldkirch" "Bregenz" "Baden" "Wolfsberg" "Leoben" "Krems an der Donau" "Eisenstadt" "Amstetten"
+		"Kapfenberg" "Hallstatt" "Kitzbühel" "Lienz" "Kufstein" "Schwaz" "Gmunden" "Bad Ischl" "Braunau" "Zwettl" "Tulln"
+	}
+}
+
+### UNIVERSAL TOPIC: PROVINCES ###
+AUS_PROVINCES = {
+	name = "Austrian Provinces & Crown Lands"
+
+	for_countries = { AUS }
+
+	type = ship
+
+	fallback_name = "Provinz %d"
+
+	unique = {
+		"Niederösterreich" "Oberösterreich" "Steiermark" "Tirol" "Kärnten" "Salzburg" "Burgenland" "Vorarlberg" "Wien"
+		"Krain" "Küstenland" "Istrien" "Dalmatien" "Görz und Gradisca" "Triest" "Böhmen" "Mähren" "Österreichisch-Schlesien"
+		"Galizien" "Lodomerien" "Bukowina" "Südtirol" "Osttirol" "Salzkammergut" "Waldviertel" "Mostviertel" "Weinviertel" "Industrieviertel"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS & LAKES ###
+AUS_RIVERS = {
+	name = "Austrian Rivers & Lakes"
+
+	for_countries = { AUS }
+
+	type = ship
+
+	fallback_name = "Fluss %d"
+
+	unique = {
+		# Major rivers
+		"Donau" "Inn" "Enns" "Drau" "Mur" "Salzach" "Traun" "Lech" "Ill" "Ybbs" "Kamp" "March" "Thaya" "Gurk" "Gail" "Lavant"
+		# Famous lakes
+		"Bodensee" "Neusiedler See" "Wörthersee" "Attersee" "Traunsee" "Wolfgangsee" "Achensee" "Zeller See" "Millstätter See"
+		"Ossiacher See" "Hallstätter See" "Plansee" "Grundlsee" "Mondsee" "Faaker See" "Weissensee"
+	}
+}
+
+### UNIVERSAL TOPIC: MOUNTAINS & GEOGRAPHY ###
+AUS_GEOGRAPHY = {
+	name = "Alpine Peaks & Mountains"
+
+	for_countries = { AUS }
+
+	type = ship
+
+	fallback_name = "Berg %d"
+
+	unique = {
+		"Großglockner" "Wildspitze" "Dachstein" "Großvenediger" "Schneeberg" "Rax" "Hochkönig" "Hoher Sonnblick"
+		"Grimming" "Kitzsteinhorn" "Großes Wiesbachhorn" "Ortler" "Zugspitze" "Patscherkofel" "Nordkette" "Hochkar"
+		"Erzberg" "Tauern" "Karawanken" "Karnische Alpen" "Zillertaler Alpen" "Ötztaler Alpen" "Stubaier Alpen" "Kitzbüheler Alpen"
+	}
+}
+
+### UNIVERSAL TOPIC: HISTORIC BATTLES ###
+AUS_BATTLES = {
+	name = "Historic Battles & Victories"
+
+	for_countries = { AUS }
+
+	type = ship
+
+	fallback_name = "Schlacht %d"
+
+	unique = {
+		# Naval battles
+		"Lissa" "Helgoland" "Novara" "Otranto" "Cattaro" "Pola" "Triest" "Durazzo" "Curzola"
+		# Land battles
+		"Aspern" "Wagram" "Custoza" "Kolin" "Zenta" "Belgrad" "Malplaquet" "Höchstädt" "Turin" "Petrovaradin"
+		"Caldiero" "Leipzig" "Schwarzenberg" "Montebello" "San Martino" "Solferino" "Custozza" "Santa Lucia" "Novara"
+	}
+}
+
+### UNIVERSAL TOPIC: HEROES & CULTURAL ICONS ###
+AUS_HEROES = {
+	name = "Austrian Heroes & Cultural Icons"
+
+	for_countries = { AUS }
+
+	type = ship
+
+	fallback_name = "Held %d"
+
+	unique = {
+		"Wilhelm von Tegetthoff" "Prinz Eugen" "Feldmarschall Radetzky" "Andreas Hofer" "Erzherzog Karl" "Graf von Starhemberg"
+		"Gideon von Laudon" "Ludwig von Benedek" "Maximilian von Daun" "Graf von Khevenhüller" "Igo Etrich" "Wilhelm Kress"
+		"Wolfgang Amadeus Mozart" "Franz Schubert" "Joseph Haydn" "Anton Bruckner" "Walther von der Vogelweide" "Paracelsus"
+	}
+}
+
+### UNIVERSAL TOPIC: MYTHOLOGY & ALPINE FOLKLORE ###
+AUS_MYTHOLOGY = {
+	name = "Alpine Folklore & Legends"
+
+	for_countries = { AUS }
+
+	type = ship
+
+	fallback_name = "Sage %d"
+
+	unique = {
+		"Basilisk" "Lindwurm" "Tatzelwurm" "Krampus" "Perchta" "Rübezahl" "Dietrich von Bern" "Hildebrand" "Siegfried"
+		"Kriemhild" "Etzel" "Hagen von Tronje" "Rüdiger von Bechelaren" "Wieland der Schmied" "Berggeist" "Wassermann"
+		"Donaunixe" "Salige Frauen" "Untersbergkaiser" "Gambrinus"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS & SKY FAUNA ###
+AUS_BIRDS = {
+	name = "Birds of Prey & Sky Avians"
+
+	for_countries = { AUS }
+
+	type = ship
+
+	fallback_name = "Vogel %d"
+
+	unique = {
+		"Kaiseradler" "Steinadler" "Seeadler" "Falke" "Habicht" "Sperber" "Kondor" "Geier" "Albatros" "Milan"
+		"Bussard" "Turmfalke" "Wanderfalke" "Uhu" "Kauz" "Eule" "Rabe" "Krähe" "Möwe" "Schwalbe"
+		"Reiher" "Kranich" "Storch" "Schwan" "Kiebitz" "Auerhahn" "Birkhahn" "Dohle" "Elster"
+	}
+}
+
+### UNIVERSAL TOPIC: PREDATORS & WILDLIFE ###
+AUS_BEASTS = {
+	name = "Predators & Alpine Wildlife"
+
+	for_countries = { AUS }
+
+	type = ship
+
+	fallback_name = "Raubtier %d"
+
+	unique = {
+		"Panther" "Tiger" "Leopard" "Löwe" "Gepard" "Jaguar" "Luchs" "Wolf" "Braunbär" "Wildschwein"
+		"Steinbock" "Gams" "Hirsch" "Rehbock" "Vielfraß" "Marder" "Iltis" "Otter" "Fuchs" "Dachs"
+	}
+}
+
+### UNIVERSAL TOPIC: MARTIAL VIRTUES & MOTTOS ###
+AUS_VIRTUES = {
+	name = "Martial Virtues & Imperial Mottos"
+
+	for_countries = { AUS }
+
+	type = ship
+
+	fallback_name = "Devise %d"
+
+	unique = {
+		"Viribus Unitis" "Constantia et Virtute" "Justitia Regnorum Fundamentum" "Tu Felix Austria"
+		"Unverzagtheit" "Tapferkeit" "Standhaftigkeit" "Treue" "Beharrlichkeit" "Wachsamkeit"
+		"Entschlossenheit" "Kühnheit" "Furchtlosigkeit" "Unbeugsamkeit" "Sieghaftigkeit"
+		"Ruhm" "Ehre" "Eintracht" "Gerechtigkeit" "Heldenmut" "Festigkeit" "Zuverlässigkeit"
+	}
+}

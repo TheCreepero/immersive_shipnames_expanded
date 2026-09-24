@@ -76,3 +76,8 @@ Whenever a new country ship namelist is added, expanded, or modified:
 - **Fallback Formatting**: Every `fallback_name` must include an ordinal format string (`%d` for Arabic, `%s` for Roman numerals) to prevent overflow ships from generating identical unnumbered names.
 - **Link Numbering**: `link_numbering_with` must only be used to link to *different* external groups. Never define self-referential links (`link_numbering_with = { SELF }`).
 - **Global Group Tag Uniqueness**: Root-level group tags (e.g., `FIN_DD_HISTORICAL`) must be strictly unique across the entire repository. Never define the same group tag multiple times within a file or across separate files.
+
+## 8. Repository Layout & Workspace Root Invariants
+- **Root-Level Customizations**: The workspace root is `c:\dev\immersive-shipnames-expanded\`. All agent customizations (`.agents/skills/`, `GEMINI.md`) must reside at the workspace root to ensure discovery by IDE tools and slash commands.
+- **Nested Project Directory**: Mod content and build tools reside within `immersive_shipnames_expanded\`. When authoring or updating workspace-wide configuration or skills, ensure files at the root remain the source of truth and are kept in sync.
+

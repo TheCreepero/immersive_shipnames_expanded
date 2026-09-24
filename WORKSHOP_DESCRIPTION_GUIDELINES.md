@@ -52,7 +52,7 @@ This document serves as an instruction and reference guide for maintaining and u
 | File | Nation | Tag | Status in Description |
 | :--- | :--- | :--- | :--- |
 | `ISNE_AUS_ship_names.txt` | Austria | `AUS` | Included (Destroyers, Submarines, Light Cruisers, Heavy Cruisers, Battleships, Carriers, Thematic Topics) |
-| `ISNE_FIN_ship_names.txt` | Finland | `FIN` | Included (Destroyers, Submarines, Coastal Defense, Light Cruisers, Carriers) |
+| `ISNE_FIN_ship_names.txt` | Finland | `FIN` | Included (Destroyers, Submarines, Light Cruisers, Heavy Cruisers, Battleships, Carriers, Thematic Topics) |
 
 ---
 
@@ -79,12 +79,13 @@ Never run dry on ship names during extended campaigns or alternate-history naval
 - Universal Thematic Pools: Monarchs, Cities, Crown Lands, Rivers & Lakes, Alpine Peaks, Historic Battles, Heroes, Folklore, Birds, Beasts, Martial Virtues
 
 [b]Finland[/b]
-- Destroyers & Torpedo Boats: [i]Hämeenmaa, Uusimaa, Karjala, Turunmaa, Matti Kurki, Sisu, Hurja, Isku, Syöksy, Nuoli[/i]
-- Submarines: [i]Vetehinen, Vesihiisi, Iku-Turso, Saukko, Vesikko, Näkki, Vellamo[/i]
-- Light Cruisers: Coastal cities and trade hubs ([i]Helsinki, Turku, Viipuri, Kotka, Oulu, Vaasa, Pori[/i])
-- Coastal Defense Ships & Heavy Cruisers: Kalevala heroes & mythological figures ([i]Väinämöinen, Ilmarinen, Lemminkäinen, Joukahainen, Kullervo[/i])
-- Battleships: Historic provinces & ancient kings ([i]Suomi, Pohjanmaa, Karjala, Kuningas Norr[/i])
-- Aircraft Carriers: Birds of prey & mythical flyers ([i]Kokko, Kotka, Haukka, Merikotka[/i])
+- Destroyers & Fast Escorts: [i]Hämeenmaa, Uusimaa, Karjala, Turunmaa, Matti Kurki, Klas Horn, Sisu, Hurja, Isku, Louhi, Ruotsinsalmi[/i]
+- Submarines: [i]Vetehinen, Vesihiisi, Iku-Turso, Saukko, Vesikko, Näkki, Vellamo, Meritursas, Ahven, Hauki, Kuha, Norppa[/i]
+- Light Cruisers: [i]Helsinki, Turku, Viipuri, Kotka, Oulu, Vaasa, Pori, Rauma, Tammisaari, Hanko, Porvoo, Hamina, Sortavala[/i]
+- Coastal Defense & Heavy Cruisers: [i]Väinämöinen, Ilmarinen, Lemminkäinen, Joukahainen, Kullervo, Tapio, Ahti, Ukko, Pellervo[/i]
+- Battleships & Capital Ships: [i]Suomi, Suur-Suomi, Pohjanmaa, Karjala, Uusimaa, Häme, Satakunta, Savo, Kuningas Fornjot, Kuningas Norr[/i]
+- Aircraft Carriers: [i]Kokko, Ilmatar, Ukko, Ilmarinen, Vaakalintu, Taivaankantaja, Merikotka, Maakotka, Kotka, Haukka, Sääksi[/i]
+- Universal Thematic Pools: Legendary Kings, Cities, Provinces, Rivers & Lakes, Geography & Fells, Historic Battles, Heroes, Kalevala Folklore, Birds, Fish, Beasts, Martial Virtues, Natural Phenomena
 
 [h1]Planned:[/h1]
 - Sweden

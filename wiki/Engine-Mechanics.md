@@ -66,6 +66,46 @@ TAG_CATEGORY_THEME =
 
 ---
 
+## Namelist Categories: Ship-Type Specific vs. Thematic Topics
+
+ISNE namelists are structured into two broad functional categories:
+
+### 1. Ship-Type Specific Namelists
+These namelists are bound to specific hull tokens using `ship_types = { ... }`. They represent the official naval naming doctrine for specific ship classes:
+- **Destroyers & Escorts (`DD`)**: Fast craft, torpedo boats, martial descriptors, virtues.
+- **Submarines (`SS`)**: Aquatic animals, sea beasts, mythological water spirits.
+- **Light Cruisers (`CL`)**: Major coastal cities, ports, trade hubs.
+- **Heavy Cruisers / Coastal Defense (`CA`)**: Cultural heroes, epic mythology, national figures.
+- **Battleships & Capital Ships (`BB`)**: Historical provinces, regions, legendary monarchs.
+- **Carriers (`CV`)**: Sky deities, weather phenomena, raptors/birds of prey.
+
+```pdx
+FIN_DD_HISTORICAL = {
+    name = NAME_THEME_HISTORICAL_DESTROYERS
+    for_countries = { FIN }
+    type = ship
+    ship_types = { ship_hull_light destroyer }
+    fallback_name = "Hävittäjä %d"
+    unique = { "Sisu" "Hurja" "Myrsky" }
+}
+```
+
+### 2. Thematic / Topic Namelists (Universal Selection)
+Topic namelists provide expansive pools centered around a specific concept (e.g. Birds, Fish, Legendary Rulers, Cities, Provinces, Rivers). By omitting the `ship_types` restriction (or specifying all naval hull types), these namelists become selectable in the Ship Designer for **any hull type**, allowing players to name flotillas or specialized squadrons according to their roleplay preferences:
+
+```pdx
+FIN_BIRDS = {
+    name = "Birds"
+    for_countries = { FIN }
+    type = ship
+    # Omitting ship_types allows this namelist to be assigned to any hull class
+    fallback_name = "Lintu %d"
+    unique = { "Kotka" "Haukka" "Korpisoturi" "Tuulihaukka" "Merikotka" "Sääksi" }
+}
+```
+
+---
+
 ## Valid `ship_types` Tokens
 
 The game engine expects tokens corresponding to naval subunit types and ship hulls:

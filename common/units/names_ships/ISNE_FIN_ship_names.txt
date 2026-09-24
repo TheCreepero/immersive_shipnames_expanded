@@ -1,0 +1,120 @@
+##### FINLAND NAVAL NAME LISTS (ISNE) #####
+
+### DESTROYERS & ESCORTS ###
+FIN_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { FIN }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	fallback_name = "Hävittäjä %d"
+
+	unique = {
+		# Historic gunboats & torpedo boats serving destroyer roles
+		"Hämeenmaa" "Uusimaa" "Karjala" "Turunmaa" "Matti Kurki" "Klas Horn"
+		# Fast torpedo boats & patrol craft
+		"Sisu" "Hurja" "Isku" "Syöksy" "Nuoli" "Vinha" "Raju" "Vasama" "Vihuri" "Viima"
+		"Taisto" "Tuima" "Tyrsky" "Törppö" "Jymy" "Jyske" "Syöksy" "Nuoli"
+		# Plausible expansion names (Finnish martial virtues and mythological descriptors)
+		"Salama" "Leimaus" "Myrsky" "Puuska" "Tuuli" "Aallokko" "Ahti" "Ilmatar"
+		"Puhuri" "Pyörre" "Ryske" "Kipinä" "Lieska" "Pauhu" "Kohina"
+	}
+}
+
+### SUBMARINES ###
+FIN_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { FIN }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	fallback_name = "Sukellusvene %d"
+
+	unique = {
+		# Historical Finnish submarines
+		"Vetehinen" "Vesihiisi" "Iku-Turso" "Saukko" "Vesikko"
+		# Plausible aquatic, mythological, and amphibious names
+		"Näkki" "Vellamo" "Meritursas" "Ahven" "Hauki" "Kuha" "Siika" "Lohi"
+		"Taimen" "Harjus" "Särki" "Made" "Kampela" "Kivinilkka" "Piikkisimppu"
+		"Norppa" "Hallitursas" "Mursu" "Valas" "Miekkavalas"
+	}
+}
+
+### LIGHT CRUISERS ###
+FIN_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { FIN }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	fallback_name = "Kevyt Risteilijä %d"
+
+	unique = {
+		# Major historical coastal towns and trade centers
+		"Helsinki" "Turku" "Viipuri" "Kotka" "Oulu" "Vaasa" "Pori" "Rauma"
+		"Tammisaari" "Hanko" "Porvoo" "Loviisa" "Kokkola" "Pietarsaari" "Kemi"
+		"Hamina" "Maarianhamina" "Käkisalmi" "Sortavala" "Naantali"
+	}
+}
+
+### HEAVY CRUISERS & COASTAL DEFENSE SHIPS ###
+FIN_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { FIN }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	fallback_name = "Raskas Risteilijä %d"
+
+	unique = {
+		# Kalevala heroes & mythological figures
+		"Väinämöinen" "Ilmarinen" "Lemminkäinen" "Joukahainen" "Kullervo"
+		"Tapio" "Ahti" "Ukko" "Pellervo" "Ilmatar" "Mielikki" "Tuonetar"
+		"Vipunen" "Sammas" "Otava" "Pohjola" "Kaleva"
+	}
+}
+
+### BATTLESHIPS & CAPITAL SHIPS ###
+FIN_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { FIN }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship battle_cruiser }
+
+	fallback_name = "Taistelulaiva %d"
+
+	unique = {
+		# Historical provinces, regions, and legendary kings
+		"Suomi" "Pohjanmaa" "Karjala" "Uusimaa" "Häme" "Satakunta" "Savo"
+		"Varsinais-Suomi" "Ahvenanmaa" "Lappi" "Kainuu" "Peräpohjola"
+		"Kuningas Fornjot" "Kuningas Norr" "Kuningas Gor"
+	}
+}
+
+### CARRIERS & FLEET CARRIERS ###
+FIN_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { FIN }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	fallback_name = "Lentotukialus %d"
+
+	unique = {
+		# Sky, weather, birds of prey, and heavens
+		"Ilmatar" "Ukko" "Ilmarinen" "Kokko" "Kotka" "Haukka" "Korpisoturi"
+		"Tuulihaukka" "Maakotka" "Merikotka" "Sääksi" "Tuhatkauno"
+	}
+}

@@ -362,6 +362,16 @@ function Invoke-Validation {
             }
         }
 
+        # Check group display name length (name = "...") for in-game UI dropdown limits (max 32 chars)
+        $displayNameMatches = [regex]::Matches($cleanText, 'name\s*=\s*"([^"]+)"')
+        foreach ($nm in $displayNameMatches) {
+            $dispName = $nm.Groups[1].Value
+            if ($dispName.Length -gt 32) {
+                Write-Err "$($file.Name): Display name '$dispName' exceeds 32 characters ($($dispName.Length) chars). Shorten it for in-game UI dropdown compatibility."
+                $fileHasError = $true
+            }
+        }
+
         # Check link_numbering_with self-reference and track global root group uniqueness
         $depth = 0
         $currentGroup = $null

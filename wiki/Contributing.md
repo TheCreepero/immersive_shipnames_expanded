@@ -56,6 +56,7 @@ powershell -File .\build.ps1 -InspectVanilla ENG -Group ENG_DD_HISTORICAL
 
 - Encode strictly in **UTF-8 without BOM**.
 - Ensure matching braces `{}` and quotes `"`.
+- Keep group display names (`name = "..."`) concise (**<= 25–30 characters**, max 32) and omit redundant country names so names fit the Ship Designer dropdown UI cleanly.
 - Verify every group has a `fallback_name` with `%d` or `%s`.
 - Run validation:
   ```powershell

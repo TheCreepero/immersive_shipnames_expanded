@@ -116,3 +116,12 @@ The game engine expects tokens corresponding to naval subunit types and ship hul
 - `ship_hull_carrier`, `carrier`
 - `ship_hull_submarine`, `submarine`, `ship_hull_cruiser_submarine`, `ship_hull_midget_submarine`
 - `screen_ship`, `capital_ship`
+
+---
+
+## In-Game UI Display Name Constraints
+
+The Hearts of Iron IV Ship Designer namelist dropdown menu has a restricted width:
+- **Character Limit**: Keep `name = "..."` attributes concise, ideally **<= 25–30 characters** (maximum 32 characters).
+- **Omit Redundant National Prefixes**: Since the namelist is already filtered under the player's nation, do not include country names in the display string (e.g. use `name = "Cities"` instead of `name = "Finnish Cities"`, `name = "Monarchs"` instead of `name = "Habsburg & Babenberg Monarchs"`).
+- Long strings get visually clipped or cause unwanted line breaks in the Ship Designer interface.

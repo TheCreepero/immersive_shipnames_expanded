@@ -132,7 +132,7 @@ AUS_CV_HISTORICAL = {
 
 ### UNIVERSAL TOPIC: RULERS ###
 AUS_RULERS = {
-	name = "Habsburg & Babenberg Monarchs"
+	name = "Monarchs"
 
 	for_countries = { AUS }
 
@@ -153,7 +153,7 @@ AUS_RULERS = {
 
 ### UNIVERSAL TOPIC: CITIES ###
 AUS_CITIES = {
-	name = "Austrian Cities"
+	name = "Cities"
 
 	for_countries = { AUS }
 
@@ -170,7 +170,7 @@ AUS_CITIES = {
 
 ### UNIVERSAL TOPIC: PROVINCES ###
 AUS_PROVINCES = {
-	name = "Austrian Provinces & Crown Lands"
+	name = "Provinces & Crown Lands"
 
 	for_countries = { AUS }
 
@@ -187,7 +187,7 @@ AUS_PROVINCES = {
 
 ### UNIVERSAL TOPIC: RIVERS & LAKES ###
 AUS_RIVERS = {
-	name = "Austrian Rivers & Lakes"
+	name = "Rivers & Lakes"
 
 	for_countries = { AUS }
 
@@ -206,7 +206,7 @@ AUS_RIVERS = {
 
 ### UNIVERSAL TOPIC: MOUNTAINS & GEOGRAPHY ###
 AUS_GEOGRAPHY = {
-	name = "Alpine Peaks & Mountains"
+	name = "Mountains"
 
 	for_countries = { AUS }
 
@@ -223,7 +223,7 @@ AUS_GEOGRAPHY = {
 
 ### UNIVERSAL TOPIC: HISTORIC BATTLES ###
 AUS_BATTLES = {
-	name = "Historic Battles & Victories"
+	name = "Historic Battles"
 
 	for_countries = { AUS }
 
@@ -242,7 +242,7 @@ AUS_BATTLES = {
 
 ### UNIVERSAL TOPIC: HEROES & CULTURAL ICONS ###
 AUS_HEROES = {
-	name = "Austrian Heroes & Cultural Icons"
+	name = "Heroes & Cultural Icons"
 
 	for_countries = { AUS }
 
@@ -259,7 +259,7 @@ AUS_HEROES = {
 
 ### UNIVERSAL TOPIC: MYTHOLOGY & ALPINE FOLKLORE ###
 AUS_MYTHOLOGY = {
-	name = "Alpine Folklore & Legends"
+	name = "Folklore & Legends"
 
 	for_countries = { AUS }
 
@@ -276,7 +276,7 @@ AUS_MYTHOLOGY = {
 
 ### UNIVERSAL TOPIC: BIRDS & SKY FAUNA ###
 AUS_BIRDS = {
-	name = "Birds of Prey & Sky Avians"
+	name = "Birds"
 
 	for_countries = { AUS }
 
@@ -309,7 +309,7 @@ AUS_BEASTS = {
 
 ### UNIVERSAL TOPIC: MARTIAL VIRTUES & MOTTOS ###
 AUS_VIRTUES = {
-	name = "Martial Virtues & Imperial Mottos"
+	name = "Virtues & Mottos"
 
 	for_countries = { AUS }
 

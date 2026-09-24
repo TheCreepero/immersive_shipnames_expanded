@@ -164,7 +164,7 @@ FIN_RULERS = {
 
 ### UNIVERSAL TOPIC: CITIES ###
 FIN_CITIES = {
-	name = "Finnish Cities"
+	name = "Cities"
 
 	for_countries = { FIN }
 
@@ -184,7 +184,7 @@ FIN_CITIES = {
 
 ### UNIVERSAL TOPIC: PROVINCES ###
 FIN_PROVINCES = {
-	name = "Finnish Provinces & Regions"
+	name = "Provinces & Regions"
 
 	for_countries = { FIN }
 
@@ -203,7 +203,7 @@ FIN_PROVINCES = {
 
 ### UNIVERSAL TOPIC: RIVERS & LAKES ###
 FIN_RIVERS = {
-	name = "Finnish Rivers & Lakes"
+	name = "Rivers & Lakes"
 
 	for_countries = { FIN }
 
@@ -245,7 +245,7 @@ FIN_GEOGRAPHY = {
 
 ### UNIVERSAL TOPIC: HISTORIC BATTLES ###
 FIN_BATTLES = {
-	name = "Historic Battles & Victories"
+	name = "Battles & Victories"
 
 	for_countries = { FIN }
 
@@ -266,7 +266,7 @@ FIN_BATTLES = {
 
 ### UNIVERSAL TOPIC: HEROES & CULTURAL ICONS ###
 FIN_HEROES = {
-	name = "Finnish Heroes & Cultural Icons"
+	name = "Heroes & Cultural Icons"
 
 	for_countries = { FIN }
 
@@ -308,7 +308,7 @@ FIN_MYTHOLOGY = {
 
 ### UNIVERSAL TOPIC: BIRDS & SKY AVIANS ###
 FIN_BIRDS = {
-	name = "Birds of Prey & Sky Avians"
+	name = "Birds"
 
 	for_countries = { FIN }
 
@@ -347,7 +347,7 @@ FIN_FISH = {
 
 ### UNIVERSAL TOPIC: PREDATORS & WILDLIFE ###
 FIN_BEASTS = {
-	name = "Predators & Finnish Wildlife"
+	name = "Predators & Wildlife"
 
 	for_countries = { FIN }
 
@@ -365,7 +365,7 @@ FIN_BEASTS = {
 
 ### UNIVERSAL TOPIC: MARTIAL VIRTUES & MOTTOES ###
 FIN_VIRTUES = {
-	name = "Martial Virtues & National Concepts"
+	name = "Virtues & National Concepts"
 
 	for_countries = { FIN }
 

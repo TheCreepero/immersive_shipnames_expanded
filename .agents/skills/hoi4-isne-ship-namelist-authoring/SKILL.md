@@ -74,6 +74,11 @@ Expansive thematic pools designed for universal selection across **any ship type
   - Virtues & Character Traits (`<TAG>_VIRTUES`)
   - Weather, Tempests & Celestial Bodies (`<TAG>_NATURE`)
 
+> [!TIP]
+> **UI Display Name Sizing**: The Hearts of Iron IV Ship Designer namelist dropdown has a narrow layout and handles long strings poorly.
+> - Keep all display names (`name = "..."`) concise (**<= 25–30 characters**).
+> - **Omit redundant country prefixes/adjectives** (e.g. use `name = "Cities"` rather than `name = "Finnish Cities"`, `name = "Monarchs"` rather than `name = "Habsburg & Babenberg Monarchs"`).
+
 ---
 
 ## 3. Research Protocol
@@ -111,12 +116,15 @@ Before finalizing any namelist file, verify:
   - Are all names in the proper grammatical form (typically nominative singular)?
   - Are native diacritics (*ä, ö, å, é, è, ü, ł, ś, etc.*) correctly preserved?
   - Are articles, prepositions, or apostrophes formatted cleanly according to native orthography (e.g., *L'Audacieux*, *De Zeven Provinciën*)?
-- [ ] **2. Naval Prefixes**:
+- [ ] **2. UI Display Name Length**:
+  - Are all `name = "..."` display strings concise (**<= 25–30 characters**, maximum 32)?
+  - Have redundant national adjectives (e.g., "Austrian ...", "Finnish ...") been omitted for cleaner UI rendering?
+- [ ] **3. Naval Prefixes**:
   - Apply national prefixes where customary via `prefix = "..."` (e.g., `HMS `, `USS `, `ORP `, `HSwMS `) or leave blank if managed at country level.
-- [ ] **3. Scalability & Depth**:
+- [ ] **4. Scalability & Depth**:
   - Provide sufficient depth: 15–30+ unique names for major classes so active players never exhaust the lists during wartime expansion.
   - Always provide a numbered fallback format (e.g. `fallback_name = "Hävittäjä %d"`).
-- [ ] **4. Two-Category Balance**:
+- [ ] **5. Two-Category Balance**:
   - Are all standard hull types covered with doctrine-aligned ship-type namelists?
   - Are multiple rich topic namelists provided for universal hull selection?
 
@@ -165,6 +173,7 @@ File path: `common/units/names_ships/ISNE_<TAG>_ship_names.txt`
 ### Critical Syntax Rules:
 - **Encoding**: UTF-8 without BOM.
 - **Curly Braces**: Strictly balanced `{}`.
+- **Display Name Length**: Group `name = "..."` values must not exceed 30–32 characters to prevent visual truncation in the Ship Designer dropdown UI.
 - **Valid Hull Tokens**:
   `battle_cruiser`, `battleship`, `capital_ship`, `carrier`, `destroyer`, `heavy_cruiser`, `light_cruiser`, `screen_ship`, `ship_hull_carrier`, `ship_hull_cruiser`, `ship_hull_cruiser_submarine`, `ship_hull_heavy`, `ship_hull_light`, `ship_hull_midget_submarine`, `ship_hull_submarine`, `submarine`.
 - **Ordered Blocks**: Unique integer keys (if using `ordered = { ... }`).

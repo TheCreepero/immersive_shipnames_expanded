@@ -32,15 +32,15 @@ Universal selection pools available for any ship hull or squadron:
 | Group Tag | Topic Name | Ship Types | Sample Names |
 | :--- | :--- | :--- | :--- |
 | `FIN_RULERS` | Legendary Kings & Rulers | Universal | Kuningas Fornjot, Kuningas Norr, Kuningas Gor, Kuningas Snær, Kuningas Thorri, Ruhtinas Kaleva, Kaarle I, Valtionhoitaja Mannerheim, Presidentti Ståhlberg |
-| `FIN_CITIES` | Finnish Cities | Universal | Helsinki, Turku, Tampere, Viipuri, Oulu, Vaasa, Kotka, Pori, Kuopio, Lahti, Jyväskylä, Lappeenranta, Mikkeli, Hamina, Rauma, Hanko, Savonlinna, Joensuu |
-| `FIN_PROVINCES` | Finnish Provinces & Regions | Universal | Varsinais-Suomi, Uusimaa, Häme, Satakunta, Karjala, Savo, Pohjanmaa, Kainuu, Lappi, Peräpohjola, Ahvenanmaa, Kymenlaakso, Viena, Aunus, Inkeri, Petsamo |
-| `FIN_RIVERS` | Finnish Rivers & Lakes | Universal | Saimaa, Päijänne, Inarijärvi, Oulujärvi, Pielinen, Kallavesi, Näsijärvi, Vuoksi, Kymijoki, Kokemäenjoki, Kemijoki, Tornionjoki, Teno, Aurajoki, Vantaanjoki |
+| `FIN_CITIES` | Cities | Universal | Helsinki, Turku, Tampere, Viipuri, Oulu, Vaasa, Kotka, Pori, Kuopio, Lahti, Jyväskylä, Lappeenranta, Mikkeli, Hamina, Rauma, Hanko, Savonlinna, Joensuu |
+| `FIN_PROVINCES` | Provinces & Regions | Universal | Varsinais-Suomi, Uusimaa, Häme, Satakunta, Karjala, Savo, Pohjanmaa, Kainuu, Lappi, Peräpohjola, Ahvenanmaa, Kymenlaakso, Viena, Aunus, Inkeri, Petsamo |
+| `FIN_RIVERS` | Rivers & Lakes | Universal | Saimaa, Päijänne, Inarijärvi, Oulujärvi, Pielinen, Kallavesi, Näsijärvi, Vuoksi, Kymijoki, Kokemäenjoki, Kemijoki, Tornionjoki, Teno, Aurajoki, Vantaanjoki |
 | `FIN_GEOGRAPHY` | Islands, Capes & Mountain Fells | Universal | Halti, Saana, Ylläs, Levi, Pallastunturi, Koli, Hanko, Porkkala, Upinniemi, Riilahti, Ruotsinsalmi, Bengtskär, Utö, Suursaari, Lavansaari, Suomenlinna |
-| `FIN_BATTLES` | Historic Battles & Victories | Universal | Ruotsinsalmi, Riilahti, Suursaari, Bengtskär, Koljonvirta, Juutas, Siikajoki, Lapua, Alavus, Tolvajärvi, Suomussalmi, Raate, Kollaa, Taipale, Summa, Tali-Ihantala |
-| `FIN_HEROES` | Finnish Heroes & Cultural Icons | Universal | Carl Gustaf Emil Mannerheim, Klas Horn, Matti Kurki, Lalli, Jaakko Ilkka, Torsten Stålhandske, Armfelt, Döbeln, Sandels, Agricola, Snellman, Runeberg, Sibelius |
+| `FIN_BATTLES` | Battles & Victories | Universal | Ruotsinsalmi, Riilahti, Suursaari, Bengtskär, Koljonvirta, Juutas, Siikajoki, Lapua, Alavus, Tolvajärvi, Suomussalmi, Raate, Kollaa, Taipale, Summa, Tali-Ihantala |
+| `FIN_HEROES` | Heroes & Cultural Icons | Universal | Carl Gustaf Emil Mannerheim, Klas Horn, Matti Kurki, Lalli, Jaakko Ilkka, Torsten Stålhandske, Armfelt, Döbeln, Sandels, Agricola, Snellman, Runeberg, Sibelius |
 | `FIN_MYTHOLOGY` | Kalevala & Finnish Folklore | Universal | Väinämöinen, Ilmarinen, Lemminkäinen, Joukahainen, Kullervo, Ahti, Tapio, Ukko, Ilmatar, Mielikki, Vellamo, Vipunen, Louhi, Iku-Turso, Hiisi, Vetehinen |
-| `FIN_BIRDS` | Birds of Prey & Sky Avians | Universal | Kotka, Merikotka, Maakotka, Haukka, Kanahaukka, Tuulihaukka, Nuolihaukka, Sääksi, Huuhkaja, Korppi, Kuikka, Koskelo, Haahka, Alli, Telkkä, Joutsen, Kurki |
+| `FIN_BIRDS` | Birds | Universal | Kotka, Merikotka, Maakotka, Haukka, Kanahaukka, Tuulihaukka, Nuolihaukka, Sääksi, Huuhkaja, Korppi, Kuikka, Koskelo, Haahka, Alli, Telkkä, Joutsen, Kurki |
 | `FIN_FISH` | Aquatic Life & Fish | Universal | Hauki, Ahven, Kuha, Lohi, Taimen, Siika, Nieriä, Harjus, Made, Kampela, Piikkisimppu, Monni, Ankerias, Silli, Silakka, Norppa, Halli, Mursu, Valas |
-| `FIN_BEASTS` | Predators & Finnish Wildlife | Universal | Karhu, Kontio, Otso, Mesikämmen, Susi, Hukka, Ilves, Ahma, Kettu, Kärppä, Näätä, Saukko, Mäyrä, Hirvi, Peura, Metsäpeura, Poro, Metsäkauris, Majava, Villisika |
-| `FIN_VIRTUES` | Martial Virtues & National Concepts | Universal | Sisu, Uskollisuus, Kunnia, Vapaus, Veljeys, Rohkeus, Urhoollisuus, Kestävyys, Päättäväisyys, Sitkeys, Voima, Turva, Valppaus, Puolustus, Tahto, Itsenäisyys |
+| `FIN_BEASTS` | Predators & Wildlife | Universal | Karhu, Kontio, Otso, Mesikämmen, Susi, Hukka, Ilves, Ahma, Kettu, Kärppä, Näätä, Saukko, Mäyrä, Hirvi, Peura, Metsäpeura, Poro, Metsäkauris, Majava, Villisika |
+| `FIN_VIRTUES` | Virtues & National Concepts | Universal | Sisu, Uskollisuus, Kunnia, Vapaus, Veljeys, Rohkeus, Urhoollisuus, Kestävyys, Päättäväisyys, Sitkeys, Voima, Turva, Valppaus, Puolustus, Tahto, Itsenäisyys |
 | `FIN_NATURE` | Weather & Natural Phenomena | Universal | Myrsky, Salama, Ukkonen, Leimaus, Puuska, Tuuli, Puhuri, Pyörre, Viima, Tuisku, Pyry, Routa, Pakkanen, Maininki, Aallokko, Hyöky, Tyrsky, Revontuli, Pohjantähti |

@@ -165,5 +165,13 @@ Describe "Ship Namelist Files: Per-File Invariants" {
                 $depth += (([regex]::Matches($clean, '\{')).Count - ([regex]::Matches($clean, '\}')).Count)
             }
         }
+
+        It "All explicit group display names (name = `"...`") must not exceed 32 characters" {
+            $displayNameMatches = [regex]::Matches($script:CleanText, 'name\s*=\s*"([^"]+)"')
+            foreach ($nm in $displayNameMatches) {
+                $dispName = $nm.Groups[1].Value
+                $dispName.Length | Should -BeLessOrEqual 32 -Because "Display name '$dispName' in $($script:CurrentFile.Name) should fit within in-game UI dropdown width (<= 32 characters)"
+            }
+        }
     }
 }

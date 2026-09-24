@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Test runner script for Immersive Shipnames Expanded (ISNE).
+    Test runner script for Immersive Ship Names Expanded (ISNE).
 
 .DESCRIPTION
     Executes Pester test suites for ship namelists, documentation synchronization,

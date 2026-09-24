@@ -2,21 +2,21 @@
 name: hoi4-isne-ship-namelist-authoring
 description: >-
   Runbook for researching historical naval doctrine, class naming traditions, and authoring
-  immersive ship namelists for Hearts of Iron IV in the Immersive Shipnames Expanded (ISNE) mod.
+  immersive ship namelists for Hearts of Iron IV in the Immersive Ship Names Expanded (ISNE) mod.
   Use when adding a new nation or expanding existing national ship namelists into ship-type specific
   and universal thematic topic categories.
 ---
 
 # Hearts of Iron IV Ship Namelist Authoring Runbook
 
-This skill provides step-by-step guidance for researching, scoping, authoring, and validating naval ship namelists for *Immersive Shipnames Expanded* (ISNE).
+This skill provides step-by-step guidance for researching, scoping, authoring, and validating naval ship namelists for *Immersive Ship Names Expanded* (ISNE).
 
 ---
 
 ## 1. Guiding Philosophy: Historical Plausibility Over Rigid Accuracy
 
 > [!IMPORTANT]
-> The primary design philosophy of **Immersive Shipnames Expanded** is **historical plausibility**, NOT strict historical accuracy.
+> The primary design philosophy of **Immersive Ship Names Expanded** is **historical plausibility**, NOT strict historical accuracy.
 
 ### What Historical Plausibility Means in ISNE:
 - **Scalability for Gameplay**: Rigid historical accuracy artificially limits namelists only to hulls that historically entered commission (e.g., only 2 coastal defense ships and 5 submarines for Finland). When a player or AI mobilizes, expands dockyards, and constructs large wartime fleets (fleet carriers, heavy cruisers, battlecruisers, destroyers), rigid accuracy fails and ships receive generic numbered stubs.

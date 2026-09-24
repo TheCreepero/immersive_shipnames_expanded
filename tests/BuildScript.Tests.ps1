@@ -32,7 +32,7 @@ tags={
 	"Historical"
 	"Military"
 }
-name="Immersive Shipnames Expanded"
+name="Immersive Ship Names Expanded"
 supported_version="1.19.*"
 remote_file_id="1234567890"
 "@
@@ -40,7 +40,7 @@ remote_file_id="1234567890"
 
             $meta = Get-ModMetadata -Path $tempFile
             $meta.Version | Should -Be "1.0.0"
-            $meta.Name | Should -Be "Immersive Shipnames Expanded"
+            $meta.Name | Should -Be "Immersive Ship Names Expanded"
             $meta.SupportedVersion | Should -Be "1.19.*"
             $meta.RemoteFileId | Should -Be "1234567890"
         }
@@ -56,7 +56,7 @@ Describe "build.ps1 Helper: New-LauncherModContent" {
         try {
             $sampleDescriptor = @"
 version="1.0"
-name="Immersive Shipnames Expanded"
+name="Immersive Ship Names Expanded"
 supported_version="1.19.*"
 "@
             [System.IO.File]::WriteAllText($tempFile, $sampleDescriptor, [System.Text.Encoding]::UTF8)
@@ -75,7 +75,7 @@ supported_version="1.19.*"
         try {
             $sampleDescriptor = @"
 version="1.0"
-name="Immersive Shipnames Expanded"
+name="Immersive Ship Names Expanded"
 supported_version="1.19.*"
 remote_file_id="99999"
 "@

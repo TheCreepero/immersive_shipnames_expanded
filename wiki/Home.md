@@ -1,6 +1,6 @@
-# Immersive Shipnames Expanded — Wiki
+# Immersive Ship Names Expanded — Wiki
 
-**Immersive Shipnames Expanded (ISNE)** is a Hearts of Iron IV mod providing historically plausible, linguistically accurate naval ship namelists for historical and alternate-history campaigns.
+**Immersive Ship Names Expanded (ISNE)** is a Hearts of Iron IV mod providing historically plausible, linguistically accurate naval ship namelists for historical and alternate-history campaigns.
 
 - **GitHub Repository:** [TheCreepero/immersive_shipnames_expanded](https://github.com/TheCreepero/immersive_shipnames_expanded)
 

@@ -1,4 +1,4 @@
-# Immersive Shipnames Expanded (ISNE) Development Rules
+# Immersive Ship Names Expanded (ISNE) Development Rules
 
 ## 1. File Structure & Naming Conventions
 - All ship namelist files must reside in `common/units/names_ships/ISNE_<TAG>_ship_names.txt`.

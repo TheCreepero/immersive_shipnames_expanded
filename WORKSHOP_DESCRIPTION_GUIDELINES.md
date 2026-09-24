@@ -1,6 +1,6 @@
 # Steam Workshop Description Guidelines & Reference
 
-This document serves as an instruction and reference guide for maintaining and updating the Steam Workshop description for **Immersive Shipnames Expanded**.
+This document serves as an instruction and reference guide for maintaining and updating the Steam Workshop description for **Immersive Ship Names Expanded**.
 
 ---
 
@@ -59,7 +59,7 @@ This document serves as an instruction and reference guide for maintaining and u
 ## Current Description Template (BBCode)
 
 ```bbcode
-Immersive Shipnames Expanded expands Hearts of Iron IV ship namelists with historically plausible, linguistically accurate, and immersive names across all naval hull classes.
+Immersive Ship Names Expanded expands Hearts of Iron IV ship namelists with historically plausible, linguistically accurate, and immersive names across all naval hull classes.
 
 Never run dry on ship names during extended campaigns or alternate-history naval buildups!
 

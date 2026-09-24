@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Build, validate, deploy, package, and publish automation for Immersive Shipnames Expanded (Hearts of Iron IV mod).
+    Build, validate, deploy, package, and publish automation for Immersive Ship Names Expanded (Hearts of Iron IV mod).
 
 .DESCRIPTION
     Provides modern, reliable mod development workflows:

@@ -4,7 +4,7 @@ tags={
 	"Historical"
 	"Alternative History"
 }
-name="Immersive Shipnames Expanded"
+name="Immersive Ship Names Expanded"
 picture="thumbnail.png"
 supported_version="1.19.*"
 remote_file_id="3807415216"

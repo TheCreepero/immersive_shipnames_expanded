@@ -76,6 +76,7 @@ powershell -File .\build.ps1 -PublishSteam -ChangeNote "Add Finnish ship namelis
 
 | Tag | Nation | Source File |
 | :--- | :--- | :--- |
+| `ARG` | Argentina | `ISNE_ARG_ship_names.txt` |
 | `AUS` | Austria | `ISNE_AUS_ship_names.txt` |
 | `BRA` | Brazil | `ISNE_BRA_ship_names.txt` |
 | `FIN` | Finland | `ISNE_FIN_ship_names.txt` |

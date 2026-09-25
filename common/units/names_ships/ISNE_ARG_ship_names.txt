@@ -1,0 +1,301 @@
+##### ARGENTINA NAVAL NAME LISTS (ISNE) #####
+# Note: Vanilla HoI4 ARG_ship_names.txt suffered from duplicated entries ("Rosales" twice in CL/CA,
+# "La Rioja" and "Rioja" in DD), improper assignment of modern 1970s corvettes to light cruisers,
+# river patrol ships in heavy cruisers, and identical 5-entry lists mirrored across BB and BC.
+
+### DESTROYERS & ESCORTS ###
+ARG_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { ARG }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "ARA "
+	fallback_name = "Destructor %d"
+
+	unique = {
+		# Argentine Provinces & Federal Territories (Historical Torpedero / Destructor tradition)
+		"Buenos Aires" "Catamarca" "Córdoba" "Corrientes" "Entre Ríos" "Jujuy" "La Pampa"
+		"La Rioja" "Mendoza" "Misiones" "Salta" "San Juan" "San Luis" "Santa Cruz"
+		"Santa Fe" "Santiago del Estero" "Tucumán" "Chaco" "Chubut" "Formosa" "Neuquén"
+		"Río Negro" "Tierra del Fuego" "La Plata"
+		# Distinguished Naval Officers, Frigate & Escort Commanders
+		"Almirante Brown" "Espora" "Rosales" "Bouchard" "Seguí" "Py" "Piedra Buena"
+		"Almirante Domecq García" "Almirante Storni" "Cervantes" "Juan de Garay" "Spiro"
+		"Robinson" "Granville" "Guerrico" "Drummond" "Parker" "Gómez Roca" "Bathurst"
+		"Cordero" "Azopardo" "King" "Murature" "Thorne" "Shannon" "Fournier" "Somellera"
+		# Historic Warships of the Argentine Independence Navy
+		"Hércules" "Santísima Trinidad" "Sarandí" "General Belgrano" "Chacabuco" "Céspedes"
+		"Invencible" "Veinticinco de Mayo" "Constitución" "América"
+		# Martial Descriptors, Weather & Naval Virtues
+		"Audaz" "Intrépido" "Valiente" "Bravo" "Veloz" "Furia" "Relámpago" "Rayo"
+		"Tormenta" "Vendaval" "Pampero" "Tenaz" "Vigilante" "Sentinela" "Alerta"
+		"Defensora" "Heroína" "Victoria" "Guerreador" "Temerario"
+	}
+}
+
+### SUBMARINES ###
+ARG_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { ARG }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "ARA "
+	fallback_name = "Submarino %d"
+
+	unique = {
+		# Core Argentine Submarine Tradition: Provinces Beginning with "S" (Tarantinos & Modern Classes)
+		"Santa Fe" "Santiago del Estero" "Salta" "San Luis" "Santa Cruz" "San Juan"
+		# Strategic Maritime Gulfs, Bays & Coastal Anchorages
+		"San Antonio" "San Blas" "San Julián" "San Jorge" "San Matías" "San Sebastián"
+		"Golfo Nuevo" "Bahía Blanca" "Bahía Anegada" "Cabo San Diego" "Cabo San Pío"
+		# Native Aquatic Predators & Marine Wildlife
+		"Tiburón" "Orca" "Cachalote" "Delfín" "Ballena" "Raya" "Mantarraya" "Morena"
+		"Pez Espada" "Tararira" "Surubí" "Dorado" "Manta" "Barracuda" "Lobo Marino"
+		"Tonina" "Corvina" "Lenguado" "Pacú" "Bagre" "Pejerrey"
+		# Indigenous Caciques & Pampas/Patagonian Chieftains
+		"Catriel" "Namuncurá" "Calfucurá" "Pincén" "Sayhueque" "Casimiro Biguá"
+		"Baigorrita" "Renquecurá" "Coliqueo" "Purrán" "Foyel" "Inacayal"
+	}
+}
+
+### LIGHT CRUISERS ###
+ARG_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { ARG }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "ARA "
+	fallback_name = "Crucero Ligero %d"
+
+	unique = {
+		# Historic Argentine Light & Training Cruisers
+		"La Argentina" "Buenos Aires" "Patagonia" "Libertad" "Independencia" "Veinticinco de Mayo" "Nueve de Julio"
+		# Major Coastal Ports, Commercial Centers & Maritime Bases
+		"Rosario" "Bahía Blanca" "Mar del Plata" "Puerto Belgrano" "La Plata" "Santa Fe"
+		"Corrientes" "Paraná" "San Nicolás" "Zárate" "Puerto Madryn" "Comodoro Rivadavia"
+		"Río Gallegos" "Ushuaia" "Necochea" "Viedma" "Campana" "San Pedro" "Baradero"
+		"Gualeguaychú" "Concepción del Uruguay" "Posadas" "Formosa" "Resistencia"
+	}
+}
+
+### HEAVY CRUISERS & COASTAL DEFENSE ###
+ARG_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { ARG }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "ARA "
+	fallback_name = "Crucero Pesado %d"
+
+	unique = {
+		# Historic Heavy Cruisers & Garibaldi-Class Armored Cruisers
+		"Veinticinco de Mayo" "Almirante Brown" "Pueyrredón" "General Belgrano" "Garibaldi" "San Martín"
+		# National Liberators, Revolutionary Generals & Heroic Marshals
+		"General San Martín" "Manuel Belgrano" "Martín Miguel de Güemes" "Juan Gregorio de Las Heras"
+		"Carlos María de Alvear" "Bartolomé Mitre" "Domingo Faustino Sarmiento" "Justo José de Urquiza"
+		"Cornelio Saavedra" "Mariano Necochea" "Juan Lavalle" "José María Paz" "Federico de Brandsen"
+		"Enrique Martínez" "Estanislao Soler" "Gregorio Aráoz de Lamadrid" "Ignacio Álvarez Thomas"
+		"Antonio González Balcarce" "Hilarión de la Quintana" "José Rondeau" "Eustoquio Díaz Vélez"
+	}
+}
+
+### BATTLESHIPS ###
+ARG_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { ARG }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "ARA "
+	fallback_name = "Acorazado %d"
+
+	unique = {
+		# Historic Dreadnoughts & Capital Ship Program Proposals
+		"Rivadavia" "Moreno" "Julio Argentino Roca"
+		# Founding Fathers, Revolutionary Leaders & Constitutional Architects
+		"Bernardino Rivadavia" "Mariano Moreno" "General San Martín" "Manuel Belgrano"
+		"Domingo Faustino Sarmiento" "Bartolomé Mitre" "Justo José de Urquiza" "Juan Martín de Pueyrredón"
+		"Juan Bautista Alberdi" "Nicolás Avellaneda" "Carlos Pellegrini" "Cornelio Saavedra"
+		"Juan José Paso" "Juan José Castelli" "Bernardo de Monteagudo" "Manuel Alberti"
+		"Miguel de Azcuénaga" "Juan Larrea" "Domingo Matheu" "Saturnino Rodríguez Peña"
+		# Foundational National Milestones & Sovereign Virtues
+		"Veinticinco de Mayo" "Nueve de Julio" "Constitución" "República" "Libertad" "Independencia"
+	}
+}
+
+### BATTLECRUISERS ###
+ARG_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { ARG }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "ARA "
+	fallback_name = "Crucero de Batalla %d"
+
+	unique = {
+		# Decisive Military Victories & Battle Honours of Argentine History
+		"San Lorenzo" "Chacabuco" "Maipú" "Suipacha" "Salta" "Tucumán" "Vuelta de Obligado"
+		"Martín García" "Juncal" "Los Pozos" "Quilmes" "Carmen de Patagones" "Ituzaingó"
+		"Monte Caseros" "Pavón" "Curupaytí" "Rinconada" "Piedras Blancas" "Paso de la Patria"
+		"Vuelta de Rocha" "Cochabamba" "Sipe Sipe" "Campichuelo" "Tacuarí"
+	}
+}
+
+### AIRCRAFT CARRIERS ###
+ARG_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { ARG }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "ARA "
+	fallback_name = "Portaaviones %d"
+
+	unique = {
+		# Authentic Argentine Carriers & Founding National Principles
+		"Independencia" "Veinticinco de Mayo" "República" "Libertad" "Constitución"
+		"General San Martín" "Almirante Brown" "Nueve de Julio" "Patria"
+		# Andean Raptors, Avians of Prey & Aerial Predators
+		"Cóndor" "Águila" "Halcón" "Carancho" "Gavilán" "Chimango" "Aguilucho"
+		"Albatros" "Petrel" "Chajá" "Hornero" "Ñandú" "Harpía" "Taguató"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES ###
+ARG_CITIES = {
+	name = "Cities"
+
+	for_countries = { ARG }
+
+	type = ship
+
+	prefix = "ARA "
+	fallback_name = "Ciudad %d"
+
+	unique = {
+		"Buenos Aires" "Rosario" "Córdoba" "La Plata" "Mar del Plata" "Bahía Blanca"
+		"Puerto Belgrano" "San Miguel de Tucumán" "Salta" "Santa Fe" "Corrientes" "Posadas"
+		"Paraná" "Resistencia" "Neuquén" "Comodoro Rivadavia" "Río Gallegos" "Ushuaia"
+		"Puerto Madryn" "Necochea" "Rawson" "Viedma" "San Nicolás" "Zárate" "Campana"
+		"San Pedro" "Bariloche" "Mendoza" "San Juan" "San Luis" "Catamarca" "La Rioja"
+		"Formosa" "Santiago del Estero" "San Salvador de Jujuy" "Santa Rosa" "Tandil" "Olavarría"
+	}
+}
+
+### UNIVERSAL TOPIC: PROVINCES ###
+ARG_PROVINCES = {
+	name = "Provinces"
+
+	for_countries = { ARG }
+
+	type = ship
+
+	prefix = "ARA "
+	fallback_name = "Provincia %d"
+
+	unique = {
+		"Buenos Aires" "Córdoba" "Santa Fe" "Mendoza" "Tucumán" "Entre Ríos"
+		"Salta" "Corrientes" "Santiago del Estero" "San Juan" "Jujuy" "Río Negro"
+		"Chaco" "Catamarca" "San Luis" "La Pampa" "Formosa" "Neuquén" "Chubut"
+		"Santa Cruz" "La Rioja" "Misiones" "Tierra del Fuego"
+	}
+}
+
+### UNIVERSAL TOPIC: HEROES & STATESMEN ###
+ARG_HEROES = {
+	name = "Heroes"
+
+	for_countries = { ARG }
+
+	type = ship
+
+	prefix = "ARA "
+	fallback_name = "Herói %d"
+
+	unique = {
+		"San Martín" "Belgrano" "Brown" "Güemes" "Pueyrredón" "Moreno" "Rivadavia"
+		"Sarmiento" "Mitre" "Urquiza" "Bouchard" "Espora" "Rosales" "Seguí" "Piedra Buena"
+		"Py" "Domecq García" "Storni" "Spiro" "Robinson" "Granville" "Guerrico" "Drummond"
+		"Parker" "Gómez Roca" "Bathurst" "Cordero" "Azopardo" "King" "Murature" "Rosas"
+		"Saavedra" "Las Heras" "Necochea" "Brandsen" "Lavalle" "Paz" "Lamadrid" "Alberdi"
+		"Castelli" "Monteagudo" "Paso" "Rodríguez Peña" "Alvear" "Soler" "Balcarce"
+	}
+}
+
+### UNIVERSAL TOPIC: HISTORIC BATTLES ###
+ARG_BATTLES = {
+	name = "Historic Battles"
+
+	for_countries = { ARG }
+
+	type = ship
+
+	prefix = "ARA "
+	fallback_name = "Batalla %d"
+
+	unique = {
+		"San Lorenzo" "Chacabuco" "Maipú" "Suipacha" "Salta" "Tucumán" "Vuelta de Obligado"
+		"Martín García" "Juncal" "Los Pozos" "Quilmes" "Carmen de Patagones" "Ituzaingó"
+		"Monte Caseros" "Pavón" "Curupaytí" "Rinconada" "Piedras Blancas" "Paso de la Patria"
+		"Vuelta de Rocha" "Cochabamba" "Sipe Sipe" "Campichuelo" "Tacuarí" "Cepeda"
+		"Caseros" "Las Piedras" "Yapeyú"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS & WATERWAYS ###
+ARG_RIVERS = {
+	name = "Rivers & Waterways"
+
+	for_countries = { ARG }
+
+	type = ship
+
+	prefix = "ARA "
+	fallback_name = "Río %d"
+
+	unique = {
+		"Paraná" "Uruguay" "Río de la Plata" "Paraguay" "Bermejo" "Pilcomayo"
+		"Río Negro" "Río Colorado" "Chubut" "Deseado" "Santa Cruz" "Iguazú"
+		"Salado" "Dulce" "Limay" "Neuquén" "San Antonio" "Gualeguay" "Carcarañá"
+		"Cuarto" "Quinto" "Mendoza" "Tunuyán" "Diamante" "Atuel" "San Juan"
+		"Jáchal" "Río Chico" "Senguer" "Chico" "Corriente"
+	}
+}
+
+### UNIVERSAL TOPIC: NATIVE FAUNA ###
+ARG_FAUNA = {
+	name = "Native Fauna"
+
+	for_countries = { ARG }
+
+	type = ship
+
+	prefix = "ARA "
+	fallback_name = "Fauna %d"
+
+	unique = {
+		"Cóndor" "Águila" "Halcón" "Yaguareté" "Puma" "Zorro" "Carancho" "Gavilán"
+		"Chimango" "Aguilucho" "Albatros" "Petrel" "Chajá" "Hornero" "Ñandú" "Harpía"
+		"Orca" "Tiburón" "Delfín" "Ballena" "Cachalote" "Manta" "Lobo Marino"
+		"Guanaco" "Vicuña" "Huemul" "Carpincho" "Tatú Carreta" "Aguará Guazú"
+	}
+}

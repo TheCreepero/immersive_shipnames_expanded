@@ -65,6 +65,7 @@ This document serves as an instruction and reference guide for maintaining and u
 
 | File | Nation | Tag | Status in Description |
 | :--- | :--- | :--- | :--- |
+| `ISNE_ARG_ship_names.txt` | Argentina | `ARG` | Included (DD, SS, CL, CA, BB, BC, CV, 6 Thematic Topics, Vanilla Fixes) |
 | `ISNE_AUS_ship_names.txt` | Austria | `AUS` | Included (DD, SS, CL, CA, BB, CV, 11 Thematic Topics) |
 | `ISNE_BRA_ship_names.txt` | Brazil | `BRA` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics, Vanilla Fixes) |
 | `ISNE_FIN_ship_names.txt` | Finland | `FIN` | Included (DD, SS, CL, CA, BB, CV, 13 Thematic Topics) |
@@ -74,7 +75,7 @@ This document serves as an instruction and reference guide for maintaining and u
 ## Current Description Template (BBCode)
 
 ```bbcode
-More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, and Brazil, since they have very poor namelists in the vanilla game, but I plan to expand this rapidly, prioritizing nations that have at least some potential to have a large navy in game, but don't have a large enough namelist pool to accommodate that.
+More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, and Argentina, since they have very poor namelists in the vanilla game, but I plan to expand this rapidly, prioritizing nations that have at least some potential to have a large navy in game, but don't have a large enough namelist pool to accommodate that.
 
 Check out my other mod: [url=https://steamcommunity.com/workshop/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
 
@@ -86,6 +87,11 @@ Check out my other mod: [url=https://steamcommunity.com/workshop/filedetails/?id
 This mod is intended to expand the great series of [url=https://steamcommunity.com/workshop/filedetails/?id=2185806824]ship namelist mods[/url] by @Jackhall. This means that for now I am avoiding editing countries that have already been touched up by their mod series (Netherlands, China, Spain, Poland, Soviet Union, Greece, and Germany).
 
 [h1]Included nations:[/h1]
+[b]Argentina[/b]
+- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers & Coastal Defense, Battleships, Battlecruisers, and Aircraft Carriers.
+- Added 6 universal thematic lists selectable for any hull in the Ship Designer (Cities, Provinces, Heroes & Statesmen, Historic Battles, Rivers & Waterways, and Native Fauna).
+- Fixed vanilla file issues: eliminated duplicate entries ("Rosales" and "La Rioja"), separated modern 1970s corvettes from cruisers, removed patrol boats from heavy cruisers, and expanded sparse capital ship stubs with authentic Armada de la República Argentina traditions.
+
 [b]Austria[/b]
 - Expanded ship-type lists for Destroyers, Submarines, Light Cruisers, Heavy Cruisers, Battleships, and Aircraft Carriers.
 - Added 11 universal thematic lists selectable for any hull in the Ship Designer (Monarchs, Cities, Crown Lands, Rivers & Lakes, Alpine Peaks, Historic Battles, Heroes, Folklore, Birds, Wildlife, and Virtues).

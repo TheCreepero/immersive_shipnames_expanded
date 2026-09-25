@@ -39,7 +39,8 @@ Whenever a new country ship namelist is added, expanded, or modified:
 1. **Update `WORKSHOP_DESCRIPTION_GUIDELINES.md`**:
    - Add/update the file and summary in the **Repository Cross-Reference** table.
    - Add/update the nation under `[h1]Included nations:[/h1]` using standard BBCode (`[b]Nation[/b]` with bulleted categories and italicized unit examples `[i]...[/i]`).
-   - Remove completed nations from `[h1]Planned:[/h1]`.
+   - Do **NOT** include a `[h1]Planned:[/h1]` section in the workshop description.
+   - **Preserve Author Content**: Keep the header pitch, companion mod link, Info block, and Jackhall tribute section intact without overwriting or regenerating them.
 2. **Update `README.md`**:
    - Add any newly introduced country tags and source files to the **Included Nations Summary** table.
 3. **Update Wiki Documentation (`wiki/`)**:
@@ -51,6 +52,7 @@ Whenever a new country ship namelist is added, expanded, or modified:
    - **Character Limit**: Steam Workshop descriptions have a max character limit (~17,000 characters). Keep bullet points concise and do NOT include author update quote blocks (`[quote=author]...[/quote]`) to avoid hitting this limit.
    - **Writing Style**: Keep the tone concise, direct, and informative, matching the author's original style.
    - **Steam BBCode**: Strictly follow Steam's formatting rules (`[h1]`, `[b]`, `[i]`, `[url]`, or standard `- ` bullets).
+   - **Jackhall Series Scope**: Avoid authoring or proposing namelists for countries already covered by Jackhall's ship namelist mod series (Netherlands, China, Spain, Poland, Soviet Union, Greece, Germany).
 5. **In-Chat Description Generation**:
    - Whenever the user requests an updated description in chat, output the complete, ready-to-copy Steam BBCode description block directly in the chat alongside a concise summary of additions and changes.
 

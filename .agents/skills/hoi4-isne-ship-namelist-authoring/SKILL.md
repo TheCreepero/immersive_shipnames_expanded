@@ -83,6 +83,10 @@ Expansive thematic pools designed for universal selection across **any ship type
 
 ## 3. Research Protocol
 
+### Scope & Target Selection
+- **Jackhall Series Exclusions**: ISNE is intended to expand alongside @Jackhall's ship namelist mod series. **Do NOT author or propose namelists for countries already covered by Jackhall**: Netherlands (`HOL`), China (`CHI`), Spain (`SPR`), Poland (`POL`), Soviet Union (`SOV`), Greece (`GRE`), and Germany (`GER`).
+- **Priority Targets**: Prioritize nations with inadequate or generic vanilla namelists that have potential to build mid-to-large navies in game (e.g. Nordic nations like Sweden, Norway, Denmark; Baltic states; Turkey; South American nations like Argentina, Brazil, Chile; Romania; Yugoslavia, etc.).
+
 ### Investigating Naval Programs & Traditions
 1. **Historical Navy & Canceled Programs**:
    - Investigate peacetime fleets, interwar naval acts, and emergency wartime construction programs.
@@ -195,7 +199,8 @@ Whenever a country's namelists are added or updated:
      [b]<Country>[/b]
      - <Category Name>: Brief summary with italicized in-game examples ([i]Ship Name[/i])
      ```
-   - Remove completed nations from `[h1]Planned:[/h1]`.
+   - **Do NOT add or restore a `[h1]Planned:[/h1]` section.**
+   - **Preserve Author Content**: Leave the header intro, companion mod link, Info block, and Jackhall tribute section intact.
 2. **`README.md`**:
    - Add the new country tag, name, and file path to the **Included Nations Summary** table.
 3. **Wiki Documentation (`wiki/`)**:

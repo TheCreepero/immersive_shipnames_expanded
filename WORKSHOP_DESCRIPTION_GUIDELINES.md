@@ -16,10 +16,18 @@ This document serves as an instruction and reference guide for maintaining and u
    - Keep the tone concise, informative, direct, and enthusiastic, matching the author's original voice.
    - Use straightforward bullet points and structured section headings.
    - Do not over-embellish or use marketing buzzwords.
-4. **Language & Grammar**:
+4. **Preserve Custom Author Sections**:
+   - Do NOT overwrite, rewrite, or regenerate the header pitch, companion mod link, Info section, or Jackhall series tribute section.
+   - When updating the workshop description for newly implemented nations, **only** update the `[h1]Included nations:[/h1]` block and the Repository Cross-Reference table.
+5. **Jackhall Series Scope & Exclusions**:
+   - ISNE is intended to expand the great series of ship namelist mods by @Jackhall.
+   - **Do NOT author or propose namelists for countries already covered by Jackhall**: Netherlands (`HOL`), China (`CHI`), Spain (`SPR`), Poland (`POL`), Soviet Union (`SOV`), Greece (`GRE`), and Germany (`GER`).
+6. **No Planned Section**:
+   - Do NOT add a `[h1]Planned:[/h1]` section to the workshop description.
+7. **Language & Grammar**:
    - Fix typos, misspellings, formatting anomalies, or broken English.
    - Use proper diacritics/accents for historical ship names (e.g., *Väinämöinen*, *Hämeenmaa*, *L'Audacieux*).
-5. **Steam Formatting (BBCode)**:
+8. **Steam Formatting (BBCode)**:
    - Always format the description using Steam's supported BBCode tags:
      - Section headings: `[h1]Heading Text[/h1]`
      - Bold text: `[b]...[/b]`
@@ -32,18 +40,19 @@ This document serves as an instruction and reference guide for maintaining and u
 
 ## Structure of the Description
 
-1. **Header / Introduction**:
-   - Short introductory pitch for the mod.
-   - Call to action pointing to the discussion thread for suggestions/feedback.
+1. **Header Pitch & Companion Mod**:
+   - Concise authentic author intro noting AI acceleration, focus on nations with limited vanilla namelists, and a link to *Immersive Namelists Expanded*.
 2. **[h1]Info:[/h1]**:
-   - Compatibility notes (Ironman/Achievements compatible, save game compatible).
-   - Works with all major overhaul mods that do not alter core naval subunit tags.
-3. **[h1]Included nations:[/h1]**:
-   - Highlights and examples of expanded ship classes.
+   - Save game compatibility bullet point.
+   - Mod compatibility and namelist override clarification.
+   - Open permissions note ("Feel free to use this mod however you wish.").
+3. **Jackhall Tribute & Project Scope**:
+   - Attribution and link to @Jackhall's ship namelist mod series.
+   - Note on excluded countries already covered by Jackhall's mods.
+4. **[h1]Included nations:[/h1]**:
    - Grouped by nation in bold (`[b]Nation[/b]`).
-   - Bulleted ship categories with italicized examples (`[i]...[/i]`).
-4. **[h1]Planned:[/h1]**:
-   - Bulleted list of nations planned for expansion.
+   - Bulleted ship categories with italicized unit examples (`[i]...[/i]`).
+   - Universal thematic topic pools listed as a single summary bullet point.
 
 ---
 
@@ -59,14 +68,16 @@ This document serves as an instruction and reference guide for maintaining and u
 ## Current Description Template (BBCode)
 
 ```bbcode
-Immersive Ship Names Expanded expands Hearts of Iron IV ship namelists with historically plausible, linguistically accurate, and immersive names across all naval hull classes.
+More namelists! Used AI to speed up the creation process and help with translations. For now I've only got Finland and Austria, since those two have very poor namelists in vanilla game, but I plan to expand this rapidy, prioritizing nations that have at least some potential to have a large navy in game, but don't have a large enough namelist pool to accomodate that.
 
-Never run dry on ship names during extended campaigns or alternate-history naval buildups!
+Check out my other mod: [url=https://steamcommunity.com/workshop/filedetails/?id=2967389401]Immersive Namelists Expanded [/url]
 
 [h1]Info:[/h1]
-- [b]Ironman Compatible:[/b] Yes, achieves achievement compatibility (modifies only cosmetic ship namelists).
 - [b]Save Game Compatible:[/b] Can be added or removed from ongoing games without issues.
-- [b]Language Accuracy:[/b] Authentic native spelling and diacritics.
+- No hard incompatibilities. Namelists from other mods might override namelists from this mod in some cases but that's unlikely.
+- Feel free to use this mod however you wish.
+
+This mod is intended to expand the great series of [url=https://steamcommunity.com/workshop/filedetails/?id=2185806824] ship namelist mods[/url] by @Jackhall. This means that for now I am avoiding editing countries that have already been touched up by their mod series (Netherlands, China, Spain, Poland, Soviet Union, Greece, and Germany).
 
 [h1]Included nations:[/h1]
 [b]Austria[/b]
@@ -86,18 +97,4 @@ Never run dry on ship names during extended campaigns or alternate-history naval
 - Battleships & Capital Ships: [i]Suomi, Suur-Suomi, Pohjanmaa, Karjala, Uusimaa, Häme, Satakunta, Savo, Kuningas Fornjot, Kuningas Norr[/i]
 - Aircraft Carriers: [i]Kokko, Ilmatar, Ukko, Ilmarinen, Vaakalintu, Taivaankantaja, Merikotka, Maakotka, Kotka, Haukka, Sääksi[/i]
 - Universal Thematic Pools: Legendary Kings, Cities, Provinces, Rivers & Lakes, Geography & Fells, Historic Battles, Heroes, Kalevala Folklore, Birds, Fish, Beasts, Martial Virtues, Natural Phenomena
-
-[h1]Planned:[/h1]
-- Sweden
-- Estonia
-- Latvia
-- Lithuania
-- Poland
-- Germany
-- United Kingdom
-- United States
-- Japan
-- Italy
-- France
-- Soviet Union
 ```

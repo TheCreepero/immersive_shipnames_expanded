@@ -1,7 +1,7 @@
 # Immersive Ship Names Expanded (ISNE) Development Rules
 
 ## 1. File Structure & Naming Conventions
-- All ship namelist files must reside in `common/units/names_ships/ISNE_<TAG>_ship_names.txt`.
+- All ship namelist files must reside in `common/units/names_ships/<TAG>_ship_names.txt` to cleanly shadow/replace base-game files.
 - Namelist group tags must follow the pattern:
   - **Ship-Type Specific**: `<TAG>_<HULL/CLASS>_HISTORICAL` (e.g., `FIN_DD_HISTORICAL`, `FIN_SS_HISTORICAL`, `FIN_CL_HISTORICAL`, `FIN_CA_HISTORICAL`, `FIN_BB_HISTORICAL`, `FIN_CV_HISTORICAL`).
   - **Thematic / Topic**: `<TAG>_<THEME>` (e.g., `FIN_BIRDS`, `FIN_FISH`, `FIN_RULERS`, `FIN_CITIES`, `FIN_PROVINCES`, `FIN_MYTHOLOGY`).
@@ -75,10 +75,10 @@ Whenever a new country ship namelist is added, expanded, or modified:
 - Use `build.ps1 -Package` to test clean staging and zip distribution (ensuring `.git`, `.github`, `tests`, scripts, and documentation are strictly excluded from mod releases).
 - Use `build.ps1 -DevLink` when zero-copy live editing in the Paradox launcher is required.
 
-## 6. Vanilla Tag Overrides & Additive Loading
-- **Additive Loading**: Hearts of Iron IV loads all files in `common/units/names_ships/` additively. Because ISNE uses the `ISNE_<TAG>` filename prefix, vanilla files (e.g. `FIN_ship_names.txt`) remain active in the background.
-- **Tag Overriding**: Defining a group with an existing vanilla tag (e.g., `FIN_DD_HISTORICAL`) overrides that specific group in game. Defining a new tag adds a new group selectable in the ship designer.
-- **Pruning & Scripted Fallbacks**: Omitting vanilla tags is completely safe—the engine automatically falls back to the vanilla definition. Do not copy identical empty vanilla stubs into ISNE unless actively authoring custom names for them.
+## 6. VFS Shadowing & Clean File Replacement
+- **VFS File Replacement**: Hearts of Iron IV's Virtual File System (VFS) cleanly shadows/replaces a base-game file when a mod file shares the exact relative path and filename (`common/units/names_ships/<TAG>_ship_names.txt`).
+- **Preventing Additive Merging Bugs**: When distinct filenames coexist (e.g. `ISNE_<TAG>` alongside vanilla `<TAG>`), Clausewitz does not overwrite groups—it accumulates properties. This causes `prefix` strings to concatenate (`NRB NRB `, `BACH BACH `) and appends mod entries after vanilla's erroneous ship names. Matching the vanilla filename guarantees that the mod file is read exclusively.
+- **Historical Overhauls & New Thematic Pools**: Mod files provide clean, comprehensive overrides for standard `<TAG>_<HULL>_HISTORICAL` groups while seamlessly introducing new universal thematic groups (`<TAG>_<THEME>`) in the same file.
 
 ## 7. Engine Ship Namelist Invariants
 - **Ship Subunit Tokens**: In `ship_types = { ... }`, only use recognized line naval tokens:
@@ -93,5 +93,7 @@ Whenever a new country ship namelist is added, expanded, or modified:
 
 ## 8. Repository Layout & Workspace Root Invariants
 - **Root-Level Customizations**: The workspace root is `c:\dev\immersive-shipnames-expanded\`. All agent customizations (`.agents/skills/`, `GEMINI.md`) must reside at the workspace root to ensure discovery by IDE tools and slash commands.
-- **Nested Project Directory**: Mod content and build tools reside within `immersive_shipnames_expanded\`. When authoring or updating workspace-wide configuration or skills, ensure files at the root remain the source of truth and are kept in sync.
+- **Nested Project Directory & Git Repository**: Mod content, git history (`.git/`), build tools, and tests reside within `immersive_shipnames_expanded\`.
+- **Mandatory Dual-Path Synchronization**: Both `GEMINI.md` and `.agents/` exist in duplicate (at the workspace root and inside `immersive_shipnames_expanded/`). Whenever authoring or modifying rules, skills, or workspace configurations, you MUST update or copy the changes to BOTH locations so they remain 100% identical.
+- **Git Verification Invariant**: After modifying rules, skills, or mod files, always run `git status` (and `git diff` when appropriate) inside `immersive_shipnames_expanded/` to verify that changes appear in the user's Git working tree before reporting task completion.
 

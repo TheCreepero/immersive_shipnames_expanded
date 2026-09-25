@@ -98,6 +98,10 @@ Expansive thematic pools designed for universal selection across **any ship type
    - **Fallback Name Typographical Errors** (e.g. missing letters or corrupted translation tokens like `"Cuzador"`).
    - **Ship Name Misspellings & Missing Diacritics** (e.g. missing letters like `"Marnhão"`, `"Amazona"`).
    - **Archaic vs. Modern Spelling Mixes** (e.g. `Santa Catharina` mixed with `Santa Catarina`).
+   - **Intra-List Duplicates & Article Variants** (e.g. `"Rosales"` duplicated within CL, or `"La Rioja"` mixed with `"Rioja"` in DD).
+   - **Modern Hull Demotions & Role Mismatches** (e.g. 1970s corvettes/frigates or patrol gunboats erroneously listed as cruisers).
+   - **Mirrored Capital Ship Stubs** (e.g. identical 5-ship lists reversed between BB and BC assigning sloops to dreadnoughts).
+   - **Doctrinal Naming Formulas** (e.g. Argentina's tradition of naming all submarines after provinces beginning with "S").
    - **Excessive Class Duplication** (e.g. identical list of states copied verbatim across CL, CA, BB, BC, CV).
    - **Anachronisms** (e.g. administrative divisions or cities created post-1945).
    - **Prefix Usage** (check whether vanilla sets a prefix like `NRB ` or leaves it blank).
@@ -117,11 +121,10 @@ Expansive thematic pools designed for universal selection across **any ship type
    # Inspect a specific group without reading the whole file
    powershell -File .\build.ps1 -InspectVanilla <TAG> -Group <GROUP_TAG>
    ```
-5. **Additive Loading & Tag Overrides**:
-   - Files in `common/units/names_ships/` are loaded additively. ISNE files (`ISNE_<TAG>_ship_names.txt`) coexist with vanilla.
-   - Using a vanilla tag (e.g., `<TAG>_DD_HISTORICAL`) **overrides** that vanilla list in game.
-   - Defining a new tag adds a new selectable list in the Ship Designer.
-   - Omitted vanilla tags remain untouched in the game engine.
+5. **VFS File Replacement & Clean Overrides**:
+   - Files in `common/units/names_ships/` match the base-game filename (`<TAG>_ship_names.txt`).
+   - Hearts of Iron IV's Virtual File System (VFS) cleanly replaces the vanilla file, preventing Clausewitz additive property accumulation (which concatenates prefixes like `NRB NRB ` or `BACH BACH ` and appends mod names behind vanilla's errors).
+   - This allows complete overhauls of existing `<TAG>_<HULL>_HISTORICAL` groups alongside new universal thematic groups (`<TAG>_<THEME>`) in a single clean file.
 
 ---
 
@@ -151,7 +154,7 @@ Before finalizing any namelist file, verify:
 
 ## 5. Namelist File Syntax & Invariants
 
-File path: `common/units/names_ships/ISNE_<TAG>_ship_names.txt`
+File path: `common/units/names_ships/<TAG>_ship_names.txt`
 
 ```pdx
 ##### <COUNTRY> NAVAL NAME LISTS (ISNE) #####

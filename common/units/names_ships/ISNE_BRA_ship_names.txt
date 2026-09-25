@@ -1,0 +1,310 @@
+##### BRAZIL NAVAL NAME LISTS (ISNE) #####
+# Note: Vanilla HoI4 BRA_ship_names.txt erroneously carries the header
+# '##### ARGENTINA NAME LISTS #####' due to an uncorrected Paradox copy-paste error.
+
+### DESTROYERS & ESCORTS ###
+BRA_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { BRA }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "NRB "
+	fallback_name = "Contratorpedeiro %d"
+
+	unique = {
+		# Major rivers & waterways (Pará and Acre classes tradition)
+		"Amazonas" "Araguari" "Ajuricaba" "Acre" "Araguaia" "Apa" "Juruá" "Javari" "Jutaí" "Juruena"
+		"Jaguaribe" "Parnaíba" "Tapajós" "Xingu" "Tietê" "Paraíba do Sul" "Madeira" "Purus" "Taquari"
+		"Branco" "Negro" "Iguaçu" "Ipojuca" "Capibaribe" "Paraguaçu" "Mucuri" "Doce" "Paraibuna"
+		# Historic naval heroes & officers (Marcílio Dias "M" class tradition)
+		"Marcílio Dias" "Mariz e Barros" "Greenhalgh" "Henrique Dias" "Barão de Teffé" "Custódio de Melo"
+		"Felisberto Freire" "Delamare" "Fernandinho" "Macedo Soares" "Brum" "Vidal de Negreiros"
+		# Coastal municipalities & escort vessels (Wartime DE / Bertioga class tradition)
+		"Babitonga" "Baependi" "Bauru" "Beberibe" "Benevente" "Bertioga" "Bocaina" "Bracuí"
+		"Cananéia" "Caravelas" "Camamu" "Itajaí" "Angra" "Paranaguá" "Guarujá" "Ilhabela"
+		# Martial descriptors, weather & naval virtues
+		"Audaz" "Valente" "Destemido" "Bravo" "Veloz" "Trovão" "Relâmpago" "Impávido"
+		"Tenaz" "Vigilante" "Sentinela" "Raio" "Tempestade" "Tornado" "Furacão" "Vendaval"
+		"Arrojado" "Vingador" "Intrépido" "Aguerrido" "Resoluto" "Constante"
+	}
+}
+
+### SUBMARINES ###
+BRA_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { BRA }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "NRB "
+	fallback_name = "Submarino %d"
+
+	unique = {
+		# Historic submarines & naval waterway engagements
+		"Humaitá" "Tupi" "Timbira" "Tamoio" "Riachuelo" "Guanabara"
+		# Indigenous nations, warrior tribes & legendary caciques (Core Brazilian submarine tradition)
+		"Tupinambá" "Tabajara" "Goitacá" "Carijó" "Aimoré" "Guarani" "Potiguar" "Tikuna"
+		"Xavante" "Yanomami" "Tupiniquim" "Kayapó" "Pataxó" "Bororo" "Terena" "Caingangue"
+		"Munduruku" "Karajá" "Wai-Wai" "Macuxi" "Guajajara" "Puri" "Tremembé" "Tapuia"
+		"Ajuricaba" "Tibiriçá" "Arariboia" "Cunhambebe" "Sepé Tiaraju"
+		# Predatory aquatic life, sharks & Amazonian river giants
+		"Tubarão" "Cação" "Pirarucu" "Piranha" "Dourado" "Jaú" "Surubim" "Boto"
+		"Toninha" "Ariranha" "Jacaré" "Baiacu" "Raia" "Traíra" "Tucunaré" "Peixe-Espada"
+		"Mangangá" "Manta" "Moreia" "Barracuda"
+	}
+}
+
+### LIGHT CRUISERS ###
+BRA_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { BRA }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "NRB "
+	fallback_name = "Cruzador Ligeiro %d"
+
+	unique = {
+		# Historic cruisers & major coastal ports / commercial trade centers
+		"Bahia" "Rio Grande do Sul" "Recife" "Santos" "Salvador" "Belém" "Fortaleza"
+		"Vitória" "Niterói" "Natal" "Maceió" "Florianópolis" "São Luís" "Paranaguá"
+		"Angra dos Reis" "Ilhéus" "Porto Alegre" "Rio Grande" "Itajaí" "Macaé"
+		"Cabo Frio" "Ubatuba" "São Sebastião" "Laguna" "Imbituba" "Pelotas"
+		"Aracaju" "João Pessoa" "Santana" "Camocim" "Parintins" "Corumbá"
+	}
+}
+
+### HEAVY CRUISERS & COASTAL DEFENSE ###
+BRA_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { BRA }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "NRB "
+	fallback_name = "Cruzador Pesado %d"
+
+	unique = {
+		# Great admirals, marshals, coastal defense battleships & historic naval leaders
+		"Almirante Barroso" "Almirante Tamandaré" "Deodoro" "Floriano" "Almirante Cochrane"
+		"Almirante Inhaúma" "Almirante Saldanha" "Duque de Caxias" "Belmonte" "Marquês de Olinda"
+		"Custódio de Melo" "Almirante Frontin" "Almirante Wandenkolk" "Almirante Guilhobel"
+		"Almirante Jaceguai" "Barão de Teffé" "Barão do Amazonas" "Visconde de Inhaúma"
+		"Visconde de Rio Branco" "Almirante Alexandrino" "Marquês de Paranaguá" "General Osório"
+		"Barão de Triunfo" "Marechal Mallet" "General Sampaio" "Almirante Noronha"
+	}
+}
+
+### BATTLESHIPS ###
+BRA_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { BRA }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "NRB "
+	fallback_name = "Encouraçado %d"
+
+	unique = {
+		# Historic dreadnoughts & major federated states (ABC dreadnought race lineage)
+		"Minas Gerais" "São Paulo" "Rio de Janeiro" "Bahia" "Rio Grande do Sul" "Pará"
+		"Pernambuco" "Maranhão" "Ceará" "Santa Catarina" "Espírito Santo" "Goiás"
+		"Mato Grosso" "Paraná" "Paraíba" "Piauí" "Alagoas" "Sergipe" "Rio Grande do Norte" "Amazonas"
+		# Founding imperial & national figures
+		"Dom Pedro I" "Dom Pedro II" "Tiradentes" "José Bonifácio"
+		# Decisive naval battles of Brazilian history
+		"Riachuelo" "Passo da Pátria" "Humaitá" "Tuiutí" "Itororó"
+	}
+}
+
+### BATTLECRUISERS ###
+BRA_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { BRA }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "NRB "
+	fallback_name = "Cruzador de Batalha %d"
+
+	unique = {
+		# Decisive battle honours, strategic victories & heroic campaigns
+		"Riachuelo" "Guararapes" "Passo da Pátria" "Humaitá" "Tuiutí" "Itororó" "Avaí"
+		"Campo Grande" "Monte Castelo" "Montese" "Curupaiti" "Itapiru" "Laguna"
+		"Uruguaiana" "Piribebuy" "Jenipapo" "Monte das Tabocas" "Pirajá" "Mata-Fome"
+	}
+}
+
+### AIRCRAFT CARRIERS ###
+BRA_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { BRA }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "NRB "
+	fallback_name = "Porta-Aviões %d"
+
+	unique = {
+		# Authentic carrier names & great maritime bays
+		"Minas Gerais" "São Paulo" "Guanabara" "Todos os Santos" "Paranaguá"
+		"Baía Formosa" "Baía de Ilhéus" "Baía de Santos" "Baía de Paranaguá"
+		# Raptors, birds of prey & celestial hunters
+		"Harpia" "Gavião" "Carcará" "Condor" "Águia" "Falcão" "Urubu-Rei"
+		"Gavião-Real" "Açor" "Milhafre" "Gavião-Preto" "Gavião-de-Penacho"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES ###
+BRA_CITIES = {
+	name = "Cities"
+
+	for_countries = { BRA }
+
+	type = ship
+
+	prefix = "NRB "
+	fallback_name = "Cidade %d"
+
+	unique = {
+		"Rio de Janeiro" "São Paulo" "Salvador" "Recife" "Fortaleza" "Belo Horizonte"
+		"Belém" "Curitiba" "Porto Alegre" "Manaus" "Santos" "Vitória" "Niterói"
+		"Natal" "Maceió" "Florianópolis" "São Luís" "João Pessoa" "Aracaju" "Cuiabá"
+		"Goiânia" "Teresina" "Campo Grande" "Petrópolis" "Campinas" "Ribeirão Preto"
+		"Juiz de Fora" "Pelotas" "Rio Grande" "Paranaguá" "Itajaí" "Angra dos Reis"
+		"Ilhéus" "Cabo Frio" "Blumenau" "Joinville" "Ouro Preto" "Diamantina"
+	}
+}
+
+### UNIVERSAL TOPIC: STATES ###
+BRA_STATES = {
+	name = "States"
+
+	for_countries = { BRA }
+
+	type = ship
+
+	prefix = "NRB "
+	fallback_name = "Estado %d"
+
+	unique = {
+		"Minas Gerais" "São Paulo" "Rio de Janeiro" "Bahia" "Rio Grande do Sul"
+		"Pernambuco" "Ceará" "Pará" "Maranhão" "Santa Catarina" "Espírito Santo"
+		"Goiás" "Mato Grosso" "Paraná" "Paraíba" "Piauí" "Alagoas" "Sergipe"
+		"Rio Grande do Norte" "Amazonas" "Acre"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS & WATERWAYS ###
+BRA_RIVERS = {
+	name = "Rivers"
+
+	for_countries = { BRA }
+
+	type = ship
+
+	prefix = "NRB "
+	fallback_name = "Rio %d"
+
+	unique = {
+		"Amazonas" "São Francisco" "Paraná" "Tocantins" "Araguaia" "Xingu"
+		"Tapajós" "Madeira" "Rio Negro" "Iguaçu" "Tietê" "Paraíba do Sul"
+		"Japurá" "Purus" "Juruá" "Javari" "Jutaí" "Juruena" "Jaguaribe"
+		"Parnaíba" "Taquari" "Paraguaçu" "Doce" "Mucuri" "Capibaribe"
+		"Ipojuca" "Uruguai" "Ivaí" "Tibagi" "Cuiabá" "Paranaíba"
+	}
+}
+
+### UNIVERSAL TOPIC: HEROES & ADMIRALS ###
+BRA_HEROES = {
+	name = "Heroes"
+
+	for_countries = { BRA }
+
+	type = ship
+
+	prefix = "NRB "
+	fallback_name = "Herói %d"
+
+	unique = {
+		"Tamandaré" "Barroso" "Caxias" "Tiradentes" "Deodoro" "Floriano"
+		"Marcílio Dias" "Mariz e Barros" "Lord Cochrane" "Inhaúma" "Frontin"
+		"Saldanha da Gama" "Wandenkolk" "Guilhobel" "Jaceguai" "Barão de Teffé"
+		"Henrique Dias" "Vidal de Negreiros" "Felipe Camarão" "Plácido de Castro"
+		"Anita Garibaldi" "Osório" "Mallet" "Sampaio" "Eduardo Gomes" "Santos Dumont"
+	}
+}
+
+### UNIVERSAL TOPIC: INDIGENOUS TRIBES & WARRIORS ###
+BRA_INDIGENOUS = {
+	name = "Indigenous Tribes"
+
+	for_countries = { BRA }
+
+	type = ship
+
+	prefix = "NRB "
+	fallback_name = "Guerreiro %d"
+
+	unique = {
+		"Tupi" "Guarani" "Tupinambá" "Tamoio" "Timbira" "Tabajara" "Aimoré"
+		"Potiguar" "Carijó" "Goitacá" "Tikuna" "Xavante" "Yanomami" "Tupiniquim"
+		"Kayapó" "Pataxó" "Bororo" "Terena" "Caingangue" "Munduruku" "Karajá"
+		"Wai-Wai" "Macuxi" "Guajajara" "Puri" "Tremembé" "Tapuia" "Charrua"
+		"Minuano" "Ajuricaba" "Tibiriçá" "Arariboia" "Cunhambebe" "Sepé Tiaraju"
+	}
+}
+
+### UNIVERSAL TOPIC: HISTORIC BATTLES ###
+BRA_BATTLES = {
+	name = "Battles"
+
+	for_countries = { BRA }
+
+	type = ship
+
+	prefix = "NRB "
+	fallback_name = "Batalha %d"
+
+	unique = {
+		"Riachuelo" "Guararapes" "Passo da Pátria" "Humaitá" "Tuiutí" "Itororó"
+		"Avaí" "Campo Grande" "Monte Castelo" "Montese" "Curupaiti" "Itapiru"
+		"Laguna" "Uruguaiana" "Piribebuy" "Jenipapo" "Monte das Tabocas"
+		"Pirajá" "Mata-Fome" "Itacurubi" "Passo do Rosário" "Castelhone"
+	}
+}
+
+### UNIVERSAL TOPIC: WILDLIFE & FAUNA ###
+BRA_FAUNA = {
+	name = "Fauna"
+
+	for_countries = { BRA }
+
+	type = ship
+
+	prefix = "NRB "
+	fallback_name = "Fera %d"
+
+	unique = {
+		"Harpia" "Gavião" "Carcará" "Condor" "Águia" "Falcão" "Urubu-Rei"
+		"Onça-Pintada" "Jaguar" "Puma" "Jaguatirica" "Sucuri" "Jacaré-Açu"
+		"Lobo-Guará" "Tamanduá-Bandeira" "Capivara" "Ariranha" "Tatu-Canastra"
+		"Tubarão" "Cação" "Pirarucu" "Piranha" "Dourado" "Jaú" "Surubim"
+		"Boto" "Moreia" "Arara-Azul" "Tuiuiú" "Siriema" "Gavião-Real"
+	}
+}

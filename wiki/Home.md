@@ -11,6 +11,7 @@
 | Nation | Tag | Groups | Source File(s) |
 |:---|:---|:---|:---|
 | [Austria](Austria) | `AUS` | 17 | `ISNE_AUS_ship_names.txt` |
+| [Brazil](Brazil) | `BRA` | 14 | `ISNE_BRA_ship_names.txt` |
 | [Finland](Finland) | `FIN` | 19 | `ISNE_FIN_ship_names.txt` |
 
 ---

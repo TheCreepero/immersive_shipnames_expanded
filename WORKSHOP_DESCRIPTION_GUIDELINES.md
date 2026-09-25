@@ -61,6 +61,7 @@ This document serves as an instruction and reference guide for maintaining and u
 | File | Nation | Tag | Status in Description |
 | :--- | :--- | :--- | :--- |
 | `ISNE_AUS_ship_names.txt` | Austria | `AUS` | Included (Destroyers, Submarines, Light Cruisers, Heavy Cruisers, Battleships, Carriers, Thematic Topics) |
+| `ISNE_BRA_ship_names.txt` | Brazil | `BRA` | Included (Destroyers, Submarines, Light Cruisers, Heavy Cruisers, Battleships, Battlecruisers, Carriers, Thematic Topics) |
 | `ISNE_FIN_ship_names.txt` | Finland | `FIN` | Included (Destroyers, Submarines, Light Cruisers, Heavy Cruisers, Battleships, Carriers, Thematic Topics) |
 
 ---
@@ -88,6 +89,16 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 - Battleships & Capital Ships: [i]Viribus Unitis, Tegetthoff, Prinz Eugen, Szent István, Monarch, Habsburg, Erzherzog Karl, Österreich[/i]
 - Aircraft Carriers: [i]Igo Etrich, Wilhelm Kress, Walther von der Vogelweide, Kaiseradler, Steinadler, Seeadler, Falke, Phönix[/i]
 - Universal Thematic Pools: Monarchs, Cities, Crown Lands, Rivers & Lakes, Alpine Peaks, Historic Battles, Heroes, Folklore, Birds, Beasts, Martial Virtues
+
+[b]Brazil[/b]
+- Destroyers & Escorts: [i]Amazonas, Araguari, Ajuricaba, Acre, Marcílio Dias, Greenhalgh, Babitonga, Bertioga, Audaz, Trovão[/i]
+- Submarines: [i]Humaitá, Tupi, Timbira, Tamoio, Riachuelo, Guanabara, Tupinambá, Tabajara, Tubarão, Pirarucu, Piranha[/i]
+- Light Cruisers: [i]Bahia, Rio Grande do Sul, Recife, Santos, Salvador, Belém, Fortaleza, Vitória, Niterói, Natal, Florianópolis[/i]
+- Heavy Cruisers & Coastal Defense: [i]Almirante Barroso, Almirante Tamandaré, Deodoro, Floriano, Almirante Cochrane, Inhaúma, Belmonte[/i]
+- Battleships & Dreadnoughts: [i]Minas Gerais, São Paulo, Rio de Janeiro, Bahia, Pará, Pernambuco, Dom Pedro I, Dom Pedro II, Riachuelo[/i]
+- Battlecruisers: [i]Riachuelo, Guararapes, Passo da Pátria, Humaitá, Tuiutí, Itororó, Avaí, Campo Grande, Monte Castelo[/i]
+- Aircraft Carriers: [i]Minas Gerais, São Paulo, Guanabara, Todos os Santos, Paranaguá, Harpia, Gavião, Carcará, Condor, Urubu-Rei[/i]
+- Universal Thematic Pools: Cities, States, Rivers, Heroes & Admirals, Indigenous Tribes & Warriors, Historic Battles, Fauna & Raptors
 
 [b]Finland[/b]
 - Destroyers & Fast Escorts: [i]Hämeenmaa, Uusimaa, Karjala, Turunmaa, Matti Kurki, Klas Horn, Sisu, Hurja, Isku, Louhi, Ruotsinsalmi[/i]

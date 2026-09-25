@@ -76,7 +76,7 @@ This document serves as an instruction and reference guide for maintaining and u
 ## Current Description Template (BBCode)
 
 ```bbcode
-More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, and Chile, since they have very poor namelists in the vanilla game, but I plan to expand this rapidly, prioritizing nations that have at least some potential to have a large navy in game, but don't have a large enough namelist pool to accommodate that.
+More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, and Chile. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
 Check out my other mod: [url=https://steamcommunity.com/workshop/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
 

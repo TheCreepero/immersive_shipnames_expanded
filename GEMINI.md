@@ -38,7 +38,11 @@ Every country's ship namelists should be structured into two broad categories:
 Whenever a new country ship namelist is added, expanded, or modified:
 1. **Update `WORKSHOP_DESCRIPTION_GUIDELINES.md`**:
    - Add/update the file and summary in the **Repository Cross-Reference** table.
-   - Add/update the nation under `[h1]Included nations:[/h1]` using standard BBCode (`[b]Nation[/b]` with concise summary bullets of added lists, universal pools, and fixes/improvements rather than listing individual ship names).
+   - Add/update the nation under `[h1]Included nations:[/h1]` using standard BBCode:
+     - Use **"Expanded"** (not "Added") for ship-type specific lists that overhaul or augment vanilla classes.
+     - Follow the standard 3-bullet format (Expanded ship-type lists, Added universal thematic pools, Vanilla fixes and historical traditions restored).
+     - Strictly avoid listing individual ship names.
+   - Keep the header intro pitch synchronized with all currently implemented nations.
    - Do **NOT** include a `[h1]Planned:[/h1]` section in the workshop description.
    - **Preserve Author Content**: Keep the header pitch, companion mod link, Info block, and Jackhall tribute section intact without overwriting or regenerating them.
 2. **Update `README.md`**:
@@ -50,7 +54,7 @@ Whenever a new country ship namelist is added, expanded, or modified:
 4. **Steam Description Standards**:
    - **No Emojis**: Strictly avoid emojis anywhere in the description.
    - **Character Limit**: Steam Workshop descriptions have a max character limit (~17,000 characters). Keep bullet points concise, do NOT list individual ship names (summarize added lists and fixes instead), and do NOT include author update quote blocks (`[quote=author]...[/quote]`) to avoid hitting this limit.
-   - **Writing Style**: Keep the tone concise, direct, and informative, matching the author's original style.
+   - **Writing Quality & Style**: Keep the tone concise, direct, and informative. Ensure consistent past tense across bullets, vary descriptive verbs (avoid repeating "fixed" multiple times), and eliminate tautological phrasing (e.g. avoid "expanded ... expansion fleets").
    - **Steam BBCode**: Strictly follow Steam's formatting rules (`[h1]`, `[b]`, `[i]`, `[url]`, or standard `- ` bullets).
    - **Jackhall Series Scope**: Avoid authoring or proposing namelists for countries already covered by Jackhall's ship namelist mod series (Netherlands, China, Spain, Poland, Soviet Union, Greece, Germany).
 5. **In-Chat Description Generation**:

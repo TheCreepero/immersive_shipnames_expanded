@@ -194,11 +194,14 @@ Whenever a country's namelists are added or updated:
 1. **`WORKSHOP_DESCRIPTION_GUIDELINES.md`**:
    - Add/update the row in the **Repository Cross-Reference** table:
      `| ISNE_<TAG>_ship_names.txt | <Country> | <TAG> | Included (<Summary of highlights>) |`
-   - Add/update the country entry under `[h1]Included nations:[/h1]` using Steam BBCode:
+   - Add/update the country entry under `[h1]Included nations:[/h1]` using Steam BBCode (summarizing added lists and fixes rather than listing individual ship names):
      ```bbcode
      [b]<Country>[/b]
-     - <Category Name>: Brief summary with italicized in-game examples ([i]Ship Name[/i])
+     - Added complete ship-type lists for <Hulls>.
+     - Added <N> universal thematic lists for the Ship Designer (<Topics>).
+     - Fixed vanilla issues / historical improvements (<Fixes/Overhauls>).
      ```
+   - **Do NOT list individual ship names** in the workshop description to avoid exhausting the character limit.
    - **Do NOT add or restore a `[h1]Planned:[/h1]` section.**
    - **Preserve Author Content**: Leave the header intro, companion mod link, Info block, and Jackhall tribute section intact.
 2. **`README.md`**:
@@ -212,7 +215,7 @@ Whenever a country's namelists are added or updated:
      ```
 4. **Steam Workshop Description Standards**:
    - Strictly **no emojis** anywhere.
-   - Stay within Steam's ~17,000 character limit (concise bullets, no quote blocks).
+   - Stay within Steam's ~17,000 character limit (concise summary bullets, no quote blocks, no exhaustive ship name dumps).
    - If requested in chat, provide the complete, ready-to-copy BBCode text block.
 
 ---

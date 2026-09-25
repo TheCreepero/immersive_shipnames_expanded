@@ -38,7 +38,7 @@ Every country's ship namelists should be structured into two broad categories:
 Whenever a new country ship namelist is added, expanded, or modified:
 1. **Update `WORKSHOP_DESCRIPTION_GUIDELINES.md`**:
    - Add/update the file and summary in the **Repository Cross-Reference** table.
-   - Add/update the nation under `[h1]Included nations:[/h1]` using standard BBCode (`[b]Nation[/b]` with bulleted categories and italicized unit examples `[i]...[/i]`).
+   - Add/update the nation under `[h1]Included nations:[/h1]` using standard BBCode (`[b]Nation[/b]` with concise summary bullets of added lists, universal pools, and fixes/improvements rather than listing individual ship names).
    - Do **NOT** include a `[h1]Planned:[/h1]` section in the workshop description.
    - **Preserve Author Content**: Keep the header pitch, companion mod link, Info block, and Jackhall tribute section intact without overwriting or regenerating them.
 2. **Update `README.md`**:
@@ -49,7 +49,7 @@ Whenever a new country ship namelist is added, expanded, or modified:
    - Synchronize updates to the live GitHub wiki using `powershell -File .\wiki\push-wiki.ps1`.
 4. **Steam Description Standards**:
    - **No Emojis**: Strictly avoid emojis anywhere in the description.
-   - **Character Limit**: Steam Workshop descriptions have a max character limit (~17,000 characters). Keep bullet points concise and do NOT include author update quote blocks (`[quote=author]...[/quote]`) to avoid hitting this limit.
+   - **Character Limit**: Steam Workshop descriptions have a max character limit (~17,000 characters). Keep bullet points concise, do NOT list individual ship names (summarize added lists and fixes instead), and do NOT include author update quote blocks (`[quote=author]...[/quote]`) to avoid hitting this limit.
    - **Writing Style**: Keep the tone concise, direct, and informative, matching the author's original style.
    - **Steam BBCode**: Strictly follow Steam's formatting rules (`[h1]`, `[b]`, `[i]`, `[url]`, or standard `- ` bullets).
    - **Jackhall Series Scope**: Avoid authoring or proposing namelists for countries already covered by Jackhall's ship namelist mod series (Netherlands, China, Spain, Poland, Soviet Union, Greece, Germany).

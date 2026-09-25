@@ -173,5 +173,23 @@ Describe "Ship Namelist Files: Per-File Invariants" {
                 $dispName.Length | Should -BeLessOrEqual 32 -Because "Display name '$dispName' in $($script:CurrentFile.Name) should fit within in-game UI dropdown width (<= 32 characters)"
             }
         }
+
+        It "Every defined prefix must end with trailing whitespace" {
+            $prefixMatches = [regex]::Matches($script:CleanText, 'prefix\s*=\s*"([^"]*)"')
+            foreach ($pm in $prefixMatches) {
+                $prefixVal = $pm.Groups[1].Value
+                $prefixVal | Should -Match '\s$' -Because "Prefix '$prefixVal' in $($script:CurrentFile.Name) must include a trailing space to prevent engine name concatenation"
+            }
+        }
+
+        It "Ship names in unique blocks must not contain duplicates within the same group" {
+            $uniqueBlocks = [regex]::Matches($script:CleanText, 'unique\s*=\s*\{(?<content>[^}]+)\}')
+            foreach ($ub in $uniqueBlocks) {
+                $content = $ub.Groups['content'].Value
+                $names = [regex]::Matches($content, '"([^"]+)"') | ForEach-Object { $_.Groups[1].Value }
+                $duplicates = $names | Group-Object | Where-Object { $_.Count -gt 1 } | ForEach-Object { $_.Name }
+                $duplicates | Should -BeNullOrEmpty -Because "Ship names in unique block in $($script:CurrentFile.Name) must not be duplicated within the same group"
+            }
+        }
     }
 }

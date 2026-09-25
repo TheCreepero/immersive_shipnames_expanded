@@ -73,3 +73,46 @@ Describe "Documentation Synchronization: WORKSHOP_DESCRIPTION_GUIDELINES.md" {
         }
     }
 }
+
+Describe "Documentation Synchronization: Wiki" {
+    BeforeAll {
+        $script:WikiDir = Join-Path $script:RepoRoot "wiki"
+        $script:WikiHomePath = Join-Path $script:WikiDir "Home.md"
+        $script:WikiSidebarPath = Join-Path $script:WikiDir "_Sidebar.md"
+
+        if (Test-Path $script:WikiHomePath) {
+            $script:WikiHomeContent = [System.IO.File]::ReadAllText($script:WikiHomePath, [System.Text.Encoding]::UTF8)
+        }
+        if (Test-Path $script:WikiSidebarPath) {
+            $script:WikiSidebarContent = [System.IO.File]::ReadAllText($script:WikiSidebarPath, [System.Text.Encoding]::UTF8)
+        }
+    }
+
+    It "wiki/Home.md and wiki/_Sidebar.md must exist" {
+        (Test-Path $script:WikiHomePath) | Should -BeTrue
+        (Test-Path $script:WikiSidebarPath) | Should -BeTrue
+    }
+
+    It "Every implemented nation tag must be indexed in wiki/Home.md" {
+        foreach ($tag in $script:ImplementedTags) {
+            $pattern = "\|\s*[`]?" + [regex]::Escape($tag) + "[`]?\s*\|"
+            $script:WikiHomeContent | Should -Match $pattern -Because "Tag '$tag' must be indexed in the wiki/Home.md table"
+        }
+    }
+
+    It "A nation wiki page must exist for every implemented tag" {
+        $wikiFiles = Get-ChildItem -Path $script:WikiDir -Filter "*.md" | Where-Object { $_.Name -notin @('Home.md', '_Sidebar.md', 'Contributing.md', 'Engine-Mechanics.md') }
+        $wikiContents = $wikiFiles | ForEach-Object { [System.IO.File]::ReadAllText($_.FullName, [System.Text.Encoding]::UTF8) }
+
+        foreach ($tag in $script:ImplementedTags) {
+            $tagMatched = $false
+            foreach ($wc in $wikiContents) {
+                if ($wc -match "\bISNE_${tag}_ship_names\.txt\b" -or $wc -match "\($tag\)") {
+                    $tagMatched = $true
+                    break
+                }
+            }
+            $tagMatched | Should -BeTrue -Because "A wiki documentation page referencing '$tag' must exist in wiki/"
+        }
+    }
+}

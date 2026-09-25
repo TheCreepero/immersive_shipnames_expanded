@@ -82,7 +82,7 @@ AUS_CA_HISTORICAL = {
 		"Kaiserin und Königin Maria Theresia" "Kaiser Karl VI" "Sankt Georg" "Kaiser Franz Joseph I" "Kaiserin Elisabeth"
 		"Tegetthoff" "Prinz Eugen" "Erzherzog Karl" "Feldmarschall Radetzky" "Graf von Starhemberg" "Gideon von Laudon"
 		"Andreas Hofer" "Ludwig von Benedek" "Maximilian von Daun" "Graf von Mercy" "Franz von Mercy" "Montecuccoli"
-		"Graf von Khevenhüller" "Graf von Mercy" "Erzherzog Albrecht" "Erzherzog Johann" "Graf von Clam-Gallas"
+		"Graf von Khevenhüller" "Erzherzog Albrecht" "Erzherzog Johann" "Graf von Clam-Gallas"
 		"Graf von Gyulay" "Feldmarschall Daun" "Feldmarschall Lacy" "Feldzeugmeister Wurmser"
 	}
 }
@@ -236,7 +236,7 @@ AUS_BATTLES = {
 		"Lissa" "Helgoland" "Novara" "Otranto" "Cattaro" "Pola" "Triest" "Durazzo" "Curzola"
 		# Land battles
 		"Aspern" "Wagram" "Custoza" "Kolin" "Zenta" "Belgrad" "Malplaquet" "Höchstädt" "Turin" "Petrovaradin"
-		"Caldiero" "Leipzig" "Schwarzenberg" "Montebello" "San Martino" "Solferino" "Custozza" "Santa Lucia" "Novara"
+		"Caldiero" "Leipzig" "Schwarzenberg" "Montebello" "San Martino" "Solferino" "Mortara" "Santa Lucia"
 	}
 }
 

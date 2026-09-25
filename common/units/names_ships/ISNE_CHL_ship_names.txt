@@ -1,0 +1,335 @@
+##### CHILE NAVAL NAME LISTS (ISNE) #####
+# Note: Vanilla HoI4 CHL_ship_names.txt suffered from severe anomalies:
+# 1. Non-combat vessels assigned to dreadnoughts and cruisers, including an 1875 Scottish-built
+#    4-masted cargo sailing ship converted into a coal pontoon hulk in Punta Arenas ("County of Peebles")
+#    placed in CA, BB, and BC, and an 1848 paddle steamer transport whose 1856 peacetime shipwreck
+#    claimed 300+ lives in Chile's worst maritime catastrophe ("Cazador") assigned as a battleship.
+# 2. Captured 1830s merchantmen, schooners, and auxiliary steamers dumped into frontline fleets
+#    ("Lima", "Peruana", "Trujillana", "Betelgeuse", "Majestic", "Rímac", "Rambler", "Gipsy",
+#    "Thalaba", "Joven Daniel", "Fortunata", "María", "Begoña", "Jerezana", "Dolores", "Socabaya", etc.).
+# 3. Duplicate entries ("Orella" twice in DD, "Araucano" twice in CA, "Valparaiso" and "Valparaíso" in CL).
+# 4. Ironclads ("Blanco Encalada", "Cochrane") and pre-dreadnought "Capitán Prat" assigned to destroyers.
+# 5. A 20-entry copy-paste tail from DD into SS putting battleships, destroyers, and nouns ("Fósforo") into submarines.
+# 6. Corrupted characters/diacritics and backticks used instead of apostrophes ("Capitán O`Brien", "O`Higgins").
+# 7. Severe capital ship depletion (only 6 carriers and 1 real battleship).
+
+### DESTROYERS & ESCORTS ###
+CHL_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { CHL }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "BACH "
+	fallback_name = "Destructor %d"
+
+	unique = {
+		# Historic Serrano Class Destroyers (1928 Thornycroft/Vickers War of the Pacific Heroes)
+		"Serrano" "Orella" "Riquelme" "Hyatt" "Videla" "Aldea"
+		# Almirante Lynch & Almirante Williams Classes (Historical Flotilla Leaders & Fleet Destroyers)
+		"Almirante Lynch" "Almirante Condell" "Almirante Riveros" "Almirante Uribe" "Almirante Williams"
+		"Almirante Goñi" "Almirante Simpson" "Almirante Montt" "Almirante Viel" "Almirante Gómez Carreño"
+		# Distinguished Naval Officers, Corvette & Torpedo Commanders
+		"Muñoz Gamero" "Zegers" "Sánchez" "Cabrales" "Medina" "Hurtado" "Segura" "Garrao"
+		"Bolados" "Amigo" "Ortiz Yáñez" "Contreras" "Uribe" "Thomson" "Gana" "Bannen"
+		"Policarpo Toro" "Castillo" "Salinas" "Fuenzalida" "Cruz" "Simpson" "López" "Prat"
+		# Historic Torpedo Boats, Gunboats & Escort Craft (Torpederas & Escoltas)
+		"Vedette" "Lauca" "Rauco" "Glaura" "Guale" "Meli" "Lincoyán" "Colocolo" "Fresia"
+		"Quidora" "Tegualda" "Janequeo" "Tucapel" "Elicura" "Orompello" "Catrileo" "Millarapue"
+		"Papudo" "Yelcho" "Huáscar" "Magallanes" "Pilcomayo" "Toro" "Angamos"
+		# Martial Descriptors, Weather, Lightning & Naval Virtues
+		"Audaz" "Intrépido" "Valiente" "Bravo" "Veloz" "Furia" "Relámpago" "Rayo"
+		"Tormenta" "Vendaval" "Tenaz" "Vigilante" "Centinela" "Alerta" "Temerario"
+		"Meteoro" "Ráfaga" "Centella" "Huracán" "Vencedor" "Invencible" "Defensa"
+	}
+}
+
+### SUBMARINES ###
+CHL_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { CHL }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "BACH "
+	fallback_name = "Submarino %d"
+
+	unique = {
+		# Historic H-Class Submarines (Araucanian / Mapuche Warrior Heroines Tradition)
+		"Guacolda" "Tegualda" "Rucumilla" "Quidora" "Fresia" "Guale"
+		# Capitán O'Brien Class (O-Class / Odin Submarine Commanders Tradition)
+		"Capitán O'Brien" "Almirante Simpson" "Capitán Thomson" "Comandante Hyatt"
+		# National Liberators & Modern Submarine Classes (Scorpène / 209 Tradition)
+		"General Carrera" "General O'Higgins" "Carrera" "O'Higgins"
+		# Legendary Mapuche Leaders, Caciques & Epic Arauco Figures
+		"Janequeo" "Glaura" "Colocolo" "Galvarino" "Caupolicán" "Lautaro" "Pelantaro"
+		"Lincoyán" "Tucapel" "Elicura" "Orompello" "Catrileo" "Millarapue" "Anganamón"
+		"Butapichón" "Ainavillo" "Turcupichun" "Michimalonco"
+		# Marine Predators of the Humboldt Current & Deep Oceanic Fauna
+		"Tiburón" "Orca" "Cachalote" "Delfín" "Ballena Azul" "Pez Espada" "Manta"
+		"Lobo Marino" "Barracuda" "Morena" "Raya" "Corvina" "Congrio" "Jurel"
+		"Centolla" "Calamar" "Ballena" "Tintorera" "Marrajo"
+	}
+}
+
+### LIGHT CRUISERS ###
+CHL_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { CHL }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "BACH "
+	fallback_name = "Crucero Ligero %d"
+
+	unique = {
+		# Historic Chilean Protected Cruisers & Flagships
+		"Chacabuco" "Blanco Encalada" "Ministro Zenteno" "Presidente Errázuriz" "Presidente Pinto"
+		"Esmeralda" "O'Higgins"
+		# Major Coastal Ports, Commercial Centers & Maritime Naval Bases
+		"Valparaíso" "Concepción" "Antofagasta" "Iquique" "Arica" "Coquimbo" "La Serena"
+		"Valdivia" "Talcahuano" "Punta Arenas" "Puerto Montt" "Osorno" "Chillán" "Rancagua"
+		"Talca" "Calama" "Copiapó" "Ancud" "Castro" "Viña del Mar" "San Antonio"
+		"Mejillones" "Tocopilla" "Chañaral" "Constitución" "Lebu" "Corral" "Caldera"
+		"Puerto Natales" "Puerto Williams" "Huasco" "Lota" "Tomé" "Coronel" "Quintero"
+	}
+}
+
+### HEAVY CRUISERS & COASTAL DEFENSE ###
+CHL_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { CHL }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "BACH "
+	fallback_name = "Crucero Pesado %d"
+
+	unique = {
+		# Historic Armored Cruisers & Armored Flagships
+		"O'Higgins" "Esmeralda" "Blanco Encalada" "Almirante Cochrane" "Capitán Prat"
+		# National Liberators, Founding Fathers & Revolutionary Statesmen
+		"Bernardo O'Higgins" "José Miguel Carrera" "Manuel Rodríguez" "Diego Portales"
+		"Ramón Freire" "Manuel Bulnes" "José de San Martín" "Lord Cochrane"
+		"Manuel Blanco Encalada" "Camilo Henríquez" "Pedro de Valdivia" "José Antonio Manso de Velasco"
+		"Juan Martínez de Rozas" "Ignacio Carrera Pinto" "José Manuel Balmaceda"
+		# Legendary Araucanian Tokis & Epic War Leaders
+		"Lautaro" "Caupolicán" "Colocolo" "Pelantaro" "Galvarino" "Michimalonco"
+		"Anganamón" "Butapichón" "Ainavillo" "Turcupichun" "Janequeo"
+	}
+}
+
+### BATTLESHIPS ###
+CHL_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { CHL }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "BACH "
+	fallback_name = "Acorazado %d"
+
+	unique = {
+		# Historic Super-Dreadnoughts & Pre-Dreadnought Battleships
+		"Almirante Latorre" "Almirante Cochrane" "Capitán Prat" "Constitución" "Libertad"
+		"Blanco Encalada"
+		# Founding Statesmen, Supreme Directors & Constitutional Architects
+		"Bernardo O'Higgins" "José Miguel Carrera" "Diego Portales" "Manuel Bulnes"
+		"Manuel Blanco Encalada" "Ramón Freire" "Arturo Prat" "Lord Cochrane"
+		"José de San Martín" "Camilo Henríquez" "José Manuel Balmaceda" "Pedro Montt"
+		# Sovereign Milestones, Constitutional Principles & Republic Virtues
+		"República de Chile" "Soberanía" "Independencia" "Igualdad" "Patria"
+		"Fraternidad" "Estado de Chile" "Unión Nacional"
+	}
+}
+
+### BATTLECRUISERS ###
+CHL_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { CHL }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "BACH "
+	fallback_name = "Crucero de Batalla %d"
+
+	unique = {
+		# Decisive Naval Engagements & Landmark Battle Honours of Chilean History
+		"Iquique" "Punta Gruesa" "Angamos" "Chacabuco" "Maipú" "Abtao" "Papudo"
+		"Casma" "Yungay" "Pisagua" "Chorrillos" "Miraflores" "Huamachuco" "Rancagua"
+		"San Carlos" "Yerbas Buenas" "El Roble" "Cancha Rayada" "Curapaligüe" "Bellavista"
+		"Penco" "Talcahuano" "Valdivia" "Callao" "Arica" "Dolores" "Tarapacá"
+	}
+}
+
+### AIRCRAFT CARRIERS ###
+CHL_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { CHL }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "BACH "
+	fallback_name = "Portaaviones %d"
+
+	unique = {
+		# Andean Raptors, Avians of Prey & Coastal Sea Birds
+		"Cóndor" "Águila" "Halcón" "Aguilucho" "Carancho" "Gavilán" "Albatros"
+		"Petrel" "Tagua" "Pelícano" "Cormorán" "Piquero" "Fardela" "Gaviota"
+		# Andean Peaks, Sky Frontiers & National Symbols
+		"Los Andes" "Aconcagua" "Ojos del Salado" "Antártica Chilena" "Estrella Solitaria"
+		"Pacífico" "Aurora" "Meteoro" "Invencible" "Araucanía"
+		# Pioneers of Chilean Aviation & Aerial Exploration
+		"Arturo Merino Benítez" "Dagoberto Godoy" "Teniente Bello" "Armando Cortinez"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES ###
+CHL_CITIES = {
+	name = "Cities"
+
+	for_countries = { CHL }
+
+	type = ship
+
+	prefix = "BACH "
+	fallback_name = "Ciudad %d"
+
+	unique = {
+		"Santiago" "Valparaíso" "Concepción" "Antofagasta" "Iquique" "Arica" "Coquimbo"
+		"La Serena" "Valdivia" "Puerto Montt" "Punta Arenas" "Talcahuano" "Chillán" "Rancagua"
+		"Talca" "Calama" "Osorno" "Copiapó" "Aysén" "Castro" "Ancud" "Viña del Mar"
+		"San Antonio" "Mejillones" "Tocopilla" "Chañaral" "Huasco" "Caldera" "Constitución"
+		"Lebu" "Corral" "Puerto Natales" "Puerto Williams" "Lota" "Tomé" "Coronel" "Quintero"
+	}
+}
+
+### UNIVERSAL TOPIC: PROVINCES ###
+CHL_PROVINCES = {
+	name = "Provinces"
+
+	for_countries = { CHL }
+
+	type = ship
+
+	prefix = "BACH "
+	fallback_name = "Provincia %d"
+
+	unique = {
+		"Tarapacá" "Antofagasta" "Atacama" "Coquimbo" "Aconcagua" "Valparaíso"
+		"Santiago" "O'Higgins" "Colchagua" "Curicó" "Talca" "Maule" "Linares"
+		"Ñuble" "Concepción" "Arauco" "Bío Bío" "Malleco" "Cautín" "Valdivia"
+		"Osorno" "Llanquihue" "Chiloé" "Aysén" "Magallanes"
+	}
+}
+
+### UNIVERSAL TOPIC: HEROES & STATESMEN ###
+CHL_HEROES = {
+	name = "Heroes"
+
+	for_countries = { CHL }
+
+	type = ship
+
+	prefix = "BACH "
+	fallback_name = "Héroe %d"
+
+	unique = {
+		"Prat" "Condell" "Lynch" "Latorre" "Riveros" "Williams" "Uribe" "Serrano"
+		"Orella" "Riquelme" "Aldea" "Hyatt" "Videla" "Zegers" "Toro" "Thomson"
+		"Simpson" "Montt" "Cochrane" "Blanco Encalada" "O'Higgins" "Carrera" "Rodríguez"
+		"Freire" "Portales" "Bulnes" "San Martín" "Henríquez" "Balmaceda" "Rozas"
+		"Viel" "Goñi" "Gómez Carreño" "Muñoz Gamero" "Contreras" "Gana" "Castillo"
+	}
+}
+
+### UNIVERSAL TOPIC: MAPUCHE WARRIORS & LEGENDS ###
+CHL_MAPUCHE = {
+	name = "Mapuche Warriors"
+
+	for_countries = { CHL }
+
+	type = ship
+
+	prefix = "BACH "
+	fallback_name = "Guerrero %d"
+
+	unique = {
+		"Lautaro" "Caupolicán" "Colocolo" "Galvarino" "Janequeo" "Pelantaro"
+		"Guacolda" "Tegualda" "Fresia" "Quidora" "Lincoyán" "Tucapel" "Elicura"
+		"Orompello" "Catrileo" "Millarapue" "Anganamón" "Butapichón" "Ainavillo"
+		"Turcupichun" "Michimalonco" "Glaura" "Guale" "Meli"
+	}
+}
+
+### UNIVERSAL TOPIC: HISTORIC BATTLES ###
+CHL_BATTLES = {
+	name = "Historic Battles"
+
+	for_countries = { CHL }
+
+	type = ship
+
+	prefix = "BACH "
+	fallback_name = "Batalla %d"
+
+	unique = {
+		"Iquique" "Punta Gruesa" "Angamos" "Chacabuco" "Maipú" "Abtao" "Papudo"
+		"Casma" "Yungay" "Pisagua" "Chorrillos" "Miraflores" "Huamachuco" "Rancagua"
+		"San Carlos" "Yerbas Buenas" "El Roble" "Cancha Rayada" "Curapaligüe" "Bellavista"
+		"Penco" "Talcahuano" "Valdivia" "Callao" "Arica" "Dolores" "Tarapacá"
+	}
+}
+
+### UNIVERSAL TOPIC: WATERWAYS & FJORDS ###
+CHL_WATERWAYS = {
+	name = "Waterways & Fjords"
+
+	for_countries = { CHL }
+
+	type = ship
+
+	prefix = "BACH "
+	fallback_name = "Canal %d"
+
+	unique = {
+		"Bío Bío" "Mapocho" "Maipo" "Aconcagua" "Maule" "Toltén" "Calle-Calle"
+		"Valdivia" "Bueno" "Baker" "Loa" "Huasco" "Elqui" "Limarí" "Rapel"
+		"Mataquito" "Imperial" "Cautín" "Palena" "Yelcho" "Magallanes" "Beagle"
+		"Drake" "Cabo de Hornos" "Chiloé" "Juan Fernández" "Rapa Nui" "Chacao"
+		"Moraleda" "Reloncaví" "Messier"
+	}
+}
+
+### UNIVERSAL TOPIC: NATIVE FAUNA ###
+CHL_FAUNA = {
+	name = "Native Fauna"
+
+	for_countries = { CHL }
+
+	type = ship
+
+	prefix = "BACH "
+	fallback_name = "Fauna %d"
+
+	unique = {
+		"Cóndor" "Huemul" "Puma" "Águila" "Halcón" "Guanaco" "Vicuña" "Pudú"
+		"Zorro Culpeo" "Tiburón" "Orca" "Cachalote" "Delfín" "Ballena Azul" "Lobo Marino"
+		"Albatros" "Petrel" "Pingüino" "Pez Espada" "Raya" "Corvina" "Congrio"
+		"Jurel" "Centolla" "Calamar" "Gavilán" "Carancho" "Pelícano" "Chinchilla"
+	}
+}

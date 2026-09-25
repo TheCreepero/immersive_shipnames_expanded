@@ -88,14 +88,27 @@ Expansive thematic pools designed for universal selection across **any ship type
 - **Priority Targets**: Prioritize nations with inadequate or generic vanilla namelists that have potential to build mid-to-large navies in game (e.g. Nordic nations like Sweden, Norway, Denmark; Baltic states; Turkey; South American nations like Argentina, Brazil, Chile; Romania; Yugoslavia, etc.).
 
 ### Investigating Naval Programs & Traditions
-1. **Historical Navy & Canceled Programs**:
+1. **Step 0: Vanilla Anomaly & Typo Audit**:
+   Before planning or authoring a namelist file, run:
+   ```powershell
+   powershell -File .\build.ps1 -InspectVanilla <TAG>
+   ```
+   Inspect the vanilla file for common Paradox anomalies and document fixes in your plan:
+   - **Header & Comment Copy-Paste Errors** (e.g. country header pointing to another nation, such as Brazil having Argentina's header).
+   - **Fallback Name Typographical Errors** (e.g. missing letters or corrupted translation tokens like `"Cuzador"`).
+   - **Ship Name Misspellings & Missing Diacritics** (e.g. missing letters like `"Marnhão"`, `"Amazona"`).
+   - **Archaic vs. Modern Spelling Mixes** (e.g. `Santa Catharina` mixed with `Santa Catarina`).
+   - **Excessive Class Duplication** (e.g. identical list of states copied verbatim across CL, CA, BB, BC, CV).
+   - **Anachronisms** (e.g. administrative divisions or cities created post-1945).
+   - **Prefix Usage** (check whether vanilla sets a prefix like `NRB ` or leaves it blank).
+2. **Historical Navy & Canceled Programs**:
    - Investigate peacetime fleets, interwar naval acts, and emergency wartime construction programs.
    - Note ship naming conventions used across different eras (e.g. 19th-century sail/steam transitions, World War I, and interwar designs).
-2. **Geographical & Cultural Grounding**:
+3. **Geographical & Cultural Grounding**:
    - Compile lists of major coastal cities, trade ports, provinces, islands, and bodies of water.
    - Research folklore, epics (e.g. Kalevala, Norse sagas, Arthurian legends), and national mythology.
    - Identify native fauna associated with speed, flight, or aquatic prowess.
-3. **Vanilla Inspection via Build Tool (Token-Efficient)**:
+4. **Vanilla Inspection via Build Tool (Token-Efficient)**:
    Avoid loading massive vanilla files into context. Use the automated inspector:
    ```powershell
    # Inspect vanilla coverage, group tags, and entry counts
@@ -104,7 +117,7 @@ Expansive thematic pools designed for universal selection across **any ship type
    # Inspect a specific group without reading the whole file
    powershell -File .\build.ps1 -InspectVanilla <TAG> -Group <GROUP_TAG>
    ```
-4. **Additive Loading & Tag Overrides**:
+5. **Additive Loading & Tag Overrides**:
    - Files in `common/units/names_ships/` are loaded additively. ISNE files (`ISNE_<TAG>_ship_names.txt`) coexist with vanilla.
    - Using a vanilla tag (e.g., `<TAG>_DD_HISTORICAL`) **overrides** that vanilla list in game.
    - Defining a new tag adds a new selectable list in the Ship Designer.
@@ -123,8 +136,10 @@ Before finalizing any namelist file, verify:
 - [ ] **2. UI Display Name Length**:
   - Are all `name = "..."` display strings concise (**<= 25–30 characters**, maximum 32)?
   - Have redundant national adjectives (e.g., "Austrian ...", "Finnish ...") been omitted for cleaner UI rendering?
-- [ ] **3. Naval Prefixes**:
-  - Apply national prefixes where customary via `prefix = "..."` (e.g., `HMS `, `USS `, `ORP `, `HSwMS `) or leave blank if managed at country level.
+- [ ] **3. Naval Prefixes & Invariants (`prefix = "..."`)**:
+  - **Trailing Whitespace**: Every prefix string MUST end with a trailing space (e.g., `prefix = "NRB "`, `prefix = "HMS "`, `prefix = "ORP "`). Omission causes the engine to concatenate into `NRBMinas Gerais`.
+  - **Vanilla Parity vs. Historical Context**: Check vanilla usage via `-InspectVanilla <TAG>`. If vanilla assigned a prefix (even semi-fictional like `NRB `), maintain it for consistency across base-game scripts and player expectations, or explicitly document why it is omitted.
+  - **Universal Thematic Consistency**: If a country uses a prefix, ensure it is defined across BOTH ship-type specific groups and universal thematic groups so ships built under thematic designers receive the proper prefix.
 - [ ] **4. Scalability & Depth**:
   - Provide sufficient depth: 15–30+ unique names for major classes so active players never exhaust the lists during wartime expansion.
   - Always provide a numbered fallback format (e.g. `fallback_name = "Hävittäjä %d"`).

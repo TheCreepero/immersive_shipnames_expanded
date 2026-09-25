@@ -32,7 +32,10 @@ Every country's ship namelists should be structured into two broad categories:
 ## 3. Historical & Linguistic Standards
 - **Linguistic Precision**: Always verify proper grammar, cases, and diacritics in the target language (e.g., `Väinämöinen`, `Hämeenmaa`, `L'Audacieux`, `Gromoboi`).
 - **Historical Plausibility over Rigid Accuracy**: The goal of ISNE is historical plausibility, not rigid historical accuracy. Anchor unit designations in authentic naval doctrine, class naming traditions, peacetime naval expansion programs, and cultural heritage, extrapolating plausibly to support large wartime fleets and alternate-history naval doctrines.
-- **Prefixes**: Respect national naval prefixes where appropriate via `prefix = "..."` (e.g., `HMS `, `USS `, `ORP `, `HSwMS `) or leave blank if handled by engine/country setup.
+- **Prefixes & Invariants**:
+  - When `prefix = "..."` is used, it **must always include a trailing space** (e.g., `prefix = "NRB "`, `prefix = "HMS "`, `prefix = "ORP "`) to prevent the engine from concatenating the prefix directly into the ship name (e.g., `NRBMinas Gerais`).
+  - **Thematic Consistency**: If a prefix is established for a nation, apply it consistently across both ship-type specific and universal thematic namelists unless deliberately designated prefix-free.
+  - **Vanilla Prefix Audit**: Always inspect the vanilla file (`build.ps1 -InspectVanilla <TAG>`) to determine whether vanilla established a national prefix (including semi-fictional designations like `NRB `). Maintain parity with vanilla prefix conventions unless correcting a demonstrable engine bug.
 
 ## 4. Mandatory Workshop & Documentation Synchronization
 Whenever a new country ship namelist is added, expanded, or modified:

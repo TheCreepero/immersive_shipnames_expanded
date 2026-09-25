@@ -1,6 +1,6 @@
 # Brazil (BRA) Ship Namelists
 
-Source file: `common/units/names_ships/ISNE_BRA_ship_names.txt`
+Source file: `common/units/names_ships/BRA_ship_names.txt`
 
 ---
 

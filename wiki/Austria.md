@@ -1,6 +1,6 @@
 # Austria (AUS) Ship Namelists
 
-Source file: `common/units/names_ships/ISNE_AUS_ship_names.txt`
+Source file: `common/units/names_ships/AUS_ship_names.txt`
 
 ---
 

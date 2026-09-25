@@ -65,11 +65,11 @@ This document serves as an instruction and reference guide for maintaining and u
 
 | File | Nation | Tag | Status in Description |
 | :--- | :--- | :--- | :--- |
-| `ISNE_ARG_ship_names.txt` | Argentina | `ARG` | Included (DD, SS, CL, CA, BB, BC, CV, 6 Thematic Topics, Vanilla Fixes) |
-| `ISNE_AUS_ship_names.txt` | Austria | `AUS` | Included (DD, SS, CL, CA, BB, CV, 11 Thematic Topics) |
-| `ISNE_BRA_ship_names.txt` | Brazil | `BRA` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics, Vanilla Fixes) |
-| `ISNE_CHL_ship_names.txt` | Chile | `CHL` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics, Vanilla Fixes) |
-| `ISNE_FIN_ship_names.txt` | Finland | `FIN` | Included (DD, SS, CL, CA, BB, CV, 13 Thematic Topics) |
+| `ARG_ship_names.txt` | Argentina | `ARG` | Included (DD, SS, CL, CA, BB, BC, CV, 6 Thematic Topics, Vanilla Fixes) |
+| `AUS_ship_names.txt` | Austria | `AUS` | Included (DD, SS, CL, CA, BB, CV, 11 Thematic Topics) |
+| `BRA_ship_names.txt` | Brazil | `BRA` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics, Vanilla Fixes) |
+| `CHL_ship_names.txt` | Chile | `CHL` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics, Vanilla Fixes) |
+| `FIN_ship_names.txt` | Finland | `FIN` | Included (DD, SS, CL, CA, BB, CV, 13 Thematic Topics) |
 
 ---
 

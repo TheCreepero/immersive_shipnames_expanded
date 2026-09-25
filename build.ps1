@@ -419,7 +419,7 @@ function Invoke-Validation {
         $readmeText = [System.IO.File]::ReadAllText($readmePath, [System.Text.Encoding]::UTF8)
         $implementedTags = [System.Collections.Generic.HashSet[string]]::new()
         foreach ($f in $namelistFiles) {
-            if ($f.Name -match '^ISNE_([A-Z0-9]{3})_') {
+            if ($f.Name -match '^(?:ISNE_)?([A-Z0-9]{3})_') {
                 [void]$implementedTags.Add($matches[1])
             }
         }

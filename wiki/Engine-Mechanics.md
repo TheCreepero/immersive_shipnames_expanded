@@ -4,31 +4,21 @@ This page explains how Hearts of Iron IV loads and processes ship namelist files
 
 ---
 
-## Additive File Loading
-
-HoI4 loads **all files** in `common/units/names_ships/` additively at game start. This means:
-
-- A file named `ISNE_FIN_ship_names.txt` coexists alongside vanilla `FIN_ship_names.txt`.
-- Both files are active simultaneously.
-- There is **no overwrite of the whole file** — only individual group tags can be overridden.
-
-The ISNE file naming prefix (`ISNE_<TAG>_`) ensures ISNE files do not collide with vanilla files at the filesystem level.
-
----
-
-## Tag Overriding vs. Additive Groups
-
-Within the additive loading system, **individual group tags** follow a last-write-wins rule:
-
-| Scenario | Result |
-|:---|:---|
-| ISNE defines `FIN_DD_HISTORICAL` (same as vanilla) | ISNE's version **overrides** vanilla for that group |
-| ISNE defines `FIN_DE_HISTORICAL` (new tag, no vanilla equivalent) | ISNE adds a **new group** available in-game |
-| ISNE omits a vanilla group | Vanilla definition remains **untouched** |
-
-This means:
-- You only need to define groups you actually want to change or expand.
-- Any vanilla group not referenced in ISNE continues to work normally.
+## File Structure & VFS File Replacement
+ 
+Hearts of Iron IV uses a Virtual File System (VFS) to mount mod files over the base game:
+ 
+- Ship namelist files in ISNE match the exact filename of base-game files:
+  ```text
+  common/units/names_ships/<TAG>_ship_names.txt
+  ```
+- When a mod file shares the exact relative path and filename (`<TAG>_ship_names.txt`), the engine's VFS **shadows/replaces the vanilla file entirely**.
+- **Why File Replacement is Critical:**  
+  If a mod uses a custom filename (e.g. `ISNE_<TAG>_ship_names.txt`), both the vanilla file and mod file load additively. In the Clausewitz engine, duplicate group definitions do *not* cleanly replace earlier groups—instead, properties accumulate:
+  - `prefix` values are concatenated (e.g., `prefix = "NRB "` in vanilla plus `prefix = "NRB "` in the mod results in `"NRB NRB "` in-game).
+  - `unique` entries merge, leaving vanilla's erroneous or duplicate ship names at the top of the list.
+  
+By cleanly replacing the vanilla file at the VFS level, ISNE guarantees single, correct prefixes and full control over historical and universal thematic namelists.
 
 ---
 

@@ -1,6 +1,6 @@
 # Chile (CHL) Ship Namelists
 
-Source file: `common/units/names_ships/ISNE_CHL_ship_names.txt`
+Source file: `common/units/names_ships/CHL_ship_names.txt`
 
 ---
 

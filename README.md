@@ -17,17 +17,16 @@ Vanilla Hearts of Iron IV ship namelists often run dry during extended naval cam
 
 ## Technical Architecture & Engine Mechanics
 
-### File Structure & Additive Loading
+### File Structure & Clean Replacement
 - All ship namelists reside in:
   ```text
-  common/units/names_ships/ISNE_<TAG>_ship_names.txt
+  common/units/names_ships/<TAG>_ship_names.txt
   ```
-- Hearts of Iron IV loads ship namelist files additively. Files prefixed with `ISNE_` do not overwrite vanilla files (`<TAG>_ship_names.txt`), leaving base-game groups intact unless intentionally overridden.
+- By matching the exact filename of vanilla namelists (`<TAG>_ship_names.txt`), Hearts of Iron IV's Virtual File System (VFS) cleanly replaces the vanilla file. This prevents Clausewitz additive merging bugs (which duplicate prefixes like `NRB NRB` or `BACH BACH` and leave vanilla typos/duplicate ships at the front of lists).
 
-### Tag Overriding & Fallback Behavior
-- **Overriding Vanilla Groups**: Declaring a group with an existing base-game tag (e.g., `FIN_DD_HISTORICAL`) overrides that specific group in-game.
-- **New Group Tags**: Custom ISNE groups follow the pattern `<TAG>_<CATEGORY>_<THEME/TYPE>`.
-- **Scripted References & Fallbacks**: Base-game setup files or events that reference specific vanilla tags automatically fall back to vanilla definitions if omitted from `ISNE_<TAG>`.
+### Overhauls & New Thematic Pools
+- **Vanilla Historical Groups**: All historical groups (e.g. `FIN_DD_HISTORICAL`, `BRA_BB_HISTORICAL`) are overhauled with complete class lineages, eliminating vanilla typos and non-combat entries.
+- **New Thematic Groups**: ISNE introduces rich universal thematic groups following `<TAG>_<THEME>` (e.g. `Cities`, `Provinces`, `Heroes`, `Fauna`) selectable for any hull type in the Ship Designer.
 
 ### Ship Namelist Invariants
 - **Recognized Hull Subunit Tokens**: In `ship_types = { ... }`, only valid naval combat tokens are recognized:
@@ -76,10 +75,10 @@ powershell -File .\build.ps1 -PublishSteam -ChangeNote "Add Finnish ship namelis
 
 | Tag | Nation | Source File |
 | :--- | :--- | :--- |
-| `ARG` | Argentina | `ISNE_ARG_ship_names.txt` |
-| `AUS` | Austria | `ISNE_AUS_ship_names.txt` |
-| `BRA` | Brazil | `ISNE_BRA_ship_names.txt` |
-| `CHL` | Chile | `ISNE_CHL_ship_names.txt` |
-| `FIN` | Finland | `ISNE_FIN_ship_names.txt` |
+| `ARG` | Argentina | `ARG_ship_names.txt` |
+| `AUS` | Austria | `AUS_ship_names.txt` |
+| `BRA` | Brazil | `BRA_ship_names.txt` |
+| `CHL` | Chile | `CHL_ship_names.txt` |
+| `FIN` | Finland | `FIN_ship_names.txt` |
 
 *(Refer to [WORKSHOP_DESCRIPTION_GUIDELINES.md](WORKSHOP_DESCRIPTION_GUIDELINES.md) for full descriptions, examples, and Steam BBCode formatting rules).*

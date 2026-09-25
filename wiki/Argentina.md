@@ -1,6 +1,6 @@
 # Argentina (ARG) Ship Namelists
 
-Source file: `common/units/names_ships/ISNE_ARG_ship_names.txt`
+Source file: `common/units/names_ships/ARG_ship_names.txt`
 
 ---
 

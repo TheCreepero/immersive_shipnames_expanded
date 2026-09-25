@@ -1,6 +1,6 @@
 # Finland (FIN) Ship Namelists
 
-Source file: `common/units/names_ships/ISNE_FIN_ship_names.txt`
+Source file: `common/units/names_ships/FIN_ship_names.txt`
 
 ---
 

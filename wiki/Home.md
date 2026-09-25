@@ -10,11 +10,11 @@
 
 | Nation | Tag | Groups | Source File(s) |
 |:---|:---|:---|:---|
-| [Argentina](Argentina) | `ARG` | 13 | `ISNE_ARG_ship_names.txt` |
-| [Austria](Austria) | `AUS` | 17 | `ISNE_AUS_ship_names.txt` |
-| [Brazil](Brazil) | `BRA` | 14 | `ISNE_BRA_ship_names.txt` |
-| [Chile](Chile) | `CHL` | 14 | `ISNE_CHL_ship_names.txt` |
-| [Finland](Finland) | `FIN` | 19 | `ISNE_FIN_ship_names.txt` |
+| [Argentina](Argentina) | `ARG` | 13 | `ARG_ship_names.txt` |
+| [Austria](Austria) | `AUS` | 17 | `AUS_ship_names.txt` |
+| [Brazil](Brazil) | `BRA` | 14 | `BRA_ship_names.txt` |
+| [Chile](Chile) | `CHL` | 14 | `CHL_ship_names.txt` |
+| [Finland](Finland) | `FIN` | 19 | `FIN_ship_names.txt` |
 
 ---
 

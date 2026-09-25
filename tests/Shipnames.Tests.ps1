@@ -14,7 +14,7 @@ BeforeAll {
         'ship_hull_light', 'ship_hull_midget_submarine', 'ship_hull_submarine', 'submarine'
     )
 
-    $script:NamelistFiles = Get-ChildItem -Path $script:NamelistDir -Filter "ISNE_*.txt"
+    $script:NamelistFiles = Get-ChildItem -Path $script:NamelistDir -Filter "*_ship_names.txt"
 }
 
 Describe "Ship Namelist Files: Global Invariants" {
@@ -57,10 +57,10 @@ Describe "Ship Namelist Files: Global Invariants" {
 
 Describe "Ship Namelist Files: Per-File Invariants" {
     BeforeAll {
-        $files = Get-ChildItem -Path (Join-Path (Resolve-Path (Join-Path $PSScriptRoot "..")) "common\units\names_ships") -Filter "ISNE_*.txt"
+        $files = Get-ChildItem -Path (Join-Path (Resolve-Path (Join-Path $PSScriptRoot "..")) "common\units\names_ships") -Filter "*_ship_names.txt"
     }
 
-    Context "File: <_.Name>" -ForEach (Get-ChildItem -Path (Join-Path (Resolve-Path (Join-Path $PSScriptRoot "..")) "common\units\names_ships") -Filter "ISNE_*.txt") {
+    Context "File: <_.Name>" -ForEach (Get-ChildItem -Path (Join-Path (Resolve-Path (Join-Path $PSScriptRoot "..")) "common\units\names_ships") -Filter "*_ship_names.txt") {
         BeforeAll {
             $script:CurrentFile = $_
             $script:RawBytes = [System.IO.File]::ReadAllBytes($script:CurrentFile.FullName)

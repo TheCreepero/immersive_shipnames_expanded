@@ -81,10 +81,14 @@ This document serves as an instruction and reference guide for maintaining and u
 ```bbcode
 More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Sweden, Norway, and Denmark. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
-Check out my other mod: [url=https://steamcommunity.com/workshop/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
+Check out my other mods:
+- [url=https://steamcommunity.com/workshop/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
+- [b]Immersive Air Wing Names Expanded[/b] (Coming soon!)
 
 [h1]Info:[/h1]
 - [b]Save Game Compatible:[/b] Can be added or removed from ongoing games without issues.
+- [b]Compatible with Road to 56 (RT56) and vanilla.[/b]
+- Fully compatible with the Man the Guns (MtG) Ship Designer as well as non-DLC naval systems.
 - No hard incompatibilities. Namelists from other mods might override namelists from this mod in some cases but that's unlikely.
 - Feel free to use this mod however you wish.
 
@@ -130,4 +134,6 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 - Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers (Pansarskepp), Battleships, Battlecruisers, and Aircraft Carriers.
 - Added 10 universal thematic lists selectable for any hull in the Ship Designer (Monarchs, Provinces, Cities, Norse Mythology, Birds of Prey, Predators, Aquatic Life, Naval Heroes, Martial Virtues, and Historic Battles).
 - Fixed vanilla file issues: corrected typos ("Plisander", "Aborren", "Karl XIV Johann"), eliminated cross-list duplicates between destroyers and light cruisers, corrected battlecruiser fallback translation, and expanded the carrier roster.
+
+If you enjoy the mod, please give it a thumbs up and favorite!
 ```

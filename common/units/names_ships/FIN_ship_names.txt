@@ -13,18 +13,19 @@ FIN_DD_HISTORICAL = {
 
 	unique = {
 		# Historic gunboats & torpedo boats serving destroyer/escort roles
-		"Hämeenmaa" "Uusimaa" "Karjala" "Turunmaa" "Matti Kurki" "Klas Horn"
+		"Hämeenmaa" "Turunmaa" "Matti Kurki" "Klas Horn"
 		# Historic motor torpedo boats & fast patrol craft (Sisu, Hurja, Syöksy, Jymy, Taisto classes)
 		"Sisu" "Hurja" "Isku" "Syöksy" "Nuoli" "Vinha" "Raju" "Vasama" "Vihuri" "Viima"
-		"Taisto" "Tuima" "Tyrsky" "Törppö" "Jymy" "Jyske" "Tarmo"
+		"Taisto" "Tuima" "Tyrsky" "Törppö" "Jymy" "Jyske" "Tarmo" "Hyrsky"
 		# Historic minelayers, minesweepers & patrol craft
 		"Louhi" "Ruotsinsalmi" "Riilahti" "Keihässalmi" "Pansio" "Porkkala" "Pyhäranta"
 		"Uisko" "Tursas" "Kiisla" "Kurki" "Kuha" "Ruissalo" "Raisio" "Rymättylä" "Rihtniemi"
-		"Rautu" "Vilppula" "Vahti"
+		"Rautu" "Vilppula" "Vahti" "Salpa"
 		# Plausible expansion names (Martial descriptors, weather & Finnish naval virtues)
-		"Salama" "Leimaus" "Myrsky" "Puuska" "Tuuli" "Aallokko" "Ahti" "Ilmatar"
+		"Salama" "Leimaus" "Myrsky" "Puuska" "Tuuli" "Aallokko" "Ahti"
 		"Puhuri" "Pyörre" "Ryske" "Kipinä" "Lieska" "Pauhu" "Kohina" "Maininki"
 		"Hyöky" "Pärske" "Ahava" "Aura" "Tuisku" "Pyry" "Kaira" "Routa"
+		"Tora" "Kumu" "Aallokas" "Rajumyrsky"
 	}
 }
 
@@ -43,7 +44,7 @@ FIN_SS_HISTORICAL = {
 		# Historical Finnish submarines
 		"Vetehinen" "Vesihiisi" "Iku-Turso" "Saukko" "Vesikko"
 		# Mythological water spirits, sea deities & aquatic monsters
-		"Näkki" "Vellamo" "Meritursas" "Hallitursas" "Vedenneito" "Vesi-Liisa" "Turso" "Ahti"
+		"Näkki" "Vellamo" "Meritursas" "Hallitursas" "Vedenneito" "Vesi-Liisa" "Turso" "Ahto"
 		# Marine, predatory & Baltic freshwater fish
 		"Ahven" "Hauki" "Kuha" "Siika" "Lohi" "Taimen" "Meritaimen" "Järvitaimen" "Nieriä" "Harjus"
 		"Särki" "Made" "Kampela" "Piikkikampela" "Kivinilkka" "Piikkisimppu" "Härkäsimppu" "Lahna"
@@ -86,12 +87,13 @@ FIN_CA_HISTORICAL = {
 	fallback_name = "Raskas Risteilijä %d"
 
 	unique = {
-		# Historic coastal defense ships & Kalevala heroes
+		# Historic coastal defense ships & Kalevala epic champions
 		"Väinämöinen" "Ilmarinen" "Lemminkäinen" "Joukahainen" "Kullervo"
-		"Tapio" "Ahti" "Ukko" "Pellervo" "Ilmatar" "Mielikki" "Tuonetar"
-		"Vipunen" "Sammas" "Otava" "Pohjola" "Kaleva" "Kaukomieli"
-		"Ahti Saarelainen" "Untamo" "Louhi" "Pohjolan Isäntä" "Tiera" "Samson"
-		"Nyyrikki" "Tellervo" "Tuoni" "Hiisi" "Tuulitar" "Lempo" "Pekko" "Äkräs"
+		"Tapio" "Pellervo" "Mielikki" "Tuonetar" "Vipunen" "Sammas" "Pohjola"
+		"Kaleva" "Kaukomieli" "Ahti Saarelainen" "Untamo" "Pohjolan Isäntä"
+		"Pohjolan Emäntä" "Tiera" "Samson" "Nyyrikki" "Tellervo" "Tuoni"
+		"Hiisi" "Lempo" "Pekko" "Äkräs" "Kyllikki" "Aino" "Marjatta"
+		"Tuulikki" "Annikki" "Osmotar"
 	}
 }
 
@@ -102,7 +104,7 @@ FIN_BB_HISTORICAL = {
 	for_countries = { FIN }
 
 	type = ship
-	ship_types = { ship_hull_heavy battleship battle_cruiser }
+	ship_types = { ship_hull_heavy battleship }
 
 	fallback_name = "Taistelulaiva %d"
 
@@ -112,9 +114,30 @@ FIN_BB_HISTORICAL = {
 		"Varsinais-Suomi" "Ahvenanmaa" "Lappi" "Kainuu" "Peräpohjola" "Keski-Suomi"
 		"Päijät-Häme" "Kanta-Häme" "Kymenlaakso" "Pohjois-Karjala" "Etelä-Karjala"
 		"Etelä-Pohjanmaa" "Pohjois-Pohjanmaa" "Keski-Pohjanmaa" "Inari" "Petsamo" "Viena" "Aunus" "Inkeri"
-		# Legendary kings & rulers of Finland
+		"Itä-Karjala" "Laatokan Karjala" "Länsi-Pohja" "Ruija"
+	}
+}
+
+### BATTLECRUISERS ###
+FIN_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { FIN }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	fallback_name = "Taisteluristeilijä %d"
+
+	unique = {
+		# Legendary kings & rulers of Finnish and Nordic saga tradition
 		"Kuningas Fornjot" "Kuningas Norr" "Kuningas Gor" "Kuningas Snær"
 		"Kuningas Thorri" "Kuningas Kári" "Kuningas Frosti" "Kuningas Alavus"
+		"Kuningas Kauppi" "Kuningas Sumble" "Ruhtinas Kaleva" "Pohjolan Isäntä" "Kuningas Väinö"
+		"Kaarle I" "Kuningas Kustaa"
+		# Historic heavy icebreaker champions & power vessels
+		"Murtaja" "Sampo" "Tarmo" "Varma" "Voima" "Apu" "Sisu" "Urho"
+		"Karhu" "Otso" "Fennica" "Nordica"
 	}
 }
 
@@ -131,7 +154,7 @@ FIN_CV_HISTORICAL = {
 
 	unique = {
 		# Mythical giant raptors, celestial beings & sky masters
-		"Kokko" "Ilmatar" "Ukko" "Ilmarinen" "Vaakalintu" "Taivaankantaja"
+		"Kokko" "Ilmatar" "Ukko" "Vaakalintu" "Taivaankantaja"
 		# Birds of prey & sky avians
 		"Kotka" "Merikotka" "Maakotka" "Haukka" "Tuulihaukka" "Nuolihaukka"
 		"Kanahaukka" "Muuttohaukka" "Tunturihaukka" "Sääksi" "Kalasaari" "Korpisoturi"
@@ -142,7 +165,7 @@ FIN_CV_HISTORICAL = {
 
 ### UNIVERSAL TOPIC: RULERS ###
 FIN_RULERS = {
-	name = "Legendary Kings & Rulers"
+	name = "Monarchs & Rulers"
 
 	for_countries = { FIN }
 
@@ -224,7 +247,7 @@ FIN_RIVERS = {
 
 ### UNIVERSAL TOPIC: MOUNTAINS & GEOGRAPHY ###
 FIN_GEOGRAPHY = {
-	name = "Islands, Capes & Mountain Fells"
+	name = "Landmarks & Islands"
 
 	for_countries = { FIN }
 
@@ -266,7 +289,7 @@ FIN_BATTLES = {
 
 ### UNIVERSAL TOPIC: HEROES & CULTURAL ICONS ###
 FIN_HEROES = {
-	name = "Heroes & Cultural Icons"
+	name = "Heroes & Leaders"
 
 	for_countries = { FIN }
 
@@ -288,7 +311,7 @@ FIN_HEROES = {
 
 ### UNIVERSAL TOPIC: MYTHOLOGY & KALEVALA ###
 FIN_MYTHOLOGY = {
-	name = "Kalevala & Finnish Folklore"
+	name = "Kalevala & Mythology"
 
 	for_countries = { FIN }
 
@@ -347,7 +370,7 @@ FIN_FISH = {
 
 ### UNIVERSAL TOPIC: PREDATORS & WILDLIFE ###
 FIN_BEASTS = {
-	name = "Predators & Wildlife"
+	name = "Fauna & Predators"
 
 	for_countries = { FIN }
 
@@ -365,7 +388,7 @@ FIN_BEASTS = {
 
 ### UNIVERSAL TOPIC: MARTIAL VIRTUES & MOTTOES ###
 FIN_VIRTUES = {
-	name = "Virtues & National Concepts"
+	name = "Martial Virtues"
 
 	for_countries = { FIN }
 
@@ -383,7 +406,7 @@ FIN_VIRTUES = {
 
 ### UNIVERSAL TOPIC: WEATHER & NATURAL PHENOMENA ###
 FIN_NATURE = {
-	name = "Weather & Natural Phenomena"
+	name = "Nature & Tempests"
 
 	for_countries = { FIN }
 

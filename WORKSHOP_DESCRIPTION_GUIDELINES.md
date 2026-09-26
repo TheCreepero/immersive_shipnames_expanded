@@ -70,7 +70,7 @@ This document serves as an instruction and reference guide for maintaining and u
 | `BRA_ship_names.txt` | Brazil | `BRA` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics, Vanilla Fixes) |
 | `CHL_ship_names.txt` | Chile | `CHL` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics, Vanilla Fixes) |
 | `DEN_ship_names.txt` | Denmark | `DEN` | Included (DD, SS, CL, CA, BB, BC, CV, 8 Thematic Topics, Vanilla Fixes) |
-| `FIN_ship_names.txt` | Finland | `FIN` | Included (DD, SS, CL, CA, BB, CV, 13 Thematic Topics) |
+| `FIN_ship_names.txt` | Finland | `FIN` | Included (DD, SS, CL, CA, BB, BC, CV, 13 Thematic Topics, Vanilla Fixes) |
 | `NOR_ship_names.txt` | Norway | `NOR` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics, Vanilla Fixes) |
 | `SWE_ship_names.txt` | Sweden | `SWE` | Included (DD, SS, CL, CA, BB, BC, CV, 10 Thematic Topics, Vanilla Fixes) |
 
@@ -121,9 +121,9 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 - Fixed vanilla file issues: repaired damaged character encodings ("Sridderen", "gir"), corrected pseudo-English fallback translations ("Lys Cruiseren", "Tung Cruiseren"), purged patrol craft from cruisers, removed duplicate submarine entries, and expanded sparse capital ship lists.
 
 [b]Finland[/b]
-- Expanded ship-type lists for Destroyers & Fast Escorts, Submarines, Light Cruisers, Coastal Defense / Heavy Cruisers, Battleships, and Aircraft Carriers.
-- Added 13 universal thematic lists selectable for any hull in the Ship Designer (Legendary Kings, Cities, Provinces, Rivers & Lakes, Fells & Capes, Historic Battles, Heroes, Kalevala Folklore, Birds, Fish, Wildlife, Virtues, and Weather Phenomena).
-- Replaced sparse vanilla pools with authentic Finnish naming traditions, native diacritics, and numbered fallbacks for large Baltic fleets.
+- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers (Panssarilaivat), Battleships, Battlecruisers, and Aircraft Carriers.
+- Added 13 universal thematic lists selectable for any hull in the Ship Designer (Monarchs, Cities, Provinces, Rivers & Lakes, Landmarks, Historic Battles, Heroes, Kalevala Mythology, Birds, Aquatic Life, Predators, Martial Virtues, and Nature & Tempests).
+- Fixed vanilla file issues: eliminated duplicate vanilla carrier blocks, removed duplicate "Rauma" in cruisers, restored dedicated battlecruiser list (FIN_BC_HISTORICAL) with authentic fallback ("Taisteluristeilijä %d"), purged coastal defense heroes from light cruisers, and resolved cross-hull name collisions.
 
 [b]Norway[/b]
 - Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers (Panserskip), Battleships, Battlecruisers, and Aircraft Carriers.

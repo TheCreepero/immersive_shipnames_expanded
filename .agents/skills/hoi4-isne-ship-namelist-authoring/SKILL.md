@@ -95,12 +95,17 @@ Expansive thematic pools designed for universal selection across **any ship type
    ```
    Inspect the vanilla file for common Paradox anomalies and document fixes in your plan:
    - **Header & Comment Copy-Paste Errors** (e.g. country header pointing to another nation, such as Brazil having Argentina's header).
-   - **Fallback Name Typographical & Calque Errors** (e.g. missing letters like `"Cuzador"`, corrupted diacritics like `"Ltt Kryssare"`, or literal dictionary calques like Swedish `"Stridsskepp %d"` instead of authentic naval term `"Slagkryssare %d"`).
+   - **Fallback Name Grammar, Calque & Homonym Errors**:
+     - **Definite vs. Indefinite Suffixes**: Vanilla frequently appends definite article suffixes to class nouns (e.g. Danish `"Slagkrydseren %d"`, Norwegian `"Lys Krysseren %d"`). Always standardize fallback names to the **indefinite nominative singular** (e.g. `"Slagkrydser %d"`, `"Let krydser %d"`, `"Jager %d"`).
+     - **Homonym Calques**: Watch for literal translations of English words with multiple meanings, such as "Light Cruiser" translated using optical/sunlight terms (e.g. Danish/Norwegian `"Lys"`) instead of naval displacement terms (`"Let"`, `"Lett"`, `"Lätt"`).
+     - **Pseudo-English Calques & Missing Letters**: Words like `"Cruiseren"`, `"Destroyer %d"` in non-English lists, or corrupted tokens like `"Cuzador"`, `"Ltt Kryssare"`, or literal dictionary calques like Swedish `"Stridsskepp %d"` instead of authentic naval term `"Slagkryssare %d"`.
    - **Ship Name Misspellings & Missing Diacritics** (e.g. missing letters like `"Marnhão"`, `"Amazona"`, missing consonants like `"Aborren"` -> `"Abborren"`).
    - **Archaic vs. Modern Spelling Mixes** (e.g. `Santa Catharina` mixed with `Santa Catarina`).
    - **Intra-List Duplicates & Article Variants** (e.g. `"Rosales"` duplicated within CL, `"Mjölner"` / `"Munin"` duplicated within DD, or `"La Rioja"` mixed with `"Rioja"` in DD).
    - **Cross-Hull Geographic Collisions** (e.g. identical list of major cities copied across both DD and CL; segregate by assigning historical destroyer class cities / naval stations to DD and regional trade ports / maritime hubs to CL).
+   - **Fauna & Auxiliary Craft Lumping in Major Combatants**: Vanilla frequently populates cruiser or capital ship pools of secondary navies with small torpedo boats, patrol craft, or tugs named after fish, birds, or mammals (e.g. Danish CL having *Flynderen* [Flounder], *Ulken* [Sculpin], *Mågen* [Seagull], and CA copying the flounder alongside icebreaker *Isbjørn*). Reassign fauna to light craft (`DD`), submarines (`SS`), or thematic pools (`BIRDS`, `FISH`).
    - **Modern Hull Demotions & Role Mismatches** (e.g. 1970s corvettes/frigates or patrol gunboats erroneously listed as cruisers).
+   - **Verbatim Cross-Class Shadow Duplication** (e.g. higher-tier hulls like CA or BC having rosters that are literal copy-pastes of CL or BB with 1–2 names appended).
    - **Mirrored Capital Ship Stubs** (e.g. identical 5-ship lists reversed between BB and BC assigning sloops to dreadnoughts).
    - **Doctrinal Naming Formulas** (e.g. Argentina's tradition of naming all submarines after provinces beginning with "S").
    - **Excessive Class Duplication** (e.g. identical list of states copied verbatim across CL, CA, BB, BC, CV).

@@ -86,8 +86,9 @@ Whenever a new country ship namelist is added, expanded, or modified:
 - **Unique & Ordered Blocks**:
   - `unique = { ... }` contains strings of individual ship names.
   - Integer keys in `ordered = { ... }` must be strictly unique. Duplicate keys silently overwrite earlier entries. Never leave empty `unique = { }` or `ordered = { }` blocks.
-- **Fallback Formatting**: Every `fallback_name` must include an ordinal format string (`%d` for Arabic, `%s` for Roman numerals) to prevent overflow ships from generating identical unnumbered names.
-- **Authentic Fallback Terminology**: Verify that `fallback_name` strings reflect authentic native naval terminology rather than literal translations (e.g. Swedish Battlecruiser = `"Slagkryssare %d"`, not `"Stridsskepp %d"`).
+- **Authentic Fallback Terminology & Grammar**: Verify that `fallback_name` strings reflect authentic native naval terminology rather than literal translations (e.g. Swedish Battlecruiser = `"Slagkryssare %d"`, not `"Stridsskepp %d"`).
+  - **Indefinite Nominative Standard**: Fallback names must always use the **indefinite nominative singular form** (e.g., `"Slagkrydser %d"`, `"Jager %d"`), never the definite article suffix (e.g., avoid `"-en"` forms like `"Slagkrydseren %d"` or `"Cruiseren %d"`).
+  - **Homonym Calque Traps**: Watch for literal translations of English homonyms, especially "Light Cruiser" translated as illumination/sunlight (e.g. Scandinavian `"Lys"`) rather than naval displacement (`"Let"`, `"Lett"`, `"Lätt"`, `"Leicht"`).
 - **Display Name Length**: Group `name = "..."` values must not exceed 30–32 characters to prevent visual truncation in the Ship Designer dropdown UI.
 - **Link Numbering**: `link_numbering_with` must only be used to link to *different* external groups. Never define self-referential links (`link_numbering_with = { SELF }`).
 - **Global Group Tag Uniqueness**: Root-level group tags (e.g., `FIN_DD_HISTORICAL`) must be strictly unique across the entire repository. Never define the same group tag multiple times within a file or across separate files.

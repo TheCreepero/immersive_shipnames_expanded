@@ -1,0 +1,395 @@
+##### SWEDEN NAVAL NAME LISTS (ISNE) #####
+
+### DESTROYERS & ESCORTS ###
+SWE_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { SWE }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "HMS "
+	fallback_name = "Jagare %d"
+
+	unique = {
+		# Stadsjagare (City destroyers - Göteborg & Visby classes)
+		"Göteborg" "Stockholm" "Malmö" "Karlskrona" "Gävle" "Norrköping" "Visby" "Sundsvall" "Hälsingborg" "Kalmar"
+		# Landskapsjagare (Province destroyers - Öland, Halland & Östergötland classes)
+		"Öland" "Uppland" "Halland" "Småland" "Östergötland" "Södermanland" "Gästrikland" "Hälsingland"
+		"Bohuslän" "Blekinge" "Västmanland" "Värmland" "Västergötland" "Dalarna" "Närke" "Medelpad"
+		# Norse mythology destroyers (Mode, Magne, Wale classes)
+		"Mode" "Magne" "Mjölner" "Munin" "Hugin" "Ragnar" "Sigurd" "Vidar" "Wale"
+		# Naval heroes, admirals & commanders (Ehrensköld, Klas Horn & Psilander classes)
+		"Ehrensköld" "Nordenskjöld" "Klas Horn" "Klas Uggla" "Wrangel" "Wachtmeister" "Psilander" "Puke" "Jacob Bagge"
+		# Classical / Italian-acquired destroyers (Romulus class)
+		"Romulus" "Remus"
+		# Historical torpedo boats, patrol craft & celestial navigators
+		"Spica" "Sirius" "Castor" "Vega" "Pollux" "Komet" "Meteor" "Blixt" "Antares" "Plejad" "Polaris"
+		"Aldebaran" "Altair" "Regulus" "Arcturus" "Capella" "Deneb" "Rigel" "Mira" "Betelgeuse"
+	}
+}
+
+### SUBMARINES ###
+SWE_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { SWE }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine ship_hull_midget_submarine }
+
+	prefix = "HMS "
+	fallback_name = "Ubåt %d"
+
+	unique = {
+		# Historical Swedish submarines - Mammals, predators & legendary beasts
+		"Hajen" "Sälen" "Valrossen" "Bävern" "Illern" "Uttern" "Valen" "Draken" "Gripen" "Ulven"
+		"Delfinen" "Nordkaparen" "Springaren" "Vargen" "Loen" "Björnen" "Järven"
+		# Aquatic animals & sea creatures
+		"Sjölejonet" "Sjöhunden" "Sjöbjörnen" "Sjöhasten" "Sjöormen" "Sjöborren" "Svärdfisken" "Tumlaren" "Dykaren"
+		# Marine & freshwater fish
+		"Forellen" "Abborren" "Siken" "Gäddan" "Laxen" "Makrillen" "Mörten" "Braxen" "Torsken" "Hornsimpan"
+		"Stören" "Ålen" "Siklöjan" "Gösen" "Sandskäddan" "Berggyltan" "Fjärsingen" "Knoten" "Rödspättan" "Piggvaren"
+		# Mythological water spirits & sea deities
+		"Neptun" "Najad" "Näcken" "Ran" "Ägir" "Triton" "Nereus" "Proteus" "Sjörået"
+	}
+}
+
+### LIGHT CRUISERS ###
+SWE_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { SWE }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "HMS "
+	fallback_name = "Lätt Kryssare %d"
+
+	unique = {
+		# Historical light cruisers & minelayer cruisers
+		"Gotland" "Fylgia" "Tre Kronor" "Göta Lejon" "Claes Fleming" "Älvsnabben" "Marieholm"
+		# Major coastal trade ports & maritime hubs (segregated from destroyer Stadsjagare)
+		"Västervik" "Halmstad" "Luleå" "Umeå" "Härnösand" "Hudiksvall" "Uddevalla" "Varberg"
+		"Söderköping" "Landskrona" "Nyköping" "Söderhamn" "Piteå" "Skellefteå" "Karlshamn"
+		"Ystad" "Trelleborg" "Simrishamn" "Falkenberg" "Strömstad" "Marstrand" "Oskarshamn"
+		"Lysekil" "Ronneby" "Sölvesborg" "Borgholm" "Åmål" "Norrtälje" "Örnsköldsvik" "Oxelösund"
+	}
+}
+
+### HEAVY CRUISERS & COASTAL DEFENCE SHIPS ###
+SWE_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { SWE }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "HMS "
+	fallback_name = "Tung Kryssare %d"
+
+	unique = {
+		# Historic Coastal Defence Ships (Pansarskepp)
+		"Sverige" "Drottning Victoria" "Gustav V" "Dristigheten" "Äran" "Tapperheten" "Wasa" "Manligheten"
+		"Oscar II" "Oden" "Thor" "Niord" "Svea" "Göta" "Thule" "Starkodder" "Styrbjörn"
+		# Sagas, folk heroes & medieval leaders
+		"Rolf Krake" "Orvar Odd" "Ragnar Lodbrok" "Hjalmar" "Ingeborg" "Hagbard" "Signe"
+		"Engelbrekt" "Birger Jarl" "Valdemar" "Magnus Ladulås" "Sten Sture" "Svante Sture"
+		"Svithiod" "Scania" "Väring"
+	}
+}
+
+### BATTLESHIPS & CAPITAL SHIPS ###
+SWE_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { SWE }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "HMS "
+	fallback_name = "Slagskepp %d"
+
+	unique = {
+		# Great Monarchs of Sweden
+		"Gustav Vasa" "Erik XIV" "Johan III" "Sigismund" "Karl IX" "Gustav II Adolf"
+		"Drottning Kristina" "Karl X Gustav" "Karl XI" "Karl XII" "Fredrik I" "Adolf Fredrik"
+		"Gustav III" "Gustav IV Adolf" "Karl XIII" "Karl XIV Johan" "Oscar I" "Karl XV" "Oscar II" "Gustaf V"
+		# Royal Regalia & Crown Symbols of the Realm
+		"Kronan" "Stora Kronan" "Svärdet" "Äpplet" "Riksäpplet" "Nyckeln" "Riksnyckeln" "Spiran"
+		# Historic Lands & Realm Foundations
+		"Svealand" "Götaland" "Norrland" "Skåne"
+	}
+}
+
+### BATTLECRUISERS ###
+SWE_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { SWE }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "HMS "
+	fallback_name = "Slagkryssare %d"
+
+	unique = {
+		# Swift Warrior Monarchs & Martial Royal Names
+		"Gustav II Adolf" "Karl XII" "Karl X Gustav" "Gustav III" "Gustaf Vasa"
+		# Famous Swedish Field Marshals & Supreme Commanders
+		"Lennart Torstenson" "Johan Banér" "Gustaf Horn" "Carl Gustaf Wrangel" "Arvid Horn"
+		"Magnus Stenbock" "Rutger von Ascheberg" "Carl Gustaf Armfeldt"
+		# Queens & Royal Princes
+		"Drottning Lovisa Ulrika" "Drottning Hedvig Eleonora" "Prins Carl" "Prins Eugen" "Prins Gustaf Adolf"
+		# Martial Emblems of Speed & Striking Power
+		"Vasa Lejon" "Götalejon" "Stormakt" "Segerkronan" "Nordens Lejon"
+	}
+}
+
+### AIRCRAFT CARRIERS ###
+SWE_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { SWE }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "HMS "
+	fallback_name = "Hangarfartyg %d"
+
+	unique = {
+		# Royal Regalia & Crown Symbols
+		"Kronan" "Riksäpplet" "Spiran" "Svärdet" "Riksnyckeln" "Sveriges Vapen"
+		# Valkyries & Sky Maidens of Norse Myth
+		"Valkyrian" "Brynhild" "Gondul" "Hildur" "Skuld" "Sigrdrifa" "Freja" "Gefion" "Idun" "Skadi"
+		# Raptors & Birds of Prey
+		"Havsörn" "Kungsörn" "Fiskgjuse" "Pilgrimsfalk" "Jaktfalk" "Duvhök"
+		# Celestial Skies & Northern Polar Phenomena
+		"Nordstjärnan" "Polstjärnan" "Norrsken" "Morgonstjärnan" "Aftonstjärnan" "Kometen" "Meteor"
+	}
+}
+
+### UNIVERSAL TOPIC: MONARCHS & REGENTS ###
+SWE_RULERS = {
+	name = "Monarchs & Regents"
+
+	for_countries = { SWE }
+
+	type = ship
+
+	prefix = "HMS "
+	fallback_name = "Regent %d"
+
+	unique = {
+		# Medieval Rulers & Realm Builders
+		"Olof Skötkonung" "Anund Jakob" "Emund den gamle" "Inge den äldre" "Sverker den äldre"
+		"Erik den helige" "Knut Eriksson" "Birger Jarl" "Magnus Ladulås"
+		# Regents & Folk Heroes
+		"Engelbrekt Engelbrektsson" "Sten Sture den äldre" "Svante Nilsson Sture" "Sten Sture den yngre"
+		# Vasa Dynasty
+		"Gustav Vasa" "Erik XIV" "Johan III" "Sigismund" "Karl IX" "Gustav II Adolf" "Drottning Kristina"
+		# Palatinate-Zweibrücken & Hesse
+		"Karl X Gustav" "Karl XI" "Karl XII" "Ulrika Eleonora" "Fredrik I"
+		# Holstein-Gottorp
+		"Adolf Fredrik" "Gustav III" "Gustav IV Adolf" "Karl XIII"
+		# Bernadotte Dynasty
+		"Karl XIV Johan" "Oscar I" "Karl XV" "Oscar II" "Gustaf V"
+	}
+}
+
+### UNIVERSAL TOPIC: PROVINCES & REGIONS ###
+SWE_PROVINCES = {
+	name = "Provinces & Regions"
+
+	for_countries = { SWE }
+
+	type = ship
+
+	prefix = "HMS "
+	fallback_name = "Landskap %d"
+
+	unique = {
+		# The Three Historic Lands of Sweden
+		"Svealand" "Götaland" "Norrland"
+		# Historical Landskap (Provinces)
+		"Uppland" "Södermanland" "Östergötland" "Västergötland" "Småland" "Skåne" "Halland"
+		"Blekinge" "Bohuslän" "Dalsland" "Närke" "Västmanland" "Värmland" "Dalarna"
+		"Gästrikland" "Hälsingland" "Medelpad" "Ångermanland" "Härjedalen" "Jämtland"
+		"Västerbotten" "Norrbotten" "Lappland" "Gotland" "Öland"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES & PORTS ###
+SWE_CITIES = {
+	name = "Cities & Ports"
+
+	for_countries = { SWE }
+
+	type = ship
+
+	prefix = "HMS "
+	fallback_name = "Stad %d"
+
+	unique = {
+		"Stockholm" "Göteborg" "Malmö" "Uppsala" "Karlskrona" "Gävle" "Norrköping" "Linköping"
+		"Västerås" "Örebro" "Helsingborg" "Jönköping" "Lund" "Borås" "Halmstad" "Sundsvall"
+		"Umeå" "Luleå" "Kalmar" "Karlstad" "Växjö" "Trollhättan" "Östersund" "Falun"
+		"Nyköping" "Skövde" "Härnösand" "Hudiksvall" "Uddevalla" "Varberg" "Visby" "Karlshamn"
+		"Landskrona" "Ystad" "Trelleborg" "Ronneby" "Falkenberg" "Strömstad" "Marstrand" "Oskarshamn"
+		"Piteå" "Skellefteå" "Kiruna" "Boden" "Motala" "Södertälje" "Sölvesborg" "Lysekil"
+	}
+}
+
+### UNIVERSAL TOPIC: NORSE MYTHOLOGY ###
+SWE_MYTHOLOGY = {
+	name = "Norse Mythology"
+
+	for_countries = { SWE }
+
+	type = ship
+
+	prefix = "HMS "
+	fallback_name = "Mytologi %d"
+
+	unique = {
+		# Aesir & Vanir Deities
+		"Oden" "Thor" "Frej" "Freja" "Balder" "Tyr" "Heimdall" "Njord" "Brage" "Forsete"
+		"Idun" "Skadi" "Ull" "Mimer" "Ägir" "Ran" "Hel"
+		# Mythic Monsters & Legendary Creatures
+		"Fenris" "Midgårdsormen" "Sleipner" "Hugin" "Munin" "Valkyrian"
+		# Realms, Weapons & Cosmic Artifacts
+		"Yggdrasil" "Valhall" "Asgård" "Midgård" "Bifrost" "Mjölner" "Gungnir" "Skidbladner" "Naglfar"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS OF PREY ###
+SWE_BIRDS = {
+	name = "Birds of Prey"
+
+	for_countries = { SWE }
+
+	type = ship
+
+	prefix = "HMS "
+	fallback_name = "Fågel %d"
+
+	unique = {
+		# Eagles & Falcons
+		"Havsörn" "Kungsörn" "Fiskgjuse" "Pilgrimsfalk" "Jaktfalk" "Duvhök" "Sparvhök"
+		"Ormvråk" "Fjällvråk" "Lärkfalk" "Tornfalk" "Aftonfalk"
+		# Owls & Hunters of the Night
+		"Berguv" "Fjälluggla" "Kattuggla" "Slaguggla" "Hornuggla" "Pärluggla"
+		# Seabirds & Coastal Avians
+		"Korpen" "Lom" "Havstrut" "Silltrut" "Gråtrut" "Tärna" "Skräntärna" "Ejder"
+		"Svärta" "Sjöorre" "Stormfågel" "Albatross" "Grissla" "Tordmule"
+	}
+}
+
+### UNIVERSAL TOPIC: FAUNA & PREDATORS ###
+SWE_BEASTS = {
+	name = "Fauna & Predators"
+
+	for_countries = { SWE }
+
+	type = ship
+
+	prefix = "HMS "
+	fallback_name = "Rovdjur %d"
+
+	unique = {
+		# Apex Predators & Forest Mammals
+		"Vargen" "Björnen" "Loen" "Järven" "Älgen" "Kronhjorten" "Råbocken" "Renen"
+		"Fjällräven" "Rödräven" "Vildsvinet" "Bävern" "Uttern"
+		# Marine Mammals & Pinnipeds
+		"Gråsälen" "Vikaren" "Valrossen" "Tumlaren" "Späckhuggaren" "Kaskelotten"
+		# Mustelids & Woodland Critters
+		"Hermelinen" "Mården" "Grävlingen" "Igelkotten"
+	}
+}
+
+### UNIVERSAL TOPIC: AQUATIC LIFE & FISH ###
+SWE_FISH = {
+	name = "Aquatic Life & Fish"
+
+	for_countries = { SWE }
+
+	type = ship
+
+	prefix = "HMS "
+	fallback_name = "Vatten %d"
+
+	unique = {
+		# Marine Hunters & Pelagic Species
+		"Hajen" "Håkäringen" "Pigghajen" "Valen" "Delfinen" "Svärdfisken" "Sälhunden" "Sjöhunden"
+		# Freshwater & Baltic Game Fish
+		"Laxen" "Havsöringen" "Gäddan" "Abborren" "Gösen" "Makrillen" "Sillen" "Strömmingen"
+		"Torsken" "Flundran" "Rödspättan" "Piggvaren" "Slätvaren" "Siklöjan" "Siken"
+		"Norsen" "Braxen" "Karpen" "Sutaren" "Ålen" "Havskatten" "Horngäddan" "Stören"
+	}
+}
+
+### UNIVERSAL TOPIC: NAVAL HEROES & ADMIRALS ###
+SWE_HEROES = {
+	name = "Naval Heroes & Admirals"
+
+	for_countries = { SWE }
+
+	type = ship
+
+	prefix = "HMS "
+	fallback_name = "Sjöhjälte %d"
+
+	unique = {
+		# Renowned Admirals & Naval Architects
+		"Klas Horn" "Hans Wachtmeister" "Gustaf von Psilander" "Claes Uggla" "Jacob Bagge"
+		"Henrik Fleming" "Carl Olof Cronstedt" "Fredric Henric af Chapman" "Baltzar von Platen"
+		# Great Military Commanders & Marshals
+		"Lennart Torstenson" "Johan Banér" "Gustaf Horn" "Carl Gustaf Wrangel" "Rutger von Ascheberg"
+		"Arvid Horn" "Magnus Stenbock" "Carl Gustaf Armfeldt" "Georg Carl von Döbeln" "Johan August Sandels"
+	}
+}
+
+### UNIVERSAL TOPIC: MARTIAL VIRTUES ###
+SWE_VIRTUES = {
+	name = "Martial Virtues"
+
+	for_countries = { SWE }
+
+	type = ship
+
+	prefix = "HMS "
+	fallback_name = "Dygd %d"
+
+	unique = {
+		"Dristigheten" "Tapperheten" "Manligheten" "Äran" "Försiktigheten" "Rättvisan"
+		"Troheten" "Enigheten" "Vaksamheten" "Frimodigheten" "Ståndaktigheten"
+		"Vaksam" "Oförskräckt" "Snabb" "Modig" "Trofast" "Segerrik" "Oövervinnelig"
+		"Fasthet" "Värnet" "Trygghet" "Frihet" "Fosterlandet"
+	}
+}
+
+### UNIVERSAL TOPIC: BATTLES & VICTORIES ###
+SWE_BATTLES = {
+	name = "Battles & Victories"
+
+	for_countries = { SWE }
+
+	type = ship
+
+	prefix = "HMS "
+	fallback_name = "Slag %d"
+
+	unique = {
+		# Historic Naval Engagements
+		"Svensksund" "Hogland" "Öland" "Femern" "Bornholm"
+		# Landmark Land Battles & Historic Triumphs
+		"Stångebro" "Brunkeberg" "Narva" "Breitenfeld" "Lützen" "Jankov" "Wittstock"
+		"Lund" "Landskrona" "Helsingborg" "Gadebusch" "Fraustadt" "Kliszów" "Dirschau" "Wallhof" "Axtorna"
+	}
+}

@@ -80,5 +80,6 @@ powershell -File .\build.ps1 -PublishSteam -ChangeNote "Add Finnish ship namelis
 | `BRA` | Brazil | `BRA_ship_names.txt` |
 | `CHL` | Chile | `CHL_ship_names.txt` |
 | `FIN` | Finland | `FIN_ship_names.txt` |
+| `SWE` | Sweden | `SWE_ship_names.txt` |
 
 *(Refer to [WORKSHOP_DESCRIPTION_GUIDELINES.md](WORKSHOP_DESCRIPTION_GUIDELINES.md) for full descriptions, examples, and Steam BBCode formatting rules).*

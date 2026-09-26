@@ -16,14 +16,30 @@ TUR_DD_HISTORICAL = {
 		# War of Independence historic battle hills (Tepeler) - Kocatepe & Tınaztepe classes
 		"Kocatepe" "Adatepe" "Tınaztepe" "Zafer" "Yücetepe" "Savaştepe" "Alçıtepe" "Anıttepe"
 		"Metristepe" "Duatepe" "Kandiltepe" "Çaltepe" "Karasutepe" "Kartaltepe" "Mangaldağı"
+		"Çiğiltepe" "Gözcütepe" "Tilkitepe" "Şehittepe" "Bayraktepe" "Sivritepe" "Kanlısırt"
+		"Kılıçbayırı" "Bombasırtı" "Cesarettepe" "Kemalyeri" "Conkbayırı"
 		# Historic torpedo gunboats & strike craft - Demirhisar class & Balkan/WWI lineage
 		"Demirhisar" "Sultanhisar" "Muavenet" "Gayret" "Yarhisar" "Sivrihisar" "Hamidabad" "Kütahya"
-		"Musul" "Basra" "Taşoz" "Akhisar" "Antalya" "Alpagot" "Draç" "Peyk" "Berk"
+		"Musul" "Basra" "Taşoz" "Akhisar" "Antalya" "Alpagot" "Draç" "Peyk"
+		"Berk" "Karahisar" "Koçhisar" "Kavakhisar" "Seferihisar" "Nimet" "Zuhaf" "Sed-ül Bahir"
+		"Garp" "Şark" "Tarık" "Burak" "Sakız" "Samsun"
 		# Celebrated Turkish military commanders, marshals & historical commanders
 		"Alp Arslan" "Mareşal Fevzi Çakmak" "Kılıç Ali Paşa" "Piyale Paşa" "Cezayirli Gazi Hasan Paşa"
 		"Gazi Turhan Bey" "Karamürsel" "Gazi Umur Bey" "Seydi Ali Reis" "Kemal Reis" "Turgut Reis"
 		# Notable coastal cities & naval defense districts
 		"Gaziantep" "Giresun" "Gelibolu" "Gemlik" "İzmit" "İskenderun" "İçel" "Bartın"
+		# Fast weather, winds & tempests (Modern fast attack craft lineage)
+		"Bora" "Fırtına" "Şimşek" "Yıldırım" "Tayfun" "Kasırga" "Poyraz" "Meltem"
+		"Lodos" "Karayel" "Gündoğusu" "Keşişleme" "Kıble" "Yıldız"
+		# Raptors, strike symbols & weaponry
+		"Doğan" "Atmaca" "Şahin" "Kartal" "Akrep" "Kılıç" "Mızrak" "Kalkan"
+		"Ok" "Kamçı"
+		# Martial virtues & escort descriptors
+		"Cengaver" "Kahraman" "Yiğit" "Cesur" "Yaman" "Atılgan" "Cüretkar" "Kudretli"
+		"Şanlı" "Gururlu" "Azimli" "Süratli" "Çevik" "Tetik"
+		# Naval raiders, scouts & sentinels
+		"Akıncı" "Sipahi" "Levent" "Bahriye" "Kılavuz" "Muhafız" "Karakol" "Devriye"
+		"Gözcü" "Öncü" "Vardiyan" "Serdengeçti"
 	}
 }
 
@@ -41,18 +57,28 @@ TUR_SS_HISTORICAL = {
 
 	unique = {
 		# Foundational battles of the War of Independence (İnönü, Sakarya & Dumlupınar classes)
-		"Birinci İnönü" "İkinci İnönü" "Sakarya" "Dumlupınar"
+		"Birinci İnönü" "İkinci İnönü" "Üçüncü İnönü" "Dördüncü İnönü" "Sakarya" "Dumlupınar"
 		# Atatürk's Ay-class martial strike verbs (Germaniawerft & Gölcük naval yards)
 		"Atılay" "Saldıray" "Batıray" "Yıldıray"
 		# Extended authentic Turkish martial verb-ay formations (Plausible naval expansion)
-		"Korkutay" "Vuray" "Pusulay" "Koparay" "Kıray" "Dalay" "Yıkay" "Yakasay" "Bozay" "Avlay"
+		"Korkutay" "Vuray" "Pusulay" "Koparay" "Kıray" "Dalay" "Yıkay" "Yakasay"
+		"Bozay" "Avlay" "Işılay" "Parılday"
 		# Martial vigor, celestial moons & phases
-		"Gür" "Doğanay" "Dolunay" "Hilal"
+		"Gür" "Doğanay" "Dolunay" "Hilal" "Yeniay"
+		# Stealth, depths & diving operations
+		"Derin" "Dalgıç" "Pusuda" "Sualtı"
 		# Renowned Ottoman corsairs & admirals (Reisler) historically assigned to submarines
 		"Oruç Reis" "Murat Reis" "Burak Reis" "Seydi Ali Reis" "Hızır Reis" "Piri Reis" "Turgut Reis"
-		"Salih Reis" "Uluç Ali Reis" "Kemal Reis" "Aydın Reis"
+		"Salih Reis" "Uluç Ali Reis" "Kemal Reis" "Aydın Reis" "Kılıç Ali Reis" "Uluç Reis"
+		"Hasan Reis" "Kurdoğlu Muslihiddin Reis" "Karamürsel Reis" "Sinan Reis" "Cafer Reis"
+		"Memi Reis"
 		# Decisive naval victories
 		"Preveze" "Cerbe" "Çanakkale"
+		# Marine predators & aquatic stealth life
+		"Balık" "Yunus" "Köpekbalığı" "Kılıçbalığı" "Orfoz" "Lüfer" "Palamut" "Torik"
+		"Levrek" "Çipura" "Mercan" "Mezgit" "Kalkan" "Vatoz" "Müren" "Ahtapot"
+		"Mürekkepbalığı" "Denizatı" "Fok" "Akdeniz Foku" "Balina" "Kaşalot" "Katil Balina"
+		"Çekiçbalığı" "Mersinbalığı" "İskorpit" "Kırlangıç"
 	}
 }
 
@@ -70,12 +96,18 @@ TUR_CL_HISTORICAL = {
 
 	unique = {
 		# Historical protected cruisers & fleet cruisers
-		"Hamidiye" "Mecidiye" "Midilli"
+		"Hamidiye" "Mecidiye" "Midilli" "Peyk-i Şevket" "Berk-i Satvet"
 		# Major maritime commercial ports, Aegean, Mediterranean & Black Sea trade centers
 		"İzmir" "Samsun" "Trabzon" "Sinop" "Mersin" "İskenderun" "Bandırma" "Antalya"
 		"Giresun" "Rize" "Fethiye" "Bodrum" "Çeşme" "Alanya" "Mudanya" "Ayvalık"
 		"Zonguldak" "Hopa" "Bartın" "İnebolu" "Marmaris" "Kuşadası" "Ordu" "Ünye"
 		"Keşan" "Sarıyer" "Balıkesir" "Manisa" "Muğla" "Adana"
+		# Extended coastal trading centers & maritime ports
+		"İstanbul" "Tekirdağ" "Çanakkale" "Kastamonu" "Yalova" "Edirne" "Bursa" "Hatay"
+		"Fatsa" "Ereğli" "Amasra" "Dikili" "Foça" "Edremit" "Datça" "Kaş"
+		"Finike" "Kemer" "Silifke" "Dörtyol" "Samandağ" "Yumurtalık" "Erdemli" "Anamur"
+		"Gazipaşa" "Didim" "Urla" "Karaburun" "Aliağa" "Ayancık" "Gerze" "Görele"
+		"Tirebolu" "Akçaabat"
 	}
 }
 
@@ -93,10 +125,18 @@ TUR_CA_HISTORICAL = {
 
 	unique = {
 		# Historic straits, fortified bastions & naval defense sectors
-		"Çanakkale" "Gelibolu" "Edirne" "Seddülbahir" "Kilitbahir" "Kumkale" "Boğaziçi"
-		"Kafkas" "Anadolu" "Rumeli" "Anadolu Kavağı" "Rumeli Kavağı" "Dardanel"
+		"Çanakkale" "Gelibolu" "Edirne" "Seddülbahir" "Kilitbahir" "Kumkale" "Boğaziçi" "Kafkas"
+		"Anadolu" "Rumeli" "Anadolu Kavağı" "Rumeli Kavağı" "Dardanel"
 		# Strategic coastal naval bases & maritime regions
-		"Gölcük" "Tuzla" "Yalova" "Gebze" "Urla" "Marmara" "Trakya" "Ege" "Akdeniz" "Karadeniz"
+		"Gölcük" "Tuzla" "Yalova" "Gebze" "Urla" "Marmara" "Trakya" "Ege"
+		"Akdeniz" "Karadeniz"
+		# Dardanelles bastions, battle sectors & fortified headlands
+		"Anafartalar" "Conkbayırı" "Arıburnu" "Kanlısırt" "Kerevizdere" "Kirte" "Nara" "Çimenlik"
+		"Sultaniye"
+		# Strategic maritime gulfs, peninsulas & islands
+		"Saros" "Kapıdağ" "İmroz" "Bozcaada" "Meis" "Kıbrıs" "Girit" "Rodos"
+		# Historical maritime battle gates
+		"İnebahtı" "Navarin"
 	}
 }
 
@@ -115,10 +155,16 @@ TUR_BB_HISTORICAL = {
 	unique = {
 		# Historic Ottoman super-dreadnoughts, dreadnought programs & ironclads
 		"Reşadiye" "Sultan Osman-ı Evvel" "Fatih Sultan Mehmed" "Barbaros Hayreddin" "Turgut Reis"
-		"Mesudiye" "Mahmudiye" "Asar-ı Tevfik" "Âsâr-ı Şevket" "Necm-i Şevket" "Orhaniye" "Osmaniye" "Aziziye"
+		"Mesudiye" "Mahmudiye" "Asar-ı Tevfik" "Âsâr-ı Şevket" "Necm-i Şevket" "Orhaniye" "Osmaniye"
+		"Aziziye"
+		# Capital ironclad lineage
+		"Feth-i Bülend" "Mukaddeme-i Hayır" "Avnillah" "Muin-i Zafer" "İclaliye"
 		# Great realm builders, sovereigns & national founders
 		"Gazi Mustafa Kemal" "Atatürk" "Fatih" "Kanuni" "Yavuz Sultan Selim" "Alp Arslan"
 		"Sultan Süleyman" "Orhan Gazi" "Osman Gazi" "Murad Hüdavendigâr" "Yıldırım Bayezid"
+		"İkinci Murad" "Çelebi Mehmed" "Sultan Mehmed Reşad" "Alaeddin Keykubad"
+		# Decisive foundational battles
+		"Malazgirt" "Mohaç" "Niğbolu" "Varna" "Kosova" "Ridaniye"
 		# Historic realm foundations & imperial capitals
 		"İstanbul" "Konstantiniyye" "Bursa" "Edirne" "Söğüt"
 	}
@@ -140,10 +186,13 @@ TUR_BC_HISTORICAL = {
 		# Flagship lineage & pride of the fleet
 		"Yavuz" "Yavuz Sultan Selim"
 		# Swift conquerors, martial monarchs & great khans
-		"Yıldırım" "Yıldırım Bayezid" "Attila" "Timur" "Subutay" "Cengiz Han"
-		"Kılıç Arslan" "Selim" "Gazi Umur Bey" "Çaka Bey" "Tuğrul Bey" "Çağrı Bey"
+		"Yıldırım" "Yıldırım Bayezid" "Attila" "Timur" "Subutay" "Cengiz Han" "Kılıç Arslan" "Selim"
+		"Gazi Umur Bey" "Çaka Bey" "Tuğrul Bey" "Çağrı Bey" "Babür Şah" "Baybars" "Battal Gazi"
+		"Danişmend Gazi" "Saltuk Bey" "Mengücek Gazi" "Artuk Bey" "Karamürsel Bey" "Bilge Kağan"
+		"Kül Tigin" "Oğuz Kağan"
 		# Martial striking speed & celestial tempests
 		"Yıldırım Kemal" "Şimşek" "Kasırga" "Bora" "Tayfun" "Fırtına" "Poyraz" "Lodos"
+		"Karayel" "Gündoğusu" "Keşişleme" "Samyeli" "Tufan" "Boran"
 	}
 }
 
@@ -166,8 +215,14 @@ TUR_CV_HISTORICAL = {
 		"Cumhuriyet" "İstiklal" "Kurtuluş" "Zafer" "Vatan" "Millet" "Hürriyet" "Gazi"
 		# Sky raptors, birds of prey & mythological celestial aviators
 		"Gökdoğan" "Bozdoğan" "Şahin" "Kartal" "Sungur" "Doğan" "Tuğrul" "Hüma"
+		"Anka" "Karakuş" "Delice" "Kerkenez"
 		# Heavens & celestial canopy
 		"Gökler" "Gökyüzü" "Akbaba" "Çakır"
+		# Great Anatolian rivers & majestic peaks (Carriers of the realm)
+		"Fırat" "Dicle" "Kızılırmak" "Yeşilırmak" "Sakarya" "Seyhan" "Ceyhan" "Ağrı"
+		"Erciyes" "Süphan" "Kaçkar" "Toros"
+		# National totems
+		"Bozkurt"
 	}
 }
 
@@ -185,12 +240,14 @@ TUR_RULERS = {
 	unique = {
 		# Seljuk, Ottoman & Turkic realm builders, sultans and khans
 		"Osman Gazi" "Orhan Gazi" "Murad Hüdavendigâr" "Yıldırım Bayezid" "Çelebi Mehmed"
-		"İkinci Murad" "Fatih Sultan Mehmed" "İkinci Bayezid" "Yavuz Sultan Selim" "Kanuni Sultan Süleyman"
-		"İkinci Selim" "Üçüncü Murad" "Birinci Ahmed" "Genç Osman" "Dördüncü Murad"
-		"Köprülü Mehmed Paşa" "Üçüncü Selim" "İkinci Mahmud" "Sultan Abdülmecid" "Sultan Abdülaziz"
+		"İkinci Murad" "Fatih Sultan Mehmed" "İkinci Bayezid" "Yavuz Sultan Selim"
+		"Kanuni Sultan Süleyman" "İkinci Selim" "Üçüncü Murad" "Birinci Ahmed" "Genç Osman"
+		"Dördüncü Murad" "Sultan İbrahim" "Dördüncü Mehmed" "İkinci Ahmed" "İkinci Mustafa"
+		"Üçüncü Ahmed" "Birinci Mahmud" "Üçüncü Osman" "Birinci Abdülhamid" "Üçüncü Selim"
+		"Dördüncü Mustafa" "İkinci Mahmud" "Sultan Abdülmecid" "Sultan Abdülaziz" "Sultan Mehmed Reşad"
 		# Great early Turkic khans & founders
-		"Alp Arslan" "Tuğrul Bey" "Çağrı Bey" "Kılıç Arslan" "Alaeddin Keykubad"
-		"Attila" "Bumin Kağan" "İstemi Yabgu" "Bilge Kağan" "Kül Tigin" "Oğuz Kağan"
+		"Alp Arslan" "Tuğrul Bey" "Çağrı Bey" "Kılıç Arslan" "Alaeddin Keykubad" "Attila"
+		"Bumin Kağan" "İstemi Yabgu" "Bilge Kağan" "Kül Tigin" "Oğuz Kağan" "Mete Han"
 	}
 }
 
@@ -207,12 +264,14 @@ TUR_ADMIRALS = {
 
 	unique = {
 		# Grand Kapudan Pashas, legendary corsairs & naval reformers
-		"Çaka Bey" "Barbaros Hayreddin Paşa" "Turgut Reis" "Piri Reis" "Oruç Reis"
-		"Kılıç Ali Paşa" "Piyale Paşa" "Seydi Ali Reis" "Murat Reis" "Burak Reis"
-		"Salih Reis" "Uluç Ali Reis" "Kemal Reis" "Aydın Reis" "Karamürsel Bey"
-		"Gazi Umur Bey" "Cezayirli Gazi Hasan Paşa" "Koca Murat Reis" "Mezomorto Hüseyin Paşa"
-		"Patrona Halil" "Bozcaadalı Hasan Paşa" "Kalyonlar Kaptanı Mustafa Paşa"
-		"Rauf Orbay" "Hüseyin Rauf" "Fahri Engin" "Şükür Okan"
+		"Çaka Bey" "Barbaros Hayreddin Paşa" "Turgut Reis" "Piri Reis" "Oruç Reis" "Kılıç Ali Paşa"
+		"Piyale Paşa" "Seydi Ali Reis" "Murat Reis" "Burak Reis" "Salih Reis" "Uluç Ali Reis"
+		"Kemal Reis" "Aydın Reis" "Karamürsel Bey" "Gazi Umur Bey" "Cezayirli Gazi Hasan Paşa"
+		"Koca Murat Reis" "Mezomorto Hüseyin Paşa" "Patrona Halil" "Bozcaadalı Hasan Paşa"
+		"Kalyonlar Kaptanı Mustafa Paşa" "Rauf Orbay" "Hüseyin Rauf" "Fahri Engin" "Şükür Okan"
+		"Kurdoğlu Muslihiddin Reis" "Hasan Reis" "Sinan Reis" "Cafer Reis" "Memi Reis"
+		"Ali Maçiko Reis" "Koca Hüsrev Mehmed Paşa" "Damad Halil Paşa" "Müezzinzade Ali Paşa"
+		"Kalyoncu Ali Reis"
 	}
 }
 
@@ -230,11 +289,12 @@ TUR_CITIES = {
 	unique = {
 		# Historic metropolises, provincial capitals & maritime ports
 		"İstanbul" "İzmir" "Ankara" "Bursa" "Adana" "Antalya" "Trabzon" "Samsun"
-		"Mersin" "Gaziantep" "Diyarbakır" "Konya" "Eskişehir" "Kayseri" "Edirne"
-		"Çanakkale" "Sinop" "İskenderun" "Tekirdağ" "Zonguldak" "Balıkesir" "Kocaeli"
-		"Manisa" "Muğla" "Aydın" "Denizli" "Afyonkarahisar" "Kütahya" "Uşak"
-		"Isparta" "Burdur" "Giresun" "Ordu" "Rize" "Artvin" "Kars" "Erzurum"
-		"Sivas" "Malatya" "Elazığ" "Van" "Mardin" "Urfa" "Maraş" "Kilis"
+		"Mersin" "Gaziantep" "Diyarbakır" "Konya" "Eskişehir" "Kayseri" "Edirne" "Çanakkale"
+		"Sinop" "İskenderun" "Tekirdağ" "Zonguldak" "Balıkesir" "Kocaeli" "Manisa" "Muğla"
+		"Aydın" "Denizli" "Afyonkarahisar" "Kütahya" "Uşak" "Isparta" "Burdur" "Giresun"
+		"Ordu" "Rize" "Artvin" "Kars" "Erzurum" "Sivas" "Malatya" "Elazığ"
+		"Van" "Mardin" "Urfa" "Maraş" "Kilis" "Yalova" "Bilecik" "Çankırı"
+		"Çorum" "Amasya" "Tokat" "Kırklareli" "Kastamonu"
 	}
 }
 
@@ -251,12 +311,12 @@ TUR_PROVINCES = {
 
 	unique = {
 		# Broad historical & geographical regions
-		"Anadolu" "Rumeli" "Trakya" "Ege" "Akdeniz" "Karadeniz" "Marmara"
-		"Kapadokya" "Kilikya" "Pamfilya" "Likya" "Karya" "İyonya" "Bitinya" "Frigya"
+		"Anadolu" "Rumeli" "Trakya" "Ege" "Akdeniz" "Karadeniz" "Marmara" "Kapadokya"
+		"Kilikya" "Pamfilya" "Likya" "Karya" "İyonya" "Bitinya" "Frigya"
 		# Historic Ottoman Vilayets, Sanjaks & Anatolian Beylik realms
-		"Hüdavendigâr" "Aydın" "Saruhan" "Karesi" "Menteşe" "Kastamonu" "Sivas"
-		"Erzurum" "Diyarbekir" "Trabzon" "Adana" "Halep" "Musul" "Bağdat" "Basra"
-		"Canik" "Bozok" "Teke" "Hamid" "Germiyan" "Karamanoğlu" "Dulkadir"
+		"Hüdavendigâr" "Aydın" "Saruhan" "Karesi" "Menteşe" "Kastamonu" "Sivas" "Erzurum"
+		"Diyarbekir" "Trabzon" "Adana" "Halep" "Musul" "Bağdat" "Basra" "Canik"
+		"Bozok" "Teke" "Hamid" "Germiyan" "Karamanoğlu" "Dulkadir" "Candaroğlu"
 	}
 }
 
@@ -273,10 +333,11 @@ TUR_RIVERS = {
 
 	unique = {
 		# Major Anatolian, Mesopotamian & Thracian rivers and waterways
-		"Fırat" "Dicle" "Kızılırmak" "Yeşilırmak" "Sakarya" "Seyhan" "Ceyhan"
-		"Gediz" "Büyük Menderes" "Küçük Menderes" "Meriç" "Aras" "Çoruh" "Asi"
-		"Göksu" "Susurluk" "Tunca" "Ergene" "Bakırçay" "Dalaman" "Köprüçay"
-		"Manavgat" "Aksu" "Karasu" "Murat" "Zap" "Kelkit" "Çarşamba"
+		"Fırat" "Dicle" "Kızılırmak" "Yeşilırmak" "Sakarya" "Seyhan" "Ceyhan" "Gediz"
+		"Büyük Menderes" "Küçük Menderes" "Meriç" "Aras" "Çoruh" "Asi" "Göksu" "Susurluk"
+		"Tunca" "Ergene" "Bakırçay" "Dalaman" "Köprüçay" "Manavgat" "Aksu" "Karasu"
+		"Murat" "Zap" "Kelkit" "Çarşamba" "Botan" "Munzur" "Pülümür" "Harşit"
+		"Melet" "Terme" "Batlama" "Göksun"
 	}
 }
 
@@ -293,10 +354,11 @@ TUR_MOUNTAINS = {
 
 	unique = {
 		# Major Anatolian mountain ranges, volcanic peaks & historic battle hills
-		"Ağrı" "Erciyes" "Süphan" "Kaçkar" "Toros" "Uludağ" "Palandöken"
-		"Hasan Dağı" "Ilgaz" "Cilo" "Munzur" "Yıldız" "Murat Dağı" "Nemrut"
-		"Kocatepe" "Adatepe" "Tınaztepe" "Metristepe" "Duatepe" "Çaltepe"
-		"Kandıra" "Kaz Dağı" "Madra" "Spil" "Babadağ" "Beydağları"
+		"Ağrı" "Erciyes" "Süphan" "Kaçkar" "Toros" "Uludağ" "Palandöken" "Hasan Dağı"
+		"Ilgaz" "Cilo" "Munzur" "Yıldız" "Murat Dağı" "Nemrut" "Kocatepe" "Adatepe"
+		"Tınaztepe" "Metristepe" "Duatepe" "Çaltepe" "Kandıra" "Kaz Dağı" "Madra" "Spil"
+		"Babadağ" "Beydağları" "Tendürek" "Aladağlar" "Bolkar" "Istranca" "Küre" "Yalnızçam"
+		"Bingöl" "Kızıldağ" "Honaz" "Tahtalı"
 	}
 }
 
@@ -313,10 +375,11 @@ TUR_BATTLES = {
 
 	unique = {
 		# Famous naval and land battles across Turkish and Ottoman history
-		"Preveze" "Cerbe" "Çanakkale" "Dumlupınar" "Sakarya" "İnönü"
-		"Malazgirt" "Mohaç" "Niğbolu" "Varna" "Kosova" "Ridaniye" "Mercidabık"
-		"Çaldıran" "Otlukbeli" "Sırpsındığı" "Dandanaqan" "Pasinler" "Kutülamare"
-		"Büyük Taarruz" "Anafartalar" "Conkbayırı" "Arıburnu" "Seddülbahir"
+		"Preveze" "Cerbe" "Çanakkale" "Dumlupınar" "Sakarya" "İnönü" "Malazgirt" "Mohaç"
+		"Niğbolu" "Varna" "Kosova" "Ridaniye" "Mercidabık" "Çaldıran" "Otlukbeli" "Sırpsındığı"
+		"Dandanaqan" "Pasinler" "Kutülamare" "Büyük Taarruz" "Anafartalar" "Conkbayırı" "Arıburnu"
+		"Seddülbahir" "Miryokefalon" "Bafeus" "Koyunhisar" "Pelekanon" "Çimpe" "Maritsa" "Şıpka"
+		"Plevne" "Hıttin" "Yassıçemen" "Karakilise" "Turnadağ"
 	}
 }
 
@@ -334,8 +397,11 @@ TUR_BIRDS = {
 	unique = {
 		# Raptors, falcons, eagles & sky hunters of Anatolia
 		"Kartal" "Şahin" "Doğan" "Atmaca" "Gökdoğan" "Bozdoğan" "Sungur" "Çakır"
-		"Kerkenez" "Akbaba" "Kuzgun" "Tuğrul" "Balıkkartalı" "Kızılşahin" "Tavşancıl"
-		"Şah Kartal" "Kaya Kartalı" "Yılan Kartalı" "Bozkır Kartalı" "Turna" "Kuğu"
+		"Kerkenez" "Akbaba" "Kuzgun" "Tuğrul" "Balıkkartalı" "Kızılşahin" "Tavşancıl" "Şah Kartal"
+		"Kaya Kartalı" "Yılan Kartalı" "Bozkır Kartalı" "Turna" "Kuğu" "Delice Doğan" "Akdoğan"
+		"Delice" "Yoz Atmaca" "Bıyıklı Doğan" "Küçük Kerkenez" "Ada Doğanı" "Kızıl Çaylak"
+		"Kara Çaylak" "Sakallı Akbaba" "Kızıl Akbaba" "Kara Akbaba" "Gökçe Doğan" "Aladoğan" "Hüma"
+		"Anka"
 	}
 }
 
@@ -353,8 +419,10 @@ TUR_FISH = {
 	unique = {
 		# Marine life and fish of the Black, Marmara, Aegean and Mediterranean seas
 		"Yunus" "Kılıç" "Levrek" "Orfoz" "Lüfer" "Palamut" "Kefal" "Kalkan"
-		"Mersin" "Torik" "Zargana" "Çipura" "Barbun" "Uskumru" "Alabalık"
-		"Vatoz" "Kolyoz" "Sardalya" "Hamsi" "Mercan" "Sinarit" "Lagos" "Trança"
+		"Mersin" "Torik" "Zargana" "Çipura" "Barbun" "Uskumru" "Alabalık" "Vatoz"
+		"Kolyoz" "Sardalya" "Hamsi" "Mercan" "Sinarit" "Lagos" "Trança" "Köpekbalığı"
+		"Kılıçbalığı" "Mezgit" "Müren" "Ahtapot" "Mürekkepbalığı" "Denizatı" "Balina" "Kaşalot"
+		"Katil Balina" "Çekiçbalığı" "Keler" "Mersinbalığı" "İstavrit" "İskorpit"
 	}
 }
 
@@ -372,8 +440,10 @@ TUR_BEASTS = {
 	unique = {
 		# Native predators, wolves, big cats & terrestrial wildlife
 		"Bozkurt" "Kurt" "Aslan" "Kaplan" "Pars" "Sırtlan" "Ayı" "Vaşak"
-		"Panter" "Çakal" "Tilki" "Anadolu Parsı" "Yaban Domuzu" "Karaca"
-		"Dağ Keçisi" "Alageyik" "Karakulak" "Porsuk" "Samur"
+		"Panter" "Çakal" "Tilki" "Anadolu Parsı" "Yaban Domuzu" "Karaca" "Dağ Keçisi" "Alageyik"
+		"Karakulak" "Porsuk" "Samur" "Yaban Kedisi" "Kızıl Geyik" "Ceylan" "Susamuru" "Karasamur"
+		"Yaban Koyunu" "Geyik" "Karakurt" "Gökbörü" "Alpago" "Bozayı" "Kaya Sansarı" "Ağaç Sansarı"
+		"Gelincik" "Kır Kurdu" "Kızıl Tilki"
 	}
 }
 
@@ -390,9 +460,10 @@ TUR_VIRTUES = {
 
 	unique = {
 		# Republican values, naval qualities & martial virtues
-		"İstiklal" "Hürriyet" "Cumhuriyet" "Vatan" "Millet" "Zafer" "Gayret"
-		"Cesaret" "Muavenet" "Sadakat" "Metanet" "Kahramanlık" "Şeref" "Namus"
-		"Azim" "Fedakarlık" "Hakimiyet" "Adalet" "Birlik" "Fazilet" "Gürbüz"
-		"Yılmaz" "Yalçın" "Atılgan" "Cengaver"
+		"İstiklal" "Hürriyet" "Cumhuriyet" "Vatan" "Millet" "Zafer" "Gayret" "Cesaret"
+		"Muavenet" "Sadakat" "Metanet" "Kahramanlık" "Şeref" "Namus" "Azim" "Fedakarlık"
+		"Hakimiyet" "Adalet" "Birlik" "Fazilet" "Gürbüz" "Yılmaz" "Yalçın" "Atılgan"
+		"Cengaver" "Yiğitlik" "Mertlik" "Cüret" "Kudret" "Şan" "Gurur" "Hamiyet"
+		"Basiret" "Feraset" "Sebat" "Dirayet"
 	}
 }

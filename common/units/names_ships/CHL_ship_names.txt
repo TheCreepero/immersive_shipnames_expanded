@@ -39,10 +39,21 @@ CHL_DD_HISTORICAL = {
 		"Vedette" "Lauca" "Rauco" "Glaura" "Guale" "Meli" "Lincoyán" "Colocolo" "Fresia"
 		"Quidora" "Tegualda" "Janequeo" "Tucapel" "Elicura" "Orompello" "Catrileo" "Millarapue"
 		"Papudo" "Yelcho" "Huáscar" "Magallanes" "Pilcomayo" "Toro" "Angamos"
+		# Historic Torpedo Craft, Patrol Ships & Naval Auxiliaries
+		"Mutilla" "Rodríguez" "Teniente Rodríguez" "Ingeniero Mery" "Alférez Ortiz" "Alférez Díaz"
+		"Ingeniero Hyatt" "Cirujano Videla" "Guardiamarina Riquelme" "Teniente Serrano" "Capitán Orella"
+		"Sargento Aldea" "Rucumilla" "Señoret" "Micalvi" "Piloto Pardo" "Águila" "Araucano"
+		"Lautaro" "Galvarino" "Cachapoal" "Maule" "Toltén" "Ancud" "Loa" "Itata"
+		# Heroes of Chilean Military History & Pacific Campaign Officers
+		"Eleuterio Ramírez" "Carrera Pinto" "Cruz Martínez" "Pérez Canto" "Montt Salamanca"
+		"Pedro Lagos" "Sotomayor" "Vergara" "Amengual" "Baquedano"
 		# Martial Descriptors, Weather, Lightning & Naval Virtues
 		"Audaz" "Intrépido" "Valiente" "Bravo" "Veloz" "Furia" "Relámpago" "Rayo"
 		"Tormenta" "Vendaval" "Tenaz" "Vigilante" "Centinela" "Alerta" "Temerario"
 		"Meteoro" "Ráfaga" "Centella" "Huracán" "Vencedor" "Invencible" "Defensa"
+		"Atrevido" "Bizarro" "Osado" "Firme" "Constante" "Implacable" "Ciclón"
+		"Tifón" "Ventarrón" "Borrasca" "Torbellino" "Trueno" "Leal" "Indomable"
+		"Vanguardia" "Defensor"
 	}
 }
 
@@ -69,10 +80,16 @@ CHL_SS_HISTORICAL = {
 		"Janequeo" "Glaura" "Colocolo" "Galvarino" "Caupolicán" "Lautaro" "Pelantaro"
 		"Lincoyán" "Tucapel" "Elicura" "Orompello" "Catrileo" "Millarapue" "Anganamón"
 		"Butapichón" "Ainavillo" "Turcupichun" "Michimalonco"
+		# Southern Sea Spirits & Chilote Oceanic Mythology
+		"Cai Cai Vilu" "Tren Tren Vilu" "Millalobo" "Pincoya" "Caleuche" "Cuero"
+		"Camahueto" "Huenchula" "Pincoy" "Sirena Chilota"
 		# Marine Predators of the Humboldt Current & Deep Oceanic Fauna
 		"Tiburón" "Orca" "Cachalote" "Delfín" "Ballena Azul" "Pez Espada" "Manta"
 		"Lobo Marino" "Barracuda" "Morena" "Raya" "Corvina" "Congrio" "Jurel"
-		"Centolla" "Calamar" "Ballena" "Tintorera" "Marrajo"
+		"Centolla" "Calamar" "Ballena" "Tintorera" "Marrajo" "Tollo" "Pejezorro"
+		"Pejegallo" "Sierra" "Merluza" "Pulpo" "Calamar Gigante" "Foca" "Pingüino"
+		"Albatros" "Petrel" "Jaiba" "Loco" "Erizo" "Macha" "Cholga" "Atún"
+		"Albacora" "Lenguado" "Cazón" "Angelote" "Pez Martillo"
 	}
 }
 
@@ -86,18 +103,25 @@ CHL_CL_HISTORICAL = {
 	ship_types = { ship_hull_cruiser light_cruiser }
 
 	prefix = "BACH "
-	fallback_name = "Crucero Ligero %d"
+	fallback_name = "Crucero ligero %d"
 
 	unique = {
 		# Historic Chilean Protected Cruisers & Flagships
 		"Chacabuco" "Blanco Encalada" "Ministro Zenteno" "Presidente Errázuriz" "Presidente Pinto"
 		"Esmeralda" "O'Higgins"
+		# Historic Training Cruisers & Naval Envoys
+		"General Baquedano" "Baquedano" "Ministro Portales"
 		# Major Coastal Ports, Commercial Centers & Maritime Naval Bases
 		"Valparaíso" "Concepción" "Antofagasta" "Iquique" "Arica" "Coquimbo" "La Serena"
 		"Valdivia" "Talcahuano" "Punta Arenas" "Puerto Montt" "Osorno" "Chillán" "Rancagua"
 		"Talca" "Calama" "Copiapó" "Ancud" "Castro" "Viña del Mar" "San Antonio"
 		"Mejillones" "Tocopilla" "Chañaral" "Constitución" "Lebu" "Corral" "Caldera"
 		"Puerto Natales" "Puerto Williams" "Huasco" "Lota" "Tomé" "Coronel" "Quintero"
+		# Coastal Harbours, Maritime Towns & Pacific Anchorages
+		"Taltal" "Pichilemu" "Papudo" "Zapallar" "Algarrobo" "Quellón" "Chaitén"
+		"Puerto Aysén" "Puerto Chacabuco" "Calbuco" "Penco" "Los Vilos" "Pichidangui"
+		"Bahía Inglesa" "Pisagua" "Caleta Tortel" "Puerto Edén" "Porvenir" "San Vicente"
+		"Lirquén" "Melinka" "Achao" "Dalcahue" "Curaco de Vélez" "Maullín"
 	}
 }
 
@@ -111,7 +135,7 @@ CHL_CA_HISTORICAL = {
 	ship_types = { ship_hull_cruiser heavy_cruiser }
 
 	prefix = "BACH "
-	fallback_name = "Crucero Pesado %d"
+	fallback_name = "Crucero pesado %d"
 
 	unique = {
 		# Historic Armored Cruisers & Armored Flagships
@@ -121,6 +145,10 @@ CHL_CA_HISTORICAL = {
 		"Ramón Freire" "Manuel Bulnes" "José de San Martín" "Lord Cochrane"
 		"Manuel Blanco Encalada" "Camilo Henríquez" "Pedro de Valdivia" "José Antonio Manso de Velasco"
 		"Juan Martínez de Rozas" "Ignacio Carrera Pinto" "José Manuel Balmaceda"
+		# Supreme Commanders, Generals & Architects of the Republic
+		"Almirante Latorre" "Manuel Baquedano" "Patricio Lynch" "Carlos Condell" "Arturo Prat"
+		"Almirante Riveros" "Almirante Simpson" "Almirante Williams" "Almirante Montt" "Almirante Viel"
+		"Mariano Egaña" "Andrés Bello" "Aníbal Pinto" "Federico Errázuriz"
 		# Legendary Araucanian Tokis & Epic War Leaders
 		"Lautaro" "Caupolicán" "Colocolo" "Pelantaro" "Galvarino" "Michimalonco"
 		"Anganamón" "Butapichón" "Ainavillo" "Turcupichun" "Janequeo"
@@ -147,9 +175,13 @@ CHL_BB_HISTORICAL = {
 		"Bernardo O'Higgins" "José Miguel Carrera" "Diego Portales" "Manuel Bulnes"
 		"Manuel Blanco Encalada" "Ramón Freire" "Arturo Prat" "Lord Cochrane"
 		"José de San Martín" "Camilo Henríquez" "José Manuel Balmaceda" "Pedro Montt"
+		# Supreme Commanders & Historic Statesmen
+		"Manuel Baquedano" "Patricio Lynch" "Carlos Condell" "Almirante Riveros" "Manuel Rodríguez"
+		"Pedro de Valdivia" "Manuel Montt" "Federico Errázuriz" "Aníbal Pinto" "Mariano Egaña" "Andrés Bello"
 		# Sovereign Milestones, Constitutional Principles & Republic Virtues
 		"República de Chile" "Soberanía" "Independencia" "Igualdad" "Patria"
-		"Fraternidad" "Estado de Chile" "Unión Nacional"
+		"Fraternidad" "Estado de Chile" "Unión Nacional" "Justicia" "Razón y Fuerza"
+		"Libertad y Orden" "Honor y Gloria" "Victoria"
 	}
 }
 
@@ -163,7 +195,7 @@ CHL_BC_HISTORICAL = {
 	ship_types = { ship_hull_heavy battle_cruiser }
 
 	prefix = "BACH "
-	fallback_name = "Crucero de Batalla %d"
+	fallback_name = "Crucero de batalla %d"
 
 	unique = {
 		# Decisive Naval Engagements & Landmark Battle Honours of Chilean History
@@ -171,6 +203,10 @@ CHL_BC_HISTORICAL = {
 		"Casma" "Yungay" "Pisagua" "Chorrillos" "Miraflores" "Huamachuco" "Rancagua"
 		"San Carlos" "Yerbas Buenas" "El Roble" "Cancha Rayada" "Curapaligüe" "Bellavista"
 		"Penco" "Talcahuano" "Valdivia" "Callao" "Arica" "Dolores" "Tarapacá"
+		# Landmark Engagements of the Pacific, Confederation & Independence Campaigns
+		"Tacna" "Campo de la Alianza" "Topáter" "San Juan" "San Francisco" "La Concepción"
+		"Portada de Guías" "Buin" "Quechereguas" "El Membrillar" "Tres Acequias" "Caldera"
+		"Concón" "Placilla"
 	}
 }
 
@@ -189,12 +225,16 @@ CHL_CV_HISTORICAL = {
 	unique = {
 		# Andean Raptors, Avians of Prey & Coastal Sea Birds
 		"Cóndor" "Águila" "Halcón" "Aguilucho" "Carancho" "Gavilán" "Albatros"
-		"Petrel" "Tagua" "Pelícano" "Cormorán" "Piquero" "Fardela" "Gaviota"
+		"Petrel" "Tagua" "Pelícano" "Cormorán" "Piquero" "Fardela" "Gaviota" "Cernícalo"
 		# Andean Peaks, Sky Frontiers & National Symbols
 		"Los Andes" "Aconcagua" "Ojos del Salado" "Antártica Chilena" "Estrella Solitaria"
 		"Pacífico" "Aurora" "Meteoro" "Invencible" "Araucanía"
+		"Tupungato" "Llullaillaco" "Villarrica" "Cerro San Valentín" "Torres del Paine" "Monte Darwin"
+		# Southern Waterways & Maritime Territories
+		"Estrecho de Magallanes" "Canal Beagle" "Cabo de Hornos" "Mar de Chile" "Tierra del Fuego"
 		# Pioneers of Chilean Aviation & Aerial Exploration
 		"Arturo Merino Benítez" "Dagoberto Godoy" "Teniente Bello" "Armando Cortinez"
+		"Manuel Ávalos" "David Fuentes" "Clodomiro Figueroa"
 	}
 }
 
@@ -215,6 +255,10 @@ CHL_CITIES = {
 		"Talca" "Calama" "Osorno" "Copiapó" "Aysén" "Castro" "Ancud" "Viña del Mar"
 		"San Antonio" "Mejillones" "Tocopilla" "Chañaral" "Huasco" "Caldera" "Constitución"
 		"Lebu" "Corral" "Puerto Natales" "Puerto Williams" "Lota" "Tomé" "Coronel" "Quintero"
+		"Taltal" "Pichilemu" "Zapallar" "Papudo" "Algarrobo" "Quellón" "Chaitén"
+		"Puerto Chacabuco" "Calbuco" "Penco" "Los Vilos" "Porvenir" "San Felipe"
+		"Los Andes" "Quillota" "Melipilla" "San Fernando" "Curicó" "Linares" "Angol"
+		"Villarrica" "Pucón"
 	}
 }
 
@@ -234,6 +278,10 @@ CHL_PROVINCES = {
 		"Santiago" "O'Higgins" "Colchagua" "Curicó" "Talca" "Maule" "Linares"
 		"Ñuble" "Concepción" "Arauco" "Bío Bío" "Malleco" "Cautín" "Valdivia"
 		"Osorno" "Llanquihue" "Chiloé" "Aysén" "Magallanes"
+		"Elqui" "Limarí" "Choapa" "Petorca" "Quillota" "San Antonio" "San Felipe"
+		"Los Andes" "Chacabuco" "Melipilla" "Talagante" "Maipo" "Cordillera"
+		"Cardenal Caro" "Cauquenes" "Diguillín" "Punilla" "Itata" "Ranco" "Palena"
+		"General Carrera" "Capitán Prat" "Última Esperanza" "Tierra del Fuego" "Antártica Chilena"
 	}
 }
 
@@ -254,6 +302,9 @@ CHL_HEROES = {
 		"Simpson" "Montt" "Cochrane" "Blanco Encalada" "O'Higgins" "Carrera" "Rodríguez"
 		"Freire" "Portales" "Bulnes" "San Martín" "Henríquez" "Balmaceda" "Rozas"
 		"Viel" "Goñi" "Gómez Carreño" "Muñoz Gamero" "Contreras" "Gana" "Castillo"
+		"Baquedano" "Lagos" "Ramírez" "Carrera Pinto" "Cruz Martínez" "Pérez Canto"
+		"Montt Salamanca" "Vergara" "Amengual" "Escala" "Velásquez" "Piloto Pardo"
+		"Bello" "Egaña" "Lastarria" "Lillo" "Manso de Velasco" "Valdivia" "Ercilla"
 	}
 }
 
@@ -273,6 +324,9 @@ CHL_MAPUCHE = {
 		"Guacolda" "Tegualda" "Fresia" "Quidora" "Lincoyán" "Tucapel" "Elicura"
 		"Orompello" "Catrileo" "Millarapue" "Anganamón" "Butapichón" "Ainavillo"
 		"Turcupichun" "Michimalonco" "Glaura" "Guale" "Meli"
+		"Antiguenu" "Calcurián" "Huenecura" "Lemu-Lemu" "Mariguenu" "Antifil"
+		"Colipí" "Pailacar" "Guanacache" "Rengo" "Nahuel" "Pangui" "Huilliche"
+		"Pehuenche" "Pikunche"
 	}
 }
 
@@ -292,6 +346,9 @@ CHL_BATTLES = {
 		"Casma" "Yungay" "Pisagua" "Chorrillos" "Miraflores" "Huamachuco" "Rancagua"
 		"San Carlos" "Yerbas Buenas" "El Roble" "Cancha Rayada" "Curapaligüe" "Bellavista"
 		"Penco" "Talcahuano" "Valdivia" "Callao" "Arica" "Dolores" "Tarapacá"
+		"Tacna" "Campo de la Alianza" "Topáter" "San Juan" "San Francisco" "La Concepción"
+		"Portada de Guías" "Buin" "Quechereguas" "El Membrillar" "Tres Acequias" "Caldera"
+		"Concón" "Placilla" "Tucapel" "Curalaba"
 	}
 }
 
@@ -312,6 +369,10 @@ CHL_WATERWAYS = {
 		"Mataquito" "Imperial" "Cautín" "Palena" "Yelcho" "Magallanes" "Beagle"
 		"Drake" "Cabo de Hornos" "Chiloé" "Juan Fernández" "Rapa Nui" "Chacao"
 		"Moraleda" "Reloncaví" "Messier"
+		"Golfo de Penas" "Golfo de Ancud" "Golfo Corcovado" "Seno Skyring" "Seno Otway"
+		"Canal Fallos" "Canal Darwin" "Lago Llanquihue" "Lago Villarrica" "Lago Todos los Santos"
+		"Lago Ranco" "Lago General Carrera" "Serrano" "Cisnes" "Puelo" "Puyuhuapi"
+		"Comau" "Reñihué" "Petrohué"
 	}
 }
 
@@ -331,5 +392,9 @@ CHL_FAUNA = {
 		"Zorro Culpeo" "Tiburón" "Orca" "Cachalote" "Delfín" "Ballena Azul" "Lobo Marino"
 		"Albatros" "Petrel" "Pingüino" "Pez Espada" "Raya" "Corvina" "Congrio"
 		"Jurel" "Centolla" "Calamar" "Gavilán" "Carancho" "Pelícano" "Chinchilla"
+		"Sierra" "Tollo" "Pejegallo" "Pejezorro" "Loco" "Macha" "Cholga" "Erizo"
+		"Jaiba" "Atún" "Albacora" "Lenguado" "Foca" "Chungungo" "Vizcacha" "Cernícalo"
+		"Nuco" "Tucúquere" "Bandurria" "Flamenco" "Aguilucho" "Tagua" "Cormorán"
+		"Piquero" "Fardela"
 	}
 }

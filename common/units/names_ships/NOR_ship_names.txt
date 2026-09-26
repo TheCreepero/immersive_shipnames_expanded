@@ -20,14 +20,29 @@ NOR_DD_HISTORICAL = {
 		# British S-class, Hunt-class & Town-class destroyers/escorts operated in WWII
 		"Stord" "Svenner" "Arendal" "Haugesund" "Tromsø" "Glaisdale" "Eskdale"
 		"Lincoln" "St. Albans" "Mansfield" "Bath" "Newport"
-		# Historic torpedo boats & patrol gunboats - Marine predators & swift creatures
-		"Hval" "Delfin" "Hai" "Sæl" "Kjell" "Lax" "Sild" "Skrei"
-		# Storms, elemental forces & sparks
-		"Storm" "Brand" "Trold" "Gnist" "Blink" "Lyn" "Snøgg" "Kvikk" "Pil"
-		# Birds of prey & coastal hunters
-		"Grib" "Jo" "Lom" "Skarv" "Teist" "Ørn" "Falk" "Ravn" "Hauk"
+		# WWII Corvettes & Fishery Protection / Escort vessels
+		"Nordkapp" "Senja" "Andenes" "Heimdal" "Montbretia" "Eglantine" "Acanthus"
+		"Rose" "Potentilla" "Buttercup" "Tunsberg Castle"
+		# Historic torpedo boats (1st & 2nd class) - Marine predators & swift creatures
+		"Hval" "Delfin" "Hai" "Sæl" "Kjell" "Lax" "Sild" "Skrei" "Stegg" "Trygg"
+		"Knurr" "Lyr" "Skate" "Gjedde"
+		# Historic torpedo boats (2nd & 3rd class) & Fast Patrol craft - Storms, elemental forces & sparks
+		"Storm" "Brand" "Trold" "Gnist" "Blink" "Lyn" "Snøgg" "Kvikk" "Pil" "Glimt"
+		"Skjold" "Skudd" "Steil" "Traust" "Arg" "Tross" "Flamme" "Fønix" "Rakett"
+		# Coastal hunters & avians (Tjeld & Hauk classes)
+		"Grib" "Jo" "Lom" "Skarv" "Teist" "Ørn" "Falk" "Ravn" "Hauk" "Tjeld"
+		"Terne" "Erle" "Geir" "Lunde" "Alke" "Sule" "Havsvale" "Havhest"
 		# Martial virtues & swift attributes
 		"Snar" "Rask" "Djerv" "Dristig" "Hvass" "Tapper" "Vaktsom" "Modig"
+		"Uredd" "Uforferdet" "Hardfør" "Trofast" "Seirende" "Vakt" "Vern"
+		# Norse martial deities & mythic guardians
+		"Vidar" "Vale" "Uller" "Tyr" "Brage" "Forseti" "Hermod" "Magne" "Mode"
+		"Heimdall" "Fenris"
+		# Historical gunboats & patrol vessels
+		"Sarpen" "Lougen" "Alsen" "Nidelven" "Glommen" "Nor"
+		# Oceanic forces & tempests
+		"Brim" "Båre" "Brott" "Drønn" "Rokk" "Kuling" "Orkan" "Virvelvind"
+		"Frostrøyk" "Dønning" "Svell" "Bølge"
 	}
 }
 
@@ -41,7 +56,7 @@ NOR_SS_HISTORICAL = {
 	ship_types = { ship_hull_submarine submarine ship_hull_midget_submarine }
 
 	prefix = "HNoMS "
-	fallback_name = "Ubåt %d"
+	fallback_name = "Undervannsbåt %d"
 
 	unique = {
 		# Kobben / A-class historical submarines (1909-1914)
@@ -50,12 +65,20 @@ NOR_SS_HISTORICAL = {
 		"B-1" "B-2" "B-3" "B-4" "B-5" "B-6"
 		# U-class & V-class submarines (Free Norwegian Navy in WWII)
 		"Uredd" "Ula" "Utstein" "Uthaug" "Utvær" "Utsira" "Viking" "Varang" "Votna"
-		# Post-war Type 207 coastal submarines (islets, reefs & lighthouses)
+		# Post-war Type 207 & Type 210 coastal submarines (islets, reefs & lighthouses)
 		"Kya" "Kaura" "Kinn" "Kunna" "Sklinna" "Skolpen" "Stadt"
+		"Skrova" "Sula" "Røst" "Værøy" "Grip" "Fedje" "Kvitsøy"
 		# Pelagic sharks & marine predators
 		"Håbrann" "Pigghå" "Brugde" "Havmus" "Rødhai" "Sverdfisk" "Spekkhogger" "Nise" "Bleksprut"
+		"Håkjerring" "Blåhai" "Kloskate" "Piggskate"
+		# Whales & Pinnipeds
+		"Knølhval" "Blåhval" "Finnhval" "Kaskelott" "Nebbhval" "Grindhval"
+		"Hvithval" "Narhval" "Seihval" "Vågehval" "Hvalross"
 		# Nordic marine fish
 		"Kveite" "Torsk" "Laks" "Sei" "Lange" "Brosme" "Steinbit" "Makrell" "Skrei" "Breiflabb"
+		"Havål" "Horngjel" "Rødspette" "Hyse" "Uer" "Rognkjeks"
+		# Mythic abyssal entities & Norse sea legends
+		"Kraken" "Ran" "Marmæle" "Nøkk" "Havmann" "Havfrue"
 	}
 }
 
@@ -78,8 +101,15 @@ NOR_CL_HISTORICAL = {
 		"Fredrikstad" "Tønsberg" "Harstad" "Hammerfest" "Vardø" "Vadsø"
 		"Steinkjer" "Namsos" "Florø" "Egersund" "Mandal" "Farsund" "Flekkefjord"
 		"Grimstad" "Risør" "Kragerø" "Brevik" "Skien" "Holmestrand" "Drøbak"
+		# Additional historical ports, fjord towns & northern trading centers
+		"Haugesund" "Kristiansund" "Narvik" "Levanger" "Brønnøysund" "Mo i Rana"
+		"Sandnessjøen" "Mosjøen" "Svolvær" "Sortland" "Alta" "Kirkenes" "Honningvåg"
+		"Måløy" "Førde" "Leirvik" "Kopervik" "Skudeneshavn" "Lillesand" "Stathelle"
+		"Langesund" "Svelvik" "Sarpsborg" "Gjøvik" "Lillehammer" "Hønefoss" "Elverum"
+		"Kongsvinger" "Røros"
 		# Historical frigates, corvettes & naval legends
 		"Freia" "Desideria" "Nornen" "Ellida" "Nordstjernen" "St. Olaf" "Albatross"
+		"Kong Sverre" "Sverre" "St. Thomas" "Nidaros" "Ørnen" "Najaden" "Gefion"
 	}
 }
 
@@ -96,17 +126,22 @@ NOR_CA_HISTORICAL = {
 	fallback_name = "Tung krysser %d"
 
 	unique = {
-		# Historic Coastal Defence Battleships (Panserskip)
-		"Norge" "Eidsvold" "Tordenskjold" "Harald Haarfagre"
-		# Nidaros class (British requisitioned HMS Glatton & HMS Gorgon)
-		"Nidaros" "Bjørgvin"
+		# Historic Coastal Defence Battleships (Panserskip) & planned units
+		"Norge" "Eidsvold" "Tordenskjold" "Harald Haarfagre" "Nidaros" "Bjørgvin"
 		# Historical monitors & heavy gunboats
 		"Skorpionen" "Mjølner" "Thrudvang" "Thor" "Brage" "Frithjof"
 		"Heimdall" "Vidar" "Uller" "Vale" "Gor"
+		# Naval monarchs & Leidang chieftains
+		"Haakon Jarl" "Olav Tryggvason" "Erling Skjalgsson" "Einar Tambarskjelve"
+		"Håkon den Gode" "Magnus Barfot" "Sigurd Jorsalfare" "Øystein Magnusson"
+		"Sverre Sigurdsson" "Harald Hardråde" "Ragnar Lodbrok"
 		# Renowned naval commanders & admirals
 		"Peter Wessel" "Tordenskiold" "Ivar Huitfeldt" "Cort Adeler"
+		"Birger Eriksen" "Henrik Gerner" "Jens Munk"
 		# Legendary polar explorers & maritime icons
 		"Roald Amundsen" "Fridtjof Nansen" "Otto Sverdrup" "C.A. Larsen" "Carsten Borchgrevink"
+		# Historic coastal fortresses guarding the realm
+		"Oscarsborg" "Bergenhus" "Akershus" "Fredriksten" "Vardøhus"
 	}
 }
 
@@ -123,16 +158,20 @@ NOR_BB_HISTORICAL = {
 	fallback_name = "Slagskip %d"
 
 	unique = {
-		# Sovereign symbol & modern royalty
-		"Norge" "Haakon VII" "Dronning Maud" "Kronprins Olav"
+		# Sovereign symbols & modern royalty
+		"Norge" "Haakon VII" "Dronning Maud" "Kronprins Olav" "Kronprinsesse Märtha" "Norvegia"
 		# Historic foundational monarchs & medieval kings
 		"Harald Hårfagre" "Olav Tryggvason" "Olav den Hellige" "Sverre Sigurdsson"
 		"Haakon Haakonsson" "Magnus Lagabøte" "Eirik Blodøks" "Haakon den Gode"
 		"Magnus den Gode" "Sigurd Jorsalfar" "Harald Hardråde" "Magnus Barfot"
+		"Haakon V Magnusson" "Haakon Sverresson" "Dronning Margrete"
 		# Historic regions (Landsdeler) & ancient fylker
 		"Vestlandet" "Østlandet" "Nord-Norge" "Sørlandet" "Trøndelag"
 		"Telemark" "Finnmark" "Nordland" "Troms" "Hordaland" "Rogaland"
 		"Hedmark" "Oppland" "Buskerud" "Vestfold" "Østfold" "Agder" "Møre og Romsdal"
+		# Ancient kingdoms, landscapes & historic realms
+		"Viken" "Hålogaland" "Helgeland" "Sogn" "Fjordane" "Sunnmøre" "Romsdal"
+		"Nordmøre" "Lofoten" "Vesterålen" "Ringerike" "Romerike"
 	}
 }
 
@@ -149,13 +188,16 @@ NOR_BC_HISTORICAL = {
 	fallback_name = "Slagkrysser %d"
 
 	unique = {
-		# Legendary Viking royal longships
+		# Legendary Viking royal longships & flagships
 		"Ormen Lange" "Trana" "Ormen Skamme" "Visund" "Bøkesuden" "Mariasuda" "Korssuda" "Kristsuda"
-		# Mythic Norse artifacts & legendary weapons
+		"Ormen Korte" "Håkonssuda" "Ólavssuda" "Erkesuden" "Reinen" "Skjoldmøya" "Draken"
+		# Mythic Norse artifacts, ships & legendary weapons
 		"Gungnir" "Mjølner" "Gram" "Tyrfing" "Dauðahøgg" "Gjallarhorn"
-		# Famous Norse navigators, chieftains & saga heroes
+		"Skidbladnir" "Skofnung" "Draupnir" "Misteltein" "Brisingamen"
+		# Famous Norse navigators, sea-kings & saga heroes
 		"Leif Eiriksson" "Eirik Raude" "Torstein Knarresmed" "Erling Skjalgsson"
 		"Einar Tambarskjelve" "Thorfinn Karlsefni" "Ottar fra Hålogaland" "Bjørn Farmann"
+		"Gange-Rolv" "Bjørn Jernside" "Harald Grenske"
 	}
 }
 
@@ -176,10 +218,14 @@ NOR_CV_HISTORICAL = {
 		"Asgard" "Valhall" "Midgard" "Utgard" "Gimle" "Bifrost" "Yggdrasil"
 		# Valkyries & choosers of the slain
 		"Valkyrien" "Brynhild" "Gondul" "Hildr" "Skuld" "Sigrdrifa" "Kåra" "Rota"
+		"Gunnr" "Herfjotur" "Radgrid" "Geirskogul" "Hrist" "Mist"
+		# Celestial steeds of the northern skies
+		"Skinfaxi" "Rimfaxi" "Gullfaxi" "Alsvid" "Arvak"
 		# Atmospheric & Arctic celestial phenomena
 		"Nordlys" "Midnattssol" "Morgonstjerna" "Polstjerna" "Boreas" "Stormsvale"
+		"Hildring" "Tordensky" "Aftanstjerna" "Aurora" "Solhverv"
 		# Odin's scouts & noble raptors
-		"Hugin" "Munin" "Havørn" "Kongeørn" "Jaktfalk" "Vandrefalk"
+		"Hugin" "Munin" "Havørn" "Kongeørn" "Jaktfalk" "Vandrefalk" "Stormfugl" "Albatross" "Fiskeørn"
 	}
 }
 
@@ -201,6 +247,8 @@ NOR_CITIES = {
 		"Tønsberg" "Harstad" "Hammerfest" "Vardø" "Vadsø" "Kristiansund" "Steinkjer"
 		"Namsos" "Florø" "Egersund" "Mandal" "Farsund" "Flekkefjord" "Grimstad"
 		"Risør" "Kragerø" "Brevik" "Skien" "Holmestrand" "Drøbak" "Levanger"
+		"Kongsvinger" "Røros" "Alta" "Kirkenes" "Honningvåg" "Sarpsborg" "Gjøvik"
+		"Lillehammer" "Hønefoss" "Elverum" "Måløy" "Førde" "Sortland"
 	}
 }
 
@@ -221,6 +269,8 @@ NOR_PROVINCES = {
 		"Møre og Romsdal" "Sogn og Fjordane" "Hordaland" "Rogaland"
 		"Vest-Agder" "Aust-Agder" "Telemark" "Vestfold" "Buskerud"
 		"Oppland" "Hedmark" "Akershus" "Østfold" "Svalbard" "Jan Mayen"
+		"Helgeland" "Hålogaland" "Lofoten" "Vesterålen" "Sunnmøre" "Romsdal"
+		"Nordmøre" "Valdres" "Hallingdal" "Gudbrandsdalen" "Østerdalen" "Viken"
 	}
 }
 
@@ -240,6 +290,8 @@ NOR_FJORDS = {
 		"Boknafjord" "Lysefjord" "Trondheimsfjord" "Varangerfjord" "Vestfjorden"
 		"Saltstraumen" "Romsdalsfjord" "Porsangerfjorden" "Tanafjorden" "Altafjorden"
 		"Ofotfjorden" "Nordfjord" "Sunnfjord" "Ryfylkefjord" "Foldafjord"
+		"Lyngenfjorden" "Ullsfjorden" "Saltenfjorden" "Namsfjorden" "Storfjorden"
+		"Gloppefjorden" "Sørfjorden" "Fensfjorden" "Åkrafjorden" "Jøsenfjorden"
 	}
 }
 
@@ -262,6 +314,8 @@ NOR_RULERS = {
 		"Sigurd Jorsalfar" "Øystein Magnusson" "Inge Krokrygg" "Sverre Sigurdsson"
 		"Haakon Sverresson" "Inge Bårdsson" "Haakon Haakonsson" "Magnus Lagabøte"
 		"Eirik Prestehater" "Haakon V Magnusson" "Dronning Margrete"
+		"Harald Gille" "Magnus Blinde" "Sigurd Munn" "Magnus Erlingsson"
+		"Håkon Herdebrei" "Ragnar Lodbrok"
 	}
 }
 
@@ -280,12 +334,14 @@ NOR_HEROES = {
 		# Renowned naval commanders & admirals
 		"Peter Wessel Tordenskiold" "Ivar Huitfeldt" "Cort Adeler" "Peder Tordenskjold"
 		"Henrik Gerner" "Hans Birch Dahlerup" "Thomas von Westen" "Christian Radich"
+		"Birger Eriksen" "Jens Munk"
 		# Famous polar explorers & navigators
 		"Roald Amundsen" "Fridtjof Nansen" "Otto Sverdrup" "Carsten Borchgrevink"
 		"Carl Anton Larsen" "Helmer Hanssen" "Oscar Wisting" "Hjalmar Johansen"
 		# Saga chieftains & historic heroes
 		"Leif Eiriksson" "Eirik Raude" "Einar Tambarskjelve" "Erling Skjalgsson"
 		"Torstein Knarresmed" "Thorfinn Karlsefni" "Ottar fra Hålogaland"
+		"Gange-Rolv" "Bjørn Jernside"
 	}
 }
 
@@ -305,6 +361,8 @@ NOR_MYTHOLOGY = {
 		"Idun" "Skadi" "Brage" "Forseti" "Uller" "Vale" "Vidar" "Ægir" "Ran"
 		"Fenris" "Midgårdsormen" "Sleipner" "Yggdrasil" "Valhall" "Bifrost"
 		"Gungnir" "Mjølner" "Gjallarhorn" "Valkyrien" "Brynhild" "Nornene"
+		"Kvasir" "Hermod" "Magne" "Mode" "Skinfaxi" "Rimfaxi" "Gullfaxi"
+		"Draupnir" "Skidbladnir"
 	}
 }
 
@@ -323,6 +381,7 @@ NOR_BIRDS = {
 		"Havørn" "Kongeørn" "Fiskeørn" "Jaktfalk" "Vandrefalk" "Hønsehauk"
 		"Spurvehauk" "Fjellvåk" "Musvåk" "Hubro" "Snøugle" "Haukugle"
 		"Ravn" "Korp" "Teist" "Lunde" "Havsvale" "Lom" "Alke" "Sule"
+		"Havhest" "Lomvi" "Krykkje" "Havsule" "Smålom" "Storlom" "Strømand" "Ærfugl"
 	}
 }
 
@@ -341,6 +400,7 @@ NOR_FAUNA = {
 		# Apex predators & wilderness mammals
 		"Ulven" "Bjørnen" "Gaupen" "Jerven" "Fjellreven" "Rødreven"
 		"Elgen" "Hjorten" "Rådyret" "Reinen" "Moskusen" "Villsvinet"
+		"Røyskatt" "Snømus" "Isbjørn"
 		# Semi-aquatic mammals & pinnipeds
 		"Oteren" "Beveren" "Grønlandsselen" "Steinkobben" "Klappmyssen"
 		"Valrossen" "Nisen" "Spekkhoggeren" "Kvitnosen"
@@ -362,6 +422,8 @@ NOR_FISH = {
 		"Håbrann" "Pigghå" "Brugde" "Sverdfisk" "Kveite" "Torsk" "Laks"
 		"Sjøørret" "Makrell" "Sild" "Sei" "Hyse" "Brosme" "Lange"
 		"Steinbit" "Havmus" "Breiflabb" "Uer" "Rødspette" "Skrei" "Lodde"
+		"Håkjerring" "Rødhai" "Havål" "Horngjel" "Knurr" "Kloskate" "Piggskate"
+		"Kolmule" "Tobis"
 	}
 }
 
@@ -380,6 +442,7 @@ NOR_NATURE = {
 		"Nordlys" "Midnattssol" "Polstjernen" "Storm" "Kuling" "Orkan"
 		"Virvelvind" "Havbåre" "Bølge" "Torden" "Lynild" "Frost" "Isbre"
 		"Snøstorm" "Vinter" "Nordavind" "Polarbris" "Brim" "Tåke" "Svell"
+		"Frostrøyk" "Dønning" "Brott" "Drønn" "Gufs" "Morgendis" "Skumring"
 	}
 }
 
@@ -398,5 +461,6 @@ NOR_VIRTUES = {
 		"Dristig" "Tapper" "Modig" "Snar" "Rask" "Djerv" "Hvass" "Kvikk"
 		"Trofast" "Vaktsom" "Uredd" "Seirende" "Uforferdet" "Hardfør"
 		"Frihet" "Enighet" "Rettferd" "Vakt" "Skjold" "Vern" "Heder" "Ære"
+		"Vågal" "Kjempende" "Rettvis" "Urokkelig" "Bane"
 	}
 }

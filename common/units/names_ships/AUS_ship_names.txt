@@ -13,15 +13,20 @@ AUS_DD_HISTORICAL = {
 
 	unique = {
 		# Historic K.u.K. Torpedobootszerstörer (Huszár & Tátra classes)
-		"Huszár" "Ulan" "Streiter" "Wildfang" "Scharfschütze" "Uskoke" "Turul" "Pandúr" "Csikós" "Réka" "Dinara" "Velebit"
+		"Huszár" "Ulan" "Streiter" "Wildfang" "Scharfschütze" "Uskoke" "Turul" "Pandúr" "Csikós" "Réka" "Dinara" "Velebit" "Warasdiner"
 		"Tátra" "Balaton" "Csepel" "Lika" "Orjen" "Triglav" "Dukla" "Uzsok" "Karpaten"
-		# Historic Torpedoboote (Kaiman, Falke, Greif, Blitz, Komet classes)
+		# Historic Torpedoboote (Kaiman, Falke, Greif, Blitz, Komet classes & sister craft)
 		"Kaiman" "Anaconda" "Alligator" "Krokodil" "Wal" "Seehund" "Delphin" "Hai" "Drache" "Greif" "Phönix"
-		"Blitz" "Komet" "Meteor" "Planet" "Satellit" "Trabant" "Magnet" "Streiflicht" "Funke" "Strahl"
-		"Falke" "Habicht" "Sperber" "Kondor" "Geier" "Adler" "Möwe" "Schwalbe"
+		"Blitz" "Komet" "Meteor" "Planet" "Satellit" "Trabant" "Magnet" "Streiflicht" "Funke" "Strahl" "Blitzstrahl" "Donnerkeil" "Kugelblitz" "Feuerstrahl"
+		"Falke" "Habicht" "Sperber" "Kondor" "Geier" "Adler" "Möwe" "Schwalbe" "Kranich" "Pelikan" "Kormoran" "Reiher" "Storch" "Ibis" "Flamingo" "Marabu" "Pinguin" "Alk" "Narwal"
+		# Reptile & venom craft group
+		"Natter" "Python" "Viper" "Kobra" "Echse" "Skorpion" "Tarantel" "Katta"
+		# Insect craft group
+		"Wespe" "Biene" "Hummel" "Hornisse" "Bremse" "Mücke" "Libelle" "Heuschrecke" "Grille" "Zikade"
 		# Plausible expansion names (Martial descriptors, weather & alpine winds)
-		"Donner" "Sturm" "Bö" "Wirbel" "Orkan" "Taifun" "Zyklon" "Kühnheit" "Trotz" "Mut"
-		"Rächer" "Vorposten" "Wächter" "Pfeil" "Lanze" "Klinge" "Säbel" "Dolch"
+		"Donner" "Sturm" "Bö" "Wirbel" "Orkan" "Taifun" "Zyklon" "Hurrikan" "Sturmwind" "Wirbelwind" "Föhn" "Bora" "Sirocco" "Tramontana" "Libeccio" "Maestrale" "Wetterleuchten"
+		"Kühnheit" "Trotz" "Mut" "Rächer" "Vorposten" "Wächter" "Späher" "Kundschafter" "Beschützer" "Hüter"
+		"Pfeil" "Lanze" "Klinge" "Säbel" "Dolch" "Speer" "Hellebarde" "Streitkolben" "Armbrust"
 	}
 }
 
@@ -37,11 +42,19 @@ AUS_SS_HISTORICAL = {
 	fallback_name = "Unterseeboot %d"
 
 	unique = {
+		# Historic K.u.K. U-boats (including Curie)
+		"Curie"
 		# Aquatic life, predators & Danube fish
 		"Forelle" "Hecht" "Karpfen" "Stör" "Wels" "Muräne" "Seeteufel" "Krake" "Nautilus" "Donaunixe"
-		"Otter" "Biber" "Salamander" "Seehund" "Wal" "Delphin" "Hai" "Schwertfisch" "Zitterrochen" "Manta"
+		"Otter" "Biber" "Flussotter" "Salamander" "Seehund" "Wal" "Delphin" "Hai" "Schwertfisch" "Zitterrochen" "Manta"
 		"Barbe" "Zander" "Äsche" "Huchen" "Schleie" "Seesaibling" "Bachforelle" "Regenbogenforelle" "Rotfeder" "Bitterling"
 		"Kallichthys" "Piranha" "Hammerhai" "Tigerhai" "Kupferhai" "Riesenhai" "Dornhai" "Meerneunauge"
+		# Adriatic marine predators, deep sea fauna & Danubian aquatic life
+		"Seewolf" "Thunfisch" "Pottwal" "Schwertwal" "Blauwal" "Seekuh" "Robbe" "Seelöwe"
+		"Schmerle" "Brachse" "Quappe" "Aal" "Salm" "Krebs" "Hummer" "Krabbe" "Tintenfisch" "Rochen"
+		"Flunder" "Scholle" "Heilbutt" "Makrele" "Sägefisch" "Blauhai" "Katzenhai" "Hundshai" "Meerengel"
+		# Mythological water beings & spirits
+		"Nixe" "Undine" "Wassermann" "Melusine" "Loreley" "Donauweibchen" "Triton" "Proteus" "Neptun"
 	}
 }
 
@@ -59,10 +72,15 @@ AUS_CL_HISTORICAL = {
 	unique = {
 		# Historic K.u.K. rapid cruisers & scout cruisers (Zenta, Novara, Admiral Spaun classes)
 		"Novara" "Saida" "Helgoland" "Zenta" "Aspern" "Szigetvár" "Admiral Spaun"
+		# K.u.K. Adriatic naval bases, coastal ports & key trading harbors
+		"Pola" "Triest" "Fiume" "Zara" "Cattaro" "Ragusa" "Sebenico" "Spalato" "Lussin" "Rovigno" "Parenzo" "Capodistria"
 		# Major Austrian federal capitals, trade hubs & historic river cities
 		"Wien" "Linz" "Salzburg" "Graz" "Innsbruck" "Klagenfurt" "Villach" "Bregenz" "Sankt Pölten" "Steyr"
 		"Wels" "Dornbirn" "Eisenstadt" "Krems" "Baden" "Hallstatt" "Kitzbühel" "Kufstein" "Gmunden" "Lienz"
 		"Wolfsberg" "Leoben" "Amstetten" "Kapfenberg" "Feldkirch" "Schwaz" "Bad Ischl" "Braunau" "Tulln"
+		# Historic crown land & Danubian regional centers
+		"Budapest" "Pressburg" "Ödenburg" "Raab" "Klausenburg" "Temeschwar" "Kronstadt" "Hermannstadt" "Kaschau"
+		"Agram" "Essegg" "Peterwardein" "Görz" "Trient" "Bozen" "Wiener Neustadt"
 	}
 }
 
@@ -84,6 +102,10 @@ AUS_CA_HISTORICAL = {
 		"Andreas Hofer" "Ludwig von Benedek" "Maximilian von Daun" "Graf von Mercy" "Franz von Mercy" "Montecuccoli"
 		"Graf von Khevenhüller" "Erzherzog Albrecht" "Erzherzog Johann" "Graf von Clam-Gallas"
 		"Graf von Gyulay" "Feldmarschall Daun" "Feldmarschall Lacy" "Feldzeugmeister Wurmser"
+		# Renowned K.u.K. naval heroes, admirals & historic armored combatants
+		"Admiral von Sterneck" "Großadmiral Haus" "Admiral Njegovan" "Admiral Bourguignon" "Admiral Keil" "Admiral Rijavec"
+		"Admiral von Petz" "Don Juan de Austria" "Erzherzog Ferdinand Max" "Erzherzog Ferdinand Karl" "Kaiser" "Custozza"
+		"Generalfeldmarschall Schwarzenberg" "Feldmarschall Boroević" "Feldmarschall Conrad von Hötzendorf" "Feldmarschall Liechtenstein"
 	}
 }
 
@@ -103,10 +125,13 @@ AUS_BB_HISTORICAL = {
 		"Viribus Unitis" "Tegetthoff" "Prinz Eugen" "Szent István" "Monarch" "Wien" "Budapest"
 		"Habsburg" "Árpád" "Babenberg" "Erzherzog Ferdinand Max" "Erzherzog Friedrich" "Erzherzog Franz Ferdinand"
 		"Erzherzog Karl" "Radetzky" "Zrínyi"
-		# Dynastic rulers, crown lands & great-power projects
+		# Dynastic rulers & imperial monarchs
 		"Kaiser Franz Joseph I" "Kaiser Karl I" "Kaiserin Maria Theresia" "Kaiser Maximilian I" "Kaiser Rudolf I"
+		"Kaiser Leopold I" "Kaiser Joseph II"
+		# Imperial crown lands, historic realms & provinces
 		"Österreich" "Niederösterreich" "Oberösterreich" "Steiermark" "Tirol" "Kärnten" "Salzburg" "Burgenland" "Vorarlberg"
 		"Küstenland" "Istrien" "Dalmatien" "Krain" "Böhmen" "Mähren" "Schlesien" "Galizien" "Bukowina"
+		"Ungarn" "Kroatien" "Slawonien" "Siebenbürgen" "Triest" "Lodomerien" "Banat" "Bačka" "Baranya"
 	}
 }
 
@@ -122,11 +147,14 @@ AUS_CV_HISTORICAL = {
 	fallback_name = "Flugzeugträger %d"
 
 	unique = {
-		# Austrian aviation pioneers & sky masters
-		"Igo Etrich" "Wilhelm Kress" "Walther von der Vogelweide"
+		# Austrian aviation pioneers & naval aviators
+		"Igo Etrich" "Wilhelm Kress" "Walther von der Vogelweide" "Gottfried von Banfield"
 		# Birds of prey, sky avians & mythical flyers
-		"Kaiseradler" "Steinadler" "Seeadler" "Falke" "Habicht" "Sperber" "Kondor" "Geier" "Albatros"
-		"Phönix" "Pegasus" "Ikarus" "Milan" "Bussard" "Turmfalke" "Wanderfalke" "Horst" "Sturmvogel"
+		"Doppeladler" "Kaiseradler" "Steinadler" "Seeadler" "Adler" "Falke" "Habicht" "Sperber" "Kondor" "Geier" "Albatros"
+		"Phönix" "Pegasus" "Ikarus" "Milan" "Rotmilan" "Bussard" "Turmfalke" "Wanderfalke" "Jagdfalke" "Baumfalke"
+		"Fischadler" "Schreiadler" "Zwergadler" "Habichtsadler" "Schlangenadler" "Weihe" "Kornweihe" "Horst" "Sturmvogel"
+		# Celestial tempests & winds
+		"Donnerkeil" "Wetterleuchten" "Sturmwind" "Nordwind" "Bora"
 	}
 }
 
@@ -165,6 +193,7 @@ AUS_CITIES = {
 		"Wien" "Graz" "Linz" "Salzburg" "Innsbruck" "Klagenfurt" "Villach" "Wels" "Sankt Pölten" "Dornbirn"
 		"Steyr" "Feldkirch" "Bregenz" "Baden" "Wolfsberg" "Leoben" "Krems an der Donau" "Eisenstadt" "Amstetten"
 		"Kapfenberg" "Hallstatt" "Kitzbühel" "Lienz" "Kufstein" "Schwaz" "Gmunden" "Bad Ischl" "Braunau" "Zwettl" "Tulln"
+		"Wiener Neustadt" "Sankt Veit an der Glan" "Völkermarkt" "Bludenz" "Korneuburg" "Waidhofen an der Ybbs" "Mistelbach" "Enns" "Schwechat" "Mödling"
 	}
 }
 
@@ -218,6 +247,7 @@ AUS_GEOGRAPHY = {
 		"Großglockner" "Wildspitze" "Dachstein" "Großvenediger" "Schneeberg" "Rax" "Hochkönig" "Hoher Sonnblick"
 		"Grimming" "Kitzsteinhorn" "Großes Wiesbachhorn" "Ortler" "Zugspitze" "Patscherkofel" "Nordkette" "Hochkar"
 		"Erzberg" "Tauern" "Karawanken" "Karnische Alpen" "Zillertaler Alpen" "Ötztaler Alpen" "Stubaier Alpen" "Kitzbüheler Alpen"
+		"Ankogel" "Hochfeiler" "Wilder Kaiser" "Grosser Priel" "Glocknergruppe" "Hohe Tauern"
 	}
 }
 
@@ -253,7 +283,8 @@ AUS_HEROES = {
 	unique = {
 		"Wilhelm von Tegetthoff" "Prinz Eugen" "Feldmarschall Radetzky" "Andreas Hofer" "Erzherzog Karl" "Graf von Starhemberg"
 		"Gideon von Laudon" "Ludwig von Benedek" "Maximilian von Daun" "Graf von Khevenhüller" "Igo Etrich" "Wilhelm Kress"
-		"Wolfgang Amadeus Mozart" "Franz Schubert" "Joseph Haydn" "Anton Bruckner" "Walther von der Vogelweide" "Paracelsus"
+		"Gottfried von Banfield" "Wolfgang Amadeus Mozart" "Franz Schubert" "Joseph Haydn" "Anton Bruckner" "Walther von der Vogelweide"
+		"Paracelsus" "Franz Grillparzer" "Adalbert Stifter" "Stefan Zweig" "Arthur Schnitzler" "Ferdinand Raimund"
 	}
 }
 

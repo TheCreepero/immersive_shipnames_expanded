@@ -19,16 +19,26 @@ BRA_DD_HISTORICAL = {
 		"Amazonas" "Araguari" "Ajuricaba" "Acre" "Araguaia" "Apa" "Juruá" "Javari" "Jutaí" "Juruena"
 		"Jaguaribe" "Parnaíba" "Tapajós" "Xingu" "Tietê" "Paraíba do Sul" "Madeira" "Purus" "Taquari"
 		"Branco" "Negro" "Iguaçu" "Ipojuca" "Capibaribe" "Paraguaçu" "Mucuri" "Doce" "Paraibuna"
-		# Historic naval heroes & officers (Marcílio Dias "M" class tradition)
+		# Historical Pará-class destroyers & state namesakes
+		"Pará" "Piauí" "Mato Grosso" "Rio Grande do Norte" "Paraíba" "Alagoas" "Sergipe" "Paraná"
+		"Santa Catarina" "Maranhão" "Guaporé"
+		# Historic naval heroes & officers (Marcílio Dias M-class and imperial officer traditions)
 		"Marcílio Dias" "Mariz e Barros" "Greenhalgh" "Henrique Dias" "Barão de Teffé" "Custódio de Melo"
 		"Felisberto Freire" "Delamare" "Fernandinho" "Macedo Soares" "Brum" "Vidal de Negreiros"
+		"Tamandaré" "Barroso" "Lima Barros" "Silvado" "Cabral" "Felipe Camarão" "Fernandes Vieira"
+		"Plácido de Castro" "Soares de Andréa" "Salustiano" "Gomes Freire" "Inhaúma" "Jaceguai" "Júlio de Noronha"
 		# Coastal municipalities & escort vessels (Wartime DE / Bertioga class tradition)
 		"Babitonga" "Baependi" "Bauru" "Beberibe" "Benevente" "Bertioga" "Bocaina" "Bracuí"
 		"Cananéia" "Caravelas" "Camamu" "Itajaí" "Angra" "Paranaguá" "Guarujá" "Ilhabela"
+		# Corvettes, gunboats, avisos & escort craft
+		"Caboclo" "Angostura" "Imperial Marinheiro" "Forte de Coimbra" "Solimões" "Iguatemi" "Mearim"
+		"Pirajá" "Tramandaí" "Grajaú" "Gurupi" "Macapá" "Maracanã" "Mangaratiba" "Paraty" "Jaguarão"
+		"Itacurubi" "Itaverá" "Pirapama" "Primeiro de Março" "Carioca"
 		# Martial descriptors, weather & naval virtues
 		"Audaz" "Valente" "Destemido" "Bravo" "Veloz" "Trovão" "Relâmpago" "Impávido"
 		"Tenaz" "Vigilante" "Sentinela" "Raio" "Tempestade" "Tornado" "Furacão" "Vendaval"
-		"Arrojado" "Vingador" "Intrépido" "Aguerrido" "Resoluto" "Constante"
+		"Arrojado" "Vingador" "Intrépido" "Aguerrido" "Resoluto" "Constante" "Temerário" "Atrevido"
+		"Lidador" "Vigoroso" "Invencível" "Incansável" "Perseverante" "Brioso" "Indômito"
 	}
 }
 
@@ -46,16 +56,20 @@ BRA_SS_HISTORICAL = {
 
 	unique = {
 		# Historic submarines & naval waterway engagements
-		"Humaitá" "Tupi" "Timbira" "Tamoio" "Riachuelo" "Guanabara"
+		"Humaitá" "Tupi" "Timbira" "Tamoio" "Riachuelo" "Guanabara" "Tonelero" "Tapajó"
+		"Bahia" "Ceará" "Amazonas" "Rio Grande do Sul" "Álvaro Alberto"
 		# Indigenous nations, warrior tribes & legendary caciques (Core Brazilian submarine tradition)
 		"Tupinambá" "Tabajara" "Goitacá" "Carijó" "Aimoré" "Guarani" "Potiguar" "Tikuna"
 		"Xavante" "Yanomami" "Tupiniquim" "Kayapó" "Pataxó" "Bororo" "Terena" "Caingangue"
 		"Munduruku" "Karajá" "Wai-Wai" "Macuxi" "Guajajara" "Puri" "Tremembé" "Tapuia"
-		"Ajuricaba" "Tibiriçá" "Arariboia" "Cunhambebe" "Sepé Tiaraju"
+		"Ajuricaba" "Tibiriçá" "Arariboia" "Cunhambebe" "Sepé Tiaraju" "Charrua" "Minuano"
 		# Predatory aquatic life, sharks & Amazonian river giants
 		"Tubarão" "Cação" "Pirarucu" "Piranha" "Dourado" "Jaú" "Surubim" "Boto"
 		"Toninha" "Ariranha" "Jacaré" "Baiacu" "Raia" "Traíra" "Tucunaré" "Peixe-Espada"
-		"Mangangá" "Manta" "Moreia" "Barracuda"
+		"Mangangá" "Manta" "Moreia" "Barracuda" "Golfinho" "Cachalote" "Piraíba" "Espadarte"
+		"Orca" "Anequim" "Poraquê" "Aruanã" "Tambaqui" "Candiru"
+		# Tupi-Guarani water spirits & mythical river legends
+		"Iara" "Boitatá" "Cobra Grande" "Ipupiara" "Curupira" "Mãe-d'Água" "Boiuna" "Anhangá"
 	}
 }
 
@@ -78,6 +92,12 @@ BRA_CL_HISTORICAL = {
 		"Angra dos Reis" "Ilhéus" "Porto Alegre" "Rio Grande" "Itajaí" "Macaé"
 		"Cabo Frio" "Ubatuba" "São Sebastião" "Laguna" "Imbituba" "Pelotas"
 		"Aracaju" "João Pessoa" "Santana" "Camocim" "Parintins" "Corumbá"
+		# Expanded coastal ports, historical maritime centers & river gateways
+		"Rio de Janeiro" "São Francisco do Sul" "Santarém" "Macapá" "Porto Velho" "Parnaíba"
+		"São Vicente" "Cananéia" "Itaparica" "Porto Seguro" "Caravelas" "Valença"
+		"Alcântara" "Bragança" "Óbidos" "Itacoatiara" "Tefé" "Araruama" "Maricá"
+		"Mangaratiba" "Paraty" "Antonina" "Guaratuba" "Tubarão" "São José" "Torres"
+		"São Lourenço do Sul" "Cabedelo" "Olinda" "Areia Branca"
 	}
 }
 
@@ -101,6 +121,10 @@ BRA_CA_HISTORICAL = {
 		"Almirante Jaceguai" "Barão de Teffé" "Barão do Amazonas" "Visconde de Inhaúma"
 		"Visconde de Rio Branco" "Almirante Alexandrino" "Marquês de Paranaguá" "General Osório"
 		"Barão de Triunfo" "Marechal Mallet" "General Sampaio" "Almirante Noronha"
+		# Historic capital ships, ironclads & heroic leaders
+		"Aquidabã" "Sete de Setembro" "Javari" "Benjamin Constant" "República" "Tiradentes"
+		"Almirante Delamare" "Almirante Boiteux" "Barão de Ladário" "Almirante Pena Boto"
+		"General Polidoro" "General Gurjão"
 	}
 }
 
@@ -121,8 +145,12 @@ BRA_BB_HISTORICAL = {
 		"Minas Gerais" "São Paulo" "Rio de Janeiro" "Bahia" "Rio Grande do Sul" "Pará"
 		"Pernambuco" "Maranhão" "Ceará" "Santa Catarina" "Espírito Santo" "Goiás"
 		"Mato Grosso" "Paraná" "Paraíba" "Piauí" "Alagoas" "Sergipe" "Rio Grande do Norte" "Amazonas"
+		"Acre" "Guanabara"
 		# Founding imperial & national figures
-		"Dom Pedro I" "Dom Pedro II" "Tiradentes" "José Bonifácio"
+		"Dom Pedro I" "Dom Pedro II" "Tiradentes" "José Bonifácio" "Dona Leopoldina"
+		"Princesa Isabel" "Duque de Caxias" "Visconde de Cairu"
+		# National symbols & historic capital ships
+		"Sete de Setembro" "Independência" "Constituição"
 		# Decisive naval battles of Brazilian history
 		"Riachuelo" "Passo da Pátria" "Humaitá" "Tuiutí" "Itororó"
 	}
@@ -145,6 +173,9 @@ BRA_BC_HISTORICAL = {
 		"Riachuelo" "Guararapes" "Passo da Pátria" "Humaitá" "Tuiutí" "Itororó" "Avaí"
 		"Campo Grande" "Monte Castelo" "Montese" "Curupaiti" "Itapiru" "Laguna"
 		"Uruguaiana" "Piribebuy" "Jenipapo" "Monte das Tabocas" "Pirajá" "Mata-Fome"
+		"Passo do Rosário" "Itacurubi" "Castelhone" "Coruzu" "Colonia do Sacramento"
+		"Montevideo" "Cabrita" "Toneleros" "Fortaleza de Santa Cruz" "Angostura"
+		"Cuevas" "Taquari" "Lajes"
 	}
 }
 
@@ -162,11 +193,16 @@ BRA_CV_HISTORICAL = {
 
 	unique = {
 		# Authentic carrier names & great maritime bays
-		"Minas Gerais" "São Paulo" "Guanabara" "Todos os Santos" "Paranaguá"
-		"Baía Formosa" "Baía de Ilhéus" "Baía de Santos" "Baía de Paranaguá"
+		"Minas Gerais" "São Paulo" "Atlântico" "Cruzeiro do Sul" "Brasil" "Independência"
+		"Guanabara" "Todos os Santos" "Paranaguá" "Baía Formosa" "Baía de Ilhéus"
+		"Baía de Santos" "Baía de Paranaguá" "Baía de Guanabara" "Baía de Sepetiba"
+		"Baía de Camamu" "Baía de São Marcos"
+		# Celestial constellations & southern skies
+		"Centauro" "Órion" "Fênix"
 		# Raptors, birds of prey & celestial hunters
 		"Harpia" "Gavião" "Carcará" "Condor" "Águia" "Falcão" "Urubu-Rei"
 		"Gavião-Real" "Açor" "Milhafre" "Gavião-Preto" "Gavião-de-Penacho"
+		"Taguató" "Gavião-Belo"
 	}
 }
 
@@ -188,6 +224,8 @@ BRA_CITIES = {
 		"Goiânia" "Teresina" "Campo Grande" "Petrópolis" "Campinas" "Ribeirão Preto"
 		"Juiz de Fora" "Pelotas" "Rio Grande" "Paranaguá" "Itajaí" "Angra dos Reis"
 		"Ilhéus" "Cabo Frio" "Blumenau" "Joinville" "Ouro Preto" "Diamantina"
+		"Macapá" "Porto Velho" "Boa Vista" "Palmas" "Rio Branco" "São Francisco do Sul"
+		"Santarém" "Londrina" "Caxias do Sul" "Uberlândia"
 	}
 }
 
@@ -207,6 +245,7 @@ BRA_STATES = {
 		"Pernambuco" "Ceará" "Pará" "Maranhão" "Santa Catarina" "Espírito Santo"
 		"Goiás" "Mato Grosso" "Paraná" "Paraíba" "Piauí" "Alagoas" "Sergipe"
 		"Rio Grande do Norte" "Amazonas" "Acre"
+		"Mato Grosso do Sul" "Rondônia" "Tocantins" "Amapá" "Roraima" "Distrito Federal"
 	}
 }
 
@@ -227,6 +266,8 @@ BRA_RIVERS = {
 		"Japurá" "Purus" "Juruá" "Javari" "Jutaí" "Juruena" "Jaguaribe"
 		"Parnaíba" "Taquari" "Paraguaçu" "Doce" "Mucuri" "Capibaribe"
 		"Ipojuca" "Uruguai" "Ivaí" "Tibagi" "Cuiabá" "Paranaíba"
+		"Solimões" "Trombetas" "Guaporé" "Jamari" "Teles Pires" "Itapecuru"
+		"Mearim" "Jaguarão" "Ivinhema" "Miranda"
 	}
 }
 
@@ -247,6 +288,9 @@ BRA_HEROES = {
 		"Saldanha da Gama" "Wandenkolk" "Guilhobel" "Jaceguai" "Barão de Teffé"
 		"Henrique Dias" "Vidal de Negreiros" "Felipe Camarão" "Plácido de Castro"
 		"Anita Garibaldi" "Osório" "Mallet" "Sampaio" "Eduardo Gomes" "Santos Dumont"
+		"Joaquim Marques Lisboa" "Benjamin Constant" "Álvaro Alberto" "Henrique Boiteux"
+		"Soares de Andréa" "General Gurjão" "Barão de Ladário" "Cunha Matos"
+		"Joaquim Murtinho" "Felisberto Freire"
 	}
 }
 
@@ -267,6 +311,7 @@ BRA_INDIGENOUS = {
 		"Kayapó" "Pataxó" "Bororo" "Terena" "Caingangue" "Munduruku" "Karajá"
 		"Wai-Wai" "Macuxi" "Guajajara" "Puri" "Tremembé" "Tapuia" "Charrua"
 		"Minuano" "Ajuricaba" "Tibiriçá" "Arariboia" "Cunhambebe" "Sepé Tiaraju"
+		"Krenak" "Tukano" "Kadiwéu" "Apinajé" "Paresi" "Guajá" "Tariana" "Maxakali"
 	}
 }
 
@@ -286,6 +331,8 @@ BRA_BATTLES = {
 		"Avaí" "Campo Grande" "Monte Castelo" "Montese" "Curupaiti" "Itapiru"
 		"Laguna" "Uruguaiana" "Piribebuy" "Jenipapo" "Monte das Tabocas"
 		"Pirajá" "Mata-Fome" "Itacurubi" "Passo do Rosário" "Castelhone"
+		"Coruzu" "Colonia do Sacramento" "Montevideo" "Cabrita" "Toneleros"
+		"Fortaleza de Santa Cruz" "Angostura" "Cuevas" "Taquari" "Lajes"
 	}
 }
 
@@ -306,5 +353,7 @@ BRA_FAUNA = {
 		"Lobo-Guará" "Tamanduá-Bandeira" "Capivara" "Ariranha" "Tatu-Canastra"
 		"Tubarão" "Cação" "Pirarucu" "Piranha" "Dourado" "Jaú" "Surubim"
 		"Boto" "Moreia" "Arara-Azul" "Tuiuiú" "Siriema" "Gavião-Real"
+		"Cachalote" "Golfinho" "Orca" "Espadarte" "Anequim" "Poraquê"
+		"Aruanã" "Tambaqui" "Piraíba" "Raia"
 	}
 }

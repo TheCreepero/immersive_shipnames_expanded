@@ -13,16 +13,29 @@ YUG_DD_HISTORICAL = {
 	fallback_name = "Razarač %d"
 
 	unique = {
-		# Historic destroyers & destroyer leaders (Dubrovnik class, Beograd class, Split)
+		# Historic destroyers & destroyer leaders (Dubrovnik, Beograd class, Split)
 		"Dubrovnik" "Beograd" "Zagreb" "Ljubljana" "Split"
-		# Historic torpedo boats & patrol craft (T-class, minelayers)
+		"Kotor" "Sarajevo" "Skoplje"
+		# Historic torpedo boats, escorts & tenders (T-class, Malinska class)
 		"Malinska" "Galeb" "Jastreb" "Kobac" "Sokol"
+		"Marjan" "Mosor" "Meljine" "Mljet" "Lastovo" "Uskok" "Četnik" "Senj"
+		# Adriatic islands & operating waters
+		"Krk" "Cres" "Rab" "Pag" "Brač" "Hvar" "Korčula" "Vis" "Šolta"
+		# Adriatic winds & maritime tempests
+		"Bura" "Jugo" "Maestral" "Tramontana" "Oštro" "Lebić" "Pulenat" "Levanat"
+		"Nevera" "Vihor" "Grom" "Munja" "Oluja" "Nepogoda" "Vjetar"
+		# Coastal waterways & Adriatic rivers
+		"Jadran" "Neretva" "Cetina" "Krka" "Zrmanja" "Mirna" "Rasa" "Bojana"
 		# Mountains, peaks & geographic landmarks (minelayer/patrol tradition)
 		"Triglav" "Durmitor" "Biokovo" "Učka" "Velebit" "Lovćen" "Dinara"
 		"Kopaonik" "Kozara" "Romanija" "Prokletije" "Rtanj" "Avala"
-		# Martial virtues & weather phenomena (plausible expansion)
-		"Nada" "Odvažni" "Prkosni" "Silni" "Junački"
 		"Golesnica" "Cer" "Grmeč" "Igman" "Jahorina"
+		"Maglić" "Prenj" "Vranica" "Zlatibor" "Šar-planina" "Treskavica"
+		# Martial virtues, heroic descriptors & weapons
+		"Nada" "Odvažni" "Prkosni" "Silni" "Junački"
+		"Hrabri" "Smjeli" "Vjerni" "Ponosni" "Neustrašivi"
+		"Stražar" "Branilac" "Čuvar" "Osvetnik" "Oštar"
+		"Brzi" "Hitri" "Vitez" "Junak" "Delija" "Hajduk"
 	}
 }
 
@@ -39,15 +52,23 @@ YUG_SS_HISTORICAL = {
 	fallback_name = "Podmornica %d"
 
 	unique = {
-		# Historic submarines (Hrabri class, Smeli class)
-		"Hrabri" "Nebojša" "Smeli" "Osvetnik"
+		# Historic submarines (Hrabri class, Smeli class, Sutjeska class)
+		"Hrabri" "Nebojša" "Smeli" "Osvetnik" "Mališan" "Uskok" "Sutjeska"
 		# Martial virtues & defiant adjectives (historical naming doctrine)
 		"Snažni" "Neustrašivi" "Heroj" "Junak" "Pobednik"
 		"Nepobedivi" "Slobodni" "Odvažni" "Prkosni" "Silni"
-		# Yugoslav rivers (river monitor naming tradition)
+		"Tihi" "Podmukli"
+		# Yugoslav rivers (river monitor & patrol naming tradition)
 		"Tara" "Sava" "Neretva" "Drava" "Tisa" "Drina"
 		"Una" "Zeta" "Kupa" "Vardar" "Lim" "Piva"
 		"Sotla" "Ibar" "Kolubara" "Timok"
+		"Bosna" "Morava"
+		# Adriatic predatory sea life & marine creatures
+		"Delfin" "Morski Pas" "Kit" "Manta" "Raža" "Hobotnica" "Lignja" "Sipa"
+		"Ugor" "Murina" "Kirnja" "Zubatac" "Orada" "Brancin" "Tuna" "Palamida"
+		"Skuša" "Grdobina" "Morski Vuk" "Škarpina"
+		# Mythical water creatures & river spirits
+		"Aždaja" "Pozoj" "Zmaj" "Vila" "Rusalka"
 	}
 }
 
@@ -64,13 +85,19 @@ YUG_CL_HISTORICAL = {
 	fallback_name = "Laka krstarica %d"
 
 	unique = {
-		# Major Adriatic coastal cities & ports
+		# Major Adriatic coastal cities, ports & Dalmatian/Istrian hubs
 		"Kotor" "Split" "Dubrovnik" "Šibenik" "Zadar" "Pula" "Rijeka"
 		"Sušak" "Trogir" "Bar" "Ulcinj" "Herceg Novi" "Koper"
+		"Budva" "Tivat" "Makarska" "Omiš" "Ploče" "Metković"
+		"Rovinj" "Poreč" "Umag" "Piran" "Senj" "Crikvenica"
+		"Novi Vinodolski" "Krk" "Rab" "Pag" "Mali Lošinj"
+		"Hvar" "Korčula" "Vis" "Cavtat"
 		# Major inland trade cities & regional capitals
 		"Dalmacija" "Sarajevo" "Niš" "Smederevo" "Banja Luka"
 		"Mostar" "Kragujevac" "Kruševac" "Subotica" "Novi Sad"
 		"Maribor" "Cetinje" "Vršac" "Prizren"
+		"Beograd" "Zagreb" "Ljubljana" "Skopje" "Podgorica"
+		"Osijek" "Bitola" "Priština" "Trebinje"
 	}
 }
 
@@ -87,17 +114,22 @@ YUG_CA_HISTORICAL = {
 	fallback_name = "Teška krstarica %d"
 
 	unique = {
-		# Serbian medieval rulers & heroes (Nemanjić dynasty, Lazarević)
+		# Royal dynasty & regents (Karađorđević)
+		"Kralj Aleksandar" "Kralj Petar" "Kraljica Marija" "Knez Pavle"
+		# Serbian medieval rulers & epic heroes (Nemanjić dynasty, Lazarević)
 		"Stefan Nemanja" "Stefan Dušan" "Knez Lazar" "Miloš Obilić" "Kraljević Marko"
-		# Croatian medieval kings & bans
+		"Kralj Milutin" "Stefan Lazarević"
+		# Croatian medieval kings, bans & heroes
 		"Tomislav" "Petar Krešimir" "Dmitar Zvonimir" "Ban Jelačić" "Petar Zrinski"
-		# Bosnian rulers
-		"Tvrtko I" "Kulin Ban" "Husein Gradaščević"
-		# Montenegrin heroes & princes
-		"Petar Njegoš" "Janko Vukotić" "Danilo I"
-		# Yugoslav unification & pan-Slavic figures
-		"Karađorđe" "Ljudevit Posavski" "Stepa Stepanović"
-		"Živojin Mišić" "Radomir Putnik" "Petar Bojović"
+		"Fran Krsto Frankopan" "Matija Gubec"
+		# Bosnian & Slovenian historic rulers / leaders
+		"Tvrtko I" "Kulin Ban" "Husein Gradaščević" "Ljudevit Posavski"
+		# Montenegrin princes & historic heroes
+		"Petar Njegoš" "Janko Vukotić" "Danilo I" "Kralj Nikola"
+		# Yugoslav military commanders & unification figures
+		"Karađorđe" "Stepa Stepanović" "Živojin Mišić" "Radomir Putnik" "Petar Bojović"
+		# Decisive historical battles (cruiser tradition)
+		"Kosovo" "Kumanovo" "Cer" "Kolubara" "Kajmakčalan"
 	}
 }
 
@@ -120,8 +152,10 @@ YUG_BB_HISTORICAL = {
 		# Historical banovinas (1929-1941 administrative regions)
 		"Dravska" "Savska" "Vrbaska" "Primorska" "Drinska"
 		"Dunavska" "Moravska" "Vardarska" "Zetska"
-		# Grand historic regions
+		# Grand historic regions & historical lands
 		"Dalmacija" "Slavonija" "Banat" "Bačka" "Baranja" "Srem"
+		"Istra" "Lika" "Kordun" "Banija" "Zagorje" "Međimurje" "Prekmurje"
+		"Šumadija" "Raška" "Kosovo" "Metohija"
 	}
 }
 
@@ -138,14 +172,16 @@ YUG_CV_HISTORICAL = {
 	fallback_name = "Nosač aviona %d"
 
 	unique = {
-		# Aviation heritage (Zmaj seaplane tender, aircraft factories)
-		"Zmaj" "Ikarus" "Rogožarski"
-		# Storm & weather phenomena
+		# Aviation heritage, aircraft factories & aviation pioneers
+		"Zmaj" "Ikarus" "Rogožarski" "Utva" "Fizir" "Albatros"
+		# Fierce sky, storm & tempest phenomena
 		"Vihor" "Grom" "Munja" "Oluja" "Bura" "Nevera" "Ciklon"
-		# Birds of prey
+		"Uragan" "Mećava" "Tajfun" "Tornado" "Orkan" "Gradobij" "Blesak" "Stihija"
+		# Birds of prey & soaring raptors
 		"Orao" "Soko" "Jastreb" "Sup" "Kobac"
-		# Celestial & sky concepts
-		"Uragan" "Mećava"
+		"Suri Orao" "Bjeloglavi Sup" "Vjetruša"
+		# Mythical winged concepts
+		"Pozoj" "Krilati Zmaj"
 	}
 }
 
@@ -203,9 +239,11 @@ YUG_PROVINCES = {
 		# Banovinas (1929-1941)
 		"Dravska" "Savska" "Vrbaska" "Primorska" "Drinska"
 		"Dunavska" "Moravska" "Vardarska" "Zetska"
-		# Historic regions
+		# Historic regions & lands
 		"Dalmacija" "Slavonija" "Banat" "Bačka" "Baranja" "Srem"
-		"Lika" "Kordun"
+		"Lika" "Kordun" "Istra" "Banija" "Zagorje" "Međimurje" "Prekmurje"
+		"Šumadija" "Raška" "Kosovo" "Metohija" "Zahumlje" "Travunija" "Duklja" "Sandžak"
+		"Boka Kotorska" "Posavina" "Podrinje"
 	}
 }
 
@@ -226,8 +264,10 @@ YUG_RIVERS = {
 		"Drina" "Una" "Bosna" "Vrbas" "Kupa" "Sotla" "Kolubara"
 		"Ibar" "Timok" "Zeta" "Tara" "Lim" "Piva" "Bojana"
 		"Krka" "Cetina" "Mura"
+		"Zrmanja" "Mirna" "Rasa" "Soča" "Sana" "Pliva" "Drim"
+		"Sitnica" "Toplica" "Nišava" "Velika Morava" "Zapadna Morava" "Južna Morava"
 		# Lakes
-		"Ohrid" "Prespa" "Skadar" "Bled"
+		"Ohrid" "Prespa" "Skadar" "Bled" "Bohinj" "Palić"
 	}
 }
 
@@ -246,12 +286,13 @@ YUG_MYTHOLOGY = {
 		# Major Slavic deities
 		"Perun" "Veles" "Svarog" "Dažbog" "Stribog" "Morana" "Vesna"
 		"Živa" "Lada" "Svetovid" "Triglav" "Radgost"
+		"Jarilo" "Rod" "Kupalo" "Belobog" "Crnobog" "Porevit" "Rugievit"
 		# Mythical creatures & spirits
 		"Vila" "Zduhać" "Aždaja" "Bauk" "Psoglav" "Bukavac"
-		"Drekavac" "Karakondžula"
+		"Drekavac" "Karakondžula" "Rusalka" "Pozoj" "Vampir" "Todorac" "Suđaje" "Lesnik" "Domovoj"
 		# Epic heroes & legendary figures
-		"Kraljević Marko" "Miloš Obilić" "Banović Strahinja"
-		"Jug Bogdan"
+		"Kraljević Marko" "Miloš Obilić" "Banović Strahinja" "Jug Bogdan"
+		"Starina Novak" "Relja Krilatica" "Mali Radojica"
 	}
 }
 
@@ -267,19 +308,21 @@ YUG_RULERS = {
 	fallback_name = "Vladar %d"
 
 	unique = {
-		# Karađorđević dynasty
-		"Aleksandar I" "Petar I" "Petar II"
-		# Nemanjić dynasty (Serbian medieval rulers)
+		# Karađorđević dynasty & regents
+		"Aleksandar I" "Petar I" "Petar II" "Knez Pavle" "Kraljica Marija"
+		# Nemanjić & medieval Serbian rulers
 		"Stefan Nemanja" "Stefan Dušan" "Knez Lazar" "Stefan Uroš"
-		"Stefan Prvovenčani" "Stefan Dragutin" "Stefan Milutin"
-		# Croatian kings
+		"Stefan Prvovenčani" "Stefan Dragutin" "Stefan Milutin" "Stefan Lazarević"
+		"Kralj Bodin" "Kralj Mihailo"
+		# Croatian medieval kings & rulers
 		"Tomislav" "Petar Krešimir" "Dmitar Zvonimir"
+		"Branimir" "Trpimir" "Stjepan Držislav"
 		# Bosnian rulers
-		"Tvrtko I" "Stjepan Tomaš" "Kulin Ban"
+		"Tvrtko I" "Stjepan Tomaš" "Kulin Ban" "Kralj Dabiša" "Stjepan Tvrtko II"
 		# Montenegrin rulers
-		"Petar Njegoš" "Nikola I"
+		"Petar Njegoš" "Nikola I" "Danilo I" "Ivan Crnojević" "Đurađ Crnojević"
 		# Obrenović dynasty
-		"Miloš Obrenović" "Milan Obrenović"
+		"Miloš Obrenović" "Milan Obrenović" "Mihailo Obrenović" "Aleksandar Obrenović"
 	}
 }
 
@@ -295,15 +338,21 @@ YUG_HEROES = {
 	fallback_name = "Heroj %d"
 
 	unique = {
-		# Serbian liberation heroes
+		# Serbian liberation heroes & hajduks
 		"Karađorđe" "Hajduk Veljko" "Stanoje Glavaš" "Stevan Sinđelić"
-		"Vasa Čarapić" "Uzun Mirko" "Ilija Birčanin"
+		"Vasa Čarapić" "Uzun Mirko" "Ilija Birčanin" "Tanasko Rajić"
+		"Cincar Janko" "Prota Mateja Nenadović" "Zmaj od Noćaja"
 		# WWI Serbian military commanders
-		"Stepa Stepanović" "Živojin Mišić" "Radomir Putnik" "Petar Bojović"
-		# Croatian & Slovenian heroes
+		"Stepa Stepanović" "Živojin Mišić" "Radomir Putnik" "Petar Bojović" "Vojvoda Vuk"
+		# Croatian & Slovenian heroes & cultural leaders
 		"Matija Gubec" "Ljudevit Posavski" "Petar Zrinski" "Krsto Frankopan"
+		"Fran Krsto Frankopan" "Nikola Šubić Zrinski" "Ivan Mažuranić"
+		"Primož Trubar" "Janez Vajkard Valvasor" "Rudolf Maister"
 		# Bosnian & Montenegrin heroes
 		"Husein Gradaščević" "Janko Vukotić" "Ban Jelačić"
+		"Marko Miljanov" "Bajo Pivljanin" "Nikac od Rovina"
+		# Frontier uskoks & folk champions
+		"Stojan Janković" "Ilija Smiljanić" "Vuk Mandušić"
 	}
 }
 
@@ -321,9 +370,13 @@ YUG_BIRDS = {
 	unique = {
 		# Birds of prey & raptors
 		"Orao" "Soko" "Jastreb" "Sup" "Kobac"
-		# Other notable species
+		"Suri Orao" "Bjeloglavi Sup" "Orao Krstaš" "Sivi Soko" "Vjetruša"
+		"Kraguj" "Škanjac"
+		# Coastal, water & woodland species
 		"Galeb" "Gavran" "Sova" "Roda" "Labud"
 		"Pelikan" "Kormoran" "Ždral" "Čaplja" "Fazan"
+		"Lasta" "Drozd" "Kos" "Kukavica" "Detlić" "Slavuj" "Ševa" "Vrabac"
+		"Prepelica" "Jarebica" "Patka" "Guska" "Ronac"
 	}
 }
 
@@ -344,6 +397,10 @@ YUG_MOUNTAINS = {
 		"Kopaonik" "Šar-planina" "Rtanj" "Zlatibor" "Tara" "Prokletije"
 		"Romanija" "Kozara" "Dinara" "Grmeč" "Igman" "Bjelašnica"
 		"Jahorina" "Treskavica" "Fruška Gora" "Avala"
+		"Maglić" "Prenj" "Vranica" "Vlašić" "Plješevica"
+		"Bjelasica" "Komovi" "Sinjajevina" "Visitor"
+		"Golija" "Suva Planina" "Stara Planina" "Rudnik" "Zlatar"
+		"Pohorje" "Kamniške Alpe" "Karavanke"
 	}
 }
 
@@ -362,8 +419,11 @@ YUG_VIRTUES = {
 		# Martial virtues & defiant adjectives
 		"Hrabri" "Smeli" "Snažni" "Neustrašivi" "Pobednik"
 		"Osvetnik" "Junački" "Silni" "Nepobedivi" "Odvažni" "Prkosni"
+		"Vjerni" "Ponosni" "Pouzdan" "Strašan" "Bojovni" "Viteški" "Slavni" "Pravični"
+		"Neukrotivi" "Nepokolebljivi"
 		# Weather & tempest phenomena
 		"Vihor" "Grom" "Munja" "Oluja" "Bura" "Nevera"
-		"Ciklon" "Uragan" "Mećava"
+		"Ciklon" "Uragan" "Mećava" "Tajfun" "Tornado" "Orkan"
+		"Gradobij" "Blesak" "Stihija" "Nepogoda"
 	}
 }

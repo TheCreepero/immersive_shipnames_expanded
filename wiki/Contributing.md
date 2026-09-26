@@ -29,7 +29,7 @@ This page describes how to contribute new ship namelists or expand existing ones
 
 All ship namelist files live in:
 ```
-common/units/names_ships/ISNE_<TAG>_ship_names.txt
+common/units/names_ships/<TAG>_ship_names.txt
 ```
 
 ---
@@ -62,3 +62,14 @@ powershell -File .\build.ps1 -InspectVanilla ENG -Group ENG_DD_HISTORICAL
   ```powershell
   powershell -File .\build.ps1 -ValidateOnly
   ```
+
+### Step 4 — Sizing & Namelist Depth Standards
+
+Because smaller combat vessels are built in high volumes during Hearts of Iron IV campaigns, namelists must provide sufficient depth so wartime fleets do not exhaust names into generic numbered templates:
+- **Destroyers & Escorts (`DD`)**: 100–140+ unique names (minimum 80+ for minor navies).
+- **Submarines (`SS`)**: 60–80+ unique names (minimum 50+ for minor navies).
+- **Light Cruisers (`CL`)**: 50–70+ unique names (minimum 40–45+ for minor navies).
+- **Heavy Cruisers & Coastal Defense (`CA`)**: 35–45+ unique names.
+- **Capital Ships (`BB` / `BC`)**: 30–45+ unique names.
+- **Aircraft Carriers (`CV`)**: 30–40+ unique names.
+- **Universal Thematic Pools**: 35–60+ unique names per pool where thematic scope permits.

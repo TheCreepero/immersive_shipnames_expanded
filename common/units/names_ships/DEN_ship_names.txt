@@ -13,20 +13,24 @@ DEN_DD_HISTORICAL = {
 	fallback_name = "Jager %d"
 
 	unique = {
-		# Naval officers, admirals & fleet commanders
 		"Huitfeldt" "Willemoes" "Steen Bille" "Bille" "Bredal" "Hammer" "Krieger" "Norby"
 		"Rodsteen" "Sehested" "Suenson" "Schiønning" "Dahlerup" "Lous" "Jens Munk" "Ove Gjedde"
-		"Just Juel" "Peder Marsvin"
-		# Mythological nymphs, classical figures & sirens
-		"Nymfen" "Najaden" "Daphne" "Dryaden" "Flora" "Bellona" "Diana" "Thetis"
-		# Birds of prey & aerial predators (traditional torpedo boat names)
-		"Glenten" "Høgen" "Ørnen" "Falken" "Gribben" "Lærken" "Mågen"
-		# Lightning, tempests & celestial bodies
-		"Kometen" "Blixten" "Nordstjernen" "Lynet" "Tordenen" "Gnist" "Stormen" "Vinden"
-		# Marine animals & aquatic predators (torpedo boats & light craft)
-		"Flyvefisken" "Søridderen" "Søulven" "Søløven" "Søhunden" "Havhesten" "Havkatten"
-		"Makrelen" "Sværdfisken" "Springeren" "Støren" "Tumleren" "Dragen" "Hvalen" "Laxen"
-		"Sælen" "Narhvalen"
+		"Just Juel" "Peder Marsvin" "Buhl" "Marstrand" "Wessel" "Krag" "Rothe" "Tuxen"
+		"Moltke" "Cort Adeler" "Niels Juel" "Peder Skram" "Herluf Trolle" "Olfert Fischer" "Iver Hvitfeldt" "Peder Tordenskiold"
+		"Vitus Bering" "Hans Egede" "Mogens Gyldenstierne" "Jørgen Vind" "Niels Trolle" "Peder Vibe" "Frantz Hohlenberg" "Henrik Gerner"
+		"Christian Christopher Zahrtmann" "Jost van Hoogenhuysen" "Lorentz Fisker" "Nymfen" "Najaden" "Daphne" "Dryaden" "Flora"
+		"Bellona" "Diana" "Thetis" "Galathea" "Rota" "Amfitrite" "Sirenen" "Kalliope"
+		"Glenten" "Høgen" "Ørnen" "Falken" "Gribben" "Lærken" "Mågen" "Viben"
+		"Krikanden" "Svarten" "Ternen" "Havørnen" "Kongeørnen" "Fiskeørnen" "Jagtfalken" "Vandrefalken"
+		"Tårnfalken" "Duehøgen" "Spurvehøgen" "Musvågen" "Skarven" "Alken" "Tejsten" "Lunden"
+		"Tranen" "Fiskehejren" "Svalen" "Kometen" "Blixten" "Nordstjernen" "Lynet" "Tordenen"
+		"Gnist" "Stormen" "Vinden" "Nordenvinden" "Søndenvinden" "Østenvinden" "Vestenvinden" "Orkanen"
+		"Kulingen" "Havblik" "Brændingen" "Bølgen" "Strømmen" "Malstrømmen" "Tordenskrald" "Lynstrålen"
+		"Meteoren" "Polarstjernen" "Gejser" "Flyvefisken" "Søridderen" "Søulven" "Søløven" "Søhunden"
+		"Havhesten" "Havkatten" "Makrelen" "Sværdfisken" "Springeren" "Støren" "Tumleren" "Dragen"
+		"Hvalen" "Laxen" "Sælen" "Narhvalen" "Delfinen" "Spækhuggeren" "Hvalrossen" "Nordkaperen"
+		"Kaskelot" "Marsvinet" "Havkalen" "Havfruen" "Havmanden" "Hajen" "Pighajen" "Brugden"
+		"Rokken" "Søhesten" "Søormen" "Søbjørnen" "Snapperen"
 	}
 }
 
@@ -40,19 +44,19 @@ DEN_SS_HISTORICAL = {
 	ship_types = { ship_hull_submarine submarine ship_hull_midget_submarine }
 
 	prefix = "HDMS "
-	fallback_name = "Ubåd %d"
+	fallback_name = "Undervandsbåd %d"
 
 	unique = {
-		# Historical Danish submarines & pioneer vessels
-		"Rota" "Bellona" "Flora" "Daphne" "Dryaden" "Havmanden" "Havfruen" "Havkalen" "Havhesten"
-		"Dykkeren" "Thetis" "2. April"
-		# Mythological sea deities & ocean spirits
-		"Ægir" "Ran" "Triton" "Neptun" "Nereus" "Proteus" "Poseidon" "Oceanus" "Galathea"
-		# Marine mammals & cetaceans (Delfinen class)
-		"Delfinen" "Spækhuggeren" "Tumleren" "Springeren" "Nordkaperen" "Narhvalen" "Hvalen"
-		"Hvalrossen" "Sælen" "Kaskelotten" "Marsvinet"
-		# Ocean predators & deep-sea fish
-		"Sværdfisken" "Hajen" "Pighajen" "Brugden" "Sildefisken" "Støren" "Havkatten" "Rokken" "Makrelen"
+		"Rota" "Bellona" "Flora" "Daphne" "Dryaden" "Havmanden" "Havfruen" "Havkalen"
+		"Havhesten" "Dykkeren" "Thetis" "2. April" "Najaden" "Nymfen" "Diana" "Kronborg"
+		"Ægir" "Ran" "Triton" "Neptun" "Nereus" "Proteus" "Poseidon" "Oceanus"
+		"Galathea" "Amfitrite" "Thalassa" "Glaucus" "Pontus" "Nereide" "Sirenen" "Nøkken"
+		"Draugen" "Kraken" "Marmennill" "Havgusen" "Søslangen" "Midgårdsormen" "Kvalen" "Delfinen"
+		"Spækhuggeren" "Tumleren" "Springeren" "Nordkaperen" "Narhvalen" "Hvalen" "Hvalrossen" "Sælen"
+		"Kaskelotten" "Marsvinet" "Sværdfisken" "Hajen" "Pighajen" "Brugden" "Sildefisken" "Støren"
+		"Havkatten" "Rokken" "Makrelen" "Havmusen" "Havtasken" "Laksen" "Torsken" "Gedden"
+		"Sandarten" "Aborren" "Hornfisken" "Ålen" "Silden" "Rødspætten" "Skrubben" "Blåhajen"
+		"Hvidhajen" "Søhesten" "Barracuda" "Blæksprutten"
 	}
 }
 
@@ -69,14 +73,14 @@ DEN_CL_HISTORICAL = {
 	fallback_name = "Let krydser %d"
 
 	unique = {
-		# Danish islands & realm lands
 		"Fyen" "Sjælland" "Jylland" "Bornholm" "Lolland" "Falster" "Møn" "Langeland"
 		"Als" "Amager" "Samsø" "Mors" "Læsø" "Anholt" "Fanø" "Rømø"
-		# Overseas territories & Arctic realms
-		"Grønland" "Færøerne" "Island" "Disko" "Danmarks Havn" "Godthaab" "Thule" "Julianehåb"
-		"St. Thomas" "St. Jan" "St. Croix" "Tranquebar"
-		# Historical cruisers, corvettes & station vessels
-		"Hekla" "Gejser" "Heimdal" "Valkyrien" "Fylla" "Ingolf" "Dagmar" "Thor" "Freja"
+		"Ærø" "Grønland" "Færøerne" "Island" "Disko" "Danmarks Havn" "Godthaab" "Thule"
+		"Julianehåb" "St. Thomas" "St. Jan" "St. Croix" "Tranquebar" "Hekla" "Gejser" "Heimdal"
+		"Valkyrien" "Fylla" "Ingolf" "Dagmar" "Thor" "Freja" "Beskytteren" "Hvidbjørnen"
+		"Vædderen" "Absalon" "Esbern Snare" "Diana" "Najaden" "Nymfen" "Galathea" "Dannebrog"
+		"Havfruen" "Thetis" "Triton" "København" "Aarhus" "Odense" "Aalborg" "Esbjerg"
+		"Frederikshavn" "Helsingør" "Roskilde" "Korsør" "Nyborg" "Rønne" "Sønderborg"
 	}
 }
 
@@ -93,13 +97,11 @@ DEN_CA_HISTORICAL = {
 	fallback_name = "Svær krydser %d"
 
 	unique = {
-		# Coastal defense battleships (Artilleriskibe / Kystforsvarsskibe) & fleet admirals
-		"Niels Juel" "Peder Skram" "Herluf Trolle" "Olfert Fischer" "Iver Hvitfeldt"
-		"Absalon" "Esbern Snare" "Vitus Bering" "Peter Willemoes" "Steen Bille"
-		"Johan Peter Suenson" "Edouard Suenson" "Hans Birch Dahlerup" "Jens Munk" "Ove Gjedde"
-		"Markor Rodsteen" "Just Juel" "Cort Adeler" "Peder Tordenskiold"
-		# Legendary heroes & founding figures of Denmark
-		"Holger Danske" "Rolf Krake" "Skjold" "Dan" "Frode" "Roar" "Helge" "Uffe" "Palnatoke" "Starkad"
+		"Niels Juel" "Peder Skram" "Herluf Trolle" "Olfert Fischer" "Iver Hvitfeldt" "Absalon" "Esbern Snare" "Vitus Bering"
+		"Peter Willemoes" "Steen Bille" "Johan Peter Suenson" "Edouard Suenson" "Hans Birch Dahlerup" "Jens Munk" "Ove Gjedde" "Markor Rodsteen"
+		"Just Juel" "Cort Adeler" "Peder Tordenskiold" "Gorm" "Lindormen" "Helgoland" "Odin" "Danmark"
+		"Ulrik Gyldenløve" "Ulrik Christian Gyldenløve" "Christian Christopher Zahrtmann" "Henrik Gerner" "Jørgen Vind" "Holger Danske" "Rolf Krake" "Skjold"
+		"Dan" "Frode" "Roar" "Helge" "Uffe" "Palnatoke" "Starkad"
 	}
 }
 
@@ -116,17 +118,12 @@ DEN_BB_HISTORICAL = {
 	fallback_name = "Slagskib %d"
 
 	unique = {
-		# Foremost naval commanders & supreme victors
-		"Tordenskiold" "Cort Adeler" "Niels Juel" "Iver Hvitfeldt" "Olfert Fischer"
-		"Peder Skram" "Herluf Trolle" "Ulrik Gyldenløve"
-		# Historic Danish monarchs
-		"Valdemar Sejr" "Valdemar den Store" "Christian IV" "Frederik IV" "Christian V"
-		"Gorm den Gamle" "Harald Blåtand" "Svend Tveskæg" "Knud den Store" "Margrete I"
-		"Erik Klipping" "Christian IX" "Frederik VIII" "Christian X" "Valdemar Atterdag"
-		"Frederik II" "Christian III"
-		# Historic flagships & great ships of the line
-		"Dannebroge" "Danske Løve" "Norske Løve" "Tre Kroner" "Elephanten" "Store Sophia"
-		"Christianus Quintus" "Fredericus Quartus" "Justitia" "Fides" "Sophia Amalia"
+		"Tordenskiold" "Cort Adeler" "Niels Juel" "Iver Hvitfeldt" "Olfert Fischer" "Peder Skram" "Herluf Trolle" "Ulrik Gyldenløve"
+		"Valdemar Sejr" "Valdemar den Store" "Christian IV" "Frederik IV" "Christian V" "Gorm den Gamle" "Harald Blåtand" "Svend Tveskæg"
+		"Knud den Store" "Margrete I" "Erik Klipping" "Christian IX" "Frederik VIII" "Christian X" "Valdemar Atterdag" "Frederik II"
+		"Christian III" "Frederik I" "Frederik III" "Christian VI" "Frederik V" "Christian VII" "Frederik VI" "Christian VIII"
+		"Frederik VII" "Knud den Hellige" "Erik Ejegod" "Niels" "Erik Menved" "Dannebroge" "Danske Løve" "Norske Løve"
+		"Tre Kroner" "Elephanten" "Store Sophia" "Christianus Quintus" "Fredericus Quartus" "Justitia" "Fides" "Sophia Amalia"
 		"Nordstjernen" "Prindse Barken"
 	}
 }
@@ -144,13 +141,11 @@ DEN_BC_HISTORICAL = {
 	fallback_name = "Slagkrydser %d"
 
 	unique = {
-		# Norse warrior heroes, legendary kings & saga champions
-		"Holger Danske" "Rolf Krake" "Starkad" "Sigurd Fafnesbane" "Ragnar Lodbrok"
-		"Svend Estridsen" "Knud Lavard" "Palnatoke" "Harald Hårderåde" "Roar" "Helge"
-		"Amled" "Bjarke" "Hjalte" "Hagbard" "Signe"
-		# Mythic beasts, war dragons & symbols
-		"Lindormen" "Fenris" "Midgårdsormen" "Sleipner" "Dragen" "Gryffen" "Valkyrien"
-		"Ormen" "Jætten" "Fafner" "Nidhug"
+		"Holger Danske" "Rolf Krake" "Starkad" "Sigurd Fafnesbane" "Ragnar Lodbrok" "Svend Estridsen" "Knud Lavard" "Palnatoke"
+		"Harald Hårderåde" "Roar" "Helge" "Amled" "Bjarke" "Hjalte" "Hagbard" "Signe"
+		"Bødvar Bjarke" "Angantyr" "Hervør" "Harald Hildetand" "Sigurd Ring" "Lagertha" "Bjørn Jernside" "Ivar Benløs"
+		"Sigurd Orm-i-Øje" "Frotho" "Uffe Hin Spage" "Lindormen" "Fenris" "Midgårdsormen" "Sleipner" "Dragen"
+		"Gryffen" "Valkyrien" "Ormen" "Jætten" "Fafner" "Nidhug"
 	}
 }
 
@@ -167,15 +162,12 @@ DEN_CV_HISTORICAL = {
 	fallback_name = "Hangarskib %d"
 
 	unique = {
-		# Norse sky, storm & solar deities
-		"Odin" "Thor" "Balder" "Heimdal" "Frej" "Tyr" "Ull" "Brage" "Forsete"
-		"Vidar" "Vale" "Njord"
-		# Valkyries & choosers of the slain
-		"Valkyrien" "Brynhild" "Hildur" "Sigrdrifa" "Gondul" "Skogul" "Randgrid"
-		"Geirskogul" "Herfjotur" "Mist" "Rota"
-		# Mythic vessels, celestial phenomena & winged heralds
-		"Skidbladner" "Sol" "Mani" "Hugin" "Munin" "Nordlyset" "Morgenstjernen"
-		"Aftenstjernen" "Dannebrog"
+		"Odin" "Thor" "Balder" "Heimdal" "Frej" "Tyr" "Ull" "Brage"
+		"Forsete" "Vidar" "Vale" "Njord" "Valkyrien" "Brynhild" "Hildur" "Sigrdrifa"
+		"Gondul" "Skogul" "Randgrid" "Geirskogul" "Herfjotur" "Mist" "Rota" "Gunnr"
+		"Hlokk" "Kára" "Sigrun" "Skidbladner" "Sol" "Mani" "Hugin" "Munin"
+		"Nordlyset" "Morgenstjernen" "Aftenstjernen" "Dannebrog" "Polarlyset" "Solvinden" "Stormbrisen" "Tordenkilen"
+		"Lynild"
 	}
 }
 
@@ -192,10 +184,12 @@ DEN_CITIES = {
 
 	unique = {
 		"København" "Aarhus" "Odense" "Aalborg" "Esbjerg" "Randers" "Kolding" "Horsens"
-		"Vejle" "Roskilde" "Helsingør" "Silkeborg" "Næstved" "Fredericia" "Viborg"
-		"Køge" "Holstebro" "Slagelse" "Hillerød" "Sønderborg" "Svendborg" "Frederikshavn"
-		"Rønne" "Middelfart" "Nyborg" "Korsør" "Nakskov" "Grenaa" "Skagen" "Ribe"
-		"Thisted" "Nykøbing Falster" "Ringsted" "Haderslev" "Tønder"
+		"Vejle" "Roskilde" "Helsingør" "Silkeborg" "Næstved" "Fredericia" "Viborg" "Køge"
+		"Holstebro" "Slagelse" "Hillerød" "Sønderborg" "Svendborg" "Frederikshavn" "Rønne" "Middelfart"
+		"Nyborg" "Korsør" "Nakskov" "Grenaa" "Skagen" "Ribe" "Thisted" "Nykøbing Falster"
+		"Ringsted" "Haderslev" "Tønder" "Kalundborg" "Holbæk" "Hjørring" "Skive" "Nibe"
+		"Sæby" "Lemvig" "Ringkøbing" "Varde" "Bogense" "Kerteminde" "Rudkøbing" "Assens"
+		"Faaborg" "Maribo" "Stege" "Rødby"
 	}
 }
 
@@ -212,9 +206,10 @@ DEN_PROVINCES = {
 
 	unique = {
 		"Jylland" "Sjælland" "Fyn" "Bornholm" "Lolland" "Falster" "Møn" "Langeland"
-		"Als" "Amager" "Samsø" "Mors" "Læsø" "Anholt" "Fanø" "Rømø" "Ærø"
-		"Vendsyssel" "Himmerland" "Thy" "Nordslesvig" "Grønland" "Færøerne" "Island"
-		"Odsherred" "Djursland" "Salling"
+		"Als" "Amager" "Samsø" "Mors" "Læsø" "Anholt" "Fanø" "Rømø"
+		"Ærø" "Vendsyssel" "Himmerland" "Thy" "Nordslesvig" "Grønland" "Færøerne" "Island"
+		"Odsherred" "Djursland" "Salling" "Hanherred" "Stevns" "Kronborg" "Mols" "Helgenæs"
+		"Hindsholm" "Bjerre" "Hornsherred"
 	}
 }
 
@@ -230,13 +225,12 @@ DEN_RULERS = {
 	fallback_name = "KDM Konge %d"
 
 	unique = {
-		"Gorm den Gamle" "Harald Blåtand" "Svend Tveskæg" "Harald II" "Knud den Store"
-		"Knud den Hellige" "Valdemar den Store" "Knud VI" "Valdemar Sejr" "Erik Menved"
-		"Valdemar Atterdag" "Margrete I" "Erik af Pommern" "Christoffer af Bayern"
-		"Christian I" "Hans" "Christian II" "Frederik I" "Christian III" "Frederik II"
-		"Christian IV" "Frederik III" "Christian V" "Frederik IV" "Christian VI"
-		"Frederik V" "Christian VII" "Frederik VI" "Christian VIII" "Frederik VII"
-		"Christian IX" "Frederik VIII" "Christian X"
+		"Gorm den Gamle" "Harald Blåtand" "Svend Tveskæg" "Harald II" "Knud den Store" "Knud den Hellige" "Valdemar den Store" "Knud VI"
+		"Valdemar Sejr" "Erik Menved" "Valdemar Atterdag" "Margrete I" "Erik af Pommern" "Christoffer af Bayern" "Christian I" "Hans"
+		"Christian II" "Frederik I" "Christian III" "Frederik II" "Christian IV" "Frederik III" "Christian V" "Frederik IV"
+		"Christian VI" "Frederik V" "Christian VII" "Frederik VI" "Christian VIII" "Frederik VII" "Christian IX" "Frederik VIII"
+		"Christian X" "Harald Klak" "Horik I" "Horik II" "Sigurd Orm-i-Øje" "Svend Estridsen" "Oluf I Hunger" "Erik Ejegod"
+		"Niels" "Erik Emune" "Erik Lam" "Svend Grathe" "Knud V"
 	}
 }
 
@@ -252,11 +246,11 @@ DEN_HEROES = {
 	fallback_name = "KDM Helt %d"
 
 	unique = {
-		"Niels Juel" "Peder Tordenskiold" "Cort Adeler" "Herluf Trolle" "Peder Skram"
-		"Iver Hvitfeldt" "Olfert Fischer" "Peter Willemoes" "Steen Bille" "Vitus Bering"
-		"Absalon" "Esbern Snare" "Jens Munk" "Ove Gjedde" "Edouard Suenson" "Hans Egede"
-		"Tycho Brahe" "Ole Rømer" "Holger Danske" "Bertel Thorvaldsen" "H.C. Andersen"
-		"Niels Bohr" "Hans Christian Ørsted" "N.F.S. Grundtvig" "Ludvig Holberg"
+		"Niels Juel" "Peder Tordenskiold" "Cort Adeler" "Herluf Trolle" "Peder Skram" "Iver Hvitfeldt" "Olfert Fischer" "Peter Willemoes"
+		"Steen Bille" "Vitus Bering" "Absalon" "Esbern Snare" "Jens Munk" "Ove Gjedde" "Edouard Suenson" "Hans Egede"
+		"Tycho Brahe" "Ole Rømer" "Holger Danske" "Bertel Thorvaldsen" "H.C. Andersen" "Niels Bohr" "Hans Christian Ørsted" "N.F.S. Grundtvig"
+		"Ludvig Holberg" "Carl Nielsen" "Søren Kierkegaard" "Rasmus Rask" "Ole Worm" "Thomas Bartholin" "Nicolas Steno" "Saxo Grammaticus"
+		"Arild Huitfeldt" "Karen Blixen"
 	}
 }
 
@@ -272,9 +266,11 @@ DEN_MYTHOLOGY = {
 	fallback_name = "KDM Mytologi %d"
 
 	unique = {
-		"Odin" "Thor" "Freja" "Balder" "Heimdal" "Tyr" "Frigg" "Loke" "Idun" "Brage"
-		"Njord" "Skade" "Ull" "Vidar" "Vale" "Forsete" "Sif" "Ægir" "Ran" "Yggdrasil"
-		"Asgård" "Midgård" "Valhal" "Gimle" "Bifrost" "Mjølner" "Gungnir"
+		"Odin" "Thor" "Freja" "Balder" "Heimdal" "Tyr" "Frigg" "Loke"
+		"Idun" "Brage" "Njord" "Skade" "Ull" "Vidar" "Vale" "Forsete"
+		"Sif" "Ægir" "Ran" "Yggdrasil" "Asgård" "Midgård" "Valhal" "Gimle"
+		"Bifrost" "Mjølner" "Gungnir" "Fenris" "Midgårdsormen" "Sleipner" "Ratatosk" "Nidhug"
+		"Hel" "Kvasir" "Gefion" "Nerthus" "Hermod"
 	}
 }
 
@@ -290,10 +286,11 @@ DEN_BIRDS = {
 	fallback_name = "KDM Fugl %d"
 
 	unique = {
-		"Havørnen" "Kongeørnen" "Fiskeørnen" "Vandrefalken" "Jagtfalken" "Lærkefalken"
-		"Tårnfalken" "Musvågen" "Hvepsevågen" "Røde Glente" "Duehøgen" "Spurvehøgen"
-		"Havmågen" "Stormmågen" "Sølvmågen" "Tejsten" "Lunden" "Lomvien" "Alken"
-		"Skarven" "Havternen" "Ederfuglen" "Knopsvanen" "Fiskehejren" "Tranen"
+		"Havørnen" "Kongeørnen" "Fiskeørnen" "Vandrefalken" "Jagtfalken" "Lærkefalken" "Tårnfalken" "Musvågen"
+		"Hvepsevågen" "Røde Glente" "Duehøgen" "Spurvehøgen" "Havmågen" "Stormmågen" "Sølvmågen" "Tejsten"
+		"Lunden" "Lomvien" "Alken" "Skarven" "Havternen" "Ederfuglen" "Knopsvanen" "Fiskehejren"
+		"Tranen" "Viben" "Krikanden" "Stormsvalen" "Havsvalen" "Svalen" "Rylen" "Klyden"
+		"Lommen" "Stæren" "Gribben" "Svarten"
 	}
 }
 
@@ -309,11 +306,11 @@ DEN_FISH = {
 	fallback_name = "KDM Havdyr %d"
 
 	unique = {
-		"Delfinen" "Spækhuggeren" "Tumleren" "Springeren" "Nordkaperen" "Narhvalen"
-		"Kaskelotten" "Sælen" "Hvalrossen" "Marsvinet" "Havkalen" "Sværdfisken"
-		"Flyvefisken" "Makrelen" "Støren" "Torsken" "Laksen" "Havørreden"
-		"Rødspætten" "Pighajen" "Brugden" "Havkatten" "Havtasken" "Hornfisken"
-		"Ålen" "Silden"
+		"Delfinen" "Spækhuggeren" "Tumleren" "Springeren" "Nordkaperen" "Narhvalen" "Kaskelotten" "Sælen"
+		"Hvalrossen" "Marsvinet" "Havkalen" "Sværdfisken" "Flyvefisken" "Makrelen" "Støren" "Torsken"
+		"Laksen" "Havørreden" "Rødspætten" "Pighajen" "Brugden" "Havkatten" "Havtasken" "Hornfisken"
+		"Ålen" "Silden" "Gedden" "Sandarten" "Aborren" "Blåhajen" "Hvidhajen" "Skrubben"
+		"Tobis" "Kuller" "Kulmule" "Lange" "Sej" "Stenbideren" "Ulken" "Blæksprutten"
 	}
 }
 
@@ -329,9 +326,9 @@ DEN_STRAITS = {
 	fallback_name = "KDM Farvand %d"
 
 	unique = {
-		"Øresund" "Storebælt" "Lillebælt" "Kattegat" "Skagerrak" "Limfjorden"
-		"Isefjorden" "Roskilde Fjord" "Flensborg Fjord" "Mariager Fjord" "Vejle Fjord"
-		"Ringkøbing Fjord" "Jammerbugt" "Vadehavet" "Køge Bugt" "Fakse Bugt"
-		"Århus Bugt" "Langelandsbælt" "Fehmarn Bælt" "Alssund"
+		"Øresund" "Storebælt" "Lillebælt" "Kattegat" "Skagerrak" "Limfjorden" "Isefjorden" "Roskilde Fjord"
+		"Flensborg Fjord" "Mariager Fjord" "Vejle Fjord" "Ringkøbing Fjord" "Jammerbugt" "Vadehavet" "Køge Bugt" "Fakse Bugt"
+		"Århus Bugt" "Langelandsbælt" "Fehmarn Bælt" "Alssund" "Grønsund" "Guldborgsund" "Ulvsund" "Vilsund"
+		"Aarøsund" "Aggersund" "Samsø Bælt" "Fanø Bugt" "Hjelm Bugt" "Sejerø Bugt" "Nissum Fjord"
 	}
 }

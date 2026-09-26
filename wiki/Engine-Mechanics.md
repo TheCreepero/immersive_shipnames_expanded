@@ -115,3 +115,16 @@ The Hearts of Iron IV Ship Designer namelist dropdown menu has a restricted widt
 - **Character Limit**: Keep `name = "..."` attributes concise, ideally **<= 25–30 characters** (maximum 32 characters).
 - **Omit Redundant National Prefixes**: Since the namelist is already filtered under the player's nation, do not include country names in the display string (e.g. use `name = "Cities"` instead of `name = "Finnish Cities"`, `name = "Monarchs"` instead of `name = "Habsburg & Babenberg Monarchs"`).
 - Long strings get visually clipped or cause unwanted line breaks in the Ship Designer interface.
+
+---
+
+## Namelist Depth & Scalability Standards
+
+To ensure that wartime fleets do not exhaust names during extended naval campaigns:
+- **Destroyers & Escorts (`DD`)**: 100–140+ unique names (minimum 80+ for minor navies).
+- **Submarines (`SS`)**: 60–80+ unique names (minimum 50+ for minor navies).
+- **Light Cruisers (`CL`)**: 50–70+ unique names (minimum 40–45+ for minor navies).
+- **Heavy Cruisers & Coastal Defense (`CA`)**: 35–45+ unique names.
+- **Capital Ships (`BB` / `BC`)**: 30–45+ unique names.
+- **Aircraft Carriers (`CV`)**: 30–40+ unique names.
+- **Universal Thematic Pools**: 35–60+ unique names per pool where thematic scope permits.

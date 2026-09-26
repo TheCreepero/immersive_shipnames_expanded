@@ -145,9 +145,14 @@ INVESTIGATION DIRECTIVES:
    - Official or customary naval prefix (if any, verifying whether vanilla used one like "NRB ").
 3. Vanilla Audit Fixes:
    - Review anomalies identified in Step 0 (misspellings, homonym calques, role demotions, auxiliary craft in cruiser lists) and supply correct replacements.
-4. Curated Candidate Pools (Target 15–30+ unique names per category):
-   - Ship-Type Specific: DD/Escorts, SS, CL, CA, BB/BC, CV.
-   - Universal Thematic Pools: Birds/Raptors, Aquatic Life/Fish, Coastal Cities, Provinces/Regions, Rivers/Waterways, Mythology/Folklore, Rulers/Heroes, Virtues/Tempests.
+4. Curated Candidate Pools (Tiered Namelist Depth Standards):
+   - Destroyers & Escorts (DD): 100–140+ unique names (minimum 80+ for minor navies).
+   - Submarines (SS): 60–80+ unique names (minimum 50+ for minor navies).
+   - Light Cruisers (CL): 50–70+ unique names (minimum 40–45+ for minor navies).
+   - Heavy Cruisers (CA): 35–45+ unique names.
+   - Battleships & Battlecruisers (BB/BC): 30–45+ unique names.
+   - Aircraft Carriers (CV): 30–40+ unique names.
+   - Universal Thematic Pools: 35–60+ unique names per pool (e.g. Birds/Raptors, Aquatic Life/Fish, Coastal Cities, Provinces/Regions, Rivers/Waterways, Mythology/Folklore, Rulers/Heroes, Virtues/Tempests).
 
 Deliver your findings as a clean, highly structured Naval Research Dossier.
 ```
@@ -180,7 +185,14 @@ Before finalizing any namelist file, verify:
   - **Vanilla Parity vs. Historical Context**: Check vanilla usage via `-InspectVanilla <TAG>`. If vanilla assigned a prefix (even semi-fictional like `NRB `), maintain it for consistency across base-game scripts and player expectations, or explicitly document why it is omitted.
   - **Universal Thematic Consistency**: If a country uses a prefix, ensure it is defined across BOTH ship-type specific groups and universal thematic groups so ships built under thematic designers receive the proper prefix.
 - [ ] **4. Scalability & Depth**:
-  - Provide sufficient depth: 15–30+ unique names for major classes so active players never exhaust the lists during wartime expansion.
+  - Enforce tiered depth standards so wartime fleets never exhaust names into generic stubs:
+    - DD: 100–140+ unique names (min 80+ for minor navies).
+    - SS: 60–80+ unique names (min 50+ for minor navies).
+    - CL: 50–70+ unique names (min 40–45+ for minor navies).
+    - CA: 35–45+ unique names.
+    - BB/BC: 30–45+ unique names.
+    - CV: 30–40+ unique names.
+    - Thematic Pools: 35–60+ unique names.
   - Always provide a numbered fallback format (e.g. `fallback_name = "Hävittäjä %d"`).
 - [ ] **5. Two-Category Balance**:
   - Are all standard hull types covered with doctrine-aligned ship-type namelists?

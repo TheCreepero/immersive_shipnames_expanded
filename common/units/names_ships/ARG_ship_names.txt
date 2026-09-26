@@ -29,10 +29,20 @@ ARG_DD_HISTORICAL = {
 		# Historic Warships of the Argentine Independence Navy
 		"Hércules" "Santísima Trinidad" "Sarandí" "General Belgrano" "Chacabuco" "Céspedes"
 		"Invencible" "Veinticinco de Mayo" "Constitución" "América"
+		# Historic Torpedo Boats, Gunboats & Escort Craft (Torpederas y Escoltas Históricas)
+		"Uruguay" "Paraná" "Bermejo" "Pilcomayo" "República" "Cazador" "Centella" "Cometa"
+		"Flecha" "Torpedo" "Atrevido" "Vengador" "Triunfo" "Vanguardia" "Corsario" "Indomable"
+		"Intrépida" "Baradero" "Barranqueras" "Clorinda" "Concepción del Uruguay" "Surubí"
+		# Avisos, Patrol Vessels & Fast Escorts (Patrulleros y Avisos Navales)
+		"Alférez Sobral" "Suboficial Castillo" "Comodoro Py" "Comodoro Lasserre" "Capitán Cánepa"
+		"Pinedo" "Goyena" "Zapiola" "Chiriguano" "Sanavirón" "Yámana" "Diaguita" "Ona"
+		"Tehuelche" "Toba" "Mataco" "Guaraní" "Teniente Olivieri" "General Irigoyen"
+		"Piloto Alsina" "Teniente Burbois" "Teniente Palet" "Teniente del Castillo"
 		# Martial Descriptors, Weather & Naval Virtues
 		"Audaz" "Intrépido" "Valiente" "Bravo" "Veloz" "Furia" "Relámpago" "Rayo"
-		"Tormenta" "Vendaval" "Pampero" "Tenaz" "Vigilante" "Sentinela" "Alerta"
-		"Defensora" "Heroína" "Victoria" "Guerreador" "Temerario"
+		"Tormenta" "Vendaval" "Pampero" "Tenaz" "Vigilante" "Centinela" "Alerta"
+		"Defensora" "Heroína" "Victoria" "Guerreador" "Temerario" "Rápido" "Patriota"
+		"Defensor" "Meteoro" "Enérgico"
 	}
 }
 
@@ -51,16 +61,24 @@ ARG_SS_HISTORICAL = {
 	unique = {
 		# Core Argentine Submarine Tradition: Provinces Beginning with "S" (Tarantinos & Modern Classes)
 		"Santa Fe" "Santiago del Estero" "Salta" "San Luis" "Santa Cruz" "San Juan"
-		# Strategic Maritime Gulfs, Bays & Coastal Anchorages
+		# Strategic Maritime Gulfs, Bays, Capes & Waterways
 		"San Antonio" "San Blas" "San Julián" "San Jorge" "San Matías" "San Sebastián"
 		"Golfo Nuevo" "Bahía Blanca" "Bahía Anegada" "Cabo San Diego" "Cabo San Pío"
-		# Native Aquatic Predators & Marine Wildlife
+		"Golfo San José" "Bahía Camarones" "Bahía Bustamante" "Bahía Laura" "Caleta Olivia"
+		"Cabo Vírgenes" "Cabo Blanco" "Cabo Raso" "Cabo Dos Bahías" "Canal Beagle"
+		"Estrecho de Le Maire" "Isla de los Estados"
+		# Native Aquatic Predators, Marine Wildlife & South Atlantic Fauna
 		"Tiburón" "Orca" "Cachalote" "Delfín" "Ballena" "Raya" "Mantarraya" "Morena"
 		"Pez Espada" "Tararira" "Surubí" "Dorado" "Manta" "Barracuda" "Lobo Marino"
 		"Tonina" "Corvina" "Lenguado" "Pacú" "Bagre" "Pejerrey"
-		# Indigenous Caciques & Pampas/Patagonian Chieftains
+		"Mero" "Merluza" "Centolla" "Calamar" "Pulpo" "Pingüino" "Foca" "Elefante Marino"
+		"Petrel" "Albatros" "Cormorán" "Trucha" "Salmón" "Róbalo" "Palometa" "Chucho" "Cazón"
+		# Patagonian Glacial Lakes & Waterways
+		"Nahuel Huapi" "El Chocón" "Limay" "Futaleufú" "Lago Argentino" "Lago Viedma"
+		# Indigenous Caciques, Chieftains & Patagonian Legends
 		"Catriel" "Namuncurá" "Calfucurá" "Pincén" "Sayhueque" "Casimiro Biguá"
 		"Baigorrita" "Renquecurá" "Coliqueo" "Purrán" "Foyel" "Inacayal"
+		"Elal" "Kenos" "Temáukel" "Kuanip"
 	}
 }
 
@@ -78,12 +96,19 @@ ARG_CL_HISTORICAL = {
 
 	unique = {
 		# Historic Argentine Light & Training Cruisers
-		"La Argentina" "Buenos Aires" "Patagonia" "Libertad" "Independencia" "Veinticinco de Mayo" "Nueve de Julio"
-		# Major Coastal Ports, Commercial Centers & Maritime Bases
+		"La Argentina" "Buenos Aires" "Patagonia" "Libertad" "Independencia" "Veinticinco de Mayo"
+		"Nueve de Julio" "Presidente Sarmiento"
+		# Major Coastal Ports, Commercial Centers & Maritime Naval Bases
 		"Rosario" "Bahía Blanca" "Mar del Plata" "Puerto Belgrano" "La Plata" "Santa Fe"
 		"Corrientes" "Paraná" "San Nicolás" "Zárate" "Puerto Madryn" "Comodoro Rivadavia"
 		"Río Gallegos" "Ushuaia" "Necochea" "Viedma" "Campana" "San Pedro" "Baradero"
 		"Gualeguaychú" "Concepción del Uruguay" "Posadas" "Formosa" "Resistencia"
+		"Ensenada" "Quequén" "Rawson" "San Antonio Oeste" "Puerto Deseado" "Puerto San Julián"
+		"Río Grande" "Bariloche" "Reconquista" "Concordia" "Punta Alta" "Puerto Rosales"
+		"Puerto Santa Cruz" "Caleta Olivia" "Miramar" "General Lavalle" "Tigre" "San Fernando"
+		"Quilmes" "Colón" "Goya" "Paso de los Libres" "Diamante" "Puerto Iguazú"
+		"Barranqueras" "Bella Vista" "La Paz" "San Lorenzo" "Villa Constitución" "Ramallo"
+		"San Antonio Este"
 	}
 }
 
@@ -100,14 +125,18 @@ ARG_CA_HISTORICAL = {
 	fallback_name = "Crucero Pesado %d"
 
 	unique = {
-		# Historic Heavy Cruisers & Garibaldi-Class Armored Cruisers
+		# Historic Heavy Cruisers, Armored Cruisers & Coastal Ironclads
 		"Veinticinco de Mayo" "Almirante Brown" "Pueyrredón" "General Belgrano" "Garibaldi" "San Martín"
+		"El Plata" "Los Andes"
 		# National Liberators, Revolutionary Generals & Heroic Marshals
 		"General San Martín" "Manuel Belgrano" "Martín Miguel de Güemes" "Juan Gregorio de Las Heras"
 		"Carlos María de Alvear" "Bartolomé Mitre" "Domingo Faustino Sarmiento" "Justo José de Urquiza"
 		"Cornelio Saavedra" "Mariano Necochea" "Juan Lavalle" "José María Paz" "Federico de Brandsen"
 		"Enrique Martínez" "Estanislao Soler" "Gregorio Aráoz de Lamadrid" "Ignacio Álvarez Thomas"
 		"Antonio González Balcarce" "Hilarión de la Quintana" "José Rondeau" "Eustoquio Díaz Vélez"
+		"Lucio Norberto Mansilla" "Manuel Dorrego" "Ángel Pacheco" "Juan Manuel de Rosas"
+		"Estanislao López" "Francisco Ramírez" "José Félix Bogado" "Mariano Moreno"
+		"Bernardino Rivadavia" "Juan José Castelli" "Bernardo de Monteagudo" "Pedro Ferré"
 	}
 }
 
@@ -132,8 +161,11 @@ ARG_BB_HISTORICAL = {
 		"Juan Bautista Alberdi" "Nicolás Avellaneda" "Carlos Pellegrini" "Cornelio Saavedra"
 		"Juan José Paso" "Juan José Castelli" "Bernardo de Monteagudo" "Manuel Alberti"
 		"Miguel de Azcuénaga" "Juan Larrea" "Domingo Matheu" "Saturnino Rodríguez Peña"
-		# Foundational National Milestones & Sovereign Virtues
+		"Roque Sáenz Peña" "Santiago Derqui" "Guillermo Rawson" "Dalmacio Vélez Sarsfield"
+		"Hipólito Yrigoyen" "Esteban Echeverría"
+		# Foundational National Milestones, Assemblies & Sovereign Virtues
 		"Veinticinco de Mayo" "Nueve de Julio" "Constitución" "República" "Libertad" "Independencia"
+		"República Argentina" "Confederación Argentina" "Provincias Unidas" "Congreso de Tucumán"
 	}
 }
 
@@ -150,11 +182,13 @@ ARG_BC_HISTORICAL = {
 	fallback_name = "Crucero de Batalla %d"
 
 	unique = {
-		# Decisive Military Victories & Battle Honours of Argentine History
+		# Decisive Military Victories, Naval Engagements & Battle Honours of Argentine History
 		"San Lorenzo" "Chacabuco" "Maipú" "Suipacha" "Salta" "Tucumán" "Vuelta de Obligado"
 		"Martín García" "Juncal" "Los Pozos" "Quilmes" "Carmen de Patagones" "Ituzaingó"
 		"Monte Caseros" "Pavón" "Curupaytí" "Rinconada" "Piedras Blancas" "Paso de la Patria"
 		"Vuelta de Rocha" "Cochabamba" "Sipe Sipe" "Campichuelo" "Tacuarí"
+		"Paso de Cuevas" "Riachuelo" "Humaitá" "Isla de Flores" "Colonia" "Punta Lara"
+		"Cepeda" "Las Piedras" "Yapeyú" "Picheuta" "San Carlos"
 	}
 }
 
@@ -171,12 +205,16 @@ ARG_CV_HISTORICAL = {
 	fallback_name = "Portaaviones %d"
 
 	unique = {
-		# Authentic Argentine Carriers & Founding National Principles
+		# Authentic Argentine Carriers, National Symbols & Sovereign Waterways
 		"Independencia" "Veinticinco de Mayo" "República" "Libertad" "Constitución"
 		"General San Martín" "Almirante Brown" "Nueve de Julio" "Patria"
+		"República Argentina" "Sol de Mayo" "Mar Argentino" "Antártida Argentina"
+		"Islas Malvinas" "Río de la Plata" "Estrecho de Magallanes" "Cabo de Hornos"
+		"Cruz del Sur" "Pampero"
 		# Andean Raptors, Avians of Prey & Aerial Predators
 		"Cóndor" "Águila" "Halcón" "Carancho" "Gavilán" "Chimango" "Aguilucho"
 		"Albatros" "Petrel" "Chajá" "Hornero" "Ñandú" "Harpía" "Taguató"
+		"Milano" "Cernícalo"
 	}
 }
 
@@ -198,6 +236,9 @@ ARG_CITIES = {
 		"Puerto Madryn" "Necochea" "Rawson" "Viedma" "San Nicolás" "Zárate" "Campana"
 		"San Pedro" "Bariloche" "Mendoza" "San Juan" "San Luis" "Catamarca" "La Rioja"
 		"Formosa" "Santiago del Estero" "San Salvador de Jujuy" "Santa Rosa" "Tandil" "Olavarría"
+		"Concordia" "Gualeguaychú" "Concepción del Uruguay" "Reconquista" "San Antonio Oeste"
+		"Puerto Deseado" "Puerto San Julián" "Río Grande" "Punta Alta" "Ensenada" "Quequén"
+		"Caleta Olivia"
 	}
 }
 
@@ -229,7 +270,7 @@ ARG_HEROES = {
 	type = ship
 
 	prefix = "ARA "
-	fallback_name = "Herói %d"
+	fallback_name = "Héroe %d"
 
 	unique = {
 		"San Martín" "Belgrano" "Brown" "Güemes" "Pueyrredón" "Moreno" "Rivadavia"
@@ -238,6 +279,7 @@ ARG_HEROES = {
 		"Parker" "Gómez Roca" "Bathurst" "Cordero" "Azopardo" "King" "Murature" "Rosas"
 		"Saavedra" "Las Heras" "Necochea" "Brandsen" "Lavalle" "Paz" "Lamadrid" "Alberdi"
 		"Castelli" "Monteagudo" "Paso" "Rodríguez Peña" "Alvear" "Soler" "Balcarce"
+		"Mansilla" "Dorrego" "Pacheco" "López" "Ramírez" "Sáenz Peña" "Bogado" "Cánepa"
 	}
 }
 
@@ -258,6 +300,8 @@ ARG_BATTLES = {
 		"Monte Caseros" "Pavón" "Curupaytí" "Rinconada" "Piedras Blancas" "Paso de la Patria"
 		"Vuelta de Rocha" "Cochabamba" "Sipe Sipe" "Campichuelo" "Tacuarí" "Cepeda"
 		"Caseros" "Las Piedras" "Yapeyú"
+		"Riachuelo" "Paso de Cuevas" "Humaitá" "Isla de Flores" "Colonia" "Punta Lara"
+		"Picheuta" "San Carlos"
 	}
 }
 
@@ -278,6 +322,8 @@ ARG_RIVERS = {
 		"Salado" "Dulce" "Limay" "Neuquén" "San Antonio" "Gualeguay" "Carcarañá"
 		"Cuarto" "Quinto" "Mendoza" "Tunuyán" "Diamante" "Atuel" "San Juan"
 		"Jáchal" "Río Chico" "Senguer" "Chico" "Corriente"
+		"San Javier" "Carabelas" "Baradero" "Luján" "Reconquista" "Ctalamochita"
+		"Chocancharava" "Futaleufú"
 	}
 }
 
@@ -297,5 +343,6 @@ ARG_FAUNA = {
 		"Chimango" "Aguilucho" "Albatros" "Petrel" "Chajá" "Hornero" "Ñandú" "Harpía"
 		"Orca" "Tiburón" "Delfín" "Ballena" "Cachalote" "Manta" "Lobo Marino"
 		"Guanaco" "Vicuña" "Huemul" "Carpincho" "Tatú Carreta" "Aguará Guazú"
+		"Mara" "Venado de las Pampas" "Pingüino" "Mero" "Merluza" "Centolla" "Calamar" "Pulpo"
 	}
 }

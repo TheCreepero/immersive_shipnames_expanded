@@ -17,15 +17,24 @@ FIN_DD_HISTORICAL = {
 		# Historic motor torpedo boats & fast patrol craft (Sisu, Hurja, Syöksy, Jymy, Taisto classes)
 		"Sisu" "Hurja" "Isku" "Syöksy" "Nuoli" "Vinha" "Raju" "Vasama" "Vihuri" "Viima"
 		"Taisto" "Tuima" "Tyrsky" "Törppö" "Jymy" "Jyske" "Tarmo" "Hyrsky"
+		"Häijy" "Huuha" "Tursa" "Kiuru" "Kalla" "Kisko"
 		# Historic minelayers, minesweepers & patrol craft
-		"Louhi" "Ruotsinsalmi" "Riilahti" "Keihässalmi" "Pansio" "Porkkala" "Pyhäranta"
+		"Karjala" "Uusimaa" "Pohjanmaa" "Louhi" "Ruotsinsalmi" "Riilahti" "Keihässalmi"
+		"Pansio" "Porkkala" "Pyhäranta" "Pukkio" "Kuusiluoto" "Haapasaari" "Katanpää" "Kallanpää"
 		"Uisko" "Tursas" "Kiisla" "Kurki" "Kuha" "Ruissalo" "Raisio" "Rymättylä" "Rihtniemi"
 		"Rautu" "Vilppula" "Vahti" "Salpa"
-		# Plausible expansion names (Martial descriptors, weather & Finnish naval virtues)
+		# Fast martial descriptors, virtues & Finnish naval virtues
+		"Vahva" "Väkevä" "Uljas" "Reipas" "Tarkka" "Kunto" "Into" "Toimi" "Valpas" "Viekas" "Vakava"
+		"Ankara" "Kiivas" "Ryminä" "Pauke" "Jylinä" "Jalopeura"
 		"Salama" "Leimaus" "Myrsky" "Puuska" "Tuuli" "Aallokko" "Ahti"
 		"Puhuri" "Pyörre" "Ryske" "Kipinä" "Lieska" "Pauhu" "Kohina" "Maininki"
 		"Hyöky" "Pärske" "Ahava" "Aura" "Tuisku" "Pyry" "Kaira" "Routa"
 		"Tora" "Kumu" "Aallokas" "Rajumyrsky"
+		# Kalevala martial figures & legendary spirits
+		"Ilmarinen" "Lemminkäinen" "Joukahainen" "Kullervo" "Tiera" "Lempo" "Hiisi" "Turisas"
+		"Iku-Turso" "Pekko" "Nyyrikki" "Tapio" "Ukko" "Tuoni" "Kalma" "Vetehinen" "Sotka"
+		"Ilmanlintu" "Voima" "Kave" "Loviatar" "Untamo" "Kyllikki" "Kaukomieli" "Ajatar"
+		"Surma" "Otso" "Kontio" "Hukka" "Korppi" "Kokko"
 	}
 }
 
@@ -45,12 +54,16 @@ FIN_SS_HISTORICAL = {
 		"Vetehinen" "Vesihiisi" "Iku-Turso" "Saukko" "Vesikko"
 		# Mythological water spirits, sea deities & aquatic monsters
 		"Näkki" "Vellamo" "Meritursas" "Hallitursas" "Vedenneito" "Vesi-Liisa" "Turso" "Ahto"
+		"Aallotar" "Merihirviö" "Ahtola" "Vedenhaltija"
 		# Marine, predatory & Baltic freshwater fish
 		"Ahven" "Hauki" "Kuha" "Siika" "Lohi" "Taimen" "Meritaimen" "Järvitaimen" "Nieriä" "Harjus"
 		"Särki" "Made" "Kampela" "Piikkikampela" "Kivinilkka" "Piikkisimppu" "Härkäsimppu" "Lahna"
 		"Säyne" "Toutain" "Suutari" "Ruutana" "Monni" "Ankerias" "Nahkiainen" "Silli" "Silakka" "Kilohaili"
-		# Marine mammals
-		"Norppa" "Halli" "Mursu" "Valas" "Miekkavalas" "Kaskelotti"
+		"Turska" "Nokkahuuli" "Kiiski" "Muikku" "Kuore" "Sorva" "Salakka" "Rasvakala" "Siloneula" "Särmäneula"
+		"Kivinuljaska" "Mutu" "Pasuri" "Vimpa" "Karppi" "Puronieriä" "Purotaimen" "Sampi" "Törö"
+		# Marine mammals & deep water concepts
+		"Norppa" "Halli" "Mursu" "Valas" "Miekkavalas" "Kaskelotti" "Pyöriäinen" "Merikarhu" "Hylje"
+		"Syvänne" "Syvyys" "Pohjavirta" "Pintavirta"
 	}
 }
 
@@ -63,7 +76,7 @@ FIN_CL_HISTORICAL = {
 	type = ship
 	ship_types = { ship_hull_cruiser light_cruiser }
 
-	fallback_name = "Kevyt Risteilijä %d"
+	fallback_name = "Kevyt risteilijä %d"
 
 	unique = {
 		# Major historical coastal towns, trade centers & island capitals
@@ -72,6 +85,11 @@ FIN_CL_HISTORICAL = {
 		"Hamina" "Maarianhamina" "Käkisalmi" "Sortavala" "Naantali" "Uusikaupunki"
 		"Raahe" "Tornio" "Kaskinen" "Kristiinankaupunki" "Heinola" "Savonlinna"
 		"Lappeenranta" "Mikkeli" "Kuopio" "Joensuu" "Jyväskylä" "Iisalmi" "Kajaani" "Rovaniemi"
+		# Archipelago, trading & inland historic towns
+		"Hämeenlinna" "Tampere" "Lahti" "Kouvola" "Varkaus" "Uusikaarlepyy" "Salo" "Lohja"
+		"Karkkila" "Parainen" "Kaarina" "Raisio" "Lieksa" "Nurmes" "Forssa" "Kauhava"
+		"Kurikka" "Seinäjoki" "Alavus" "Äänekoski" "Jämsä" "Pieksämäki" "Suonenjoki"
+		"Kemijärvi" "Kuusamo" "Harjavalta" "Huittinen" "Nokia" "Vammala"
 	}
 }
 
@@ -84,7 +102,7 @@ FIN_CA_HISTORICAL = {
 	type = ship
 	ship_types = { ship_hull_cruiser heavy_cruiser }
 
-	fallback_name = "Raskas Risteilijä %d"
+	fallback_name = "Raskas risteilijä %d"
 
 	unique = {
 		# Historic coastal defense ships & Kalevala epic champions
@@ -94,6 +112,10 @@ FIN_CA_HISTORICAL = {
 		"Pohjolan Emäntä" "Tiera" "Samson" "Nyyrikki" "Tellervo" "Tuoni"
 		"Hiisi" "Lempo" "Pekko" "Äkräs" "Kyllikki" "Aino" "Marjatta"
 		"Tuulikki" "Annikki" "Osmotar"
+		# Expanded mythical figures & national commanders
+		"Turisas" "Kalma" "Kave" "Loviatar" "Louhi" "Sampsa"
+		"Jaakko Ilkka" "Arvid Stålarm" "Torsten Stålhandske" "Carl Gustaf Armfelt"
+		"Lalli" "Pietari Brahe"
 	}
 }
 
@@ -115,6 +137,9 @@ FIN_BB_HISTORICAL = {
 		"Päijät-Häme" "Kanta-Häme" "Kymenlaakso" "Pohjois-Karjala" "Etelä-Karjala"
 		"Etelä-Pohjanmaa" "Pohjois-Pohjanmaa" "Keski-Pohjanmaa" "Inari" "Petsamo" "Viena" "Aunus" "Inkeri"
 		"Itä-Karjala" "Laatokan Karjala" "Länsi-Pohja" "Ruija"
+		# Historical realms & grand maritime waters
+		"Fennia" "Äänislinna" "Vienan Karjala" "Aunuksen Karjala" "Pohjolanmaa"
+		"Laatokka" "Saimaa" "Päijänne" "Perämeri" "Selkämeri" "Saaristomeri"
 	}
 }
 
@@ -135,9 +160,11 @@ FIN_BC_HISTORICAL = {
 		"Kuningas Thorri" "Kuningas Kári" "Kuningas Frosti" "Kuningas Alavus"
 		"Kuningas Kauppi" "Kuningas Sumble" "Ruhtinas Kaleva" "Pohjolan Isäntä" "Kuningas Väinö"
 		"Kaarle I" "Kuningas Kustaa"
+		"Kuningas Faravid" "Kuningas Nuolio" "Ruhtinas Ahti" "Kuningas Eerik" "Kuningas Valdemar"
 		# Historic heavy icebreaker champions & power vessels
 		"Murtaja" "Sampo" "Tarmo" "Varma" "Voima" "Apu" "Sisu" "Urho"
 		"Karhu" "Otso" "Fennica" "Nordica"
+		"Jääkarhu" "Botnica" "Polaris" "Kontio" "Turva"
 	}
 }
 
@@ -158,8 +185,11 @@ FIN_CV_HISTORICAL = {
 		# Birds of prey & sky avians
 		"Kotka" "Merikotka" "Maakotka" "Haukka" "Tuulihaukka" "Nuolihaukka"
 		"Kanahaukka" "Muuttohaukka" "Tunturihaukka" "Sääksi" "Kalasaari" "Korpisoturi"
+		"Kalasääski" "Hiirihaukka" "Mehiläishaukka" "Haarahaukka" "Ampuhaukka"
+		"Tunturipöllö" "Huuhkaja" "Korppi" "Ilmanlintu"
 		# Celestial bodies & northern sky phenomena
 		"Otava" "Otavainen" "Pohjantähti" "Revontuli" "Päivätär" "Kuutar" "Kointähti" "Tuulitar"
+		"Tuulispää" "Ukkoslintu" "Salamatar"
 	}
 }
 
@@ -178,6 +208,10 @@ FIN_RULERS = {
 		"Kuningas Fornjot" "Kuningas Norr" "Kuningas Gor" "Kuningas Snær" "Kuningas Thorri"
 		"Kuningas Kári" "Kuningas Frosti" "Kuningas Alavus" "Kuningas Kauppi" "Kuningas Sumble"
 		"Ruhtinas Kaleva" "Pohjolan Isäntä" "Kuningas Väinö"
+		"Kuningas Faravid" "Kuningas Nuolio" "Ruhtinas Ahti" "Kuningas Eerik" "Kuningas Valdemar"
+		"Kuningas Birger" "Kuningas Maunu" "Kuningas Juhana" "Kuningas Kaarle IX"
+		"Kuningas Kustaa II Aadolf" "Kuningatar Kristiina" "Kuningas Kaarle XII"
+		"Kuningas Aadolf Fredrik" "Kuningas Kustaa III" "Kuningas Kustaa IV Aadolf"
 		# Historical state leaders, regents & monarchs
 		"Kaarle I" "Kuningas Kustaa" "Valtionhoitaja Mannerheim" "Valtionhoitaja Svinhufvud"
 		"Presidentti Ståhlberg" "Presidentti Relander" "Presidentti Svinhufvud" "Presidentti Kallio"
@@ -202,6 +236,8 @@ FIN_CITIES = {
 		"Kokkola" "Pietarsaari" "Raahe" "Kajaani" "Iisalmi" "Sortavala" "Käkisalmi"
 		"Tammisaari" "Maarianhamina" "Naantali" "Uusikaupunki" "Kaskinen" "Kristiinankaupunki"
 		"Heinola" "Joensuu" "Salo" "Forssa" "Varkaus" "Kouvola"
+		"Hämeenlinna" "Parainen" "Kaarina" "Raisio" "Lieksa" "Nurmes" "Karkkila"
+		"Lohja" "Kemijärvi" "Kuusamo"
 	}
 }
 
@@ -221,6 +257,7 @@ FIN_PROVINCES = {
 		"Ahvenanmaa" "Kymenlaakso" "Päijät-Häme" "Kanta-Häme" "Etelä-Karjala" "Pohjois-Karjala"
 		"Etelä-Savo" "Pohjois-Savo" "Keski-Suomi" "Viena" "Aunus" "Inkeri" "Petsamo"
 		"Inari" "Kuusamo" "Salla" "Suur-Suomi"
+		"Vienan Karjala" "Aunuksen Karjala" "Äänisenranta" "Länsi-Pohja" "Ruija" "Laatokan Karjala"
 	}
 }
 
@@ -242,6 +279,7 @@ FIN_RIVERS = {
 		"Vuoksi" "Kymijoki" "Kokemäenjoki" "Oulujoki" "Kemijoki" "Tornionjoki" "Muonionjoki"
 		"Teno" "Iijoki" "Paatsjoki" "Luttojoki" "Aurajoki" "Vantaanjoki" "Porvoonjoki"
 		"Simojoki" "Kitkajoki" "Lieksanjoki"
+		"Pielisjoki" "Siikajoki" "Kalajoki" "Kyrönjoki" "Lestijoki" "Lankoski"
 	}
 }
 
@@ -263,6 +301,7 @@ FIN_GEOGRAPHY = {
 		"Hanko" "Porkkala" "Upinniemi" "Riilahti" "Ruotsinsalmi" "Bengtskär" "Utö"
 		"Märket" "Hailuoto" "Suursaari" "Lavansaari" "Tytärsaari" "Seiskari" "Kuuskajaskari"
 		"Örö" "Russarö" "Mäkiluoto" "Kuivasaari" "Santahamina" "Suomenlinna"
+		"Söderskär" "Jussarö" "Kallbådan" "Rönnskär" "Sälgrund" "Yttergrund" "Tankari"
 	}
 }
 
@@ -278,12 +317,13 @@ FIN_BATTLES = {
 
 	unique = {
 		# Historic naval and coastal battles
-		"Ruotsinsalmi" "Riilahti" "Suursaari" "Bengtskär" "Sommee"
+		"Ruotsinsalmi" "Riilahti" "Suursaari" "Bengtskär" "Sommee" "Teikarinsaari"
 		# 1808-1809 war battles
 		"Koljonvirta" "Juutas" "Siikajoki" "Revolahti" "Lapua" "Kauhajoki" "Alavus" "Salmi" "Pulkkila"
 		# Winter & Continuation War engagements
 		"Tolvajärvi" "Suomussalmi" "Raate" "Kollaa" "Taipale" "Summa" "Honkaniemi"
 		"Tali-Ihantala" "Vuosalmi" "Äyräpää" "Ilomantsi" "Tornio"
+		"Joutsijärvi" "Kuhmo" "Viipurinlahti" "Siiranmäki" "Kuuterselkä" "Tienhaara" "Lemetti" "Syskyjärvi" "Nietjärvi"
 	}
 }
 
@@ -302,10 +342,13 @@ FIN_HEROES = {
 		"Carl Gustaf Emil Mannerheim" "Klas Horn" "Matti Kurki" "Lalli" "Jaakko Ilkka"
 		"Arvid Stålarm" "Torsten Stålhandske" "Carl Gustaf Armfelt" "Georg Carl von Döbeln"
 		"Johan August Sandels" "Carl Johan Adlercreutz" "Adolf Ehrnrooth" "Wilhelm von Wendt"
+		"Klaus Fleming" "Pietari Brahe" "Simuna Hurtta" "Tapani Löfving" "Klaus Kurki"
+		"Aimo Lahti" "Vilho Petter Nenonen"
 		# Cultural pioneers, scholars & artists
 		"Mikael Agricola" "Henrik Gabriel Porthan" "Johan Vilhelm Snellman"
 		"Johan Ludvig Runeberg" "Elias Lönnrot" "Jean Sibelius" "Akseli Gallen-Kallela"
 		"Eero Järnefelt" "Aleksis Kivi" "Minna Canth"
+		"Paavo Nurmi" "Hannes Kolehmainen" "Juho Kusti Paasikivi" "Väinö Tanner" "Kyösti Kallio"
 	}
 }
 
@@ -326,6 +369,7 @@ FIN_MYTHOLOGY = {
 		"Louhi" "Kaukomieli" "Tiera" "Iku-Turso" "Hiisi" "Vetehinen" "Näkki"
 		"Lempo" "Pekko" "Äkräs" "Tuoni" "Kiputyttö" "Käreitär" "Tuulitar"
 		"Otavainen" "Päivätär" "Kuutar"
+		"Sampsa Pellervoinen" "Loviatar" "Ajatar" "Surma" "Mana" "Manala"
 	}
 }
 
@@ -346,6 +390,7 @@ FIN_BIRDS = {
 		"Kuikka" "Kaakkuri" "Koskelo" "Tukkakoskelo" "Isokoskelo" "Haahka" "Alli"
 		"Telkkä" "Tiira" "Kalalokki" "Merilokki" "Selkälokki" "Joutsen" "Laulujoutsen"
 		"Kyhmyjoutsen" "Kurki"
+		"Ampuhaukka" "Piekana" "Kalasääski" "Uuttukyyhky"
 	}
 }
 
@@ -365,6 +410,7 @@ FIN_FISH = {
 		"Ruutana" "Sorva" "Salakka" "Muikku" "Kuore" "Kampela" "Piikkikampela"
 		"Kivinilkka" "Piikkisimppu" "Härkäsimppu" "Rasvakala" "Silli" "Silakka" "Kilohaili"
 		"Ankerias" "Nahkiainen" "Monni" "Meritursas" "Norppa" "Halli" "Mursu" "Valas" "Miekkavalas"
+		"Kiiski" "Turska" "Sampi"
 	}
 }
 
@@ -383,6 +429,8 @@ FIN_BEASTS = {
 		"Ilves" "Ahma" "Kettu" "Kärppä" "Näätä" "Saukko" "Mäyrä" "Hirvi"
 		"Peura" "Metsäpeura" "Poro" "Metsäkauris" "Majava" "Villisika" "Metsäjänis"
 		"Rusakko" "Siili" "Vesikko"
+		"Lumikko" "Hilleri" "Tunturisopuli" "Metsämyyrä" "Vesimyyrä" "Liito-orava"
+		"Orava" "Kalliosopuli" "Päästäinen" "Vaadin"
 	}
 }
 
@@ -401,6 +449,9 @@ FIN_VIRTUES = {
 		"Kestävyys" "Päättäväisyys" "Sitkeys" "Voima" "Turva" "Vakaus" "Valppaus"
 		"Puolustus" "Tahto" "Vakaumus" "Uhrivalmius" "Tarmokkuus" "Vahvuus"
 		"Lujuus" "Väsymättömyys" "Koskemattomuus" "Itsenäisyys"
+		"Väkevyys" "Pelottomuus" "Taistelutahto" "Isänmaallisuus" "Uhrautuvaisuus"
+		"Velvollisuus" "Kunniantunto" "Luotettavuus" "Oikeamielisyys" "Vakavuus"
+		"Peräänantamattomuus" "Sankaruus"
 	}
 }
 
@@ -419,5 +470,6 @@ FIN_NATURE = {
 		"Viima" "Tuisku" "Pyry" "Kaira" "Routa" "Pakkanen" "Halla" "Sumu"
 		"Usva" "Auvo" "Maininki" "Aallokko" "Hyöky" "Tyrsky" "Pärske" "Revontuli"
 		"Pohjantähti" "Otava" "Kointähti" "Kipinä" "Lieska" "Pauhu" "Jyske" "Jymy"
+		"Tuulispää" "Pyörretuuli" "Rae" "Rajuilma" "Ukkosmyrsky" "Talvimyrsky" "Pohjantuuli"
 	}
 }

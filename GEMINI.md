@@ -24,6 +24,15 @@ Every country's ship namelists should be structured into two broad categories:
      - **Geography**: Major & Coastal Cities, Provinces / Regions, Rivers & Lakes, Mountains / Landmarks.
      - **History & Heritage**: Legendary Rulers & Monarchs, National Heroes, Mythological Figures / Deities, Historic Battles.
      - **Martial Virtues & Metaphor**: Virtues, Meteorological / Celestial phenomena.
+   - **Tiered Namelist Depth Standards**:
+     - Due to Hearts of Iron IV's gameplay dynamics, small combat vessels are produced in large volumes. Namelists must provide sufficient depth so active wartime fleets do not exhaust names into generic numbered templates:
+       - **Destroyers & Escorts (`DD`)**: 100–140+ unique names (minimum 80+ for minor navies).
+       - **Submarines (`SS`)**: 60–80+ unique names (minimum 50+ for minor navies).
+       - **Light Cruisers (`CL`)**: 50–70+ unique names (minimum 40–45+ for minor navies).
+       - **Heavy Cruisers & Coastal Defense (`CA`)**: 35–45+ unique names.
+       - **Capital Ships (`BB` / `BC`)**: 30–45+ unique names.
+       - **Aircraft Carriers (`CV`)**: 30–40+ unique names.
+       - **Universal Thematic Pools**: 35–60+ unique names per pool where thematic scope permits.
    - **UI Display Name Constraints (Max ~25-30 Characters)**:
      - The in-game Ship Designer dropdown UI has limited width and truncates or wraps long namelist names poorly.
      - Keep all display names (`name = "..."`) concise (strictly **<= 30-32 characters**, ideally **<= 25 characters**).

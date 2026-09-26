@@ -69,6 +69,7 @@ This document serves as an instruction and reference guide for maintaining and u
 | `AUS_ship_names.txt` | Austria | `AUS` | Included (DD, SS, CL, CA, BB, CV, 11 Thematic Topics) |
 | `BRA_ship_names.txt` | Brazil | `BRA` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics, Vanilla Fixes) |
 | `CHL_ship_names.txt` | Chile | `CHL` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics, Vanilla Fixes) |
+| `CUB_ship_names.txt` | Cuba | `CUB` | Included (DD, SS, CL, CA, BB, CV, 7 Thematic Topics, Vanilla Fixes) |
 | `DEN_ship_names.txt` | Denmark | `DEN` | Included (DD, SS, CL, CA, BB, BC, CV, 8 Thematic Topics, Vanilla Fixes) |
 | `FIN_ship_names.txt` | Finland | `FIN` | Included (DD, SS, CL, CA, BB, BC, CV, 13 Thematic Topics, Vanilla Fixes) |
 | `NOR_ship_names.txt` | Norway | `NOR` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics, Vanilla Fixes) |
@@ -79,7 +80,7 @@ This document serves as an instruction and reference guide for maintaining and u
 ## Current Description Template (BBCode)
 
 ```bbcode
-More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Sweden, Norway, and Denmark. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
+More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, and Cuba. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
 Check out my other mods:
 - [url=https://steamcommunity.com/workshop/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
@@ -114,6 +115,11 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 - Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers & Coastal Defense, Battleships, Battlecruisers, and Aircraft Carriers.
 - Added 7 universal thematic lists selectable for any hull in the Ship Designer (Cities, Provinces, Heroes, Mapuche Warriors, Historic Battles, Waterways & Fjords, and Native Fauna).
 - Fixed vanilla file issues: purged pontoon hulks ("County of Peebles") and peacetime disaster shipwrecks ("Cazador") from capital ship lists, eliminated duplicate entries ("Orella" and "Araucano"), restored missing diacritics, and expanded historical Armada de Chile traditions.
+
+[b]Cuba[/b]
+- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers, Battleships, and Aircraft Carriers.
+- Added 7 universal thematic lists selectable for any hull in the Ship Designer (Cities, Provinces & Regions, Heroes & Statesmen, Historic Battles & Dates, Mythology & Deities, Fauna & Wildlife, and Rivers & Waterways).
+- Fixed vanilla file issues: removed erroneous Colombian prefix ("ARC "), corrected the "Marinao" typo to Marianao, eliminated verbatim duplicates between destroyers and submarines as well as light and heavy cruisers, replaced foreign capital ship stubs with authentic Cuban naval traditions, and enriched all rosters.
 
 [b]Denmark[/b]
 - Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers & Coastal Defense, Battleships, Battlecruisers, and Aircraft Carriers.

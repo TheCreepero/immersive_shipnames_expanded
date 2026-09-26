@@ -1,0 +1,296 @@
+##### CUBA NAVAL NAME LISTS (ISNE) #####
+# Note: Vanilla HoI4 CUB_ship_names.txt suffered from severe anomalies:
+# 1) Wrong prefix "ARC " (Armada de la República de Colombia) applied to Cuba;
+#    the historical pre-1959 Cuban Navy (Marina de Guerra) did not use an English-style prefix.
+# 2) Typographical error "Marinao" instead of "Marianao".
+# 3) Complete verbatim duplication between DD and SS lists (identical 9 names).
+# 4) Complete verbatim duplication between CL and CA lists (identical 5 names).
+# 5) Mirrored 2-ship stubs between BB and BC featuring US President "Theodore Roosevelt".
+# 6) Zero universal thematic pools for the Ship Designer.
+# ISNE resolves all errors, removes foreign names, segregates classes doctrinally,
+# and expands naval flavor across historical and alternate-history fleets.
+
+### DESTROYERS & ESCORTS ###
+CUB_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { CUB }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	fallback_name = "Destructor %d"
+
+	unique = {
+		# Historical Gunboats, Patrol Craft & Revolutionary Dates
+		"Diez de Octubre" "Veinticuatro de Febrero" "Veinte de Mayo" "Patria" "Yara" "Baire"
+		"Enrique Villuendas" "Caribe" "Siboney" "Hatuey" "Guamá" "La Demajagua"
+		# Decisive Battle Honours of the Wars of Independence
+		"Mal Tiempo" "Las Guásimas" "Peralejo" "Palo Seco" "Dos Ríos" "El Caney"
+		"San Juan" "Jimaguayú" "Ceja del Negro" "Loma del Gato" "Calimete" "Guisa"
+		# Martial Descriptors & Naval Virtues
+		"Audaz" "Intrépido" "Vigilante" "Valiente" "Centinela" "Rápido"
+		"Veloz" "Temerario" "Bravo" "Alerta" "Tenaz" "Firmeza" "Vencedor"
+	}
+}
+
+### SUBMARINES ###
+CUB_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { CUB }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	fallback_name = "Submarino %d"
+
+	unique = {
+		# Caribbean Aquatic Predators & Marine Life
+		"Caguama" "Manatí" "Delfín" "Tiburón" "Barracuda" "Carey" "Cocodrilo"
+		"Morena" "Aguja" "Manjuarí" "Raya" "Manta" "Pez Espada"
+		# Endemic Cuban Wildlife
+		"Almiquí" "Majá" "Jutía" "Iguana"
+		# Indigenous Spirits & Deities of Waters and Tempests
+		"Yucajú" "Atabey" "Olokun" "Guabancex"
+		# Strategic Capes & Maritime Headlands
+		"Cabo Maisí" "Cabo Cruz" "Cabo San Antonio" "Punta Gorda" "Punta de Prácticos" "Cabo Corrientes"
+	}
+}
+
+### LIGHT CRUISERS ###
+CUB_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { CUB }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	fallback_name = "Crucero Ligero %d"
+
+	unique = {
+		# Major Coastal Ports, Commercial Centers & Historic Municipalities
+		"La Habana" "Santiago de Cuba" "Cienfuegos" "Matanzas" "Marianao" "Guantánamo"
+		"Holguín" "Bayamo" "Trinidad" "Cárdenas" "Manzanillo" "Nuevitas"
+		"Sagua la Grande" "Sancti Spíritus" "Remedios" "Baracoa" "Gibara" "Mariel"
+		"Regla" "Batabanó" "Caibarién" "Banes" "Ciego de Ávila" "Morón"
+		"Júcaro" "Puerto Padre" "Santa Clara"
+	}
+}
+
+### HEAVY CRUISERS & COASTAL DEFENSE ###
+CUB_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { CUB }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	fallback_name = "Crucero Pesado %d"
+
+	unique = {
+		# Paramount Heroes, Generals & Martyrs of Cuban Independence
+		"José Martí" "Antonio Maceo" "Máximo Gómez" "Calixto García"
+		"Carlos Manuel de Céspedes" "Ignacio Agramonte" "Vicente García González"
+		"Juan Bruno Zayas" "Serafín Sánchez" "Guillermón Moncada"
+		"Adolfo del Castillo" "Flor Crombet" "Quintín Banderas" "Bartolomé Masó"
+		"Pedro Agustín Pérez" "Salvador Cisneros Betancourt" "Julio Sanguily"
+		"Néstor Aranguren" "Manuel de Quesada" "Donato Mármol" "José María Rodríguez"
+		"José Lacret Morlot" "Emilio Núñez" "Francisco Carrillo"
+	}
+}
+
+### BATTLESHIPS & CAPITAL SHIPS ###
+CUB_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { CUB }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship battle_cruiser }
+
+	fallback_name = "Acorazado %d"
+
+	unique = {
+		# Sovereign National Identity & Historical Provinces
+		"Cuba" "República de Cuba" "Isla de Cuba" "Pinar del Río" "Las Villas"
+		"Camagüey" "Oriente" "Isla de Pinos"
+		# Supreme Constitutional & Republican Concepts
+		"Soberanía" "Constitución" "Libertad" "Independencia" "Victoria"
+		# National Leadership & Geographic Bastions
+		"Fulgencio Batista" "Sierra Maestra" "Sierra del Rosario" "Sierra de Cubitas"
+	}
+}
+
+### AIRCRAFT CARRIERS ###
+CUB_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { CUB }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	fallback_name = "Portaaviones %d"
+
+	unique = {
+		# Major Waterways, Rivers & Estuaries
+		"Río Cauto" "Río Toa" "Río Almendares" "Río Sagua la Grande" "Río Zaza"
+		"Río Cuyaguateje" "Río Jatibonico" "Río Damují" "Río Hanabanilla"
+		"Río Mayarí" "Río Yumurí" "La Sabana"
+		# Strategic Maritime Gulfs & Bays
+		"Bahía de Nipe" "Golfo de Guacanayabo" "Bahía de Cienfuegos"
+		# Storms, Atmospheric Phenomena & Celestial Deities
+		"Huracán" "Ciclón" "Tormenta" "Relámpago" "Changó" "Oyá"
+		# Avian Predators & National Birds
+		"Tocororo" "Zunzuncito" "Gavilán" "Cernícalo" "Halcón"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES ###
+CUB_CITIES = {
+	name = "Cities"
+
+	for_countries = { CUB }
+
+	type = ship
+
+	fallback_name = "Ciudad %d"
+
+	unique = {
+		"La Habana" "Santiago de Cuba" "Camagüey" "Holguín" "Santa Clara" "Guantánamo"
+		"Cienfuegos" "Matanzas" "Bayamo" "Pinar del Río" "Cárdenas" "Manzanillo"
+		"Sancti Spíritus" "Ciego de Ávila" "Marianao" "Guanabacoa" "Palma Soriano" "Morón"
+		"Florida" "Contramaestre" "Artemisa" "Trinidad" "Colón" "Baracoa"
+		"Güines" "Placetas" "Sagua la Grande" "Nuevitas" "Gibara" "Mariel"
+		"Regla" "Batabanó" "Caibarién" "Banes" "Puerto Padre" "Bauta"
+		"San José de las Lajas" "Mayarí"
+	}
+}
+
+### UNIVERSAL TOPIC: PROVINCES & REGIONS ###
+CUB_PROVINCES = {
+	name = "Provinces"
+
+	for_countries = { CUB }
+
+	type = ship
+
+	fallback_name = "Provincia %d"
+
+	unique = {
+		"Pinar del Río" "La Habana" "Matanzas" "Las Villas" "Camagüey" "Oriente"
+		"Isla de Pinos" "Sierra Maestra" "Sierra del Rosario" "Sierra de los Órganos"
+		"Sierra de Cubitas" "Sierra de Escambray" "Valle de Viñales" "Vuelta Abajo"
+		"Vuelta Arriba" "Ciénaga de Zapata" "Cayo Coco" "Cayo Largo" "Cayo Guillermo"
+		"Cayo Romano" "Península de Guanahacabibes" "Península de Zapata"
+	}
+}
+
+### UNIVERSAL TOPIC: HEROES & STATESMEN ###
+CUB_HEROES = {
+	name = "Heroes"
+
+	for_countries = { CUB }
+
+	type = ship
+
+	fallback_name = "Héroe %d"
+
+	unique = {
+		"José Martí" "Antonio Maceo" "Máximo Gómez" "Calixto García" "Carlos Manuel de Céspedes"
+		"Ignacio Agramonte" "Vicente García González" "Juan Bruno Zayas" "Serafín Sánchez"
+		"Guillermón Moncada" "Adolfo del Castillo" "Flor Crombet" "Quintín Banderas"
+		"Bartolomé Masó" "Pedro Agustín Pérez" "Salvador Cisneros Betancourt" "Julio Sanguily"
+		"Néstor Aranguren" "Manuel de Quesada" "Donato Mármol" "José María Rodríguez"
+		"José Lacret Morlot" "Emilio Núñez" "Francisco Carrillo" "Enrique Villuendas"
+		"Perucho Figueredo" "Marta Abreu" "Mariana Grajales" "Bernabé Boza"
+		"Félix Varela" "José de la Luz y Caballero"
+	}
+}
+
+### UNIVERSAL TOPIC: HISTORIC BATTLES & DATES ###
+CUB_BATTLES = {
+	name = "Battles & Dates"
+
+	for_countries = { CUB }
+
+	type = ship
+
+	fallback_name = "Batalla %d"
+
+	unique = {
+		"Diez de Octubre" "Veinticuatro de Febrero" "Veinte de Mayo" "Grito de Yara"
+		"Grito de Baire" "Dos Ríos" "Las Guásimas" "El Caney" "Colina de San Juan"
+		"Mal Tiempo" "Peralejo" "Palo Seco" "La Demajagua" "Jimaguayú"
+		"Ceja del Negro" "Loma del Gato" "Guisa" "Calimete" "Iguará"
+		"Punta Brava" "El Jigüe"
+	}
+}
+
+### UNIVERSAL TOPIC: MYTHOLOGY & DEITIES ###
+CUB_MYTHOLOGY = {
+	name = "Mythology"
+
+	for_countries = { CUB }
+
+	type = ship
+
+	fallback_name = "Mito %d"
+
+	unique = {
+		# Taíno Indigenous Figures & Mythological Deities
+		"Hatuey" "Guamá" "Atabey" "Yucajú" "Guabancex" "Huracán"
+		# Afro-Cuban Yoruba & Santería Orishas
+		"Yemayá" "Olokun" "Changó" "Oshún" "Obatalá" "Elegguá" "Oggún"
+		"Babalú-Ayé" "Oyá" "Inle" "Agayú" "Orunmila" "Osain" "Ochosi"
+		"Ibeji" "Nana Burukú" "Osun" "Iroko"
+	}
+}
+
+### UNIVERSAL TOPIC: FAUNA & WILDLIFE ###
+CUB_FAUNA = {
+	name = "Fauna"
+
+	for_countries = { CUB }
+
+	type = ship
+
+	fallback_name = "Fauna %d"
+
+	unique = {
+		# Native Avians & Birds of Prey
+		"Tocororo" "Zunzuncito" "Gavilán" "Cernícalo" "Halcón" "Flamenco"
+		"Cotorra" "Pelícano" "Carpintero Real" "Cartacuba" "Sijú Platanero"
+		"Totí" "Bijirita" "Señorita" "Torcaza" "Guanabá"
+		# Marine Creatures & Reptiles
+		"Caguama" "Manatí" "Delfín" "Tiburón" "Barracuda" "Cocodrilo"
+		"Majá" "Almiquí" "Jutía" "Carey" "Aguja" "Manjuarí" "Iguana" "Morena"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS & WATERWAYS ###
+CUB_RIVERS = {
+	name = "Rivers & Waterways"
+
+	for_countries = { CUB }
+
+	type = ship
+
+	fallback_name = "Río %d"
+
+	unique = {
+		# Major Cuban Rivers & Tributaries
+		"Río Cauto" "Río Toa" "Río Almendares" "Río Sagua la Grande" "Río Zaza"
+		"Río Cuyaguateje" "Río Jatibonico" "Río Damují" "Río Hanabanilla"
+		"Río Mayarí" "Río Yumurí" "Río San Juan" "Río Canímar" "Río Agabama"
+		"Río Arimao" "Río Máximo"
+		# Strategic Maritime Bays, Channels & Gulfs
+		"Bahía de Nipe" "Golfo de Guacanayabo" "Bahía de Cienfuegos"
+		"Bahía de La Habana" "Bahía de Santiago" "Bahía de Matanzas"
+		"Bahía de Cabañas" "Bahía de Mariel" "Ensenada de la Broa"
+		"Canal Viejo de Bahama" "Paso de los Vientos"
+	}
+}

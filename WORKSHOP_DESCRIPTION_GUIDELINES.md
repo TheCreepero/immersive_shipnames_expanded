@@ -74,13 +74,14 @@ This document serves as an instruction and reference guide for maintaining and u
 | `FIN_ship_names.txt` | Finland | `FIN` | Included (DD, SS, CL, CA, BB, BC, CV, 13 Thematic Topics, Vanilla Fixes) |
 | `NOR_ship_names.txt` | Norway | `NOR` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics, Vanilla Fixes) |
 | `SWE_ship_names.txt` | Sweden | `SWE` | Included (DD, SS, CL, CA, BB, BC, CV, 10 Thematic Topics, Vanilla Fixes) |
+| `TUR_ship_names.txt` | Turkey | `TUR` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics, Vanilla Fixes) |
 
 ---
 
 ## Current Description Template (BBCode)
 
 ```bbcode
-More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, and Cuba. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
+More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, and Turkey. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
 Check out my other mods:
 - [url=https://steamcommunity.com/workshop/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
@@ -140,6 +141,11 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 - Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers (Pansarskepp), Battleships, Battlecruisers, and Aircraft Carriers.
 - Added 10 universal thematic lists selectable for any hull in the Ship Designer (Monarchs, Provinces, Cities, Norse Mythology, Birds of Prey, Predators, Aquatic Life, Naval Heroes, Martial Virtues, and Historic Battles).
 - Fixed vanilla file issues: corrected typos ("Plisander", "Aborren", "Karl XIV Johann"), eliminated cross-list duplicates between destroyers and light cruisers, corrected battlecruiser fallback translation, and expanded the carrier roster.
+
+[b]Turkey[/b]
+- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers, Battleships, Battlecruisers, and Aircraft Carriers.
+- Added 11 universal thematic lists selectable for any hull in the Ship Designer (Sultans & Khans, Admirals & Corsairs, Cities & Ports, Provinces & Regions, Rivers & Waterways, Peaks & Landmarks, Historic Battles, Birds of Prey, Aquatic Life, Fauna & Predators, and Martial Virtues).
+- Fixed vanilla file issues: replaced machine-translated fallback calques ("Yok Edici" to Muhrip, "Isik Kruvazör" to Hafif Kruvazör), restored misplaced Ay-class submarines and dreadnoughts to their historical classes, removed fictional names ("Yavuzay"), and corrected all missing Turkish diacritics and typos.
 
 If you enjoy the mod, please give it a thumbs up and favorite!
 ```

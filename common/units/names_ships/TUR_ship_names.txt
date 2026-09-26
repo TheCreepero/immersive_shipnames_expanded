@@ -1,0 +1,398 @@
+##### TURKEY NAVAL NAME LISTS (ISNE) #####
+
+### DESTROYERS & ESCORTS ###
+TUR_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { TUR }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "TCG "
+	fallback_name = "Muhrip %d"
+
+	unique = {
+		# War of Independence historic battle hills (Tepeler) - Kocatepe & Tınaztepe classes
+		"Kocatepe" "Adatepe" "Tınaztepe" "Zafer" "Yücetepe" "Savaştepe" "Alçıtepe" "Anıttepe"
+		"Metristepe" "Duatepe" "Kandiltepe" "Çaltepe" "Karasutepe" "Kartaltepe" "Mangaldağı"
+		# Historic torpedo gunboats & strike craft - Demirhisar class & Balkan/WWI lineage
+		"Demirhisar" "Sultanhisar" "Muavenet" "Gayret" "Yarhisar" "Sivrihisar" "Hamidabad" "Kütahya"
+		"Musul" "Basra" "Taşoz" "Akhisar" "Antalya" "Alpagot" "Draç" "Peyk" "Berk"
+		# Celebrated Turkish military commanders, marshals & historical commanders
+		"Alp Arslan" "Mareşal Fevzi Çakmak" "Kılıç Ali Paşa" "Piyale Paşa" "Cezayirli Gazi Hasan Paşa"
+		"Gazi Turhan Bey" "Karamürsel" "Gazi Umur Bey" "Seydi Ali Reis" "Kemal Reis" "Turgut Reis"
+		# Notable coastal cities & naval defense districts
+		"Gaziantep" "Giresun" "Gelibolu" "Gemlik" "İzmit" "İskenderun" "İçel" "Bartın"
+	}
+}
+
+### SUBMARINES ###
+TUR_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { TUR }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine ship_hull_midget_submarine }
+
+	prefix = "TCG "
+	fallback_name = "Denizaltı %d"
+
+	unique = {
+		# Foundational battles of the War of Independence (İnönü, Sakarya & Dumlupınar classes)
+		"Birinci İnönü" "İkinci İnönü" "Sakarya" "Dumlupınar"
+		# Atatürk's Ay-class martial strike verbs (Germaniawerft & Gölcük naval yards)
+		"Atılay" "Saldıray" "Batıray" "Yıldıray"
+		# Extended authentic Turkish martial verb-ay formations (Plausible naval expansion)
+		"Korkutay" "Vuray" "Pusulay" "Koparay" "Kıray" "Dalay" "Yıkay" "Yakasay" "Bozay" "Avlay"
+		# Martial vigor, celestial moons & phases
+		"Gür" "Doğanay" "Dolunay" "Hilal"
+		# Renowned Ottoman corsairs & admirals (Reisler) historically assigned to submarines
+		"Oruç Reis" "Murat Reis" "Burak Reis" "Seydi Ali Reis" "Hızır Reis" "Piri Reis" "Turgut Reis"
+		"Salih Reis" "Uluç Ali Reis" "Kemal Reis" "Aydın Reis"
+		# Decisive naval victories
+		"Preveze" "Cerbe" "Çanakkale"
+	}
+}
+
+### LIGHT CRUISERS ###
+TUR_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { TUR }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "TCG "
+	fallback_name = "Hafif Kruvazör %d"
+
+	unique = {
+		# Historical protected cruisers & fleet cruisers
+		"Hamidiye" "Mecidiye" "Midilli"
+		# Major maritime commercial ports, Aegean, Mediterranean & Black Sea trade centers
+		"İzmir" "Samsun" "Trabzon" "Sinop" "Mersin" "İskenderun" "Bandırma" "Antalya"
+		"Giresun" "Rize" "Fethiye" "Bodrum" "Çeşme" "Alanya" "Mudanya" "Ayvalık"
+		"Zonguldak" "Hopa" "Bartın" "İnebolu" "Marmaris" "Kuşadası" "Ordu" "Ünye"
+		"Keşan" "Sarıyer" "Balıkesir" "Manisa" "Muğla" "Adana"
+	}
+}
+
+### HEAVY CRUISERS & COASTAL DEFENSE ###
+TUR_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { TUR }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "TCG "
+	fallback_name = "Ağır Kruvazör %d"
+
+	unique = {
+		# Historic straits, fortified bastions & naval defense sectors
+		"Çanakkale" "Gelibolu" "Edirne" "Seddülbahir" "Kilitbahir" "Kumkale" "Boğaziçi"
+		"Kafkas" "Anadolu" "Rumeli" "Anadolu Kavağı" "Rumeli Kavağı" "Dardanel"
+		# Strategic coastal naval bases & maritime regions
+		"Gölcük" "Tuzla" "Yalova" "Gebze" "Urla" "Marmara" "Trakya" "Ege" "Akdeniz" "Karadeniz"
+	}
+}
+
+### BATTLESHIPS & CAPITAL SHIPS ###
+TUR_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { TUR }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "TCG "
+	fallback_name = "Zırhlı %d"
+
+	unique = {
+		# Historic Ottoman super-dreadnoughts, dreadnought programs & ironclads
+		"Reşadiye" "Sultan Osman-ı Evvel" "Fatih Sultan Mehmed" "Barbaros Hayreddin" "Turgut Reis"
+		"Mesudiye" "Mahmudiye" "Asar-ı Tevfik" "Âsâr-ı Şevket" "Necm-i Şevket" "Orhaniye" "Osmaniye" "Aziziye"
+		# Great realm builders, sovereigns & national founders
+		"Gazi Mustafa Kemal" "Atatürk" "Fatih" "Kanuni" "Yavuz Sultan Selim" "Alp Arslan"
+		"Sultan Süleyman" "Orhan Gazi" "Osman Gazi" "Murad Hüdavendigâr" "Yıldırım Bayezid"
+		# Historic realm foundations & imperial capitals
+		"İstanbul" "Konstantiniyye" "Bursa" "Edirne" "Söğüt"
+	}
+}
+
+### BATTLECRUISERS ###
+TUR_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { TUR }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "TCG "
+	fallback_name = "Muharebe Kruvazörü %d"
+
+	unique = {
+		# Flagship lineage & pride of the fleet
+		"Yavuz" "Yavuz Sultan Selim"
+		# Swift conquerors, martial monarchs & great khans
+		"Yıldırım" "Yıldırım Bayezid" "Attila" "Timur" "Subutay" "Cengiz Han"
+		"Kılıç Arslan" "Selim" "Gazi Umur Bey" "Çaka Bey" "Tuğrul Bey" "Çağrı Bey"
+		# Martial striking speed & celestial tempests
+		"Yıldırım Kemal" "Şimşek" "Kasırga" "Bora" "Tayfun" "Fırtına" "Poyraz" "Lodos"
+	}
+}
+
+### AIRCRAFT CARRIERS ###
+TUR_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { TUR }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "TCG "
+	fallback_name = "Uçak Gemisi %d"
+
+	unique = {
+		# Ships of national awakening, rebirth & liberation (19 May 1919 Samsun voyage)
+		"Bandırma" "Samsun"
+		# Foundational republican ideals & statehood
+		"Cumhuriyet" "İstiklal" "Kurtuluş" "Zafer" "Vatan" "Millet" "Hürriyet" "Gazi"
+		# Sky raptors, birds of prey & mythological celestial aviators
+		"Gökdoğan" "Bozdoğan" "Şahin" "Kartal" "Sungur" "Doğan" "Tuğrul" "Hüma"
+		# Heavens & celestial canopy
+		"Gökler" "Gökyüzü" "Akbaba" "Çakır"
+	}
+}
+
+### UNIVERSAL TOPIC: SULTANS & KHANS ###
+TUR_RULERS = {
+	name = "Sultans & Khans"
+
+	for_countries = { TUR }
+
+	type = ship
+
+	prefix = "TCG "
+	fallback_name = "Hükümdar %d"
+
+	unique = {
+		# Seljuk, Ottoman & Turkic realm builders, sultans and khans
+		"Osman Gazi" "Orhan Gazi" "Murad Hüdavendigâr" "Yıldırım Bayezid" "Çelebi Mehmed"
+		"İkinci Murad" "Fatih Sultan Mehmed" "İkinci Bayezid" "Yavuz Sultan Selim" "Kanuni Sultan Süleyman"
+		"İkinci Selim" "Üçüncü Murad" "Birinci Ahmed" "Genç Osman" "Dördüncü Murad"
+		"Köprülü Mehmed Paşa" "Üçüncü Selim" "İkinci Mahmud" "Sultan Abdülmecid" "Sultan Abdülaziz"
+		# Great early Turkic khans & founders
+		"Alp Arslan" "Tuğrul Bey" "Çağrı Bey" "Kılıç Arslan" "Alaeddin Keykubad"
+		"Attila" "Bumin Kağan" "İstemi Yabgu" "Bilge Kağan" "Kül Tigin" "Oğuz Kağan"
+	}
+}
+
+### UNIVERSAL TOPIC: ADMIRALS & CORSAIRS ###
+TUR_ADMIRALS = {
+	name = "Admirals & Corsairs"
+
+	for_countries = { TUR }
+
+	type = ship
+
+	prefix = "TCG "
+	fallback_name = "Amiral %d"
+
+	unique = {
+		# Grand Kapudan Pashas, legendary corsairs & naval reformers
+		"Çaka Bey" "Barbaros Hayreddin Paşa" "Turgut Reis" "Piri Reis" "Oruç Reis"
+		"Kılıç Ali Paşa" "Piyale Paşa" "Seydi Ali Reis" "Murat Reis" "Burak Reis"
+		"Salih Reis" "Uluç Ali Reis" "Kemal Reis" "Aydın Reis" "Karamürsel Bey"
+		"Gazi Umur Bey" "Cezayirli Gazi Hasan Paşa" "Koca Murat Reis" "Mezomorto Hüseyin Paşa"
+		"Patrona Halil" "Bozcaadalı Hasan Paşa" "Kalyonlar Kaptanı Mustafa Paşa"
+		"Rauf Orbay" "Hüseyin Rauf" "Fahri Engin" "Şükür Okan"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES & PORTS ###
+TUR_CITIES = {
+	name = "Cities & Ports"
+
+	for_countries = { TUR }
+
+	type = ship
+
+	prefix = "TCG "
+	fallback_name = "Şehir %d"
+
+	unique = {
+		# Historic metropolises, provincial capitals & maritime ports
+		"İstanbul" "İzmir" "Ankara" "Bursa" "Adana" "Antalya" "Trabzon" "Samsun"
+		"Mersin" "Gaziantep" "Diyarbakır" "Konya" "Eskişehir" "Kayseri" "Edirne"
+		"Çanakkale" "Sinop" "İskenderun" "Tekirdağ" "Zonguldak" "Balıkesir" "Kocaeli"
+		"Manisa" "Muğla" "Aydın" "Denizli" "Afyonkarahisar" "Kütahya" "Uşak"
+		"Isparta" "Burdur" "Giresun" "Ordu" "Rize" "Artvin" "Kars" "Erzurum"
+		"Sivas" "Malatya" "Elazığ" "Van" "Mardin" "Urfa" "Maraş" "Kilis"
+	}
+}
+
+### UNIVERSAL TOPIC: PROVINCES & REGIONS ###
+TUR_PROVINCES = {
+	name = "Provinces & Regions"
+
+	for_countries = { TUR }
+
+	type = ship
+
+	prefix = "TCG "
+	fallback_name = "Vilayet %d"
+
+	unique = {
+		# Broad historical & geographical regions
+		"Anadolu" "Rumeli" "Trakya" "Ege" "Akdeniz" "Karadeniz" "Marmara"
+		"Kapadokya" "Kilikya" "Pamfilya" "Likya" "Karya" "İyonya" "Bitinya" "Frigya"
+		# Historic Ottoman Vilayets, Sanjaks & Anatolian Beylik realms
+		"Hüdavendigâr" "Aydın" "Saruhan" "Karesi" "Menteşe" "Kastamonu" "Sivas"
+		"Erzurum" "Diyarbekir" "Trabzon" "Adana" "Halep" "Musul" "Bağdat" "Basra"
+		"Canik" "Bozok" "Teke" "Hamid" "Germiyan" "Karamanoğlu" "Dulkadir"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS & WATERWAYS ###
+TUR_RIVERS = {
+	name = "Rivers & Waterways"
+
+	for_countries = { TUR }
+
+	type = ship
+
+	prefix = "TCG "
+	fallback_name = "Nehir %d"
+
+	unique = {
+		# Major Anatolian, Mesopotamian & Thracian rivers and waterways
+		"Fırat" "Dicle" "Kızılırmak" "Yeşilırmak" "Sakarya" "Seyhan" "Ceyhan"
+		"Gediz" "Büyük Menderes" "Küçük Menderes" "Meriç" "Aras" "Çoruh" "Asi"
+		"Göksu" "Susurluk" "Tunca" "Ergene" "Bakırçay" "Dalaman" "Köprüçay"
+		"Manavgat" "Aksu" "Karasu" "Murat" "Zap" "Kelkit" "Çarşamba"
+	}
+}
+
+### UNIVERSAL TOPIC: PEAKS & LANDMARKS ###
+TUR_MOUNTAINS = {
+	name = "Peaks & Landmarks"
+
+	for_countries = { TUR }
+
+	type = ship
+
+	prefix = "TCG "
+	fallback_name = "Dağ %d"
+
+	unique = {
+		# Major Anatolian mountain ranges, volcanic peaks & historic battle hills
+		"Ağrı" "Erciyes" "Süphan" "Kaçkar" "Toros" "Uludağ" "Palandöken"
+		"Hasan Dağı" "Ilgaz" "Cilo" "Munzur" "Yıldız" "Murat Dağı" "Nemrut"
+		"Kocatepe" "Adatepe" "Tınaztepe" "Metristepe" "Duatepe" "Çaltepe"
+		"Kandıra" "Kaz Dağı" "Madra" "Spil" "Babadağ" "Beydağları"
+	}
+}
+
+### UNIVERSAL TOPIC: HISTORIC BATTLES ###
+TUR_BATTLES = {
+	name = "Historic Battles"
+
+	for_countries = { TUR }
+
+	type = ship
+
+	prefix = "TCG "
+	fallback_name = "Zafer %d"
+
+	unique = {
+		# Famous naval and land battles across Turkish and Ottoman history
+		"Preveze" "Cerbe" "Çanakkale" "Dumlupınar" "Sakarya" "İnönü"
+		"Malazgirt" "Mohaç" "Niğbolu" "Varna" "Kosova" "Ridaniye" "Mercidabık"
+		"Çaldıran" "Otlukbeli" "Sırpsındığı" "Dandanaqan" "Pasinler" "Kutülamare"
+		"Büyük Taarruz" "Anafartalar" "Conkbayırı" "Arıburnu" "Seddülbahir"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS OF PREY ###
+TUR_BIRDS = {
+	name = "Birds of Prey"
+
+	for_countries = { TUR }
+
+	type = ship
+
+	prefix = "TCG "
+	fallback_name = "Kuş %d"
+
+	unique = {
+		# Raptors, falcons, eagles & sky hunters of Anatolia
+		"Kartal" "Şahin" "Doğan" "Atmaca" "Gökdoğan" "Bozdoğan" "Sungur" "Çakır"
+		"Kerkenez" "Akbaba" "Kuzgun" "Tuğrul" "Balıkkartalı" "Kızılşahin" "Tavşancıl"
+		"Şah Kartal" "Kaya Kartalı" "Yılan Kartalı" "Bozkır Kartalı" "Turna" "Kuğu"
+	}
+}
+
+### UNIVERSAL TOPIC: AQUATIC LIFE ###
+TUR_FISH = {
+	name = "Aquatic Life"
+
+	for_countries = { TUR }
+
+	type = ship
+
+	prefix = "TCG "
+	fallback_name = "Balık %d"
+
+	unique = {
+		# Marine life and fish of the Black, Marmara, Aegean and Mediterranean seas
+		"Yunus" "Kılıç" "Levrek" "Orfoz" "Lüfer" "Palamut" "Kefal" "Kalkan"
+		"Mersin" "Torik" "Zargana" "Çipura" "Barbun" "Uskumru" "Alabalık"
+		"Vatoz" "Kolyoz" "Sardalya" "Hamsi" "Mercan" "Sinarit" "Lagos" "Trança"
+	}
+}
+
+### UNIVERSAL TOPIC: FAUNA & PREDATORS ###
+TUR_BEASTS = {
+	name = "Fauna & Predators"
+
+	for_countries = { TUR }
+
+	type = ship
+
+	prefix = "TCG "
+	fallback_name = "Yırtıcı %d"
+
+	unique = {
+		# Native predators, wolves, big cats & terrestrial wildlife
+		"Bozkurt" "Kurt" "Aslan" "Kaplan" "Pars" "Sırtlan" "Ayı" "Vaşak"
+		"Panter" "Çakal" "Tilki" "Anadolu Parsı" "Yaban Domuzu" "Karaca"
+		"Dağ Keçisi" "Alageyik" "Karakulak" "Porsuk" "Samur"
+	}
+}
+
+### UNIVERSAL TOPIC: MARTIAL VIRTUES ###
+TUR_VIRTUES = {
+	name = "Martial Virtues"
+
+	for_countries = { TUR }
+
+	type = ship
+
+	prefix = "TCG "
+	fallback_name = "Fazilet %d"
+
+	unique = {
+		# Republican values, naval qualities & martial virtues
+		"İstiklal" "Hürriyet" "Cumhuriyet" "Vatan" "Millet" "Zafer" "Gayret"
+		"Cesaret" "Muavenet" "Sadakat" "Metanet" "Kahramanlık" "Şeref" "Namus"
+		"Azim" "Fedakarlık" "Hakimiyet" "Adalet" "Birlik" "Fazilet" "Gürbüz"
+		"Yılmaz" "Yalçın" "Atılgan" "Cengaver"
+	}
+}

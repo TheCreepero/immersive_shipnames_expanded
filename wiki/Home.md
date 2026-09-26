@@ -19,6 +19,7 @@
 | [Finland](Finland) | `FIN` | 20 | `FIN_ship_names.txt` |
 | [Norway](Norway) | `NOR` | 18 | `NOR_ship_names.txt` |
 | [Sweden](Sweden) | `SWE` | 17 | `SWE_ship_names.txt` |
+| [Turkey](Turkey) | `TUR` | 18 | `TUR_ship_names.txt` |
 
 ---
 

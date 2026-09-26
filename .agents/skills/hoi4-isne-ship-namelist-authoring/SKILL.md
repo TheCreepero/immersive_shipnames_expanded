@@ -88,49 +88,79 @@ Expansive thematic pools designed for universal selection across **any ship type
 - **Priority Targets**: Prioritize nations with inadequate or generic vanilla namelists that have potential to build mid-to-large navies in game (e.g. Nordic nations like Sweden, Norway, Denmark; Baltic states; Turkey; South American nations like Argentina, Brazil, Chile; Romania; Yugoslavia, etc.).
 
 ### Investigating Naval Programs & Traditions
-1. **Step 0: Vanilla Anomaly & Typo Audit**:
-   Before planning or authoring a namelist file, run:
-   ```powershell
-   powershell -File .\build.ps1 -InspectVanilla <TAG>
-   ```
-   Inspect the vanilla file for common Paradox anomalies and document fixes in your plan:
-   - **Header & Comment Copy-Paste Errors** (e.g. country header pointing to another nation, such as Brazil having Argentina's header).
-   - **Fallback Name Grammar, Calque & Homonym Errors**:
-     - **Definite vs. Indefinite Suffixes**: Vanilla frequently appends definite article suffixes to class nouns (e.g. Danish `"Slagkrydseren %d"`, Norwegian `"Lys Krysseren %d"`). Always standardize fallback names to the **indefinite nominative singular** (e.g. `"Slagkrydser %d"`, `"Let krydser %d"`, `"Jager %d"`).
-     - **Homonym Calques**: Watch for literal translations of English words with multiple meanings, such as "Light Cruiser" translated using optical/sunlight terms (e.g. Danish/Norwegian `"Lys"`) instead of naval displacement terms (`"Let"`, `"Lett"`, `"Lätt"`).
-     - **Pseudo-English Calques & Missing Letters**: Words like `"Cruiseren"`, `"Destroyer %d"` in non-English lists, or corrupted tokens like `"Cuzador"`, `"Ltt Kryssare"`, or literal dictionary calques like Swedish `"Stridsskepp %d"` instead of authentic naval term `"Slagkryssare %d"`.
-   - **Ship Name Misspellings & Missing Diacritics** (e.g. missing letters like `"Marnhão"`, `"Amazona"`, missing consonants like `"Aborren"` -> `"Abborren"`).
-   - **Archaic vs. Modern Spelling Mixes** (e.g. `Santa Catharina` mixed with `Santa Catarina`).
-   - **Intra-List Duplicates & Article Variants** (e.g. `"Rosales"` duplicated within CL, `"Mjölner"` / `"Munin"` duplicated within DD, or `"La Rioja"` mixed with `"Rioja"` in DD).
-   - **Cross-Hull Geographic Collisions** (e.g. identical list of major cities copied across both DD and CL; segregate by assigning historical destroyer class cities / naval stations to DD and regional trade ports / maritime hubs to CL).
-   - **Fauna & Auxiliary Craft Lumping in Major Combatants**: Vanilla frequently populates cruiser or capital ship pools of secondary navies with small torpedo boats, patrol craft, or tugs named after fish, birds, or mammals (e.g. Danish CL having *Flynderen* [Flounder], *Ulken* [Sculpin], *Mågen* [Seagull], and CA copying the flounder alongside icebreaker *Isbjørn*). Reassign fauna to light craft (`DD`), submarines (`SS`), or thematic pools (`BIRDS`, `FISH`).
-   - **Modern Hull Demotions & Role Mismatches** (e.g. 1970s corvettes/frigates or patrol gunboats erroneously listed as cruisers).
-   - **Verbatim Cross-Class Shadow Duplication** (e.g. higher-tier hulls like CA or BC having rosters that are literal copy-pastes of CL or BB with 1–2 names appended).
-   - **Mirrored Capital Ship Stubs** (e.g. identical 5-ship lists reversed between BB and BC assigning sloops to dreadnoughts).
-   - **Doctrinal Naming Formulas** (e.g. Argentina's tradition of naming all submarines after provinces beginning with "S").
-   - **Excessive Class Duplication** (e.g. identical list of states copied verbatim across CL, CA, BB, BC, CV).
-   - **Anachronisms** (e.g. administrative divisions or cities created post-1945).
-   - **Prefix Usage** (check whether vanilla sets a prefix like `NRB ` or leaves it blank).
-2. **Historical Navy & Canceled Programs**:
-   - Investigate peacetime fleets, interwar naval acts, and emergency wartime construction programs.
-   - Note ship naming conventions used across different eras (e.g. 19th-century sail/steam transitions, World War I, and interwar designs).
-3. **Geographical & Cultural Grounding**:
-   - Compile lists of major coastal cities, trade ports, provinces, islands, and bodies of water.
-   - Research folklore, epics (e.g. Kalevala, Norse sagas, Arthurian legends), and national mythology.
-   - Identify native fauna associated with speed, flight, or aquatic prowess.
-4. **Vanilla Inspection via Build Tool (Token-Efficient)**:
-   Avoid loading massive vanilla files into context. Use the automated inspector:
-   ```powershell
-   # Inspect vanilla coverage, group tags, and entry counts
-   powershell -File .\build.ps1 -InspectVanilla <TAG>
 
-   # Inspect a specific group without reading the whole file
-   powershell -File .\build.ps1 -InspectVanilla <TAG> -Group <GROUP_TAG>
-   ```
-5. **VFS File Replacement & Clean Overrides**:
-   - Files in `common/units/names_ships/` match the base-game filename (`<TAG>_ship_names.txt`).
-   - Hearts of Iron IV's Virtual File System (VFS) cleanly replaces the vanilla file, preventing Clausewitz additive property accumulation (which concatenates prefixes like `NRB NRB ` or `BACH BACH ` and appends mod names behind vanilla's errors).
-   - This allows complete overhauls of existing `<TAG>_<HULL>_HISTORICAL` groups alongside new universal thematic groups (`<TAG>_<THEME>`) in a single clean file.
+#### Step 0: Vanilla Anomaly & Typo Audit (Token-Efficient Inspection)
+Before planning or authoring a namelist file, run the automated inspector:
+```powershell
+# Inspect vanilla coverage, group tags, and entry counts without loading entire files into context
+powershell -File .\build.ps1 -InspectVanilla <TAG>
+
+# Inspect a specific group without reading the whole file
+powershell -File .\build.ps1 -InspectVanilla <TAG> -Group <GROUP_TAG>
+```
+Inspect the vanilla file for common Paradox anomalies and document required fixes:
+- **Header & Comment Copy-Paste Errors** (e.g. country header pointing to another nation, such as Brazil having Argentina's header).
+- **Fallback Name Grammar, Calque & Homonym Errors**:
+  - **Definite vs. Indefinite Suffixes**: Vanilla frequently appends definite article suffixes to class nouns (e.g. Danish `"Slagkrydseren %d"`, Norwegian `"Lys Krysseren %d"`). Always standardize fallback names to the **indefinite nominative singular** (e.g. `"Slagkrydser %d"`, `"Let krydser %d"`, `"Jager %d"`).
+  - **Homonym Calques**: Watch for literal translations of English words with multiple meanings, such as "Light Cruiser" translated using optical/sunlight terms (e.g. Danish/Norwegian `"Lys"`) instead of naval displacement terms (`"Let"`, `"Lett"`, `"Lätt"`).
+  - **Pseudo-English Calques & Missing Letters**: Words like `"Cruiseren"`, `"Destroyer %d"` in non-English lists, or corrupted tokens like `"Cuzador"`, `"Ltt Kryssare"`, or literal dictionary calques like Swedish `"Stridsskepp %d"` instead of authentic naval term `"Slagkryssare %d"`.
+- **Ship Name Misspellings & Missing Diacritics** (e.g. missing letters like `"Marnhão"`, `"Amazona"`, missing consonants like `"Aborren"` -> `"Abborren"`).
+- **Archaic vs. Modern Spelling Mixes** (e.g. `Santa Catharina` mixed with `Santa Catarina`).
+- **Intra-List Duplicates & Article Variants** (e.g. `"Rosales"` duplicated within CL, `"Mjölner"` / `"Munin"` duplicated within DD, or `"La Rioja"` mixed with `"Rioja"` in DD).
+- **Cross-Hull Geographic Collisions** (e.g. identical list of major cities copied across both DD and CL; segregate by assigning historical destroyer class cities / naval stations to DD and regional trade ports / maritime hubs to CL).
+- **Fauna & Auxiliary Craft Lumping in Major Combatants**: Vanilla frequently populates cruiser or capital ship pools of secondary navies with small torpedo boats, patrol craft, or tugs named after fish, birds, or mammals (e.g. Danish CL having *Flynderen* [Flounder], *Ulken* [Sculpin], *Mågen* [Seagull], and CA copying the flounder alongside icebreaker *Isbjørn*). Reassign fauna to light craft (`DD`), submarines (`SS`), or thematic pools (`BIRDS`, `FISH`).
+- **Modern Hull Demotions & Role Mismatches** (e.g. 1970s corvettes/frigates or patrol gunboats erroneously listed as cruisers).
+- **Verbatim Cross-Class Shadow Duplication** (e.g. higher-tier hulls like CA or BC having rosters that are literal copy-pastes of CL or BB with 1–2 names appended).
+- **Mirrored Capital Ship Stubs** (e.g. identical 5-ship lists reversed between BB and BC assigning sloops to dreadnoughts).
+- **Doctrinal Naming Formulas** (e.g. Argentina's tradition of naming all submarines after provinces beginning with "S").
+- **Excessive Class Duplication** (e.g. identical list of states copied verbatim across CL, CA, BB, BC, CV).
+- **Anachronisms** (e.g. administrative divisions or cities created post-1945).
+- **Prefix Usage** (check whether vanilla sets a prefix like `NRB ` or leaves it blank).
+
+#### Step 1: Historical Research Delegation ("Historical Researcher" Subagent)
+To prevent context window degradation and ensure deep historical plausibility, **delegate external research to a dedicated Historical Researcher subagent** during the planning phase via `invoke_subagent`.
+
+##### Why Delegate to a Subagent:
+- **Context Hygiene**: Web searches, Wiki pages, and naval registries (Navypedia, Conway's) inject massive amounts of noisy text into the context. Offloading this keeps the primary authoring context clean and razor-focused on strict engine invariants, syntax, and test validation.
+- **Deep Historical & Cultural Mining**: The subagent focuses entirely on historical naval acts, peacetime plans, authentic naming traditions, native folklore, and correct orthography/diacritics without hitting token limits or instruction drift.
+
+##### Subagent Invocation & Brief:
+Invoke a subagent (e.g. `Role: "Historical Researcher"`, `TypeName: "research"` or `"self"`, using `Model: "pro"` or `"inherit"`) and provide a structured prompt:
+
+```text
+You are the Historical Naval Researcher for the Hearts of Iron IV mod "Immersive Ship Names Expanded" (ISNE).
+Your mission is to research and compile an exhaustive Historical Naval Dossier for <COUNTRY_NAME> (<TAG>).
+
+CRITICAL PHILOSOPHY:
+ISNE prioritizes HISTORICAL PLAUSIBILITY over rigid accuracy. Do NOT artificially limit namelists only to hulls that historically entered commission. Plausibly extrapolate how this nation's naval command would designate expanded wartime fleets (fleet carriers, heavy cruisers, battlecruisers, destroyers, submarines) across alternate-history paths.
+
+INVESTIGATION DIRECTIVES:
+1. Naval Programs & Doctrinal Naming Formulas:
+   - Identify naming traditions by era (monarchy, republic, interwar, WWII programs).
+   - Investigate canceled programs, peacetime naval expansion acts, and foreign orders (e.g., British/Italian/German yards).
+   - Note hull-specific naming formulas (e.g., naming destroyers after virtues/commanders, submarines after marine life/sea gods, cruisers after coastal cities, battleships after provinces/monarchs).
+2. Linguistic & Grammatical Invariants:
+   - Authentic native naval terminology for fallback templates (e.g., indefinite nominative singular: "Let krydser %d", NOT definite "Let krydseren %d" or literal English calques like "Lys krydser").
+   - Strict orthography and diacritics in the native language (e.g., ä, ö, å, é, č, ł).
+   - Official or customary naval prefix (if any, verifying whether vanilla used one like "NRB ").
+3. Vanilla Audit Fixes:
+   - Review anomalies identified in Step 0 (misspellings, homonym calques, role demotions, auxiliary craft in cruiser lists) and supply correct replacements.
+4. Curated Candidate Pools (Target 15–30+ unique names per category):
+   - Ship-Type Specific: DD/Escorts, SS, CL, CA, BB/BC, CV.
+   - Universal Thematic Pools: Birds/Raptors, Aquatic Life/Fish, Coastal Cities, Provinces/Regions, Rivers/Waterways, Mythology/Folklore, Rulers/Heroes, Virtues/Tempests.
+
+Deliver your findings as a clean, highly structured Naval Research Dossier.
+```
+
+#### Step 2: Investigating Naval Programs & Traditions
+Use the subagent's returned dossier to anchor:
+- **Historical Navy & Canceled Programs**: Peacetime fleets, interwar naval acts, and emergency wartime construction programs.
+- **Geographical & Cultural Grounding**: Major coastal cities, trade ports, provinces, islands, bodies of water, heroic folklore (e.g., Kalevala, Norse sagas), and native fauna.
+
+#### Step 3: VFS File Replacement & Clean Overrides
+- Mod files reside in `common/units/names_ships/<TAG>_ship_names.txt` matching the base-game filename.
+- Hearts of Iron IV's Virtual File System (VFS) cleanly replaces the vanilla file, preventing Clausewitz additive property accumulation (which concatenates prefixes like `NRB NRB ` or `BACH BACH ` and appends mod names behind vanilla's errors).
+- This allows complete overhauls of existing `<TAG>_<HULL>_HISTORICAL` groups alongside new universal thematic groups (`<TAG>_<THEME>`) in a single clean file.
 
 ---
 

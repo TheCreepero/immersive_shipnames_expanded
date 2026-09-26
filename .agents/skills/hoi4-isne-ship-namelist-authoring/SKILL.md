@@ -95,10 +95,11 @@ Expansive thematic pools designed for universal selection across **any ship type
    ```
    Inspect the vanilla file for common Paradox anomalies and document fixes in your plan:
    - **Header & Comment Copy-Paste Errors** (e.g. country header pointing to another nation, such as Brazil having Argentina's header).
-   - **Fallback Name Typographical Errors** (e.g. missing letters or corrupted translation tokens like `"Cuzador"`).
-   - **Ship Name Misspellings & Missing Diacritics** (e.g. missing letters like `"Marnhão"`, `"Amazona"`).
+   - **Fallback Name Typographical & Calque Errors** (e.g. missing letters like `"Cuzador"`, corrupted diacritics like `"Ltt Kryssare"`, or literal dictionary calques like Swedish `"Stridsskepp %d"` instead of authentic naval term `"Slagkryssare %d"`).
+   - **Ship Name Misspellings & Missing Diacritics** (e.g. missing letters like `"Marnhão"`, `"Amazona"`, missing consonants like `"Aborren"` -> `"Abborren"`).
    - **Archaic vs. Modern Spelling Mixes** (e.g. `Santa Catharina` mixed with `Santa Catarina`).
-   - **Intra-List Duplicates & Article Variants** (e.g. `"Rosales"` duplicated within CL, or `"La Rioja"` mixed with `"Rioja"` in DD).
+   - **Intra-List Duplicates & Article Variants** (e.g. `"Rosales"` duplicated within CL, `"Mjölner"` / `"Munin"` duplicated within DD, or `"La Rioja"` mixed with `"Rioja"` in DD).
+   - **Cross-Hull Geographic Collisions** (e.g. identical list of major cities copied across both DD and CL; segregate by assigning historical destroyer class cities / naval stations to DD and regional trade ports / maritime hubs to CL).
    - **Modern Hull Demotions & Role Mismatches** (e.g. 1970s corvettes/frigates or patrol gunboats erroneously listed as cruisers).
    - **Mirrored Capital Ship Stubs** (e.g. identical 5-ship lists reversed between BB and BC assigning sloops to dreadnoughts).
    - **Doctrinal Naming Formulas** (e.g. Argentina's tradition of naming all submarines after provinces beginning with "S").

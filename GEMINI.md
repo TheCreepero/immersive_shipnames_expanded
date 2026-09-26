@@ -33,6 +33,7 @@ Every country's ship namelists should be structured into two broad categories:
        - **Capital Ships (`BB` / `BC`)**: 30–45+ unique names.
        - **Aircraft Carriers (`CV`)**: 30–40+ unique names.
        - **Universal Thematic Pools**: 35–60+ unique names per pool where thematic scope permits.
+     - **Ideological & Political Cohesion**: When authoring political, ideological, or revolutionary concept pools, **never mix opposing or antithetical ideologies into the same namelist** (e.g., socialist/syndicalist concepts mixed with fascist/synarchist/reactionary concepts, or royalist slogans mixed with radical republicanism). Instead, author separate dedicated pools per ideological branch (e.g., `<TAG>_REPUBLICAN_IDEALS`, `<TAG>_SOCIALISM`, `<TAG>_NATIONALISM` / `<TAG>_FASCISM`, `<TAG>_MONARCHISM`) so players and alternate-history AI regimes commission vessels with cohesive political flavor.
    - **UI Display Name Constraints (Max ~25-30 Characters)**:
      - The in-game Ship Designer dropdown UI has limited width and truncates or wraps long namelist names poorly.
      - Keep all display names (`name = "..."`) concise (strictly **<= 30-32 characters**, ideally **<= 25 characters**).
@@ -41,6 +42,7 @@ Every country's ship namelists should be structured into two broad categories:
 ## 3. Historical & Linguistic Standards
 - **Linguistic Precision**: Always verify proper grammar, cases, and diacritics in the target language (e.g., `Väinämöinen`, `Hämeenmaa`, `L'Audacieux`, `Gromoboi`).
 - **Historical Plausibility over Rigid Accuracy**: The goal of ISNE is historical plausibility, not rigid historical accuracy. Anchor unit designations in authentic naval doctrine, class naming traditions, peacetime naval expansion programs, and cultural heritage, extrapolating plausibly to support large wartime fleets and alternate-history naval doctrines.
+- **Authenticity over Artificial Padding (No Fabricated Names)**: When compiling lists of historical persons (such as naval admirals, commodores, or specific commanders), **strictly avoid fabricating fictional or synthetic filler names** to meet tiered depth quotas. If a secondary or regional navy historically produced fewer verifiable commanders (e.g., 20–30 verified officers), it is strictly preferred to maintain a shorter, 100% authentic roster than to dilute the mod with fabricated entries. Explicitly document this historical scope in the nation's wiki documentation.
 - **Prefixes & Invariants**:
   - When `prefix = "..."` is used, it **must always include a trailing space** (e.g., `prefix = "NRB "`, `prefix = "HMS "`, `prefix = "ORP "`) to prevent the engine from concatenating the prefix directly into the ship name (e.g., `NRBMinas Gerais`).
   - **Thematic Consistency**: If a prefix is established for a nation, apply it consistently across both ship-type specific and universal thematic namelists unless deliberately designated prefix-free.

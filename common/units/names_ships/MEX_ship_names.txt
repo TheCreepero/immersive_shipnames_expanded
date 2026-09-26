@@ -1,0 +1,491 @@
+##### MEXICO NAVAL NAME LISTS (ISNE) #####
+
+### SHIP-TYPE SPECIFIC: DESTROYERS & ESCORTS ###
+MEX_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { MEX }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "ARM "
+	fallback_name = "Destructor %d"
+
+	unique = {
+		### Independence War heroes & fighters ###
+		"Juan Aldama" "Mariano Matamoros" "Hermenegildo Galeana" "Francisco Xavier Mina" "Pedro Moreno"
+		"Víctor Rosales" "Ignacio López Rayón" "Leonardo Bravo" "José María Cos" "Mariano Jiménez"
+		"José Antonio Torres" "Ramón López Rayón" "Francisco Osorno" "Albino García" "Juan José de los Reyes"
+		"Gertrudis Bocanegra" "José Mariano Michelena" "Miguel Ramos Arizpe" "Servando Teresa de Mier" "José María Izazaga"
+		### Reform War & French Intervention ###
+		"Santos Degollado" "Jesús González Ortega" "Ramón Corona" "Mariano Escobedo" "Sóstenes Rocha"
+		"Carlos Pacheco" "Leandro Valle" "Ignacio de la Llave" "Ignacio Altamirano" "Florencio Villarreal"
+		"Antonio Rosales" "Ponciano Arriaga" "Felipe Berriozábal" "Ignacio Mejía" "Miguel Negrete"
+		"Juan N. Méndez" "Epitacio Huerta" "Juan N. Álvarez" "Manuel Doblado" "Gutiérrez Zamora"
+		### Mexican Revolution ###
+		"Felipe Ángeles" "Salvador Alvarado" "Pascual Orozco" "Pablo González" "Jesús Carranza"
+		"Lucio Blanco" "Francisco Murguía" "Manuel Diéguez" "Juan Carrasco" "Ramón F. Iturbe"
+		"Benjamín Hill" "Joaquín Amaro" "Saturnino Cedillo" "Francisco J. Múgica" "Heriberto Jara"
+		"Adalberto Tejeda" "Pino Suárez" "Antonio I. Villarreal" "Eulalio Gutiérrez" "Roque González Garza"
+		"Cándido Aguilar" "Rafael Buelna" "Carmen Serdán" "Genovevo de la O" "Otilio Montaño"
+		"Ricardo Flores Magón" "Enrique Flores Magón" "Librado Rivera" "Práxedis Guerrero" "Bernardo Reyes"
+		### Mexican-American War & other military ###
+		"Pedro María Anaya" "Mariano Paredes" "Manuel Gómez Pedraza" "Valentín Canalizo" "Manuel González"
+		"José Joaquín de Herrera" "Anastasio Bustamante" "Ignacio Comonfort" "Miguel Miramón" "Tomás Mejía"
+		"Leonardo Márquez" "Martín Carrera" "José Mariano Salas" "Juan Morales" "Nicolás Catalán"
+		"José María Arteaga" "Felipe Xicoténcatl" "Matías de Córdova" "Félix Díaz" "Francisco Javier Echeverría"
+		### Other notable figures ###
+		"Emilio Portes Gil" "Abelardo L. Rodríguez" "Pascual Ortiz Rubio" "Adolfo de la Huerta" "Jesús García"
+		"Victoriano Huerta" "Aureliano Blanquet" "Manuel Mondragón" "Tomás Garrido Canabal" "José Guadalupe Zuno"
+		"Francisco Lagos Cházaro" "Filomeno Mata"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: SUBMARINES ###
+MEX_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { MEX }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "ARM "
+	fallback_name = "Submarino %d"
+
+	unique = {
+		### Marine creatures ###
+		"Tiburón" "Delfín" "Ballena" "Manta" "Raya" "Pulpo" "Calamar" "Cachalote" "Orca" "Barracuda"
+		"Marlín" "Pez Vela" "Lobo Marino" "Manatí" "Tortuga" "Morsa" "Foca" "Langosta" "Cangrejo" "Medusa"
+		"Anguila" "Morena" "Cazón" "Pez Espada" "Atún" "Mantarraya" "Coral" "Caracol" "Erizo" "Estrella"
+		"Ostión" "Camarón" "Robalo" "Huachinango" "Pargo" "Dorado" "Sierra" "Jurel" "Mero" "Almeja" "Nautilo"
+		### Water concepts ###
+		"Océano" "Arrecife" "Abismo" "Profundidad" "Marea" "Ola" "Sirena" "Neptuno" "Leviatán" "Tritón"
+		### Water mythology (Aztec & Maya) ###
+		"Tláloc" "Chalchiuhtlicue" "Chaac" "Huixtocíhuatl" "Opochtli" "Atlaua" "Amimitl" "Ixchel" "Huracán"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: LIGHT CRUISERS ###
+MEX_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { MEX }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "ARM "
+	fallback_name = "Crucero Ligero %d"
+
+	unique = {
+		### Pacific coast (north to south) ###
+		"Ensenada" "San Felipe" "Puerto Peñasco" "Guaymas" "Topolobampo" "Mazatlán" "San Blas" "Puerto Vallarta"
+		"Manzanillo" "Zihuatanejo" "Acapulco" "Puerto Escondido" "Huatulco" "Salina Cruz"
+		### Gulf & Caribbean coast ###
+		"Matamoros" "Tampico" "Tuxpan" "Veracruz" "Alvarado" "Coatzacoalcos" "Frontera" "Ciudad del Carmen"
+		"Campeche" "Champotón" "Progreso" "Chetumal"
+		### Caribbean ###
+		"Cozumel" "Isla Mujeres" "Playa del Carmen" "Tulum" "Cancún"
+		### Baja California ###
+		"Tijuana" "La Paz" "Cabo San Lucas" "San José del Cabo" "Loreto" "Santa Rosalía"
+		### Additional ports ###
+		"Altata" "Teacapán" "Barra de Navidad" "Ixtapa" "Tecolutla" "Nautla" "Minatitlán" "Paraíso"
+		"Mahahual" "Xcalak" "Celestún" "Sisal" "Chacala" "Cuyutlán" "Melaque" "Tecomán" "Los Mochis" "Telchac"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: HEAVY CRUISERS ###
+MEX_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { MEX }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "ARM "
+	fallback_name = "Crucero Pesado %d"
+
+	unique = {
+		### Founding fathers & supreme national heroes ###
+		"Miguel Hidalgo" "José María Morelos" "Ignacio Allende" "Vicente Guerrero" "Guadalupe Victoria"
+		"Benito Juárez" "Ignacio Zaragoza" "Nicolás Bravo" "Melchor Ocampo" "Valentín Gómez Farías"
+		"Sebastián Lerdo de Tejada" "Josefa Ortiz" "Leona Vicario" "Belisario Domínguez" "Aquiles Serdán"
+		### Presidents & revolutionary leaders ###
+		"Francisco I. Madero" "Venustiano Carranza" "Álvaro Obregón" "Plutarco Elías Calles" "Lázaro Cárdenas"
+		"Porfirio Díaz" "Emiliano Zapata" "Pancho Villa" "Manuel Ávila Camacho"
+		### Intellectuals & statesmen ###
+		"Justo Sierra" "José Vasconcelos" "Lucas Alamán" "Alfonso Reyes" "Santa Anna"
+		### Pre-Columbian emperors ###
+		"Cuauhtémoc" "Cuitláhuac" "Nezahualcóyotl" "Moctezuma" "Itzcóatl" "Axayácatl" "Ahuízotl" "Tízoc"
+		"Chimalpopoca" "Huitzilíhuitl" "Agustín de Iturbide" "Maximiliano"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLESHIPS & BATTLECRUISERS ###
+MEX_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { MEX }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship battle_cruiser }
+
+	prefix = "ARM "
+	fallback_name = "Acorazado %d"
+
+	unique = {
+		### Historical territories & macro-regions ###
+		"Anáhuac" "Nueva España" "Nueva Galicia" "Nueva Vizcaya" "Tenochtitlan"
+		"Aztlán" "Mesoamérica" "Mayab" "Totonacapan" "Aridoamérica"
+		### Mexican states ###
+		"México" "Distrito Federal" "Jalisco" "Puebla" "Guanajuato" "Chiapas" "Nuevo León" "Michoacán"
+		"Oaxaca" "Chihuahua" "Guerrero" "Tamaulipas" "Baja California" "Sinaloa" "Coahuila" "Hidalgo"
+		"Sonora" "San Luis Potosí" "Tabasco" "Yucatán" "Querétaro" "Morelos" "Durango" "Zacatecas"
+		"Quintana Roo" "Aguascalientes" "Tlaxcala" "Nayarit" "Colima" "Baja California Sur"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: AIRCRAFT CARRIERS ###
+MEX_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { MEX }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "ARM "
+	fallback_name = "Portaaviones %d"
+
+	unique = {
+		### Revolutionary ideals & patriotic concepts ###
+		"República" "Independencia" "Libertad" "Democracia" "Soberanía" "Revolución" "Constitución"
+		"Justicia" "Igualdad" "Fraternidad" "Patria" "Honor" "Valor" "Victoria" "Triunfo" "Gloria"
+		"Reforma" "Emancipación" "Solidaridad" "Fuerza" "Coraje" "Lealtad" "Paz" "Unión"
+		### Sky & eagle symbolism ###
+		"Águila Real" "Quetzal" "Cóndor"
+		### Weather & sky phenomena ###
+		"Cielo" "Viento" "Tormenta" "Relámpago" "Trueno"
+		### Sky mythology ###
+		"Huitzilopochtli" "Tonatiuh" "Ehécatl" "Quetzalcóatl" "Kukulkán"
+	}
+}
+
+### UNIVERSAL TOPIC: ADMIRALS ###
+MEX_ADMIRALS = {
+	name = "Admirals"
+
+	for_countries = { MEX }
+
+	type = ship
+
+	prefix = "ARM "
+	fallback_name = "Almirante %d"
+
+	unique = {
+		"Pedro Sainz de Baranda" "David Porter" "Virgilio Uribe" "Blas Godínez" "Tomás Marín"
+		"Manuel Azueta" "José Azueta" "Othón P. Blanco" "Hilario Rodríguez Malpica"
+		"Sebastián José Holzinger" "Ángel Ortiz Monasterio" "Carlos Castillo Bretón"
+		"Rafael E. Melgar" "Eduardo Colina" "Luis Hurtado de Mendoza" "Miguel de la Sierra"
+		"David Coello" "José María de la Vega" "Alejandro B. Uribe" "Roberto Gómez Maqueo"
+		"Gabriel Carvallo" "Carlos R. España" "Álvaro Sandoval" "Ramón de Navia" "Ramón Arnáiz"
+	}
+}
+
+### UNIVERSAL TOPIC: SAINTS ###
+MEX_SAINTS = {
+	name = "Saints"
+
+	for_countries = { MEX }
+
+	type = ship
+
+	prefix = "ARM "
+	fallback_name = "Santo %d"
+
+	unique = {
+		### Patron saints of Mexican ports & maritime dedications ###
+		"San Juan de Ulúa" "San Blas" "Santa Cruz" "San Ignacio" "San Francisco Javier" "Santo Tomás"
+		### Patron saints of sailors & seafarers ###
+		"San Nicolás" "San Telmo" "San Cristóbal" "Virgen del Carmen" "Virgen de Guadalupe" "Santa Bárbara"
+		### Major Catholic saints relevant to Mexico ###
+		"San Pedro" "San Pablo" "San Miguel" "San Gabriel" "San Rafael" "San Antonio" "San Agustín"
+		"San Francisco" "San Diego" "San Martín" "Santa María" "Santa Ana" "San Andrés" "San Sebastián"
+		"San Lorenzo" "San Bartolomé" "San Marcos" "San Mateo" "Santa Teresa" "Santa Clara" "Santa Cecilia"
+		"Santa Catalina" "San Patricio" "San Juan" "Santa Inés" "San Lázaro" "San Fernando"
+		"San Lucas" "San Felipe" "Santa Rosalía" "San José del Cabo"
+	}
+}
+
+### UNIVERSAL TOPIC: PORTS ###
+MEX_PORTS = {
+	name = "Ports"
+
+	for_countries = { MEX }
+
+	type = ship
+
+	prefix = "ARM "
+	fallback_name = "Puerto %d"
+
+	unique = {
+		### Pacific coast ###
+		"Ensenada" "San Felipe" "Puerto Peñasco" "Guaymas" "Topolobampo" "Mazatlán" "San Blas"
+		"Puerto Vallarta" "Manzanillo" "Zihuatanejo" "Acapulco" "Puerto Escondido" "Huatulco" "Salina Cruz"
+		### Gulf & Caribbean coast ###
+		"Matamoros" "Tampico" "Tuxpan" "Veracruz" "Alvarado" "Coatzacoalcos" "Frontera"
+		"Ciudad del Carmen" "Campeche" "Champotón" "Progreso" "Chetumal"
+		### Caribbean ###
+		"Cozumel" "Isla Mujeres" "Playa del Carmen" "Tulum" "Cancún"
+		### Baja California ###
+		"Tijuana" "La Paz" "Cabo San Lucas" "San José del Cabo" "Loreto" "Santa Rosalía"
+		### Additional ports & naval stations ###
+		"Altata" "Teacapán" "Barra de Navidad" "Ixtapa" "Tecolutla" "Nautla" "Minatitlán" "Paraíso"
+		"Mahahual" "Xcalak" "Celestún" "Sisal" "Chacala" "Cuyutlán" "Melaque" "Tecomán" "Los Mochis"
+		"Telchac" "Dzilam" "Río Lagartos" "El Cuyo" "Holbox" "Tenacatita"
+	}
+}
+
+### UNIVERSAL TOPIC: BODIES OF WATER ###
+MEX_WATERS = {
+	name = "Bodies of Water"
+
+	for_countries = { MEX }
+
+	type = ship
+
+	prefix = "ARM "
+	fallback_name = "Bahía %d"
+
+	unique = {
+		### Gulfs & seas ###
+		"Golfo de México" "Golfo de California" "Golfo de Tehuantepec" "Mar de Cortés" "Mar Caribe" "Océano Pacífico"
+		### Bays ###
+		"Bahía de Banderas" "Bahía de La Paz" "Bahía de Acapulco" "Bahía de Campeche" "Bahía de Chetumal"
+		"Bahía Magdalena" "Bahía de Todos Santos" "Bahía de Guaymas" "Bahía de Matanchén" "Bahía de Kino"
+		"Bahía de Topolobampo" "Bahía de Petacalco"
+		### Lagoons ###
+		"Laguna de Términos" "Laguna de Chapala" "Laguna de Catemaco" "Laguna Madre" "Laguna de Cuyutlán"
+		"Laguna de Tres Palos" "Laguna de Coyuca" "Laguna de Bacalar" "Laguna de Nichupté" "Laguna de Yalahau"
+		### Lakes ###
+		"Lago de Pátzcuaro" "Lago de Zirahuén" "Lago de Cuitzeo" "Lago de Texcoco" "Lago de Xochimilco" "Lago de Chalco"
+		### Channels & straits ###
+		"Canal de Yucatán" "Canal de Ballenas" "Canal de Salsipuedes" "Estrecho de Florida"
+	}
+}
+
+### UNIVERSAL TOPIC: MONARCHS & RULERS ###
+MEX_RULERS = {
+	name = "Monarchs & Rulers"
+
+	for_countries = { MEX }
+
+	type = ship
+
+	prefix = "ARM "
+	fallback_name = "Monarca %d"
+
+	unique = {
+		### Aztec tlatoanis ###
+		"Acamapichtli" "Huitzilíhuitl" "Chimalpopoca" "Itzcóatl" "Moctezuma Ilhuicamina"
+		"Axayácatl" "Tízoc" "Ahuízotl" "Moctezuma Xocoyotzin" "Cuitláhuac" "Cuauhtémoc"
+		### Other pre-Columbian rulers ###
+		"Nezahualcóyotl" "Nezahualpilli" "Tezozómoc" "Maxtla" "Cacamatzin" "Ixtlilxóchitl"
+		"Cosijoeza" "Cosijopí" "Xicoténcatl" "Chicomacatl" "Pakal"
+		### Mexican emperors ###
+		"Agustín de Iturbide" "Maximiliano"
+		### New Spanish viceroys ###
+		"Antonio de Mendoza" "Luis de Velasco" "Martín Enríquez" "Álvaro Manrique de Zúñiga"
+		"Gaspar de Zúñiga" "Juan de Mendoza" "Fray García Guerra" "Diego Fernández de Córdoba"
+		"Pedro Moya de Contreras" "Bernardo de Gálvez" "Juan de O'Donojú" "Juan de Acuña" "José de Iturrigaray"
+		### Spanish kings ###
+		"Carlos V" "Felipe II" "Felipe III" "Felipe IV" "Carlos II" "Felipe V" "Fernando VI" "Carlos III" "Carlos IV"
+	}
+}
+
+### UNIVERSAL TOPIC: REPUBLICAN & REVOLUTIONARY IDEALS ###
+MEX_REPUBLICAN_IDEALS = {
+	name = "Republican Ideals"
+
+	for_countries = { MEX }
+
+	type = ship
+
+	prefix = "ARM "
+	fallback_name = "Ideal %d"
+
+	unique = {
+		### Republican & constitutional concepts ###
+		"República" "Independencia" "Libertad" "Democracia" "Soberanía" "Revolución" "Constitución"
+		"Justicia" "Igualdad" "Fraternidad" "Patria" "Honor" "Valor" "Victoria" "Triunfo" "Gloria"
+		"Reforma" "Unión" "Fuerza" "Lealtad" "Integridad" "Sufragio Efectivo" "No Reelección"
+		"Pacto Federal" "Estado Laico" "Garantías Individuales" "Soberanía Popular" "Bienestar Común"
+		"Libertad de Expresión" "División de Poderes" "Orden Constitucional" "Voluntad Popular"
+		"Emancipación Cívica" "Unidad Republicana" "Civismo" "Concordia" "Paz" "Trabajo" "Ley" "Derecho"
+	}
+}
+
+### UNIVERSAL TOPIC: SOCIALIST IDEALS ###
+MEX_SOCIALISM = {
+	name = "Socialist Ideals"
+
+	for_countries = { MEX }
+
+	type = ship
+
+	prefix = "ARM "
+	fallback_name = "Socialista %d"
+
+	unique = {
+		### Cardenista, agrarian & proletarian concepts ###
+		"Justicia Social" "Reforma Agraria" "Tierra y Libertad" "Derechos Obreros" "Educación Laica"
+		"Solidaridad Obrera" "Emancipación Proletaria" "Lucha de Clases" "Poder Popular" "Revolución Social"
+		"Vanguardia Proletaria" "Comuna" "Sindicato" "Colectivo" "Antimperialismo" "Nacionalización"
+		"Reparto Agrario" "Justicia Obrera" "Redención Social" "Unión Proletaria" "Trabajo y Justicia"
+		"Liberación Obrera" "Aurora Roja" "Acción Proletaria" "Juventud Obrera" "Frente Popular"
+		"Solidaridad de Clase" "Cooperativa" "Hermandad Obrera" "Central Campesina" "Expropiación Petrolera"
+		"Soberanía Energética" "Igualdad Social" "Luz y Fuerza" "Vanguardia Campesina" "Alianza Obrera"
+		"Reforma Social" "Proletariado" "Socialismo Científico" "Poder Campesino"
+	}
+}
+
+### UNIVERSAL TOPIC: NATIONALIST & SYNARCHIST IDEALS ###
+MEX_NATIONALISM = {
+	name = "Nationalist Ideals"
+
+	for_countries = { MEX }
+
+	type = ship
+
+	prefix = "ARM "
+	fallback_name = "Nacionalista %d"
+
+	unique = {
+		### Synarchist, Cristero & traditionalist concepts ###
+		"Viva Cristo Rey" "Sinarquismo" "Hispanidad" "Tradición" "Patria y Fe" "Dios Patria Libertad"
+		"Cruzada" "Orden Nuevo" "Disciplina" "Autoridad" "Jerarquía" "Espíritu Nacional" "Camisas Doradas"
+		"Cruz y Espada" "Imperio Mexicano" "Raza Cósmica" "Nacionalismo" "Integridad Nacional" "Honor Nacional"
+		"Familia y Patria" "Justicia Cristiana" "Soberanía Integral" "Restauración" "Lealtad y Honor"
+		"Reconquista" "Unidad Nacional" "Valores Tradicionales" "Cruzados" "Mártires de Cristo" "Centinela"
+		"Vanguardia Nacional" "Legión" "Falange" "Tradicionalismo" "Orden Social" "Mística Nacional"
+		"Soberanía Espiritual" "Causa Nacional" "Firmeza" "Fidelidad"
+	}
+}
+
+### UNIVERSAL TOPIC: MYTHOLOGY ###
+MEX_MYTHOLOGY = {
+	name = "Mythology"
+
+	for_countries = { MEX }
+
+	type = ship
+
+	prefix = "ARM "
+	fallback_name = "Deidad %d"
+
+	unique = {
+		### Aztec deities ###
+		"Quetzalcóatl" "Tezcatlipoca" "Tláloc" "Huitzilopochtli" "Xipe Tótec" "Mictlantecuhtli"
+		"Chalchiuhtlicue" "Tlazoltéotl" "Tonatiuh" "Coatlicue" "Centéotl" "Xochiquetzal" "Xochipilli"
+		"Huehuetéotl" "Xiuhtecuhtli" "Mayahuel" "Patécatl" "Tepeyóllotl" "Tlaltecuhtli" "Cihuacóatl"
+		"Mixcóatl" "Opochtli" "Tecciztécatl" "Tlahuizcalpantecuhtli" "Xólotl" "Yacatecuhtli"
+		"Ehécatl" "Atlaua" "Amimitl" "Huixtocíhuatl" "Ometeotl" "Tonacatecuhtli" "Ilamatecuhtli"
+		### Maya deities ###
+		"Kukulkán" "Chaac" "Ixchel" "Itzamná" "Ah Puch" "Kinich Ahau" "Yum Kaax"
+		"Hunahpú" "Ixbalanqué" "Tohil" "Huracán" "Tepeu"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS ###
+MEX_BIRDS = {
+	name = "Birds"
+
+	for_countries = { MEX }
+
+	type = ship
+
+	prefix = "ARM "
+	fallback_name = "Ave %d"
+
+	unique = {
+		"Águila Real" "Águila Arpía" "Águila Pescadora" "Quetzal" "Halcón Peregrino" "Cóndor" "Gavilán"
+		"Zopilote" "Búho" "Lechuza" "Tecolote" "Gaviota" "Pelícano" "Albatros" "Cormorán" "Fragata"
+		"Garza" "Flamenco" "Tucán" "Guacamaya" "Loro" "Colibrí" "Chachalaca" "Codorniz" "Faisán"
+		"Paloma" "Tórtola" "Cuervo" "Urraca" "Zanate" "Cenzontle" "Jilguero" "Gorrión" "Golondrina"
+		"Martín Pescador" "Carpintero" "Perico" "Cotorra" "Calandria" "Pavo Real"
+	}
+}
+
+### UNIVERSAL TOPIC: STATES ###
+MEX_STATES = {
+	name = NAME_THEME_STATES
+
+	for_countries = { MEX }
+
+	type = ship
+
+	prefix = "ARM "
+	fallback_name = "Estado %d"
+
+	unique = {
+		"México" "Distrito Federal" "Jalisco" "Puebla" "Guanajuato" "Chiapas" "Nuevo León" "Michoacán"
+		"Oaxaca" "Chihuahua" "Guerrero" "Tamaulipas" "Baja California" "Sinaloa" "Coahuila" "Hidalgo"
+		"Sonora" "San Luis Potosí" "Tabasco" "Yucatán" "Querétaro" "Morelos" "Durango" "Zacatecas"
+		"Quintana Roo" "Aguascalientes" "Tlaxcala" "Nayarit" "Campeche" "Colima" "Baja California Sur"
+		"Veracruz"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES ###
+MEX_CITIES = {
+	name = NAME_THEME_CITIES
+
+	for_countries = { MEX }
+
+	type = ship
+
+	prefix = "ARM "
+	fallback_name = "Ciudad %d"
+
+	unique = {
+		### Major cities ###
+		"Ciudad de México" "Guadalajara" "Puebla" "Tijuana" "León" "Monterrey" "Culiacán" "Mérida"
+		"San Luis Potosí" "Aguascalientes" "Hermosillo" "Saltillo" "Mexicali" "Querétaro" "Torreón"
+		"Morelia" "Villahermosa" "Cuernavaca" "Tepic" "Durango" "Toluca" "Chihuahua" "Pachuca"
+		"Guanajuato" "Celaya" "Irapuato" "Zacatecas" "Colima" "Oaxaca" "Xalapa"
+		### Coastal & port cities ###
+		"Acapulco" "Cancún" "Mazatlán" "Tampico" "Veracruz" "Ensenada" "Puerto Vallarta" "La Paz"
+		"Coatzacoalcos" "Salina Cruz" "Manzanillo" "Chetumal" "Guaymas" "Progreso" "Ciudad del Carmen"
+		"Tuxpan" "Puerto Escondido" "Huatulco" "Cabo San Lucas" "Zihuatanejo" "Campeche" "Alvarado"
+		"San Blas" "Loreto" "Santa Rosalía" "Frontera"
+		### Border & regional cities ###
+		"Nuevo Laredo" "Ciudad Victoria" "Ciudad Obregón" "Matamoros" "Reynosa" "Nogales" "Los Mochis"
+		"Uruapan" "Tehuacán" "Tuxtla Gutiérrez" "Cholula" "Córdoba" "Orizaba" "Poza Rica" "Minatitlán"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS ###
+MEX_RIVERS = {
+	name = NAME_THEME_RIVERS
+
+	for_countries = { MEX }
+
+	type = ship
+
+	prefix = "ARM "
+	fallback_name = "Río %d"
+
+	unique = {
+		"Río Bravo" "Río Colorado" "Río Lerma" "Río Balsas" "Río Usumacinta" "Río Grijalva"
+		"Río Papaloapan" "Río Coatzacoalcos" "Río Pánuco" "Río Yaqui" "Río Mayo" "Río Fuerte"
+		"Río Sinaloa" "Río Culiacán" "Río San Lorenzo" "Río Piaxtla" "Río Presidio" "Río Baluarte"
+		"Río Acaponeta" "Río San Pedro" "Río Santiago" "Río Ameca" "Río Verde" "Río Armería"
+		"Río Cihuatlán" "Río Tomatlán" "Río San Nicolás" "Río Purificación" "Río San Antonio" "Río San Juan"
+		"Río Tonalá" "Río Blanco" "Río Jamapa" "Río Cotaxtla" "Río Actopan" "Río Antigua"
+		"Río Cazones" "Río Tecolutla" "Río Nautla" "Río Tuxpan" "Río Moctezuma" "Río Conchos"
+		"Río Nazas" "Río Aguanaval" "Río Sonora"
+	}
+}

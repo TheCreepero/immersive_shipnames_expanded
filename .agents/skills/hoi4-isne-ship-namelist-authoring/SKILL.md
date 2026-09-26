@@ -73,6 +73,13 @@ Expansive thematic pools designed for universal selection across **any ship type
 - **Martial Virtues & Concepts**:
   - Virtues & Character Traits (`<TAG>_VIRTUES`)
   - Weather, Tempests & Celestial Bodies (`<TAG>_NATURE`)
+  - **Ideological & Political Concepts**:
+    - Author distinct, dedicated pools per political alignment rather than combining conflicting doctrines into a single generic pool:
+      - Republican / Constitutional Ideals (`<TAG>_REPUBLICAN_IDEALS` or `<TAG>_REVOLUTION`)
+      - Socialist / Labor / Agrarian Ideals (`<TAG>_SOCIALISM`)
+      - Nationalist / Synarchist / Traditionalist Ideals (`<TAG>_NATIONALISM` or `<TAG>_FASCISM`)
+      - Monarchist / Imperial Ideals (`<TAG>_MONARCHISM`)
+    - **Anti-Contradiction Rule**: Never mix opposing ideologies in the same pool (e.g., socialist slogans with fascist or monarchist slogans).
 
 > [!TIP]
 > **UI Display Name Sizing**: The Hearts of Iron IV Ship Designer namelist dropdown has a narrow layout and handles long strings poorly.
@@ -133,6 +140,10 @@ Your mission is to research and compile an exhaustive Historical Naval Dossier f
 
 CRITICAL PHILOSOPHY:
 ISNE prioritizes HISTORICAL PLAUSIBILITY over rigid accuracy. Do NOT artificially limit namelists only to hulls that historically entered commission. Plausibly extrapolate how this nation's naval command would designate expanded wartime fleets (fleet carriers, heavy cruisers, battlecruisers, destroyers, submarines) across alternate-history paths.
+
+CRITICAL QUALITY STANDARDS:
+- NO FABRICATED NAMES: When researching specialized historical figures (such as naval admirals, commodores, or heroes), provide ONLY verifiable historical individuals. Do NOT invent generic filler names to meet depth quotas. If a nation only had 20–30 prominent naval commanders, report exactly those verified figures. A shorter, completely authentic list is strictly preferred over fabricated entries.
+- IDEOLOGICAL SEPARATION: Never bundle opposing ideological concepts (e.g., socialist and fascist/nationalist ideals) into a single pool. Provide separate, distinct pools for each political path.
 
 INVESTIGATION DIRECTIVES:
 1. Naval Programs & Doctrinal Naming Formulas:

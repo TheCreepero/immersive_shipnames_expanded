@@ -1,0 +1,369 @@
+##### YUGOSLAVIA NAVAL NAME LISTS (ISNE) #####
+
+### DESTROYERS & ESCORTS ###
+YUG_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { YUG }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "KB "
+	fallback_name = "Razarač %d"
+
+	unique = {
+		# Historic destroyers & destroyer leaders (Dubrovnik class, Beograd class, Split)
+		"Dubrovnik" "Beograd" "Zagreb" "Ljubljana" "Split"
+		# Historic torpedo boats & patrol craft (T-class, minelayers)
+		"Malinska" "Galeb" "Jastreb" "Kobac" "Sokol"
+		# Mountains, peaks & geographic landmarks (minelayer/patrol tradition)
+		"Triglav" "Durmitor" "Biokovo" "Učka" "Velebit" "Lovćen" "Dinara"
+		"Kopaonik" "Kozara" "Romanija" "Prokletije" "Rtanj" "Avala"
+		# Martial virtues & weather phenomena (plausible expansion)
+		"Nada" "Odvažni" "Prkosni" "Silni" "Junački"
+		"Golesnica" "Cer" "Grmeč" "Igman" "Jahorina"
+	}
+}
+
+### SUBMARINES ###
+YUG_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { YUG }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "KB "
+	fallback_name = "Podmornica %d"
+
+	unique = {
+		# Historic submarines (Hrabri class, Smeli class)
+		"Hrabri" "Nebojša" "Smeli" "Osvetnik"
+		# Martial virtues & defiant adjectives (historical naming doctrine)
+		"Snažni" "Neustrašivi" "Heroj" "Junak" "Pobednik"
+		"Nepobedivi" "Slobodni" "Odvažni" "Prkosni" "Silni"
+		# Yugoslav rivers (river monitor naming tradition)
+		"Tara" "Sava" "Neretva" "Drava" "Tisa" "Drina"
+		"Una" "Zeta" "Kupa" "Vardar" "Lim" "Piva"
+		"Sotla" "Ibar" "Kolubara" "Timok"
+	}
+}
+
+### LIGHT CRUISERS ###
+YUG_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { YUG }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "KB "
+	fallback_name = "Laka krstarica %d"
+
+	unique = {
+		# Major Adriatic coastal cities & ports
+		"Kotor" "Split" "Dubrovnik" "Šibenik" "Zadar" "Pula" "Rijeka"
+		"Sušak" "Trogir" "Bar" "Ulcinj" "Herceg Novi" "Koper"
+		# Major inland trade cities & regional capitals
+		"Dalmacija" "Sarajevo" "Niš" "Smederevo" "Banja Luka"
+		"Mostar" "Kragujevac" "Kruševac" "Subotica" "Novi Sad"
+		"Maribor" "Cetinje" "Vršac" "Prizren"
+	}
+}
+
+### HEAVY CRUISERS ###
+YUG_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { YUG }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "KB "
+	fallback_name = "Teška krstarica %d"
+
+	unique = {
+		# Serbian medieval rulers & heroes (Nemanjić dynasty, Lazarević)
+		"Stefan Nemanja" "Stefan Dušan" "Knez Lazar" "Miloš Obilić" "Kraljević Marko"
+		# Croatian medieval kings & bans
+		"Tomislav" "Petar Krešimir" "Dmitar Zvonimir" "Ban Jelačić" "Petar Zrinski"
+		# Bosnian rulers
+		"Tvrtko I" "Kulin Ban" "Husein Gradaščević"
+		# Montenegrin heroes & princes
+		"Petar Njegoš" "Janko Vukotić" "Danilo I"
+		# Yugoslav unification & pan-Slavic figures
+		"Karađorđe" "Ljudevit Posavski" "Stepa Stepanović"
+		"Živojin Mišić" "Radomir Putnik" "Petar Bojović"
+	}
+}
+
+### BATTLESHIPS & CAPITAL SHIPS ###
+YUG_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { YUG }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship battle_cruiser }
+
+	prefix = "KB "
+	fallback_name = "Bojni brod %d"
+
+	unique = {
+		# Constituent kingdoms & major national entities
+		"Srbija" "Hrvatska" "Slovenija" "Crna Gora" "Bosna" "Hercegovina"
+		"Makedonija" "Vojvodina" "Jugoslavija"
+		# Historical banovinas (1929-1941 administrative regions)
+		"Dravska" "Savska" "Vrbaska" "Primorska" "Drinska"
+		"Dunavska" "Moravska" "Vardarska" "Zetska"
+		# Grand historic regions
+		"Dalmacija" "Slavonija" "Banat" "Bačka" "Baranja" "Srem"
+	}
+}
+
+### CARRIERS & FLEET CARRIERS ###
+YUG_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { YUG }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "KB "
+	fallback_name = "Nosač aviona %d"
+
+	unique = {
+		# Aviation heritage (Zmaj seaplane tender, aircraft factories)
+		"Zmaj" "Ikarus" "Rogožarski"
+		# Storm & weather phenomena
+		"Vihor" "Grom" "Munja" "Oluja" "Bura" "Nevera" "Ciklon"
+		# Birds of prey
+		"Orao" "Soko" "Jastreb" "Sup" "Kobac"
+		# Celestial & sky concepts
+		"Uragan" "Mećava"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES ###
+YUG_CITIES = {
+	name = "Cities"
+
+	for_countries = { YUG }
+
+	type = ship
+
+	prefix = "KB "
+	fallback_name = "Grad %d"
+
+	unique = {
+		# Capital & major cities
+		"Beograd" "Zagreb" "Ljubljana" "Sarajevo" "Skopje" "Podgorica"
+		# Serbia
+		"Novi Sad" "Niš" "Kragujevac" "Subotica" "Smederevo" "Kruševac"
+		"Užice" "Čačak" "Kraljevo" "Valjevo" "Vranje" "Leskovac"
+		"Pirot" "Zaječar" "Požarevac" "Šabac" "Sombor" "Zrenjanin"
+		"Vršac" "Pančevo"
+		# Croatia
+		"Split" "Dubrovnik" "Zadar" "Šibenik" "Rijeka" "Pula" "Osijek"
+		"Karlovac" "Varaždin" "Sisak" "Vinkovci" "Vukovar" "Slavonski Brod"
+		# Bosnia & Herzegovina
+		"Banja Luka" "Mostar" "Tuzla" "Zenica" "Bihać" "Travnik" "Prijedor"
+		# Slovenia
+		"Maribor" "Celje" "Kranj" "Koper" "Novo Mesto"
+		# Montenegro
+		"Cetinje" "Nikšić" "Kotor" "Bar" "Herceg Novi" "Budva"
+		"Berane" "Bijelo Polje" "Pljevlja" "Kolašin"
+		# North Macedonia
+		"Bitola" "Ohrid" "Kumanovo" "Veles" "Štip" "Tetovo" "Prilep"
+		# Kosovo
+		"Priština" "Prizren" "Peć" "Kosovska Mitrovica"
+	}
+}
+
+### UNIVERSAL TOPIC: REGIONS & BANOVINAS ###
+YUG_PROVINCES = {
+	name = "Regions & Banovinas"
+
+	for_countries = { YUG }
+
+	type = ship
+
+	prefix = "KB "
+	fallback_name = "Banovina %d"
+
+	unique = {
+		# Constituent kingdoms
+		"Srbija" "Hrvatska" "Slovenija" "Crna Gora" "Bosna" "Hercegovina"
+		"Makedonija" "Vojvodina"
+		# Banovinas (1929-1941)
+		"Dravska" "Savska" "Vrbaska" "Primorska" "Drinska"
+		"Dunavska" "Moravska" "Vardarska" "Zetska"
+		# Historic regions
+		"Dalmacija" "Slavonija" "Banat" "Bačka" "Baranja" "Srem"
+		"Lika" "Kordun"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS & WATERWAYS ###
+YUG_RIVERS = {
+	name = "Rivers & Waterways"
+
+	for_countries = { YUG }
+
+	type = ship
+
+	prefix = "KB "
+	fallback_name = "Rijeka %d"
+
+	unique = {
+		# Major rivers
+		"Dunav" "Sava" "Drava" "Tisa" "Morava" "Neretva" "Vardar"
+		"Drina" "Una" "Bosna" "Vrbas" "Kupa" "Sotla" "Kolubara"
+		"Ibar" "Timok" "Zeta" "Tara" "Lim" "Piva" "Bojana"
+		"Krka" "Cetina" "Mura"
+		# Lakes
+		"Ohrid" "Prespa" "Skadar" "Bled"
+	}
+}
+
+### UNIVERSAL TOPIC: MYTHOLOGY & FOLKLORE ###
+YUG_MYTHOLOGY = {
+	name = "Mythology & Folklore"
+
+	for_countries = { YUG }
+
+	type = ship
+
+	prefix = "KB "
+	fallback_name = "Legenda %d"
+
+	unique = {
+		# Major Slavic deities
+		"Perun" "Veles" "Svarog" "Dažbog" "Stribog" "Morana" "Vesna"
+		"Živa" "Lada" "Svetovid" "Triglav" "Radgost"
+		# Mythical creatures & spirits
+		"Vila" "Zduhać" "Aždaja" "Bauk" "Psoglav" "Bukavac"
+		"Drekavac" "Karakondžula"
+		# Epic heroes & legendary figures
+		"Kraljević Marko" "Miloš Obilić" "Banović Strahinja"
+		"Jug Bogdan"
+	}
+}
+
+### UNIVERSAL TOPIC: RULERS & DYNASTIES ###
+YUG_RULERS = {
+	name = "Rulers & Dynasties"
+
+	for_countries = { YUG }
+
+	type = ship
+
+	prefix = "KB "
+	fallback_name = "Vladar %d"
+
+	unique = {
+		# Karađorđević dynasty
+		"Aleksandar I" "Petar I" "Petar II"
+		# Nemanjić dynasty (Serbian medieval rulers)
+		"Stefan Nemanja" "Stefan Dušan" "Knez Lazar" "Stefan Uroš"
+		"Stefan Prvovenčani" "Stefan Dragutin" "Stefan Milutin"
+		# Croatian kings
+		"Tomislav" "Petar Krešimir" "Dmitar Zvonimir"
+		# Bosnian rulers
+		"Tvrtko I" "Stjepan Tomaš" "Kulin Ban"
+		# Montenegrin rulers
+		"Petar Njegoš" "Nikola I"
+		# Obrenović dynasty
+		"Miloš Obrenović" "Milan Obrenović"
+	}
+}
+
+### UNIVERSAL TOPIC: HEROES & COMMANDERS ###
+YUG_HEROES = {
+	name = "Heroes & Commanders"
+
+	for_countries = { YUG }
+
+	type = ship
+
+	prefix = "KB "
+	fallback_name = "Heroj %d"
+
+	unique = {
+		# Serbian liberation heroes
+		"Karađorđe" "Hajduk Veljko" "Stanoje Glavaš" "Stevan Sinđelić"
+		"Vasa Čarapić" "Uzun Mirko" "Ilija Birčanin"
+		# WWI Serbian military commanders
+		"Stepa Stepanović" "Živojin Mišić" "Radomir Putnik" "Petar Bojović"
+		# Croatian & Slovenian heroes
+		"Matija Gubec" "Ljudevit Posavski" "Petar Zrinski" "Krsto Frankopan"
+		# Bosnian & Montenegrin heroes
+		"Husein Gradaščević" "Janko Vukotić" "Ban Jelačić"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS ###
+YUG_BIRDS = {
+	name = "Birds"
+
+	for_countries = { YUG }
+
+	type = ship
+
+	prefix = "KB "
+	fallback_name = "Ptica %d"
+
+	unique = {
+		# Birds of prey & raptors
+		"Orao" "Soko" "Jastreb" "Sup" "Kobac"
+		# Other notable species
+		"Galeb" "Gavran" "Sova" "Roda" "Labud"
+		"Pelikan" "Kormoran" "Ždral" "Čaplja" "Fazan"
+	}
+}
+
+### UNIVERSAL TOPIC: MOUNTAINS & PEAKS ###
+YUG_MOUNTAINS = {
+	name = "Mountains & Peaks"
+
+	for_countries = { YUG }
+
+	type = ship
+
+	prefix = "KB "
+	fallback_name = "Planina %d"
+
+	unique = {
+		# Major Yugoslav mountain ranges & peaks
+		"Triglav" "Durmitor" "Lovćen" "Biokovo" "Učka" "Velebit"
+		"Kopaonik" "Šar-planina" "Rtanj" "Zlatibor" "Tara" "Prokletije"
+		"Romanija" "Kozara" "Dinara" "Grmeč" "Igman" "Bjelašnica"
+		"Jahorina" "Treskavica" "Fruška Gora" "Avala"
+	}
+}
+
+### UNIVERSAL TOPIC: VIRTUES & TEMPESTS ###
+YUG_VIRTUES = {
+	name = "Virtues & Tempests"
+
+	for_countries = { YUG }
+
+	type = ship
+
+	prefix = "KB "
+	fallback_name = "Vrlina %d"
+
+	unique = {
+		# Martial virtues & defiant adjectives
+		"Hrabri" "Smeli" "Snažni" "Neustrašivi" "Pobednik"
+		"Osvetnik" "Junački" "Silni" "Nepobedivi" "Odvažni" "Prkosni"
+		# Weather & tempest phenomena
+		"Vihor" "Grom" "Munja" "Oluja" "Bura" "Nevera"
+		"Ciklon" "Uragan" "Mećava"
+	}
+}

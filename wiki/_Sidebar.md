@@ -12,6 +12,8 @@
 - [Finland](Finland)
 - [Norway](Norway)
 - [Sweden](Sweden)
+- [Turkey](Turkey)
+- [Yugoslavia](Yugoslavia)
 
 ---
 

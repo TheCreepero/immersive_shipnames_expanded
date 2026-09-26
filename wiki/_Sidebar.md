@@ -8,6 +8,7 @@
 - [Brazil](Brazil)
 - [Chile](Chile)
 - [Finland](Finland)
+- [Norway](Norway)
 - [Sweden](Sweden)
 
 ---

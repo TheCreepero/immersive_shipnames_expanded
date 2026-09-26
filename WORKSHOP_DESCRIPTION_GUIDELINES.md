@@ -70,6 +70,7 @@ This document serves as an instruction and reference guide for maintaining and u
 | `BRA_ship_names.txt` | Brazil | `BRA` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics, Vanilla Fixes) |
 | `CHL_ship_names.txt` | Chile | `CHL` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics, Vanilla Fixes) |
 | `FIN_ship_names.txt` | Finland | `FIN` | Included (DD, SS, CL, CA, BB, CV, 13 Thematic Topics) |
+| `NOR_ship_names.txt` | Norway | `NOR` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics, Vanilla Fixes) |
 | `SWE_ship_names.txt` | Sweden | `SWE` | Included (DD, SS, CL, CA, BB, BC, CV, 10 Thematic Topics, Vanilla Fixes) |
 
 ---
@@ -77,7 +78,7 @@ This document serves as an instruction and reference guide for maintaining and u
 ## Current Description Template (BBCode)
 
 ```bbcode
-More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, and Sweden. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
+More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Sweden, and Norway. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
 Check out my other mod: [url=https://steamcommunity.com/workshop/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
 
@@ -113,6 +114,11 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 - Expanded ship-type lists for Destroyers & Fast Escorts, Submarines, Light Cruisers, Coastal Defense / Heavy Cruisers, Battleships, and Aircraft Carriers.
 - Added 13 universal thematic lists selectable for any hull in the Ship Designer (Legendary Kings, Cities, Provinces, Rivers & Lakes, Fells & Capes, Historic Battles, Heroes, Kalevala Folklore, Birds, Fish, Wildlife, Virtues, and Weather Phenomena).
 - Replaced sparse vanilla pools with authentic Finnish naming traditions, native diacritics, and numbered fallbacks for large Baltic fleets.
+
+[b]Norway[/b]
+- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers (Panserskip), Battleships, Battlecruisers, and Aircraft Carriers.
+- Added 11 universal thematic lists selectable for any hull in the Ship Designer (Cities, Provinces, Fjords, Monarchs, Heroes & Explorers, Norse Mythology, Birds of Prey, Predators, Aquatic Life, Nature & Tempests, and Martial Virtues).
+- Fixed vanilla file issues: purged submarine entries from carrier rosters, removed duplicate entries in submarines and cruisers, corrected broken translations ("Lys Krysseren", "deleggeren"), and expanded historical Sjøforsvaret naming traditions.
 
 [b]Sweden[/b]
 - Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers (Pansarskepp), Battleships, Battlecruisers, and Aircraft Carriers.

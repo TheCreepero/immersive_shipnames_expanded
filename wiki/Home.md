@@ -15,6 +15,7 @@
 | [Brazil](Brazil) | `BRA` | 14 | `BRA_ship_names.txt` |
 | [Chile](Chile) | `CHL` | 14 | `CHL_ship_names.txt` |
 | [Finland](Finland) | `FIN` | 19 | `FIN_ship_names.txt` |
+| [Norway](Norway) | `NOR` | 18 | `NOR_ship_names.txt` |
 | [Sweden](Sweden) | `SWE` | 17 | `SWE_ship_names.txt` |
 
 ---

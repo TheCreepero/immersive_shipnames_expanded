@@ -1,0 +1,402 @@
+##### NORWAY NAVAL NAME LISTS (ISNE) #####
+
+### DESTROYERS & ESCORTS ###
+NOR_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { NOR }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "HNoMS "
+	fallback_name = "Jager %d"
+
+	unique = {
+		# Sleipner class & Draug class fleet destroyers
+		"Sleipner" "Gyller" "Æger" "Odin" "Balder" "Tor" "Draug" "Troll" "Garm"
+		# Aalesund class (laid down 1939) & post-war Town/Oslo classes
+		"Aalesund" "Kristiansund" "Oslo" "Bergen" "Trondheim" "Stavanger" "Narvik"
+		# British S-class, Hunt-class & Town-class destroyers/escorts operated in WWII
+		"Stord" "Svenner" "Arendal" "Haugesund" "Tromsø" "Glaisdale" "Eskdale"
+		"Lincoln" "St. Albans" "Mansfield" "Bath" "Newport"
+		# Historic torpedo boats & patrol gunboats - Marine predators & swift creatures
+		"Hval" "Delfin" "Hai" "Sæl" "Kjell" "Lax" "Sild" "Skrei"
+		# Storms, elemental forces & sparks
+		"Storm" "Brand" "Trold" "Gnist" "Blink" "Lyn" "Snøgg" "Kvikk" "Pil"
+		# Birds of prey & coastal hunters
+		"Grib" "Jo" "Lom" "Skarv" "Teist" "Ørn" "Falk" "Ravn" "Hauk"
+		# Martial virtues & swift attributes
+		"Snar" "Rask" "Djerv" "Dristig" "Hvass" "Tapper" "Vaktsom" "Modig"
+	}
+}
+
+### SUBMARINES ###
+NOR_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { NOR }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine ship_hull_midget_submarine }
+
+	prefix = "HNoMS "
+	fallback_name = "Ubåt %d"
+
+	unique = {
+		# Kobben / A-class historical submarines (1909-1914)
+		"Kobben" "A-1" "A-2" "A-3" "A-4"
+		# B-class historical submarines (1922-1929)
+		"B-1" "B-2" "B-3" "B-4" "B-5" "B-6"
+		# U-class & V-class submarines (Free Norwegian Navy in WWII)
+		"Uredd" "Ula" "Utstein" "Uthaug" "Utvær" "Utsira" "Viking" "Varang" "Votna"
+		# Post-war Type 207 coastal submarines (islets, reefs & lighthouses)
+		"Kya" "Kaura" "Kinn" "Kunna" "Sklinna" "Skolpen" "Stadt"
+		# Pelagic sharks & marine predators
+		"Håbrann" "Pigghå" "Brugde" "Havmus" "Rødhai" "Sverdfisk" "Spekkhogger" "Nise" "Bleksprut"
+		# Nordic marine fish
+		"Kveite" "Torsk" "Laks" "Sei" "Lange" "Brosme" "Steinbit" "Makrell" "Skrei" "Breiflabb"
+	}
+}
+
+### LIGHT CRUISERS ###
+NOR_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { NOR }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "HNoMS "
+	fallback_name = "Lett krysser %d"
+
+	unique = {
+		# Coastal trading hubs, county seats & maritime ports
+		"Kristiansand" "Drammen" "Ålesund" "Bodø" "Molde" "Larvik" "Sandefjord"
+		"Arendal" "Hamar" "Kongsberg" "Halden" "Porsgrunn" "Moss" "Horten"
+		"Fredrikstad" "Tønsberg" "Harstad" "Hammerfest" "Vardø" "Vadsø"
+		"Steinkjer" "Namsos" "Florø" "Egersund" "Mandal" "Farsund" "Flekkefjord"
+		"Grimstad" "Risør" "Kragerø" "Brevik" "Skien" "Holmestrand" "Drøbak"
+		# Historical frigates, corvettes & naval legends
+		"Freia" "Desideria" "Nornen" "Ellida" "Nordstjernen" "St. Olaf" "Albatross"
+	}
+}
+
+### HEAVY CRUISERS & COASTAL DEFENCE SHIPS ###
+NOR_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { NOR }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "HNoMS "
+	fallback_name = "Tung krysser %d"
+
+	unique = {
+		# Historic Coastal Defence Battleships (Panserskip)
+		"Norge" "Eidsvold" "Tordenskjold" "Harald Haarfagre"
+		# Nidaros class (British requisitioned HMS Glatton & HMS Gorgon)
+		"Nidaros" "Bjørgvin"
+		# Historical monitors & heavy gunboats
+		"Skorpionen" "Mjølner" "Thrudvang" "Thor" "Brage" "Frithjof"
+		"Heimdall" "Vidar" "Uller" "Vale" "Gor"
+		# Renowned naval commanders & admirals
+		"Peter Wessel" "Tordenskiold" "Ivar Huitfeldt" "Cort Adeler"
+		# Legendary polar explorers & maritime icons
+		"Roald Amundsen" "Fridtjof Nansen" "Otto Sverdrup" "C.A. Larsen" "Carsten Borchgrevink"
+	}
+}
+
+### BATTLESHIPS & CAPITAL SHIPS ###
+NOR_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { NOR }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "HNoMS "
+	fallback_name = "Slagskip %d"
+
+	unique = {
+		# Sovereign symbol & modern royalty
+		"Norge" "Haakon VII" "Dronning Maud" "Kronprins Olav"
+		# Historic foundational monarchs & medieval kings
+		"Harald Hårfagre" "Olav Tryggvason" "Olav den Hellige" "Sverre Sigurdsson"
+		"Haakon Haakonsson" "Magnus Lagabøte" "Eirik Blodøks" "Haakon den Gode"
+		"Magnus den Gode" "Sigurd Jorsalfar" "Harald Hardråde" "Magnus Barfot"
+		# Historic regions (Landsdeler) & ancient fylker
+		"Vestlandet" "Østlandet" "Nord-Norge" "Sørlandet" "Trøndelag"
+		"Telemark" "Finnmark" "Nordland" "Troms" "Hordaland" "Rogaland"
+		"Hedmark" "Oppland" "Buskerud" "Vestfold" "Østfold" "Agder" "Møre og Romsdal"
+	}
+}
+
+### BATTLECRUISERS ###
+NOR_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { NOR }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "HNoMS "
+	fallback_name = "Slagkrysser %d"
+
+	unique = {
+		# Legendary Viking royal longships
+		"Ormen Lange" "Trana" "Ormen Skamme" "Visund" "Bøkesuden" "Mariasuda" "Korssuda" "Kristsuda"
+		# Mythic Norse artifacts & legendary weapons
+		"Gungnir" "Mjølner" "Gram" "Tyrfing" "Dauðahøgg" "Gjallarhorn"
+		# Famous Norse navigators, chieftains & saga heroes
+		"Leif Eiriksson" "Eirik Raude" "Torstein Knarresmed" "Erling Skjalgsson"
+		"Einar Tambarskjelve" "Thorfinn Karlsefni" "Ottar fra Hålogaland" "Bjørn Farmann"
+	}
+}
+
+### AIRCRAFT CARRIERS ###
+NOR_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { NOR }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "HNoMS "
+	fallback_name = "Hangarskip %d"
+
+	unique = {
+		# Mythological celestial realms & world bridges
+		"Asgard" "Valhall" "Midgard" "Utgard" "Gimle" "Bifrost" "Yggdrasil"
+		# Valkyries & choosers of the slain
+		"Valkyrien" "Brynhild" "Gondul" "Hildr" "Skuld" "Sigrdrifa" "Kåra" "Rota"
+		# Atmospheric & Arctic celestial phenomena
+		"Nordlys" "Midnattssol" "Morgonstjerna" "Polstjerna" "Boreas" "Stormsvale"
+		# Odin's scouts & noble raptors
+		"Hugin" "Munin" "Havørn" "Kongeørn" "Jaktfalk" "Vandrefalk"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES ###
+NOR_CITIES = {
+	name = "Cities"
+
+	for_countries = { NOR }
+
+	type = ship
+
+	prefix = "HNoMS "
+	fallback_name = "By %d"
+
+	unique = {
+		"Oslo" "Bergen" "Trondheim" "Stavanger" "Kristiansand" "Drammen" "Tromsø"
+		"Ålesund" "Haugesund" "Bodø" "Arendal" "Molde" "Larvik" "Sandefjord"
+		"Hamar" "Kongsberg" "Halden" "Porsgrunn" "Moss" "Horten" "Fredrikstad"
+		"Tønsberg" "Harstad" "Hammerfest" "Vardø" "Vadsø" "Kristiansund" "Steinkjer"
+		"Namsos" "Florø" "Egersund" "Mandal" "Farsund" "Flekkefjord" "Grimstad"
+		"Risør" "Kragerø" "Brevik" "Skien" "Holmestrand" "Drøbak" "Levanger"
+	}
+}
+
+### UNIVERSAL TOPIC: PROVINCES & REGIONS ###
+NOR_PROVINCES = {
+	name = "Provinces & Regions"
+
+	for_countries = { NOR }
+
+	type = ship
+
+	prefix = "HNoMS "
+	fallback_name = "Distrikt %d"
+
+	unique = {
+		"Vestlandet" "Østlandet" "Nord-Norge" "Sørlandet" "Trøndelag"
+		"Finnmark" "Troms" "Nordland" "Nord-Trøndelag" "Sør-Trøndelag"
+		"Møre og Romsdal" "Sogn og Fjordane" "Hordaland" "Rogaland"
+		"Vest-Agder" "Aust-Agder" "Telemark" "Vestfold" "Buskerud"
+		"Oppland" "Hedmark" "Akershus" "Østfold" "Svalbard" "Jan Mayen"
+	}
+}
+
+### UNIVERSAL TOPIC: FJORDS & WATERWAYS ###
+NOR_FJORDS = {
+	name = "Fjords & Waterways"
+
+	for_countries = { NOR }
+
+	type = ship
+
+	prefix = "HNoMS "
+	fallback_name = "Fjord %d"
+
+	unique = {
+		"Hardangerfjord" "Geirangerfjord" "Sognefjord" "Nærøyfjord" "Oslofjord"
+		"Boknafjord" "Lysefjord" "Trondheimsfjord" "Varangerfjord" "Vestfjorden"
+		"Saltstraumen" "Romsdalsfjord" "Porsangerfjorden" "Tanafjorden" "Altafjorden"
+		"Ofotfjorden" "Nordfjord" "Sunnfjord" "Ryfylkefjord" "Foldafjord"
+	}
+}
+
+### UNIVERSAL TOPIC: MONARCHS & RULERS ###
+NOR_RULERS = {
+	name = "Monarchs & Rulers"
+
+	for_countries = { NOR }
+
+	type = ship
+
+	prefix = "HNoMS "
+	fallback_name = "Konge %d"
+
+	unique = {
+		"Haakon VII" "Dronning Maud" "Kronprins Olav"
+		"Harald Hårfagre" "Eirik Blodøks" "Haakon den Gode" "Harald Gråfell"
+		"Haakon Jarl" "Olav Tryggvason" "Olav den Hellige" "Svein Knutsson"
+		"Magnus den Gode" "Harald Hardråde" "Olav Kyrre" "Magnus Barfot"
+		"Sigurd Jorsalfar" "Øystein Magnusson" "Inge Krokrygg" "Sverre Sigurdsson"
+		"Haakon Sverresson" "Inge Bårdsson" "Haakon Haakonsson" "Magnus Lagabøte"
+		"Eirik Prestehater" "Haakon V Magnusson" "Dronning Margrete"
+	}
+}
+
+### UNIVERSAL TOPIC: NAVAL HEROES & EXPLORERS ###
+NOR_HEROES = {
+	name = "Heroes & Explorers"
+
+	for_countries = { NOR }
+
+	type = ship
+
+	prefix = "HNoMS "
+	fallback_name = "Sjøhelt %d"
+
+	unique = {
+		# Renowned naval commanders & admirals
+		"Peter Wessel Tordenskiold" "Ivar Huitfeldt" "Cort Adeler" "Peder Tordenskjold"
+		"Henrik Gerner" "Hans Birch Dahlerup" "Thomas von Westen" "Christian Radich"
+		# Famous polar explorers & navigators
+		"Roald Amundsen" "Fridtjof Nansen" "Otto Sverdrup" "Carsten Borchgrevink"
+		"Carl Anton Larsen" "Helmer Hanssen" "Oscar Wisting" "Hjalmar Johansen"
+		# Saga chieftains & historic heroes
+		"Leif Eiriksson" "Eirik Raude" "Einar Tambarskjelve" "Erling Skjalgsson"
+		"Torstein Knarresmed" "Thorfinn Karlsefni" "Ottar fra Hålogaland"
+	}
+}
+
+### UNIVERSAL TOPIC: NORSE MYTHOLOGY ###
+NOR_MYTHOLOGY = {
+	name = "Norse Mythology"
+
+	for_countries = { NOR }
+
+	type = ship
+
+	prefix = "HNoMS "
+	fallback_name = "Gud %d"
+
+	unique = {
+		"Odin" "Thor" "Freyr" "Freyja" "Balder" "Tyr" "Heimdall" "Njord"
+		"Idun" "Skadi" "Brage" "Forseti" "Uller" "Vale" "Vidar" "Ægir" "Ran"
+		"Fenris" "Midgårdsormen" "Sleipner" "Yggdrasil" "Valhall" "Bifrost"
+		"Gungnir" "Mjølner" "Gjallarhorn" "Valkyrien" "Brynhild" "Nornene"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS OF PREY ###
+NOR_BIRDS = {
+	name = "Birds of Prey"
+
+	for_countries = { NOR }
+
+	type = ship
+
+	prefix = "HNoMS "
+	fallback_name = "Fugl %d"
+
+	unique = {
+		"Havørn" "Kongeørn" "Fiskeørn" "Jaktfalk" "Vandrefalk" "Hønsehauk"
+		"Spurvehauk" "Fjellvåk" "Musvåk" "Hubro" "Snøugle" "Haukugle"
+		"Ravn" "Korp" "Teist" "Lunde" "Havsvale" "Lom" "Alke" "Sule"
+	}
+}
+
+### UNIVERSAL TOPIC: FAUNA & PREDATORS ###
+NOR_FAUNA = {
+	name = "Fauna & Predators"
+
+	for_countries = { NOR }
+
+	type = ship
+
+	prefix = "HNoMS "
+	fallback_name = "Rovdyr %d"
+
+	unique = {
+		# Apex predators & wilderness mammals
+		"Ulven" "Bjørnen" "Gaupen" "Jerven" "Fjellreven" "Rødreven"
+		"Elgen" "Hjorten" "Rådyret" "Reinen" "Moskusen" "Villsvinet"
+		# Semi-aquatic mammals & pinnipeds
+		"Oteren" "Beveren" "Grønlandsselen" "Steinkobben" "Klappmyssen"
+		"Valrossen" "Nisen" "Spekkhoggeren" "Kvitnosen"
+	}
+}
+
+### UNIVERSAL TOPIC: AQUATIC LIFE & FISH ###
+NOR_FISH = {
+	name = "Aquatic Life & Fish"
+
+	for_countries = { NOR }
+
+	type = ship
+
+	prefix = "HNoMS "
+	fallback_name = "Fisk %d"
+
+	unique = {
+		"Håbrann" "Pigghå" "Brugde" "Sverdfisk" "Kveite" "Torsk" "Laks"
+		"Sjøørret" "Makrell" "Sild" "Sei" "Hyse" "Brosme" "Lange"
+		"Steinbit" "Havmus" "Breiflabb" "Uer" "Rødspette" "Skrei" "Lodde"
+	}
+}
+
+### UNIVERSAL TOPIC: NATURE & TEMPESTS ###
+NOR_NATURE = {
+	name = "Nature & Tempests"
+
+	for_countries = { NOR }
+
+	type = ship
+
+	prefix = "HNoMS "
+	fallback_name = "Natur %d"
+
+	unique = {
+		"Nordlys" "Midnattssol" "Polstjernen" "Storm" "Kuling" "Orkan"
+		"Virvelvind" "Havbåre" "Bølge" "Torden" "Lynild" "Frost" "Isbre"
+		"Snøstorm" "Vinter" "Nordavind" "Polarbris" "Brim" "Tåke" "Svell"
+	}
+}
+
+### UNIVERSAL TOPIC: MARTIAL VIRTUES ###
+NOR_VIRTUES = {
+	name = "Martial Virtues"
+
+	for_countries = { NOR }
+
+	type = ship
+
+	prefix = "HNoMS "
+	fallback_name = "Dyd %d"
+
+	unique = {
+		"Dristig" "Tapper" "Modig" "Snar" "Rask" "Djerv" "Hvass" "Kvikk"
+		"Trofast" "Vaktsom" "Uredd" "Seirende" "Uforferdet" "Hardfør"
+		"Frihet" "Enighet" "Rettferd" "Vakt" "Skjold" "Vern" "Heder" "Ære"
+	}
+}

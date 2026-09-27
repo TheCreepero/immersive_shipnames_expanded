@@ -87,6 +87,7 @@ Expansive thematic pools designed for universal selection across **any ship type
 > **UI Display Name Sizing**: The Hearts of Iron IV Ship Designer namelist dropdown has a narrow layout and handles long strings poorly.
 > - Keep all display names (`name = "..."`) concise (**<= 25–30 characters**).
 > - **Omit redundant country prefixes/adjectives** (e.g. use `name = "Cities"` rather than `name = "Finnish Cities"`, `name = "Monarchs"` rather than `name = "Habsburg & Babenberg Monarchs"`).
+> - **Name the pool for what it actually contains**: don't call a mixed-content pool "Birds of Prey" if it also includes owls, songbirds, or waterfowl — use "Birds" instead. Check the name against the final entry list, not just the initial theme concept.
 
 ---
 
@@ -186,6 +187,10 @@ Before finalizing any namelist file, verify:
   - Have geographic homonyms (cities sharing identical names with provinces) been disambiguated using formal administrative designations (e.g. *"Cebu City"*, *"Ciudad de..."*) or alternate regional ports?
   - Are `BB` and `BC` specialized into distinct doctrines rather than identical mirrors?
   - Has the automated cross-class intersection check passed with 0 overlaps?
+- [ ] **7. Named-Individual & Homonym Verification**:
+  - Is every named historical person (admiral, commander, monarch, hero) individually traceable to a source — not just plausible for the role/era? Drop or flag any that the dossier/reviewer cannot corroborate, per the "Authenticity over Artificial Padding" standard in `CLAUDE.md` §3.
+  - Does any single-word transliterated entry double as a common, unrelated English word that would read as a UI placeholder or typo to an English-speaking player (e.g. "Ship", "Bum", "Dad", "Mad")? If so, prefer a compound/disambiguated form over a bare collision.
+  - Does each thematic pool's `name = "..."` accurately describe the *final* entry list, not just the original theme concept (see the UI Display Name Sizing tip in Section 2)?
 
 ---
 

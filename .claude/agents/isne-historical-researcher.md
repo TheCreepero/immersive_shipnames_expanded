@@ -17,6 +17,8 @@ ISNE prioritizes HISTORICAL PLAUSIBILITY over rigid accuracy. Do NOT artificiall
 
 CRITICAL QUALITY STANDARDS:
 - NO FABRICATED NAMES: When researching specialized historical figures (such as naval admirals, commodores, or heroes), provide ONLY verifiable historical individuals. Do NOT invent generic filler names to meet depth quotas. If a nation only had 20–30 prominent naval commanders, report exactly those verified figures. A shorter, completely authentic list is strictly preferred over fabricated entries.
+- PER-INDIVIDUAL SOURCING: Tag every named person you propose with at least one identifiable source or a confidence flag (e.g. "well documented" vs. "attested but uncertain spelling/dates"). Do not present a name as fact merely because it sounds plausible for the role or era — if you cannot find a specific source for an individual, say so explicitly rather than omitting the caveat.
+- ENGLISH HOMONYM AWARENESS: When proposing single-word transliterated vocabulary (not proper nouns you must preserve as-is), flag any entry that happens to be a common, unrelated English word (e.g. a literal transliteration landing on "Ship", "Bum", "Dad", "Mad") so the author can decide whether to keep it, compound it, or substitute it.
 - IDEOLOGICAL SEPARATION: Never bundle opposing ideological concepts (e.g., socialist and fascist/nationalist ideals) into a single pool. Provide separate, distinct pools for each political path.
 
 INVESTIGATION DIRECTIVES:

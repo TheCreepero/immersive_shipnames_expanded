@@ -87,6 +87,7 @@ Expansive thematic pools designed for universal selection across **any ship type
 > **UI Display Name Sizing**: The Hearts of Iron IV Ship Designer namelist dropdown has a narrow layout and handles long strings poorly.
 > - Keep all display names (`name = "..."`) concise (**<= 25–30 characters**).
 > - **Omit redundant country prefixes/adjectives** (e.g. use `name = "Cities"` rather than `name = "Finnish Cities"`, `name = "Monarchs"` rather than `name = "Habsburg & Babenberg Monarchs"`).
+> - **Name the pool for what it actually contains**: don't call a mixed-content pool "Birds of Prey" if it also includes owls, songbirds, or waterfowl — use "Birds" instead. Check the name against the final entry list, not just the initial theme concept.
 
 ---
 
@@ -145,6 +146,8 @@ ISNE prioritizes HISTORICAL PLAUSIBILITY over rigid accuracy. Do NOT artificiall
 
 CRITICAL QUALITY STANDARDS:
 - NO FABRICATED NAMES: When researching specialized historical figures (such as naval admirals, commodores, or heroes), provide ONLY verifiable historical individuals. Do NOT invent generic filler names to meet depth quotas. If a nation only had 20–30 prominent naval commanders, report exactly those verified figures. A shorter, completely authentic list is strictly preferred over fabricated entries.
+- PER-INDIVIDUAL SOURCING: Tag every named person you propose with at least one identifiable source or a confidence flag (e.g. "well documented" vs. "attested but uncertain spelling/dates"). Do not present a name as fact merely because it sounds plausible for the role or era — if you cannot find a specific source for an individual, say so explicitly rather than omitting the caveat.
+- ENGLISH HOMONYM AWARENESS: When proposing single-word transliterated vocabulary (not proper nouns you must preserve as-is), flag any entry that happens to be a common, unrelated English word (e.g. a literal transliteration landing on "Ship", "Bum", "Dad", "Mad") so the author can decide whether to keep it, compound it, or substitute it.
 - IDEOLOGICAL SEPARATION: Never bundle opposing ideological concepts (e.g., socialist and fascist/nationalist ideals) into a single pool. Provide separate, distinct pools for each political path.
 
 INVESTIGATION DIRECTIVES:
@@ -215,6 +218,10 @@ Before finalizing any namelist file, verify:
   - Have geographic homonyms (cities sharing identical names with provinces) been disambiguated using formal administrative designations (e.g. *"Cebu City"*, *"Ciudad de..."*) or alternate regional ports?
   - Are `BB` and `BC` specialized into distinct doctrines rather than identical mirrors?
   - Has the automated cross-class intersection check passed with 0 overlaps?
+- [ ] **7. Named-Individual & Homonym Verification**:
+  - Is every named historical person (admiral, commander, monarch, hero) individually traceable to a source — not just plausible for the role/era? Drop or flag any that the dossier/reviewer cannot corroborate, per the "Authenticity over Artificial Padding" standard in `GEMINI.md` §3.
+  - Does any single-word transliterated entry double as a common, unrelated English word that would read as a UI placeholder or typo to an English-speaking player (e.g. "Ship", "Bum", "Dad", "Mad")? If so, prefer a compound/disambiguated form over a bare collision.
+  - Does each thematic pool's `name = "..."` accurately describe the *final* entry list, not just the original theme concept (see the UI Display Name Sizing tip in Section 2)?
 
 ---
 
@@ -295,14 +302,18 @@ Review Focus & Critical Invariants to Verify:
 1. Purge of Foreign Vessels & Hallucinations: Check that all foreign copy-pasted vessels (e.g., RNZN/RAN frigates, wrong national prefixes) and fictional/OCR-garbled entries (e.g. "General Manchatas") are 100% eliminated.
 2. Cross-Class Duplication: Verify that Light Cruisers, Heavy Cruisers, Battleships, Battlecruisers, and Aircraft Carriers do not share duplicate names.
 3. Capital Ship Differentiation: Ensure BB and BC are not identical mirrors and possess distinct, specialized doctrinal flavor.
-4. Engine Invariants:
+4. Named-Individual & Homonym Verification:
+   - Fact-check every named historical person (admiral, commander, monarch, hero) against known sources — a name that merely sounds plausible for the role/era is not sufficient grounds to keep it. Flag any you cannot corroborate as an Important finding, even if the surrounding vocabulary/place names in the same list are fine.
+   - Flag any single-word transliterated entry that doubles as a common, unrelated English word reading as a UI placeholder or typo to an English-speaking player (e.g. "Ship", "Bum", "Dad", "Mad").
+   - Flag any thematic pool whose `name = "..."` no longer accurately describes its final entry list (e.g. a "Birds of Prey" pool that also contains owls, songbirds, or waterfowl should be renamed "Birds").
+5. Engine Invariants:
    - File encoding is UTF-8 without BOM.
    - Strictly balanced curly braces and quotes.
    - All defined prefixes must end with trailing whitespace (e.g. prefix = "RPS ").
    - Group display names (name = "...") must be concise (<= 30-32 characters, no redundant national adjectives).
    - Valid ship subunit tokens in ship_types.
    - Dedicated ideological pools (Republican, Socialist, Nationalist) are separated without ideological contradictions.
-5. Documentation & Wiki Synchronization:
+6. Documentation & Wiki Synchronization:
    - README.md table includes <TAG>.
    - WORKSHOP_DESCRIPTION_GUIDELINES.md table and BBCode section include <TAG>.
    - wiki/Home.md and wiki/_Sidebar.md link to wiki/<Country>.md.

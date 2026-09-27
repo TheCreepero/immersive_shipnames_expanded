@@ -26,14 +26,18 @@ Review Focus & Critical Invariants to Verify:
 1. Purge of Foreign Vessels & Hallucinations: Check that all foreign copy-pasted vessels (e.g., RNZN/RAN frigates, wrong national prefixes) and fictional/OCR-garbled entries (e.g. "General Manchatas") are 100% eliminated.
 2. Cross-Class Duplication: Verify that Light Cruisers, Heavy Cruisers, Battleships, Battlecruisers, and Aircraft Carriers do not share duplicate names.
 3. Capital Ship Differentiation: Ensure BB and BC are not identical mirrors and possess distinct, specialized doctrinal flavor.
-4. Engine Invariants:
+4. Named-Individual & Homonym Verification:
+   - Fact-check every named historical person (admiral, commander, monarch, hero) against known sources — a name that merely sounds plausible for the role/era is not sufficient grounds to keep it. Flag any you cannot corroborate as an Important finding, even if the surrounding vocabulary/place names in the same list are fine.
+   - Flag any single-word transliterated entry that doubles as a common, unrelated English word reading as a UI placeholder or typo to an English-speaking player (e.g. "Ship", "Bum", "Dad", "Mad").
+   - Flag any thematic pool whose `name = "..."` no longer accurately describes its final entry list (e.g. a "Birds of Prey" pool that also contains owls, songbirds, or waterfowl should be renamed "Birds").
+5. Engine Invariants:
    - File encoding is UTF-8 without BOM.
    - Strictly balanced curly braces and quotes.
    - All defined prefixes must end with trailing whitespace (e.g. prefix = "RPS ").
    - Group display names (name = "...") must be concise (<= 30-32 characters, no redundant national adjectives).
    - Valid ship subunit tokens in ship_types.
    - Dedicated ideological pools (Republican, Socialist, Nationalist) are separated without ideological contradictions.
-5. Documentation & Wiki Synchronization:
+6. Documentation & Wiki Synchronization:
    - README.md table includes <TAG>.
    - WORKSHOP_DESCRIPTION_GUIDELINES.md table and BBCode section include <TAG>.
    - wiki/Home.md and wiki/_Sidebar.md link to wiki/<Country>.md.

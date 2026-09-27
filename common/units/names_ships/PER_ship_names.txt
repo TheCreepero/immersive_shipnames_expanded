@@ -1,0 +1,400 @@
+##### IRAN / PERSIA NAVAL NAME LISTS (ISNE) #####
+
+### DESTROYERS & ESCORTS ###
+PER_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { PER }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "IIS "
+	fallback_name = "Navshekan %d"
+
+	unique = {
+		# Imperial Iranian Navy sloops, destroyers & namesake admirals
+		"Babr" "Palang" "Artemiz"
+		# Saam-class frigates (Shahnameh heroes)
+		"Saam" "Zaal" "Rostam" "Faramarz"
+		# Bayandor-class corvettes & minesweepers honoring the dead of Khorramshahr, 25 Aug 1941
+		"Bayandor" "Naghdi" "Milanian" "Kahnamoie" "Harischi" "Riazi"
+		# 1930s gunboats & minesweepers
+		"Shahbaz" "Karkas" "Shahrokh" "Shahin"
+		# Royal yacht
+		"Shahsavar"
+		# Kaivan & Parvin-class patrol boats (celestial namesakes)
+		"Kaivan" "Tiran" "Mehran" "Mahan" "Parvin" "Bahram" "Nahid"
+		# Kaman-class fast attack craft (classical Persian weapons)
+		"Kaman" "Zoubin" "Khadang" "Paykan" "Joshan" "Falakhon" "Shamshir" "Gorz"
+		"Gardouneh" "Khanjar" "Neyzeh" "Tabarzin"
+		# Extended classical arms & armor, following the Kaman-class naming formula
+		"Separ" "Zereh" "Khud" "Kamand" "Tabar" "Nachakh" "Tigh" "Deshneh"
+		"Qameh" "Sheshpar" "Qaddareh" "Sonan" "Tarkash" "Manjaniq" "Arradeh" "Bargostvan"
+		"Zanburak"
+		# Shahnameh heroes, extending the Saam-class naming formula
+		"Sohrab" "Esfandiyar" "Siyavash" "Bijan" "Giv" "Gudarz" "Tus" "Fariborz"
+		"Gostaham" "Garshasp" "Nariman" "Zavareh" "Borzu" "Kaveh" "Qaren" "Milad"
+		"Keshvad" "Ashkash" "Rohham" "Hojir" "Zarir" "Bastur" "Pashutan" "Zangeh"
+		"Rivniz" "Nastuh" "Gazhdaham" "Shidush" "Farud" "Arash"
+		# Naval commanders & admirals, from the Achaemenids to 1979
+		"Rasaei" "Habibollahi" "Ariabignes" "Megabat" "Megabaz" "Prexaspes" "Farnabaz"
+		"Tiribaz" "Datis" "Artafern" "Vahrez" "Latif Khan"
+	}
+}
+
+### SUBMARINES ###
+PER_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { PER }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine ship_hull_midget_submarine }
+
+	prefix = "IIS "
+	fallback_name = "Zirdaryayi %d"
+
+	unique = {
+		# Tang-class submarines planned for the Imperial Iranian Navy (cancelled 1979)
+		"Kousseh" "Nahang" "Dolfin"
+		# Marine predators & sea creatures
+		"Arrehmahi" "Shamshirmahi" "Marmahi" "Sofrehmahi" "Sagmahi" "Hashtpa" "Fok" "Gando"
+		"Tamsah" "Lakposht" "Kharchang" "Aroos-e Darya" "Gav-e Daryaei" "Mar-e Daryaei"
+		"Mahi-ye Parandeh"
+		# Caspian sturgeons & pearl-diving heritage
+		"Filmahi" "Uzunbrun" "Tasmahi" "Shipmahi" "Khaviar" "Morvarid" "Marjan" "Sadaf" "Ghavvas"
+		# Zoroastrian mythic waters
+		"Kar-mahi" "Farakhkart" "Ardvisur" "Puitika" "Aban"
+		# Stealth & the deep
+		"Gerdab" "Zharfa" "Moj" "Shekarchi" "Kamin" "Shabgard" "Shabrow" "Sayeh" "Penhan"
+		"Khamush" "Shabahang"
+		# Persian Gulf & Caspian food fish
+		"Mahi-ye Sefid" "Kilka" "Kapur" "Azadmahi" "Kafal" "Hamur" "Shirmahi" "Sardin" "Meygu"
+	}
+}
+
+### LIGHT CRUISERS ###
+PER_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { PER }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "IIS "
+	fallback_name = "Razmnav-e Sabok %d"
+
+	unique = {
+		# Persian Gulf & Gulf of Oman ports
+		"Bandar Abbas" "Bushehr" "Khorramshahr" "Abadan" "Bandar Shahpur" "Bandar-e Lengeh"
+		"Bandar-e Deylam" "Bandar-e Ganaveh" "Bandar-e Rig" "Bandar-e Ma'shur" "Bandar-e Kong"
+		"Bandar-e Charak" "Jask" "Chabahar" "Minab" "Hendijan" "Asaluyeh" "Kangan"
+		"Bandar-e Dayyer" "Bandar-e Moqam" "Bandar-e Khamir"
+		# Caspian coast ports
+		"Bandar Pahlavi" "Bandar Shah" "Nowshahr" "Babolsar" "Chalus" "Astara" "Rasht" "Lahijan"
+		"Langarud" "Ramsar" "Mahmudabad" "Fereydunkenar" "Sari" "Amol" "Babol" "Gorgan"
+		"Bandar-e Gaz"
+		# Major inland trade & administrative cities
+		"Tehran" "Tabriz" "Esfahan" "Shiraz" "Mashhad" "Kerman" "Yazd" "Hamadan"
+		"Kermanshah" "Qazvin" "Zanjan" "Ardabil" "Rezaiyeh" "Khoy" "Maragheh" "Sanandaj"
+		"Khorramabad" "Borujerd" "Arak" "Kashan" "Qom" "Semnan" "Sabzevar" "Birjand"
+		"Zahedan" "Zabol" "Bam" "Ahvaz" "Dezful" "Shushtar" "Behbahan" "Masjed Soleyman"
+		"Bojnurd" "Malayer" "Saveh"
+	}
+}
+
+### HEAVY CRUISERS & COASTAL DEFENSE ###
+PER_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { PER }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "IIS "
+	fallback_name = "Razmnav-e Sangin %d"
+
+	unique = {
+		# Ancient Persian capitals & great cities
+		"Persepolis" "Pasargad" "Shush" "Anshan" "Istakhr" "Tisfun" "Bishapur" "Ardeshir-Khoreh"
+		"Gondishapur" "Rey" "Shahr-e Sukhteh" "Chogha Zanbil" "Hasanlu" "Haft Tappeh" "Shiz"
+		"Soltaniyeh" "Neyshabur" "Jiroft"
+		# Monuments & sacred sites
+		"Taq-e Kasra" "Taq-e Bostan" "Bisotun" "Naqsh-e Rostam" "Naqsh-e Rajab" "Apadana"
+		"Kaba-ye Zartosht"
+		# The three great Zoroastrian fire temples
+		"Azargoshasb" "Azar Farnbagh" "Azar Burzinmehr"
+		# Historic realms of Greater Iran, now beyond its modern borders
+		"Nisa" "Saddarvazeh" "Marv" "Balkh" "Herat" "Samarqand" "Bukhara" "Zarang"
+	}
+}
+
+### BATTLESHIPS & CAPITAL SHIPS ###
+PER_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { PER }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "IIS "
+	fallback_name = "Nabardnav %d"
+
+	unique = {
+		# Achaemenid Shahanshahs
+		"Hakhamanesh" "Kourosh" "Kambujiyeh" "Dariush" "Khashayar" "Ardeshir"
+		# Parthian Shahanshahs
+		"Ashk" "Mehrdad" "Farhad" "Orod" "Ardavan" "Balash" "Tirdad"
+		# Sassanid Shahanshahs
+		"Sasan" "Shapour" "Hormozd" "Narseh" "Bahram-e Gur" "Yazdegerd" "Piruz" "Qobad"
+		"Anoushirvan" "Khosrow Parviz" "Purandokht"
+		# Later great Shahs
+		"Nader" "Shah Abbas" "Shah Esmail" "Karim Khan"
+		# Symbols of national sovereignty
+		"Pahlavi" "Iranshahr" "Shahanshah" "Shir-o-Khorshid"
+	}
+}
+
+### BATTLECRUISERS ###
+PER_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { PER }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "IIS "
+	fallback_name = "Razmnav-e Nabard %d"
+
+	unique = {
+		# Seas & straits of the Persian sphere
+		"Khalij-e Fars" "Darya-ye Oman" "Darya-ye Khazar" "Tangeh-ye Hormoz" "Arvand"
+		# Persian Gulf sea kingdoms & strategic islands
+		"Hormoz" "Kish" "Siraf" "Qeshm" "Kharg" "Hengam" "Larak" "Lavan" "Tonb"
+		"Hendurabi" "Farur" "Shidvar" "Abu Musa" "Ashuradeh" "Mishmahig" "Mazun"
+		# Historic mountain fortresses & citadels
+		"Arg-e Bam" "Qal'eh Dokhtar" "Qal'eh-ye Babak" "Alamut" "Rudkhan" "Falak-ol-Aflak"
+		"Arg-e Tabriz" "Narin Qal'eh" "Arg-e Rayen" "Darband"
+		# Decisive ancient naval encounters
+		"Lade" "Knidos" "Artemisium"
+	}
+}
+
+### AIRCRAFT CARRIERS ###
+PER_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { PER }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "IIS "
+	fallback_name = "Nav-e Havapeymabar %d"
+
+	unique = {
+		# Mythical flying creatures
+		"Simorgh" "Homa" "Qoqnus" "Chamrosh" "Shirdal" "Karshipt"
+		# Great Iranian peaks, ranges & summits
+		"Damavand" "Alborz" "Zagros" "Sabalan" "Sahand" "Alvand" "Dena" "Alam-Kuh"
+		"Takht-e Soleyman" "Taftan" "Bazman" "Binalud" "Kuh-e Hazar" "Lalehzar" "Jupar"
+		"Oshtorankuh" "Zard-Kuh" "Shir-Kuh" "Kuh-e Dinar" "Kuh-e Karkas" "Kuh-e Khajeh" "Tochal"
+		"Kuh-e Rahmat" "Kuh-e Genu" "Sialan" "Kuh-e Bul" "Kopet Dagh"
+	}
+}
+
+### UNIVERSAL TOPIC: MYTHOLOGY ###
+PER_MYTHOLOGY = {
+	name = "Mythology"
+
+	for_countries = { PER }
+
+	type = ship
+
+	prefix = "IIS "
+	fallback_name = "Ostureh %d"
+
+	unique = {
+		# Pishdadian kings of the Shahnameh
+		"Kiumars" "Hushang" "Tahmuras" "Jamshid" "Fereydun" "Iraj" "Manuchehr" "Nowzar"
+		# Kayanian kings of the Shahnameh
+		"Kay Qobad" "Kay Kavus" "Kay Khosrow" "Lohrasp" "Goshtasp" "Homay" "Darab"
+		# Zoroastrian divine beings & Amesha Spentas
+		"Mehr" "Anahita" "Tishtar" "Sorush" "Vay" "Azar" "Hom" "Rashn" "Ard" "Verethragna"
+		"Bahman" "Ordibehesht" "Sepandarmaz" "Khordad" "Amordad" "Shahrivar" "Farreh-ye Izadi"
+		# Legendary heroines
+		"Gordafarid" "Tahmineh" "Rudabeh" "Manizheh" "Farangis" "Katayun" "Sindokht"
+		"Banu Goshasp" "Shirin"
+		# Legendary horses
+		"Rakhsh" "Shabdiz"
+		# Sacred objects & legendary realms
+		"Derafsh-e Kaviani" "Jam-e Jam" "Haft Khan" "Kang-dezh" "Gorz-e Gavsar" "Takht-e Taqdis"
+		"Var-e Jamkard"
+	}
+}
+
+### UNIVERSAL TOPIC: RULERS ###
+PER_RULERS = {
+	name = "Rulers"
+
+	for_countries = { PER }
+
+	type = ship
+
+	prefix = "IIS "
+	fallback_name = "Padeshah %d"
+
+	unique = {
+		# Median kings
+		"Diyako" "Hovakhshatar" "Ishtovigu"
+		# Early Islamic-era Persian dynasties
+		"Taher" "Yaqub-e Leys" "Amr-e Leys" "Esmail-e Samani" "Nasr-e Samani" "Mardavij"
+		"Qabus" "Emad od-Dowleh" "Rokn od-Dowleh" "Azod od-Dowleh"
+		# Seljuk sultans over Persia
+		"Alp Arslan" "Malekshah"
+		# Safavid Shahs
+		"Shah Tahmasb" "Shah Safi" "Shah Soleyman"
+		# Zand dynasty
+		"Lotf Ali Khan"
+		# Qajar dynasty
+		"Agha Mohammad Khan" "Fath-Ali Shah" "Mohammad Shah" "Naser od-Din Shah"
+		"Mozaffar od-Din Shah" "Ahmad Shah"
+		# Pahlavi dynasty
+		"Reza Shah" "Mohammad Reza"
+		# Legendary & historical queens
+		"Atoosa" "Azarmidokht" "Musa" "Pari Khan Khanom"
+	}
+}
+
+### UNIVERSAL TOPIC: PROVINCES ###
+PER_PROVINCES = {
+	name = "Provinces"
+
+	for_countries = { PER }
+
+	type = ship
+
+	prefix = "IIS "
+	fallback_name = "Ostan %d"
+
+	unique = {
+		# Caspian coast provinces
+		"Azarbaijan" "Gilan" "Mazandaran"
+		# Historic provinces & regions
+		"Khorasan" "Fars" "Khuzestan" "Kurdestan" "Lorestan" "Sistan" "Baluchestan" "Makran"
+		"Bakhtiari" "Laristan" "Tabarestan" "Deylaman" "Talesh" "Kuhgiluyeh" "Kohestan"
+		"Qumes" "Elam"
+		# Ancient Persian regions
+		"Mad" "Parthav" "Hirkan" "Aturpatakan" "Nimruz" "Khvarvaran"
+		# Historic realms of Greater Iran
+		"Arran" "Shirvan" "Kharazm" "Soghd" "Bakhtar"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS & LAKES ###
+PER_RIVERS = {
+	name = "Rivers & Lakes"
+
+	for_countries = { PER }
+
+	type = ship
+
+	prefix = "IIS "
+	fallback_name = "Rud %d"
+
+	unique = {
+		# Major rivers
+		"Sefid Rud" "Karun" "Karkheh" "Dez" "Jarrahi" "Zohreh" "Mand" "Dalaki"
+		"Kor" "Sivand" "Zayandeh Rud" "Qezel Owzan" "Shahrud" "Aras" "Atrak" "Gorganrud"
+		"Haraz" "Babolrud" "Tajan" "Talar" "Jajrud" "Karaj" "Hirmand" "Sirvan"
+		"Seymareh" "Zab" "Qarasu" "Kashafrud" "Harirud"
+		# Lakes & wetlands
+		"Chichast" "Hamun" "Bakhtegan" "Tashk" "Maharlu" "Parishan" "Zarivar" "Gahar"
+		"Neor" "Gavkhuni" "Jazmurian" "Mordab"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS ###
+PER_BIRDS = {
+	name = "Birds"
+
+	for_countries = { PER }
+
+	type = ship
+
+	prefix = "IIS "
+	fallback_name = "Parandeh %d"
+
+	unique = {
+		# Raptors & falcons
+		"Oqab" "Oqab-e Talaei" "Oqab-e Shahi" "Oqab-e Mahigir" "Baz" "Qarqi" "Tarlan"
+		"Balaban" "Sonqor" "Dal" "Charkh" "Lachin"
+		# Owls
+		"Joghd" "Bum" "Morgh-e Haq"
+		# Other native birds
+		"Hodhod" "Tavus" "Dorna" "Laklak" "Qu" "Parastu" "Bolbol" "Andalib"
+		"Chakavak" "Kabk" "Kabk-e Dari" "Tihu" "Qarqavol" "Hoberah" "Morgh-e Saqa"
+		"Kabutar" "Fakhteh" "Sar" "Kalagh" "Gonjeshk"
+	}
+}
+
+### UNIVERSAL TOPIC: VIRTUES ###
+PER_VIRTUES = {
+	name = "Virtues"
+
+	for_countries = { PER }
+
+	type = ship
+
+	prefix = "IIS "
+	fallback_name = "Fazilat %d"
+
+	unique = {
+		# Courage & bravery
+		"Daliri" "Delavar" "Shoja'at" "Jor'at" "Shahamat" "Mardanegi" "Javanmardi"
+		# Victory
+		"Piruzi" "Zafar" "Nosrat" "Fath"
+		# Honor & loyalty
+		"Sharaf" "Gheyrat" "Vafa" "Sarbolandi"
+		# Nation & unity
+		"Esteqlal" "Vahdat"
+		# Strength & majesty
+		"Niru" "Tavana" "Shokuh"
+		# Wisdom & justice
+		"Kherad" "Farzanegi" "Dad" "Edalat" "Rasti"
+		# The Zoroastrian triad
+		"Pendar-e Nik" "Goftar-e Nik" "Kerdar-e Nik"
+		# Resolve & vigilance
+		"Omid" "Hemmat" "Payedari" "Bidar" "Hoshyar"
+	}
+}
+
+### UNIVERSAL TOPIC: BEASTS & PREDATORS ###
+PER_BEASTS = {
+	name = "Beasts & Predators"
+
+	for_countries = { PER }
+
+	type = ship
+
+	prefix = "IIS "
+	fallback_name = "Darandeh %d"
+
+	unique = {
+		# Predators
+		"Shir" "Yuzpalang" "Siyahgush" "Gorg" "Khers" "Goraz" "Kaftar" "Rubah" "Shoghal"
+		# Wild hoofed animals
+		"Gur" "Ahu" "Gavazn" "Gavazn-e Zard" "Maral" "Qoch" "Kal" "Pazan" "Bozkuhi" "Jebir"
+		# Large native & domestic animals
+		"Fil" "Asb" "Kargadan" "Gavmish" "Shotor"
+		# Reptiles & burrowers
+		"Afi" "Kazhdom" "Samur"
+		# Mythical beast
+		"Ezhdeha"
+	}
+}

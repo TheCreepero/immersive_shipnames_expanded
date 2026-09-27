@@ -88,6 +88,7 @@ Development rules and the namelist authoring runbook are maintained as mirrored 
 | `FIN` | Finland | `FIN_ship_names.txt` |
 | `MEX` | Mexico | `MEX_ship_names.txt` |
 | `NOR` | Norway | `NOR_ship_names.txt` |
+| `PER` | Iran | `PER_ship_names.txt` |
 | `PHI` | Philippines | `PHI_ship_names.txt` |
 | `SWE` | Sweden | `SWE_ship_names.txt` |
 | `TUR` | Turkey | `TUR_ship_names.txt` |

@@ -17,6 +17,7 @@
 | [Cuba](Cuba) | `CUB` | 13 | `CUB_ship_names.txt` |
 | [Denmark](Denmark) | `DEN` | 15 | `DEN_ship_names.txt` |
 | [Finland](Finland) | `FIN` | 20 | `FIN_ship_names.txt` |
+| [Iran](Iran) | `PER` | 14 | `PER_ship_names.txt` |
 | [Mexico](Mexico) | `MEX` | 19 | `MEX_ship_names.txt` |
 | [Norway](Norway) | `NOR` | 18 | `NOR_ship_names.txt` |
 | [Philippines](Philippines) | `PHI` | 18 | `PHI_ship_names.txt` |

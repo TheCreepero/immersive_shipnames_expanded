@@ -208,10 +208,110 @@ Before finalizing any namelist file, verify:
 - [ ] **5. Two-Category Balance**:
   - Are all standard hull types covered with doctrine-aligned ship-type namelists?
   - Are multiple rich topic namelists provided for universal hull selection?
+- [ ] **6. Cross-Class Decoupling & Set-Intersection**:
+  - Do major combatant lists (`CL`, `CA`, `BB`, `BC`, `CV`) maintain mutually exclusive rosters with zero duplicate names?
+  - Have geographic homonyms (cities sharing identical names with provinces) been disambiguated using formal administrative designations (e.g. *"Cebu City"*, *"Ciudad de..."*) or alternate regional ports?
+  - Are `BB` and `BC` specialized into distinct doctrines rather than identical mirrors?
+  - Has the automated cross-class intersection check passed with 0 overlaps?
 
 ---
 
-## 5. Namelist File Syntax & Invariants
+## 5. Cross-Class Collision Audit & Independent Code Review Protocol
+
+### Cross-Class Homonyms & Decoupling Strategies
+In Hearts of Iron IV, players and AI frequently construct fleets featuring multiple cruiser and capital ship classes simultaneously. In many nations, geography and history present homonyms across administrative levels:
+- **City vs. Province Collisions (`CL` vs. `CA`)**: In nations like the Philippines, Mexico, Brazil, or Argentina, major cities often share identical names with provinces/states (e.g. *Cebu*, *Iloilo*, *Davao*, *Zamboanga*, *Batangas*, *Cavite*, *Puebla*, *Oaxaca*).
+  - **Resolution**: Designate provinces with their baseline geographic names in `CA` (*Batangas*, *Cavite*, *Cebu*). In `CL`, apply the formal administrative native title (e.g. *"Cebu City"*, *"Cavite City"*, *"Batangas City"*, *"Ciudad de Puebla"*) or replace with renowned secondary maritime ports/harbors.
+- **Historical Compacts vs. Cities/Provinces (`BB`/`BC` vs. `CL`/`CA`)**: Revolutionary compacts or ancient kingdoms may share names with modern cities or provinces (e.g., *Malolos*, *Butuan*, *Sulu*).
+  - **Resolution**: Use native realm titles or formal sovereign designations (e.g. Tausūg *"Lupah Sug"* for the Sultanate of Sulu vs. province *"Sulu"*; reserve *"Malolos"* for Battleships and use *"Meycauayan"* or *"Aparri"* for Light Cruisers).
+- **Macro-Regions/Confederations vs. Mountain Summits (`BB`/`BC` vs. `CV`)**: Historical regions or ancient leagues that share names with mountain peaks (e.g. Panay's Confederation of *Madja-as* vs. *Mount Madja-as*).
+  - **Resolution**: Use explicit *"Mount ..."* prefixing or allocate alternative prominent volcanic summits/ranges to carriers.
+
+### Capital Ship Specialization (`BB` vs. `BC`)
+Never duplicate namelist rosters between Battleships and Battlecruisers. Structure them into distinct doctrines:
+- **Battleships (`BB`)**: Foundational republics, constitutional compacts, macro-regions/island groups, supreme founding fathers, presidents, and national sovereignty symbols.
+- **Battlecruisers (`BC`)**: Pre-colonial thalassocracies/sea kingdoms, historic war vessels/flagships (e.g., *Karakoa*, *Balangay*, *Viking longships*), coastal fortresses/citadels, and decisive naval encounters/straits.
+
+### Programmatic Set-Intersection Verification Script
+Before submitting code for review or completing a namelist update, run an automated PowerShell check to mathematically guarantee zero overlapping names across major combatant hulls:
+
+```powershell
+$namelistFile = "common/units/names_ships/<TAG>_ship_names.txt"
+$text = [System.IO.File]::ReadAllText($namelistFile, [System.Text.Encoding]::UTF8)
+
+# Extract unique blocks for each class
+function Get-GroupNames([string]$groupTag) {
+    if ($text -match "(?s)$groupTag\s*=\s*\{.*?unique\s*=\s*\{(.*?)\}") {
+        return [regex]::Matches($matches[1], '"([^"]+)"') | ForEach-Object { $_.Groups[1].Value }
+    }
+    return @()
+}
+
+$classes = [ordered]@{
+    CL = Get-GroupNames "<TAG>_CL_HISTORICAL"
+    CA = Get-GroupNames "<TAG>_CA_HISTORICAL"
+    BB = Get-GroupNames "<TAG>_BB_HISTORICAL"
+    BC = Get-GroupNames "<TAG>_BC_HISTORICAL"
+    CV = Get-GroupNames "<TAG>_CV_HISTORICAL"
+}
+
+$keys = @($classes.Keys)
+$anyCollision = $false
+for ($i = 0; $i -lt $keys.Count; $i++) {
+    for ($j = $i + 1; $j -lt $keys.Count; $j++) {
+        $k1 = $keys[$i]; $k2 = $keys[$j]
+        $inter = $classes[$k1] | Where-Object { $classes[$k2] -contains $_ }
+        if ($inter) {
+            Write-Host "Collision between $k1 and ${k2}: $($inter -join ', ')" -ForegroundColor Red
+            $anyCollision = $true
+        }
+    }
+}
+if (-not $anyCollision) {
+    Write-Host "SUCCESS: Zero cross-class collisions among CL, CA, BB, BC, CV!" -ForegroundColor Green
+}
+```
+
+### Independent Code Review Protocol ("Code Reviewer" Subagent)
+To eliminate blind spots, dispatch a fresh Code Reviewer subagent (`Role: "Code Reviewer"`, `Model: "pro"`) using `invoke_subagent` before merging or completing a namelist update:
+
+```text
+You are the Code Reviewer for the Hearts of Iron IV mod "Immersive Ship Names Expanded" (ISNE).
+Your task is to perform an exhaustive whole-branch code review for the newly implemented naval ship namelists for <COUNTRY_NAME> (TAG: <TAG>).
+
+Plan and requirements:
+- Plan file: docs/superpowers/plans/<PLAN_FILE>.md
+- Implementation files:
+  - common/units/names_ships/<TAG>_ship_names.txt
+  - README.md
+  - WORKSHOP_DESCRIPTION_GUIDELINES.md
+  - wiki/<Country>.md
+  - wiki/Home.md
+  - wiki/_Sidebar.md
+
+Review Focus & Critical Invariants to Verify:
+1. Purge of Foreign Vessels & Hallucinations: Check that all foreign copy-pasted vessels (e.g., RNZN/RAN frigates, wrong national prefixes) and fictional/OCR-garbled entries (e.g. "General Manchatas") are 100% eliminated.
+2. Cross-Class Duplication: Verify that Light Cruisers, Heavy Cruisers, Battleships, Battlecruisers, and Aircraft Carriers do not share duplicate names.
+3. Capital Ship Differentiation: Ensure BB and BC are not identical mirrors and possess distinct, specialized doctrinal flavor.
+4. Engine Invariants:
+   - File encoding is UTF-8 without BOM.
+   - Strictly balanced curly braces and quotes.
+   - All defined prefixes must end with trailing whitespace (e.g. prefix = "RPS ").
+   - Group display names (name = "...") must be concise (<= 30-32 characters, no redundant national adjectives).
+   - Valid ship subunit tokens in ship_types.
+   - Dedicated ideological pools (Republican, Socialist, Nationalist) are separated without ideological contradictions.
+5. Documentation & Wiki Synchronization:
+   - README.md table includes <TAG>.
+   - WORKSHOP_DESCRIPTION_GUIDELINES.md table and BBCode section include <TAG>.
+   - wiki/Home.md and wiki/_Sidebar.md link to wiki/<Country>.md.
+   - wiki/<Country>.md accurately documents all groups and token counts.
+
+Report your findings grouped by severity (Critical, Important, Minor), along with your overall verdict.
+```
+
+---
+
+## 6. Namelist File Syntax & Invariants
 
 File path: `common/units/names_ships/<TAG>_ship_names.txt`
 
@@ -264,7 +364,7 @@ File path: `common/units/names_ships/<TAG>_ship_names.txt`
 
 ---
 
-## 6. Documentation & Workshop Synchronization
+## 7. Documentation & Workshop Synchronization
 
 Whenever a country's namelists are added or updated:
 
@@ -298,7 +398,7 @@ Whenever a country's namelists are added or updated:
 
 ---
 
-## 7. Build, Validation & Test Protocol
+## 8. Build, Validation & Test Protocol
 
 Run validation and tests from the mod root:
 

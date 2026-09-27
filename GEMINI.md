@@ -38,6 +38,14 @@ Every country's ship namelists should be structured into two broad categories:
      - The in-game Ship Designer dropdown UI has limited width and truncates or wraps long namelist names poorly.
      - Keep all display names (`name = "..."`) concise (strictly **<= 30-32 characters**, ideally **<= 25 characters**).
      - **Omit redundant national prefixes/adjectives** in display names (e.g. use `name = "Cities"` instead of `name = "Finnish Cities"`, `name = "Monarchs"` instead of `name = "Habsburg & Babenberg Monarchs"`, `name = "Birds"` instead of `name = "Birds of Prey & Sky Avians"`). The country context is already clear in-game.
+   - **Cross-Class Decoupling & Homonym Disambiguation**:
+     - Ship-type specific groups for major combatants (`CL`, `CA`, `BB`, `BC`, `CV`) must maintain mutually exclusive naming rosters with zero duplicate entries across classes.
+     - When geographic entities share identical names across administrative levels (e.g. a chartered city in `CL` sharing a name with a province in `CA`), apply formal native administrative designations to cities (e.g. *"Cebu City"*, *"Cavite City"*, *"Ciudad de Puebla"*) or substitute with prominent secondary maritime ports.
+     - Historical compacts or realms in `BB`/`BC` must use native realm titles (e.g., Tausūg *"Lupah Sug"* vs. province *"Sulu"*), and mountains in `CV` must be disambiguated with *"Mount ..."* or distinct summits.
+   - **Capital Ship Doctrine Specialization (`BB` vs. `BC`)**:
+     - Never mirror rosters between Battleships and Battlecruisers.
+     - **Battleships (`BB`)**: Foundational republics, constitutional compacts, macro-regions/island groups, supreme founding fathers, presidents, and national sovereignty symbols.
+     - **Battlecruisers (`BC`)**: Pre-colonial thalassocracies/sea kingdoms, historic war vessels/flagships (e.g., *Karakoa*, *Balangay*, *Viking longships*), coastal fortresses/citadels, and decisive naval encounters/straits.
 
 ## 3. Historical & Linguistic Standards
 - **Linguistic Precision**: Always verify proper grammar, cases, and diacritics in the target language (e.g., `Väinämöinen`, `Hämeenmaa`, `L'Audacieux`, `Gromoboi`).
@@ -85,6 +93,8 @@ Whenever a new country ship namelist is added, expanded, or modified:
   ```
 - Use `build.ps1 -Package` to test clean staging and zip distribution (ensuring `.git`, `.github`, `tests`, scripts, and documentation are strictly excluded from mod releases).
 - Use `build.ps1 -DevLink` when zero-copy live editing in the Paradox launcher is required.
+- **Automated Set-Intersection Verification**: Run programmatic cross-class collision checks across `CL`, `CA`, `BB`, `BC`, and `CV` to mathematically guarantee zero overlapping names before finalizing any ship namelist file.
+- **Independent Code Review Gate**: Dispatch a fresh Code Reviewer subagent (`Role: "Code Reviewer"`, `Model: "pro"`) using `invoke_subagent` to verify all engine invariants, foreign vessel purges, and cross-class decoupling prior to task completion.
 
 ## 6. VFS Shadowing & Clean File Replacement
 - **VFS File Replacement**: Hearts of Iron IV's Virtual File System (VFS) cleanly shadows/replaces a base-game file when a mod file shares the exact relative path and filename (`common/units/names_ships/<TAG>_ship_names.txt`).

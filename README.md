@@ -82,6 +82,7 @@ powershell -File .\build.ps1 -PublishSteam -ChangeNote "Add Finnish ship namelis
 | `CUB` | Cuba | `CUB_ship_names.txt` |
 | `DEN` | Denmark | `DEN_ship_names.txt` |
 | `FIN` | Finland | `FIN_ship_names.txt` |
+| `MEX` | Mexico | `MEX_ship_names.txt` |
 | `NOR` | Norway | `NOR_ship_names.txt` |
 | `SWE` | Sweden | `SWE_ship_names.txt` |
 | `TUR` | Turkey | `TUR_ship_names.txt` |

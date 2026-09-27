@@ -72,6 +72,7 @@ This document serves as an instruction and reference guide for maintaining and u
 | `CUB_ship_names.txt` | Cuba | `CUB` | Included (DD, SS, CL, CA, BB, CV, 7 Thematic Topics, Vanilla Fixes) |
 | `DEN_ship_names.txt` | Denmark | `DEN` | Included (DD, SS, CL, CA, BB, BC, CV, 8 Thematic Topics, Vanilla Fixes) |
 | `FIN_ship_names.txt` | Finland | `FIN` | Included (DD, SS, CL, CA, BB, BC, CV, 13 Thematic Topics, Vanilla Fixes) |
+| `MEX_ship_names.txt` | Mexico | `MEX` | Included (DD, SS, CL, CA, BB, BC, CV, 13 Thematic Topics, Vanilla Fixes) |
 | `NOR_ship_names.txt` | Norway | `NOR` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics, Vanilla Fixes) |
 | `SWE_ship_names.txt` | Sweden | `SWE` | Included (DD, SS, CL, CA, BB, BC, CV, 10 Thematic Topics, Vanilla Fixes) |
 | `TUR_ship_names.txt` | Turkey | `TUR` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics, Vanilla Fixes) |
@@ -82,7 +83,7 @@ This document serves as an instruction and reference guide for maintaining and u
 ## Current Description Template (BBCode)
 
 ```bbcode
-More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, and Yugoslavia. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
+More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, and Mexico. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
 Check out my other mods:
 - [url=https://steamcommunity.com/workshop/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
@@ -99,59 +100,64 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 
 [h1]Included nations:[/h1]
 [b]Argentina[/b]
-- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers & Coastal Defense, Battleships, Battlecruisers, and Aircraft Carriers.
-- Added 6 universal thematic lists selectable for any hull in the Ship Designer (Cities, Provinces, Heroes & Statesmen, Historic Battles, Rivers & Waterways, and Native Fauna).
-- Fixed vanilla file issues: eliminated duplicate entries ("Rosales" and "La Rioja"), separated modern 1970s corvettes from cruisers, removed patrol boats from heavy cruisers, and expanded sparse capital ship stubs with authentic Armada de la República Argentina traditions.
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 6 universal thematic lists: Cities, Provinces, Heroes, Historic Battles, Rivers, and Fauna.
+- Resolved vanilla duplicates ("Rosales", "La Rioja"), separated modern corvettes from cruisers, and expanded capital ship rosters.
 
 [b]Austria[/b]
-- Expanded ship-type lists for Destroyers, Submarines, Light Cruisers, Heavy Cruisers, Battleships, and Aircraft Carriers.
-- Added 11 universal thematic lists selectable for any hull in the Ship Designer (Monarchs, Cities, Crown Lands, Rivers & Lakes, Alpine Peaks, Historic Battles, Heroes, Folklore, Birds, Wildlife, and Virtues).
-- Restored and expanded historical Austro-Hungarian K.u.K. Kriegsmarine traditions and interwar Danube flotilla naming conventions.
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, CV).
+- Added 11 universal thematic lists: Monarchs, Cities, Crown Lands, Rivers & Lakes, Peaks, Battles, Heroes, Folklore, Birds, Wildlife, and Virtues.
+- Restored Austro-Hungarian K.u.K. Kriegsmarine traditions and interwar Danube flotilla conventions.
 
 [b]Brazil[/b]
-- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers & Coastal Defense, Battleships, Battlecruisers, and Aircraft Carriers.
-- Added 7 universal thematic lists selectable for any hull in the Ship Designer (Cities, States, Rivers, Heroes & Admirals, Indigenous Tribes, Historic Battles, and Native Fauna).
-- Fixed vanilla file issues: corrected the mislabeled Argentina header, resolved the "Cuzador Couraçado" battlecruiser typo, fixed state typos ("Marnhão", "Amazona"), and replaced the monotonous single-state list with authentic Marinha do Brasil class traditions.
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 7 universal thematic lists: Cities, States, Rivers, Heroes & Admirals, Indigenous Tribes, Battles, and Fauna.
+- Corrected mislabeled header, fixed typos ("Cuzador Couraçado", "Marnhão", "Amazona"), and replaced repetitive state lists with authentic naval traditions.
 
 [b]Chile[/b]
-- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers & Coastal Defense, Battleships, Battlecruisers, and Aircraft Carriers.
-- Added 7 universal thematic lists selectable for any hull in the Ship Designer (Cities, Provinces, Heroes, Mapuche Warriors, Historic Battles, Waterways & Fjords, and Native Fauna).
-- Fixed vanilla file issues: purged pontoon hulks ("County of Peebles") and peacetime disaster shipwrecks ("Cazador") from capital ship lists, eliminated duplicate entries ("Orella" and "Araucano"), restored missing diacritics, and expanded historical Armada de Chile traditions.
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 7 universal thematic lists: Cities, Provinces, Heroes, Mapuche Warriors, Battles, Waterways, and Fauna.
+- Removed pontoon hulks and peacetime shipwrecks from capital ships, eliminated duplicate entries, and restored proper diacritics.
 
 [b]Cuba[/b]
-- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers, Battleships, and Aircraft Carriers.
-- Added 7 universal thematic lists selectable for any hull in the Ship Designer (Cities, Provinces & Regions, Heroes & Statesmen, Historic Battles & Dates, Mythology & Deities, Fauna & Wildlife, and Rivers & Waterways).
-- Fixed vanilla file issues: removed erroneous Colombian prefix ("ARC "), corrected the "Marinao" typo to Marianao, eliminated verbatim duplicates between destroyers and submarines as well as light and heavy cruisers, replaced foreign capital ship stubs with authentic Cuban naval traditions, and enriched all rosters.
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, CV).
+- Added 7 universal thematic lists: Cities, Provinces, Heroes, Battles & Dates, Mythology, Fauna, and Rivers.
+- Removed erroneous Colombian prefix ("ARC "), corrected typos ("Marinao"), eliminated cross-class duplicates, and introduced authentic Cuban naval traditions.
 
 [b]Denmark[/b]
-- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers & Coastal Defense, Battleships, Battlecruisers, and Aircraft Carriers.
-- Added 8 universal thematic lists selectable for any hull in the Ship Designer (Cities, Regions & Islands, Monarchs, National Heroes, Norse Mythology, Birds, Aquatic Life, and Sounds & Waters).
-- Fixed vanilla file issues: repaired damaged character encodings ("Sridderen", "gir"), corrected pseudo-English fallback translations ("Lys Cruiseren", "Tung Cruiseren"), purged patrol craft from cruisers, removed duplicate submarine entries, and expanded sparse capital ship lists.
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 8 universal thematic lists: Cities, Regions & Islands, Monarchs, Heroes, Norse Mythology, Birds, Aquatic Life, and Waters.
+- Repaired damaged character encodings, fixed pseudo-English fallbacks ("Lys Cruiseren"), purged patrol craft from cruisers, and expanded capital ship rosters.
 
 [b]Finland[/b]
-- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers (Panssarilaivat), Battleships, Battlecruisers, and Aircraft Carriers.
-- Added 13 universal thematic lists selectable for any hull in the Ship Designer (Monarchs, Cities, Provinces, Rivers & Lakes, Landmarks, Historic Battles, Heroes, Kalevala Mythology, Birds, Aquatic Life, Predators, Martial Virtues, and Nature & Tempests).
-- Fixed vanilla file issues: eliminated duplicate vanilla carrier blocks, removed duplicate "Rauma" in cruisers, restored dedicated battlecruiser list (FIN_BC_HISTORICAL) with authentic fallback ("Taisteluristeilijä %d"), purged coastal defense heroes from light cruisers, and resolved cross-hull name collisions.
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 13 universal thematic lists: Monarchs, Cities, Provinces, Rivers & Lakes, Landmarks, Battles, Heroes, Kalevala Mythology, Birds, Aquatic Life, Predators, Virtues, and Nature.
+- Removed duplicate carrier blocks and cruiser entries, restored dedicated battlecruiser list, and purged coastal defense ships from light cruisers.
+
+[b]Mexico[/b]
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 13 universal thematic lists: Admirals, Saints, Ports, Bodies of Water, Monarchs & Rulers, Republican Ideals, Socialist Ideals, Nationalist Ideals, Mythology, Birds, States, Cities, and Rivers.
+- Eliminated cross-hull cloning (CL/CA, BB/BC, SS/DD), corrected misspellings ("Chuela", "Zacatacas"), fixed the erroneous "18 de Mayo" date, standardized Nahuatl diacritics, and separated conflicting ideologies into distinct pools.
 
 [b]Norway[/b]
-- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers (Panserskip), Battleships, Battlecruisers, and Aircraft Carriers.
-- Added 11 universal thematic lists selectable for any hull in the Ship Designer (Cities, Provinces, Fjords, Monarchs, Heroes & Explorers, Norse Mythology, Birds of Prey, Predators, Aquatic Life, Nature & Tempests, and Martial Virtues).
-- Fixed vanilla file issues: purged submarine entries from carrier rosters, removed duplicate entries in submarines and cruisers, corrected broken translations ("Lys Krysseren", "deleggeren"), and expanded historical Sjøforsvaret naming traditions.
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 11 universal thematic lists: Cities, Provinces, Fjords, Monarchs, Heroes, Norse Mythology, Birds of Prey, Predators, Aquatic Life, Nature, and Virtues.
+- Purged submarine entries from carrier rosters, eliminated duplicate cruiser entries, corrected broken translations ("Lys Krysseren"), and expanded Sjøforsvaret traditions.
 
 [b]Sweden[/b]
-- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers (Pansarskepp), Battleships, Battlecruisers, and Aircraft Carriers.
-- Added 10 universal thematic lists selectable for any hull in the Ship Designer (Monarchs, Provinces, Cities, Norse Mythology, Birds of Prey, Predators, Aquatic Life, Naval Heroes, Martial Virtues, and Historic Battles).
-- Fixed vanilla file issues: corrected typos ("Plisander", "Aborren", "Karl XIV Johann"), eliminated cross-list duplicates between destroyers and light cruisers, corrected battlecruiser fallback translation, and expanded the carrier roster.
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 10 universal thematic lists: Monarchs, Provinces, Cities, Norse Mythology, Birds of Prey, Predators, Aquatic Life, Naval Heroes, Virtues, and Battles.
+- Corrected typos ("Plisander", "Aborren"), eliminated cross-list duplicates between destroyers and cruisers, and fixed battlecruiser fallback translations.
 
 [b]Turkey[/b]
-- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers, Battleships, Battlecruisers, and Aircraft Carriers.
-- Added 11 universal thematic lists selectable for any hull in the Ship Designer (Sultans & Khans, Admirals & Corsairs, Cities & Ports, Provinces & Regions, Rivers & Waterways, Peaks & Landmarks, Historic Battles, Birds of Prey, Aquatic Life, Fauna & Predators, and Martial Virtues).
-- Fixed vanilla file issues: replaced machine-translated fallback calques ("Yok Edici" to Muhrip, "Isik Kruvazör" to Hafif Kruvazör), restored misplaced Ay-class submarines and dreadnoughts to their historical classes, removed fictional names ("Yavuzay"), and corrected all missing Turkish diacritics and typos.
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 11 universal thematic lists: Sultans & Khans, Admirals, Cities & Ports, Provinces, Rivers, Peaks, Battles, Birds of Prey, Aquatic Life, Predators, and Virtues.
+- Replaced machine-translated fallbacks ("Yok Edici" to Muhrip), restored misplaced historical classes, purged fictional names, and restored proper Turkish diacritics.
 
 [b]Yugoslavia[/b]
-- Expanded ship-type lists for Destroyers & Escorts, Submarines, Light Cruisers, Heavy Cruisers, Battleships & Battlecruisers, and Aircraft Carriers.
-- Added 9 universal thematic lists selectable for any hull in the Ship Designer (Cities, Regions & Banovinas, Rivers & Waterways, Mythology & Folklore, Rulers & Dynasties, Heroes & Commanders, Birds, Mountains & Peaks, and Virtues & Tempests).
-- Fixed vanilla file issues: corrected light cruiser fallback homonym calque ("Svetlo Krstarica" to Laka krstarica), restored missing Serbo-Croatian diacritics throughout (Razarač, Nosač, Teška, Vršac, Snažni), repaired misspellings (Prizren, Smederevo, Kruševac, Nikšić), removed anachronistic Romanian regions from the regions pool, eliminated verbatim cross-hull city duplication, and re-themed heavy cruisers to national heroes and carriers to storms and aviation heritage.
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 9 universal thematic lists: Cities, Banovinas, Rivers, Mythology, Rulers, Heroes, Birds, Mountains, and Virtues.
+- Corrected fallback translation ("Svetlo Krstarica" to Laka krstarica), restored missing diacritics, repaired regional misspellings, and eliminated verbatim cross-hull duplication.
 
 If you enjoy the mod, please give it a thumbs up and favorite!
 ```

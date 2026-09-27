@@ -10,6 +10,7 @@
 - [Cuba](Cuba)
 - [Denmark](Denmark)
 - [Finland](Finland)
+- [Mexico](Mexico)
 - [Norway](Norway)
 - [Sweden](Sweden)
 - [Turkey](Turkey)

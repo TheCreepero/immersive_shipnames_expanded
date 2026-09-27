@@ -1,6 +1,6 @@
 # Immersive Ship Names Expanded (ISNE) Development Rules
 
-> This file mirrors `CLAUDE.md` (Claude Code). See §9 before editing either file.
+> This file mirrors `GEMINI.md` (Google Antigravity). See §9 before editing either file.
 
 ## 1. File Structure & Naming Conventions
 - All ship namelist files must reside in `common/units/names_ships/<TAG>_ship_names.txt` to cleanly shadow/replace base-game files.
@@ -96,7 +96,7 @@ Whenever a new country ship namelist is added, expanded, or modified:
 - Use `build.ps1 -Package` to test clean staging and zip distribution (ensuring `.git`, `.github`, `tests`, scripts, and documentation are strictly excluded from mod releases).
 - Use `build.ps1 -DevLink` when zero-copy live editing in the Paradox launcher is required.
 - **Automated Set-Intersection Verification**: Run programmatic cross-class collision checks across `CL`, `CA`, `BB`, `BC`, and `CV` to mathematically guarantee zero overlapping names before finalizing any ship namelist file.
-- **Independent Code Review Gate**: Dispatch a fresh Code Reviewer subagent (`Role: "Code Reviewer"`, `Model: "pro"`) using `invoke_subagent` to verify all engine invariants, foreign vessel purges, and cross-class decoupling prior to task completion.
+- **Independent Code Review Gate**: Dispatch a fresh `isne-code-reviewer` agent (defined in `.claude/agents/isne-code-reviewer.md`) via the Agent tool, passing the country name, TAG, and plan file path, to verify all engine invariants, foreign vessel purges, and cross-class decoupling prior to task completion.
 
 ## 6. VFS Shadowing & Clean File Replacement
 - **VFS File Replacement**: Hearts of Iron IV's Virtual File System (VFS) cleanly shadows/replaces a base-game file when a mod file shares the exact relative path and filename (`common/units/names_ships/<TAG>_ship_names.txt`).
@@ -117,16 +117,16 @@ Whenever a new country ship namelist is added, expanded, or modified:
 - **Global Group Tag Uniqueness**: Root-level group tags (e.g., `FIN_DD_HISTORICAL`) must be strictly unique across the entire repository. Never define the same group tag multiple times within a file or across separate files.
 
 ## 8. Single-Root Workspace Layout
-- **Unified Workspace & Git Root**: The workspace root (`C:\dev\immersive-shipnames-expanded\`) is the Git repository root (`.git/`). All mod content (`common/`, `descriptor.mod`, `thumbnail.png`), build automation (`build.ps1`), test suites (`tests/`), documentation (`README.md`, `WORKSHOP_DESCRIPTION_GUIDELINES.md`, `wiki/`), and agent configurations (`GEMINI.md`, `.agents/` for Google Antigravity; `CLAUDE.md`, `.claude/` for Claude Code) reside directly in this single unified root.
+- **Unified Workspace & Git Root**: The workspace root (`C:\dev\immersive-shipnames-expanded\`) is the Git repository root (`.git/`). All mod content (`common/`, `descriptor.mod`, `thumbnail.png`), build automation (`build.ps1`), test suites (`tests/`), documentation (`README.md`, `WORKSHOP_DESCRIPTION_GUIDELINES.md`, `wiki/`), and agent configurations (`CLAUDE.md`, `.claude/` for Claude Code; `GEMINI.md`, `.agents/` for Google Antigravity) reside directly in this single unified root.
 - **No Dual-Path Synchronization**: The legacy two-level nested directory structure has been eliminated. Maintain all files directly at the repository root without duplication.
 - **Git Verification Invariant**: After modifying rules, skills, or mod files, always run `git status` (and `git diff` when appropriate) from the workspace root to verify that changes appear in the Git working tree before reporting task completion.
 - **Implementation Plans**: Store per-nation implementation plans in `docs/superpowers/plans/YYYY-MM-DD-<nation>-namelist.md`.
 
 ## 9. Agent Config Synchronization
 - This repository is developed with two AI agents whose configurations are mirrors of each other:
-  - `GEMINI.md` ⇄ `CLAUDE.md`
-  - `.agents/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` ⇄ `.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md`
-  - The Historical Researcher and Code Reviewer briefs embedded in `SKILL.md` are mirrored by `.claude/agents/isne-historical-researcher.md` and `.claude/agents/isne-code-reviewer.md`.
-- Whenever a rule, standard, or runbook step changes in one file, apply the same change to its mirror in the same task. Translate only tool-specific wording (Antigravity: `invoke_subagent` with `Role`/`Model`; Claude: Agent tool with named agents); the project rules themselves must stay identical.
+  - `CLAUDE.md` ⇄ `GEMINI.md`
+  - `.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` ⇄ `.agents/skills/hoi4-isne-ship-namelist-authoring/SKILL.md`
+  - Subagent briefs: `.claude/agents/isne-historical-researcher.md` and `.claude/agents/isne-code-reviewer.md` mirror the Historical Researcher and Code Reviewer briefs embedded in the Antigravity `SKILL.md`.
+- Whenever a rule, standard, or runbook step changes in one file, apply the same change to its mirror in the same task. Translate only tool-specific wording (Claude: Agent tool with named agents; Antigravity: `invoke_subagent` with `Role`/`Model`); the project rules themselves must stay identical.
 - Confirm with `git status` that both sides of each mirror were modified before reporting completion.
 

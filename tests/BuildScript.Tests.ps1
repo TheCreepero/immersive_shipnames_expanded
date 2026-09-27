@@ -112,4 +112,13 @@ Describe "build.ps1 Packaging & Staging Exclusions" {
             $m.Value | Should -Match "['`"]tests['`"]" -Because "Every staging and deployment step must exclude tests"
         }
     }
+
+    It "All excludeDirs and staleDirs definitions in build.ps1 must exclude AI agent config folders" {
+        $matches = [regex]::Matches($script:BuildContent, '(excludeDirs|staleDirs)\s*=\s*@\([^)]+\)')
+        $matches.Count | Should -BeGreaterOrEqual 4
+        foreach ($m in $matches) {
+            $m.Value | Should -Match "['`"]\.agents['`"]" -Because "Antigravity agent configuration must never ship in the mod"
+            $m.Value | Should -Match "['`"]\.claude['`"]" -Because "Claude Code agent configuration must never ship in the mod"
+        }
+    }
 }

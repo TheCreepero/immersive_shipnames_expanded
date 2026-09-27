@@ -781,7 +781,7 @@ if ($Package) {
 
     try {
         # Copy only actual mod files to staging
-        $excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
+        $excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', '.claude', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
         $excludeFiles = @('*.bat', '*.ps1', '*.zip', '*.md', '.gitignore', '.gitattributes', '.steam_username')
         & robocopy.exe $RepoDir $stageModDir /MIR /XD $excludeDirs /XF $excludeFiles /R:1 /W:1 /NDL /NP /NFL | Out-Null
 
@@ -894,7 +894,7 @@ if ($PublishSteam) {
     New-Item -ItemType Directory -Path $stageContent -Force | Out-Null
 
     try {
-        $excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
+        $excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', '.claude', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
         $excludeFiles = @('*.bat', '*.ps1', '*.zip', '*.md', '.gitignore', '.gitattributes', '.steam_username')
         & robocopy.exe $RepoDir $stageContent /MIR /XD $excludeDirs /XF $excludeFiles /R:1 /W:1 /NDL /NP /NFL | Out-Null
 
@@ -976,7 +976,7 @@ if (-not (Test-Path $targetDir)) {
     New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
 }
 
-$excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
+$excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', '.claude', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
 $excludeFiles = @('*.bat', '*.ps1', '*.zip', '*.md', '.gitignore', '.gitattributes', '.steam_username')
 
 Write-Info "Synchronizing files using robocopy (purging stale files, excluding .git & dev folders)..."
@@ -989,7 +989,7 @@ if ($rc -ge 8) {
 }
 
 # Clean any accidental dev or documentation folders in target
-$staleDirs = @('.git', '.github', '.vscode', '.agents', '.agent', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
+$staleDirs = @('.git', '.github', '.vscode', '.agents', '.agent', '.claude', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
 foreach ($dir in $staleDirs) {
     $stalePath = Join-Path $targetDir $dir
     if (Test-Path $stalePath) {

@@ -69,6 +69,10 @@ powershell -File .\build.ps1 -PublishSteam -DryRun
 powershell -File .\build.ps1 -PublishSteam -ChangeNote "Add Finnish ship namelists"
 ```
 
+### AI Agent Configuration
+
+Development rules and the namelist authoring runbook are maintained as mirrored configurations for two AI agents: `GEMINI.md` + `.agents/` (Google Antigravity) and `CLAUDE.md` + `.claude/` (Claude Code). Changes to project rules must be applied to both. Neither folder is included in mod packages.
+
 ---
 
 ## Included Nations Summary

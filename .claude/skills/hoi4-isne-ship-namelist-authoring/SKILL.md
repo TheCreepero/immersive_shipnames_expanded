@@ -11,7 +11,7 @@ description: >-
 
 This skill provides step-by-step guidance for researching, scoping, authoring, and validating naval ship namelists for *Immersive Ship Names Expanded* (ISNE).
 
-> **Mirror notice**: This skill mirrors `.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` (Claude Code). The Historical Researcher and Code Reviewer briefs below are mirrored by `.claude/agents/isne-historical-researcher.md` and `.claude/agents/isne-code-reviewer.md`. Any change to project rules here must be applied there too (see `GEMINI.md` §9).
+> **Mirror notice**: This skill mirrors `.agents/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` (Google Antigravity). Any change to project rules here must be applied there too (see `CLAUDE.md` §9).
 
 ---
 
@@ -127,48 +127,19 @@ Inspect the vanilla file for common Paradox anomalies and document required fixe
 - **Prefix Usage** (check whether vanilla sets a prefix like `NRB ` or leaves it blank).
 
 #### Step 1: Historical Research Delegation ("Historical Researcher" Subagent)
-To prevent context window degradation and ensure deep historical plausibility, **delegate external research to a dedicated Historical Researcher subagent** during the planning phase via `invoke_subagent`.
+To prevent context window degradation and ensure deep historical plausibility, **delegate external research to the dedicated `isne-historical-researcher` agent** (`.claude/agents/isne-historical-researcher.md`) during the planning phase via the Agent tool.
 
 ##### Why Delegate to a Subagent:
 - **Context Hygiene**: Web searches, Wiki pages, and naval registries (Navypedia, Conway's) inject massive amounts of noisy text into the context. Offloading this keeps the primary authoring context clean and razor-focused on strict engine invariants, syntax, and test validation.
 - **Deep Historical & Cultural Mining**: The subagent focuses entirely on historical naval acts, peacetime plans, authentic naming traditions, native folklore, and correct orthography/diacritics without hitting token limits or instruction drift.
 
-##### Subagent Invocation & Brief:
-Invoke a subagent (e.g. `Role: "Historical Researcher"`, `TypeName: "research"` or `"self"`, using `Model: "pro"` or `"inherit"`) and provide a structured prompt:
+##### Agent Dispatch:
+Dispatch the `isne-historical-researcher` agent (`.claude/agents/isne-historical-researcher.md`) via the Agent tool. The agent carries the full research brief (plausibility philosophy, no-fabrication and ideological-separation standards, naming-formula and linguistic directives, tiered depth quotas). Provide in the prompt:
+- `<COUNTRY_NAME>` and `<TAG>`
+- The Step 0 vanilla audit findings (anomalies, prefix usage, existing group tags and counts)
+- Any specific research focus (e.g. canceled programs, a particular ideological path, or regional folklore)
 
-```text
-You are the Historical Naval Researcher for the Hearts of Iron IV mod "Immersive Ship Names Expanded" (ISNE).
-Your mission is to research and compile an exhaustive Historical Naval Dossier for <COUNTRY_NAME> (<TAG>).
-
-CRITICAL PHILOSOPHY:
-ISNE prioritizes HISTORICAL PLAUSIBILITY over rigid accuracy. Do NOT artificially limit namelists only to hulls that historically entered commission. Plausibly extrapolate how this nation's naval command would designate expanded wartime fleets (fleet carriers, heavy cruisers, battlecruisers, destroyers, submarines) across alternate-history paths.
-
-CRITICAL QUALITY STANDARDS:
-- NO FABRICATED NAMES: When researching specialized historical figures (such as naval admirals, commodores, or heroes), provide ONLY verifiable historical individuals. Do NOT invent generic filler names to meet depth quotas. If a nation only had 20–30 prominent naval commanders, report exactly those verified figures. A shorter, completely authentic list is strictly preferred over fabricated entries.
-- IDEOLOGICAL SEPARATION: Never bundle opposing ideological concepts (e.g., socialist and fascist/nationalist ideals) into a single pool. Provide separate, distinct pools for each political path.
-
-INVESTIGATION DIRECTIVES:
-1. Naval Programs & Doctrinal Naming Formulas:
-   - Identify naming traditions by era (monarchy, republic, interwar, WWII programs).
-   - Investigate canceled programs, peacetime naval expansion acts, and foreign orders (e.g., British/Italian/German yards).
-   - Note hull-specific naming formulas (e.g., naming destroyers after virtues/commanders, submarines after marine life/sea gods, cruisers after coastal cities, battleships after provinces/monarchs).
-2. Linguistic & Grammatical Invariants:
-   - Authentic native naval terminology for fallback templates (e.g., indefinite nominative singular: "Let krydser %d", NOT definite "Let krydseren %d" or literal English calques like "Lys krydser").
-   - Strict orthography and diacritics in the native language (e.g., ä, ö, å, é, č, ł).
-   - Official or customary naval prefix (if any, verifying whether vanilla used one like "NRB ").
-3. Vanilla Audit Fixes:
-   - Review anomalies identified in Step 0 (misspellings, homonym calques, role demotions, auxiliary craft in cruiser lists) and supply correct replacements.
-4. Curated Candidate Pools (Tiered Namelist Depth Standards):
-   - Destroyers & Escorts (DD): 100–140+ unique names (minimum 80+ for minor navies).
-   - Submarines (SS): 60–80+ unique names (minimum 50+ for minor navies).
-   - Light Cruisers (CL): 50–70+ unique names (minimum 40–45+ for minor navies).
-   - Heavy Cruisers (CA): 35–45+ unique names.
-   - Battleships & Battlecruisers (BB/BC): 30–45+ unique names.
-   - Aircraft Carriers (CV): 30–40+ unique names.
-   - Universal Thematic Pools: 35–60+ unique names per pool (e.g. Birds/Raptors, Aquatic Life/Fish, Coastal Cities, Provinces/Regions, Rivers/Waterways, Mythology/Folklore, Rulers/Heroes, Virtues/Tempests).
-
-Deliver your findings as a clean, highly structured Naval Research Dossier.
-```
+The agent returns a structured Naval Research Dossier; do not paste raw web research into the main context.
 
 #### Step 2: Investigating Naval Programs & Traditions
 Use the subagent's returned dossier to anchor:
@@ -274,42 +245,15 @@ if (-not $anyCollision) {
 }
 ```
 
-### Independent Code Review Protocol ("Code Reviewer" Subagent)
-To eliminate blind spots, dispatch a fresh Code Reviewer subagent (`Role: "Code Reviewer"`, `Model: "pro"`) using `invoke_subagent` before merging or completing a namelist update:
+### Independent Code Review Protocol (`isne-code-reviewer` Agent)
+To eliminate blind spots, dispatch a fresh `isne-code-reviewer` agent (`.claude/agents/isne-code-reviewer.md`) via the Agent tool before merging or completing a namelist update. The agent carries the full review brief (foreign-vessel/hallucination purge, cross-class duplication, BB/BC differentiation, engine invariants, documentation and wiki synchronization) and reports findings grouped by severity (Critical, Important, Minor) with an overall verdict.
 
-```text
-You are the Code Reviewer for the Hearts of Iron IV mod "Immersive Ship Names Expanded" (ISNE).
-Your task is to perform an exhaustive whole-branch code review for the newly implemented naval ship namelists for <COUNTRY_NAME> (TAG: <TAG>).
+Provide in the prompt:
+- `<COUNTRY_NAME>` and `<TAG>`
+- Plan file: `docs/superpowers/plans/<PLAN_FILE>.md`
+- Implementation files: `common/units/names_ships/<TAG>_ship_names.txt`, `README.md`, `WORKSHOP_DESCRIPTION_GUIDELINES.md`, `wiki/<Country>.md`, `wiki/Home.md`, `wiki/_Sidebar.md`
 
-Plan and requirements:
-- Plan file: docs/superpowers/plans/<PLAN_FILE>.md
-- Implementation files:
-  - common/units/names_ships/<TAG>_ship_names.txt
-  - README.md
-  - WORKSHOP_DESCRIPTION_GUIDELINES.md
-  - wiki/<Country>.md
-  - wiki/Home.md
-  - wiki/_Sidebar.md
-
-Review Focus & Critical Invariants to Verify:
-1. Purge of Foreign Vessels & Hallucinations: Check that all foreign copy-pasted vessels (e.g., RNZN/RAN frigates, wrong national prefixes) and fictional/OCR-garbled entries (e.g. "General Manchatas") are 100% eliminated.
-2. Cross-Class Duplication: Verify that Light Cruisers, Heavy Cruisers, Battleships, Battlecruisers, and Aircraft Carriers do not share duplicate names.
-3. Capital Ship Differentiation: Ensure BB and BC are not identical mirrors and possess distinct, specialized doctrinal flavor.
-4. Engine Invariants:
-   - File encoding is UTF-8 without BOM.
-   - Strictly balanced curly braces and quotes.
-   - All defined prefixes must end with trailing whitespace (e.g. prefix = "RPS ").
-   - Group display names (name = "...") must be concise (<= 30-32 characters, no redundant national adjectives).
-   - Valid ship subunit tokens in ship_types.
-   - Dedicated ideological pools (Republican, Socialist, Nationalist) are separated without ideological contradictions.
-5. Documentation & Wiki Synchronization:
-   - README.md table includes <TAG>.
-   - WORKSHOP_DESCRIPTION_GUIDELINES.md table and BBCode section include <TAG>.
-   - wiki/Home.md and wiki/_Sidebar.md link to wiki/<Country>.md.
-   - wiki/<Country>.md accurately documents all groups and token counts.
-
-Report your findings grouped by severity (Critical, Important, Minor), along with your overall verdict.
-```
+Address all Critical and Important findings before reporting completion.
 
 ---
 

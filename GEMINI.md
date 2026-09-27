@@ -104,9 +104,8 @@ Whenever a new country ship namelist is added, expanded, or modified:
 - **Link Numbering**: `link_numbering_with` must only be used to link to *different* external groups. Never define self-referential links (`link_numbering_with = { SELF }`).
 - **Global Group Tag Uniqueness**: Root-level group tags (e.g., `FIN_DD_HISTORICAL`) must be strictly unique across the entire repository. Never define the same group tag multiple times within a file or across separate files.
 
-## 8. Repository Layout & Workspace Root Invariants
-- **Root-Level Customizations**: The workspace root is `c:\dev\immersive-shipnames-expanded\`. All agent customizations (`.agents/skills/`, `GEMINI.md`) must reside at the workspace root to ensure discovery by IDE tools and slash commands.
-- **Nested Project Directory & Git Repository**: Mod content, git history (`.git/`), build tools, and tests reside within `immersive_shipnames_expanded\`.
-- **Mandatory Dual-Path Synchronization**: Both `GEMINI.md` and `.agents/` exist in duplicate (at the workspace root and inside `immersive_shipnames_expanded/`). Whenever authoring or modifying rules, skills, or workspace configurations, you MUST update or copy the changes to BOTH locations so they remain 100% identical.
-- **Git Verification Invariant**: After modifying rules, skills, or mod files, always run `git status` (and `git diff` when appropriate) inside `immersive_shipnames_expanded/` to verify that changes appear in the user's Git working tree before reporting task completion.
+## 8. Single-Root Workspace Layout
+- **Unified Workspace & Git Root**: The workspace root (`C:\dev\immersive-shipnames-expanded\`) is the Git repository root (`.git/`). All mod content (`common/`, `descriptor.mod`, `thumbnail.png`), build automation (`build.ps1`), test suites (`tests/`), documentation (`README.md`, `WORKSHOP_DESCRIPTION_GUIDELINES.md`, `wiki/`), and agent configurations (`GEMINI.md`, `.agents/`) reside directly in this single unified root.
+- **No Dual-Path Synchronization**: The legacy two-level nested directory structure has been eliminated. Maintain all files directly at the repository root without duplication.
+- **Git Verification Invariant**: After modifying rules, skills, or mod files, always run `git status` (and `git diff` when appropriate) from the workspace root to verify that changes appear in the Git working tree before reporting task completion.
 

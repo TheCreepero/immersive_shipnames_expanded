@@ -2,6 +2,14 @@
 *.zip
 *.7z
 *.tar.gz
+artifacts/
+
+# Dev scratch
+scratch/
+
+# Mod descriptors (ignore generated launcher descriptor, keep descriptor.mod)
+*.mod
+!descriptor.mod
 
 # OS and Editor files
 .DS_Store

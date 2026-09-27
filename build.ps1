@@ -152,21 +152,14 @@ $ScriptDir = $PSScriptRoot
 if (-not $ScriptDir) {
     $ScriptDir = (Get-Location).Path
 }
-
-# Determine Mod Source Directory (containing descriptor.mod)
-if (Test-Path (Join-Path $ScriptDir "descriptor.mod")) {
-    $RepoDir = $ScriptDir
-    $ParentDir = Split-Path -Parent $ScriptDir
-} elseif (Test-Path (Join-Path $ScriptDir "immersive_shipnames_expanded\descriptor.mod")) {
-    $RepoDir = Join-Path $ScriptDir "immersive_shipnames_expanded"
-    $ParentDir = $ScriptDir
-} else {
-    Write-Err "Could not find 'descriptor.mod' in '$ScriptDir' or 'immersive_shipnames_expanded'."
-    exit 1
-}
+$RepoDir = $ScriptDir
 
 $ModName = "immersive_shipnames_expanded"
 $DescriptorPath = Join-Path $RepoDir "descriptor.mod"
+if (-not (Test-Path $DescriptorPath)) {
+    Write-Err "Could not find 'descriptor.mod' in '$RepoDir'."
+    exit 1
+}
 
 # Resolve Paradox HOI4 Mod Directory
 if (-not $ModDir) {
@@ -710,7 +703,10 @@ if ($Clean) {
     Write-Step "Cleaning build artifacts and deployed mod..."
     $deployedFolder = Join-Path $ModDir $ModName
     $deployedModFile = Join-Path $ModDir "$ModName.mod"
-    $zipFile = Join-Path $ParentDir "isne.zip"
+    $artifactsDir = Join-Path $RepoDir "artifacts"
+    $zipFile = Join-Path $artifactsDir "isne.zip"
+    $legacyZipFile = Join-Path $RepoDir "isne.zip"
+    $localModFile = Join-Path $RepoDir "$ModName.mod"
 
     if (Test-Path $deployedFolder) {
         Remove-Item -Recurse -Force $deployedFolder
@@ -723,6 +719,14 @@ if ($Clean) {
     if (Test-Path $zipFile) {
         Remove-Item -Force $zipFile
         Write-Ok "Removed archive: $zipFile"
+    }
+    if (Test-Path $legacyZipFile) {
+        Remove-Item -Force $legacyZipFile
+        Write-Ok "Removed archive: $legacyZipFile"
+    }
+    if (Test-Path $localModFile) {
+        Remove-Item -Force $localModFile
+        Write-Ok "Removed workspace descriptor: $localModFile"
     }
 
     Write-Host "`nClean complete." -ForegroundColor Green
@@ -745,10 +749,10 @@ if ($DevLink) {
 
     $launcherModContent = New-LauncherModContent -DescriptorPath $DescriptorPath -TargetModPath $RepoDir
     $targetModFile = Join-Path $ModDir "$ModName.mod"
-    [System.IO.File]::WriteAllText($targetModFile, $launcherModContent, [System.Text.Encoding]::UTF8)
+    [System.IO.File]::WriteAllText($targetModFile, $launcherModContent, [System.Text.UTF8Encoding]::new($false))
 
-    $localModFile = Join-Path $ParentDir "$ModName.mod"
-    [System.IO.File]::WriteAllText($localModFile, $launcherModContent, [System.Text.Encoding]::UTF8)
+    $localModFile = Join-Path $RepoDir "$ModName.mod"
+    [System.IO.File]::WriteAllText($localModFile, $launcherModContent, [System.Text.UTF8Encoding]::new($false))
 
     Write-Ok "Created launcher file: $targetModFile"
     Write-Ok "Path points directly to: $RepoDir"
@@ -763,9 +767,11 @@ if ($Package) {
     Write-Step "Packaging mod into clean release ZIP..."
 
     $meta = Get-ModMetadata -Path $DescriptorPath
-    $defaultZipName = if ($ZipOutput) { $ZipOutput } else { Join-Path $ParentDir "isne.zip" }
-    if (-not [System.IO.Path]::IsPathRooted($defaultZipName)) {
-        $defaultZipName = Join-Path $ParentDir $defaultZipName
+    $artifactsDir = Join-Path $RepoDir "artifacts"
+    if (-not (Test-Path $artifactsDir)) { New-Item -ItemType Directory -Path $artifactsDir -Force | Out-Null }
+    $zipFile = if ($ZipOutput) { $ZipOutput } else { Join-Path $artifactsDir "isne.zip" }
+    if (-not [System.IO.Path]::IsPathRooted($zipFile)) {
+        $zipFile = Join-Path $RepoDir $zipFile
     }
 
     # Create a clean temporary staging directory
@@ -775,27 +781,27 @@ if ($Package) {
 
     try {
         # Copy only actual mod files to staging
-        $excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', 'tests', 'wiki')
+        $excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
         $excludeFiles = @('*.bat', '*.ps1', '*.zip', '*.md', '.gitignore', '.gitattributes', '.steam_username')
         & robocopy.exe $RepoDir $stageModDir /MIR /XD $excludeDirs /XF $excludeFiles /R:1 /W:1 /NDL /NP /NFL | Out-Null
 
         # Also place the launcher .mod file in staging root
         $modFileContent = New-LauncherModContent -DescriptorPath $DescriptorPath -TargetModPath "mod/$ModName"
         $stageModFile = Join-Path $tempStageDir "$ModName.mod"
-        [System.IO.File]::WriteAllText($stageModFile, $modFileContent, [System.Text.Encoding]::UTF8)
+        [System.IO.File]::WriteAllText($stageModFile, $modFileContent, [System.Text.UTF8Encoding]::new($false))
 
         # Delete existing zip if present
-        if (Test-Path $defaultZipName) {
-            Remove-Item -Force $defaultZipName
+        if (Test-Path $zipFile) {
+            Remove-Item -Force $zipFile
         }
 
         # Build zip using .NET ZipFile
         [System.Reflection.Assembly]::LoadWithPartialName("System.IO.Compression.FileSystem") | Out-Null
-        [System.IO.Compression.ZipFile]::CreateFromDirectory($tempStageDir, $defaultZipName, [System.IO.Compression.CompressionLevel]::Optimal, $false)
+        [System.IO.Compression.ZipFile]::CreateFromDirectory($tempStageDir, $zipFile, [System.IO.Compression.CompressionLevel]::Optimal, $false)
 
-        $zipItem = Get-Item $defaultZipName
+        $zipItem = Get-Item $zipFile
         $sizeKb = [math]::Round($zipItem.Length / 1KB, 1)
-        Write-Ok "Created package: $defaultZipName ($sizeKb KB)"
+        Write-Ok "Created package: $zipFile ($sizeKb KB)"
         Write-Ok "Strictly excluded: .git, build scripts, markdown guidelines, wiki, and temp files."
 
         Write-Host "`nSuccessfully packaged '$($meta.Name)' v$($meta.Version)!" -ForegroundColor Green
@@ -845,7 +851,7 @@ if ($PublishSteam) {
     }
 
     # Resolve Steam Username
-    $steamUserFile = Join-Path $ParentDir ".steam_username"
+    $steamUserFile = Join-Path $RepoDir ".steam_username"
     if (-not $SteamUser) {
         if ($env:STEAM_USERNAME) {
             $SteamUser = $env:STEAM_USERNAME
@@ -860,7 +866,7 @@ if ($PublishSteam) {
         } else {
             $SteamUser = (Read-Host "Enter your Steam username (owner of workshop item $remoteFileId)").Trim()
             if ($SteamUser) {
-                [System.IO.File]::WriteAllText($steamUserFile, $SteamUser, [System.Text.Encoding]::UTF8)
+                [System.IO.File]::WriteAllText($steamUserFile, $SteamUser, [System.Text.UTF8Encoding]::new($false))
                 Write-Info "Saved Steam username to '$steamUserFile' for future runs."
             } else {
                 Write-Err "Steam username is required for publishing."
@@ -888,7 +894,7 @@ if ($PublishSteam) {
     New-Item -ItemType Directory -Path $stageContent -Force | Out-Null
 
     try {
-        $excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', 'tests', 'wiki')
+        $excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
         $excludeFiles = @('*.bat', '*.ps1', '*.zip', '*.md', '.gitignore', '.gitattributes', '.steam_username')
         & robocopy.exe $RepoDir $stageContent /MIR /XD $excludeDirs /XF $excludeFiles /R:1 /W:1 /NDL /NP /NFL | Out-Null
 
@@ -915,7 +921,7 @@ if ($PublishSteam) {
 }
 "@
         $vdfPath = Join-Path $tempStage "workshop_build.vdf"
-        [System.IO.File]::WriteAllText($vdfPath, $vdfContent, [System.Text.Encoding]::UTF8)
+        [System.IO.File]::WriteAllText($vdfPath, $vdfContent, [System.Text.UTF8Encoding]::new($false))
         Write-Ok "Generated Steam Workshop VDF: $vdfPath"
 
         if ($DryRun) {
@@ -970,7 +976,7 @@ if (-not (Test-Path $targetDir)) {
     New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
 }
 
-$excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', 'tests', 'wiki')
+$excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
 $excludeFiles = @('*.bat', '*.ps1', '*.zip', '*.md', '.gitignore', '.gitattributes', '.steam_username')
 
 Write-Info "Synchronizing files using robocopy (purging stale files, excluding .git & dev folders)..."
@@ -983,7 +989,7 @@ if ($rc -ge 8) {
 }
 
 # Clean any accidental dev or documentation folders in target
-$staleDirs = @('.git', '.github', '.vscode', '.agents', '.agent', 'tests', 'wiki')
+$staleDirs = @('.git', '.github', '.vscode', '.agents', '.agent', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
 foreach ($dir in $staleDirs) {
     $stalePath = Join-Path $targetDir $dir
     if (Test-Path $stalePath) {
@@ -1002,12 +1008,12 @@ Write-Ok "Files synchronized to: $targetDir"
 # Auto-generate / synchronize the launcher .mod file in HOI4 mod directory
 $launcherModContent = New-LauncherModContent -DescriptorPath $DescriptorPath -TargetModPath $targetDir
 $targetModFile = Join-Path $ModDir "$ModName.mod"
-[System.IO.File]::WriteAllText($targetModFile, $launcherModContent, [System.Text.Encoding]::UTF8)
+[System.IO.File]::WriteAllText($targetModFile, $launcherModContent, [System.Text.UTF8Encoding]::new($false))
 Write-Ok "Synchronized launcher descriptor: $targetModFile"
 
 # Also keep the local .mod file in the dev folder updated
-$localModFile = Join-Path $ParentDir "$ModName.mod"
-[System.IO.File]::WriteAllText($localModFile, $launcherModContent, [System.Text.Encoding]::UTF8)
+$localModFile = Join-Path $RepoDir "$ModName.mod"
+[System.IO.File]::WriteAllText($localModFile, $launcherModContent, [System.Text.UTF8Encoding]::new($false))
 Write-Ok "Synchronized workspace descriptor: $localModFile"
 
 $meta = Get-ModMetadata -Path $DescriptorPath

@@ -1,0 +1,493 @@
+##### PHILIPPINES NAVAL NAME LISTS (ISNE) #####
+# Note: Vanilla HoI4 PHI_ship_names.txt suffered from severe anomalies:
+# 1) Critical Submarine Anomaly: Base-game PHI_SS_HISTORICAL contained 18 names—all
+#    belonging to Royal New Zealand Navy (Hawea, Pukaki, Taupo, Otago) and Royal Australian
+#    Navy (Echuca, Kiama, Inverell) vessels. Zero Philippine names were present.
+# 2) "General Manchatas" Mystery: A garbled transcription/OCR artifact present in capital
+#    ship lists, completely nonexistent in Philippine military history or NHCP archives.
+# 3) Extreme Cross-Hull Duplication: PHI_CA_HISTORICAL was a 100% duplicate of PHI_CL_HISTORICAL,
+#    and PHI_BB_HISTORICAL, PHI_BC_HISTORICAL, and PHI_CV_HISTORICAL were 100% duplicate stubs
+#    of each other, with cities (Manila, Cabanatuan, Batangas, Cadiz, Davao) and Luzon
+#    duplicated across all five classes.
+# 4) "Pilipinas Republic": A crude hybrid calque, replaced by authentic foundational designations.
+# 5) Shallow destroyer pool (13 names) mixing datus, revolutionary generals, and provinces.
+# 6) Zero universal thematic pools for the Ship Designer.
+# ISNE resolves all errors, purges foreign vessels, decouples classes doctrinally,
+# and equips the Philippines with expansive historical and alternate-history fleet rosters.
+
+### DESTROYERS & ESCORTS ###
+PHI_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { PHI }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "RPS "
+	fallback_name = "Destroyer %d"
+
+	unique = {
+		# Pre-colonial Datus, Rajahs, Lakans & Sultans
+		"Rajah Soliman" "Rajah Lakandula" "Rajah Humabon" "Datu Sikatuna" "Datu Kalantiaw"
+		"Datu Marikudo" "Sultan Kudarat" "Rajah Matanda" "Rajah Kolambu" "Rajah Siagu"
+		"Datu Lapulapu" "Datu Amai Pakpak" "Datu Piang" "Datu Bago" "Datu Paglas"
+		"Datu Ubal" "Datu Dimasancay" "Sultan Buisan" "Sultan Muwallil Wasit" "Sultan Jamalul Kiram"
+		"Lakan Dula" "Lakan Tagkan" "Rajah Ache" "Rajah Sulayman" "Datu Puti"
+		"Datu Sumakwel" "Datu Bangkaya" "Datu Paiburong" "Datu Balensusa" "Datu Dumangsil"
+		"Datu Lubay" "Datu Paduhinog" "Datu Dumalogdog" "Shariff Kabungsuwan" "Karim ul-Makhdum"
+		# Katipunan & 1896 Revolution Patriots & Military Commanders
+		"Andres Bonifacio" "Gregorio del Pilar" "Diego Silang" "Francisco Dagohoy" "Miguel Malvar"
+		"Emilio Jacinto" "Apolinario Mabini" "Antonio Luna" "Marcelo H. del Pilar" "Melchora Aquino"
+		"Gabriela Silang" "Juan Luna" "Mariano Llanera" "Macario Sakay" "Francisco Makabulos"
+		"Vicente Lukban" "Licerio Geronimo" "Mamerto Natividad" "Flaviano Yengko" "Edilberto Evangelista"
+		"Vito Belarmino" "Pantaleon Garcia" "Mariano Alvarez" "Baldomero Aguinaldo" "Candido Tirona"
+		"Pio del Pilar" "Maximino Hizon" "Mateo Noriel Luga" "Teresa Magbanua" "Agueda Esteban"
+		"Trinidad Tecson" "Josefa Llanes Escoda" "Vicente Lim" "Mateo Capipin" "Fidel Segundo"
+		"Paulino Santos" "Basilio Valdes" "Guillermo Capayas"
+		# Offshore Patrol (OSP) & Armed Forces Naval Heroes
+		"Enrique Jurado" "Jose V. Andrada" "Ramon Alcaraz" "Heraclio Alano" "Alberto Navarrete"
+		"Carlos Albert" "Salvador Abcede" "Emilio Liwanag" "Nicolas Mahusay" "Felix Apolinario"
+		"Dionisio Ojeda" "Juan Magluyan" "Conrado Yap" "Rafael Pargas" "Leovigildo Gantioqui"
+		"Bienvenido Salting" "Bernardo Abrera" "Abraham Campo"
+		# WWII Offshore Patrol Q-Boats & Historic Gunboat Waters
+		"Luzon" "Abra" "Agusan" "Baler" "Dandii"
+		"Pasig" "Cagayan" "Pampanga" "Bicol" "Marikina"
+		"Pulangi" "Chico" "Magat" "Angat" "Agno"
+		"Jalaur" "Panay" "Ilog" "Davao" "Tagum"
+		"Agus" "Amburayan" "Apayao" "Laoag" "Pagsanjan"
+		"Sibuyan" "San Juanico" "Surigao" "Guimaras" "Basilan"
+		"Verde" "Mindoro" "Balabac" "Polillo" "Babuyan"
+		"Linapacan" "Canigao"
+	}
+}
+
+### SUBMARINES ###
+PHI_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { PHI }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "RPS "
+	fallback_name = "Submarine %d"
+
+	unique = {
+		# Native Marine Fauna & Pelagic Predators (Purging RNZN/RAN Frigates)
+		"Pating" "Paging Pari" "Pagi" "Butanding" "Tanigi"
+		"Malasugi" "Tambakol" "Tulingan" "Lapu-Lapu" "Talakitok"
+		"Maya-Maya" "Kitang" "Samaral" "Espada" "Bariles"
+		"Galunggong" "Bangus" "Dalagang Bukid" "Hasa-Hasa" "Salay-Salay"
+		"Bisugo" "Matangbaka" "Sapsap" "Dilis" "Tamban"
+		"Pugita" "Pusit" "Kuwitang" "Balyena" "Dugong"
+		"Lumba-Lumba" "Alumahan" "Dorado" "Igat" "Palos"
+		"Kasili" "Banak" "Labahita" "Mameng" "Sunog-Patay"
+		"Torsilyo" "Gindara" "Kanduli" "Pargo" "Hiwas"
+		"Rompe Candado" "Pating Martilyo" "Pating Tigre" "Pating Batingaw" "Pating Bulik"
+		# Mythical Sea Monsters & Aquatic Guardians
+		"Bakunawa" "Minokawa" "Kurita" "Tarabusaw" "Pahuloc"
+		"Tambanokano" "Magindara" "Kataw" "Berberoka" "Santelmo"
+		"Sirena" "Sireno"
+	}
+}
+
+### LIGHT CRUISERS ###
+PHI_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { PHI }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "RPS "
+	fallback_name = "Light Cruiser %d"
+
+	unique = {
+		# Major Chartered Cities & Regional Ports: Luzon
+		"Manila" "Quezon City" "Baguio" "Cavite City" "Batangas City"
+		"Legazpi" "Naga" "Dagupan" "San Fernando" "Vigan"
+		"Laoag" "Tuguegarao" "Cabanatuan" "Olongapo" "Angeles"
+		"Lucena" "Lipa" "San Pablo" "Tarlac City" "Meycauayan"
+		"Antipolo" "Calamba" "Tagaytay" "Puerto Princesa" "Baler"
+		"Pasay" "Subic" "Aparri" "San Jose" "Calapan"
+		# Major Chartered Cities & Regional Ports: Visayas
+		"Cebu City" "Iloilo City" "Bacolod" "Tacloban" "Dumaguete"
+		"Roxas" "Tagbilaran" "Ormoc" "Calbayog" "Catbalogan"
+		"Cadiz" "San Carlos" "Bago" "Silay" "Kabankalan"
+		"Lapu-Lapu" "Mandaue" "Talisay" "Baybay" "Maasin"
+		"Danao" "Guiuan" "Borongan"
+		# Major Chartered Cities & Regional Ports: Mindanao & Sulu
+		"Davao City" "Zamboanga City" "Cagayan de Oro" "General Santos" "Iligan"
+		"Nasipit" "Cotabato City" "Marawi" "Dipolog" "Pagadian"
+		"Surigao City" "Koronadal" "Tagum" "Malaybalay" "Digos"
+		"Mati" "Panabo" "Isabela City" "Jolo" "Bislig" "Ozamiz"
+	}
+}
+
+### HEAVY CRUISERS & COASTAL DEFENSE ###
+PHI_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { PHI }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "RPS "
+	fallback_name = "Heavy Cruiser %d"
+
+	unique = {
+		# Historical Provinces: Luzon
+		"Pangasinan" "Pampanga" "Bulacan" "Batangas" "Laguna"
+		"Cavite" "Tayabas" "Ilocos Norte" "Ilocos Sur" "Cagayan"
+		"Isabela" "Nueva Ecija" "Tarlac" "Zambales" "Bataan"
+		"Rizal" "Albay" "Camarines Sur" "Camarines Norte" "Sorsogon"
+		"Mountain Province" "Abra" "La Union" "Palawan" "Mindoro"
+		"Marinduque" "Masbate" "Catanduanes"
+		# Historical Provinces: Visayas
+		"Cebu" "Iloilo" "Leyte" "Samar" "Bohol"
+		"Negros Occidental" "Negros Oriental" "Capiz" "Antique" "Romblon"
+		# Historical Provinces: Mindanao & Sulu
+		"Davao" "Zamboanga" "Misamis" "Cotabato" "Lanao"
+		"Bukidnon" "Agusan" "Surigao" "Sulu"
+	}
+}
+
+### BATTLESHIPS ###
+PHI_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { PHI }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "RPS "
+	fallback_name = "Battleship %d"
+
+	unique = {
+		# Three Major Island Groups
+		"Luzon" "Visayas" "Mindanao"
+		# Foundational Republics, Compacts & Landmarks
+		"Republika Filipina" "Malolos" "Katipunan" "Biak-na-Bato" "Kakarong"
+		"Balintawak" "Kawit" "Pugad Lawin" "Tejeros" "Liga Filipina"
+		# Sovereign Symbols & Metaphors
+		"Bansang Pilipinas" "Perla del Oriente" "Mutya ng Silangan" "Lupang Hinirang" "Bayanihan"
+		"Sandugo" "Maharlika" "Kalayaan" "Kasarinlan" "Soberanya"
+		# Supreme Founding Fathers & Presidents
+		"Jose Rizal" "Andres Bonifacio" "Emilio Aguinaldo" "Apolinario Mabini" "Marcelo H. del Pilar"
+		"Manuel L. Quezon" "Sergio Osmeña" "Antonio Luna" "Juan Luna" "Melchora Aquino"
+		"Gabriela Silang" "Tandang Sora"
+	}
+}
+
+### BATTLECRUISERS ###
+PHI_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { PHI }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "RPS "
+	fallback_name = "Battlecruiser %d"
+
+	unique = {
+		# Pre-Colonial Thalassocracies & Ancient Kingdoms
+		"Maynila" "Tondo" "Madja-as" "Butuan" "Sugbu"
+		"Lupah Sug" "Maguindanao" "Caboloan" "Ma-i" "Sandao"
+		"Buayan" "Dapitan" "Kumalarang" "Namayan"
+		# Great War Vessels & Naval Sovereigns
+		"Karakoa" "Balangay" "Salisipan" "Vinta" "Biroco" "Paraw"
+		# Historic Coastal Fortresses & Citadels
+		"Fort Santiago" "Fort San Pedro" "Fort Pilar" "Cuyo" "Corregidor"
+		"Cavite Arsenal" "Sangley Point"
+		# Historic Naval Engagements & Straits
+		"La Naval de Manila" "Bangkusay" "Mactan" "Sisiman" "Surigao Strait"
+		"Lingayen Gulf" "San Bernardino" "Sibuyan Sea"
+	}
+}
+
+### AIRCRAFT CARRIERS ###
+PHI_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { PHI }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "RPS "
+	fallback_name = "Carrier %d"
+
+	unique = {
+		# Majestic Volcanic Summits & Mountain Peaks
+		"Apo" "Mayon" "Taal" "Pulag" "Kanlaon"
+		"Banahaw" "Pinatubo" "Makiling" "Halcon" "Ragang"
+		"Matutum" "Bulusan" "Isarog" "Arayat" "Cristobal"
+		"Data" "Hibok-Hibok" "Cagua" "Mariveles" "Natib"
+		"Kitanglad" "Dulang-Dulang" "Santo Tomas" "Malindang" "Kalatungan"
+		# Avian Sovereigns & Birds of Prey
+		"Haribon" "Agila" "Lawin" "Manaol" "Banog"
+		"Minokawa" "Tigmamanukan" "Kalaw"
+		# Celestial Storm & Sky Deities
+		"Bathala" "Apolaki" "Mayari" "Tala" "Hanan"
+		"Kidlat" "Kulog" "Unos" "Bagyo" "Gugurang"
+		"Kaptan" "Sidapa"
+	}
+}
+
+### UNIVERSAL THEMATIC POOLS ###
+
+### BIRDS & RAPTORS ###
+PHI_BIRDS = {
+	name = "Birds & Raptors"
+
+	for_countries = { PHI }
+
+	type = ship
+
+	prefix = "RPS "
+	fallback_name = "Ibon %d"
+
+	unique = {
+		"Haribon" "Agila" "Lawin" "Kalaw" "Manaol"
+		"Banog" "Minokawa" "Tigmamanukan" "Tarictic" "Maya"
+		"Pipit" "Kulasisi" "Limbas" "Tikling" "Bakaw"
+		"Salaksak" "Labuyo" "Pugo" "Pabo" "Dumagat"
+		"Kanduro" "Alimokon" "Katala" "Pitpit" "Talingting"
+		"Kanaway" "Sibad" "Kuwago" "Bahaw" "Tarat"
+		"Bato-Bato" "Puyog" "Silag" "Salimbagat" "Tulihaw"
+		"Pagatpat"
+	}
+}
+
+### MARINE LIFE & FISH ###
+PHI_FISH = {
+	name = "Marine Life & Fish"
+
+	for_countries = { PHI }
+
+	type = ship
+
+	prefix = "RPS "
+	fallback_name = "Isda %d"
+
+	unique = {
+		"Pating" "Pagi" "Tanigi" "Malasugi" "Butanding"
+		"Tambakol" "Tulingan" "Galunggong" "Bangus" "Lapu-Lapu"
+		"Talakitok" "Maya-Maya" "Kitang" "Samaral" "Espada"
+		"Bariles" "Dalagang Bukid" "Hasa-Hasa" "Salay-Salay" "Bisugo"
+		"Matangbaka" "Sapsap" "Dilis" "Tamban" "Pugita"
+		"Pusit" "Balyena" "Dugong" "Lumba-Lumba" "Alumahan"
+		"Dorado" "Igat" "Palos" "Kasili" "Banak"
+		"Labahita" "Mameng" "Sunog-Patay" "Torsilyo" "Gindara"
+		"Kanduli" "Pargo" "Hiwas" "Rompe Candado" "Pating Martilyo"
+	}
+}
+
+### PEAKS & VOLCANOES ###
+PHI_GEOGRAPHY = {
+	name = "Peaks & Volcanoes"
+
+	for_countries = { PHI }
+
+	type = ship
+
+	prefix = "RPS "
+	fallback_name = "Bundok %d"
+
+	unique = {
+		"Apo" "Mayon" "Taal" "Pulag" "Kanlaon"
+		"Banahaw" "Pinatubo" "Makiling" "Halcon" "Madja-as"
+		"Ragang" "Matutum" "Bulusan" "Isarog" "Arayat"
+		"Cristobal" "Data" "Hibok-Hibok" "Cagua" "Mariveles"
+		"Natib" "Kitanglad" "Kalatungan" "Dulang-Dulang" "Santo Tomas"
+		"Polis" "Tapulao" "Irid" "Labo" "Malindang"
+		"Silay" "Mandalagan" "Balatukan" "Parker" "Matating"
+	}
+}
+
+### RIVERS & WATERWAYS ###
+PHI_RIVERS = {
+	name = "Rivers & Waterways"
+
+	for_countries = { PHI }
+
+	type = ship
+
+	prefix = "RPS "
+	fallback_name = "Ilog %d"
+
+	unique = {
+		"Pasig" "Cagayan" "Agusan" "Pampanga" "Abra"
+		"Bicol" "Marikina" "Pulangi" "Rio Grande de Mindanao" "Chico"
+		"Magat" "Angat" "Agno" "Jalaur" "Panay"
+		"Ilog" "Davao" "Tagum" "Agus" "Amburayan"
+		"Apayao" "Laoag" "Pagsanjan" "Sibuyan" "San Juanico"
+		"Surigao" "Guimaras" "Basilan" "Verde" "Mindoro"
+		"Balabac" "Polillo" "Babuyan" "Linapacan" "Canigao"
+		"Balingasag" "Asid" "Tañon" "Tablas" "Ragay"
+	}
+}
+
+### PRE-COLONIAL RULERS, DATUS & RAJAHS ###
+PHI_RULERS = {
+	name = "Datus & Rajahs"
+
+	for_countries = { PHI }
+
+	type = ship
+
+	prefix = "RPS "
+	fallback_name = "Datu %d"
+
+	unique = {
+		"Lapulapu" "Rajah Soliman" "Rajah Lakandula" "Rajah Humabon" "Datu Sikatuna"
+		"Datu Kalantiaw" "Datu Marikudo" "Sultan Kudarat" "Rajah Matanda" "Rajah Kolambu"
+		"Rajah Siagu" "Datu Amai Pakpak" "Datu Piang" "Datu Bago" "Datu Paglas"
+		"Datu Ubal" "Datu Dimasancay" "Sultan Buisan" "Sultan Muwallil Wasit" "Sultan Jamalul Kiram"
+		"Lakan Dula" "Lakan Tagkan" "Rajah Ache" "Rajah Sulayman" "Datu Puti"
+		"Datu Sumakwel" "Datu Bangkaya" "Datu Paiburong" "Datu Balensusa" "Datu Dumangsil"
+		"Datu Lubay" "Datu Paduhinog" "Shariff Kabungsuwan" "Karim ul-Makhdum" "Dayang Kalangitan"
+	}
+}
+
+### REVOLUTIONARY PATRIOTS & HEROES ###
+PHI_HEROES = {
+	name = "Patriots & Heroes"
+
+	for_countries = { PHI }
+
+	type = ship
+
+	prefix = "RPS "
+	fallback_name = "Bayani %d"
+
+	unique = {
+		"Jose Rizal" "Andres Bonifacio" "Emilio Aguinaldo" "Apolinario Mabini" "Antonio Luna"
+		"Marcelo H. del Pilar" "Melchora Aquino" "Gabriela Silang" "Diego Silang" "Francisco Dagohoy"
+		"Miguel Malvar" "Emilio Jacinto" "Artemio Ricarte" "Juan Luna" "Mariano Llanera"
+		"Macario Sakay" "Francisco Makabulos" "Vicente Lukban" "Licerio Geronimo" "Mamerto Natividad"
+		"Flaviano Yengko" "Edilberto Evangelista" "Vito Belarmino" "Pantaleon Garcia" "Mariano Alvarez"
+		"Baldomero Aguinaldo" "Candido Tirona" "Pio del Pilar" "Maximino Hizon" "Mateo Noriel Luga"
+		"Teresa Magbanua" "Josefa Llanes Escoda" "Vicente Lim" "Ramon Alcaraz" "Enrique Jurado"
+		"Jose V. Andrada" "Carlos Albert" "Conrado Yap"
+	}
+}
+
+### MYTHOLOGICAL FIGURES & DEITIES ###
+PHI_MYTHOLOGY = {
+	name = "Mythology & Deities"
+
+	for_countries = { PHI }
+
+	type = ship
+
+	prefix = "RPS "
+	fallback_name = "Diwata %d"
+
+	unique = {
+		"Bathala" "Apolaki" "Mayari" "Tala" "Hanan"
+		"Kidlat" "Kulog" "Bakunawa" "Minokawa" "Manaol"
+		"Tigmamanukan" "Gugurang" "Kaptan" "Magwayen" "Sidapa"
+		"Barangaw" "Kan-Laon" "Lalahon" "Dal'lang" "Idianale"
+		"Dumangan" "Anitun Tabu" "Mapulon" "Amanikable" "Diyan Masalanta"
+		"Lakapati" "Hayo" "Ribung Linti" "Kurita" "Tarabusaw"
+		"Pahuloc" "Tambanokano" "Magindara" "Kataw" "Berberoka"
+	}
+}
+
+### MARTIAL VIRTUES & DESCRIPTORS ###
+PHI_VIRTUES = {
+	name = "Martial Virtues"
+
+	for_countries = { PHI }
+
+	type = ship
+
+	prefix = "RPS "
+	fallback_name = "Giting %d"
+
+	unique = {
+		"Kagitingan" "Katapangan" "Tagumpay" "Karangalan" "Katapatan"
+		"Kalayaan" "Kasarinlan" "Kadakilaan" "Kabayanihan" "Magiting"
+		"Matapang" "Maharlika" "Makabayan" "Matatag" "Marangal"
+		"Mapagpalaya" "Mabagsik" "Masigasig" "Maliksi" "Matimyas"
+		"Sandigan" "Tanggulan" "Bantayog" "Tanglaw" "Pag-asa"
+		"Kapanalig" "Daluyong" "Sigwa" "Habagat" "Amihan"
+		"Banyuhay" "Pagpupunyagi" "Pagtitiis" "Katatagan" "Dangal"
+	}
+}
+
+### DEDICATED IDEOLOGICAL POOLS ###
+
+### REPUBLICAN & CONSTITUTIONAL IDEALS ###
+PHI_REPUBLICAN_IDEALS = {
+	name = "Republican Ideals"
+
+	for_countries = { PHI }
+
+	type = ship
+
+	prefix = "RPS "
+	fallback_name = "Laya %d"
+
+	unique = {
+		"Republika" "Konstitusyon" "Demokrasya" "Kasarinlan" "Kalayaan"
+		"Katarungan" "Pagkakapantay-pantay" "Soberanya" "Kapayapaan" "Kagalingan"
+		"Komonwelt" "Nasyonalismo" "Bayanihan" "Kapatiran" "Tanggulang Bansa"
+		"Malayang Pilipino" "Tatlong Bituin" "Isang Araw" "Bandilang Malaya" "Saligang Batas"
+		"Karapatang Pantao" "Malayang Halalan" "Simbulo ng Laya" "Tinig ng Bayan" "Kapangyarihan sa Bayan"
+		"Makatarungang Lipunan" "Bagong Umaga" "Dangal ng Republika" "Lupang Mapayapa" "Sandugo ng Laya"
+		"Pamahalaang Bayan" "Liwanag ng Laya" "Malayang Kapuluan" "Katuwiran" "Panunumpa"
+	}
+}
+
+### SOCIALIST & AGRARIAN LABOR IDEALS ###
+PHI_SOCIALISM = {
+	name = "Socialist Ideals"
+
+	for_countries = { PHI }
+
+	type = ship
+
+	prefix = "RPS "
+	fallback_name = "Manggagawa %d"
+
+	unique = {
+		"Manggagawa" "Magsasaka" "Anakpawis" "Hukbalahap" "Sosyalismo"
+		"Komunismo" "Lakas ng Bayan" "Pulang Bandila" "Rebolusyon" "Sigaw ng Masa"
+		"Hukbo ng Bayan" "Katarungang Panlipunan" "Kaisahan ng Manggagawa" "Kalayaang Pang-ekonomya" "Tanggulan ng Masa"
+		"Laban sa Pasismo" "Sandatahang Masa" "Laya sa Pagsasamantala" "Bagong Lipunan ng Masa" "Katubusan"
+		"Pakikibaka" "Kaapihan" "Tinig ng Proletaryo" "Luha at Pawis" "Tagumpay ng Masa"
+		"Kaisahang Magbubukid" "Lingkod ng Bayan" "Bukang-Liwayway" "Pulang Tala" "Sandigan ng Mahirap"
+		"Crisanto Evangelista" "Pedro Abad Santos" "Luis Taruc" "Vicente Lava" "Casto Alejandrino"
+	}
+}
+
+### NATIONALIST & SYNARCHIST/GANAP IDEALS ###
+PHI_NATIONALISM = {
+	name = "Nationalist Ideals"
+
+	for_countries = { PHI }
+
+	type = ship
+
+	prefix = "RPS "
+	fallback_name = "Lahi %d"
+
+	unique = {
+		"Sakdal" "Ganap" "Makapili" "Bagong Pilipinas" "Lahi"
+		"Dugong Bughaw" "Kabataang Makabayan" "Pambansang Pagkakaisa" "Bayan Muna" "Disiplina"
+		"Kapangyarihan" "Dakilang Lahi" "Silangang Asya" "Kalibapi" "Katapatan sa Lahi"
+		"Tindig Pilipinas" "Tagumpay ng Lahi" "Lakas ng Bansa" "Sandigan ng Lahi" "Bagong Kaayusan"
+		"Panata sa Lahi" "Dakilang Simulain" "Tungkulin at Sakripisyo" "Katubusan ng Bayan" "Karangalan ng Lahi"
+		"Buong Kapangyarihan" "Pamumuno" "Bayang Sinisinta" "Lahi ng Mandirigma" "Makabayang Hukbo"
+		"Benigno Ramos" "Artemio Ricarte" "Emilio Aguinaldo" "Jose P. Laurel" "Jorge B. Vargas"
+	}
+}

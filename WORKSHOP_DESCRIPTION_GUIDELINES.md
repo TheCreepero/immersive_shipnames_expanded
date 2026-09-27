@@ -74,6 +74,7 @@ This document serves as an instruction and reference guide for maintaining and u
 | `FIN_ship_names.txt` | Finland | `FIN` | Included (DD, SS, CL, CA, BB, BC, CV, 13 Thematic Topics, Vanilla Fixes) |
 | `MEX_ship_names.txt` | Mexico | `MEX` | Included (DD, SS, CL, CA, BB, BC, CV, 13 Thematic Topics, Vanilla Fixes) |
 | `NOR_ship_names.txt` | Norway | `NOR` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics, Vanilla Fixes) |
+| `PHI_ship_names.txt` | Philippines | `PHI` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics, Vanilla Fixes) |
 | `SWE_ship_names.txt` | Sweden | `SWE` | Included (DD, SS, CL, CA, BB, BC, CV, 10 Thematic Topics, Vanilla Fixes) |
 | `TUR_ship_names.txt` | Turkey | `TUR` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics, Vanilla Fixes) |
 | `YUG_ship_names.txt` | Yugoslavia | `YUG` | Included (DD, SS, CL, CA, BB, CV, 9 Thematic Topics, Vanilla Fixes) |
@@ -83,7 +84,7 @@ This document serves as an instruction and reference guide for maintaining and u
 ## Current Description Template (BBCode)
 
 ```bbcode
-More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, and Mexico. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
+More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, and the Philippines. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
 Check out my other mods:
 - [url=https://steamcommunity.com/workshop/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
@@ -143,6 +144,11 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
 - Added 11 universal thematic lists: Cities, Provinces, Fjords, Monarchs, Heroes, Norse Mythology, Birds of Prey, Predators, Aquatic Life, Nature, and Virtues.
 - Purged submarine entries from carrier rosters, eliminated duplicate cruiser entries, corrected broken translations ("Lys Krysseren"), and expanded Sjøforsvaret traditions.
+
+[b]Philippines[/b]
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 11 universal thematic lists: Birds & Raptors, Marine Life & Fish, Peaks & Volcanoes, Rivers, Datus & Rajahs, Patriots & Heroes, Mythology, Martial Virtues, and separate Republican, Socialist, and Nationalist ideological pools.
+- Purged 18 foreign RNZN/RAN frigates from submarines, removed fictional "General Manchatas", decoupled duplicate cruiser/capital rosters, and standardized "RPS " prefixing.
 
 [b]Sweden[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).

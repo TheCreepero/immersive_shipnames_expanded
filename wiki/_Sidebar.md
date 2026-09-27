@@ -12,6 +12,7 @@
 - [Finland](Finland)
 - [Mexico](Mexico)
 - [Norway](Norway)
+- [Philippines](Philippines)
 - [Sweden](Sweden)
 - [Turkey](Turkey)
 - [Yugoslavia](Yugoslavia)

@@ -90,6 +90,7 @@ Development rules and the namelist authoring runbook are maintained as mirrored 
 | `NOR` | Norway | `NOR_ship_names.txt` |
 | `PER` | Iran | `PER_ship_names.txt` |
 | `PHI` | Philippines | `PHI_ship_names.txt` |
+| `POR` | Portugal | `POR_ship_names.txt` |
 | `SWE` | Sweden | `SWE_ship_names.txt` |
 | `TUR` | Turkey | `TUR_ship_names.txt` |
 | `YUG` | Yugoslavia | `YUG_ship_names.txt` |

@@ -1,0 +1,398 @@
+##### PORTUGAL NAVAL NAME LISTS (ISNE) #####
+
+### DESTROYERS & ESCORTS ###
+POR_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { POR }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "NRP "
+	fallback_name = "Contratorpedeiro %d"
+
+	unique = {
+		# Metropolitan rivers, from the Minho to the Algarve (the contratorpedeiro tradition)
+		"Minho" "Lima" "Cávado" "Rio Ave" "Leça" "Douro" "Tâmega" "Tua" "Sabor" "Côa"
+		"Paiva" "Távora" "Corgo" "Pinhão" "Varosa" "Tuela" "Rabaçal" "Homem" "Neiva" "Âncora"
+		"Coura" "Vez" "Vouga" "Caima" "Águeda" "Mondego" "Dão" "Alva" "Ceira" "Arunca"
+		"Lis" "Alcoa" "Zêzere" "Nabão" "Tejo" "Sorraia" "Almonda" "Alviela" "Ocreza" "Ponsul"
+		"Erges" "Sado" "Xarrama" "Guadiana" "Degebe" "Ardila" "Chança" "Vascão" "Arade" "Odelouca"
+		"Seixe" "Caia" "Maçãs" "Sizandro" "Trancão"
+		# Colonial river gunboats (Angola, Mozambique, Guinea, Goa)
+		"Zaire" "Cuanza" "Cunene" "Cubango" "Bengo" "Dande" "Cuvo" "Lucala" "Cuango"
+		"Zambeze" "Limpopo" "Rio Save" "Rovuma" "Lúrio" "Púnguè" "Búzi" "Incomáti" "Chire"
+		"Geba" "Cacheu" "Corubal" "Cacine" "Mandovi" "Zuari"
+		# Navigators & captains of the Age of Discovery
+		"Gil Eanes" "Afonso Gonçalves Baldaia" "Nuno Tristão" "Antão Gonçalves" "Dinis Dias"
+		"Diogo Gomes" "Gonçalo Velho" "Gonçalves Zarco" "Tristão Vaz Teixeira" "Bartolomeu Perestrelo"
+		"Pedro de Sintra" "Fernão Gomes" "João de Santarém" "Pêro Escobar" "Fernão do Pó"
+		"Lopo Gonçalves" "Diogo de Azambuja" "Diogo Cão" "Bartolomeu Dias" "Pêro de Alenquer"
+		"Pêro da Covilhã" "Afonso de Paiva" "Paulo da Gama" "Nicolau Coelho" "Álvares Cabral"
+		"Gaspar Corte-Real" "Miguel Corte-Real" "João Vaz Corte-Real" "João Fernandes Lavrador" "João da Nova"
+		"Tristão da Cunha" "Pacheco Pereira" "Dom Francisco de Almeida" "Lourenço de Almeida" "Afonso de Albuquerque"
+		"Diogo Lopes de Sequeira" "Jorge Álvares" "Rafael Perestrelo" "Fernão Pires de Andrade" "António de Abreu"
+		"Francisco Serrão" "Fernão de Magalhães" "Lopo Soares de Albergaria" "Pedro Mascarenhas" "Nuno da Cunha"
+		"Dom João de Castro" "Estêvão da Gama" "Cristóvão da Gama" "António da Silveira" "João Mascarenhas"
+		"Luís de Ataíde" "Paulo Dias de Novais" "Salvador Correia de Sá" "Pedro Teixeira" "Fernão Mendes Pinto"
+		"Pedro Nunes" "João de Lisboa" "Álvaro Fernandes" "Rui de Sequeira" "Garcia de Noronha"
+		# 19th & 20th century naval officers
+		"Hermenegildo Capelo" "Roberto Ivens" "João Belo" "Carvalho Araújo" "Augusto de Castilho"
+		"Ferreira do Amaral" "Magalhães Correia" "Marquês de Nisa" "João Coutinho" "Jacinto Cândido"
+	}
+}
+
+### SUBMARINES ###
+POR_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { POR }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "NRP "
+	fallback_name = "Submarino %d"
+
+	unique = {
+		# Historical Portuguese Navy submarines
+		"Delfim" "Espadarte" "Golfinho" "Narval" "Náutilo" "Neptuno" "Albacora" "Barracuda"
+		"Cachalote" "Foca" "Hidra" "Tridente" "Arpão"
+		# 1941-42 fish-named patrol boats
+		"Azevia" "Bicuda" "Corvina" "Dourada" "Fataça" "Espadilha"
+		# Sharks & rays
+		"Tubarão" "Tintureira" "Anequim" "Marracho" "Cação" "Lixa" "Tremelga" "Uge" "Ratão" "Manta" "Raia"
+		# Marine mammals & large predators
+		"Orca" "Baleia" "Roaz" "Toninha" "Mero" "Garoupa" "Cherne" "Moreia" "Congro" "Safio" "Lampreia" "Esturjão" "Xaréu"
+		# Pelagic fish
+		"Atum" "Bonito" "Cavala" "Carapau" "Sardinha" "Sável" "Peixe-Espada" "Agulha"
+		# Demersal fish
+		"Robalo" "Pargo" "Sargo" "Pescada" "Bacalhau" "Tamboril" "Linguado" "Rodovalho"
+		"Peixe-Galo" "Salmonete" "Tainha" "Charroco" "Enguia"
+		# Invertebrates & other marine life
+		"Choco" "Polvo" "Lagosta" "Lavagante" "Santola" "Tartaruga" "Cavalo-Marinho"
+	}
+}
+
+### LIGHT CRUISERS ###
+POR_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { POR }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "NRP "
+	fallback_name = "Cruzador Ligeiro %d"
+
+	unique = {
+		# Northern coastal towns
+		"Caminha" "Vila Praia de Âncora" "Viana do Castelo" "Esposende" "Póvoa de Varzim"
+		"Vila do Conde" "Matosinhos" "Vila Nova de Gaia" "Espinho" "Ovar"
+		# Central coastal towns
+		"Aveiro" "Ílhavo" "Vagos" "Mira" "Figueira da Foz" "Buarcos" "Marinha Grande" "Nazaré"
+		"São Martinho do Porto" "Peniche" "Óbidos" "Caldas da Rainha" "Lourinhã" "Ericeira"
+		# Lisbon & Setúbal estuaries
+		"Cascais" "Oeiras" "Almada" "Seixal" "Barreiro" "Montijo" "Alcochete" "Setúbal"
+		"Sesimbra" "Alcácer do Sal" "Sines" "Vila Nova de Milfontes" "Odemira" "Aljezur"
+		# Algarve
+		"Lagos" "Portimão" "Silves" "Albufeira" "Loulé" "Faro" "Olhão" "Tavira"
+		"Vila Real de Santo António" "Castro Marim"
+		# Madeira
+		"Funchal" "Machico" "Câmara de Lobos"
+		# Azores
+		"Ponta Delgada" "Angra do Heroísmo" "Horta" "Praia da Vitória" "Vila Franca do Campo"
+		"Velas" "Lajes do Pico" "Santa Cruz das Flores" "Vila do Porto"
+	}
+}
+
+### HEAVY CRUISERS & COASTAL DEFENSE SHIPS ###
+POR_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { POR }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "NRP "
+	fallback_name = "Cruzador Pesado %d"
+
+	unique = {
+		# Angola
+		"Luanda" "Lobito" "Benguela" "Moçâmedes" "Porto Amboim" "Novo Redondo" "Ambriz"
+		"Cabinda" "Santo António do Zaire"
+		# Mozambique
+		"Lourenço Marques" "Beira" "Quelimane" "Inhambane" "Ilha de Moçambique" "Porto Amélia"
+		"Ibo" "Chinde" "Sofala"
+		# Guinea & Cape Verde
+		"Bissau" "Bolama" "Praia" "Mindelo" "São Filipe" "Cidade Velha"
+		# São Tomé e Príncipe
+		"Cidade de São Tomé" "Santo António do Príncipe"
+		# India, Macau & Timor
+		"Nova Goa" "Mormugão" "Damão" "Macau" "Díli"
+		# Historic Moroccan strongholds
+		"Ceuta" "Tânger" "Arzila" "Safim" "Azamor"
+		# Historic Indian Ocean trading posts
+		"Mascate" "Baçaim" "Chaul" "Colombo" "Meliapor" "Mombaça" "Melinde" "Quíloa"
+		# East Indies
+		"Ternate" "Solor"
+	}
+}
+
+### BATTLESHIPS ###
+POR_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { POR }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "NRP "
+	fallback_name = "Couraçado %d"
+
+	unique = {
+		# Sovereignty
+		"Portugal" "Lusitânia" "Portucale" "Restauração"
+		# Historical provinces
+		"Entre-Douro-e-Minho" "Trás-os-Montes" "Douro Litoral" "Beira Alta" "Beira Baixa"
+		"Beira Litoral" "Estremadura" "Ribatejo" "Alto Alentejo" "Baixo Alentejo" "Algarve"
+		# Island groups
+		"Açores" "Madeira"
+		# Overseas territories
+		"Angola" "Moçambique" "Guiné" "Cabo Verde" "São Tomé e Príncipe" "Estado da Índia" "Timor"
+		# Lisbon & Porto
+		"Lisboa" "Porto"
+		# Founders & national sovereignty figures
+		"Afonso Henriques" "Dom Dinis" "Dom João I" "Dom João II" "Dom Manuel I"
+		"Infante Dom Henrique" "Infante Dom Pedro" "Nuno Álvares Pereira" "Viriato"
+	}
+}
+
+### BATTLECRUISERS ###
+POR_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { POR }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "NRP "
+	fallback_name = "Cruzador de Batalha %d"
+
+	unique = {
+		# Discovery-era flagships & carracks
+		"São Gabriel" "São Rafael" "Bérrio" "Flor de la Mar" "Esmeralda" "Santa Catarina do Monte Sinai"
+		"Botafogo" "Cinco Chagas" "Madre de Deus" "São Martinho" "São João" "São Mateus" "Padre Eterno"
+		# Royal naus
+		"Príncipe Real" "Rainha de Portugal" "Príncipe do Brasil" "Conde Dom Henrique"
+		"Martim de Freitas" "Medusa" "Maria Primeira" "Vasco da Gama"
+		# Decisive naval battles & sieges
+		"Diu" "Cochim" "Cananor" "Ormuz" "Goa" "Malaca" "Calecute" "Cabo de São Vicente" "Matapão"
+		# Fortresses
+		"São Jorge da Mina" "Sagres" "São Julião da Barra" "Torre de Belém" "Aguada" "São Sebastião" "Mazagão"
+	}
+}
+
+### AIRCRAFT CARRIERS ###
+POR_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { POR }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "NRP "
+	fallback_name = "Porta-Aviões %d"
+
+	unique = {
+		# Naval aviation pioneers
+		"Gago Coutinho" "Sacadura Cabral" "Bartolomeu de Gusmão" "Sarmento de Beires"
+		"Brito Pais" "Humberto da Cruz" "Carlos Bleck"
+		# Historic Portuguese aircraft
+		"Santa Cruz" "Pátria" "Argos" "Passarola"
+		# Aviation sites
+		"Alverca" "Amadora" "Bom Sucesso" "São Jacinto" "Estoril"
+		# Celestial navigation & sky
+		"Cruzeiro do Sul" "Estrela Polar" "Astrolábio" "Quadrante" "Balestilha" "Nónio"
+		"Rosa dos Ventos" "Horizonte" "Zénite" "Firmamento" "Constelação" "Via Láctea"
+		"Cometa" "Alvorada" "Aurora" "Canopo" "Sírio"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS ###
+POR_BIRDS = {
+	name = "Birds"
+
+	for_countries = { POR }
+
+	type = ship
+
+	prefix = "NRP "
+	fallback_name = "Pássaro %d"
+
+	unique = {
+		# Raptors
+		"Águia-Real" "Águia-Imperial" "Águia-Cobreira" "Águia-Pesqueira" "Açor" "Falcão"
+		"Falcão-Peregrino" "Esmerilhão" "Ógea" "Gavião" "Milhafre" "Peneireiro" "Tartaranhão"
+		"Abutre" "Grifo" "Britango" "Quebra-Ossos"
+		# Owls
+		"Bufo-Real" "Coruja" "Mocho"
+		# Seabirds
+		"Gaivota" "Garajau" "Alcatraz" "Albatroz" "Cagarra" "Pardela" "Painho" "Corvo-Marinho"
+		"Airo" "Torda" "Papagaio-do-Mar"
+		# Waders & large birds
+		"Garça" "Cegonha" "Flamingo" "Colhereiro" "Pelicano" "Maçarico" "Grou" "Abetarda" "Cisne"
+		# Songbirds & others
+		"Andorinha" "Andorinhão" "Rouxinol" "Pintassilgo" "Poupa" "Abelharuco" "Guarda-Rios"
+		"Cotovia" "Pega-Azul"
+	}
+}
+
+### UNIVERSAL TOPIC: AQUATIC LIFE ###
+POR_AQUATIC = {
+	name = "Aquatic Life"
+
+	for_countries = { POR }
+
+	type = ship
+
+	prefix = "NRP "
+	fallback_name = "Peixe %d"
+
+	unique = {
+		"Faneca" "Abrótea" "Boga" "Salema" "Bodião" "Castanheta" "Cantarilho" "Peixe-Rei"
+		"Ruivo" "Besugo" "Solha" "Palombeta"
+		"Estrela-do-Mar" "Ouriço-do-Mar" "Búzio" "Alforreca" "Caranguejo" "Sapateira" "Savelha"
+		"Amêijoa" "Berbigão" "Mexilhão" "Ostra" "Percebe" "Camarão" "Gamba" "Lingueirão"
+		"Vieira" "Navalha" "Craca" "Anémona"
+		"Água-Viva" "Peixe-Voador" "Espadim" "Peixe-Lua"
+	}
+}
+
+### UNIVERSAL TOPIC: LEGENDS ###
+POR_LEGENDS = {
+	name = "Legends"
+
+	for_countries = { POR }
+
+	type = ship
+
+	prefix = "NRP "
+	fallback_name = "Lenda %d"
+
+	unique = {
+		# Lusitanian deities
+		"Endovélico" "Ataegina" "Trebaruna" "Bandua" "Nábia" "Reve"
+		# Founding myths
+		"Luso" "Ulisses" "Olisipo" "Ofiússa" "Milagre de Ourique"
+		# Os Lusíadas (Camões) & mythical creatures
+		"Adamastor" "Tágides" "Tétis" "Velho do Restelo" "Ilha dos Amores" "Fénix"
+		# Sebastianism & the Fifth Empire
+		"Encoberto" "Desejado" "Nevoeiro" "Quinto Império" "Bandarra"
+		# Folklore
+		"Moura Encantada" "Lobisomem" "Olharapo" "Trasgo" "Dama Pé-de-Cabra" "Santa Iria"
+		"Galo de Barcelos" "Pedro Sem" "Coca de Monção"
+		# Atlantic isle legends
+		"Antília" "Sete Cidades" "Ilha de São Brandão"
+	}
+}
+
+### UNIVERSAL TOPIC: HEROES ###
+POR_HEROES = {
+	name = "Heroes"
+
+	for_countries = { POR }
+
+	type = ship
+
+	prefix = "NRP "
+	fallback_name = "Herói %d"
+
+	unique = {
+		# Writers & chroniclers
+		"Camões" "Fernando Pessoa" "Gil Vicente" "Padre António Vieira" "Sá de Miranda"
+		"Bocage" "Almeida Garrett" "Alexandre Herculano" "Eça de Queirós" "Antero de Quental"
+		"Camilo Castelo Branco" "Cesário Verde" "Guerra Junqueiro" "Fernão Lopes" "Zurara"
+		"João de Barros" "Damião de Góis" "Diogo do Couto"
+		# Scientists & statesmen
+		"Garcia de Orta" "Amato Lusitano" "Marquês de Pombal"
+		# Medieval heroes
+		"Egas Moniz" "Martim Moniz" "Geraldo Sem Pavor"
+		# Queens
+		"Inês de Castro" "Filipa de Lencastre" "Rainha Santa Isabel"
+		# Soldiers & explorers
+		"Mouzinho de Albuquerque" "Serpa Pinto"
+		# 19th century statesmen & generals
+		"Sá da Bandeira" "Duque da Terceira" "Duque de Saldanha" "Gomes Freire de Andrade"
+		# Legendary figures
+		"Brites de Almeida" "Deu-la-Deu Martins"
+	}
+}
+
+### UNIVERSAL TOPIC: VIRTUES & TRADITIONS ###
+POR_VIRTUES = {
+	name = "Virtues & Traditions"
+
+	for_countries = { POR }
+
+	type = ship
+
+	prefix = "NRP "
+	fallback_name = "Virtude %d"
+
+	unique = {
+		"Honra" "Glória" "Lealdade" "Coragem" "Valor" "Audácia" "Fé" "Esperança" "Constância" "Fidelidade"
+		"Firmeza" "Vitória" "Triunfo" "Justiça" "Prudência" "Fortaleza" "Temperança" "Perseverança" "Ousadia" "Bravura"
+		"Vigilante" "Intrépido" "Destemido" "Valente" "Audaz" "Ousado" "Invicta" "Leal" "Diligente" "Veloz"
+		"Nobre" "Glorioso" "Temível" "Indómito" "Impávido" "Vitorioso" "Vingança" "Voador" "Curiosa" "Minerva"
+	}
+}
+
+### UNIVERSAL TOPIC: MONARCHS ###
+POR_MONARCHS = {
+	name = "Monarchs"
+
+	for_countries = { POR }
+
+	type = ship
+
+	prefix = "NRP "
+	fallback_name = "Monarca %d"
+
+	unique = {
+		# House of Burgundy
+		"Dom Sancho I" "Dom Afonso II" "Dom Sancho II" "Dom Afonso III" "Dom Afonso IV" "Dom Pedro I" "Dom Fernando I"
+		# House of Aviz
+		"Dom Duarte" "Dom Afonso V" "Dom João III" "Dom Sebastião" "Cardeal-Rei Dom Henrique"
+		# House of Braganza
+		"Dom João IV" "Dom Afonso VI" "Dom Pedro II" "Dom João V" "Dom José I" "Dona Maria I"
+		"Dom Pedro III" "Dom João VI" "Dom Pedro IV" "Dona Maria II" "Dom Pedro V" "Dom Luís I"
+		"Dom Carlos I" "Dom Manuel II"
+		# Queens, princes & founders
+		"Condessa Dona Teresa" "Dona Leonor" "Dona Luísa de Gusmão" "Rainha Dona Amélia" "Infante Dom Fernando"
+	}
+}
+
+### UNIVERSAL TOPIC: ESTADO NOVO ###
+POR_ESTADO_NOVO = {
+	name = "Estado Novo"
+
+	for_countries = { POR }
+
+	type = ship
+
+	prefix = "NRP "
+	fallback_name = "Navio %d"
+
+	unique = {
+		"Estado Novo" "Revolução Nacional" "Vinte e Oito de Maio" "Império" "Ultramar" "Nação"
+		"Ordem" "Autoridade" "Acto Colonial" "Mundo Português" "Mocidade Portuguesa" "Legião Portuguesa"
+		"Gomes da Costa" "Marechal Carmona" "Sidónio Pais" "Ortins de Bettencourt" "Américo Tomás"
+	}
+}

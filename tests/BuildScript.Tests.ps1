@@ -20,6 +20,53 @@ BeforeAll {
     if ($launcherFuncMatch.Success) {
         . ([ScriptBlock]::Create($launcherFuncMatch.Groups[1].Value))
     }
+
+    foreach ($fn in @('Get-NamelistGroups', 'Get-NamelistAuditFindings')) {
+        $fnMatch = [regex]::Match($script:BuildContent, "(?s)(function $fn\s*\{.*?\n\})")
+        if ($fnMatch.Success) {
+            . ([ScriptBlock]::Create($fnMatch.Groups[1].Value))
+        }
+    }
+
+    # Builds a namelist group block for audit fixtures
+    function New-FixtureGroup([string]$GroupTag, [string]$Types, [string[]]$Names, [string]$Prefix = '', [string]$Name = 'NAME_THEME_HISTORICAL') {
+        $typesLine = if ($Types) { "`tship_types = { $Types }" } else { '' }
+        $prefixLine = if ($Prefix) { "`tprefix = `"$Prefix`"" } else { '' }
+        $quoted = ($Names | ForEach-Object { "`"$_`"" }) -join ' '
+        return "$GroupTag = {`n`tname = $Name`n`tfor_countries = { TST }`n$prefixLine`n`ttype = ship`n$typesLine`n`tfallback_name = `"Ship %d`"`n`tunique = { $quoted }`n}`n"
+    }
+
+    function New-NameRange([string]$Stem, [int]$Count) {
+        return @(1..$Count | ForEach-Object { "$Stem $_" })
+    }
+
+    # A fully compliant TST fixture; tests append or alter groups to trigger single findings
+    function Get-CompliantFixtureText([string]$Prefix = 'TNS ') {
+        $text = ''
+        $text += New-FixtureGroup 'TST_DD_HISTORICAL' 'ship_hull_light destroyer' (New-NameRange 'Dd' 100) $Prefix
+        $text += New-FixtureGroup 'TST_SS_HISTORICAL' 'ship_hull_submarine submarine' (New-NameRange 'Ss' 60) $Prefix
+        $text += New-FixtureGroup 'TST_CL_HISTORICAL' 'ship_hull_cruiser light_cruiser' (New-NameRange 'Cl' 50) $Prefix
+        $text += New-FixtureGroup 'TST_CA_HISTORICAL' 'ship_hull_cruiser heavy_cruiser' (New-NameRange 'Ca' 35) $Prefix
+        $text += New-FixtureGroup 'TST_BB_HISTORICAL' 'ship_hull_heavy battleship' (New-NameRange 'Bb' 30) $Prefix
+        $text += New-FixtureGroup 'TST_BC_HISTORICAL' 'ship_hull_heavy battle_cruiser' (New-NameRange 'Bc' 30) $Prefix
+        $text += New-FixtureGroup 'TST_CV_HISTORICAL' 'ship_hull_carrier carrier' (New-NameRange 'Cv' 30) $Prefix
+        foreach ($theme in @('BIRDS', 'FISH', 'CITIES', 'RIVERS', 'HEROES', 'RULERS')) {
+            $text += New-FixtureGroup "TST_$theme" '' (New-NameRange $theme 35) $Prefix "`"$theme`""
+        }
+        return $text
+    }
+
+    function Invoke-FixtureAudit([string]$Text) {
+        $tempFile = [System.IO.Path]::GetTempFileName()
+        try {
+            [System.IO.File]::WriteAllText($tempFile, $Text, (New-Object System.Text.UTF8Encoding $false))
+            $groups = Get-NamelistGroups -Path $tempFile
+            return , (Get-NamelistAuditFindings -Groups $groups -Tag 'TST')
+        }
+        finally {
+            if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
+        }
+    }
 }
 
 Describe "build.ps1 Helper: Get-ModMetadata" {
@@ -120,5 +167,85 @@ Describe "build.ps1 Packaging & Staging Exclusions" {
             $m.Value | Should -Match "['`"]\.agents['`"]" -Because "Antigravity agent configuration must never ship in the mod"
             $m.Value | Should -Match "['`"]\.claude['`"]" -Because "Claude Code agent configuration must never ship in the mod"
         }
+    }
+}
+
+Describe "build.ps1 Helper: Get-NamelistGroups" {
+    It "Counts names in unique and ordered blocks" {
+        $tempFile = [System.IO.Path]::GetTempFileName()
+        try {
+            $text = (New-FixtureGroup 'TST_BIRDS' '' @('Eagle', 'Falcon', 'Hawk') '' '"Birds"') +
+                "TST_FISH = {`n`tname = `"Fish`"`n`tfallback_name = `"Fish %d`"`n`tordered = {`n`t`t1 = { `"Pike`" }`n`t`t2 = { `"Perch`" }`n`t}`n}`n"
+            [System.IO.File]::WriteAllText($tempFile, $text, (New-Object System.Text.UTF8Encoding $false))
+
+            $groups = Get-NamelistGroups -Path $tempFile
+            $groups.Count | Should -Be 2
+            ($groups | Where-Object GroupTag -eq 'TST_BIRDS').Count | Should -Be 3
+            ($groups | Where-Object GroupTag -eq 'TST_BIRDS').NameIsLiteral | Should -BeTrue
+            ($groups | Where-Object GroupTag -eq 'TST_FISH').Count | Should -Be 2
+        }
+        finally {
+            if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
+        }
+    }
+}
+
+Describe "build.ps1 Helper: Get-NamelistAuditFindings" {
+    It "Reports no FAIL or WARN for a compliant namelist" {
+        $findings = Invoke-FixtureAudit (Get-CompliantFixtureText)
+        @($findings | Where-Object { $_.Severity -ne 'INFO' }).Count | Should -Be 0
+    }
+
+    It "Fails a missing BC group when BB also carries battle_cruiser" {
+        $text = (Get-CompliantFixtureText) -replace '(?s)TST_BC_HISTORICAL = \{.*?\n\}\n', ''
+        $text = $text -replace 'ship_hull_heavy battleship', 'ship_hull_heavy battleship battle_cruiser'
+        $findings = Invoke-FixtureAudit $text
+        $f = @($findings | Where-Object { $_.Check -eq 'MissingHull' })
+        $f.Count | Should -Be 1
+        $f[0].Severity | Should -Be 'FAIL'
+        $f[0].Detail | Should -Match 'battle_cruiser'
+    }
+
+    It "Fails a name shared between CL and CA" {
+        $text = (Get-CompliantFixtureText) -replace '"Ca 1"', '"Cl 1"'
+        $findings = Invoke-FixtureAudit $text
+        $f = @($findings | Where-Object { $_.Check -eq 'CrossClass' -and $_.Group -eq 'CL/CA' })
+        $f.Count | Should -Be 1
+        $f[0].Severity | Should -Be 'FAIL'
+        $f[0].Detail | Should -Match 'Cl 1'
+    }
+
+    It "Fails a prefix without trailing space" {
+        $findings = Invoke-FixtureAudit (Get-CompliantFixtureText -Prefix 'TNS')
+        @($findings | Where-Object { $_.Check -eq 'PrefixSpace' -and $_.Severity -eq 'FAIL' }).Count | Should -BeGreaterThan 0
+    }
+
+    It "Fails a thematic pool missing the national prefix" {
+        $text = (Get-CompliantFixtureText) -replace '(TST_BIRDS = \{\n[^\n]*\n[^\n]*\n)\tprefix = "TNS "\n', '$1'
+        $findings = Invoke-FixtureAudit $text
+        $f = @($findings | Where-Object { $_.Check -eq 'PrefixInconsistent' })
+        $f.Count | Should -Be 1
+        $f[0].Detail | Should -Match 'BIRDS'
+    }
+
+    It "Grades depth as FAIL below floor and WARN between floor and target" {
+        $text = (Get-CompliantFixtureText) -replace '"Dd (8[5-9]|9\d|100)" ?', '' -replace '"Ss ([4-9]\d)" ?', ''
+        $findings = Invoke-FixtureAudit $text
+        ($findings | Where-Object { $_.Check -eq 'Depth' -and $_.Group -eq 'TST_DD_HISTORICAL' }).Severity | Should -Be 'WARN'
+        ($findings | Where-Object { $_.Check -eq 'Depth' -and $_.Group -eq 'TST_SS_HISTORICAL' }).Severity | Should -Be 'FAIL'
+    }
+
+    It "Never fails a short thematic pool (depth applies where thematic scope permits)" {
+        $text = (Get-CompliantFixtureText) -replace '"BIRDS ([1-3]\d)" ?', ''
+        $findings = Invoke-FixtureAudit $text
+        ($findings | Where-Object { $_.Check -eq 'Depth' -and $_.Group -eq 'TST_BIRDS' }).Severity | Should -Be 'WARN'
+    }
+}
+
+Describe "build.ps1 -Audit action" {
+    It "Audits an implemented nation, exits 0 and prints the summary line" {
+        $output = & powershell -NoProfile -File $script:BuildScriptPath -Audit FIN 2>&1 | Out-String
+        $LASTEXITCODE | Should -Be 0
+        $output | Should -Match 'AUDIT SUMMARY FIN: FAIL=\d+ WARN=\d+ INFO=\d+'
     }
 }

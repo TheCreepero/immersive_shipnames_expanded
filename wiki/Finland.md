@@ -17,12 +17,12 @@ Finland's historical naval forces in World War II revolved around coastal defens
 | Group Tag | Type | Ship Types | Sample Names |
 | :--- | :--- | :--- | :--- |
 | `FIN_DD_HISTORICAL` | Destroyers & Escorts | `ship_hull_light destroyer` | Hämeenmaa, Turunmaa, Matti Kurki, Klas Horn, Sisu, Hurja, Isku, Syöksy, Nuoli, Louhi, Ruotsinsalmi, Riilahti, Keihässalmi, Uisko, Tursas, Salpa |
-| `FIN_SS_HISTORICAL` | Submarines | `ship_hull_submarine submarine` | Vetehinen, Vesihiisi, Iku-Turso, Saukko, Vesikko, Näkki, Vellamo, Meritursas, Hallitursas, Vedenneito, Ahven, Hauki, Kuha, Siika, Lohi, Taimen, Norppa |
+| `FIN_SS_HISTORICAL` | Submarines | `ship_hull_submarine submarine` | Vetehinen, Vesihiisi, Iku-Turso, Saukko, Vesikko, Näkki, Vellamo, Meritursas, Vedenneito, Ahven, Hauki, Kuha, Siika, Lohi, Taimen, Norppa |
 | `FIN_CL_HISTORICAL` | Light Cruisers | `ship_hull_cruiser light_cruiser` | Helsinki, Turku, Viipuri, Kotka, Oulu, Vaasa, Pori, Rauma, Tammisaari, Hanko, Porvoo, Loviisa, Kokkola, Pietarsaari, Kemi, Hamina, Maarianhamina, Sortavala |
 | `FIN_CA_HISTORICAL` | Heavy Cruisers & Coastal Defense | `ship_hull_cruiser heavy_cruiser` | Väinämöinen, Ilmarinen, Lemminkäinen, Joukahainen, Kullervo, Tapio, Pellervo, Mielikki, Tuonetar, Vipunen, Sammas, Kaleva, Kaukomieli, Kyllikki, Aino, Marjatta |
 | `FIN_BB_HISTORICAL` | Battleships & Capital Ships | `ship_hull_heavy battleship` | Suomi, Suur-Suomi, Pohjanmaa, Karjala, Uusimaa, Häme, Satakunta, Savo, Varsinais-Suomi, Ahvenanmaa, Lappi, Kainuu, Peräpohjola, Petsamo, Viena, Aunus, Inkeri |
-| `FIN_BC_HISTORICAL` | Battlecruisers | `ship_hull_heavy battle_cruiser` | Kuningas Fornjot, Kuningas Norr, Kuningas Gor, Kuningas Snær, Kuningas Thorri, Ruhtinas Kaleva, Pohjolan Isäntä, Kaarle I, Murtaja, Sampo, Tarmo, Varma, Voima, Sisu |
-| `FIN_CV_HISTORICAL` | Aircraft Carriers | `ship_hull_carrier carrier` | Kokko, Ilmatar, Ukko, Vaakalintu, Taivaankantaja, Merikotka, Maakotka, Kotka, Haukka, Tuulihaukka, Nuolihaukka, Sääksi, Otava, Pohjantähti, Revontuli, Päivätär |
+| `FIN_BC_HISTORICAL` | Battlecruisers | `ship_hull_heavy battle_cruiser` | Kuningas Fornjot, Kuningas Thorri, Kuningas Faravid, Kuningas Fredrik Kaarle, Kustaa Vaasa, Murtaja, Sampo, Tarmo, Jääkarhu, Viapori, Svartholma, Olavinlinna, Viipurin linna, Pähkinälinna |
+| `FIN_CV_HISTORICAL` | Aircraft Carriers | `ship_hull_carrier carrier` | Kokko, Ilmatar, Ukko, Vaakalintu, Merikotka, Maakotka, Kiljukotka, Haukka, Tuulihaukka, Nuolihaukka, Sääksi, Otava, Pohjantähti, Revontuli, Päivätär |
 
 ---
 
@@ -32,16 +32,26 @@ Universal selection pools available for any ship hull or squadron:
 
 | Group Tag | Topic Name | Ship Types | Sample Names |
 | :--- | :--- | :--- | :--- |
-| `FIN_RULERS` | Monarchs & Rulers | Universal | Kuningas Fornjot, Kuningas Norr, Kuningas Gor, Kuningas Snær, Kuningas Thorri, Ruhtinas Kaleva, Kaarle I, Valtionhoitaja Mannerheim, Presidentti Ståhlberg |
+| `FIN_RULERS` | Rulers & Heads of State | Universal | Kuningas Fornjot, Kuningas Thorri, Kuningas Faravid, Pyhä Eerik, Kustaa Vaasa, Kuningas Juhana III, Kuningas Kustaa III, Kuningas Fredrik Kaarle, Valtionhoitaja Mannerheim, Presidentti Ståhlberg |
 | `FIN_CITIES` | Cities | Universal | Helsinki, Turku, Tampere, Viipuri, Oulu, Vaasa, Kotka, Pori, Kuopio, Lahti, Jyväskylä, Lappeenranta, Mikkeli, Hamina, Rauma, Hanko, Savonlinna, Joensuu |
 | `FIN_PROVINCES` | Provinces & Regions | Universal | Varsinais-Suomi, Uusimaa, Häme, Satakunta, Karjala, Savo, Pohjanmaa, Kainuu, Lappi, Peräpohjola, Ahvenanmaa, Kymenlaakso, Viena, Aunus, Inkeri, Petsamo |
 | `FIN_RIVERS` | Rivers & Lakes | Universal | Saimaa, Päijänne, Inarijärvi, Oulujärvi, Pielinen, Kallavesi, Näsijärvi, Vuoksi, Kymijoki, Kokemäenjoki, Kemijoki, Tornionjoki, Teno, Aurajoki, Vantaanjoki |
 | `FIN_GEOGRAPHY` | Landmarks & Islands | Universal | Halti, Saana, Ylläs, Levi, Pallastunturi, Koli, Hanko, Porkkala, Upinniemi, Riilahti, Ruotsinsalmi, Bengtskär, Utö, Suursaari, Lavansaari, Suomenlinna |
 | `FIN_BATTLES` | Battles & Victories | Universal | Ruotsinsalmi, Riilahti, Suursaari, Bengtskär, Koljonvirta, Juutas, Siikajoki, Lapua, Alavus, Tolvajärvi, Suomussalmi, Raate, Kollaa, Taipale, Summa, Tali-Ihantala |
-| `FIN_HEROES` | Heroes & Leaders | Universal | Carl Gustaf Emil Mannerheim, Klas Horn, Matti Kurki, Lalli, Jaakko Ilkka, Torsten Stålhandske, Armfelt, Döbeln, Sandels, Agricola, Snellman, Runeberg, Sibelius |
+| `FIN_HEROES` | Heroes & Luminaries | Universal | Carl Gustaf Emil Mannerheim, Simo Häyhä, Klas Horn, Matti Kurki, Lalli, Jaakko Ilkka, Torsten Stålhandske, Armfelt, Döbeln, Sandels, Agricola, Snellman, Runeberg, Sibelius |
 | `FIN_MYTHOLOGY` | Kalevala & Mythology | Universal | Väinämöinen, Ilmarinen, Lemminkäinen, Joukahainen, Kullervo, Ahti, Tapio, Ukko, Ilmatar, Mielikki, Vellamo, Vipunen, Louhi, Iku-Turso, Hiisi, Vetehinen |
 | `FIN_BIRDS` | Birds | Universal | Kotka, Merikotka, Maakotka, Haukka, Kanahaukka, Tuulihaukka, Nuolihaukka, Sääksi, Huuhkaja, Korppi, Kuikka, Koskelo, Haahka, Alli, Telkkä, Joutsen, Kurki |
-| `FIN_FISH` | Aquatic Life & Fish | Universal | Hauki, Ahven, Kuha, Lohi, Taimen, Siika, Nieriä, Harjus, Made, Kampela, Piikkisimppu, Monni, Ankerias, Silli, Silakka, Norppa, Halli, Mursu, Valas |
+| `FIN_FISH` | Aquatic Life & Fish | Universal | Hauki, Ahven, Kuha, Lohi, Taimen, Siika, Nieriä, Harjus, Vimpa, Kampela, Piikkisimppu, Monni, Ankerias, Silli, Silakka, Norppa, Halli, Mursu, Valas |
 | `FIN_BEASTS` | Fauna & Predators | Universal | Karhu, Kontio, Otso, Mesikämmen, Susi, Hukka, Ilves, Ahma, Kettu, Kärppä, Näätä, Saukko, Mäyrä, Hirvi, Peura, Metsäpeura, Poro, Metsäkauris, Majava, Villisika |
-| `FIN_VIRTUES` | Martial Virtues | Universal | Sisu, Uskollisuus, Kunnia, Vapaus, Veljeys, Rohkeus, Urhoollisuus, Kestävyys, Päättäväisyys, Sitkeys, Voima, Turva, Valppaus, Puolustus, Tahto, Itsenäisyys |
+| `FIN_VIRTUES` | Virtues & Ideals | Universal | Sisu, Uskollisuus, Kunnia, Vapaus, Veljeys, Rohkeus, Urhoollisuus, Kestävyys, Päättäväisyys, Sitkeys, Voima, Turva, Valppaus, Puolustus, Tahto, Itsenäisyys |
 | `FIN_NATURE` | Nature & Tempests | Universal | Myrsky, Salama, Ukkonen, Leimaus, Puuska, Tuuli, Puhuri, Pyörre, Viima, Tuisku, Pyry, Routa, Pakkanen, Maininki, Aallokko, Hyöky, Tyrsky, Revontuli, Pohjantähti |
+
+---
+
+## Historical Scope & Sourcing Notes
+
+- **Legendary kings** (Fornjot, Norr, Gor, Snær, Thorri, Kári, Frosti, Faravid, Sumble) come from Old Norse and Danish tradition: *Orkneyinga saga*, *Hversu Noregr byggðist*, *Egils saga* and Saxo's *Gesta Danorum*. They are legendary figures, not historical rulers. Uncorroborated "kings" and invented princely titles for mythic figures were removed in the 2026-09 audit.
+- **Kuningas Fredrik Kaarle** is Friedrich Karl of Hesse, elected King of Finland on 9 October 1918 under that official Finnish form. He renounced the throne in December 1918. "Väinö I" was only a press nickname and is not used.
+- **Battlecruisers** pair the saga kings and Swedish-era rulers with Finland's historic icebreakers (limited to pre-1990 names) and its coastal fortresses (Viapori, Svartholma, Olavinlinna, Pähkinälinna and others).
+- **Heroes** lists only individually documented people. Lalli and Matti Kurki are included as legendary or semi-historical folk heroes. *Matti Kurki* and *Klas Horn* in the destroyer list were real Finnish Navy gunboats acquired in 1918.
+- **Prefix:** Finnish vessels carry no national prefix, matching vanilla.

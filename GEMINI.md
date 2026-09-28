@@ -99,6 +99,10 @@ Whenever a new country ship namelist is added, expanded, or modified:
 - Use `build.ps1 -Package` to test clean staging and zip distribution (ensuring `.git`, `.github`, `tests`, scripts, and documentation are strictly excluded from mod releases).
 - Use `build.ps1 -DevLink` when zero-copy live editing in the Paradox launcher is required.
 - **Automated Set-Intersection Verification**: Run programmatic cross-class collision checks across `CL`, `CA`, `BB`, `BC`, and `CV` to mathematically guarantee zero overlapping names before finalizing any ship namelist file.
+- **Legacy Namelist Audits**: To bring an existing namelist up to current standards, use the `hoi4-isne-namelist-audit` skill (delta upgrade) instead of the full authoring runbook. Start with the audit report:
+  ```powershell
+  powershell -File .\build.ps1 -Audit <TAG>
+  ```
 - **Independent Code Review Gate**: Dispatch a fresh Code Reviewer subagent (`Role: "Code Reviewer"`, `Model: "pro"`) using `invoke_subagent` to verify all engine invariants, foreign vessel purges, and cross-class decoupling prior to task completion.
 
 ## 6. VFS Shadowing & Clean File Replacement
@@ -129,6 +133,7 @@ Whenever a new country ship namelist is added, expanded, or modified:
 - This repository is developed with two AI agents whose configurations are mirrors of each other:
   - `GEMINI.md` ⇄ `CLAUDE.md`
   - `.agents/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` ⇄ `.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md`
+  - `.agents/skills/hoi4-isne-namelist-audit/SKILL.md` ⇄ `.claude/skills/hoi4-isne-namelist-audit/SKILL.md`
   - The Historical Researcher and Code Reviewer briefs embedded in `SKILL.md` are mirrored by `.claude/agents/isne-historical-researcher.md` and `.claude/agents/isne-code-reviewer.md`.
 - Whenever a rule, standard, or runbook step changes in one file, apply the same change to its mirror in the same task. Translate only tool-specific wording (Antigravity: `invoke_subagent` with `Role`/`Model`; Claude: Agent tool with named agents); the project rules themselves must stay identical.
 - Confirm with `git status` that both sides of each mirror were modified before reporting completion.

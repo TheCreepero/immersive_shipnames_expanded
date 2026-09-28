@@ -4,12 +4,15 @@ description: >-
   Runbook for researching historical naval doctrine, class naming traditions, and authoring
   immersive ship namelists for Hearts of Iron IV in the Immersive Ship Names Expanded (ISNE) mod.
   Use when adding a new nation or expanding existing national ship namelists into ship-type specific
-  and universal thematic topic categories.
+  and universal thematic topic categories. For auditing or upgrading an existing namelist to current
+  standards, use hoi4-isne-namelist-audit instead.
 ---
 
 # Hearts of Iron IV Ship Namelist Authoring Runbook
 
 This skill provides step-by-step guidance for researching, scoping, authoring, and validating naval ship namelists for *Immersive Ship Names Expanded* (ISNE).
+
+> **Upgrading an existing namelist?** Use the `hoi4-isne-namelist-audit` skill instead: it runs a delta audit (`build.ps1 -Audit <TAG>`) at a fraction of this runbook's token cost.
 
 > **Mirror notice**: This skill mirrors `.agents/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` (Google Antigravity). Any change to project rules here must be applied there too (see `CLAUDE.md` §9).
 
@@ -359,9 +362,12 @@ powershell -File .\build.ps1 -ValidateOnly
 # 2. Automated Pester unit test suite (engine rules, docs sync, build script)
 powershell -File .\build.ps1 -Test
 
-# 3. Release packaging verification (ensures clean ZIP excluding dev artifacts)
+# 3. Standards audit of one nation's namelist (group depth vs quotas, collisions, prefixes, docs sync)
+powershell -File .\build.ps1 -Audit <TAG>
+
+# 4. Release packaging verification (ensures clean ZIP excluding dev artifacts)
 powershell -File .\build.ps1 -Package
 
-# 4. Live launcher link (optional: connects Paradox launcher directly to repo)
+# 5. Live launcher link (optional: connects Paradox launcher directly to repo)
 powershell -File .\build.ps1 -DevLink
 ```

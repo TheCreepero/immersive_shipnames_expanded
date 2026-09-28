@@ -45,8 +45,12 @@
 .PARAMETER InspectVanilla
     Inspect vanilla Hearts of Iron IV ship namelists for a country tag (e.g. -InspectVanilla FIN).
 
+.PARAMETER Audit
+    Audit the mod's ship namelist for a country tag against current ISNE standards (e.g. -Audit CUB).
+    Prints a compact report: group table (counts vs tier quotas), findings by severity (FAIL/WARN/INFO), and a summary line.
+
 .PARAMETER Group
-    Optional specific ship namelist group tag to excerpt directly when using -InspectVanilla (e.g. -Group FIN_DD_HISTORICAL).
+    Optional specific ship namelist group tag to excerpt directly when using -InspectVanilla or -Audit (e.g. -Group FIN_DD_HISTORICAL).
 
 .PARAMETER Hoi4InstallDir
     Custom path to the Hearts of Iron IV installation folder if installed in a non-standard directory.
@@ -86,6 +90,10 @@
     # Executes automated Pester test suites covering ship namelists, documentation, and build automation.
 
 .EXAMPLE
+    .\build.ps1 -Audit CUB
+    # Audits CUB_ship_names.txt against current standards; add -Group CUB_BB_HISTORICAL to print a single group.
+
+.EXAMPLE
     .\build.ps1 -PublishSteam -DryRun
     # Previews the Steam Workshop VDF and staged files without uploading.
 #>
@@ -119,10 +127,15 @@ param(
     [Parameter(ParameterSetName = 'InspectVanilla', Mandatory = $true)]
     [string]$InspectVanilla,
 
+    [Parameter(ParameterSetName = 'Audit', Mandatory = $true)]
+    [string]$Audit,
+
     [Parameter(ParameterSetName = 'InspectVanilla')]
+    [Parameter(ParameterSetName = 'Audit')]
     [string]$Group,
 
     [Parameter(ParameterSetName = 'InspectVanilla')]
+    [Parameter(ParameterSetName = 'Audit')]
     [string]$Hoi4InstallDir,
 
     [switch]$Validate,
@@ -523,40 +536,11 @@ function Find-Hoi4Install {
     return $null
 }
 
-# --- Action: Inspect Vanilla Ship Namelists ---
-function Invoke-InspectVanilla {
-    param(
-        [string]$Tag,
-        [string]$TargetGroup,
-        [string]$CustomHoi4Dir
-    )
+# --- Helper: Parse ship namelist groups from a file ---
+function Get-NamelistGroups {
+    param([string]$Path)
 
-    $hoi4Dir = Find-Hoi4Install -CustomPath $CustomHoi4Dir
-    if (-not $hoi4Dir) {
-        Write-Err "Could not locate Hearts of Iron IV game installation directory."
-        Write-Info "Specify the path using -Hoi4InstallDir '<path>'."
-        exit 1
-    }
-
-    $Tag = $Tag.ToUpper().Trim()
-    $candidates = @(
-        (Join-Path $hoi4Dir "common\units\names_ships\${Tag}_ship_names.txt"),
-        (Join-Path $hoi4Dir "common\units\names_ships\${Tag}_names_ships.txt")
-    )
-
-    $targetFile = $null
-    foreach ($c in $candidates) {
-        if (Test-Path $c) { $targetFile = $c; break }
-    }
-
-    if (-not $targetFile) {
-        Write-Err "Vanilla ship namelist file not found for tag $Tag in: $(Join-Path $hoi4Dir 'common\units\names_ships')"
-        exit 1
-    }
-
-    Write-Step "Inspecting vanilla ship namelists in: $targetFile"
-
-    $raw = [System.IO.File]::ReadAllText($targetFile, [System.Text.Encoding]::UTF8)
+    $raw = [System.IO.File]::ReadAllText($Path, [System.Text.Encoding]::UTF8)
     $lines = $raw -split '\r?\n'
 
     $groups = [System.Collections.Generic.List[psobject]]::new()
@@ -596,40 +580,364 @@ function Invoke-InspectVanilla {
             $blockText = $blockLines -join "`r`n"
             $cleanBlock = $blockText -replace '(?m)#.*$', ''
 
-            $nameM = [regex]::Match($cleanBlock, 'name\s*=\s*([^\r\n]+)')
+            $nameM = [regex]::Match($cleanBlock, '(?m)^\s*name\s*=\s*([^\r\n]+)')
             $typesM = [regex]::Match($cleanBlock, 'ship_types\s*=\s*\{([^}]*)\}')
             $fallbackM = [regex]::Match($cleanBlock, 'fallback_name\s*=\s*"([^"]+)"')
             $uniqueM = [regex]::Match($cleanBlock, 'unique\s*=\s*\{([^}]*)\}')
-            $orderedM = [regex]::Match($cleanBlock, 'ordered\s*=\s*\{([^}]*)\}')
-            $prefixM = [regex]::Match($cleanBlock, 'prefix\s*=\s*"([^"]+)"')
+            $orderedM = [regex]::Match($cleanBlock, '(?s)ordered\s*=\s*\{(.*)\}')
+            $prefixM = [regex]::Match($cleanBlock, 'prefix\s*=\s*"([^"]*)"')
 
-            $uniqueCount = 0
+            $names = @()
             $samples = @()
             if ($uniqueM.Success) {
                 $entries = [regex]::Matches($uniqueM.Groups[1].Value, '"([^"]+)"')
-                $uniqueCount = $entries.Count
-                $samples = @($entries | Select-Object -First 3 | ForEach-Object { $_.Groups[1].Value })
+                $names = @($entries | ForEach-Object { $_.Groups[1].Value })
+                $samples = @($names | Select-Object -First 3)
             } elseif ($orderedM.Success) {
                 $entries = [regex]::Matches($orderedM.Groups[1].Value, '(\d+)\s*=\s*(?:\{\s*)?"([^"]+)"')
-                $uniqueCount = $entries.Count
+                $names = @($entries | ForEach-Object { $_.Groups[2].Value })
                 $samples = @($entries | Select-Object -First 3 | ForEach-Object { "$($_.Groups[1].Value)=$($_.Groups[2].Value)" })
             }
 
+            $nameRaw = if ($nameM.Success) { $nameM.Groups[1].Value.Trim() } else { "" }
+
             $groups.Add([PSCustomObject]@{
-                GroupTag     = $gtag
-                ThemeName    = if ($nameM.Success) { $nameM.Groups[1].Value.Trim().Trim('"') } else { "N/A" }
-                ShipTypes    = if ($typesM.Success) { ($typesM.Groups[1].Value -replace '\s+', ' ').Trim() } else { "N/A" }
-                Prefix       = if ($prefixM.Success) { $prefixM.Groups[1].Value } else { "" }
-                Fallback     = if ($fallbackM.Success) { $fallbackM.Groups[1].Value } else { "N/A" }
-                Count        = $uniqueCount
-                SampleNames  = ($samples -join ', ')
-                RawBlock     = $blockText
+                GroupTag      = $gtag
+                ThemeName     = if ($nameRaw) { $nameRaw.Trim('"') } else { "N/A" }
+                NameIsLiteral = $nameRaw.StartsWith('"')
+                ShipTypes     = if ($typesM.Success) { ($typesM.Groups[1].Value -replace '\s+', ' ').Trim() } else { "N/A" }
+                HasPrefix     = $prefixM.Success
+                Prefix        = if ($prefixM.Success) { $prefixM.Groups[1].Value } else { "" }
+                Fallback      = if ($fallbackM.Success) { $fallbackM.Groups[1].Value } else { "N/A" }
+                Names         = $names
+                Count         = $names.Count
+                SampleNames   = ($samples -join ', ')
+                RawBlock      = $blockText
             })
 
             $i = $j - 1
         }
         $i++
     }
+
+    return , $groups.ToArray()
+}
+
+# --- Helper: Audit a mod namelist against current ISNE standards ---
+# Returns findings as objects: Severity (FAIL/WARN/INFO), Check, Group, Detail.
+# -RepoDir enables documentation sync checks; -VanillaGroups enables vanilla prefix parity.
+function Get-NamelistAuditFindings {
+    param(
+        [object[]]$Groups,
+        [string]$Tag,
+        [string]$RepoDir,
+        [object[]]$VanillaGroups
+    )
+
+    $findings = [System.Collections.Generic.List[psobject]]::new()
+    function Add-Finding([string]$Sev, [string]$Check, [string]$Grp, [string]$Detail) {
+        $findings.Add([PSCustomObject]@{ Severity = $Sev; Check = $Check; Group = $Grp; Detail = $Detail })
+    }
+    function Format-NameList([string[]]$Items) {
+        $shown = @($Items | Select-Object -First 8)
+        $text = $shown -join ', '
+        if ($Items.Count -gt 8) { $text += " (+$($Items.Count - 8) more)" }
+        return $text
+    }
+
+    # Tier quotas: Target (standard) and Floor (minor-navy minimum). Below floor = FAIL, below target = WARN.
+    $quotas = @{
+        DD = @{ Target = 100; Floor = 80 }
+        SS = @{ Target = 60;  Floor = 50 }
+        CL = @{ Target = 50;  Floor = 40 }
+        CA = @{ Target = 35;  Floor = 35 }
+        BB = @{ Target = 30;  Floor = 30 }
+        BC = @{ Target = 30;  Floor = 30 }
+        CV = @{ Target = 30;  Floor = 30 }
+        THEME = @{ Target = 35; Floor = 20 }
+    }
+    $hulls = @('DD', 'SS', 'CL', 'CA', 'BB', 'BC', 'CV')
+
+    $byClass = @{}
+    $themes = @()
+    foreach ($g in $Groups) {
+        $m = [regex]::Match($g.GroupTag, "^$([regex]::Escape($Tag))_(DD|SS|CL|CA|BB|BC|CV)_HISTORICAL$")
+        $cls = if ($m.Success) { $m.Groups[1].Value } else { 'THEME' }
+        $g | Add-Member -NotePropertyName Class -NotePropertyValue $cls -Force
+        $g | Add-Member -NotePropertyName Target -NotePropertyValue $quotas[$cls].Target -Force
+        if ($cls -eq 'THEME') { $themes += $g } else { $byClass[$cls] = $g }
+        if (-not $g.GroupTag.StartsWith("${Tag}_")) {
+            Add-Finding 'WARN' 'TagNaming' $g.GroupTag "Group tag does not start with '${Tag}_'"
+        }
+    }
+
+    # 1. Depth vs tiered quotas
+    foreach ($g in $Groups) {
+        $q = $quotas[$g.Class]
+        if ($g.Count -lt $q.Floor) {
+            # Thematic depth applies "where thematic scope permits", so a short pool is WARN, never FAIL
+            $sev = if ($g.Class -eq 'THEME') { 'WARN' } else { 'FAIL' }
+            Add-Finding $sev 'Depth' $g.GroupTag "$($g.Count) names; below floor $($q.Floor), target $($q.Target)"
+        } elseif ($g.Count -lt $q.Target) {
+            Add-Finding 'WARN' 'Depth' $g.GroupTag "$($g.Count) names; target $($q.Target) (floor $($q.Floor) met)"
+        }
+    }
+
+    # 2. Structure
+    foreach ($h in $hulls) {
+        if (-not $byClass.ContainsKey($h)) {
+            $detail = "Missing ${Tag}_${h}_HISTORICAL"
+            if ($h -eq 'BC' -and $byClass.ContainsKey('BB') -and $byClass['BB'].ShipTypes -match '\bbattle_cruiser\b') {
+                $detail += "; BB group also carries battle_cruiser (split BB/BC by doctrine)"
+            }
+            Add-Finding 'FAIL' 'MissingHull' '-' $detail
+        }
+    }
+    if ($byClass.ContainsKey('BC') -and $byClass.ContainsKey('BB') -and $byClass['BB'].ShipTypes -match '\bbattle_cruiser\b') {
+        Add-Finding 'WARN' 'BBCarriesBC' $byClass['BB'].GroupTag "BB ship_types include battle_cruiser although a BC group exists"
+    }
+    if ($themes.Count -lt 6) {
+        Add-Finding 'WARN' 'ThemeCount' '-' "$($themes.Count) thematic pools; standard is 6+"
+    }
+    foreach ($t in $themes) {
+        if ($t.ShipTypes -ne 'N/A') {
+            Add-Finding 'FAIL' 'ThemeRestricted' $t.GroupTag "Thematic pool restricts ship_types ($($t.ShipTypes)); omit for universal selection"
+        }
+    }
+
+    # 3. Collisions: intra-group duplicates, cross-class overlaps, BB/BC mirroring
+    foreach ($g in $Groups) {
+        $dups = @($g.Names | Group-Object | Where-Object { $_.Count -gt 1 } | ForEach-Object { $_.Name })
+        if ($dups.Count -gt 0) {
+            Add-Finding 'FAIL' 'DuplicateInGroup' $g.GroupTag (Format-NameList $dups)
+        }
+    }
+    $major = @('CL', 'CA', 'BB', 'BC', 'CV') | Where-Object { $byClass.ContainsKey($_) }
+    for ($a = 0; $a -lt $major.Count; $a++) {
+        for ($b = $a + 1; $b -lt $major.Count; $b++) {
+            $ga = $byClass[$major[$a]]; $gb = $byClass[$major[$b]]
+            $inter = @($ga.Names | Where-Object { $gb.Names -ccontains $_ } | Select-Object -Unique)
+            if ($inter.Count -gt 0) {
+                Add-Finding 'FAIL' 'CrossClass' "$($major[$a])/$($major[$b])" (Format-NameList $inter)
+                if ("$($major[$a])/$($major[$b])" -eq 'BB/BC') {
+                    $minCount = [Math]::Min($ga.Count, $gb.Count)
+                    if ($minCount -gt 0 -and ($inter.Count / $minCount) -ge 0.3) {
+                        Add-Finding 'FAIL' 'BBBCMirror' 'BB/BC' "$($inter.Count) of $minCount names shared; specialize BB vs BC doctrine"
+                    }
+                }
+            }
+        }
+    }
+
+    # 4. Prefix consistency and vanilla parity
+    foreach ($g in $Groups) {
+        if ($g.HasPrefix -and $g.Prefix -and -not $g.Prefix.EndsWith(' ')) {
+            Add-Finding 'FAIL' 'PrefixSpace' $g.GroupTag "Prefix '$($g.Prefix)' lacks trailing space"
+        }
+    }
+    $prefixCounts = @($Groups | Where-Object { $_.Prefix } | Group-Object Prefix | Sort-Object Count -Descending)
+    $dominant = if ($prefixCounts.Count -gt 0) { $prefixCounts[0].Name } else { '' }
+    if ($dominant) {
+        $off = @($Groups | Where-Object { $_.Prefix -ne $dominant } | ForEach-Object { $_.GroupTag -replace "^$([regex]::Escape($Tag))_", '' })
+        if ($off.Count -gt 0) {
+            Add-Finding 'FAIL' 'PrefixInconsistent' '-' "Dominant prefix '$dominant' missing/different in: $(Format-NameList $off)"
+        }
+    } else {
+        Add-Finding 'INFO' 'Prefix' '-' "No prefix defined in any group"
+    }
+    if ($null -ne $VanillaGroups) {
+        $vPrefixes = @($VanillaGroups | Where-Object { $_.Prefix } | ForEach-Object { $_.Prefix } | Select-Object -Unique)
+        $vText = if ($vPrefixes.Count -gt 0) { ($vPrefixes | ForEach-Object { "'$_'" }) -join ', ' } else { 'none' }
+        if (($vPrefixes -join '|') -ne $dominant) {
+            Add-Finding 'WARN' 'VanillaPrefix' '-' "Vanilla prefix $vText vs mod '$dominant'; keep parity or document why"
+        }
+    } else {
+        Add-Finding 'INFO' 'VanillaPrefix' '-' "Vanilla parity skipped (HOI4 install or vanilla file not found)"
+    }
+
+    # 5. Fallback heuristics (review, not proof)
+    $scandinavian = @('DEN', 'NOR', 'SWE', 'ICE')
+    $englishFallbackTags = @('ENG', 'USA', 'AST', 'CAN', 'NZL', 'SAF', 'RAJ', 'PHI', 'IRE', 'LBA')
+    foreach ($g in $Groups) {
+        $fb = $g.Fallback
+        if ($fb -eq 'N/A') {
+            Add-Finding 'FAIL' 'Fallback' $g.GroupTag "No fallback_name"
+            continue
+        }
+        if ($scandinavian -contains $Tag -and $g.Class -ne 'THEME' -and $fb -match '(en|et) %[ds]$') {
+            Add-Finding 'WARN' 'FallbackDefinite' $g.GroupTag "'$fb' may use a definite suffix; use indefinite nominative"
+        }
+        if ($fb -match '\bLys\b') {
+            Add-Finding 'WARN' 'FallbackCalque' $g.GroupTag "'$fb' uses optical 'Lys'; naval term is Let/Lett/Latt"
+        }
+        if ($englishFallbackTags -notcontains $Tag -and $fb -match '\b(Destroyer|Submarine|Cruiser|Battleship|Battlecruiser|Carrier)\b') {
+            Add-Finding 'WARN' 'FallbackEnglish' $g.GroupTag "'$fb' uses an English hull term in a non-English list"
+        }
+    }
+
+    # 6. Display names (literal names only; localisation keys are skipped)
+    foreach ($g in $Groups) {
+        if (-not $g.NameIsLiteral) { continue }
+        $len = $g.ThemeName.Length
+        if ($len -gt 32) {
+            Add-Finding 'FAIL' 'DisplayName' $g.GroupTag "'$($g.ThemeName)' is $len chars (max 32)"
+        } elseif ($len -gt 25) {
+            Add-Finding 'WARN' 'DisplayName' $g.GroupTag "'$($g.ThemeName)' is $len chars (ideal <= 25)"
+        }
+    }
+
+    # 7. Documentation sync
+    if ($RepoDir) {
+        $tagCell = "\|\s*``?" + [regex]::Escape($Tag) + "``?\s*\|"
+        $country = $null
+        $readmePath = Join-Path $RepoDir "README.md"
+        $readme = if (Test-Path $readmePath) { [System.IO.File]::ReadAllText($readmePath, [System.Text.Encoding]::UTF8) } else { '' }
+        $rowM = [regex]::Match($readme, $tagCell + "\s*([^|\r\n]+?)\s*\|")
+        if ($rowM.Success) { $country = $rowM.Groups[1].Value.Trim() } else { Add-Finding 'FAIL' 'DocsReadme' '-' "README.md has no row for $Tag" }
+
+        $guidePath = Join-Path $RepoDir "WORKSHOP_DESCRIPTION_GUIDELINES.md"
+        $guide = if (Test-Path $guidePath) { [System.IO.File]::ReadAllText($guidePath, [System.Text.Encoding]::UTF8) } else { '' }
+        if ($guide -notmatch $tagCell) { Add-Finding 'FAIL' 'DocsWorkshopTable' '-' "Workshop cross-reference table has no row for $Tag" }
+
+        if ($country) {
+            $blockM = [regex]::Match($guide, "(?m)^\[b\]" + [regex]::Escape($country) + "\[/b\][ \t]*\r?\n((?:-[^\r\n]*\r?\n?)*)")
+            if (-not $blockM.Success) {
+                Add-Finding 'FAIL' 'DocsWorkshopBlock' '-' "No [b]$country[/b] block under Included nations"
+            } else {
+                $bullets = @($blockM.Groups[1].Value -split '\r?\n' | Where-Object { $_ -match '^-' })
+                if ($bullets.Count -ne 2 -or $bullets[0] -notmatch '^- Expanded' -or $bullets[1] -notmatch '^- Added') {
+                    Add-Finding 'WARN' 'DocsWorkshopFormat' '-' "[b]$country[/b] block is not the 2-bullet 'Expanded... / Added...' format ($($bullets.Count) bullets)"
+                }
+            }
+
+            $wikiDir = Join-Path $RepoDir "wiki"
+            $pageName = $country -replace ' ', '-'
+            $wikiPath = Join-Path $wikiDir "$pageName.md"
+            if (-not (Test-Path $wikiPath)) {
+                Add-Finding 'FAIL' 'DocsWikiPage' '-' "wiki/$pageName.md not found"
+            } else {
+                $wiki = [System.IO.File]::ReadAllText($wikiPath, [System.Text.Encoding]::UTF8)
+                $missing = @($Groups | Where-Object { $wiki -notmatch "\b$([regex]::Escape($_.GroupTag))\b" } | ForEach-Object { $_.GroupTag })
+                if ($missing.Count -gt 0) { Add-Finding 'WARN' 'DocsWikiGroups' '-' "Wiki page does not mention: $(Format-NameList $missing)" }
+                $known = @($Groups | ForEach-Object { $_.GroupTag })
+                $stale = @([regex]::Matches($wiki, "\b$([regex]::Escape($Tag))_[A-Z][A-Z_]*\b") | ForEach-Object { $_.Value } | Select-Object -Unique | Where-Object { $known -notcontains $_ -and $_ -ne "${Tag}_ship_names" })
+                if ($stale.Count -gt 0) { Add-Finding 'WARN' 'DocsWikiStale' '-' "Wiki page mentions groups not in file: $(Format-NameList $stale)" }
+            }
+
+            $homePath = Join-Path $wikiDir "Home.md"
+            $homeText = if (Test-Path $homePath) { [System.IO.File]::ReadAllText($homePath, [System.Text.Encoding]::UTF8) } else { '' }
+            $homeM = [regex]::Match($homeText, $tagCell + "\s*(\d+)\s*\|")
+            if ($homeText -notmatch $tagCell) {
+                Add-Finding 'FAIL' 'DocsWikiHome' '-' "wiki/Home.md has no row for $Tag"
+            } elseif ($homeM.Success -and [int]$homeM.Groups[1].Value -ne $Groups.Count) {
+                Add-Finding 'WARN' 'DocsWikiHome' '-' "wiki/Home.md lists $($homeM.Groups[1].Value) groups; file has $($Groups.Count)"
+            }
+            $sidebarPath = Join-Path $wikiDir "_Sidebar.md"
+            $sidebar = if (Test-Path $sidebarPath) { [System.IO.File]::ReadAllText($sidebarPath, [System.Text.Encoding]::UTF8) } else { '' }
+            if ($sidebar -notmatch "\($([regex]::Escape($pageName))\)") { Add-Finding 'FAIL' 'DocsWikiSidebar' '-' "wiki/_Sidebar.md has no link to $pageName" }
+
+            $plansDir = Join-Path $RepoDir "docs\superpowers\plans"
+            $slug = $country.ToLower() -replace ' ', '-'
+            $plans = if (Test-Path $plansDir) { @(Get-ChildItem -Path $plansDir -Filter "*-$slug-*.md") } else { @() }
+            if ($plans.Count -eq 0) { Add-Finding 'INFO' 'PlanFile' '-' "No docs/superpowers/plans/*-$slug-*.md (write an audit plan before review)" }
+        }
+    }
+
+    return , $findings.ToArray()
+}
+
+# --- Action: Audit a mod ship namelist ---
+function Invoke-NamelistAudit {
+    param(
+        [string]$Tag,
+        [string]$TargetGroup,
+        [string]$CustomHoi4Dir
+    )
+
+    $Tag = $Tag.ToUpper().Trim()
+    $modFile = Join-Path $RepoDir "common\units\names_ships\${Tag}_ship_names.txt"
+    if (-not (Test-Path $modFile)) {
+        Write-Err "Mod namelist not found: $modFile"
+        exit 1
+    }
+
+    $groups = Get-NamelistGroups -Path $modFile
+
+    if ($TargetGroup) {
+        $found = $groups | Where-Object { $_.GroupTag -eq $TargetGroup }
+        if ($found) {
+            Write-Host "$($found.GroupTag) ($($found.Count) names)" -ForegroundColor Green
+            Write-Host $found.RawBlock
+        } else {
+            Write-Err "Group '$TargetGroup' not found. Groups: $(($groups | ForEach-Object { $_.GroupTag }) -join ', ')"
+        }
+        return
+    }
+
+    $vanillaGroups = $null
+    $hoi4Dir = Find-Hoi4Install -CustomPath $CustomHoi4Dir
+    if ($hoi4Dir) {
+        foreach ($c in @("${Tag}_ship_names.txt", "${Tag}_names_ships.txt")) {
+            $vp = Join-Path $hoi4Dir "common\units\names_ships\$c"
+            if (Test-Path $vp) { $vanillaGroups = Get-NamelistGroups -Path $vp; break }
+        }
+    }
+
+    $findings = Get-NamelistAuditFindings -Groups $groups -Tag $Tag -RepoDir $RepoDir -VanillaGroups $vanillaGroups
+
+    Write-Host "ISNE audit: ${Tag}_ship_names.txt ($($groups.Count) groups)" -ForegroundColor Cyan
+    $table = $groups | Select-Object @{ n = 'Group'; e = { $_.GroupTag -replace "^${Tag}_", '' } }, Class,
+        @{ n = 'Count'; e = { "$($_.Count)/$($_.Target)" } }, Prefix, Fallback,
+        @{ n = 'Name'; e = { if ($_.NameIsLiteral) { $_.ThemeName } else { '(loc key)' } } }
+    Write-Host (($table | Format-Table -AutoSize | Out-String -Width 220).Trim())
+
+    $order = @{ FAIL = 0; WARN = 1; INFO = 2 }
+    Write-Host ""
+    foreach ($f in ($findings | Sort-Object { $order[$_.Severity] }, Check)) {
+        $color = switch ($f.Severity) { 'FAIL' { 'Red' } 'WARN' { 'Yellow' } default { 'Gray' } }
+        $grp = $f.Group -replace "^${Tag}_", ''
+        Write-Host "[$($f.Severity)] $($f.Check) $grp : $($f.Detail)" -ForegroundColor $color
+    }
+    $fails = @($findings | Where-Object { $_.Severity -eq 'FAIL' }).Count
+    $warns = @($findings | Where-Object { $_.Severity -eq 'WARN' }).Count
+    $infos = @($findings | Where-Object { $_.Severity -eq 'INFO' }).Count
+    Write-Host "`nAUDIT SUMMARY ${Tag}: FAIL=$fails WARN=$warns INFO=$infos"
+}
+
+# --- Action: Inspect Vanilla Ship Namelists ---
+function Invoke-InspectVanilla {
+    param(
+        [string]$Tag,
+        [string]$TargetGroup,
+        [string]$CustomHoi4Dir
+    )
+
+    $hoi4Dir = Find-Hoi4Install -CustomPath $CustomHoi4Dir
+    if (-not $hoi4Dir) {
+        Write-Err "Could not locate Hearts of Iron IV game installation directory."
+        Write-Info "Specify the path using -Hoi4InstallDir '<path>'."
+        exit 1
+    }
+
+    $Tag = $Tag.ToUpper().Trim()
+    $candidates = @(
+        (Join-Path $hoi4Dir "common\units\names_ships\${Tag}_ship_names.txt"),
+        (Join-Path $hoi4Dir "common\units\names_ships\${Tag}_names_ships.txt")
+    )
+
+    $targetFile = $null
+    foreach ($c in $candidates) {
+        if (Test-Path $c) { $targetFile = $c; break }
+    }
+
+    if (-not $targetFile) {
+        Write-Err "Vanilla ship namelist file not found for tag $Tag in: $(Join-Path $hoi4Dir 'common\units\names_ships')"
+        exit 1
+    }
+
+    Write-Step "Inspecting vanilla ship namelists in: $targetFile"
+
+    $groups = Get-NamelistGroups -Path $targetFile
 
     if ($TargetGroup) {
         $found = $groups | Where-Object { $_.GroupTag -eq $TargetGroup }
@@ -654,6 +962,12 @@ if ($InspectVanilla) {
     exit 0
 }
 
+# --- Action: Audit ---
+if ($Audit) {
+    Invoke-NamelistAudit -Tag $Audit -TargetGroup $Group -CustomHoi4Dir $Hoi4InstallDir
+    exit 0
+}
+
 # --- Action: InstallSteamCmd ---
 if ($InstallSteamCmd) {
     $installed = Install-SteamCmd
@@ -663,7 +977,7 @@ if ($InstallSteamCmd) {
 }
 
 # --- Determine Actions ---
-$shouldValidate = $Validate -or (-not $NoValidate -and -not $Clean -and -not $InspectVanilla -and -not $Test)
+$shouldValidate = $Validate -or (-not $NoValidate -and -not $Clean -and -not $InspectVanilla -and -not $Audit -and -not $Test)
 if ($ValidateOnly) {
     $ok = Invoke-Validation
     $stopwatch.Stop()

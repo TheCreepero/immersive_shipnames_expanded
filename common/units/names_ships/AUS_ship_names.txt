@@ -9,6 +9,8 @@ AUS_DD_HISTORICAL = {
 	type = ship
 	ship_types = { ship_hull_light destroyer }
 
+	prefix = "SMS "
+
 	fallback_name = "Zerstörer %d"
 
 	unique = {
@@ -39,16 +41,18 @@ AUS_SS_HISTORICAL = {
 	type = ship
 	ship_types = { ship_hull_submarine submarine }
 
+	prefix = "SMS "
+
 	fallback_name = "Unterseeboot %d"
 
 	unique = {
-		# Historic K.u.K. U-boats (including Curie)
+		# Captured French Curie, commissioned as K.u.K. U-14
 		"Curie"
 		# Aquatic life, predators & Danube fish
-		"Forelle" "Hecht" "Karpfen" "Stör" "Wels" "Muräne" "Seeteufel" "Krake" "Nautilus" "Donaunixe"
+		"Forelle" "Hecht" "Karpfen" "Stör" "Wels" "Muräne" "Seeteufel" "Krake" "Nautilus" "Zingel"
 		"Otter" "Biber" "Flussotter" "Salamander" "Seehund" "Wal" "Delphin" "Hai" "Schwertfisch" "Zitterrochen" "Manta"
 		"Barbe" "Zander" "Äsche" "Huchen" "Schleie" "Seesaibling" "Bachforelle" "Regenbogenforelle" "Rotfeder" "Bitterling"
-		"Kallichthys" "Piranha" "Hammerhai" "Tigerhai" "Kupferhai" "Riesenhai" "Dornhai" "Meerneunauge"
+		"Barsch" "Piranha" "Hammerhai" "Tigerhai" "Kupferhai" "Riesenhai" "Dornhai" "Meerneunauge"
 		# Adriatic marine predators, deep sea fauna & Danubian aquatic life
 		"Seewolf" "Thunfisch" "Pottwal" "Schwertwal" "Blauwal" "Seekuh" "Robbe" "Seelöwe"
 		"Schmerle" "Brachse" "Quappe" "Aal" "Salm" "Krebs" "Hummer" "Krabbe" "Tintenfisch" "Rochen"
@@ -67,19 +71,23 @@ AUS_CL_HISTORICAL = {
 	type = ship
 	ship_types = { ship_hull_cruiser light_cruiser }
 
+	prefix = "SMS "
+
 	fallback_name = "Leichter Kreuzer %d"
 
 	unique = {
 		# Historic K.u.K. rapid cruisers & scout cruisers (Zenta, Novara, Admiral Spaun classes)
 		"Novara" "Saida" "Helgoland" "Zenta" "Aspern" "Szigetvár" "Admiral Spaun"
+		# K.u.K. torpedo cruisers (Panther class & Tiger)
+		"Panther" "Leopard" "Tiger"
 		# K.u.K. Adriatic naval bases, coastal ports & key trading harbors
 		"Pola" "Triest" "Fiume" "Zara" "Cattaro" "Ragusa" "Sebenico" "Spalato" "Lussin" "Rovigno" "Parenzo" "Capodistria"
 		# Major Austrian federal capitals, trade hubs & historic river cities
-		"Wien" "Linz" "Salzburg" "Graz" "Innsbruck" "Klagenfurt" "Villach" "Bregenz" "Sankt Pölten" "Steyr"
+		"Linz" "Graz" "Innsbruck" "Klagenfurt" "Villach" "Bregenz" "Sankt Pölten" "Steyr"
 		"Wels" "Dornbirn" "Eisenstadt" "Krems" "Baden" "Hallstatt" "Kitzbühel" "Kufstein" "Gmunden" "Lienz"
 		"Wolfsberg" "Leoben" "Amstetten" "Kapfenberg" "Feldkirch" "Schwaz" "Bad Ischl" "Braunau" "Tulln"
 		# Historic crown land & Danubian regional centers
-		"Budapest" "Pressburg" "Ödenburg" "Raab" "Klausenburg" "Temeschwar" "Kronstadt" "Hermannstadt" "Kaschau"
+		"Pressburg" "Ödenburg" "Raab" "Klausenburg" "Temeschwar" "Kronstadt" "Hermannstadt" "Kaschau"
 		"Agram" "Essegg" "Peterwardein" "Görz" "Trient" "Bozen" "Wiener Neustadt"
 	}
 }
@@ -93,19 +101,22 @@ AUS_CA_HISTORICAL = {
 	type = ship
 	ship_types = { ship_hull_cruiser heavy_cruiser }
 
+	prefix = "SMS "
+
 	fallback_name = "Schwerer Kreuzer %d"
 
 	unique = {
 		# Historic armored cruisers & capital commanders
 		"Kaiserin und Königin Maria Theresia" "Kaiser Karl VI" "Sankt Georg" "Kaiser Franz Joseph I" "Kaiserin Elisabeth"
-		"Tegetthoff" "Prinz Eugen" "Erzherzog Karl" "Feldmarschall Radetzky" "Graf von Starhemberg" "Gideon von Laudon"
-		"Andreas Hofer" "Ludwig von Benedek" "Maximilian von Daun" "Graf von Mercy" "Franz von Mercy" "Montecuccoli"
+		"Graf von Starhemberg" "Gideon von Laudon"
+		"Andreas Hofer" "Ludwig von Benedek" "Graf von Mercy" "Raimondo Montecuccoli"
 		"Graf von Khevenhüller" "Erzherzog Albrecht" "Erzherzog Johann" "Graf von Clam-Gallas"
-		"Graf von Gyulay" "Feldmarschall Daun" "Feldmarschall Lacy" "Feldzeugmeister Wurmser"
-		# Renowned K.u.K. naval heroes, admirals & historic armored combatants
-		"Admiral von Sterneck" "Großadmiral Haus" "Admiral Njegovan" "Admiral Bourguignon" "Admiral Keil" "Admiral Rijavec"
-		"Admiral von Petz" "Don Juan de Austria" "Erzherzog Ferdinand Max" "Erzherzog Ferdinand Karl" "Kaiser" "Custozza"
-		"Generalfeldmarschall Schwarzenberg" "Feldmarschall Boroević" "Feldmarschall Conrad von Hötzendorf" "Feldmarschall Liechtenstein"
+		"Graf von Gyulay" "Feldmarschall Daun" "Feldmarschall Lacy" "Feldmarschall Wurmser"
+		"Karl von Lothringen" "Feldmarschall Hadik" "Josias von Coburg" "Feldmarschall Kövess"
+		# Renowned K.u.K. naval heroes & admirals
+		"Admiral von Sterneck" "Großadmiral Haus" "Admiral Njegovan" "Admiral Bourguignon" "Admiral von Petz"
+		"Admiral Wüllerstorf-Urbair" "Admiral Dahlerup" "Admiral von Pöck" "Admiral Montecuccoli"
+		"Feldmarschall Boroević" "Feldmarschall Conrad von Hötzendorf" "Feldmarschall Liechtenstein"
 	}
 }
 
@@ -116,22 +127,49 @@ AUS_BB_HISTORICAL = {
 	for_countries = { AUS }
 
 	type = ship
-	ship_types = { ship_hull_heavy battleship battle_cruiser }
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "SMS "
 
 	fallback_name = "Schlachtschiff %d"
 
 	unique = {
 		# Historic dreadnoughts & pre-dreadnoughts (Tegetthoff, Erzherzog Karl, Habsburg, Monarch classes)
 		"Viribus Unitis" "Tegetthoff" "Prinz Eugen" "Szent István" "Monarch" "Wien" "Budapest"
-		"Habsburg" "Árpád" "Babenberg" "Erzherzog Ferdinand Max" "Erzherzog Friedrich" "Erzherzog Franz Ferdinand"
+		"Habsburg" "Árpád" "Babenberg" "Erzherzog Friedrich" "Erzherzog Franz Ferdinand"
 		"Erzherzog Karl" "Radetzky" "Zrínyi"
 		# Dynastic rulers & imperial monarchs
-		"Kaiser Franz Joseph I" "Kaiser Karl I" "Kaiserin Maria Theresia" "Kaiser Maximilian I" "Kaiser Rudolf I"
-		"Kaiser Leopold I" "Kaiser Joseph II"
+		"Kaiser Karl I" "Kaiser Maximilian I" "Kaiser Rudolf II" "Kaiser Leopold I" "Kaiser Joseph II"
 		# Imperial crown lands, historic realms & provinces
 		"Österreich" "Niederösterreich" "Oberösterreich" "Steiermark" "Tirol" "Kärnten" "Salzburg" "Burgenland" "Vorarlberg"
 		"Küstenland" "Istrien" "Dalmatien" "Krain" "Böhmen" "Mähren" "Schlesien" "Galizien" "Bukowina"
-		"Ungarn" "Kroatien" "Slawonien" "Siebenbürgen" "Triest" "Lodomerien" "Banat" "Bačka" "Baranya"
+		"Ungarn" "Kroatien" "Slawonien" "Siebenbürgen" "Lodomerien" "Banat" "Bačka" "Baranya" "Vorderösterreich"
+	}
+}
+
+### BATTLECRUISERS ###
+AUS_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { AUS }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "SMS "
+
+	fallback_name = "Schlachtkreuzer %d"
+
+	unique = {
+		# Historic k.k. & k.u.k. ironclads, ships of the line & frigates (Lissa era)
+		"Erzherzog Ferdinand Max" "Kaiser" "Don Juan d'Austria" "Drache" "Salamander" "Custozza" "Lissa"
+		"Kronprinz Erzherzog Rudolf" "Kronprinzessin Erzherzogin Stephanie" "Schwarzenberg" "Donau" "Adria" "Bellona"
+		# K.u.K. Donauflottille monitors
+		"Leitha" "Maros" "Temes" "Bodrog" "Szamos" "Körös"
+		# Adriatic naval encounters & waters
+		"Otranto" "Durazzo" "Ancona" "Quarnero" "Pelagosa"
+		# Fortresses & citadels
+		"Hohensalzburg" "Komorn" "Franzensfeste" "Nehaj" "Przemyśl" "Hochosterwitz" "Hohenwerfen"
 	}
 }
 
@@ -144,14 +182,16 @@ AUS_CV_HISTORICAL = {
 	type = ship
 	ship_types = { ship_hull_carrier carrier }
 
+	prefix = "SMS "
+
 	fallback_name = "Flugzeugträger %d"
 
 	unique = {
 		# Austrian aviation pioneers & naval aviators
-		"Igo Etrich" "Wilhelm Kress" "Walther von der Vogelweide" "Gottfried von Banfield"
+		"Igo Etrich" "Wilhelm Kress" "Gottfried von Banfield" "Godwin Brumowski"
 		# Birds of prey, sky avians & mythical flyers
 		"Doppeladler" "Kaiseradler" "Steinadler" "Seeadler" "Adler" "Falke" "Habicht" "Sperber" "Kondor" "Geier" "Albatros"
-		"Phönix" "Pegasus" "Ikarus" "Milan" "Rotmilan" "Bussard" "Turmfalke" "Wanderfalke" "Jagdfalke" "Baumfalke"
+		"Phönix" "Pegasus" "Ikarus" "Schwarzmilan" "Rotmilan" "Bussard" "Turmfalke" "Wanderfalke" "Jagdfalke" "Baumfalke"
 		"Fischadler" "Schreiadler" "Zwergadler" "Habichtsadler" "Schlangenadler" "Weihe" "Kornweihe" "Horst" "Sturmvogel"
 		# Celestial tempests & winds
 		"Donnerkeil" "Wetterleuchten" "Sturmwind" "Nordwind" "Bora"
@@ -166,16 +206,18 @@ AUS_RULERS = {
 
 	type = ship
 
+	prefix = "SMS "
+
 	fallback_name = "Schiff %d"
 
 	unique = {
 		# Babenberger
-		"Markgraf Leopold I" "Heinrich II Jasomirgott" "Leopold V" "Leopold VI der Glorreiche" "Friedrich II der Streitbare"
+		"Markgraf Leopold I" "Leopold III der Heilige" "Heinrich II Jasomirgott" "Leopold V" "Leopold VI der Glorreiche" "Friedrich II der Streitbare"
 		# Habsburger
 		"Rudolf I von Habsburg" "Albrecht I" "Friedrich der Schöne" "Albrecht II" "Rudolf IV der Stifter"
 		"Friedrich III" "Maximilian I" "Karl V" "Ferdinand I" "Maximilian II" "Rudolf II" "Matthias"
 		"Ferdinand II" "Ferdinand III" "Leopold I" "Joseph I" "Karl VI" "Maria Theresia" "Joseph II"
-		"Leopold II" "Franz II" "Ferdinand I der Gütige" "Franz Joseph I" "Karl I" "Otto von Habsburg"
+		"Leopold II" "Franz II" "Ferdinand I der Gütige" "Franz Joseph I" "Karl I"
 	}
 }
 
@@ -186,6 +228,8 @@ AUS_CITIES = {
 	for_countries = { AUS }
 
 	type = ship
+
+	prefix = "SMS "
 
 	fallback_name = "Stadt %d"
 
@@ -205,6 +249,8 @@ AUS_PROVINCES = {
 
 	type = ship
 
+	prefix = "SMS "
+
 	fallback_name = "Provinz %d"
 
 	unique = {
@@ -222,14 +268,16 @@ AUS_RIVERS = {
 
 	type = ship
 
+	prefix = "SMS "
+
 	fallback_name = "Fluss %d"
 
 	unique = {
 		# Major rivers
-		"Donau" "Inn" "Enns" "Drau" "Mur" "Salzach" "Traun" "Lech" "Ill" "Ybbs" "Kamp" "March" "Thaya" "Gurk" "Gail" "Lavant"
+		"Donau" "Inn" "Enns" "Drau" "Mur" "Salzach" "Traun" "Lech" "Mürz" "Ybbs" "Kamp" "Möll" "Thaya" "Gurk" "Gail" "Lavant"
 		# Famous lakes
 		"Bodensee" "Neusiedler See" "Wörthersee" "Attersee" "Traunsee" "Wolfgangsee" "Achensee" "Zeller See" "Millstätter See"
-		"Ossiacher See" "Hallstätter See" "Plansee" "Grundlsee" "Mondsee" "Faaker See" "Weissensee"
+		"Ossiacher See" "Hallstätter See" "Plansee" "Grundlsee" "Mondsee" "Faaker See" "Weißensee"
 	}
 }
 
@@ -241,13 +289,15 @@ AUS_GEOGRAPHY = {
 
 	type = ship
 
+	prefix = "SMS "
+
 	fallback_name = "Berg %d"
 
 	unique = {
 		"Großglockner" "Wildspitze" "Dachstein" "Großvenediger" "Schneeberg" "Rax" "Hochkönig" "Hoher Sonnblick"
 		"Grimming" "Kitzsteinhorn" "Großes Wiesbachhorn" "Ortler" "Zugspitze" "Patscherkofel" "Nordkette" "Hochkar"
 		"Erzberg" "Tauern" "Karawanken" "Karnische Alpen" "Zillertaler Alpen" "Ötztaler Alpen" "Stubaier Alpen" "Kitzbüheler Alpen"
-		"Ankogel" "Hochfeiler" "Wilder Kaiser" "Grosser Priel" "Glocknergruppe" "Hohe Tauern"
+		"Ankogel" "Hochfeiler" "Wilder Kaiser" "Großer Priel" "Glocknergruppe" "Hohe Tauern"
 	}
 }
 
@@ -259,14 +309,17 @@ AUS_BATTLES = {
 
 	type = ship
 
+	prefix = "SMS "
+
 	fallback_name = "Schlacht %d"
 
 	unique = {
 		# Naval battles
-		"Lissa" "Helgoland" "Novara" "Otranto" "Cattaro" "Pola" "Triest" "Durazzo" "Curzola"
+		"Lissa" "Helgoland" "Novara" "Otranto" "Durazzo"
 		# Land battles
-		"Aspern" "Wagram" "Custoza" "Kolin" "Zenta" "Belgrad" "Malplaquet" "Höchstädt" "Turin" "Petrovaradin"
-		"Caldiero" "Leipzig" "Schwarzenberg" "Montebello" "San Martino" "Solferino" "Mortara" "Santa Lucia"
+		"Kahlenberg" "Slankamen" "Zenta" "Peterwardein" "Belgrad" "Höchstädt" "Turin" "Malplaquet" "Kolin" "Hochkirch" "Kunersdorf"
+		"Caldiero" "Aspern" "Wagram" "Leipzig" "Santa Lucia" "Custozza" "Mortara" "Montebello" "San Martino" "Solferino"
+		"Limanowa" "Karfreit"
 	}
 }
 
@@ -278,13 +331,17 @@ AUS_HEROES = {
 
 	type = ship
 
+	prefix = "SMS "
+
 	fallback_name = "Held %d"
 
 	unique = {
 		"Wilhelm von Tegetthoff" "Prinz Eugen" "Feldmarschall Radetzky" "Andreas Hofer" "Erzherzog Karl" "Graf von Starhemberg"
-		"Gideon von Laudon" "Ludwig von Benedek" "Maximilian von Daun" "Graf von Khevenhüller" "Igo Etrich" "Wilhelm Kress"
-		"Gottfried von Banfield" "Wolfgang Amadeus Mozart" "Franz Schubert" "Joseph Haydn" "Anton Bruckner" "Walther von der Vogelweide"
-		"Paracelsus" "Franz Grillparzer" "Adalbert Stifter" "Stefan Zweig" "Arthur Schnitzler" "Ferdinand Raimund"
+		"Gideon von Laudon" "Ludwig von Benedek" "Leopold Joseph von Daun" "Graf von Khevenhüller" "Igo Etrich" "Wilhelm Kress"
+		"Gottfried von Banfield" "Georg von Trapp" "Josef Ressel" "Karl Weyprecht" "Julius von Payer" "Ludwig von Höhnel"
+		"Gregor Mendel" "Christian Doppler" "Ludwig Boltzmann"
+		"Wolfgang Amadeus Mozart" "Franz Schubert" "Joseph Haydn" "Anton Bruckner" "Johann Strauss" "Gustav Mahler" "Walther von der Vogelweide"
+		"Paracelsus" "Franz Grillparzer" "Adalbert Stifter" "Peter Rosegger" "Stefan Zweig" "Arthur Schnitzler" "Ferdinand Raimund"
 	}
 }
 
@@ -296,12 +353,16 @@ AUS_MYTHOLOGY = {
 
 	type = ship
 
+	prefix = "SMS "
+
 	fallback_name = "Sage %d"
 
 	unique = {
 		"Basilisk" "Lindwurm" "Tatzelwurm" "Krampus" "Perchta" "Rübezahl" "Dietrich von Bern" "Hildebrand" "Siegfried"
-		"Kriemhild" "Etzel" "Hagen von Tronje" "Rüdiger von Bechelaren" "Wieland der Schmied" "Berggeist" "Wassermann"
-		"Donaunixe" "Salige Frauen" "Untersbergkaiser" "Gambrinus"
+		"Kriemhild" "Brünhild" "Gunther" "Giselher" "Etzel" "Hagen von Tronje" "Rüdiger von Bechelaren" "Volker von Alzey"
+		"Berggeist" "Wassermann" "Donauweibchen" "Salige Frauen" "Kaiser im Untersberg" "Lieber Augustin" "Stock-im-Eisen"
+		"Frau Hitt" "Riese Haymon" "König Laurin" "Wilde Jagd" "Nörggele" "Wildmandl" "Habergeiß" "Venedigermandl"
+		"Kasermandl" "Drude" "Tannhäuser"
 	}
 }
 
@@ -313,10 +374,12 @@ AUS_BIRDS = {
 
 	type = ship
 
+	prefix = "SMS "
+
 	fallback_name = "Vogel %d"
 
 	unique = {
-		"Kaiseradler" "Steinadler" "Seeadler" "Falke" "Habicht" "Sperber" "Kondor" "Geier" "Albatros" "Milan"
+		"Kaiseradler" "Steinadler" "Seeadler" "Falke" "Habicht" "Sperber" "Kondor" "Geier" "Albatros" "Rotmilan"
 		"Bussard" "Turmfalke" "Wanderfalke" "Uhu" "Kauz" "Eule" "Rabe" "Krähe" "Möwe" "Schwalbe"
 		"Reiher" "Kranich" "Storch" "Schwan" "Kiebitz" "Auerhahn" "Birkhahn" "Dohle" "Elster"
 	}
@@ -324,17 +387,21 @@ AUS_BIRDS = {
 
 ### UNIVERSAL TOPIC: PREDATORS & WILDLIFE ###
 AUS_BEASTS = {
-	name = "Predators & Alpine Wildlife"
+	name = "Wildlife"
 
 	for_countries = { AUS }
 
 	type = ship
 
-	fallback_name = "Raubtier %d"
+	prefix = "SMS "
+
+	fallback_name = "Wildtier %d"
 
 	unique = {
 		"Panther" "Tiger" "Leopard" "Löwe" "Gepard" "Jaguar" "Luchs" "Wolf" "Braunbär" "Wildschwein"
 		"Steinbock" "Gams" "Hirsch" "Rehbock" "Vielfraß" "Marder" "Iltis" "Otter" "Fuchs" "Dachs"
+		"Murmeltier" "Wildkatze" "Steinmarder" "Hermelin" "Mauswiesel" "Schneehase" "Feldhase" "Wisent"
+		"Elch" "Mufflon" "Damhirsch" "Hirschkäfer" "Kreuzotter" "Alpensalamander" "Siebenschläfer"
 	}
 }
 
@@ -346,10 +413,17 @@ AUS_VIRTUES = {
 
 	type = ship
 
+	prefix = "SMS "
+
 	fallback_name = "Devise %d"
 
 	unique = {
-		"Viribus Unitis" "Constantia et Virtute" "Justitia Regnorum Fundamentum" "Tu Felix Austria"
+		# Habsburg imperial & dynastic mottos, order devices
+		"Viribus Unitis" "AEIOU" "Tu Felix Austria" "Consilio et Industria" "Amore et Timore" "Constantia et Fortitudine"
+		"Justitia et Clementia" "Virtute et Exemplo" "Justitia Regnorum Fundamentum" "Fortitudini" "Integritati et Merito"
+		"Avita et Aucta" "Pretium Laborum Non Vile"
+		# Martial virtues
+		"Pflichttreue" "Ritterlichkeit" "Tatkraft" "Opfermut"
 		"Unverzagtheit" "Tapferkeit" "Standhaftigkeit" "Treue" "Beharrlichkeit" "Wachsamkeit"
 		"Entschlossenheit" "Kühnheit" "Furchtlosigkeit" "Unbeugsamkeit" "Sieghaftigkeit"
 		"Ruhm" "Ehre" "Eintracht" "Gerechtigkeit" "Heldenmut" "Festigkeit" "Zuverlässigkeit"

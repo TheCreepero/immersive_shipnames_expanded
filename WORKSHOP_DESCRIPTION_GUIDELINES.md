@@ -69,7 +69,7 @@ This document serves as an instruction and reference guide for maintaining and u
 | File | Nation | Tag | Status in Description |
 | :--- | :--- | :--- | :--- |
 | `ARG_ship_names.txt` | Argentina | `ARG` | Included (DD, SS, CL, CA, BB, BC, CV, 6 Thematic Topics) |
-| `AUS_ship_names.txt` | Austria | `AUS` | Included (DD, SS, CL, CA, BB, CV, 11 Thematic Topics) |
+| `AUS_ship_names.txt` | Austria | `AUS` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics) |
 | `BRA_ship_names.txt` | Brazil | `BRA` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
 | `CHL_ship_names.txt` | Chile | `CHL` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
 | `CUB_ship_names.txt` | Cuba | `CUB` | Included (DD, SS, CL, CA, BB, CV, 7 Thematic Topics) |
@@ -111,7 +111,7 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 - Added 6 universal thematic lists: Cities, Provinces, Heroes, Historic Battles, Rivers, and Fauna.
 
 [b]Austria[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, CV).
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
 - Added 11 universal thematic lists: Monarchs, Cities, Crown Lands, Rivers & Lakes, Peaks, Battles, Heroes, Folklore, Birds, Wildlife, and Virtues.
 
 [b]Brazil[/b]

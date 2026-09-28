@@ -67,7 +67,7 @@ Whenever a new country ship namelist is added, expanded, or modified:
    - Add/update the file and summary in the **Repository Cross-Reference** table.
    - Add/update the nation under `[h1]Included nations:[/h1]` using standard BBCode:
      - Use **"Expanded"** (not "Added") for ship-type specific lists that overhaul or augment vanilla classes.
-     - Follow the standard 3-bullet format (Expanded ship-type lists, Added universal thematic pools, Vanilla fixes and historical traditions restored).
+     - Follow the standard 2-bullet format (Expanded ship-type lists, Added universal thematic pools). Vanilla bug fixes and typo corrections are documented globally in the Info section to conserve description space.
      - Strictly avoid listing individual ship names.
    - Keep the header intro pitch synchronized with all currently implemented nations.
    - Do **NOT** include a `[h1]Planned:[/h1]` section in the workshop description.

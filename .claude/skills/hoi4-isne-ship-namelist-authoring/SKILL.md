@@ -321,13 +321,12 @@ Whenever a country's namelists are added or updated:
 
 1. **`WORKSHOP_DESCRIPTION_GUIDELINES.md`**:
    - Add/update the row in the **Repository Cross-Reference** table:
-     `| ISNE_<TAG>_ship_names.txt | <Country> | <TAG> | Included (<Summary of highlights>) |`
-   - Add/update the country entry under `[h1]Included nations:[/h1]` using Steam BBCode (summarizing changes concisely rather than listing individual ship names):
+     `| <TAG>_ship_names.txt | <Country> | <TAG> | Included (<Summary of highlights>) |`
+   - Add/update the country entry under `[h1]Included nations:[/h1]` using the standard 2-bullet Steam BBCode format (summarizing changes concisely rather than listing individual ship names; vanilla bug fixes are documented globally in the Info section):
      ```bbcode
      [b]<Country>[/b]
      - Expanded ship-type lists for <Hulls>.
      - Added <N> universal thematic lists for the Ship Designer (<Topics>).
-     - Fixed vanilla issues / restored historical naming traditions (<Fixes/Overhauls>).
      ```
    - **Do NOT list individual ship names** in the workshop description to avoid exhausting the character limit.
    - **Writing Standards**: Use "Expanded" for ship-type lists, maintain consistent past tense, avoid repetitive verbs (e.g. repeated "fixed"), and avoid tautological phrases (e.g. "expanded ... expansion fleets").

@@ -51,6 +51,11 @@
 
 .PARAMETER Group
     Optional specific ship namelist group tag to excerpt directly when using -InspectVanilla or -Audit (e.g. -Group FIN_DD_HISTORICAL).
+    With -Audit, accepts a comma-separated list, and the TAG_ prefix may be omitted (e.g. -Group RULERS,HEROES,CV_HISTORICAL).
+
+.PARAMETER NamesOnly
+    With -Audit: print one compact line per group (tag, count, display name, names separated by "; ") instead of raw blocks.
+    Combine with -Group to limit output to the listed groups; without -Group, prints every group and skips the report.
 
 .PARAMETER Hoi4InstallDir
     Custom path to the Hearts of Iron IV installation folder if installed in a non-standard directory.
@@ -94,6 +99,10 @@
     # Audits CUB_ship_names.txt against current standards; add -Group CUB_BB_HISTORICAL to print a single group.
 
 .EXAMPLE
+    .\build.ps1 -Audit FIN -Group RULERS,HEROES,BC_HISTORICAL -NamesOnly
+    # Prints the listed groups as one compact line each (names only, no block boilerplate).
+
+.EXAMPLE
     .\build.ps1 -PublishSteam -DryRun
     # Previews the Steam Workshop VDF and staged files without uploading.
 #>
@@ -133,6 +142,9 @@ param(
     [Parameter(ParameterSetName = 'InspectVanilla')]
     [Parameter(ParameterSetName = 'Audit')]
     [string]$Group,
+
+    [Parameter(ParameterSetName = 'Audit')]
+    [switch]$NamesOnly,
 
     [Parameter(ParameterSetName = 'InspectVanilla')]
     [Parameter(ParameterSetName = 'Audit')]
@@ -822,6 +834,27 @@ function Get-NamelistAuditFindings {
                 $known = @($Groups | ForEach-Object { $_.GroupTag })
                 $stale = @([regex]::Matches($wiki, "\b$([regex]::Escape($Tag))_[A-Z][A-Z_]*\b") | ForEach-Object { $_.Value } | Select-Object -Unique | Where-Object { $known -notcontains $_ -and $_ -ne "${Tag}_ship_names" })
                 if ($stale.Count -gt 0) { Add-Finding 'WARN' 'DocsWikiStale' '-' "Wiki page mentions groups not in file: $(Format-NameList $stale)" }
+
+                # Sample names in each group's table row (last cell) must still exist in that group;
+                # a shortened form (e.g. surname "Armfelt" for "Carl Gustaf Armfelt") counts as present
+                $byTag = @{}
+                foreach ($g in $Groups) { $byTag[$g.GroupTag] = $g }
+                $staleSamples = [System.Collections.Generic.List[string]]::new()
+                foreach ($row in [regex]::Matches($wiki, "(?m)^\|\s*``($([regex]::Escape($Tag))_[A-Z_]+)``\s*\|([^\r\n]*)")) {
+                    $g = $byTag[$row.Groups[1].Value]
+                    if (-not $g) { continue }
+                    $cells = @($row.Groups[2].Value -split '\|' | ForEach-Object { $_.Trim() } | Where-Object { $_ })
+                    if ($cells.Count -lt 2 -or $cells[-1] -match '`') { continue }
+                    foreach ($sample in ($cells[-1] -split ',')) {
+                        $s = $sample.Trim().Trim('*', '_').Trim()
+                        if (-not $s -or $s -match '^(etc\.?|\.\.\.|…)$') { continue }
+                        $pattern = '(?<![\p{L}\p{N}])' + [regex]::Escape($s) + '(?![\p{L}\p{N}])'
+                        if (-not @($g.Names | Where-Object { $_ -cmatch $pattern }).Count) {
+                            $staleSamples.Add("$($g.GroupTag -replace "^$([regex]::Escape($Tag))_", ''): $s")
+                        }
+                    }
+                }
+                if ($staleSamples.Count -gt 0) { Add-Finding 'WARN' 'DocsWikiSamples' '-' "Wiki sample names not in their group: $(Format-NameList $staleSamples.ToArray())" }
             }
 
             $homePath = Join-Path $wikiDir "Home.md"
@@ -851,7 +884,8 @@ function Invoke-NamelistAudit {
     param(
         [string]$Tag,
         [string]$TargetGroup,
-        [string]$CustomHoi4Dir
+        [string]$CustomHoi4Dir,
+        [switch]$NamesOnly
     )
 
     $Tag = $Tag.ToUpper().Trim()
@@ -863,13 +897,24 @@ function Invoke-NamelistAudit {
 
     $groups = Get-NamelistGroups -Path $modFile
 
-    if ($TargetGroup) {
-        $found = $groups | Where-Object { $_.GroupTag -eq $TargetGroup }
-        if ($found) {
-            Write-Host "$($found.GroupTag) ($($found.Count) names)" -ForegroundColor Green
-            Write-Host $found.RawBlock
-        } else {
-            Write-Err "Group '$TargetGroup' not found. Groups: $(($groups | ForEach-Object { $_.GroupTag }) -join ', ')"
+    if ($TargetGroup -or $NamesOnly) {
+        $selected = $groups
+        if ($TargetGroup) {
+            $wanted = @($TargetGroup -split ',' | ForEach-Object { $_.Trim().ToUpper() } | Where-Object { $_ })
+            $missing = @($wanted | Where-Object { $w = $_; -not ($groups | Where-Object { $_.GroupTag -eq $w -or $_.GroupTag -eq "${Tag}_$w" }) })
+            if ($missing.Count -gt 0) {
+                Write-Err "Group(s) not found: $($missing -join ', '). Groups: $(($groups | ForEach-Object { $_.GroupTag }) -join ', ')"
+            }
+            $selected = @($groups | Where-Object { $wanted -contains $_.GroupTag -or $wanted -contains ($_.GroupTag -replace "^${Tag}_", '') })
+        }
+        foreach ($g in $selected) {
+            if ($NamesOnly) {
+                $label = if ($g.NameIsLiteral) { " `"$($g.ThemeName)`"" } else { '' }
+                Write-Host "$($g.GroupTag) ($($g.Count))${label}: $($g.Names -join '; ')"
+            } else {
+                Write-Host "$($g.GroupTag) ($($g.Count) names)" -ForegroundColor Green
+                Write-Host $g.RawBlock
+            }
         }
         return
     }
@@ -964,7 +1009,7 @@ if ($InspectVanilla) {
 
 # --- Action: Audit ---
 if ($Audit) {
-    Invoke-NamelistAudit -Tag $Audit -TargetGroup $Group -CustomHoi4Dir $Hoi4InstallDir
+    Invoke-NamelistAudit -Tag $Audit -TargetGroup $Group -CustomHoi4Dir $Hoi4InstallDir -NamesOnly:$NamesOnly
     exit 0
 }
 

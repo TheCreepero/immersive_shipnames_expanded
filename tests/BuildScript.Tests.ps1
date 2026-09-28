@@ -56,12 +56,12 @@ BeforeAll {
         return $text
     }
 
-    function Invoke-FixtureAudit([string]$Text) {
+    function Invoke-FixtureAudit([string]$Text, [string]$RepoDir) {
         $tempFile = [System.IO.Path]::GetTempFileName()
         try {
             [System.IO.File]::WriteAllText($tempFile, $Text, (New-Object System.Text.UTF8Encoding $false))
             $groups = Get-NamelistGroups -Path $tempFile
-            return , (Get-NamelistAuditFindings -Groups $groups -Tag 'TST')
+            return , (Get-NamelistAuditFindings -Groups $groups -Tag 'TST' -RepoDir $RepoDir)
         }
         finally {
             if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
@@ -240,6 +240,29 @@ Describe "build.ps1 Helper: Get-NamelistAuditFindings" {
         $findings = Invoke-FixtureAudit $text
         ($findings | Where-Object { $_.Check -eq 'Depth' -and $_.Group -eq 'TST_BIRDS' }).Severity | Should -Be 'WARN'
     }
+
+    It "Warns on wiki sample names missing from their group, accepting shortened forms" {
+        $repo = Join-Path ([System.IO.Path]::GetTempPath()) ("isne_fixture_" + [guid]::NewGuid().ToString('N'))
+        try {
+            New-Item -ItemType Directory -Force (Join-Path $repo 'wiki') | Out-Null
+            $utf8 = New-Object System.Text.UTF8Encoding $false
+            [System.IO.File]::WriteAllText((Join-Path $repo 'README.md'), "| ``TST`` | Testland | ``TST_ship_names.txt`` |`n", $utf8)
+            $wiki = "| ``TST_CL_HISTORICAL`` | Light Cruisers | ``ship_hull_cruiser light_cruiser`` | Cl 1, Cl 2, Gone Name |`n" +
+                    "| ``TST_BIRDS`` | BIRDS | Universal | BIRDS 7, 35, Bb 1`n"
+            [System.IO.File]::WriteAllText((Join-Path $repo 'wiki\Testland.md'), $wiki, $utf8)
+
+            $findings = Invoke-FixtureAudit (Get-CompliantFixtureText) $repo
+            $f = @($findings | Where-Object { $_.Check -eq 'DocsWikiSamples' })
+            $f.Count | Should -Be 1
+            $f[0].Severity | Should -Be 'WARN'
+            $f[0].Detail | Should -Match 'CL_HISTORICAL: Gone Name'
+            $f[0].Detail | Should -Match 'BIRDS: Bb 1'
+            $f[0].Detail | Should -Not -Match 'Cl 1|BIRDS 7|: 35'
+        }
+        finally {
+            if (Test-Path $repo) { Remove-Item -Recurse -Force $repo }
+        }
+    }
 }
 
 Describe "build.ps1 -Audit action" {
@@ -247,5 +270,15 @@ Describe "build.ps1 -Audit action" {
         $output = & powershell -NoProfile -File $script:BuildScriptPath -Audit FIN 2>&1 | Out-String
         $LASTEXITCODE | Should -Be 0
         $output | Should -Match 'AUDIT SUMMARY FIN: FAIL=\d+ WARN=\d+ INFO=\d+'
+    }
+
+    It "Prints several groups as compact name lines with -Group list and -NamesOnly" {
+        $output = & powershell -NoProfile -File $script:BuildScriptPath -Audit FIN -Group 'RULERS,FIN_CV_HISTORICAL' -NamesOnly 2>&1 | Out-String
+        $LASTEXITCODE | Should -Be 0
+        $lines = @($output -split '\r?\n' | Where-Object { $_ -match '^FIN_' })
+        $lines.Count | Should -Be 2
+        $lines[0] | Should -Match '^FIN_CV_HISTORICAL \(\d+\): \S.*; '
+        $lines[1] | Should -Match '^FIN_RULERS \(\d+\) "[^"]+": '
+        $output | Should -Not -Match 'fallback_name|AUDIT SUMMARY'
     }
 }

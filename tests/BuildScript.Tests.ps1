@@ -25,7 +25,8 @@ BeforeAll {
 
     foreach ($fn in @('Get-NamelistGroups', 'Get-NamelistAuditFindings', 'Get-ShipTypeFindings', 'Get-ShipTypeCanon', 'Get-RolePoolSuffixes', 'Get-NameVariantKey', 'Edit-NamelistGroupText', 'Compare-NamelistGroupSets', 'Format-NamelistDiff',
             'Resolve-GroupTag', 'Get-GroupSections', 'Get-PersonKeyWords', 'Get-OrphanHeaderLines', 'Format-PlanChangeTable',
-            'Set-PlanChangeTable', 'New-AuditPlanText', 'Update-WikiGroupRows', 'Format-AuditFindingLines', 'Format-AuditSummary')) {
+            'Set-PlanChangeTable', 'New-AuditPlanText', 'Update-WikiGroupRows', 'Format-AuditFindingLines', 'Format-AuditSummary',
+            'Find-WikiProseMentions')) {
         $fnMatch = [regex]::Match($script:BuildContent, "(?s)(function $fn\s*\{.*?\n\})")
         if ($fnMatch.Success) {
             . ([ScriptBlock]::Create($fnMatch.Groups[1].Value))
@@ -511,6 +512,23 @@ Describe "build.ps1 Helper: Compare-NamelistGroupSets and Format-NamelistDiff" {
         ($r.Changes -join "`n") | Should -Match 'CL: samples -\[Gone\] \+\[Zeta\]'
         $r.Stale | Should -Be @('TST_GONE')
         $r.Missing | Should -Be @('TST_CV', 'TST_NEW')
+    }
+
+    It "Expands an unambiguous short-form sample to its full entry and keeps an ambiguous one" {
+        $groups = ConvertTo-FixtureGroups (New-FixtureGroup 'TST_BB' 'ship_hull_heavy battleship' @('Domingo Faustino Sarmiento', 'Juan Bautista Alberdi', 'Manuel Montt', 'Jorge Montt'))
+        $wiki = "| ``TST_BB`` | Battleships | ``x`` | Sarmiento, Montt, Juan Bautista Alberdi |`n"
+        $r = Update-WikiGroupRows -WikiText $wiki -Groups $groups -Tag 'TST'
+        $r.Text | Should -Match '\| Domingo Faustino Sarmiento, Montt, Juan Bautista Alberdi \|'
+        ($r.Changes -join "`n") | Should -Match 'expanded \[Sarmiento -> Domingo Faustino Sarmiento\]'
+        ($r.Changes -join "`n") | Should -Not -Match 'samples -'
+    }
+
+    It "Lists prose lines (not group rows) that mention given names (Find-WikiProseMentions)" {
+        $wiki = "# Testland`nThe old list had Loco and Gone Name.`n| ``TST_CL`` | x | y | Loco |`nLocomotive is not a match.`n"
+        $hits = Find-WikiProseMentions -WikiText $wiki -Names @('Loco', 'Gone Name', 'Absent') -Tag 'TST'
+        $hits | Should -Be @('L2: Loco, Gone Name')
+        $labelled = Find-WikiProseMentions -WikiText $wiki -Names @('Loco') -Tag 'TST' -Labels @{ Loco = 'moved SS->FAUNA' }
+        $labelled | Should -Be @('L2: Loco (moved SS->FAUNA)')
     }
 }
 

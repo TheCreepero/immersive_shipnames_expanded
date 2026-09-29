@@ -115,8 +115,9 @@
 
 .PARAMETER SyncWiki
     Sync wiki/<Country>.md group rows with the namelist (literal display names; sample cells keep valid samples,
-    drop stale ones and top up from the group) and the TAG's group count in wiki/Home.md (e.g. -SyncWiki CHL).
-    Lists groups without a row and rows without a group; prose, README and the Workshop block stay manual.
+    expand an unambiguous short form to its full entry, drop stale ones and top up from the group) and the TAG's
+    group count in wiki/Home.md (e.g. -SyncWiki CHL). Lists groups without a row, rows without a group, and prose
+    lines that mention names removed or moved since HEAD; prose, README and the Workshop block stay manual.
 
 .PARAMETER Hoi4InstallDir
     Custom path to the Hearts of Iron IV installation folder if installed in a non-standard directory.
@@ -1932,7 +1933,7 @@ function New-AuditPlanText {
     foreach ($t in $TableLines) { $l.Add($t) }
     $l.Add('<!-- END CHANGE TABLE -->'); $l.Add('')
     $l.Add('## Rationale'); $l.Add('<!-- TODO: doctrine applied, why names moved, respellings (a rename shows as removed + added above) -->'); $l.Add('')
-    $l.Add('## Persons verified'); $l.Add('<!-- TODO: every added, respelled or suspect-but-kept person: source or "well documented" -->'); $l.Add('')
+    $l.Add('## Persons verified'); $l.Add('<!-- TODO: every person the file keeps, legacy included: source or "well documented" (one line per group for well-documented names) -->'); $l.Add('')
     $l.Add('## Author confirmation'); $l.Add('<!-- TODO: unverified persons kept pending the author, or "None" -->'); $l.Add('')
     $l.Add('## Kept on judgment'); $l.Add('<!-- TODO: remaining WARNs and CrossClassPerson pairs kept, each with its reason, or "None" -->'); $l.Add('')
     $l.Add('## Role pools'); $l.Add('| Role | Verdict | Reason |'); $l.Add('|---|---|---|'); $l.Add('<!-- TODO: one row per role considered -->'); $l.Add('')
@@ -2015,12 +2016,25 @@ function Update-WikiGroupRows {
             $items = @($cell -split ',' | ForEach-Object { $_.Trim() } | Where-Object { $_ })
             $matchesName = { param($s, $n) $n -cmatch ('(?<![\p{L}\p{N}])' + [regex]::Escape($s) + '(?![\p{L}\p{N}])') }
             $keep = @($items | Where-Object { $s = $_; @($g.Names | Where-Object { & $matchesName $s $_ }).Count -gt 0 })
-            $fill = @($g.Names | Where-Object { $n = $_; @($keep | Where-Object { & $matchesName $_ $n }).Count -eq 0 })
-            $new = @($keep) + @($fill | Select-Object -First ([Math]::Max(0, $items.Count - $keep.Count)))
+            # Expand a short form ("Sarmiento") to the single entry it matches ("Domingo Faustino Sarmiento");
+            # an ambiguous short form stays as written
+            $final = [System.Collections.Generic.List[string]]::new()
+            $expanded = @()
+            foreach ($s in $keep) {
+                $full = $s
+                if ($g.Names -cnotcontains $s) {
+                    $hits = @($g.Names | Where-Object { & $matchesName $s $_ })
+                    if ($hits.Count -eq 1) { $full = $hits[0]; $expanded += "$s -> $full" }
+                }
+                if (-not $final.Contains($full)) { $final.Add($full) }
+            }
+            $fill = @($g.Names | Where-Object { $n = $_; @($final | Where-Object { & $matchesName $_ $n }).Count -eq 0 })
+            $new = @($final) + @($fill | Select-Object -First ([Math]::Max(0, $items.Count - $final.Count)))
             if (($new -join ', ') -cne ($items -join ', ')) {
                 $dropped = @($items | Where-Object { $keep -cnotcontains $_ })
-                $addedSamples = @($new | Where-Object { $keep -cnotcontains $_ })
-                $notes += "samples -[$($dropped -join ', ')] +[$($addedSamples -join ', ')]"
+                $addedSamples = @($new | Where-Object { $final -cnotcontains $_ })
+                if ($dropped.Count -or $addedSamples.Count) { $notes += "samples -[$($dropped -join ', ')] +[$($addedSamples -join ', ')]" }
+                if ($expanded.Count) { $notes += "expanded [$($expanded -join '; ')]" }
                 $cells[$last] = " $($new -join ', ') "
             }
         }
@@ -2031,6 +2045,28 @@ function Update-WikiGroupRows {
     }
     $missing = @($Groups | Where-Object { -not $seen.ContainsKey($_.GroupTag) } | ForEach-Object { $_.GroupTag })
     return @{ Text = ($lines -join "`n"); Changes = $changes.ToArray(); Missing = $missing; Stale = $stale.ToArray() }
+}
+
+# --- Helper: Prose lines of a wiki page (group rows excluded) that mention any of the given names ---
+# Returns "L<line>: name, name" strings (each name followed by " (<label>)" when -Labels has one), so the caller
+# edits those lines without reading the page.
+function Find-WikiProseMentions {
+    param(
+        [string]$WikiText,
+        [string[]]$Names,
+        [string]$Tag,
+        [hashtable]$Labels = @{}
+    )
+    $out = [System.Collections.Generic.List[string]]::new()
+    $patterns = @($Names | Select-Object -Unique | ForEach-Object { @{ Name = $_; Rx = '(?<![\p{L}\p{N}])' + [regex]::Escape($_) + '(?![\p{L}\p{N}])' } })
+    $lines = @($WikiText -split "`n")
+    for ($i = 0; $i -lt $lines.Count; $i++) {
+        $raw = $lines[$i].TrimEnd("`r")
+        if ($raw -match "^\|\s*``$([regex]::Escape($Tag))_") { continue }
+        $hits = @($patterns | Where-Object { $raw -cmatch $_.Rx } | ForEach-Object { if ($Labels.ContainsKey($_.Name)) { "$($_.Name) ($($Labels[$_.Name]))" } else { $_.Name } })
+        if ($hits.Count) { $out.Add("L$($i + 1): $($hits -join ', ')") }
+    }
+    return , $out.ToArray()
 }
 
 # --- Action: Sync a nation's wiki page rows and its wiki/Home.md group count with the namelist ---
@@ -2055,6 +2091,25 @@ function Invoke-SyncWiki {
     if ($r.Missing.Count) { Write-Host "  no row (add by hand): $($r.Missing -join ', ')" }
     if ($r.Stale.Count) { Write-Host "  row for a group not in the file (remove or rename by hand): $($r.Stale -join ', ')" }
 
+    # Prose that mentions names removed or moved between groups since HEAD may describe the old layout
+    $diff = $null
+    try { $diff = Get-TagNamelistDiff -Tag $Tag -BaseRev 'HEAD' } catch { Write-Host "  prose check skipped: $($_.Exception.Message)" }
+    if ($diff) {
+        $short = { param($t) $t -replace "^$([regex]::Escape($Tag))_", '' }
+        $labels = @{}
+        foreach ($from in $diff.Diff) {
+            foreach ($nm in $from.Removed) {
+                $to = @($diff.Diff | Where-Object { $_.GroupTag -ne $from.GroupTag -and $_.Added -ccontains $nm } | ForEach-Object { & $short $_.GroupTag })
+                $labels[$nm] = if ($to.Count) { "moved $(& $short $from.GroupTag)->$($to -join '/')" } else { "removed from $(& $short $from.GroupTag)" }
+            }
+        }
+        $mentions = if ($labels.Count) { Find-WikiProseMentions -WikiText $r.Text -Names @($labels.Keys) -Tag $Tag -Labels $labels } else { @() }
+        if ($mentions.Count) {
+            Write-Host "  prose mentioning names removed or moved since HEAD (review only these lines):"
+            foreach ($m in $mentions) { Write-Host "    $m" }
+        }
+    }
+
     $homePath = Join-Path $RepoDir 'wiki\Home.md'
     if (Test-Path $homePath) {
         $homeText = [System.IO.File]::ReadAllText($homePath, [System.Text.Encoding]::UTF8)
@@ -2070,7 +2125,7 @@ function Invoke-SyncWiki {
             Write-Host "wiki/Home.md: $Tag group count $($groups.Count) (unchanged)"
         }
     }
-    Write-Host "Prose (overview, scope notes), README and the Workshop block are not touched."
+    Write-Host "Prose (overview, scope notes), README and the Workshop block are not edited; lines to review are listed above."
     return 0
 }
 

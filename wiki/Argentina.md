@@ -18,6 +18,8 @@ In vanilla Hearts of Iron IV, Argentina's ship namelist file (`ARG_ship_names.tx
 
 **ISNE** comprehensively redesigns Argentina's naval namelists into two balanced tiers: dedicated ship-type categories grounded in authentic *Armada de la República Argentina* doctrines, and expansive universal thematic pools covering Argentine geography, provinces, historical battles, founding statesmen, rivers, and native fauna.
 
+**Class separation & scope** (audit 2026-09-29): the cruiser, battleship, battlecruiser and carrier rosters share no names. Historic names sit in the class that carried them: *Nueve de Julio* in CL, *Libertad* (the 1890s coastal battleship) and the *Garibaldi*-class armored cruisers in CA, *Independencia* and *Veinticinco de Mayo* in CV. Heavy cruisers honor independence-era and civil-war generals and caudillos, while battleships honor civilian founders, presidents and constitutional compacts. Battle names are limited to attested engagements. Destroyer officer names are limited to documented Argentine Navy vessels or officers. The Provinces pool covers Argentina's 23 provinces, with no invented or historical padding.
+
 ---
 
 ## Namelist Groups
@@ -30,11 +32,11 @@ Dedicated namelists tied to specific ship hulls and naval classifications:
 | :--- | :--- | :--- | :--- |
 | `ARG_DD_HISTORICAL` | Destroyers & Escorts | `ship_hull_light destroyer` | Buenos Aires, Catamarca, Córdoba, Jujuy, Almirante Brown, Espora, Rosales, Bouchard, Seguí, Py, Audaz, Intrépido, Pampero |
 | `ARG_SS_HISTORICAL` | Submarines | `ship_hull_submarine submarine` | Santa Fe, Santiago del Estero, Salta, San Luis, Santa Cruz, San Juan, San Antonio, Tiburón, Orca, Delfín, Catriel, Namuncurá |
-| `ARG_CL_HISTORICAL` | Light Cruisers | `ship_hull_cruiser light_cruiser` | La Argentina, Buenos Aires, Patagonia, Libertad, Independencia, Rosario, Bahía Blanca, Mar del Plata, Puerto Belgrano, Santa Fe |
-| `ARG_CA_HISTORICAL` | Heavy Cruisers & Coastal Defense | `ship_hull_cruiser heavy_cruiser` | Veinticinco de Mayo, Almirante Brown, Pueyrredón, General Belgrano, Garibaldi, San Martín, Güemes, Las Heras, Mitre, Sarmiento |
-| `ARG_BB_HISTORICAL` | Battleships & Dreadnoughts | `ship_hull_heavy battleship` | Rivadavia, Moreno, Julio Argentino Roca, Bernardino Rivadavia, Mariano Moreno, General San Martín, Manuel Belgrano, Sarmiento, Alberdi |
+| `ARG_CL_HISTORICAL` | Light Cruisers | `ship_hull_cruiser light_cruiser` | La Argentina, Buenos Aires, Patagonia, Rosario, Bahía Blanca, Mar del Plata, Puerto Belgrano, Santa Fe, Nueve de Julio, La Plata |
+| `ARG_CA_HISTORICAL` | Heavy Cruisers & Coastal Defense | `ship_hull_cruiser heavy_cruiser` | Almirante Brown, Pueyrredón, General Belgrano, Garibaldi, San Martín, Martín Miguel de Güemes, Juan Gregorio de Las Heras, El Plata, Los Andes, Libertad |
+| `ARG_BB_HISTORICAL` | Battleships & Dreadnoughts | `ship_hull_heavy battleship` | Rivadavia, Moreno, Julio Argentino Roca, Domingo Faustino Sarmiento, Juan Bautista Alberdi, Bartolomé Mitre, Justo José de Urquiza, Nicolás Avellaneda, Carlos Pellegrini |
 | `ARG_BC_HISTORICAL` | Battlecruisers | `ship_hull_heavy battle_cruiser` | San Lorenzo, Chacabuco, Maipú, Suipacha, Salta, Tucumán, Vuelta de Obligado, Martín García, Juncal, Los Pozos, Quilmes, Ituzaingó |
-| `ARG_CV_HISTORICAL` | Aircraft Carriers | `ship_hull_carrier carrier` | Independencia, Veinticinco de Mayo, República, Libertad, Constitución, General San Martín, Almirante Brown, Cóndor, Águila, Halcón |
+| `ARG_CV_HISTORICAL` | Aircraft Carriers | `ship_hull_carrier carrier` | Independencia, Veinticinco de Mayo, Cóndor, Águila, Halcón, Patria, Sol de Mayo, Mar Argentino, Antártida Argentina, Islas Malvinas |
 
 ---
 

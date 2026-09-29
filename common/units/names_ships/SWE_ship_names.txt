@@ -82,7 +82,7 @@ SWE_CL_HISTORICAL = {
 
 	unique = {
 		# Historical light cruisers, corvettes & minelayers
-		"Gotland" "Fylgia" "Tre Kronor" "Göta Lejon" "Claes Fleming" "Älvsnabben" "Marieholm"
+		"Gotland" "Fylgia" "Tre Kronor" "Göta Lejon" "Clas Fleming" "Älvsnabben" "Marieholm"
 		"Örnen" "Falken" "Saga" "Freja" "Jarramas"
 		# Major regional centers & historic inland capitals
 		"Uppsala" "Västerås" "Örebro" "Linköping" "Jönköping" "Lund" "Borås" "Växjö" "Karlstad"
@@ -110,15 +110,15 @@ SWE_CA_HISTORICAL = {
 
 	unique = {
 		# Historic Coastal Defence Ships (Pansarskepp) & Monitors
-		"Sverige" "Drottning Victoria" "Gustav V" "Dristigheten" "Äran" "Tapperheten" "Wasa" "Manligheten"
+		"Sverige" "Drottning Victoria" "Gustaf V" "Dristigheten" "Äran" "Tapperheten" "Wasa" "Manligheten"
 		"Oscar II" "Oden" "Thor" "Niord" "Svea" "Göta" "Thule" "Starkodder" "Styrbjörn"
-		"John Ericsson" "Tordön" "Tirfing" "Loke"
+		"John Ericsson" "Tordön" "Tirfing" "Loke" "Garmer" "Sköld" "Fenris" "Gerda" "Björn" "Sölve"
 		# Norse deities & mythic figures
 		"Balder" "Heimdall" "Tyr" "Brage" "Forsete" "Ull" "Gylfe"
 		# Sagas, folk heroes & medieval leaders
-		"Rolf Krake" "Orvar Odd" "Ragnar Lodbrok" "Hjalmar" "Ingeborg" "Hagbard" "Signe"
-		"Engelbrekt" "Birger Jarl" "Valdemar" "Magnus Ladulås" "Sten Sture" "Svante Sture"
-		"Svithiod" "Scania" "Väring" "Folke Filbyter"
+		"Orvar Odd" "Ragnar Lodbrok" "Hjalmar" "Ingeborg" "Hagbard" "Signe"
+		"Engelbrekt" "Valdemar Birgersson" "Sten Sture" "Svante Sture"
+		"Svithiod" "Ulf" "Väring" "Folke Filbyter"
 	}
 }
 
@@ -138,10 +138,10 @@ SWE_BB_HISTORICAL = {
 		# Great Monarchs of Sweden
 		"Gustav Vasa" "Erik XIV" "Johan III" "Sigismund" "Karl IX" "Gustav II Adolf"
 		"Drottning Kristina" "Karl X Gustav" "Karl XI" "Karl XII" "Ulrika Eleonora" "Fredrik I" "Adolf Fredrik"
-		"Gustav III" "Gustav IV Adolf" "Karl XIII" "Karl XIV Johan" "Oscar I" "Karl XV" "Oscar II" "Gustaf V"
+		"Gustav III" "Gustav IV Adolf" "Karl XIII" "Karl XIV Johan" "Oscar I" "Karl XV"
 		"Birger Jarl" "Magnus Ladulås" "Erik Segersäll" "Olof Skötkonung" "Magnus Eriksson"
 		# Historic Great Ships of the Line & Crown Symbols
-		"Konung Karl" "Makalös" "Enigheten" "Fäderneslandet" "Wasaorden"
+		"Konung Karl" "Makalös" "Enigheten" "Fäderneslandet"
 		"Kronan" "Stora Kronan" "Svärdet" "Äpplet" "Riksäpplet" "Nyckeln" "Riksnyckeln" "Spiran"
 		# Historic Lands & Realm Foundations
 		"Svealand" "Götaland" "Norrland" "Skåne" "Österland"
@@ -161,18 +161,17 @@ SWE_BC_HISTORICAL = {
 	fallback_name = "Slagkryssare %d"
 
 	unique = {
-		# Swift Warrior Monarchs & Martial Royal Names
-		"Gustav II Adolf" "Karl XII" "Karl X Gustav" "Gustav III" "Gustaf Vasa"
-		# Famous Swedish Field Marshals & Supreme Commanders
-		"Lennart Torstenson" "Johan Banér" "Gustaf Horn" "Carl Gustaf Wrangel" "Arvid Horn"
+		# Historic Flagships & Ships of the Line
+		"Mars" "Draken" "Smålands Lejon" "Svenska Lejonet" "Prins Gustaf" "Sophia Magdalena"
+		# Field Marshals, Generals & Statesmen
+		"Lennart Torstensson" "Johan Banér" "Gustaf Horn" "Carl Gustaf Wrangel" "Arvid Horn"
 		"Magnus Stenbock" "Rutger von Ascheberg" "Carl Gustaf Armfeldt"
 		"Axel Oxenstierna" "Torsten Stålhandske" "Åke Tott" "Jacob De la Gardie" "Pontus De la Gardie"
-		"Adam Ludwig Lewenhaupt" "Hans von Königsmarck" "Georg Carl von Döbeln" "Johan August Sandels"
+		"Adam Ludwig Lewenhaupt" "Hans Christoff von Königsmarck" "Georg Carl von Döbeln" "Johan August Sandels"
 		# Queens & Royal Princes
-		"Drottning Lovisa Ulrika" "Drottning Hedvig Eleonora" "Prins Carl" "Prins Eugen" "Prins Gustaf Adolf"
-		# Martial Emblems of Speed & Striking Power
-		"Vasa Lejon" "Götalejon" "Stormakt" "Segerkronan" "Nordens Lejon"
-		"Svenska Lejonet" "Segersäll" "Fältmarskalken"
+		"Drottning Lovisa Ulrika" "Drottning Hedvig Eleonora" "Prins Carl" "Prins Eugen" "Kronprins Gustaf Adolf"
+		# Fortresses, Citadels & Decisive Sea Victories
+		"Carlsten" "Kungsholm" "Karlsborg" "Bohus" "Sveaborg" "Svensksund"
 	}
 }
 
@@ -189,18 +188,17 @@ SWE_CV_HISTORICAL = {
 	fallback_name = "Hangarfartyg %d"
 
 	unique = {
-		# Historic Aviation Pioneers & Naval Aviators
-		"Dristigheten" "Gotland" "Falken" "Örnen"
-		# Royal Regalia & Crown Symbols
-		"Kronan" "Riksäpplet" "Spiran" "Svärdet" "Riksnyckeln" "Sveriges Vapen"
-		# Valkyries & Sky Maidens of Norse Myth
-		"Valkyrian" "Brynhild" "Gondul" "Hildur" "Skuld" "Sigrdrifa" "Freja" "Gefion" "Idun" "Skadi"
-		# Raptors & Birds of Prey
+		# National Emblem
+		"Sveriges Vapen"
+		# Valkyries, Goddesses & Sky Maidens of Norse Myth
+		"Valkyrian" "Brynhild" "Göndul" "Hildur" "Skuld" "Sigrdriva" "Gefjon" "Idun" "Skade"
+		"Skögul" "Sigrun" "Eir" "Frigg"
+		# Raptors & Seabirds
 		"Havsörn" "Kungsörn" "Fiskgjuse" "Pilgrimsfalk" "Jaktfalk" "Duvhök"
-		"Sparvhök" "Fjällvråk" "Ormvråk" "Stormfågel" "Albatross"
+		"Sparvhök" "Fjällvråk" "Ormvråk" "Stormfågel" "Albatross" "Stenfalk" "Bivråk" "Kärrhök"
 		# Celestial Skies, Tempests & Northern Polar Phenomena
 		"Nordstjärnan" "Polstjärnan" "Norrsken" "Morgonstjärnan" "Aftonstjärnan" "Kometen" "Meteor"
-		"Aurora" "Tordön"
+		"Aurora" "Karlavagnen" "Vintergatan"
 	}
 }
 
@@ -217,10 +215,11 @@ SWE_RULERS = {
 
 	unique = {
 		# Medieval Rulers & Realm Builders
-		"Olof Skötkonung" "Anund Jakob" "Emund den gamle" "Inge den äldre" "Sverker den äldre"
-		"Erik den helige" "Knut Eriksson" "Birger Jarl" "Magnus Ladulås"
+		"Erik Segersäll" "Olof Skötkonung" "Anund Jakob" "Emund den gamle" "Inge den äldre" "Sverker den äldre"
+		"Erik den helige" "Karl Sverkersson" "Knut Eriksson" "Erik Knutsson" "Birger Jarl"
+		"Valdemar Birgersson" "Magnus Ladulås" "Birger Magnusson" "Magnus Eriksson" "Albrekt av Mecklenburg"
 		# Regents & Folk Heroes
-		"Engelbrekt Engelbrektsson" "Sten Sture den äldre" "Svante Nilsson Sture" "Sten Sture den yngre"
+		"Engelbrekt Engelbrektsson" "Karl Knutsson Bonde" "Sten Sture den äldre" "Svante Nilsson Sture" "Sten Sture den yngre"
 		# Vasa Dynasty
 		"Gustav Vasa" "Erik XIV" "Johan III" "Sigismund" "Karl IX" "Gustav II Adolf" "Drottning Kristina"
 		# Palatinate-Zweibrücken & Hesse
@@ -293,7 +292,7 @@ SWE_MYTHOLOGY = {
 	unique = {
 		# Aesir & Vanir Deities
 		"Oden" "Thor" "Frej" "Freja" "Balder" "Tyr" "Heimdall" "Njord" "Brage" "Forsete"
-		"Idun" "Skadi" "Ull" "Mimer" "Ägir" "Ran" "Hel" "Vale" "Höder" "Hermod"
+		"Idun" "Skade" "Ull" "Mimer" "Ägir" "Ran" "Hel" "Vale" "Höder" "Hermod"
 		"Kvasir" "Nanna" "Sigyn" "Gerd"
 		# Mythic Monsters & Legendary Creatures
 		"Fenris" "Midgårdsormen" "Sleipner" "Hugin" "Munin" "Valkyrian" "Ymer" "Surt" "Skoll"
@@ -302,9 +301,9 @@ SWE_MYTHOLOGY = {
 	}
 }
 
-### UNIVERSAL TOPIC: BIRDS OF PREY ###
+### UNIVERSAL TOPIC: BIRDS ###
 SWE_BIRDS = {
-	name = "Birds of Prey"
+	name = "Birds"
 
 	for_countries = { SWE }
 
@@ -372,9 +371,9 @@ SWE_FISH = {
 	}
 }
 
-### UNIVERSAL TOPIC: NAVAL HEROES & ADMIRALS ###
+### UNIVERSAL TOPIC: HEROES & COMMANDERS ###
 SWE_HEROES = {
-	name = "Naval Heroes & Admirals"
+	name = "Heroes & Commanders"
 
 	for_countries = { SWE }
 
@@ -386,14 +385,14 @@ SWE_HEROES = {
 	unique = {
 		# Renowned Admirals & Naval Architects
 		"Klas Horn" "Hans Wachtmeister" "Gustaf von Psilander" "Claes Uggla" "Jacob Bagge"
-		"Henrik Fleming" "Carl Olof Cronstedt" "Fredric Henric af Chapman" "Baltzar von Platen"
-		"Nils Bielke" "Claes Bielkenstierna" "Gustaf von Kochen" "Salomon von Otter" "Olof von Unge"
-		"Carl Georg Siöblad" "Erik Sjöblad" "Carl Nathanael af Klercker"
+		"Henrik Fleming" "Clas Fleming" "Carl Olof Cronstedt" "Fredrik Henrik af Chapman" "Baltzar von Platen"
+		"Nils Bielke" "Claes Bielkenstierna" "Olof von Unge" "Nils Ehrenskiöld" "Otto Henrik Nordenskjöld"
+		"Johan af Puke" "Carl Georg Siöblad" "Erik Carlsson Sjöblad" "Carl Nathanael af Klercker"
 		# Great Military Commanders & Marshals
-		"Lennart Torstenson" "Johan Banér" "Gustaf Horn" "Carl Gustaf Wrangel" "Rutger von Ascheberg"
+		"Lennart Torstensson" "Johan Banér" "Gustaf Horn" "Carl Gustaf Wrangel" "Rutger von Ascheberg"
 		"Arvid Horn" "Magnus Stenbock" "Carl Gustaf Armfeldt" "Georg Carl von Döbeln" "Johan August Sandels"
 		"Torsten Stålhandske" "Åke Tott" "Jacob De la Gardie" "Pontus De la Gardie" "Adam Ludwig Lewenhaupt"
-		"Hans von Königsmarck" "Axel Oxenstierna" "Johan Peter Toll"
+		"Hans Christoff von Königsmarck" "Axel Oxenstierna" "Johan Christopher Toll"
 	}
 }
 
@@ -437,5 +436,29 @@ SWE_BATTLES = {
 		"Lund" "Landskrona" "Helsingborg" "Gadebusch" "Fraustadt" "Kliszów" "Dirschau" "Wallhof" "Axtorna"
 		"Kirkholm" "Warschau" "Malmö" "Halmstad" "Fehrbellin" "Düna" "Holowczyn" "Poltava"
 		"Virta bro" "Jutas" "Sävar"
+	}
+}
+
+### ROLE POOL: MINESWEEPERS ###
+SWE_MINESWEEPERS = {
+	name = "Minesweepers"
+
+	for_countries = { SWE }
+
+	type = ship
+
+	prefix = "HMS "
+	fallback_name = "Minsvepare %d"
+
+	unique = {
+		# Sökaren class, 1930s (agent nouns)
+		"Sökaren" "Sveparen" "Sprängaren"
+		# Arholma class (WWII) & Landsort class (Cold War): islands, skerries & headlands
+		"Arholma" "Landsort" "Bremön" "Holmön" "Sandön" "Ulvön" "Bredskär" "Grönskär" "Ramskär" "Örskär"
+		"Koster" "Kullen" "Vinga" "Ven"
+		# Hanö class, 1950s (islands)
+		"Hanö" "Tärnö" "Tjurkö" "Sturkö" "Ornö" "Utö"
+		# Arkö class, 1950s-60s (islands)
+		"Arkö" "Spårö" "Karlsö" "Iggö" "Styrsö" "Skaftö" "Aspö" "Hasslö" "Vinö" "Vållö" "Nämdö" "Blidö"
 	}
 }

@@ -1,66 +1,35 @@
 # Steam Workshop Description Guidelines & Reference
 
-This document serves as an instruction and reference guide for maintaining and updating the Steam Workshop description for **Immersive Ship Names Expanded**.
+Instructions and reference for maintaining the Steam Workshop description of **Immersive Ship Names Expanded**. Agents: these rules are also summarized in `CLAUDE.md` / `GEMINI.md` §4.
 
 ---
 
-## Core Rules & Constraints
+## Core Rules
 
-1. **No Emojis**: Strictly avoid adding any emojis or emoticons to the description.
-2. **Character & Length Limits**:
-   - Steam Workshop descriptions have a strict character limit (~17,000 characters raw BBCode).
-   - Keep bullet points concise and avoid lengthy narrative blocks.
-   - **Do NOT list individual ship names in the description.** Listing dozens of individual ship names for every class consumes characters rapidly and will cause the description to hit the limit as more nations are added.
-   - Do NOT include author update quote blocks (`[quote=author]...[/quote]`).
-   - Monitor the overall character count of the BBCode text when adding new nations.
-3. **Writing Style & Tone**:
-   - Keep the tone concise, informative, direct, and enthusiastic, matching the author's original voice.
-   - Use straightforward bullet points and structured section headings.
-   - Do not over-embellish or use marketing buzzwords.
-4. **Preserve Custom Author Sections**:
-   - Do NOT overwrite, rewrite, or regenerate the header pitch, companion mod link, or Jackhall series tribute section.
-   - The Info section contains standard mod notes and a general notice regarding vanilla bug fixes across all nations.
-   - When updating the workshop description for newly implemented nations, **only** update the `[h1]Included nations:[/h1]` block and the Repository Cross-Reference table.
-   - Keep each nation's entry in `[h1]Included nations:[/h1]` concise (strictly 2 brief summary bullet points: expanded ship-type lists and added universal thematic pools). Vanilla bug fixes are covered globally in Info to save character space.
-5. **Jackhall Series Scope & Exclusions**:
-   - ISNE is intended to expand the great series of ship namelist mods by @Jackhall.
-   - **Do NOT author or propose namelists for countries already covered by Jackhall**: Netherlands (`HOL`), China (`CHI`), Spain (`SPR`), Poland (`POL`), Soviet Union (`SOV`), Greece (`GRE`), and Germany (`GER`).
-6. **No Planned Section**:
-   - Do NOT add a `[h1]Planned:[/h1]` section to the workshop description.
-7. **Language & Grammar**:
-   - Fix typos, misspellings, formatting anomalies, or broken English.
-   - Use proper diacritics/accents for historical ship names (e.g., *Väinämöinen*, *Hämeenmaa*, *L'Audacieux*).
-8. **Steam Formatting (BBCode)**:
-   - Always format the description using Steam's supported BBCode tags:
-     - Section headings: `[h1]Heading Text[/h1]`
-     - Bold text: `[b]...[/b]`
-     - Italics: `[i]...[/i]` (used for foreign language phrases or short highlights)
-     - URLs: `[url=https://...]link text[/url]`
-     - Lists: Standard hyphen bullets (`- Item`).
-   - Ensure clean line breaks between sections and blocks.
+1. **No emojis** anywhere.
+2. **Length**: Steam caps descriptions at ~17,000 characters of raw BBCode; monitor the total when adding nations.
+   - Concise bullets, no long narrative blocks.
+   - **Never list individual ship names**: dozens of names per class would hit the limit as nations are added.
+   - No author update quote blocks (`[quote=author]...[/quote]`).
+3. **Tone**: concise, informative, direct and enthusiastic, matching the author's voice; plain bullets and structured headings; no embellishment or marketing buzzwords.
+4. **Preserve author sections**: never rewrite or regenerate the header pitch, companion mod link or Jackhall tribute. The Info section holds standard mod notes and one global notice on vanilla bug fixes for all nations. For a newly implemented nation, update **only** the `[h1]Included nations:[/h1]` block and the Repository Cross-Reference table (plus the nation list in the header pitch, per `CLAUDE.md` §4).
+5. **Jackhall scope**: ISNE extends @Jackhall's ship namelist mod series; never author or propose namelists for nations it covers: Netherlands (`HOL`), China (`CHI`), Spain (`SPR`), Poland (`POL`), Soviet Union (`SOV`), Greece (`GRE`), Germany (`GER`).
+6. **No `[h1]Planned:[/h1]` section.**
+7. **Language**: fix typos, misspellings, formatting anomalies and broken English; use proper diacritics in historical ship names (*Väinämöinen*, *Hämeenmaa*, *L'Audacieux*).
+8. **Steam BBCode only**: `[h1]Heading[/h1]`, `[b]...[/b]`, `[i]...[/i]` (foreign phrases, short highlights), `[url=https://...]text[/url]`, hyphen bullets (`- Item`); clean line breaks between sections and blocks.
 
 ---
 
 ## Structure of the Description
 
-1. **Header Pitch & Companion Mod**:
-   - Concise authentic author intro noting AI acceleration, focus on nations with limited vanilla namelists, and a link to *Immersive Namelists Expanded*.
-2. **[h1]Info:[/h1]**:
-   - Save game compatibility bullet point.
-   - Mod compatibility and namelist override clarification.
-   - Mount / DLC compatibility note.
-   - General notice covering vanilla bug fixes, typos, duplicates, missing classes, and broken fallback translations across all included nations.
-   - Open permissions note ("Feel free to use this mod however you wish.").
-3. **Jackhall Tribute & Project Scope**:
-   - Attribution and link to @Jackhall's ship namelist mod series.
-   - Note on excluded countries already covered by Jackhall's mods.
-4. **[h1]Included nations:[/h1]**:
-   - Grouped by nation in bold (`[b]Nation[/b]`).
-   - Concise 2-bullet format summarizing what was added or overhauled for that nation:
-     - **Ship-type specific lists**: What hull categories were added or expanded (DD, SS, CL, CA, BB, BC, CV).
-     - **Universal thematic pools**: Summary of thematic topic pools added for the Ship Designer (e.g. Cities, Monarchs, Rivers, Heroes, Fauna).
-   - Bug fixes and typo corrections are handled globally in the Info section rather than repeated per nation to prevent exceeding Steam character limits.
-   - Strictly omit exhaustive or repetitive unit name lists (`[i]...[/i]`).
+1. **Header pitch & companion mod**: the author's own intro (AI-accelerated creation, focus on nations with limited vanilla namelists) and a link to *Immersive Namelists Expanded*.
+2. **`[h1]Info:[/h1]`**: save-game compatibility; mod compatibility and namelist override clarification; mount / DLC compatibility; global notice on vanilla bug fixes, typos, duplicates, missing classes and broken fallback translations across all nations; open permissions ("Feel free to use this mod however you wish.").
+3. **Jackhall tribute & scope**: attribution and link to @Jackhall's series; note on the excluded countries.
+4. **`[h1]Included nations:[/h1]`**: one bold `[b]Nation[/b]` entry each, with exactly 2 bullets:
+   - ship-type lists: which hull categories were expanded (DD, SS, CL, CA, BB, BC, CV);
+   - universal thematic pools added for the Ship Designer (e.g. Cities, Monarchs, Rivers, Heroes, Fauna).
+
+   Bug and typo fixes stay in Info rather than repeating per nation. Never add exhaustive or repetitive unit name lists (`[i]...[/i]`).
 
 ---
 

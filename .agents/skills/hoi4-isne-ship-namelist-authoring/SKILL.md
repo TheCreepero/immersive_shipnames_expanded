@@ -8,376 +8,107 @@ description: >-
   standards, use hoi4-isne-namelist-audit instead.
 ---
 
-# Hearts of Iron IV Ship Namelist Authoring Runbook
+# ISNE Ship Namelist Authoring Runbook
 
-This skill provides step-by-step guidance for researching, scoping, authoring, and validating naval ship namelists for *Immersive Ship Names Expanded* (ISNE).
+Research, scope, author and validate a nation's namelists. The rules live in `GEMINI.md` §1–7 (already in context); this runbook adds the method and does not restate them.
 
-> **Upgrading an existing namelist?** Use the `hoi4-isne-namelist-audit` skill instead: it runs a delta audit (`build.ps1 -Audit <TAG>`) at a fraction of this runbook's token cost.
+> **Upgrading an existing namelist?** Use `hoi4-isne-namelist-audit`: a delta audit (`build.ps1 -Audit <TAG>`) at a fraction of this runbook's token cost.
+>
+> **Mirror**: `.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` (Claude Code). Subagent briefs live in `.claude/agents/`. Apply rule changes to both (`GEMINI.md` §9).
 
-> **Mirror notice**: This skill mirrors `.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` (Claude Code). The Historical Researcher and Code Reviewer briefs below are mirrored by `.claude/agents/isne-historical-researcher.md` and `.claude/agents/isne-code-reviewer.md`. Any change to project rules here must be applied there too (see `GEMINI.md` §9).
+## 1. Plausibility in Practice
+Rigid accuracy limits lists to hulls that were actually commissioned (Finland: 2 coastal defense ships, 5 submarines), so a mobilized player or AI fleet (fleet carriers, heavy cruisers, battlecruisers, destroyers) falls back to numbered stubs. Extrapolate how the naval command would name an expanded fleet, drawing on:
+- official class traditions (destroyers after fast natural phenomena, martial virtues or naval commanders);
+- geographic hierarchies (battleships after provinces/regions, cruisers after major coastal towns/ports, escorts after minor bays or straits);
+- peacetime expansion plans, canceled designs, war emergency programs;
+- heritage, heroic folklore, mythological deities, fauna (birds of prey for carriers, aquatic predators for submarines);
+- alternate-history paths (monarchist dynasties, regional leagues, great-power ambitions).
 
----
+## 2. Architecture Details
+Categories, depth tiers, display-name rules, decoupling and BB/BC doctrine: `GEMINI.md` §2. Tokens: §7.
 
-## 1. Guiding Philosophy: Historical Plausibility Over Rigid Accuracy
+### A. Default hull themes (adapt to the nation's documented formulas)
+| Group | Themes |
+|---|---|
+| DD | gunboats, torpedo craft, martial descriptors, weather/lightning virtues |
+| SS | aquatic animals, sea beasts, mythological water deities/monsters |
+| CL | major coastal cities, ports, trade centers |
+| CA | epic cultural heroes, mythic figures, national champions |
+| BB | historical provinces, regions, legendary monarchs |
+| BC | sea kingdoms, historic war vessels and flagships, coastal fortresses, decisive straits and naval encounters |
+| CV | sky deities, heavens, weather phenomena, raptors/birds of prey |
 
-> [!IMPORTANT]
-> The primary design philosophy of **Immersive Ship Names Expanded** is **historical plausibility**, NOT strict historical accuracy.
+### B. Thematic pool tag suffixes
+`BIRDS`, `FISH`, `BEASTS` · `CITIES`, `PROVINCES` (historical provinces & counties), `RIVERS` (rivers, lakes, waterways), `GEOGRAPHY` (mountains, landmarks) · `RULERS`, `MYTHOLOGY`, `BATTLES`, `HEROES` · `VIRTUES`, `NATURE` (weather, tempests, celestial bodies) · ideological: `REPUBLICAN_IDEALS` or `REVOLUTION` (republican/constitutional), `SOCIALISM` (socialist/labor/agrarian), `NATIONALISM` or `FASCISM` (nationalist/synarchist/traditionalist), `MONARCHISM` (monarchist/imperial).
 
-### What Historical Plausibility Means in ISNE:
-- **Scalability for Gameplay**: Rigid historical accuracy artificially limits namelists only to hulls that historically entered commission (e.g., only 2 coastal defense ships and 5 submarines for Finland). When a player or AI mobilizes, expands dockyards, and constructs large wartime fleets (fleet carriers, heavy cruisers, battlecruisers, destroyers), rigid accuracy fails and ships receive generic numbered stubs.
-- **Authentic Extrapolation**: Namelists must plausibly extrapolate how that nation's naval command would designate expanded fleets, drawing on:
-  - Official class naming traditions (e.g., naming destroyers after fast natural phenomena, martial virtues, or historical naval commanders).
-  - Geographic hierarchies (e.g., battleships after provinces/regions, cruisers after major coastal towns/ports, escorts after minor bays or straits).
-  - Peacetime naval expansion plans, canceled designs, and war emergency programs.
-  - National heritage, heroic folklore, mythological deities, and fauna (birds of prey for carriers, aquatic predators for submarines).
-  - Alternative-history trajectories (e.g., monarchist dynasties, regional leagues, great-power ambitions).
+### C. Role-specific pools
+Rules: `GEMINI.md` §2C. A minelayer is a light hull and an escort carrier a `carrier` hull, so `ship_types` cannot isolate a role; role pools stay universal and `-VerifyShipTypes` rejects `ship_types` on them. Walk every family below for every nation; create a pool only if it passes the precedent test, otherwise record `considered, skipped: <reason>` in the plan (one line per family is enough).
 
----
+Precedent test (any one suffices):
+- The navy operated, ordered or planned a distinct class or designation for the role with its own naming convention. Illustrative, verify per nation: US escort carriers after sounds and bays and destroyer escorts after naval heroes; British Flower-class corvettes after flowers; Italian Navigatori-class scouts after navigators and explorers.
+- The role's documented formula differs from its parent hull group's, so a mixed roster would misrepresent both.
+- Enough verifiable names exist to reach the floor without padding.
 
-## 2. Two-Category Namelist Architecture
+Catalogue (a prompt, not a ceiling; tag = `<TAG>_` + suffix):
 
-Every nation's ship namelists must be organized into two distinct functional categories:
-
-### A. Ship-Type Specific Category
-Dedicated namelists bound to specific `ship_types` tokens. These represent the nation's primary naval doctrine and official ship classification traditions (modeled after `ISNE_FIN_ship_names.txt`):
-- **Destroyers & Escorts (`DD`)**: Gunboats, torpedo craft, martial descriptors, weather/lightning virtues.
-  - Tokens: `ship_hull_light destroyer`
-  - Tag pattern: `<TAG>_DD_HISTORICAL`
-- **Submarines (`SS`)**: Aquatic animals, sea beasts, mythological water deities/monsters.
-  - Tokens: `ship_hull_submarine submarine`
-  - Tag pattern: `<TAG>_SS_HISTORICAL`
-- **Light Cruisers (`CL`)**: Major coastal cities, ports, trade centers.
-  - Tokens: `ship_hull_cruiser light_cruiser`
-  - Tag pattern: `<TAG>_CL_HISTORICAL`
-- **Heavy Cruisers & Coastal Defense (`CA`)**: Epic cultural heroes, mythic figures, national champions.
-  - Tokens: `ship_hull_cruiser heavy_cruiser`
-  - Tag pattern: `<TAG>_CA_HISTORICAL`
-- **Battleships (`BB`)**: Historical provinces, regions, legendary monarchs.
-  - Tokens: `ship_hull_heavy battleship` (`battle_cruiser` only when the file has no BC group)
-  - Tag pattern: `<TAG>_BB_HISTORICAL`
-- **Battlecruisers (`BC`)**: Sea kingdoms, historic war vessels and flagships, coastal fortresses, decisive straits and naval encounters.
-  - Tokens: `ship_hull_heavy battle_cruiser`
-  - Tag pattern: `<TAG>_BC_HISTORICAL`
-- **Aircraft Carriers (`CV`)**: Sky deities, heavens, weather phenomena, raptors/birds of prey.
-  - Tokens: `ship_hull_carrier carrier`
-  - Tag pattern: `<TAG>_CV_HISTORICAL`
-
-### B. Thematic / Topic Namelist Category (Universal Selection)
-Expansive thematic pools designed for universal selection across **any ship type** in the Ship Designer. By omitting the `ship_types` restriction (or defining universal coverage), players have complete roleplay freedom to designate entire flotillas or specialized task forces:
-- **Fauna & Nature**:
-  - Birds & Raptors (`<TAG>_BIRDS`)
-  - Aquatic Life & Fish (`<TAG>_FISH`)
-  - Predators & Beasts (`<TAG>_BEASTS`)
-- **Geography**:
-  - Major & Coastal Cities (`<TAG>_CITIES`)
-  - Historical Provinces & Counties (`<TAG>_PROVINCES`)
-  - Rivers, Lakes & Waterways (`<TAG>_RIVERS`)
-  - Mountains & Geographic Landmarks (`<TAG>_GEOGRAPHY`)
-- **History & Culture**:
-  - Legendary Monarchs & Rulers (`<TAG>_RULERS`)
-  - Mythological Figures & Deities (`<TAG>_MYTHOLOGY`)
-  - Famous Historical Battles & Victories (`<TAG>_BATTLES`)
-  - National Heroes & Cultural Icons (`<TAG>_HEROES`)
-- **Martial Virtues & Concepts**:
-  - Virtues & Character Traits (`<TAG>_VIRTUES`)
-  - Weather, Tempests & Celestial Bodies (`<TAG>_NATURE`)
-  - **Ideological & Political Concepts**:
-    - Author distinct, dedicated pools per political alignment rather than combining conflicting doctrines into a single generic pool:
-      - Republican / Constitutional Ideals (`<TAG>_REPUBLICAN_IDEALS` or `<TAG>_REVOLUTION`)
-      - Socialist / Labor / Agrarian Ideals (`<TAG>_SOCIALISM`)
-      - Nationalist / Synarchist / Traditionalist Ideals (`<TAG>_NATIONALISM` or `<TAG>_FASCISM`)
-      - Monarchist / Imperial Ideals (`<TAG>_MONARCHISM`)
-    - **Anti-Contradiction Rule**: Never mix opposing ideologies in the same pool (e.g., socialist slogans with fascist or monarchist slogans).
-
-> [!TIP]
-> **UI Display Name Sizing**: The Hearts of Iron IV Ship Designer namelist dropdown has a narrow layout and handles long strings poorly.
-> - Keep all display names (`name = "..."`) concise (**<= 25–30 characters**).
-> - **Omit redundant country prefixes/adjectives** (e.g. use `name = "Cities"` rather than `name = "Finnish Cities"`, `name = "Monarchs"` rather than `name = "Habsburg & Babenberg Monarchs"`).
-> - **Name the pool for what it actually contains**: don't call a mixed-content pool "Birds of Prey" if it also includes owls, songbirds, or waterfowl — use "Birds" instead. Check the name against the final entry list, not just the initial theme concept.
-
-### C. Role-Specific Pools (Optional, Precedent-Driven)
-Some ship roles have no dedicated vanilla `ship_types` token (a minelayer is a light hull, an escort carrier is a `carrier` hull), yet a player can still build them in the Ship Designer. Give a role its own **universal pool** (tag `<TAG>_<ROLE>`, no `ship_types`) so a specific design can carry the right names. `ship_types` cannot isolate a role, which is why role pools stay universal and `build.ps1 -VerifyShipTypes` rejects `ship_types` on them.
-
-**Never a requirement, always a consideration.** Walk every family below for every nation and create a pool only if it passes the precedent test.
-
-**Precedent test (any one is enough):**
-- The navy operated, ordered, or planned a distinct class or designation for the role that had its own naming convention (illustrative, verify per nation: US escort carriers named after sounds and bays and destroyer escorts after naval heroes; British Flower-class corvettes after flowers; Italian scouts of the Navigatori class after navigators and explorers).
-- The role's documented naming formula differs from its parent hull group's, so a mixed roster would misrepresent both.
-- Enough verifiable names exist to reach the floor without padding (per the "Authenticity over Artificial Padding" standard, `CLAUDE.md` §3).
-
-If none applies, do not create the pool; record `considered, skipped: <reason>` in the plan file (one line per role family is enough).
-
-**Candidate catalogue** (a prompt for the researcher, not a ceiling; tag = `<TAG>_` + suffix):
-
-| Family | Candidate pools (suffix) | Usually built on |
-|--------|--------------------------|------------------|
+| Family | Suffixes | Usually built on |
+|---|---|---|
 | Mine warfare | `MINELAYERS`, `MINESWEEPERS` | light hull; cruiser hull for fast minelayers |
 | Convoy escort & ASW | `ESCORT_CARRIERS`, `ESCORT_DESTROYERS`, `CORVETTES`, `FRIGATES`, `SLOOPS`, `AVISOS`, `PATROL_VESSELS` (coast guard, armed trawlers) | carrier hull; light hull |
 | Scouting & torpedo craft | `SCOUT_CRUISERS`, `FLOTILLA_LEADERS`, `TORPEDO_BOATS`, `FAST_ATTACK_CRAFT` | cruiser or light hull |
-| Coastal & riverine | `COASTAL_DEFENSE` (only where its formula differs from `CA`), `MONITORS`, `GUNBOATS` | heavy, cruiser, or light hull |
-| Capital & carrier sub-types | `FAST_BATTLESHIPS`, `LARGE_CRUISERS`, `ARMORED_CRUISERS` (pre-1914 legacy), `LIGHT_CARRIERS` | heavy, cruiser, or carrier hull |
-| Aviation support | `SEAPLANE_TENDERS` | light, cruiser, or carrier hull |
-| Submarine sub-types | `CRUISER_SUBMARINES`, `COASTAL_SUBMARINES` (including midget), `MINELAYING_SUBMARINES` | submarine hull |
+| Coastal & riverine | `COASTAL_DEFENSE` (only where its formula differs from `CA`), `MONITORS`, `GUNBOATS` | heavy, cruiser or light hull |
+| Capital & carrier sub-types | `FAST_BATTLESHIPS`, `LARGE_CRUISERS`, `ARMORED_CRUISERS` (pre-1914 legacy), `LIGHT_CARRIERS` | heavy, cruiser or carrier hull |
+| Aviation support | `SEAPLANE_TENDERS` | light, cruiser or carrier hull |
+| Submarine sub-types | `CRUISER_SUBMARINES`, `COASTAL_SUBMARINES` (incl. midget), `MINELAYING_SUBMARINES` | submarine hull |
 | Auxiliary & converted | `AUXILIARY_CRUISERS` (merchant raiders, armed merchant cruisers), `TRAINING_SHIPS`, `ICEBREAKERS`, `SUBMARINE_TENDERS`, `STATE_YACHTS` | light or cruiser hull |
 
-If research surfaces another role with its own class series (a national river flotilla, a colonial station-ship series, a coastal fortress-ship line), propose it with a `<TAG>_<ROLE>` tag and add its suffix to `$RolePoolSuffixes` in `build.ps1` so `-Audit` recognizes it as a role pool instead of grading it as an ordinary thematic pool.
+A role outside the catalogue with its own class series (national river flotilla, colonial station ships, coastal fortress-ship line): use a `<TAG>_<ROLE>` tag and add the suffix to `$RolePoolSuffixes` in `build.ps1`, so `-Audit` grades it as a role pool rather than a thematic pool.
 
-**Role-pool rules:**
-- **Structure**: no `ship_types`; the national prefix (trailing space) and a native indefinite-nominative `fallback_name`, like any thematic pool.
-- **Depth**: 20+ names target, 10 floor (`-Audit` warns on a shortfall). Below the floor, fold the names into the parent hull group or a thematic pool instead.
-- **Decoupling**: no name shared with `CL`, `CA`, `BB`, `BC`, or `CV` (`-Audit` reports `RoleOverlap` as FAIL); overlap with `DD` or `SS` is a WARN, because an escort pool legitimately borders its parent hull. Role pools are excluded from the "6+ thematic pools" count.
-- **Authenticity**: every entry individually verifiable; never pad with generic thematic names (cities, fauna) to reach the floor. A role pool is justified by its documented series.
-- **Display name**: the role in plain words (`"Minelayers"`, `"Escort Carriers"`), <= 25 characters, no national adjective, and accurate for the final entries.
+Role-pool specifics beyond §2C: fallback in native indefinite nominative; display name is the role in plain words (`"Minelayers"`, `"Escort Carriers"`), ≤ 25 characters; the pool is justified by its documented series, never by generic filler.
 
----
+## 3. Research
 
-## 3. Research Protocol
+**Targets**: respect the Jackhall exclusions (`GEMINI.md` §4). Prioritize nations with thin or generic vanilla lists that can build mid-to-large navies (e.g. Sweden, Norway, Denmark, the Baltic states, Turkey, Argentina, Brazil, Chile, Romania, Yugoslavia).
 
-### Scope & Target Selection
-- **Jackhall Series Exclusions**: ISNE is intended to expand alongside @Jackhall's ship namelist mod series. **Do NOT author or propose namelists for countries already covered by Jackhall**: Netherlands (`HOL`), China (`CHI`), Spain (`SPR`), Poland (`POL`), Soviet Union (`SOV`), Greece (`GRE`), and Germany (`GER`).
-- **Priority Targets**: Prioritize nations with inadequate or generic vanilla namelists that have potential to build mid-to-large navies in game (e.g. Nordic nations like Sweden, Norway, Denmark; Baltic states; Turkey; South American nations like Argentina, Brazil, Chile; Romania; Yugoslavia, etc.).
+### Step 0: Vanilla audit
+`powershell -File .\build.ps1 -InspectVanilla <TAG>` (coverage, tags, counts, prefix, without loading the file); add `-Group <GROUP_TAG>` for one group. Record fixes for these typical Paradox anomalies:
+- **Copy-paste headers** (Brazil's file headed "Argentina").
+- **Fallback errors**: definite suffixes (Danish `"Slagkrydseren %d"`, Norwegian `"Lys Krysseren %d"` → `"Slagkrydser %d"`, `"Let krydser %d"`, `"Jager %d"`); homonym calques (`"Lys"` for light cruiser instead of `"Let"`/`"Lett"`/`"Lätt"`); pseudo-English or corrupted terms (`"Cruiseren"`, `"Destroyer %d"` in non-English lists, `"Cuzador"`, `"Ltt Kryssare"`); dictionary calques (Swedish `"Stridsskepp %d"` for `"Slagkryssare %d"`).
+- **Misspellings / missing diacritics** (`"Marnhão"`, `"Amazona"`, `"Aborren"` → `"Abborren"`); **archaic/modern spelling mixes** (`Santa Catharina` with `Santa Catarina`).
+- **In-list duplicates and article variants** (`"Rosales"` twice in CL; `"Mjölner"`/`"Munin"` twice in DD; `"La Rioja"` with `"Rioja"`).
+- **Cross-hull geographic collisions** (same cities in DD and CL: give historical destroyer-class cities / naval stations to DD, regional trade ports / maritime hubs to CL).
+- **Fauna and auxiliary craft in major combatants** (Danish CL with torpedo boats *Flynderen*, *Ulken*, *Mågen*; CA repeating the flounder beside icebreaker *Isbjørn*): move fauna to DD, SS, or `BIRDS`/`FISH` pools.
+- **Role mismatches** (1970s corvettes/frigates or patrol gunboats listed as cruisers).
+- **Shadow duplication** (CA or BC a verbatim copy of CL or BB plus 1–2 names); **mirrored capital stubs** (the same 5 ships reversed between BB and BC, sloops as dreadnoughts); **excessive class duplication** (one list of states copied across CL, CA, BB, BC, CV).
+- **Doctrinal formulas** worth keeping (Argentina: submarines after provinces starting with "S").
+- **Anachronisms** (divisions or cities created after 1945).
+- **Prefix usage** (e.g. `NRB `, or none).
 
-### Investigating Naval Programs & Traditions
+### Step 1: Researcher dispatch
+Web research floods the context, so delegate it. Invoke a subagent via `invoke_subagent` (`Role: "Historical Researcher"`, `TypeName: "research"` or `"self"`, `Model: "pro"` or `"inherit"`) and have it read and follow the brief in `.claude/agents/isne-historical-researcher.md` (body below the frontmatter); do not paste the brief into your own context. Prompt: country and TAG; the Step 0 findings (anomalies, prefix, existing tags and counts); any focus (canceled programs, an ideological path, regional folklore); nation-specific role hints (e.g. a known minelayer or escort program). It returns a structured dossier; never paste raw web research into the main context.
 
-#### Step 0: Vanilla Anomaly & Typo Audit (Token-Efficient Inspection)
-Before planning or authoring a namelist file, run the automated inspector:
-```powershell
-# Inspect vanilla coverage, group tags, and entry counts without loading entire files into context
-powershell -File .\build.ps1 -InspectVanilla <TAG>
+**Scope checkpoint**: fold the dossier's role-pool recommendations into the scope questions (e.g. create all recommended role pools / only those at target depth / none). At most 2 questions in total.
 
-# Inspect a specific group without reading the whole file
-powershell -File .\build.ps1 -InspectVanilla <TAG> -Group <GROUP_TAG>
-```
-Inspect the vanilla file for common Paradox anomalies and document required fixes:
-- **Header & Comment Copy-Paste Errors** (e.g. country header pointing to another nation, such as Brazil having Argentina's header).
-- **Fallback Name Grammar, Calque & Homonym Errors**:
-  - **Definite vs. Indefinite Suffixes**: Vanilla frequently appends definite article suffixes to class nouns (e.g. Danish `"Slagkrydseren %d"`, Norwegian `"Lys Krysseren %d"`). Always standardize fallback names to the **indefinite nominative singular** (e.g. `"Slagkrydser %d"`, `"Let krydser %d"`, `"Jager %d"`).
-  - **Homonym Calques**: Watch for literal translations of English words with multiple meanings, such as "Light Cruiser" translated using optical/sunlight terms (e.g. Danish/Norwegian `"Lys"`) instead of naval displacement terms (`"Let"`, `"Lett"`, `"Lätt"`).
-  - **Pseudo-English Calques & Missing Letters**: Words like `"Cruiseren"`, `"Destroyer %d"` in non-English lists, or corrupted tokens like `"Cuzador"`, `"Ltt Kryssare"`, or literal dictionary calques like Swedish `"Stridsskepp %d"` instead of authentic naval term `"Slagkryssare %d"`.
-- **Ship Name Misspellings & Missing Diacritics** (e.g. missing letters like `"Marnhão"`, `"Amazona"`, missing consonants like `"Aborren"` -> `"Abborren"`).
-- **Archaic vs. Modern Spelling Mixes** (e.g. `Santa Catharina` mixed with `Santa Catarina`).
-- **Intra-List Duplicates & Article Variants** (e.g. `"Rosales"` duplicated within CL, `"Mjölner"` / `"Munin"` duplicated within DD, or `"La Rioja"` mixed with `"Rioja"` in DD).
-- **Cross-Hull Geographic Collisions** (e.g. identical list of major cities copied across both DD and CL; segregate by assigning historical destroyer class cities / naval stations to DD and regional trade ports / maritime hubs to CL).
-- **Fauna & Auxiliary Craft Lumping in Major Combatants**: Vanilla frequently populates cruiser or capital ship pools of secondary navies with small torpedo boats, patrol craft, or tugs named after fish, birds, or mammals (e.g. Danish CL having *Flynderen* [Flounder], *Ulken* [Sculpin], *Mågen* [Seagull], and CA copying the flounder alongside icebreaker *Isbjørn*). Reassign fauna to light craft (`DD`), submarines (`SS`), or thematic pools (`BIRDS`, `FISH`).
-- **Modern Hull Demotions & Role Mismatches** (e.g. 1970s corvettes/frigates or patrol gunboats erroneously listed as cruisers).
-- **Verbatim Cross-Class Shadow Duplication** (e.g. higher-tier hulls like CA or BC having rosters that are literal copy-pastes of CL or BB with 1–2 names appended).
-- **Mirrored Capital Ship Stubs** (e.g. identical 5-ship lists reversed between BB and BC assigning sloops to dreadnoughts).
-- **Doctrinal Naming Formulas** (e.g. Argentina's tradition of naming all submarines after provinces beginning with "S").
-- **Excessive Class Duplication** (e.g. identical list of states copied verbatim across CL, CA, BB, BC, CV).
-- **Anachronisms** (e.g. administrative divisions or cities created post-1945).
-- **Prefix Usage** (check whether vanilla sets a prefix like `NRB ` or leaves it blank).
+### Step 2: Anchor the lists in the dossier
+Use it for historical and canceled programs (peacetime fleets, interwar naval acts, emergency wartime construction) and for geographic and cultural grounding (coastal cities, trade ports, provinces, islands, waters, folklore such as the Kalevala or Norse sagas, native fauna). Write into the vanilla filename (`GEMINI.md` §6).
 
-#### Step 1: Historical Research Delegation ("Historical Researcher" Subagent)
-To prevent context window degradation and ensure deep historical plausibility, **delegate external research to a dedicated Historical Researcher subagent** during the planning phase via `invoke_subagent`.
+## 4. Pre-Finalization Checklist
+Beyond the `GEMINI.md` §2–3 and §7 rules:
+- [ ] Names in the proper grammatical form (typically nominative singular); diacritics preserved (*ä, ö, å, é, è, ü, ł, ś*); articles, prepositions and apostrophes in native orthography (*L'Audacieux*, *De Zeven Provinciën*).
+- [ ] Every group has a numbered fallback (e.g. `fallback_name = "Hävittäjä %d"`).
+- [ ] Every standard hull has a doctrine-aligned group; several rich thematic pools exist.
+- [ ] Every role family in §2C was considered; each role pool has precedent or a skip line in the plan.
+- [ ] Prefix: vanilla parity checked, and any omission of a vanilla prefix is documented.
+- [ ] `-Audit <TAG>` shows no `CrossClass`, `BBBCMirror` or `RoleOverlap` FAIL.
+- [ ] Every named person individually sourced; English-homonym and display-name-accuracy checks done.
 
-##### Why Delegate to a Subagent:
-- **Context Hygiene**: Web searches, Wiki pages, and naval registries (Navypedia, Conway's) inject massive amounts of noisy text into the context. Offloading this keeps the primary authoring context clean and razor-focused on strict engine invariants, syntax, and test validation.
-- **Deep Historical & Cultural Mining**: The subagent focuses entirely on historical naval acts, peacetime plans, authentic naming traditions, native folklore, and correct orthography/diacritics without hitting token limits or instruction drift.
+## 5. Homonym Resolution Examples
+Rules: `GEMINI.md` §2. Players field several cruiser and capital classes at once, so collisions surface in play.
+- **City vs province (CL vs CA)**, common in the Philippines, Mexico, Brazil, Argentina (*Cebu*, *Iloilo*, *Davao*, *Zamboanga*, *Batangas*, *Cavite*, *Puebla*, *Oaxaca*): the plain name goes to the CA province (*Batangas*, *Cavite*, *Cebu*); CL gets the formal city title (*"Cebu City"*, *"Cavite City"*, *"Batangas City"*, *"Ciudad de Puebla"*) or a renowned secondary port.
+- **Compacts/kingdoms vs cities/provinces (BB/BC vs CL/CA)** (*Malolos*, *Butuan*, *Sulu*): native realm titles (Tausūg *"Lupah Sug"* for the Sultanate vs province *"Sulu"*); keep *"Malolos"* for BB and use *"Meycauayan"* or *"Aparri"* in CL.
+- **Regions/confederations vs summits (BB/BC vs CV)** (Panay's Confederation of *Madja-as* vs *Mount Madja-as*): *"Mount ..."* or another prominent volcanic summit/range for CV.
 
-##### Subagent Invocation & Brief:
-Invoke a subagent (e.g. `Role: "Historical Researcher"`, `TypeName: "research"` or `"self"`, using `Model: "pro"` or `"inherit"`) and provide a structured prompt:
-
-```text
-You are the Historical Naval Researcher for the Hearts of Iron IV mod "Immersive Ship Names Expanded" (ISNE).
-Your mission is to research and compile an exhaustive Historical Naval Dossier for <COUNTRY_NAME> (<TAG>).
-
-CRITICAL PHILOSOPHY:
-ISNE prioritizes HISTORICAL PLAUSIBILITY over rigid accuracy. Do NOT artificially limit namelists only to hulls that historically entered commission. Plausibly extrapolate how this nation's naval command would designate expanded wartime fleets (fleet carriers, heavy cruisers, battlecruisers, destroyers, submarines) across alternate-history paths.
-
-CRITICAL QUALITY STANDARDS:
-- NO FABRICATED NAMES: When researching specialized historical figures (such as naval admirals, commodores, or heroes), provide ONLY verifiable historical individuals. Do NOT invent generic filler names to meet depth quotas. If a nation only had 20–30 prominent naval commanders, report exactly those verified figures. A shorter, completely authentic list is strictly preferred over fabricated entries.
-- PER-INDIVIDUAL SOURCING: Tag every named person you propose with at least one identifiable source or a confidence flag (e.g. "well documented" vs. "attested but uncertain spelling/dates"). Do not present a name as fact merely because it sounds plausible for the role or era — if you cannot find a specific source for an individual, say so explicitly rather than omitting the caveat.
-- ENGLISH HOMONYM AWARENESS: When proposing single-word transliterated vocabulary (not proper nouns you must preserve as-is), flag any entry that happens to be a common, unrelated English word (e.g. a literal transliteration landing on "Ship", "Bum", "Dad", "Mad") so the author can decide whether to keep it, compound it, or substitute it.
-- IDEOLOGICAL SEPARATION: Never bundle opposing ideological concepts (e.g., socialist and fascist/nationalist ideals) into a single pool. Provide separate, distinct pools for each political path.
-
-INVESTIGATION DIRECTIVES:
-1. Naval Programs & Doctrinal Naming Formulas:
-   - Identify naming traditions by era (monarchy, republic, interwar, WWII programs).
-   - Investigate canceled programs, peacetime naval expansion acts, and foreign orders (e.g., British/Italian/German yards).
-   - Note hull-specific naming formulas (e.g., naming destroyers after virtues/commanders, submarines after marine life/sea gods, cruisers after coastal cities, battleships after provinces/monarchs).
-2. Linguistic & Grammatical Invariants:
-   - Authentic native naval terminology for fallback templates (e.g., indefinite nominative singular: "Let krydser %d", NOT definite "Let krydseren %d" or literal English calques like "Lys krydser").
-   - Strict orthography and diacritics in the native language (e.g., ä, ö, å, é, č, ł).
-   - Official or customary naval prefix (if any, verifying whether vanilla used one like "NRB ").
-3. Vanilla Audit Fixes:
-   - Review anomalies identified in Step 0 (misspellings, homonym calques, role demotions, auxiliary craft in cruiser lists) and supply correct replacements.
-4. Curated Candidate Pools (Tiered Namelist Depth Standards):
-   - Destroyers & Escorts (DD): 100–140+ unique names (minimum 80+ for minor navies).
-   - Submarines (SS): 60–80+ unique names (minimum 50+ for minor navies).
-   - Light Cruisers (CL): 50–70+ unique names (minimum 40–45+ for minor navies).
-   - Heavy Cruisers (CA): 35–45+ unique names.
-   - Battleships & Battlecruisers (BB/BC): 30–45+ unique names.
-   - Aircraft Carriers (CV): 30–40+ unique names.
-   - Universal Thematic Pools: 35–60+ unique names per pool (e.g. Birds/Raptors, Aquatic Life/Fish, Coastal Cities, Provinces/Regions, Rivers/Waterways, Mythology/Folklore, Rulers/Heroes, Virtues/Tempests).
-5. Role-Specific (Alternate-Type) Precedent:
-   - Ship roles with no dedicated vanilla ship_types token can still be built in the Ship Designer and get their own universal pool: minelayers, minesweepers, escort carriers, escort destroyers / destroyer escorts, corvettes, frigates, sloops, avisos, patrol vessels, scout cruisers, flotilla leaders, torpedo boats, fast attack craft, coastal defense ships, monitors, gunboats, fast battleships, large or armored cruisers, light carriers, seaplane tenders, cruiser / coastal / minelaying submarines, auxiliary cruisers and raiders, training ships, icebreakers, submarine tenders, state yachts. This list is a prompt, not a ceiling: also report any other role this navy ran a distinct class series for.
-   - For each role this nation operated, ordered, or planned, give ONE compact table row: role, base hull in game terms, documented class(es) and naming convention, count of verifiable names (with source/confidence flags), and a recommendation: CREATE (10+ verifiable names, or a documented naming formula that supports extrapolation) or SKIP (reason). List roles with no precedent in a single "no precedent" line, not as rows.
-   - Do not pad: no generic filler (cities, fauna) to reach the 10-name floor (20+ is the target). A role pool is justified by its documented series.
-   - Flag any candidate name that also appears in your candidate lists for DD, SS, CL, CA, BB, BC, or CV.
-
-Deliver your findings as a clean, highly structured Naval Research Dossier.
-```
-
-**Scope checkpoint**: when the dossier returns, fold its role-pool recommendations (§2C) into the scope calibration questions (for example: create all recommended role pools / only those at target depth / none). Ask at most 2 questions in total.
-
-#### Step 2: Investigating Naval Programs & Traditions
-Use the subagent's returned dossier to anchor:
-- **Historical Navy & Canceled Programs**: Peacetime fleets, interwar naval acts, and emergency wartime construction programs.
-- **Geographical & Cultural Grounding**: Major coastal cities, trade ports, provinces, islands, bodies of water, heroic folklore (e.g., Kalevala, Norse sagas), and native fauna.
-
-#### Step 3: VFS File Replacement & Clean Overrides
-- Mod files reside in `common/units/names_ships/<TAG>_ship_names.txt` matching the base-game filename.
-- Hearts of Iron IV's Virtual File System (VFS) cleanly replaces the vanilla file, preventing Clausewitz additive property accumulation (which concatenates prefixes like `NRB NRB ` or `BACH BACH ` and appends mod names behind vanilla's errors).
-- This allows complete overhauls of existing `<TAG>_<HULL>_HISTORICAL` groups alongside new universal thematic groups (`<TAG>_<THEME>`) in a single clean file.
-
----
-
-## 4. Historical & Linguistic Verification Protocol
-
-Before finalizing any namelist file, verify:
-
-- [ ] **1. Linguistic Precision & Grammar**:
-  - Are all names in the proper grammatical form (typically nominative singular)?
-  - Are native diacritics (*ä, ö, å, é, è, ü, ł, ś, etc.*) correctly preserved?
-  - Are articles, prepositions, or apostrophes formatted cleanly according to native orthography (e.g., *L'Audacieux*, *De Zeven Provinciën*)?
-- [ ] **2. UI Display Name Length**:
-  - Are all `name = "..."` display strings concise (**<= 25–30 characters**, maximum 32)?
-  - Have redundant national adjectives (e.g., "Austrian ...", "Finnish ...") been omitted for cleaner UI rendering?
-- [ ] **3. Naval Prefixes & Invariants (`prefix = "..."`)**:
-  - **Trailing Whitespace**: Every prefix string MUST end with a trailing space (e.g., `prefix = "NRB "`, `prefix = "HMS "`, `prefix = "ORP "`). Omission causes the engine to concatenate into `NRBMinas Gerais`.
-  - **Vanilla Parity vs. Historical Context**: Check vanilla usage via `-InspectVanilla <TAG>`. If vanilla assigned a prefix (even semi-fictional like `NRB `), maintain it for consistency across base-game scripts and player expectations, or explicitly document why it is omitted.
-  - **Universal Thematic Consistency**: If a country uses a prefix, ensure it is defined across BOTH ship-type specific groups and universal thematic groups so ships built under thematic designers receive the proper prefix.
-- [ ] **4. Scalability & Depth**:
-  - Enforce tiered depth standards so wartime fleets never exhaust names into generic stubs:
-    - DD: 100–140+ unique names (min 80+ for minor navies).
-    - SS: 60–80+ unique names (min 50+ for minor navies).
-    - CL: 50–70+ unique names (min 40–45+ for minor navies).
-    - CA: 35–45+ unique names.
-    - BB/BC: 30–45+ unique names.
-    - CV: 30–40+ unique names.
-    - Thematic Pools: 35–60+ unique names.
-    - Role-Specific Pools (§2C): 20+ names target, 10 minimum; below the minimum, fold into the parent hull group or a thematic pool.
-  - Always provide a numbered fallback format (e.g. `fallback_name = "Hävittäjä %d"`).
-- [ ] **5. Two-Category Balance**:
-  - Are all standard hull types covered with doctrine-aligned ship-type namelists?
-  - Are multiple rich topic namelists provided for universal hull selection?
-  - Was every role family in §2C considered, and is each created role pool backed by precedent (or recorded as skipped in the plan file)?
-- [ ] **6. Cross-Class Decoupling & Set-Intersection**:
-  - Do major combatant lists (`CL`, `CA`, `BB`, `BC`, `CV`) maintain mutually exclusive rosters with zero duplicate names?
-  - Have geographic homonyms (cities sharing identical names with provinces) been disambiguated using formal administrative designations (e.g. *"Cebu City"*, *"Ciudad de..."*) or alternate regional ports?
-  - Are `BB` and `BC` specialized into distinct doctrines rather than identical mirrors?
-  - Has the automated cross-class intersection check passed with 0 overlaps?
-- [ ] **7. Named-Individual & Homonym Verification**:
-  - Is every named historical person (admiral, commander, monarch, hero) individually traceable to a source — not just plausible for the role/era? Drop or flag any that the dossier/reviewer cannot corroborate, per the "Authenticity over Artificial Padding" standard in `GEMINI.md` §3.
-  - Does any single-word transliterated entry double as a common, unrelated English word that would read as a UI placeholder or typo to an English-speaking player (e.g. "Ship", "Bum", "Dad", "Mad")? If so, prefer a compound/disambiguated form over a bare collision.
-  - Does each thematic pool's `name = "..."` accurately describe the *final* entry list, not just the original theme concept (see the UI Display Name Sizing tip in Section 2)?
-
----
-
-## 5. Cross-Class Collision Audit & Independent Code Review Protocol
-
-### Cross-Class Homonyms & Decoupling Strategies
-In Hearts of Iron IV, players and AI frequently construct fleets featuring multiple cruiser and capital ship classes simultaneously. In many nations, geography and history present homonyms across administrative levels:
-- **City vs. Province Collisions (`CL` vs. `CA`)**: In nations like the Philippines, Mexico, Brazil, or Argentina, major cities often share identical names with provinces/states (e.g. *Cebu*, *Iloilo*, *Davao*, *Zamboanga*, *Batangas*, *Cavite*, *Puebla*, *Oaxaca*).
-  - **Resolution**: Designate provinces with their baseline geographic names in `CA` (*Batangas*, *Cavite*, *Cebu*). In `CL`, apply the formal administrative native title (e.g. *"Cebu City"*, *"Cavite City"*, *"Batangas City"*, *"Ciudad de Puebla"*) or replace with renowned secondary maritime ports/harbors.
-- **Historical Compacts vs. Cities/Provinces (`BB`/`BC` vs. `CL`/`CA`)**: Revolutionary compacts or ancient kingdoms may share names with modern cities or provinces (e.g., *Malolos*, *Butuan*, *Sulu*).
-  - **Resolution**: Use native realm titles or formal sovereign designations (e.g. Tausūg *"Lupah Sug"* for the Sultanate of Sulu vs. province *"Sulu"*; reserve *"Malolos"* for Battleships and use *"Meycauayan"* or *"Aparri"* for Light Cruisers).
-- **Macro-Regions/Confederations vs. Mountain Summits (`BB`/`BC` vs. `CV`)**: Historical regions or ancient leagues that share names with mountain peaks (e.g. Panay's Confederation of *Madja-as* vs. *Mount Madja-as*).
-  - **Resolution**: Use explicit *"Mount ..."* prefixing or allocate alternative prominent volcanic summits/ranges to carriers.
-
-### Capital Ship Specialization (`BB` vs. `BC`)
-Never duplicate namelist rosters between Battleships and Battlecruisers. Structure them into distinct doctrines:
-- **Battleships (`BB`)**: Foundational republics, constitutional compacts, macro-regions/island groups, supreme founding fathers, presidents, and national sovereignty symbols.
-- **Battlecruisers (`BC`)**: Pre-colonial thalassocracies/sea kingdoms, historic war vessels/flagships (e.g., *Karakoa*, *Balangay*, *Viking longships*), coastal fortresses/citadels, and decisive naval encounters/straits.
-
-### Programmatic Set-Intersection Verification Script
-Before submitting code for review or completing a namelist update, run an automated PowerShell check to mathematically guarantee zero overlapping names across major combatant hulls:
-
-```powershell
-$namelistFile = "common/units/names_ships/<TAG>_ship_names.txt"
-$text = [System.IO.File]::ReadAllText($namelistFile, [System.Text.Encoding]::UTF8)
-
-# Extract unique blocks for each class
-function Get-GroupNames([string]$groupTag) {
-    if ($text -match "(?s)$groupTag\s*=\s*\{.*?unique\s*=\s*\{(.*?)\}") {
-        return [regex]::Matches($matches[1], '"([^"]+)"') | ForEach-Object { $_.Groups[1].Value }
-    }
-    return @()
-}
-
-$classes = [ordered]@{
-    CL = Get-GroupNames "<TAG>_CL_HISTORICAL"
-    CA = Get-GroupNames "<TAG>_CA_HISTORICAL"
-    BB = Get-GroupNames "<TAG>_BB_HISTORICAL"
-    BC = Get-GroupNames "<TAG>_BC_HISTORICAL"
-    CV = Get-GroupNames "<TAG>_CV_HISTORICAL"
-}
-
-$keys = @($classes.Keys)
-$anyCollision = $false
-for ($i = 0; $i -lt $keys.Count; $i++) {
-    for ($j = $i + 1; $j -lt $keys.Count; $j++) {
-        $k1 = $keys[$i]; $k2 = $keys[$j]
-        $inter = $classes[$k1] | Where-Object { $classes[$k2] -contains $_ }
-        if ($inter) {
-            Write-Host "Collision between $k1 and ${k2}: $($inter -join ', ')" -ForegroundColor Red
-            $anyCollision = $true
-        }
-    }
-}
-if (-not $anyCollision) {
-    Write-Host "SUCCESS: Zero cross-class collisions among CL, CA, BB, BC, CV!" -ForegroundColor Green
-}
-```
-
-### Independent Code Review Protocol ("Code Reviewer" Subagent)
-To eliminate blind spots, dispatch a fresh Code Reviewer subagent (`Role: "Code Reviewer"`, `Model: "pro"`) using `invoke_subagent` before merging or completing a namelist update:
-
-```text
-You are the Code Reviewer for the Hearts of Iron IV mod "Immersive Ship Names Expanded" (ISNE).
-Your task is to perform an exhaustive whole-branch code review for the newly implemented naval ship namelists for <COUNTRY_NAME> (TAG: <TAG>).
-
-Plan and requirements:
-- Plan file: docs/superpowers/plans/<PLAN_FILE>.md
-- Implementation files:
-  - common/units/names_ships/<TAG>_ship_names.txt
-  - README.md
-  - WORKSHOP_DESCRIPTION_GUIDELINES.md
-  - wiki/<Country>.md
-  - wiki/Home.md
-  - wiki/_Sidebar.md
-
-Review Focus & Critical Invariants to Verify:
-1. Purge of Foreign Vessels & Hallucinations: Check that all foreign copy-pasted vessels (e.g., RNZN/RAN frigates, wrong national prefixes) and fictional/OCR-garbled entries (e.g. "General Manchatas") are 100% eliminated.
-2. Cross-Class Duplication: Verify that Light Cruisers, Heavy Cruisers, Battleships, Battlecruisers, and Aircraft Carriers do not share duplicate names.
-3. Capital Ship Differentiation: Ensure BB and BC are not identical mirrors and possess distinct, specialized doctrinal flavor.
-4. Named-Individual & Homonym Verification:
-   - Fact-check every named historical person (admiral, commander, monarch, hero) against known sources — a name that merely sounds plausible for the role/era is not sufficient grounds to keep it. Flag any you cannot corroborate as an Important finding, even if the surrounding vocabulary/place names in the same list are fine.
-   - Flag any single-word transliterated entry that doubles as a common, unrelated English word reading as a UI placeholder or typo to an English-speaking player (e.g. "Ship", "Bum", "Dad", "Mad").
-   - Flag any thematic pool whose `name = "..."` no longer accurately describes its final entry list (e.g. a "Birds of Prey" pool that also contains owls, songbirds, or waterfowl should be renamed "Birds").
-5. Engine Invariants:
-   - File encoding is UTF-8 without BOM.
-   - Strictly balanced curly braces and quotes.
-   - All defined prefixes must end with trailing whitespace (e.g. prefix = "RPS ").
-   - Group display names (name = "...") must be concise (<= 30-32 characters, no redundant national adjectives).
-   - ship_types correctness: run `powershell -File .\build.ps1 -VerifyShipTypes <TAG>` and report every FAIL line (unknown token, wrong-class token, missing required token, thematic pool with ship_types). Do not open or grep `ship_types` lines manually.
-   - Dedicated ideological pools (Republican, Socialist, Nationalist) are separated without ideological contradictions.
-6. Documentation & Wiki Synchronization:
-   - README.md table includes <TAG>.
-   - WORKSHOP_DESCRIPTION_GUIDELINES.md table and BBCode section include <TAG>.
-   - wiki/Home.md and wiki/_Sidebar.md link to wiki/<Country>.md.
-   - wiki/<Country>.md accurately documents all groups and token counts.
-7. Role-Specific Pools (only if the file has `<TAG>_<ROLE>` pools such as minelayers or escort carriers): each has no ship_types, a display name that matches its final entries, individually verifiable names (no generic padding to reach the floor), and no name shared with CL/CA/BB/BC/CV (`build.ps1 -Audit <TAG>` reports RoleOverlap). Confirm the plan file records role families that were considered and skipped.
-
-Report your findings grouped by severity (Critical, Important, Minor), along with your overall verdict.
-```
-
----
-
-## 6. Namelist File Syntax & Invariants
-
-File path: `common/units/names_ships/<TAG>_ship_names.txt`
-
+## 6. File Template
 ```pdx
 ##### <COUNTRY> NAVAL NAME LISTS (ISNE) #####
 
@@ -414,72 +145,15 @@ File path: `common/units/names_ships/<TAG>_ship_names.txt`
 }
 ```
 
-### Critical Syntax Rules:
-- **Encoding**: UTF-8 without BOM.
-- **Curly Braces**: Strictly balanced `{}`.
-- **Display Name Length**: Group `name = "..."` values must not exceed 30–32 characters to prevent visual truncation in the Ship Designer dropdown UI.
-- **Valid Hull Tokens & Per-Class Canon**: `ship_types` must match `data/ship_types_canon.json` (14 vanilla-live tokens; `capital_ship`/`screen_ship` are invalid). Class sets: `DD` `destroyer ship_hull_light`; `SS` `submarine ship_hull_submarine` (+ optional midget/cruiser-submarine hulls); `CL` `light_cruiser ship_hull_cruiser`; `CA` `heavy_cruiser ship_hull_cruiser`; `BB` `battleship ship_hull_heavy` (+ `battle_cruiser` only without a BC group); `BC` `battle_cruiser ship_hull_heavy`; `CV` `carrier ship_hull_carrier`; thematic pools omit `ship_types`. Check with `powershell -File .\build.ps1 -VerifyShipTypes <TAG>`.
-- **Ordered Blocks**: Unique integer keys (if using `ordered = { ... }`).
-- **No Empty Blocks**: Never leave empty `unique = { }` or `ordered = { }` blocks.
-- **No Self-Links**: `link_numbering_with` must never reference its own group tag.
-- **Global Tag Uniqueness**: Root-level group tags must be completely unique across the entire repository.
-
----
-
-## 7. Documentation & Workshop Synchronization
-
-Whenever a country's namelists are added or updated:
-
-1. **`WORKSHOP_DESCRIPTION_GUIDELINES.md`**:
-   - Add/update the row in the **Repository Cross-Reference** table:
-     `| <TAG>_ship_names.txt | <Country> | <TAG> | Included (<Summary of highlights>) |`
-   - Add/update the country entry under `[h1]Included nations:[/h1]` using the standard 2-bullet Steam BBCode format (summarizing changes concisely rather than listing individual ship names; vanilla bug fixes are documented globally in the Info section):
-     ```bbcode
-     [b]<Country>[/b]
-     - Expanded ship-type lists for <Hulls>.
-     - Added <N> universal thematic lists for the Ship Designer (<Topics>).
-     ```
-   - **Do NOT list individual ship names** in the workshop description to avoid exhausting the character limit.
-   - Role pools (§2C) count toward `<N>` and may be named generically among the topics (e.g. minelayers, escort carriers).
-   - **Writing Standards**: Use "Expanded" for ship-type lists, maintain consistent past tense, avoid repetitive verbs (e.g. repeated "fixed"), and avoid tautological phrases (e.g. "expanded ... expansion fleets").
-   - **Do NOT add or restore a `[h1]Planned:[/h1]` section.**
-   - **Preserve Author Content**: Leave the header intro, companion mod link, Info block, and Jackhall tribute section intact.
-2. **`README.md`**:
-   - Add the new country tag, name, and file path to the **Included Nations Summary** table.
-3. **Wiki Documentation (`wiki/`)**:
-   - Create or update the detailed page at `wiki/<Nation>.md` with full tables of group tags, types, and sample names.
-   - Update `wiki/Home.md` and `wiki/_Sidebar.md` when introducing a new nation.
-   - Push wiki changes:
-     ```powershell
-     powershell -File .\wiki\push-wiki.ps1 -CommitMessage "Document <TAG> ship namelists"
-     ```
-4. **Steam Workshop Description Standards**:
-   - Strictly **no emojis** anywhere.
-   - Stay within Steam's ~17,000 character limit (concise summary bullets, no quote blocks, no exhaustive ship name dumps).
-   - If requested in chat, provide the complete, ready-to-copy BBCode text block.
-
----
-
-## 8. Build, Validation & Test Protocol
-
-Run validation and tests from the mod root:
-
-```powershell
-# 1. Syntax, engine invariant, and bracket validation
-powershell -File .\build.ps1 -ValidateOnly
-
-# 2. Automated Pester unit test suite (engine rules, docs sync, build script)
-powershell -File .\build.ps1 -Test
-
-# 2b. ship_types vs the vanilla-derived class canon (one OK line, or one line per deviation)
-powershell -File .\build.ps1 -VerifyShipTypes <TAG>
-
-# 3. Standards audit of one nation's namelist (group depth vs quotas, collisions, prefixes, docs sync)
-powershell -File .\build.ps1 -Audit <TAG>
-
-# 4. Release packaging verification (ensures clean ZIP excluding dev artifacts)
-powershell -File .\build.ps1 -Package
-
-# 5. Live launcher link (optional: connects Paradox launcher directly to repo)
-powershell -File .\build.ps1 -DevLink
-```
+## 7. Review & Docs
+- **Review**: invoke a fresh subagent via `invoke_subagent` (`Role: "Code Reviewer"`, `Model: "pro"`) that reads and follows the brief in `.claude/agents/isne-code-reviewer.md`, with country, TAG, plan file (`docs/superpowers/plans/<PLAN_FILE>.md`) and implementation files (`common/units/names_ships/<TAG>_ship_names.txt`, `README.md`, `WORKSHOP_DESCRIPTION_GUIDELINES.md`, `wiki/<Country>.md`, `wiki/Home.md`, `wiki/_Sidebar.md`). Fix every Critical and Important finding before reporting completion.
+- **Docs** (`GEMINI.md` §4):
+  - Cross-reference row: `| <TAG>_ship_names.txt | <Country> | <TAG> | Included (<Summary of highlights>) |`
+  - Included-nations block (role pools count toward `<N>` and may be named generically among the topics, e.g. minelayers, escort carriers):
+    ```bbcode
+    [b]<Country>[/b]
+    - Expanded ship-type lists for <Hulls>.
+    - Added <N> universal thematic lists for the Ship Designer (<Topics>).
+    ```
+  - Wiki page: tables of group tags, types and sample names. Push: `powershell -File .\wiki\push-wiki.ps1 -CommitMessage "Document <TAG> ship namelists"`.
+- **Validate**: `-ValidateOnly`, `-Test`, `-VerifyShipTypes <TAG>`, `-Audit <TAG>`; `-Package` for release checks (`GEMINI.md` §5).

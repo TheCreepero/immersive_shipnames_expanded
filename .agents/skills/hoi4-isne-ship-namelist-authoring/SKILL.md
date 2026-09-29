@@ -52,9 +52,12 @@ Dedicated namelists bound to specific `ship_types` tokens. These represent the n
 - **Heavy Cruisers & Coastal Defense (`CA`)**: Epic cultural heroes, mythic figures, national champions.
   - Tokens: `ship_hull_cruiser heavy_cruiser`
   - Tag pattern: `<TAG>_CA_HISTORICAL`
-- **Battleships & Capital Ships (`BB`)**: Historical provinces, regions, legendary monarchs.
-  - Tokens: `ship_hull_heavy battleship battle_cruiser`
+- **Battleships (`BB`)**: Historical provinces, regions, legendary monarchs.
+  - Tokens: `ship_hull_heavy battleship` (`battle_cruiser` only when the file has no BC group)
   - Tag pattern: `<TAG>_BB_HISTORICAL`
+- **Battlecruisers (`BC`)**: Sea kingdoms, historic war vessels and flagships, coastal fortresses, decisive straits and naval encounters.
+  - Tokens: `ship_hull_heavy battle_cruiser`
+  - Tag pattern: `<TAG>_BC_HISTORICAL`
 - **Aircraft Carriers (`CV`)**: Sky deities, heavens, weather phenomena, raptors/birds of prey.
   - Tokens: `ship_hull_carrier carrier`
   - Tag pattern: `<TAG>_CV_HISTORICAL`
@@ -91,6 +94,40 @@ Expansive thematic pools designed for universal selection across **any ship type
 > - Keep all display names (`name = "..."`) concise (**<= 25–30 characters**).
 > - **Omit redundant country prefixes/adjectives** (e.g. use `name = "Cities"` rather than `name = "Finnish Cities"`, `name = "Monarchs"` rather than `name = "Habsburg & Babenberg Monarchs"`).
 > - **Name the pool for what it actually contains**: don't call a mixed-content pool "Birds of Prey" if it also includes owls, songbirds, or waterfowl — use "Birds" instead. Check the name against the final entry list, not just the initial theme concept.
+
+### C. Role-Specific Pools (Optional, Precedent-Driven)
+Some ship roles have no dedicated vanilla `ship_types` token (a minelayer is a light hull, an escort carrier is a `carrier` hull), yet a player can still build them in the Ship Designer. Give a role its own **universal pool** (tag `<TAG>_<ROLE>`, no `ship_types`) so a specific design can carry the right names. `ship_types` cannot isolate a role, which is why role pools stay universal and `build.ps1 -VerifyShipTypes` rejects `ship_types` on them.
+
+**Never a requirement, always a consideration.** Walk every family below for every nation and create a pool only if it passes the precedent test.
+
+**Precedent test (any one is enough):**
+- The navy operated, ordered, or planned a distinct class or designation for the role that had its own naming convention (illustrative, verify per nation: US escort carriers named after sounds and bays and destroyer escorts after naval heroes; British Flower-class corvettes after flowers; Italian scouts of the Navigatori class after navigators and explorers).
+- The role's documented naming formula differs from its parent hull group's, so a mixed roster would misrepresent both.
+- Enough verifiable names exist to reach the floor without padding (per the "Authenticity over Artificial Padding" standard, `CLAUDE.md` §3).
+
+If none applies, do not create the pool; record `considered, skipped: <reason>` in the plan file (one line per role family is enough).
+
+**Candidate catalogue** (a prompt for the researcher, not a ceiling; tag = `<TAG>_` + suffix):
+
+| Family | Candidate pools (suffix) | Usually built on |
+|--------|--------------------------|------------------|
+| Mine warfare | `MINELAYERS`, `MINESWEEPERS` | light hull; cruiser hull for fast minelayers |
+| Convoy escort & ASW | `ESCORT_CARRIERS`, `ESCORT_DESTROYERS`, `CORVETTES`, `FRIGATES`, `SLOOPS`, `AVISOS`, `PATROL_VESSELS` (coast guard, armed trawlers) | carrier hull; light hull |
+| Scouting & torpedo craft | `SCOUT_CRUISERS`, `FLOTILLA_LEADERS`, `TORPEDO_BOATS`, `FAST_ATTACK_CRAFT` | cruiser or light hull |
+| Coastal & riverine | `COASTAL_DEFENSE` (only where its formula differs from `CA`), `MONITORS`, `GUNBOATS` | heavy, cruiser, or light hull |
+| Capital & carrier sub-types | `FAST_BATTLESHIPS`, `LARGE_CRUISERS`, `ARMORED_CRUISERS` (pre-1914 legacy), `LIGHT_CARRIERS` | heavy, cruiser, or carrier hull |
+| Aviation support | `SEAPLANE_TENDERS` | light, cruiser, or carrier hull |
+| Submarine sub-types | `CRUISER_SUBMARINES`, `COASTAL_SUBMARINES` (including midget), `MINELAYING_SUBMARINES` | submarine hull |
+| Auxiliary & converted | `AUXILIARY_CRUISERS` (merchant raiders, armed merchant cruisers), `TRAINING_SHIPS`, `ICEBREAKERS`, `SUBMARINE_TENDERS`, `STATE_YACHTS` | light or cruiser hull |
+
+If research surfaces another role with its own class series (a national river flotilla, a colonial station-ship series, a coastal fortress-ship line), propose it with a `<TAG>_<ROLE>` tag and add its suffix to `$RolePoolSuffixes` in `build.ps1` so `-Audit` recognizes it as a role pool instead of grading it as an ordinary thematic pool.
+
+**Role-pool rules:**
+- **Structure**: no `ship_types`; the national prefix (trailing space) and a native indefinite-nominative `fallback_name`, like any thematic pool.
+- **Depth**: 20+ names target, 10 floor (`-Audit` warns on a shortfall). Below the floor, fold the names into the parent hull group or a thematic pool instead.
+- **Decoupling**: no name shared with `CL`, `CA`, `BB`, `BC`, or `CV` (`-Audit` reports `RoleOverlap` as FAIL); overlap with `DD` or `SS` is a WARN, because an escort pool legitimately borders its parent hull. Role pools are excluded from the "6+ thematic pools" count.
+- **Authenticity**: every entry individually verifiable; never pad with generic thematic names (cities, fauna) to reach the floor. A role pool is justified by its documented series.
+- **Display name**: the role in plain words (`"Minelayers"`, `"Escort Carriers"`), <= 25 characters, no national adjective, and accurate for the final entries.
 
 ---
 
@@ -172,9 +209,16 @@ INVESTIGATION DIRECTIVES:
    - Battleships & Battlecruisers (BB/BC): 30–45+ unique names.
    - Aircraft Carriers (CV): 30–40+ unique names.
    - Universal Thematic Pools: 35–60+ unique names per pool (e.g. Birds/Raptors, Aquatic Life/Fish, Coastal Cities, Provinces/Regions, Rivers/Waterways, Mythology/Folklore, Rulers/Heroes, Virtues/Tempests).
+5. Role-Specific (Alternate-Type) Precedent:
+   - Ship roles with no dedicated vanilla ship_types token can still be built in the Ship Designer and get their own universal pool: minelayers, minesweepers, escort carriers, escort destroyers / destroyer escorts, corvettes, frigates, sloops, avisos, patrol vessels, scout cruisers, flotilla leaders, torpedo boats, fast attack craft, coastal defense ships, monitors, gunboats, fast battleships, large or armored cruisers, light carriers, seaplane tenders, cruiser / coastal / minelaying submarines, auxiliary cruisers and raiders, training ships, icebreakers, submarine tenders, state yachts. This list is a prompt, not a ceiling: also report any other role this navy ran a distinct class series for.
+   - For each role this nation operated, ordered, or planned, give ONE compact table row: role, base hull in game terms, documented class(es) and naming convention, count of verifiable names (with source/confidence flags), and a recommendation: CREATE (10+ verifiable names, or a documented naming formula that supports extrapolation) or SKIP (reason). List roles with no precedent in a single "no precedent" line, not as rows.
+   - Do not pad: no generic filler (cities, fauna) to reach the 10-name floor (20+ is the target). A role pool is justified by its documented series.
+   - Flag any candidate name that also appears in your candidate lists for DD, SS, CL, CA, BB, BC, or CV.
 
 Deliver your findings as a clean, highly structured Naval Research Dossier.
 ```
+
+**Scope checkpoint**: when the dossier returns, fold its role-pool recommendations (§2C) into the scope calibration questions (for example: create all recommended role pools / only those at target depth / none). Ask at most 2 questions in total.
 
 #### Step 2: Investigating Naval Programs & Traditions
 Use the subagent's returned dossier to anchor:
@@ -212,10 +256,12 @@ Before finalizing any namelist file, verify:
     - BB/BC: 30–45+ unique names.
     - CV: 30–40+ unique names.
     - Thematic Pools: 35–60+ unique names.
+    - Role-Specific Pools (§2C): 20+ names target, 10 minimum; below the minimum, fold into the parent hull group or a thematic pool.
   - Always provide a numbered fallback format (e.g. `fallback_name = "Hävittäjä %d"`).
 - [ ] **5. Two-Category Balance**:
   - Are all standard hull types covered with doctrine-aligned ship-type namelists?
   - Are multiple rich topic namelists provided for universal hull selection?
+  - Was every role family in §2C considered, and is each created role pool backed by precedent (or recorded as skipped in the plan file)?
 - [ ] **6. Cross-Class Decoupling & Set-Intersection**:
   - Do major combatant lists (`CL`, `CA`, `BB`, `BC`, `CV`) maintain mutually exclusive rosters with zero duplicate names?
   - Have geographic homonyms (cities sharing identical names with provinces) been disambiguated using formal administrative designations (e.g. *"Cebu City"*, *"Ciudad de..."*) or alternate regional ports?
@@ -321,6 +367,7 @@ Review Focus & Critical Invariants to Verify:
    - WORKSHOP_DESCRIPTION_GUIDELINES.md table and BBCode section include <TAG>.
    - wiki/Home.md and wiki/_Sidebar.md link to wiki/<Country>.md.
    - wiki/<Country>.md accurately documents all groups and token counts.
+7. Role-Specific Pools (only if the file has `<TAG>_<ROLE>` pools such as minelayers or escort carriers): each has no ship_types, a display name that matches its final entries, individually verifiable names (no generic padding to reach the floor), and no name shared with CL/CA/BB/BC/CV (`build.ps1 -Audit <TAG>` reports RoleOverlap). Confirm the plan file records role families that were considered and skipped.
 
 Report your findings grouped by severity (Critical, Important, Minor), along with your overall verdict.
 ```
@@ -393,6 +440,7 @@ Whenever a country's namelists are added or updated:
      - Added <N> universal thematic lists for the Ship Designer (<Topics>).
      ```
    - **Do NOT list individual ship names** in the workshop description to avoid exhausting the character limit.
+   - Role pools (§2C) count toward `<N>` and may be named generically among the topics (e.g. minelayers, escort carriers).
    - **Writing Standards**: Use "Expanded" for ship-type lists, maintain consistent past tense, avoid repetitive verbs (e.g. repeated "fixed"), and avoid tautological phrases (e.g. "expanded ... expansion fleets").
    - **Do NOT add or restore a `[h1]Planned:[/h1]` section.**
    - **Preserve Author Content**: Leave the header intro, companion mod link, Info block, and Jackhall tribute section intact.

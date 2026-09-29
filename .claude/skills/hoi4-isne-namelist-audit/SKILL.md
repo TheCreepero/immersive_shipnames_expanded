@@ -28,6 +28,7 @@ An audit is a **delta upgrade**: entries that already meet the standard stay unt
    - **(b) Judgment** — from the group table, check each fallback for native indefinite nominative terms (`CLAUDE.md` §7) and each thematic `Name` for accuracy against content and for redundant national adjectives. Read with `-Group` any pool whose name signals political content (ideology mixing, `CLAUDE.md` §2) or a narrow theme ("Birds of Prey").
    - **(b′) Content-risk pools** — pools of named persons or beings: rulers, heroes, admirals/commanders, mythology, and any hull group built on persons, legendary kings, or mythic beings (typically CA/BB/BC/CV). They always go to the researcher for a per-entry verdict, even when `-Audit` is clean: legacy lists hide fabrications here (invented titles such as "King <town>" or "Prince <god>", unattested coinages, the wrong person under a heroic label). Skim them with `-NamesOnly` only to name concrete suspects in the research prompt.
    - **(c) Content gaps** — `Depth`, `MissingHull`, `CrossClass`, `BBBCMirror`: need new or reassigned names.
+   - **(d) Role-pool candidates** — optional, precedent-driven pools for roles with no vanilla `ship_types` token (authoring skill §2C: minelayers, escort carriers, scout cruisers, and the rest of that catalogue). Never a question: they ride the step-4 research dispatch and are added only when the researcher recommends CREATE.
 3. **Checkpoint.** Show the user a gap list (≤15 lines, grouped a/b/c, with counts vs targets), then ask at most 2 AskUserQuestion scope questions. Ask only about decisions the rules leave open, picking the first two that apply in this order:
    1. `VanillaPrefix` fired: restore the vanilla prefix or stay as-is (first Grep `wiki/<Country>.md` for "prefix"; a documented reason goes in the question).
    2. Any `Depth` finding: top up to target, or accept the floor / current count.
@@ -38,8 +39,9 @@ An audit is a **delta upgrade**: entries that already meet the standard stay unt
    - Country, TAG, and file path, stating that this is an audit of an existing file (not a full dossier).
    - Each bucket (c) item: group tag, current count → target, theme/doctrine, and the collision names to replace.
    - The content-risk pools from step 2(b′) with the suspects you spotted, asking for a keep/drop/respell verdict and source for every entry that is not a clearly documented figure.
+   - Unless the file already has the pool, ask for the role-pool precedent table (researcher directive 5; authoring skill §2C).
    - Output: candidate names per group (+20% spare for collisions) and the verification verdicts. No prose history.
-5. **Audit plan.** Write `docs/superpowers/plans/YYYY-MM-DD-<nation>-audit.md`: report summary, user decisions, per-group changes (added / removed / moved), and a justification for each WARN that is kept.
+5. **Audit plan.** Write `docs/superpowers/plans/YYYY-MM-DD-<nation>-audit.md`: report summary, user decisions, per-group changes (added / removed / moved), a justification for each WARN that is kept, and each role pool created or skipped with its reason.
 6. **Edit in place** with Edit, one group per edit:
    - Keep existing group tags (saved designs reference them).
    - Resolve each cross-class collision by keeping the name in the class whose doctrine fits best and replacing it in the other; disambiguate homonyms per `CLAUDE.md` §2 (*"... City"*, *"Mount ..."*, native realm titles).
@@ -60,6 +62,7 @@ An audit is a **delta upgrade**: entries that already meet the standard stay unt
 | `BBCarriesBC` | Remove `battle_cruiser` from BB ship_types |
 | `CrossClass` / `BBBCMirror` | Keep in best-fit class, replace or disambiguate in the other |
 | `DuplicateInGroup` | Remove the repeat (check article/spelling variants too) |
+| `RoleOverlap` | Keep the name in the hull group or the role pool, whichever the documented series supports; replace it in the other (FAIL vs CL/CA/BB/BC/CV, WARN vs DD/SS) |
 | `ThemeRestricted` / `ThemeCount` | Drop `ship_types` from thematic pools / add pools agreed at the checkpoint |
 | `UnknownToken` / `WrongClassToken` / `MissingRequired` | Set `ship_types` to the class set in `data/ship_types_canon.json` (`CLAUDE.md` §7); `-Audit` runs this check, so the reviewer need not re-run `-VerifyShipTypes` |
 | `PrefixSpace` / `PrefixInconsistent` | Add trailing space / apply the national prefix to every group |

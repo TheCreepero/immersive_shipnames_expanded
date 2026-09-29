@@ -42,5 +42,6 @@ Review Focus & Critical Invariants to Verify:
    - WORKSHOP_DESCRIPTION_GUIDELINES.md table and BBCode section include <TAG>.
    - wiki/Home.md and wiki/_Sidebar.md link to wiki/<Country>.md.
    - wiki/<Country>.md accurately documents all groups and token counts.
+7. Role-Specific Pools (only if the file has `<TAG>_<ROLE>` pools such as minelayers or escort carriers): each has no ship_types, a display name that matches its final entries, individually verifiable names (no generic padding to reach the floor), and no name shared with CL/CA/BB/BC/CV (`build.ps1 -Audit <TAG>` reports RoleOverlap). Confirm the plan file records role families that were considered and skipped.
 
 Report your findings grouped by severity (Critical, Important, Minor), along with your overall verdict.

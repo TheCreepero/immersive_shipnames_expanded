@@ -23,7 +23,7 @@ BeforeAll {
 
     $script:Canon = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot "data\ship_types_canon.json"), [System.Text.Encoding]::UTF8) | ConvertFrom-Json
 
-    foreach ($fn in @('Get-NamelistGroups', 'Get-NamelistAuditFindings', 'Get-ShipTypeFindings', 'Get-ShipTypeCanon')) {
+    foreach ($fn in @('Get-NamelistGroups', 'Get-NamelistAuditFindings', 'Get-ShipTypeFindings', 'Get-ShipTypeCanon', 'Get-RolePoolSuffixes')) {
         $fnMatch = [regex]::Match($script:BuildContent, "(?s)(function $fn\s*\{.*?\n\})")
         if ($fnMatch.Success) {
             . ([ScriptBlock]::Create($fnMatch.Groups[1].Value))
@@ -236,6 +236,42 @@ Describe "build.ps1 Helper: Get-NamelistAuditFindings" {
         $text = (Get-CompliantFixtureText) -replace '"BIRDS ([1-3]\d)" ?', ''
         $findings = Invoke-FixtureAudit $text
         ($findings | Where-Object { $_.Check -eq 'Depth' -and $_.Group -eq 'TST_BIRDS' }).Severity | Should -Be 'WARN'
+    }
+
+    It "Grades role pools (Target 20, Floor 10) as WARN only and keeps them out of the thematic pool count" {
+        $role = New-FixtureGroup 'TST_MINELAYERS' '' (New-NameRange 'Ml' 20) 'TNS ' '"Minelayers"'
+        $full = Invoke-FixtureAudit ((Get-CompliantFixtureText) + $role)
+        @($full | Where-Object { $_.Severity -ne 'INFO' }).Count | Should -Be 0
+
+        $noTheme = ((Get-CompliantFixtureText) -replace '(?s)TST_RIVERS = \{.*?\n\}\n', '') + $role
+        $themeFindings = Invoke-FixtureAudit $noTheme
+        $themeCount = @($themeFindings | Where-Object { $_.Check -eq 'ThemeCount' })
+        $themeCount.Count | Should -Be 1
+        $themeCount[0].Detail | Should -Match '^5 thematic pools'
+
+        $short = New-FixtureGroup 'TST_MINELAYERS' '' (New-NameRange 'Ml' 8) 'TNS ' '"Minelayers"'
+        $shortFindings = Invoke-FixtureAudit ((Get-CompliantFixtureText) + $short)
+        $depth = @($shortFindings | Where-Object { $_.Check -eq 'Depth' -and $_.Group -eq 'TST_MINELAYERS' })
+        $depth.Count | Should -Be 1
+        $depth[0].Severity | Should -Be 'WARN'
+    }
+
+    It "Fails role pool names shared with CL and warns on names shared with DD (RoleOverlap)" {
+        $names = @('Cl 1', 'Dd 1') + (New-NameRange 'Ml' 18)
+        $role = New-FixtureGroup 'TST_ESCORT_CARRIERS' '' $names 'TNS ' '"Escort Carriers"'
+        $findings = Invoke-FixtureAudit ((Get-CompliantFixtureText) + $role)
+        $f = @($findings | Where-Object { $_.Check -eq 'RoleOverlap' })
+        $f.Count | Should -Be 2
+        ($f | Where-Object { $_.Group -eq 'TST_ESCORT_CARRIERS/CL' }).Severity | Should -Be 'FAIL'
+        ($f | Where-Object { $_.Group -eq 'TST_ESCORT_CARRIERS/DD' }).Severity | Should -Be 'WARN'
+    }
+
+    It "Treats an unlisted role-like pool as an ordinary thematic pool" {
+        $odd = New-FixtureGroup 'TST_RIVER_FLOTILLA' '' (New-NameRange 'Rf' 20) 'TNS ' '"River Flotilla"'
+        $findings = Invoke-FixtureAudit ((Get-CompliantFixtureText) + $odd)
+        $f = @($findings | Where-Object { $_.Check -eq 'Depth' -and $_.Group -eq 'TST_RIVER_FLOTILLA' })
+        $f.Count | Should -Be 1
+        $f[0].Detail | Should -Match 'target 35'
     }
 
     It "Warns on wiki sample names missing from their group, accepting shortened forms" {

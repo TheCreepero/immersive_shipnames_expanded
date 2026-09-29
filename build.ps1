@@ -699,6 +699,22 @@ function Get-NamelistGroups {
     return , $groups.ToArray()
 }
 
+# --- Helper: Tag suffixes of role-specific pools (see authoring skill section 2C) ---
+# Role pools are universal (no ship_types) pools for roles without a vanilla ship_types token.
+# Add a suffix here when a nation's research surfaces a new role series.
+function Get-RolePoolSuffixes {
+    return @(
+        'MINELAYERS', 'MINESWEEPERS',
+        'ESCORT_CARRIERS', 'ESCORT_DESTROYERS', 'CORVETTES', 'FRIGATES', 'SLOOPS', 'AVISOS', 'PATROL_VESSELS',
+        'SCOUT_CRUISERS', 'FLOTILLA_LEADERS', 'TORPEDO_BOATS', 'FAST_ATTACK_CRAFT',
+        'COASTAL_DEFENSE', 'MONITORS', 'GUNBOATS',
+        'FAST_BATTLESHIPS', 'LARGE_CRUISERS', 'ARMORED_CRUISERS', 'LIGHT_CARRIERS',
+        'SEAPLANE_TENDERS',
+        'CRUISER_SUBMARINES', 'COASTAL_SUBMARINES', 'MINELAYING_SUBMARINES',
+        'AUXILIARY_CRUISERS', 'TRAINING_SHIPS', 'ICEBREAKERS', 'SUBMARINE_TENDERS', 'STATE_YACHTS'
+    )
+}
+
 # --- Helper: Audit a mod namelist against current ISNE standards ---
 # Returns findings as objects: Severity (FAIL/WARN/INFO), Check, Group, Detail.
 # -RepoDir enables documentation sync checks; -VanillaGroups enables vanilla prefix parity.
@@ -732,17 +748,20 @@ function Get-NamelistAuditFindings {
         BC = @{ Target = 30;  Floor = 30 }
         CV = @{ Target = 30;  Floor = 30 }
         THEME = @{ Target = 35; Floor = 20 }
+        ROLE = @{ Target = 20; Floor = 10 }
     }
     $hulls = @('DD', 'SS', 'CL', 'CA', 'BB', 'BC', 'CV')
+    $roleTags = @(Get-RolePoolSuffixes | ForEach-Object { "${Tag}_$_" })
 
     $byClass = @{}
     $themes = @()
+    $roles = @()
     foreach ($g in $Groups) {
         $m = [regex]::Match($g.GroupTag, "^$([regex]::Escape($Tag))_(DD|SS|CL|CA|BB|BC|CV)_HISTORICAL$")
-        $cls = if ($m.Success) { $m.Groups[1].Value } else { 'THEME' }
+        $cls = if ($m.Success) { $m.Groups[1].Value } elseif ($roleTags -contains $g.GroupTag) { 'ROLE' } else { 'THEME' }
         $g | Add-Member -NotePropertyName Class -NotePropertyValue $cls -Force
         $g | Add-Member -NotePropertyName Target -NotePropertyValue $quotas[$cls].Target -Force
-        if ($cls -eq 'THEME') { $themes += $g } else { $byClass[$cls] = $g }
+        if ($cls -eq 'THEME') { $themes += $g } elseif ($cls -eq 'ROLE') { $roles += $g } else { $byClass[$cls] = $g }
         if (-not $g.GroupTag.StartsWith("${Tag}_")) {
             Add-Finding 'WARN' 'TagNaming' $g.GroupTag "Group tag does not start with '${Tag}_'"
         }
@@ -752,8 +771,8 @@ function Get-NamelistAuditFindings {
     foreach ($g in $Groups) {
         $q = $quotas[$g.Class]
         if ($g.Count -lt $q.Floor) {
-            # Thematic depth applies "where thematic scope permits", so a short pool is WARN, never FAIL
-            $sev = if ($g.Class -eq 'THEME') { 'WARN' } else { 'FAIL' }
+            # Thematic depth applies "where thematic scope permits" and role pools are precedent-limited, so a short pool is WARN, never FAIL
+            $sev = if ($g.Class -in @('THEME', 'ROLE')) { 'WARN' } else { 'FAIL' }
             Add-Finding $sev 'Depth' $g.GroupTag "$($g.Count) names; below floor $($q.Floor), target $($q.Target)"
         } elseif ($g.Count -lt $q.Target) {
             Add-Finding 'WARN' 'Depth' $g.GroupTag "$($g.Count) names; target $($q.Target) (floor $($q.Floor) met)"
@@ -799,6 +818,18 @@ function Get-NamelistAuditFindings {
                         Add-Finding 'FAIL' 'BBBCMirror' 'BB/BC' "$($inter.Count) of $minCount names shared; specialize BB vs BC doctrine"
                     }
                 }
+            }
+        }
+    }
+
+    # 3b. Role pools must not reuse names from the major hulls (FAIL) or DD/SS (WARN)
+    foreach ($r in $roles) {
+        foreach ($h in @('CL', 'CA', 'BB', 'BC', 'CV', 'DD', 'SS')) {
+            if (-not $byClass.ContainsKey($h)) { continue }
+            $inter = @($r.Names | Where-Object { $byClass[$h].Names -ccontains $_ } | Select-Object -Unique)
+            if ($inter.Count -gt 0) {
+                $sev = if ($h -in @('DD', 'SS')) { 'WARN' } else { 'FAIL' }
+                Add-Finding $sev 'RoleOverlap' "$($r.GroupTag)/$h" (Format-NameList $inter)
             }
         }
     }

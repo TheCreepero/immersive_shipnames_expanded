@@ -26,6 +26,10 @@ Every country's ship namelists should be structured into two broad categories:
      - **Geography**: Major & Coastal Cities, Provinces / Regions, Rivers & Lakes, Mountains / Landmarks.
      - **History & Heritage**: Legendary Rulers & Monarchs, National Heroes, Mythological Figures / Deities, Historic Battles.
      - **Martial Virtues & Metaphor**: Virtues, Meteorological / Celestial phenomena.
+   - **Role-Specific Pools (Optional, Precedent-Driven)**: Some ship roles have no dedicated vanilla `ship_types` token but can still be built in the Ship Designer (minelayers, minesweepers, escort carriers, escort destroyers, corvettes/frigates/sloops/avisos, patrol vessels, scout cruisers, flotilla leaders, torpedo boats, coastal defense ships, monitors, gunboats, light carriers, seaplane tenders, submarine sub-types, auxiliary cruisers, training ships, icebreakers, and any other role the research surfaces; the catalogue lives in the authoring skill §2C). They are never required, but every nation must be considered.
+     - Author one as a universal pool (`<TAG>_<ROLE>`, no `ship_types`, national prefix and native fallback like any thematic pool) only when the nation has real precedent: a distinct class or designation with its own naming convention, a documented naming formula that differs from its parent hull's, or enough verifiable names to reach the floor without padding. Otherwise record "considered, skipped: <reason>" in the plan file.
+     - Depth: 20+ names target, 10 floor (`build.ps1 -Audit` grades a shortfall as WARN). Below the floor, fold the names into the parent hull group or a thematic pool. Names must be individually verifiable (§3); never pad a role pool with generic thematic names.
+     - Decoupling: no name shared with `CL`/`CA`/`BB`/`BC`/`CV` (FAIL); overlap with `DD`/`SS` is a WARN, since an escort pool legitimately borders its parent hull. Role pools do not count toward the "6+ thematic pools" standard.
    - **Tiered Namelist Depth Standards**:
      - Due to Hearts of Iron IV's gameplay dynamics, small combat vessels are produced in large volumes. Namelists must provide sufficient depth so active wartime fleets do not exhaust names into generic numbered templates:
        - **Destroyers & Escorts (`DD`)**: 100–140+ unique names (minimum 80+ for minor navies).
@@ -35,6 +39,7 @@ Every country's ship namelists should be structured into two broad categories:
        - **Capital Ships (`BB` / `BC`)**: 30–45+ unique names.
        - **Aircraft Carriers (`CV`)**: 30–40+ unique names.
        - **Universal Thematic Pools**: 35–60+ unique names per pool where thematic scope permits.
+       - **Role-Specific Pools**: 20+ unique names (10 minimum), only where precedent exists.
      - **Ideological & Political Cohesion**: When authoring political, ideological, or revolutionary concept pools, **never mix opposing or antithetical ideologies into the same namelist** (e.g., socialist/syndicalist concepts mixed with fascist/synarchist/reactionary concepts, or royalist slogans mixed with radical republicanism). Instead, author separate dedicated pools per ideological branch (e.g., `<TAG>_REPUBLICAN_IDEALS`, `<TAG>_SOCIALISM`, `<TAG>_NATIONALISM` / `<TAG>_FASCISM`, `<TAG>_MONARCHISM`) so players and alternate-history AI regimes commission vessels with cohesive political flavor.
    - **UI Display Name Constraints (Max ~25-30 Characters)**:
      - The in-game Ship Designer dropdown UI has limited width and truncates or wraps long namelist names poorly.

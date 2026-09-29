@@ -41,4 +41,10 @@ INVESTIGATION DIRECTIVES:
    - Aircraft Carriers (CV): 30–40+ unique names.
    - Universal Thematic Pools: 35–60+ unique names per pool (e.g. Birds/Raptors, Aquatic Life/Fish, Coastal Cities, Provinces/Regions, Rivers/Waterways, Mythology/Folklore, Rulers/Heroes, Virtues/Tempests).
 
+5. Role-Specific (Alternate-Type) Precedent:
+   - Ship roles with no dedicated vanilla ship_types token can still be built in the Ship Designer and get their own universal pool: minelayers, minesweepers, escort carriers, escort destroyers / destroyer escorts, corvettes, frigates, sloops, avisos, patrol vessels, scout cruisers, flotilla leaders, torpedo boats, fast attack craft, coastal defense ships, monitors, gunboats, fast battleships, large or armored cruisers, light carriers, seaplane tenders, cruiser / coastal / minelaying submarines, auxiliary cruisers and raiders, training ships, icebreakers, submarine tenders, state yachts. This list is a prompt, not a ceiling: also report any other role this navy ran a distinct class series for.
+   - For each role this nation operated, ordered, or planned, give ONE compact table row: role, base hull in game terms, documented class(es) and naming convention, count of verifiable names (with source/confidence flags), and a recommendation: CREATE (10+ verifiable names, or a documented naming formula that supports extrapolation) or SKIP (reason). List roles with no precedent in a single "no precedent" line, not as rows.
+   - Do not pad: no generic filler (cities, fauna) to reach the 10-name floor (20+ is the target). A role pool is justified by its documented series.
+   - Flag any candidate name that also appears in your candidate lists for DD, SS, CL, CA, BB, BC, or CV.
+
 Deliver your findings as a clean, highly structured Naval Research Dossier.

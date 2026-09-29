@@ -192,6 +192,35 @@ if (-not $ModDir) {
     $ModDir = Join-Path $docs "Paradox Interactive\Hearts of Iron IV\mod"
 }
 
+# --- Helper: Copy only shipped mod content (whitelist) ---
+# Only these paths are part of the mod. Anything else in the repo (docs, wiki, tests,
+# agent configs, scripts, launcher .mod, ...) is never copied, and is purged from the destination.
+$ModContentDirs  = @('common')
+$ModContentFiles = @('descriptor.mod', 'thumbnail.png')
+
+function Copy-ModContent {
+    param([string]$Source, [string]$Destination)
+
+    if (-not (Test-Path $Destination)) { New-Item -ItemType Directory -Path $Destination -Force | Out-Null }
+
+    foreach ($dir in $ModContentDirs) {
+        $src = Join-Path $Source $dir
+        if (-not (Test-Path $src)) { continue }
+        & robocopy.exe $src (Join-Path $Destination $dir) /MIR /R:1 /W:1 /NDL /NP /NFL | Out-Null
+        if ($LASTEXITCODE -ge 8) { Write-Err "Robocopy failed for '$dir' with exit code $LASTEXITCODE."; exit $LASTEXITCODE }
+    }
+    foreach ($file in $ModContentFiles) {
+        $src = Join-Path $Source $file
+        if (Test-Path $src) { Copy-Item -Path $src -Destination (Join-Path $Destination $file) -Force }
+    }
+
+    $keep = @($ModContentDirs) + @($ModContentFiles)
+    Get-ChildItem -Path $Destination -Force | Where-Object { $keep -notcontains $_.Name } | ForEach-Object {
+        Remove-Item -Recurse -Force $_.FullName
+        Write-Info "Removed non-mod item from destination: $($_.Name)"
+    }
+}
+
 # --- Helper: Parse descriptor.mod ---
 function Get-ModMetadata {
     param([string]$Path)
@@ -1140,9 +1169,7 @@ if ($Package) {
 
     try {
         # Copy only actual mod files to staging
-        $excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', '.claude', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
-        $excludeFiles = @('*.bat', '*.ps1', '*.zip', '*.md', '.gitignore', '.gitattributes', '.steam_username')
-        & robocopy.exe $RepoDir $stageModDir /MIR /XD $excludeDirs /XF $excludeFiles /R:1 /W:1 /NDL /NP /NFL | Out-Null
+        Copy-ModContent -Source $RepoDir -Destination $stageModDir
 
         # Also place the launcher .mod file in staging root
         $modFileContent = New-LauncherModContent -DescriptorPath $DescriptorPath -TargetModPath "mod/$ModName"
@@ -1253,9 +1280,7 @@ if ($PublishSteam) {
     New-Item -ItemType Directory -Path $stageContent -Force | Out-Null
 
     try {
-        $excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', '.claude', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
-        $excludeFiles = @('*.bat', '*.ps1', '*.zip', '*.md', '.gitignore', '.gitattributes', '.steam_username')
-        & robocopy.exe $RepoDir $stageContent /MIR /XD $excludeDirs /XF $excludeFiles /R:1 /W:1 /NDL /NP /NFL | Out-Null
+        Copy-ModContent -Source $RepoDir -Destination $stageContent
 
         $previewPath = Join-Path $stageContent "thumbnail.png"
         if (-not (Test-Path $previewPath)) {
@@ -1335,32 +1360,8 @@ if (-not (Test-Path $targetDir)) {
     New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
 }
 
-$excludeDirs = @('.git', '.github', '.vscode', '.agents', '.agent', '.claude', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
-$excludeFiles = @('*.bat', '*.ps1', '*.zip', '*.md', '.gitignore', '.gitattributes', '.steam_username')
-
-Write-Info "Synchronizing files using robocopy (purging stale files, excluding .git & dev folders)..."
-& robocopy.exe $RepoDir $targetDir /MIR /XD $excludeDirs /XF $excludeFiles /R:1 /W:1 /NDL /NP /NFL | Out-Null
-$rc = $LASTEXITCODE
-
-if ($rc -ge 8) {
-    Write-Err "Robocopy failed with exit code $rc."
-    exit $rc
-}
-
-# Clean any accidental dev or documentation folders in target
-$staleDirs = @('.git', '.github', '.vscode', '.agents', '.agent', '.claude', 'tests', 'wiki', 'assets', 'artifacts', 'scratch', 'Files')
-foreach ($dir in $staleDirs) {
-    $stalePath = Join-Path $targetDir $dir
-    if (Test-Path $stalePath) {
-        Remove-Item -Recurse -Force $stalePath
-        Write-Info "Cleaned stale $dir folder from deployed destination."
-    }
-}
-
-# Clean documentation and script files that shouldn't be in the mod folder
-Get-ChildItem -Path $targetDir -Filter *.md -File -Recurse | Remove-Item -Force -ErrorAction SilentlyContinue
-Get-ChildItem -Path $targetDir -Filter *.bat -File -Recurse | Remove-Item -Force -ErrorAction SilentlyContinue
-Get-ChildItem -Path $targetDir -Filter *.ps1 -File -Recurse | Remove-Item -Force -ErrorAction SilentlyContinue
+Write-Info "Synchronizing mod content (common/, descriptor.mod, thumbnail.png) and purging anything else..."
+Copy-ModContent -Source $RepoDir -Destination $targetDir
 
 Write-Ok "Files synchronized to: $targetDir"
 

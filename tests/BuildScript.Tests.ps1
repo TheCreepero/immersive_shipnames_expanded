@@ -137,36 +137,18 @@ remote_file_id="99999"
     }
 }
 
-Describe "build.ps1 Packaging & Staging Exclusions" {
-    It "Build script must exclude tests directory from packages and deployment" {
-        $script:BuildContent | Should -Match "excludeDirs\s*=\s*@\([^)]*['`"]tests['`"]" -Because "tests directory must be excluded from release staging"
+Describe "build.ps1 Packaging & Staging Whitelist" {
+    It "Defines a mod content whitelist limited to common, descriptor.mod and thumbnail.png" {
+        $script:BuildContent | Should -Match "ModContentDirs\s*=\s*@\('common'\)"
+        $script:BuildContent | Should -Match "ModContentFiles\s*=\s*@\('descriptor\.mod',\s*'thumbnail\.png'\)"
     }
 
-    It "Build script must exclude wiki directory from packages and deployment" {
-        $script:BuildContent | Should -Match "excludeDirs\s*=\s*@\([^)]*['`"]wiki['`"]" -Because "wiki directory must be excluded from release staging"
+    It "Package, Workshop upload and Deploy all copy through Copy-ModContent" {
+        ([regex]::Matches($script:BuildContent, 'Copy-ModContent\s+-Source')).Count | Should -BeGreaterOrEqual 3
     }
 
-    It "Build script must exclude .git and dev tools from packaging" {
-        $script:BuildContent | Should -Match "excludeDirs\s*=\s*@\([^)]*['`"]\.git['`"]"
-        $script:BuildContent | Should -Match "excludeDirs\s*=\s*@\([^)]*['`"]\.github['`"]"
-    }
-
-    It "All excludeDirs definitions in build.ps1 must include wiki and tests" {
-        $matches = [regex]::Matches($script:BuildContent, 'excludeDirs\s*=\s*@\([^)]+\)')
-        $matches.Count | Should -BeGreaterOrEqual 3
-        foreach ($m in $matches) {
-            $m.Value | Should -Match "['`"]wiki['`"]" -Because "Every staging and deployment step must exclude wiki"
-            $m.Value | Should -Match "['`"]tests['`"]" -Because "Every staging and deployment step must exclude tests"
-        }
-    }
-
-    It "All excludeDirs and staleDirs definitions in build.ps1 must exclude AI agent config folders" {
-        $matches = [regex]::Matches($script:BuildContent, '(excludeDirs|staleDirs)\s*=\s*@\([^)]+\)')
-        $matches.Count | Should -BeGreaterOrEqual 4
-        foreach ($m in $matches) {
-            $m.Value | Should -Match "['`"]\.agents['`"]" -Because "Antigravity agent configuration must never ship in the mod"
-            $m.Value | Should -Match "['`"]\.claude['`"]" -Because "Claude Code agent configuration must never ship in the mod"
-        }
+    It "Never copies the repo root wholesale with robocopy" {
+        $script:BuildContent | Should -Not -Match 'robocopy\.exe\s+\$RepoDir'
     }
 }
 

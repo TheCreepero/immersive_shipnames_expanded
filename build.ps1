@@ -1100,7 +1100,22 @@ function Get-NamelistAuditFindings {
     }
     $prefixCounts = @($Groups | Where-Object { $_.Prefix } | Group-Object Prefix | Sort-Object Count -Descending)
     $dominant = if ($prefixCounts.Count -gt 0) { $prefixCounts[0].Name } else { '' }
-    if ($dominant) {
+    # Vanilla hull-specific prefix scheme (e.g. ITA: RCT/RI/RN/RSmg): parity is checked per group, not against one national prefix
+    $vPrefixes = if ($null -ne $VanillaGroups) { @($VanillaGroups | Where-Object { $_.Prefix } | ForEach-Object { $_.Prefix } | Select-Object -Unique) } else { @() }
+    if ($vPrefixes.Count -gt 1) {
+        Add-Finding 'INFO' 'PrefixScheme' '-' "Vanilla hull-specific prefixes: $(($vPrefixes | ForEach-Object { "'$_'" }) -join ', '); parity checked per group"
+        foreach ($g in $Groups) {
+            $short = $g.GroupTag -replace "^$([regex]::Escape($Tag))_", ''
+            $v = @($VanillaGroups | Where-Object { $_.GroupTag -eq $g.GroupTag }) | Select-Object -First 1
+            if (-not $g.Prefix) {
+                Add-Finding 'FAIL' 'PrefixInconsistent' $g.GroupTag "No prefix; vanilla prefixes every group"
+            } elseif ($v -and $v.Prefix -and $v.Prefix -ne $g.Prefix) {
+                Add-Finding 'WARN' 'VanillaPrefix' $g.GroupTag "Vanilla prefix '$($v.Prefix)' vs mod '$($g.Prefix)'; keep parity or document why"
+            } elseif (-not $v -and $g.Prefix -notin $vPrefixes) {
+                Add-Finding 'INFO' 'PrefixScheme' $g.GroupTag "New group uses prefix '$($g.Prefix)' not used in vanilla ($short)"
+            }
+        }
+    } elseif ($dominant) {
         $off = @($Groups | Where-Object { $_.Prefix -ne $dominant } | ForEach-Object { $_.GroupTag -replace "^$([regex]::Escape($Tag))_", '' })
         if ($off.Count -gt 0) {
             Add-Finding 'FAIL' 'PrefixInconsistent' '-' "Dominant prefix '$dominant' missing/different in: $(Format-NameList $off)"
@@ -1108,8 +1123,9 @@ function Get-NamelistAuditFindings {
     } else {
         Add-Finding 'INFO' 'Prefix' '-' "No prefix defined in any group"
     }
-    if ($null -ne $VanillaGroups) {
-        $vPrefixes = @($VanillaGroups | Where-Object { $_.Prefix } | ForEach-Object { $_.Prefix } | Select-Object -Unique)
+    if ($vPrefixes.Count -gt 1) {
+        # Per-group parity reported above
+    } elseif ($null -ne $VanillaGroups) {
         $vText = if ($vPrefixes.Count -gt 0) { ($vPrefixes | ForEach-Object { "'$_'" }) -join ', ' } else { 'none' }
         if (($vPrefixes -join '|') -ne $dominant) {
             Add-Finding 'WARN' 'VanillaPrefix' '-' "Vanilla prefix $vText vs mod '$dominant'; keep parity or document why"

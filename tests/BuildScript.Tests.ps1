@@ -254,6 +254,35 @@ Describe "build.ps1 Helper: Get-NamelistAuditFindings" {
         $f[0].Detail | Should -Match 'BIRDS'
     }
 
+    It "Accepts a vanilla hull-specific prefix scheme kept per group (e.g. ITA RCT/RI/RN/RSmg)" {
+        $vanillaText = (New-FixtureGroup 'TST_DD_HISTORICAL' 'ship_hull_light destroyer' @('Vd') 'TCT ') +
+            (New-FixtureGroup 'TST_CL_HISTORICAL' 'ship_hull_cruiser light_cruiser' @('Vc') 'TI ') +
+            (New-FixtureGroup 'TST_BB_HISTORICAL' 'ship_hull_heavy battleship' @('Vb') 'TN ')
+        $text = (Get-CompliantFixtureText -Prefix 'TN ') -replace '(TST_DD_HISTORICAL = \{\n[^\n]*\n[^\n]*\n)\tprefix = "TN "', "`$1`tprefix = `"TCT `"" `
+            -replace '(TST_CL_HISTORICAL = \{\n[^\n]*\n[^\n]*\n)\tprefix = "TN "', "`$1`tprefix = `"TI `""
+        $tempFile = [System.IO.Path]::GetTempFileName()
+        try {
+            [System.IO.File]::WriteAllText($tempFile, $vanillaText, (New-Object System.Text.UTF8Encoding $false))
+            $vanilla = Get-NamelistGroups -Path $tempFile
+            [System.IO.File]::WriteAllText($tempFile, $text, (New-Object System.Text.UTF8Encoding $false))
+            $groups = Get-NamelistGroups -Path $tempFile
+            $findings = Get-NamelistAuditFindings -Groups $groups -Tag 'TST' -VanillaGroups $vanilla -Canon $script:Canon
+            @($findings | Where-Object { $_.Severity -ne 'INFO' }).Count | Should -Be 0
+            @($findings | Where-Object { $_.Check -eq 'PrefixScheme' }).Count | Should -Be 1
+
+            # A vanilla group whose hull prefix changed is a WARN
+            $drift = $text -replace 'prefix = "TI "', 'prefix = "TN "'
+            [System.IO.File]::WriteAllText($tempFile, $drift, (New-Object System.Text.UTF8Encoding $false))
+            $findings = Get-NamelistAuditFindings -Groups (Get-NamelistGroups -Path $tempFile) -Tag 'TST' -VanillaGroups $vanilla -Canon $script:Canon
+            $f = @($findings | Where-Object { $_.Check -eq 'VanillaPrefix' -and $_.Severity -eq 'WARN' })
+            $f.Count | Should -Be 1
+            $f[0].Group | Should -Be 'TST_CL_HISTORICAL'
+        }
+        finally {
+            if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
+        }
+    }
+
     It "Grades depth as FAIL below floor and WARN between floor and target" {
         $text = (Get-CompliantFixtureText) -replace '"Dd (8[5-9]|9\d|100)" ?', '' -replace '"Ss ([4-9]\d)" ?', ''
         $findings = Invoke-FixtureAudit $text

@@ -86,6 +86,7 @@ Development rules and the namelist authoring runbook are maintained as mirrored 
 | `CUB` | Cuba | `CUB_ship_names.txt` |
 | `DEN` | Denmark | `DEN_ship_names.txt` |
 | `FIN` | Finland | `FIN_ship_names.txt` |
+| `ITA` | Italy | `ITA_ship_names.txt` |
 | `MEX` | Mexico | `MEX_ship_names.txt` |
 | `NOR` | Norway | `NOR_ship_names.txt` |
 | `PER` | Iran | `PER_ship_names.txt` |

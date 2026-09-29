@@ -1,0 +1,894 @@
+##### ITALY NAVAL NAME LISTS (ISNE) #####
+# Regia Marina hull-specific prefixes kept from vanilla: RCT (Regio Cacciatorpediniere), RI (Regio Incrociatore),
+# RN (Regia Nave), RSmg (Regio Sommergibile); RT (Regia Torpediniera) added for the torpedo-boat role pool.
+
+### SHIP-TYPE SPECIFIC: DESTROYERS ###
+ITA_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { ITA }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "RCT "
+	fallback_name = "Cacciatorpediniere %d"
+
+	unique = {
+		# Winds, lightning and darts (Lampo, Nembo, Turbine, Maestrale, Dardo, Folgore classes)
+		"Lampo" "Freccia" "Dardo" "Strale" "Saetta" "Folgore" "Fulmine" "Baleno" "Euro" "Ostro" "Nembo" "Aquilone" "Borea" "Espero" "Turbine" "Zeffiro"
+		"Maestrale" "Grecale" "Libeccio" "Scirocco"
+		# Soldati (1905 Soldato and 1938 Soldati classes, incl. canceled second series)
+		"Alpino" "Artigliere" "Ascari" "Aviere" "Bersagliere" "Carabiniere" "Corazziere" "Fuciliere" "Garibaldino" "Geniere" "Granatiere" "Lanciere" "Pontiere"
+		"Bombardiere" "Carrista" "Corsaro" "Legionario" "Mitragliere" "Velite"
+		# Virtues (Audace and Indomito classes; post-war Impavido and Audace classes)
+		"Audace" "Animoso" "Ardente" "Ardito" "Ardimentoso" "Impavido" "Intrepido" "Indomito" "Impetuoso" "Insidioso" "Irrequieto"
+		# Writers, statesmen and irredentists (Oriani, Sella, Sauro classes)
+		"Alfredo Oriani" "Vittorio Alfieri" "Giosuè Carducci" "Vincenzo Gioberti" "Quintino Sella" "Francesco Crispi" "Giovanni Nicotera" "Bettino Ricasoli"
+		"Nazario Sauro" "Cesare Battisti" "Daniele Manin" "Francesco Nullo"
+		# Ex-Yugoslav destroyers and leader
+		"Premuda" "Sebenico" "Lubiana"
+		# Comandanti Medaglie d'Oro class (20 ordered)
+		"Comandante Margottini" "Comandante Baroni" "Comandante Borsini" "Comandante Botti" "Comandante Casana" "Comandante Corsi" "Comandante De Cristofaro"
+		"Comandante Dell'Anno" "Comandante Esposito" "Comandante Fiorelli" "Comandante Fontana" "Comandante Giannattasio" "Comandante Giobbe" "Comandante Giorgis"
+		"Comandante Milano" "Comandante Moccagatta" "Comandante Novaro" "Comandante Rodocanacchi" "Comandante Ruta" "Comandante Toscano"
+		# Naval heroes and gold medals (post-war Bergamini, Audace and Durand de la Penne classes; WWI MAS; X MAS)
+		"Luigi Rizzo" "Carlo Bergamini" "Virginio Fasan" "Luigi Durand de la Penne" "Francesco Mimbelli" "Raffaele Rossetti" "Raffaele Paolucci" "Ermanno Carlotto"
+		"Teseo Tesei" "Licio Visintini" "Gino Birindelli" "Emilio Bianchi" "Antonio Marceglia" "Spartaco Schergat" "Vincenzo Martellotta" "Mario Marino"
+		"Luigi Faggioni" "Emilio Barberi" "Alessio De Vito" "Lino Beccati" "Angelo Cabrini" "Aristide Carabelli" "Bruno Falcomatà" "Luigi Ferraro"
+		"Roberto Frassetto" "Giovanni Magro" "Gerolamo Manisco" "Evelino Marcolini" "Alcide Pedretti" "Tullio Tedeschi" "Carlo Bosio" "Nicola Conte"
+		# Irredentist martyrs (Sauro formula)
+		"Guglielmo Oberdan" "Fabio Filzi" "Damiano Chiesa" "Giacomo Venezian" "Scipio Slataper"
+		# Writers and statesmen (Oriani and Sella formulas)
+		"Ugo Foscolo" "Giacomo Leopardi" "Alessandro Manzoni" "Silvio Pellico" "Giuseppe Parini" "Giovanni Pascoli"
+		"Marco Minghetti" "Agostino Depretis" "Urbano Rattazzi" "Massimo d'Azeglio" "Giovanni Lanza" "Giuseppe Zanardelli"
+		# Expansion: military specialties (Soldati formula)
+		"Fante" "Cavalleggero" "Moschettiere" "Guastatore" "Zappatore" "Finanziere" "Paracadutista" "Cannoniere" "Arciere" "Balestriere" "Alabardiere" "Archibugiere"
+		# Expansion: virtues (Indomito formula)
+		"Invitto" "Invincibile" "Indomabile" "Implacabile" "Fiero" "Valoroso" "Prode" "Gagliardo" "Risoluto" "Temerario" "Tenace" "Fulmineo" "Coraggioso"
+		# Expansion: winds (Maestrale formula) and blades and missiles (Dardo formula)
+		"Tramontana" "Ponente" "Levante" "Austro" "Favonio" "Garbino" "Bora" "Rovaio" "Giavellotto" "Sciabola" "Stiletto" "Picca"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: SUBMARINES ###
+ITA_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { ITA }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine ship_hull_midget_submarine ship_hull_cruiser_submarine }
+
+	prefix = "RSmg "
+	fallback_name = "Sommergibile %d"
+
+	unique = {
+		# Glauco, Calvi, Argo classes
+		"Glauco" "Otaria" "Pietro Calvi" "Giuseppe Finzi" "Enrico Tazzoli" "Argo" "Velella"
+		# Serie 600: gems (Perla, Sirena types)
+		"Ambra" "Berillo" "Corallo" "Diaspro" "Gemma" "Iride" "Malachite" "Onice" "Perla" "Turchese"
+		"Ametista" "Anfitrite" "Diamante" "Galatea" "Naiade" "Nereide" "Ondina" "Rubino" "Sirena" "Smeraldo" "Topazio" "Zaffiro"
+		# Serie 600: colonial battles (Adua type)
+		"Adua" "Alagi" "Aradam" "Ascianghi" "Axum" "Beilul" "Dagabur" "Dessiè" "Durbo" "Gondar" "Lafolè" "Macallè" "Neghelli" "Scirè" "Tembien" "Uarsciek" "Uebi Scebeli"
+		# Marcello class
+		"Marcello" "Dandolo" "Veniero" "Provana" "Mocenigo" "Nani" "Barbarigo" "Emo" "Morosini" "Comandante Cappellini" "Comandante Faà di Bruno"
+		# Brin, Liuzzi, Marconi, Ammiragli classes
+		"Brin" "Galvani" "Guglielmotti" "Archimede" "Torricelli" "Alpino Bagnolini" "Capitano Tarantini"
+		"Guglielmo Marconi" "Leonardo da Vinci" "Luigi Torelli" "Alessandro Malaspina" "Maggiore Baracca"
+		"Ammiraglio Saint Bon" "Ammiraglio Cagni" "Ammiraglio Millo" "Ammiraglio Caracciolo"
+		# Serie 600: metals (Platino type)
+		"Acciaio" "Alabastro" "Argento" "Asteria" "Avorio" "Bronzo" "Cobalto" "Giada" "Granito" "Nichelio" "Platino" "Porfido" "Volframio"
+		# Flutto (Tritone) class, Serie I-III (48 ordered)
+		"Tritone" "Gorgo" "Flutto" "Marea" "Vortice" "Nautilo" "Murena" "Grongo" "Sparide" "Spigola" "Cernia" "Dentice"
+		"Alluminio" "Amianto" "Antimonio" "Bario" "Cadmio" "Cromo" "Ferro" "Fosforo" "Iridio" "Litio" "Magnesio" "Manganese"
+		"Mercurio" "Oro" "Ottone" "Piombo" "Potassio" "Rame" "Rutenio" "Silicio" "Sodio" "Vanadio" "Zinco" "Zolfo"
+		"Attinio" "Azoto" "Bromo" "Carbonio" "Elio" "Molibdeno" "Osmio" "Ossigeno" "Selenio" "Tungsteno"
+		# Minelaying submarines and ex-Yugoslav boats
+		"Marcantonio Bragadin" "Filippo Corridoni" "Pietro Micca" "Foca" "Atropo" "Zoea" "Antonio Bajamonti" "Francesco Rismondo"
+		# Older boats (Glauco 1905, Squalo, Medusa, Pullino, Pacinotti, H, Balilla, Mameli, Pisani, Fieramosca, Bandiera, Argonauta, Settembrini, Archimede classes)
+		"Squalo" "Narvalo" "Delfino" "Tricheco" "Medusa" "Jalea" "Jantina" "Salpa" "Fisalia" "Giacinto Pullino" "Galileo Ferraris" "Antonio Pacinotti"
+		"H 1" "H 2" "H 3" "H 4" "H 5" "H 6" "H 7" "H 8"
+		"Balilla" "Domenico Millelire" "Enrico Toti" "Antonio Sciesa" "Goffredo Mameli" "Pier Capponi" "Giovanni da Procida" "Tito Speri"
+		"Giovanni Bausan" "Des Geneys" "Ettore Fieramosca" "Fratelli Bandiera" "Luciano Manara" "Santorre Santarosa" "Ciro Menotti"
+		"Argonauta" "Serpente" "Luigi Settembrini" "Ruggiero Settimo" "Galileo Galilei" "Evangelista Torricelli"
+		# Submarine gold medals (post-war Sauro and Todaro class eponyms; Regia Marina roll of honour)
+		"Salvatore Todaro" "Carlo Fecia di Cossato" "Gianfranco Gazzana Priaroggia" "Primo Longobardo" "Salvatore Pelosi" "Giuliano Prini" "Pietro Venuti" "Romeo Romei"
+		"Angelo Bertolotto" "Carlo Del Greco" "Paolo Tolosetto Farinati degli Uberti" "Lorenzo Bezzi" "Carlo Marenco di Moriondo" "Danilo Stiepovich" "Livio Piomarta"
+		"Mario Arillo" "Gennaro Maffettone" "Arduino Forgiarini"
+		# Expansion: admirals (Ammiragli formula)
+		"Ammiraglio Acton" "Ammiraglio Bettolo"
+		# Expansion: minerals and gems (Perla and Sirena formula)
+		"Agata" "Opale" "Quarzo" "Granato" "Cristallo" "Lapislazzuli" "Ossidiana" "Ematite" "Pirite" "Magnetite"
+		# Expansion: metals (Platino and Flutto Serie II formula)
+		"Stagno" "Titanio" "Tantalio" "Uranio" "Palladio" "Rodio" "Tallio" "Cesio" "Bismuto"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: LIGHT CRUISERS ###
+ITA_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { ITA }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "RI "
+	fallback_name = "Incrociatore leggero %d"
+
+	unique = {
+		# Condottieri classes (Giussano, Cadorna, Montecuccoli, Duca d'Aosta, Duca degli Abruzzi)
+		"Alberto di Giussano" "Alberico da Barbiano" "Bartolomeo Colleoni" "Giovanni delle Bande Nere" "Luigi Cadorna" "Armando Diaz" "Raimondo Montecuccoli" "Muzio Attendolo"
+		"Emanuele Filiberto Duca d'Aosta" "Eugenio di Savoia" "Luigi di Savoia Duca degli Abruzzi" "Giuseppe Garibaldi"
+		# Capitani Romani class
+		"Attilio Regolo" "Scipione Africano" "Caio Mario" "Paolo Emilio" "Cornelio Silla" "Ottaviano Augusto" "Vipsanio Agrippa" "Giulio Germanico" "Ulpio Traiano"
+		"Pompeo Magno" "Claudio Druso" "Claudio Tiberio"
+		# Costanzo Ciano class (canceled; the class name is in ITA_FASCISM) and ex-Thai Etna class
+		"Venezia" "Etna" "Vesuvio"
+		# WWI and prize cruisers, Basilicata and Regioni classes
+		"Bari" "Taranto" "Ancona" "Brindisi" "Libia" "Basilicata" "Campania" "Calabria" "Lombardia" "Umbria" "Etruria" "Elba" "Liguria" "Puglia"
+		# Protected and torpedo cruisers
+		"Dogali" "Stromboli" "Goito" "Montebello" "Caprera" "Agordat" "Coatit"
+		# Expansion: condottieri
+		"Castruccio Castracani" "Uguccione della Faggiola" "Facino Cane" "Guidoriccio da Fogliano" "Francesco Gonzaga" "Braccio da Montone" "Federico da Montefeltro"
+		"Gattamelata" "Niccolò Piccinino" "Francesco Sforza" "Roberto Malatesta" "Sigismondo Malatesta" "Gian Giacomo Trivulzio" "Ambrogio Spinola"
+		"Bartolomeo d'Alviano" "Jacopo Dal Verme" "Carmagnola" "Alessandro Farnese" "Prospero Colonna" "Fabrizio Colonna"
+		# Expansion: Roman commanders (Capitani Romani formula)
+		"Fabio Massimo" "Claudio Marcello" "Scipione Emiliano" "Furio Camillo" "Licinio Lucullo" "Marco Antonio" "Quinto Sertorio" "Metello Numidico"
+		"Papirio Cursore" "Manlio Torquato" "Valerio Corvo" "Ventidio Basso" "Flavio Stilicone" "Flavio Belisario"
+		# Expansion: WWI marshals and generals (Cadorna formula)
+		"Enrico Caviglia" "Gaetano Giardino" "Guglielmo Pecori Giraldi" "Luca Montuori"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: HEAVY CRUISERS ###
+ITA_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { ITA }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "RI "
+	fallback_name = "Incrociatore pesante %d"
+
+	unique = {
+		# Redeemed cities (Trento, Zara, Bolzano classes)
+		"Trento" "Trieste" "Zara" "Fiume" "Gorizia" "Pola" "Bolzano"
+		# Armoured cruisers (San Giorgio, Pisa, Garibaldi, Vettor Pisani classes; Marco Polo)
+		"San Giorgio" "San Marco" "Pisa" "Amalfi" "Varese" "Francesco Ferruccio" "Vettor Pisani" "Carlo Alberto" "Marco Polo"
+		# Expansion: Trentino and Alto Adige
+		"Rovereto" "Merano" "Bressanone" "Brunico" "Riva del Garda" "Cortina d'Ampezzo" "Arco" "Vipiteno"
+		# Expansion: Friuli, Venezia Giulia and Istria
+		"Gradisca" "Cividale" "Tolmino" "Postumia" "Idria" "Capodistria" "Pirano" "Parenzo" "Umago" "Cittanova" "Pisino" "Albona" "Abbazia" "Dignano" "Montona" "Buie"
+		# Expansion: Quarnero and Dalmatian islands and coast
+		"Cherso" "Lussino" "Veglia" "Arbe" "Lagosta" "Lesina" "Spalato" "Traù" "Macarsca" "Scardona" "Nona"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLESHIPS ###
+ITA_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { ITA }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "RN "
+	fallback_name = "Corazzata %d"
+
+	unique = {
+		# Dreadnoughts (Conte di Cavour, Caio Duilio, Dante Alighieri, Littorio classes)
+		"Conte di Cavour" "Giulio Cesare" "Caio Duilio" "Andrea Doria" "Dante Alighieri" "Vittorio Veneto" "Roma" "Italia"
+		# Pre-dreadnoughts and ironclads (royal and state names)
+		"Regina Elena" "Vittorio Emanuele" "Napoli" "Regina Margherita" "Benedetto Brin" "Emanuele Filiberto" "Re Umberto" "Sicilia" "Sardegna"
+		"Re d'Italia" "Regina Maria Pia" "Principe di Carignano" "Principe Amedeo" "Formidabile" "Terribile"
+		# Expansion: national symbols
+		"Patria" "Risorgimento"
+		# Expansion: great Italians (Dante Alighieri and Leonardo da Vinci formula)
+		"Michelangelo Buonarroti" "Francesco Petrarca" "Giovanni Boccaccio" "Raffaello Sanzio" "Giotto di Bondone" "Niccolò Machiavelli" "Ludovico Ariosto"
+		"Torquato Tasso" "Giuseppe Verdi" "Gioachino Rossini" "Alessandro Volta"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLECRUISERS ###
+ITA_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { ITA }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "RI "
+	fallback_name = "Incrociatore da battaglia %d"
+
+	unique = {
+		# Francesco Caracciolo class (canceled) and admirals of the ironclad era
+		"Francesco Caracciolo" "Cristoforo Colombo" "Marcantonio Colonna" "Francesco Morosini" "Enrico Dandolo" "Ruggiero di Lauria" "Affondatore"
+		# Maritime republics
+		"Serenissima" "La Superba" "Stato da Mar" "Repubblica di Venezia" "Repubblica di Genova" "Repubblica di Pisa" "Repubblica di Amalfi" "Repubblica di Ragusa"
+		"Repubblica di Noli" "Repubblica di Ancona" "Ducato di Gaeta"
+		# Historic war vessels, arsenals and coastal fortresses
+		"Bucintoro" "Galeazza" "Arsenale" "Lanterna" "Castel dell'Ovo" "Castel Sant'Elmo" "Forte Michelangelo" "Castello Maniace"
+		# Naval victories
+		"Capo Ecnomo" "Egadi" "Nauloco" "Meloria" "Curzola" "Capo d'Orlando" "Chioggia" "Lepanto" "Punta Stilo" "Mezzo Giugno" "Mezzo Agosto"
+		# Admirals of the maritime republics and the Regia Marina
+		"Domenico Michiel" "Pietro Orseolo" "Carlo Zeno" "Sebastiano Venier" "Agostino Barbarigo" "Pietro Mocenigo" "Lamba Doria" "Oberto Doria" "Paganino Doria"
+		"Guglielmo Embriaco" "Benedetto Zaccaria" "Giovanni Andrea Doria" "Paolo Thaon di Revel" "Inigo Campioni"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: AIRCRAFT CARRIERS ###
+ITA_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { ITA }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "RN "
+	fallback_name = "Portaerei %d"
+
+	unique = {
+		# Aquila and Sparviero; seaplane carriers
+		"Aquila" "Sparviero" "Giuseppe Miraglia" "Europa"
+		# Raptors and owls
+		"Grifone" "Gheppio" "Grillaio" "Poiana" "Lanario" "Pellegrino" "Lodolaio" "Smeriglio" "Girfalco" "Falco della Regina" "Falco Pescatore" "Albanella"
+		"Biancone" "Pecchiaiolo" "Capovaccaio" "Avvoltoio" "Gipeto" "Aquila Reale" "Aquila Imperiale" "Aquila del Bonelli" "Nibbio Reale" "Gufo Reale" "Barbagianni"
+		# Myths of flight
+		"Icaro" "Dedalo"
+		# Aviation pioneers
+		"Francesco Lana de Terzi" "Vincenzo Lunardi" "Giulio Douhet" "Alessandro Guidoni" "Natale Palli" "Francesco De Pinedo" "Arturo Ferrarin" "Carlo Del Prete"
+		"Umberto Maddalena" "Mario De Bernardi" "Francesco Agello" "Umberto Nobile" "Gianni Caproni"
+		# WWI aces (gold medals and official aces list)
+		"Silvio Scaroni" "Pier Ruggero Piccio" "Flavio Baracchini" "Fulco Ruffo di Calabria" "Giannino Ancillotto" "Ernesto Cabruna" "Marziale Cerutti" "Ferruccio Ranza"
+		"Luigi Olivari" "Antonio Reali" "Flaminio Avet" "Alvaro Leonardi" "Giovanni Nicelli" "Gastone Novelli"
+		# WWII airmen (gold medals)
+		"Carlo Emanuele Buscaglia" "Giuseppe Cenni" "Franco Lucchini" "Leonardo Ferrulli" "Furio Niclot Doglio"
+	}
+}
+
+### ROLE POOL: TORPEDO BOATS ###
+ITA_TORPEDO_BOATS = {
+	name = "Torpedo Boats"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RT "
+	fallback_name = "Torpediniera %d"
+
+	unique = {
+		# Spica class (Spica, Alcione, Climene, Perseo types)
+		"Spica" "Astore" "Airone" "Alcione" "Aretusa" "Ariel" "Calipso" "Calliope" "Circe" "Clio" "Libra" "Lince" "Lira" "Lupo" "Pallade" "Partenope"
+		"Pleiadi" "Polluce" "Canopo" "Cassiopea" "Castore" "Centauro" "Cigno" "Climene" "Aldebaran" "Altair" "Andromeda" "Antares" "Perseo" "Sagittario" "Sirio" "Vega"
+		# Ciclone class (escort torpedo boats)
+		"Aliseo" "Ciclone" "Fortunale" "Ghibli" "Groppo" "Monsone" "Tifone" "Uragano"
+		# Ariete and Orsa classes
+		"Ariete" "Arturo" "Auriga" "Alabarda" "Balestra" "Daga" "Dragone" "Eridano" "Fionda" "Gladio" "Lancia" "Pugnale" "Rigel" "Spada" "Stella Polare"
+		"Orsa" "Orione" "Pegaso" "Procione"
+		# Garibaldini (Pilo, Sirtori, La Masa classes; reclassified torpedo boats 1929)
+		"Rosolino Pilo" "Giuseppe Cesare Abba" "Giuseppe Dezza" "Pilade Bronzetti" "Giuseppe Missori" "Antonio Mosto" "Ippolito Nievo" "Fratelli Cairoli" "Simone Schiaffino"
+		"Giuseppe Sirtori" "Giovanni Acerbi" "Vincenzo Giordano Orsini" "Francesco Stocco"
+		"Giuseppe La Masa" "Angelo Bassini" "Enrico Cosenz" "Agostino Bertani" "Benedetto Cairoli" "Giacinto Carini" "Nicola Fabrizi" "Giuseppe La Farina" "Giacomo Medici"
+		# Generali, Palestro and Curtatone classes
+		"Generale Antonio Cantore" "Generale Antonino Cascino" "Generale Antonio Chinotto" "Generale Carlo Montanari" "Generale Marcello Prestinari" "Generale Achille Papa"
+		"Palestro" "Confienza" "San Martino" "Solferino" "Curtatone" "Calatafimi" "Castelfidardo" "Monzambano"
+		# Expansion: more of Garibaldi's Thousand
+		"Stefano Türr" "Menotti Garibaldi" "Stefano Canzio" "Giuseppe Bandi" "Ergisto Bezzi" "Domenico Damis" "Antonino Plutino" "Francesco Cucchi"
+		"Giovanni Battista Cella" "Achille Majocchi" "Luigi Miceli" "Giuseppe Guerzoni" "Cesare Braico" "Francesco Sprovieri" "Alessandro Fasola" "Giuseppe Paulon"
+	}
+}
+
+### ROLE POOL: SCOUT CRUISERS (ESPLORATORI) ###
+ITA_SCOUT_CRUISERS = {
+	name = "Scout Cruisers"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Esploratore %d"
+
+	unique = {
+		# Navigatori class
+		"Alvise Da Mosto" "Antonio Da Noli" "Nicoloso Da Recco" "Giovanni da Verrazzano" "Lanzerotto Malocello" "Leone Pancaldo" "Emanuele Pessagno" "Antonio Pigafetta"
+		"Luca Tarigo" "Antoniotto Usodimare" "Ugolino Vivaldi" "Nicolò Zeno"
+		# Leone, Mirabello, Poerio and Aquila classes; scout cruisers
+		"Leone" "Tigre" "Pantera" "Leopardo" "Carlo Mirabello" "Augusto Riboty" "Carlo Alberto Racchia" "Alessandro Poerio" "Guglielmo Pepe" "Cesare Rossarol"
+		"Falco" "Nibbio" "Quarto" "Nino Bixio" "Marsala"
+		# Expansion: navigators and travellers (Navigatori formula)
+		"Amerigo Vespucci" "Giovanni Caboto" "Sebastiano Caboto" "Pietro Querini" "Niccolò de' Conti" "Ludovico di Varthema" "Odorico da Pordenone"
+		"Giovanni da Pian del Carpine" "Ciriaco d'Ancona" "Antonio Malfante"
+	}
+}
+
+### ROLE POOL: CORVETTES ###
+ITA_CORVETTES = {
+	name = "Corvettes"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Corvetta %d"
+
+	unique = {
+		# Gabbiano class (60 planned): seabirds
+		"Gabbiano" "Procellaria" "Cormorano" "Pellicano" "Cicogna" "Folaga" "Ibis" "Gru" "Marangone" "Strolaga" "Ardea" "Tuffetto"
+		# Insects
+		"Ape" "Vespa" "Lucciola" "Grillo" "Cicala" "Calabrone" "Cavalletta" "Libellula" "Farfalla" "Crisalide" "Maggiolino" "Cocciniglia"
+		# Mountain game
+		"Antilope" "Gazzella" "Camoscio" "Capriolo" "Alce" "Renna" "Daino" "Cervo" "Stambecco"
+		# Myth and muses
+		"Artemide" "Berenice" "Chimera" "Danaide" "Driade" "Egeria" "Euridice" "Euterpe" "Fenice" "Flora" "Melpomene" "Minerva" "Persefone" "Pomona" "Sfinge"
+		"Sibilla" "Tersicore" "Urania"
+		# Ancient weapons
+		"Scimitarra" "Baionetta" "Bombarda" "Carabina" "Clava" "Colubrina" "Scure" "Spingarda" "Zagaglia"
+	}
+}
+
+### ROLE POOL: MINELAYERS ###
+ITA_MINELAYERS = {
+	name = "Minelayers"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Posamine %d"
+
+	unique = {
+		# Azio class
+		"Azio" "Ostia" "Legnano" "Milazzo" "Dardanelli"
+		# Fasana class
+		"Fasana" "Buccari" "Durazzo" "Pelagosa"
+		# Requisitioned motor ships and auxiliary minelayers
+		"Barletta" "Brioni" "Lero" "Monte Gargano" "Adriatico" "Vieste" "Otranto" "Gallipoli" "Crotone" "Buffoluto" "Panigaglia" "San Giusto" "Vallelunga"
+	}
+}
+
+### ROLE POOL: MONITORS (PONTONI ARMATI) ###
+ITA_MONITORS = {
+	name = "Monitors"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Monitore %d"
+
+	unique = {
+		# WWI monitors and armed pontoons
+		"Faà di Bruno" "Alfredo Cappellini" "Monte Santo" "Sabotino" "Monte Grappa" "Monte Cengio" "Montello" "Monte Novegno" "Monfalcone" "Corso" "Monte Cucco"
+		"Vodice" "Valente" "Robusto" "Carso" "Pasubio" "Padus" "Maggiore De Rosa" "Capitano Bianchini" "Capitano Masotto" "Luigi Mina" "Umberto Missana"
+	}
+}
+
+### ROLE POOL: AUXILIARY CRUISERS ###
+ITA_AUXILIARY_CRUISERS = {
+	name = "Auxiliary Cruisers"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Incrociatore ausiliario %d"
+
+	unique = {
+		# RAMB banana boats
+		"RAMB I" "RAMB II" "RAMB III" "RAMB IV"
+		# "Città di" ferries
+		"Città di Bari" "Città di Bengasi" "Città di Catania" "Città di Genova" "Città di Messina" "Città di Napoli" "Città di Palermo" "Città di Sassari"
+		"Città di Siracusa" "Città di Tunisi"
+		# Requisitioned liners and motor ships
+		"Arborea" "Caralis" "Cattaro" "Egitto" "Lago Tana" "Lago Zuai" "Narenta" "Olbia" "Rovigno" "Capitano A. Cecchi" "Attilio Deffenu" "Filippo Grimani"
+		"Ipparco Baccich" "Duca di Genova" "Piero Foscari" "Loredan" "Lorenzo Marcello" "Lazzaro Mocenigo"
+	}
+}
+
+### UNIVERSAL TOPIC: REGIONS ###
+ITA_REGIONS = {
+	name = "Regions"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Compartimenti and territories
+		"Piemonte" "Lucania" "Abruzzi" "Molise" "Lazio" "Marche" "Toscana" "Emilia" "Romagna" "Venezia Tridentina" "Venezia Euganea" "Venezia Giulia" "Dalmazia"
+		"Istria" "Carnaro" "Friuli" "Valle d'Aosta" "Alto Adige" "Trentino"
+		# Historic realms and duchies
+		"Magna Grecia" "Sannio" "Bruzio" "Piceno" "Insubria" "Cisalpina" "Longobardia" "Esarcato" "Pentapoli" "Marca Trevigiana" "Marca Anconitana" "Monferrato"
+		"Ducato di Milano" "Ducato di Parma" "Ducato di Modena" "Ducato di Urbino" "Ducato di Spoleto" "Ducato di Benevento" "Granducato di Toscana"
+		"Repubblica di Lucca" "Regno di Sardegna" "Regno delle Due Sicilie" "Principato di Salerno"
+		# Historic subregions
+		"Maremma" "Garfagnana" "Lunigiana" "Casentino" "Chianti" "Mugello" "Ciociaria" "Cilento" "Irpinia" "Salento" "Gargano" "Murgia" "Sila" "Aspromonte"
+		"Barbagia" "Gallura" "Campidano" "Ogliastra" "Sulcis" "Brianza" "Langhe" "Canavese" "Lomellina" "Valtellina" "Polesine" "Cadore" "Carnia" "Franciacorta"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES ###
+ITA_CITIES = {
+	name = "Cities"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Major cities
+		"Milano" "Torino" "Palermo" "Firenze" "Genova" "Bologna" "Catania" "Messina" "Padova" "Verona" "Brescia" "Treviso" "Parma" "Prato" "Modena" "Reggio Calabria"
+		"Reggio Emilia" "Perugia" "Ravenna" "Livorno" "Cagliari" "Foggia" "Rimini" "Salerno" "Ferrara" "Sassari" "Monza" "Vicenza" "Como" "Siracusa" "Bergamo"
+		"Pescara" "Forlì" "Lecce" "Trapani" "Mantova" "L'Aquila" "Siena" "La Spezia" "Pavia" "Terni" "Novara" "Piacenza" "Udine" "Arezzo" "Cesena" "Pesaro"
+		"Alessandria" "Pistoia" "Catanzaro" "Lucca" "Asti" "Gela" "Cremona" "Viterbo" "Cosenza" "Savona"
+		# Ligurian and Tyrrhenian coast
+		"Sanremo" "Imperia" "Chiavari" "Rapallo" "Camogli" "Portofino" "Lerici" "Portovenere" "Viareggio" "Carrara" "Massa" "Piombino" "Grosseto" "Orbetello"
+		"Portoferraio" "Civitavecchia" "Gaeta" "Formia" "Anzio" "Terracina" "Sorrento" "Pozzuoli" "Agropoli" "Maratea" "Paola" "Tropea"
+		# Ionian and Adriatic coast
+		"Monopoli" "Molfetta" "Trani" "Manfredonia" "Termoli" "Ortona" "Vasto" "Senigallia" "Fano" "Cattolica" "Cervia" "Comacchio" "Caorle" "Grado" "Muggia" "Aquileia"
+		# Sicily and Sardinia
+		"Augusta" "Agrigento" "Licata" "Sciacca" "Cefalù" "Taormina" "Noto" "Ragusa" "Modica" "Enna" "Caltanissetta" "Alghero" "Oristano" "Nuoro" "Iglesias"
+		"La Maddalena" "Porto Torres" "Carloforte"
+		# Inland towns
+		"Aosta" "Cuneo" "Biella" "Vercelli" "Ivrea" "Susa" "Lodi" "Lecco" "Sondrio" "Belluno" "Bassano" "Rovigo" "Adria" "Pordenone" "Imola" "Faenza" "Carpi"
+		"Macerata" "Ascoli Piceno" "Fermo" "Teramo" "Chieti" "Sulmona" "Rieti" "Frosinone" "Benevento" "Avellino" "Caserta" "Capua" "Potenza" "Matera" "Melfi"
+		"Assisi" "Spoleto" "Orvieto" "Todi" "Foligno" "Gubbio" "Urbino" "Cortona"
+	}
+}
+
+### UNIVERSAL TOPIC: COLONIES ###
+ITA_COLONIES = {
+	name = "Colonies"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Libya
+		"Tripoli" "Bengasi" "Tobruk" "Derna" "Homs" "Misurata" "Zuara" "Sirte" "Sabratha" "Leptis Magna" "Cirene" "Apollonia" "Tolemaide" "Gadames" "Ghat" "Cufra"
+		"Giarabub" "Bardia" "Barce" "Agedabia" "Garian" "Zliten" "Gialo" "Tripolitania" "Cirenaica" "Fezzan"
+		# Eritrea
+		"Eritrea" "Massaua" "Asmara" "Cheren" "Decamerè" "Adi Ugri" "Adi Caieh" "Assab" "Barentù" "Tessenei" "Nacfa" "Dahlak" "Dancalia"
+		# Somalia and Oltregiuba
+		"Somalia" "Mogadiscio" "Chisimaio" "Merca" "Brava" "Obbia" "Alula" "Bender Cassim" "Itala" "Villabruzzi" "Gelib" "Belet Uen" "Baidoa" "Lugh Ferrandi"
+		"Benadir" "Migiurtinia" "Oltregiuba"
+		# Italian East Africa
+		"Africa Orientale" "Abissinia" "Addis Abeba" "Harar" "Gimma" "Scioa" "Amara" "Galla-Sidama" "Tigrai" "Lechemti" "Dire Daua"
+		# Dodecanese
+		"Egeo" "Rodi" "Calino" "Scarpanto" "Piscopi" "Stampalia" "Simi" "Calchi" "Nisiro" "Isola di Coo" "Patmo" "Lipsi" "Castelrosso"
+		# Albania and Tientsin
+		"Valona" "Santi Quaranta" "Scutari" "Tirana" "Saseno" "Porto Palermo" "Argirocastro" "Coriza" "Berat" "Elbasan" "Tientsin"
+	}
+}
+
+### UNIVERSAL TOPIC: MYTHOLOGY ###
+ITA_MYTHOLOGY = {
+	name = "Mythology"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Roman and Italic deities
+		"Venere" "Apollo" "Marte" "Cerere" "Dioniso" "Bacco" "Plutone" "Vulcano" "Giunone" "Vesta" "Nettuno" "Giove" "Saturno" "Urano" "Prometeo" "Proteo"
+		"Aurora" "Atlante" "Giano" "Quirino" "Bellona" "Diana" "Fauno" "Fortuna" "Silvano" "Vertumno" "Ercole" "Esculapio" "Cupido" "Psiche" "Latona" "Tellure"
+		"Eolo" "Nereo" "Teti" "Portuno" "Salacia" "Tiberino" "Anna Perenna" "Carmenta" "Giuturna" "Pico" "Bona Dea" "Proserpina" "Dite" "Orco" "Lari" "Penati"
+		"Feronia" "Mater Matuta"
+		# Etruscan deities
+		"Tinia" "Menrva" "Turan" "Turms" "Fufluns" "Sethlans" "Nethuns" "Laran" "Aplu" "Artumes" "Cavatha" "Vanth" "Charun" "Tuchulcha" "Aita" "Persipnei"
+		"Selvans" "Voltumna" "Usil" "Tiur" "Thesan"
+		# Aeneid
+		"Enea" "Ascanio" "Anchise" "Didone" "Turno" "Lavinia" "Evandro" "Pallante" "Niso" "Eurialo" "Camilla" "Mezenzio" "Palinuro" "Miseno" "Acate" "Messapo"
+		"Aletto" "Eleno" "Cloanto" "Mnesteo" "Sergesto" "Ilioneo"
+		# Legends of Rome and the Italian seas
+		"Romolo" "Remo" "Lupa Capitolina" "Orazio Coclite" "Muzio Scevola" "Clelia" "Cincinnato" "Scilla" "Cariddi" "Ippocampo" "Fata Morgana" "Colapesce"
+		"Ligea" "Leucosia" "Polifemo" "Ulisse" "Orfeo" "Fetonte" "Achille" "Ettore" "Aiace" "Teseo" "Giasone" "Minotauro" "Idra" "Ganimede" "Nemesi" "Astrea"
+		"Arianna" "Gorgone" "Pitone"
+		# Chivalric epics (Orlando Furioso, Gerusalemme Liberata)
+		"Orlando" "Rinaldo" "Astolfo" "Angelica" "Bradamante" "Tancredi" "Goffredo" "Clorinda" "Erminia" "Ruggiero" "Ferraù"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS ###
+ITA_BIRDS = {
+	name = "Birds"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Seabirds, waterfowl and waders
+		"Sterna" "Albatro" "Fenicottero" "Svasso" "Smergo" "Germano" "Alzavola" "Fischione" "Marzaiola" "Codone" "Mestolone" "Moretta" "Moriglione" "Oca Selvatica"
+		"Beccaccia" "Beccaccino" "Pavoncella" "Piovanello" "Fratino" "Cavaliere d'Italia" "Avocetta" "Chiurlo" "Pettegola" "Garzetta" "Nitticora" "Sgarza"
+		"Tarabuso" "Tarabusino" "Spatola" "Mignattaio" "Martin Pescatore" "Berta Maggiore" "Uccello delle Tempeste" "Gavina"
+		# Songbirds and landbirds
+		"Allodola" "Calandra" "Rondine" "Rondone" "Balestruccio" "Usignolo" "Capinera" "Pettirosso" "Rigogolo" "Cardellino" "Fringuello" "Verdone" "Lucherino"
+		"Fanello" "Ciuffolotto" "Cinciallegra" "Codibugnolo" "Storno" "Merlo" "Tordo" "Passero" "Zigolo" "Ortolano" "Averla" "Ghiandaia" "Gazza" "Taccola"
+		"Cornacchia" "Corvo Imperiale" "Cuculo" "Upupa" "Picchio Rosso" "Picchio Muraiolo" "Gruccione" "Fagiano" "Pernice" "Coturnice" "Starna" "Quaglia"
+		"Gallo Cedrone" "Francolino" "Colombaccio" "Tortora" "Pavone" "Scricciolo" "Fiorrancino" "Beccafico" "Crociere" "Venturone"
+		# Owls
+		"Civetta" "Assiolo" "Allocco" "Gufo Comune"
+	}
+}
+
+### UNIVERSAL TOPIC: AQUATIC LIFE ###
+ITA_FISH = {
+	name = "Aquatic Life"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Pelagic fish and sharks
+		"Tonno" "Alalunga" "Palamita" "Sgombro" "Aguglia" "Lampuga" "Ricciola" "Pesce Spada" "Pesce Sega" "Pesce Luna" "Pesce Sciabola" "Verdesca" "Palombo"
+		"Pescecane" "Manta" "Torpedine" "Pastinaca" "Aquila di Mare" "Storione" "Anguilla" "Lampreda" "Cheppia"
+		# Coastal and demersal fish
+		"Orata" "Branzino" "Sarago" "Occhiata" "Cefalo" "Muggine" "Triglia" "Scorfano" "Gallinella" "Rombo" "Sogliola" "Platessa" "Ombrina" "Corvina" "Leccia"
+		"Merluzzo" "Nasello" "Rana Pescatrice" "Pesce San Pietro" "Donzella" "Castagnola" "Menola" "Zerro" "Mormora" "Pagello" "Pagro" "Ghiozzo" "Bavosa"
+		"Sardina" "Acciuga" "Aringa" "Spratto" "Latterino"
+		# Freshwater fish
+		"Trota" "Salmerino" "Temolo" "Luccio" "Persico" "Carpa" "Tinca" "Lavarello" "Coregone" "Cavedano" "Barbo" "Vairone" "Scardola" "Alborella" "Bottatrice"
+		# Cetaceans, turtles and invertebrates
+		"Balena" "Balenottera" "Capodoglio" "Orca" "Tursiope" "Stenella" "Grampo" "Globicefalo" "Foca Monaca" "Tartaruga" "Caretta" "Polpo" "Calamaro" "Seppia"
+		"Totano" "Aragosta" "Astice" "Granchio" "Gambero" "Riccio di Mare" "Stella Marina" "Cavalluccio Marino" "Gorgonia" "Madrepora"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS & LAKES ###
+ITA_RIVERS = {
+	name = "Rivers & Lakes"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Po basin and the Alps
+		"Po" "Adige" "Ticino" "Adda" "Oglio" "Mincio" "Sesia" "Dora Baltea" "Dora Riparia" "Tanaro" "Bormida" "Trebbia" "Taro" "Secchia" "Panaro" "Scrivia"
+		"Stura" "Varaita" "Maira" "Pellice" "Toce" "Brembo" "Serio" "Lambro" "Olona" "Chiese" "Sarca" "Noce" "Avisio" "Rienza" "Isarco"
+		# Venetian and Friulian rivers
+		"Tagliamento" "Brenta" "Livenza" "Sile" "Bacchiglione" "Astico" "Cordevole" "Natisone" "Timavo" "Vipacco" "Cellina" "Meduna" "Tartaro"
+		# Central Italy
+		"Arno" "Tevere" "Aniene" "Serchio" "Ombrone" "Cecina" "Magra" "Bisenzio" "Chiana" "Nera" "Velino" "Topino" "Clitunno" "Savio" "Esino" "Tronto" "Sangro"
+		"Foglia" "Marecchia" "Rubicone" "Santerno" "Senio" "Chienti" "Tenna" "Vomano"
+		# Southern Italy and the islands
+		"Volturno" "Garigliano" "Liri" "Trigno" "Biferno" "Fortore" "Ofanto" "Bradano" "Basento" "Sele" "Agri" "Sinni" "Crati" "Neto" "Mesima" "Simeto"
+		"Alcantara" "Platani" "Belice" "Anapo" "Tirso" "Flumendosa" "Coghinas"
+		# Lakes (classical names for the great Alpine lakes)
+		"Verbano" "Lario" "Benaco" "Sebino" "Ceresio" "Cusio" "Trasimeno" "Bolsena" "Bracciano" "Albano" "Nemi" "Varano" "Idro" "Mergozzo" "Viverone"
+		"Massaciuccoli" "Averno" "Lucrino" "Fusaro" "Scanno" "Omodeo" "Ledro" "Caldonazzo" "Levico" "Molveno" "Braies" "Carezza" "Misurina" "Endine" "Pusiano"
+		"Piediluco"
+	}
+}
+
+### UNIVERSAL TOPIC: GEOGRAPHY ###
+ITA_GEOGRAPHY = {
+	name = "Geography"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Alps and Dolomites
+		"Monte Bianco" "Monte Rosa" "Cervino" "Gran Paradiso" "Ortles" "Marmolada" "Adamello" "Tre Cime" "Tofane" "Antelao" "Pelmo" "Sassolungo" "Catinaccio"
+		"Latemar" "Cima d'Asta" "Cevedale" "Bernina" "Presolana" "Grigna" "Resegone" "Monviso" "Rocciamelone" "Grivola" "Argentera" "Tricorno" "Canin"
+		"Monte Baldo" "Lagorai"
+		# Apennines and volcanoes
+		"Gran Sasso" "Corno Grande" "Maiella" "Terminillo" "Sirente" "Amiata" "Cimone" "Pollino" "Matese" "Partenio" "Monte Cavo" "Soratte" "Circeo" "Argentario"
+		"Monte Vettore" "Alpi Apuane" "Roccamonfina" "Campi Flegrei" "Epomeo" "Solfatara"
+		# Islands
+		"Capri" "Ischia" "Procida" "Ponza" "Ventotene" "Palmarola" "Giglio" "Giannutri" "Montecristo" "Pianosa" "Capraia" "Gorgona" "Tavolara" "Asinara"
+		"Tremiti" "San Domino" "Ustica" "Alicudi" "Filicudi" "Salina" "Panarea" "Lipari" "Lampedusa" "Linosa" "Pantelleria" "Favignana" "Levanzo" "Marettimo"
+		"Eolie" "Pelagie" "Sant'Antioco"
+		# Alpine passes
+		"Brennero" "Stelvio" "Gran San Bernardo" "Piccolo San Bernardo" "Moncenisio" "Sempione" "Spluga" "Tonale" "Pordoi" "Falzarego" "Gavia"
+		# Straits and capes
+		"Stretto di Messina" "Capo Passero" "Capo Spartivento" "Capo Teulada" "Capo Carbonara" "Capo Testa" "Capo Palinuro" "Capo Vaticano" "Capo Colonna" "Capo Peloro"
+	}
+}
+
+### UNIVERSAL TOPIC: RULERS ###
+ITA_RULERS = {
+	name = "Rulers"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Kings of Rome (traditional) and emperors
+		"Numa Pompilio" "Tullo Ostilio" "Anco Marzio" "Tarquinio Prisco" "Servio Tullio"
+		"Vespasiano" "Nerva" "Adriano" "Antonino Pio" "Marco Aurelio" "Settimio Severo" "Aureliano" "Probo" "Diocleziano" "Costantino" "Valentiniano" "Teodosio"
+		# Ostrogothic and Lombard kings; kings of Italy
+		"Odoacre" "Teodorico" "Alboino" "Autari" "Agilulfo" "Rotari" "Grimoaldo" "Liutprando" "Desiderio" "Berengario" "Arduino d'Ivrea"
+		# Normans and Swabians
+		"Roberto il Guiscardo" "Ruggero II" "Guglielmo il Buono" "Federico II" "Manfredi" "Corradino"
+		# Signori and Renaissance princes
+		"Matilde di Canossa" "Cangrande della Scala" "Gian Galeazzo Visconti" "Ludovico il Moro" "Cosimo de' Medici" "Lorenzo il Magnifico" "Borso d'Este"
+		"Isabella d'Este" "Cola di Rienzo"
+		# Doges of Venice and Genoa
+		"Sebastiano Ziani" "Andrea Dandolo" "Francesco Foscari" "Leonardo Loredan" "Andrea Gritti" "Simone Boccanegra"
+	}
+}
+
+### UNIVERSAL TOPIC: HEROES & GENIUS ###
+ITA_HEROES = {
+	name = "Heroes & Genius"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Letters and thought
+		"Francesco Guicciardini" "Giovanni Verga" "Luigi Pirandello" "Grazia Deledda" "Carlo Goldoni" "Pietro Metastasio" "Pico della Mirandola" "Pietro Bembo"
+		"Baldassarre Castiglione" "Giordano Bruno" "Tommaso Campanella" "Giambattista Vico" "Cesare Beccaria"
+		# Arts and architecture
+		"Sandro Botticelli" "Tiziano Vecellio" "Tintoretto" "Antonio Canova" "Gian Lorenzo Bernini" "Filippo Brunelleschi" "Donatello" "Caravaggio" "Benvenuto Cellini"
+		"Andrea Palladio" "Giorgio Vasari" "Andrea Mantegna" "Paolo Veronese" "Giambattista Tiepolo" "Leon Battista Alberti" "Piero della Francesca" "Masaccio"
+		"Beato Angelico" "Cimabue" "Giorgione" "Correggio" "Bramante" "Borromini" "Canaletto"
+		# Music
+		"Giacomo Puccini" "Vincenzo Bellini" "Gaetano Donizetti" "Claudio Monteverdi" "Antonio Vivaldi" "Pierluigi da Palestrina" "Niccolò Paganini" "Alessandro Scarlatti"
+		"Arcangelo Corelli" "Ruggero Leoncavallo" "Arrigo Boito" "Luigi Cherubini" "Gaspare Spontini"
+		# Science
+		"Enrico Fermi" "Antonio Meucci" "Augusto Righi" "Amedeo Avogadro" "Stanislao Cannizzaro" "Marcello Malpighi" "Lazzaro Spallanzani" "Giovanni Battista Morgagni"
+		"Leonardo Fibonacci" "Girolamo Cardano" "Niccolò Tartaglia" "Giovanni Domenico Cassini" "Giovanni Schiaparelli" "Ulisse Aldrovandi"
+		# Explorers of Africa and the poles
+		"Vittorio Bottego" "Giacomo Bove" "Pietro Savorgnan di Brazzà" "Orazio Antinori" "Giovanni Battista Belzoni" "Filippo De Filippi"
+		# Risorgimento and the Great War
+		"Carlo Pisacane" "Ugo Bassi" "Federico Confalonieri" "Cesare Balbo" "Niccolò Tommaseo" "Anita Garibaldi" "Enrico Cialdini" "Alfonso La Marmora"
+		"Manfredo Fanti" "Emilio Dandolo" "Giovanni Randaccio"
+	}
+}
+
+### UNIVERSAL TOPIC: BATTLES ###
+ITA_BATTLES = {
+	name = "Battles"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Rome
+		"Zama" "Campi Raudii" "Metauro" "Sentino" "Filippi" "Farsalo" "Munda" "Cinoscefale" "Pidna" "Alesia" "Tapso" "Ponte Milvio"
+		# Communes and Risorgimento
+		"Campaldino" "Maclodio" "Anghiari" "San Fermo" "Pastrengo" "Magenta" "Bezzecca" "Porta Pia" "Cinque Giornate" "Dieci Giornate" "Quattro Giornate"
+		# Great War
+		"Piave" "Isonzo" "Solstizio" "Podgora" "Bainsizza" "Asiago" "Col di Lana" "Doberdò" "Beffa di Buccari"
+		# Colonial wars and the Second World War
+		"Ain Zara" "Zanzur" "Mai Ceu" "Nikolajewka"
+	}
+}
+
+### UNIVERSAL TOPIC: VIRTUES ###
+ITA_VIRTUES = {
+	name = "Virtues"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		"Ardire" "Audacia" "Valore" "Coraggio" "Fermezza" "Fedeltà" "Onore" "Vittoria" "Vigilanza" "Fierezza" "Costanza" "Prudenza" "Giustizia" "Temperanza"
+		"Fortezza" "Concordia" "Disciplina" "Dovere" "Sacrificio" "Dignità" "Tenacia" "Perseveranza" "Lealtà" "Prodezza" "Bravura" "Impeto" "Slancio" "Baldanza"
+		"Nobiltà" "Fortitudine" "Magnanimità" "Abnegazione" "Speranza" "Virtù"
+		"Ardimento" "Intrepidezza" "Risolutezza" "Fede"
+	}
+}
+
+### UNIVERSAL TOPIC: WEATHER & SKIES ###
+ITA_NATURE = {
+	name = "Weather & Skies"
+
+	for_countries = { ITA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Weather
+		"Brezza" "Bufera" "Burrasca" "Procella" "Tempesta" "Tormenta" "Nubifragio" "Temporale" "Grandine" "Tuono" "Bonaccia"
+		# Sky and celestial phenomena
+		"Alba" "Tramonto" "Zenit" "Meridiano" "Cometa" "Meteora" "Eclisse" "Galassia" "Nebulosa" "Via Lattea" "Equinozio"
+		# Stars
+		"Betelgeuse" "Deneb" "Capella" "Bellatrix" "Alcor" "Mizar" "Dubhe" "Merak" "Alnilam" "Alnitak" "Mintaka" "Fomalhaut" "Achernar" "Alphard"
+		"Elettra" "Maia" "Merope" "Taigete" "Celeno" "Asterope"
+		# Constellations
+		"Cefeo" "Boote" "Corvo" "Cratere" "Croce del Sud" "Ofiuco" "Scorpione" "Toro" "Gemelli" "Vergine" "Capricorno" "Acquario" "Tucano" "Colomba"
+		"Sestante" "Bussola" "Carena" "Corona Boreale" "Sagitta"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: FASCISM ###
+ITA_FASCISM = {
+	name = "Fascist Regime"
+
+	for_countries = { ITA }
+
+	can_use = {
+		has_government = fascism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Regime-era hull names moved from the historical groups (Littorio class, Soldati class, Liuzzi and Marconi classes)
+		"Littorio" "Impero" "Camicia Nera" "Squadrista" "Michele Bianchi" "Reginaldo Giuliani" "Console Generale Liuzzi" "Costanzo Ciano"
+		# Regime figures
+		"Italo Balbo" "Emilio De Bono" "Cesare Maria De Vecchi" "Gabriele D'Annunzio"
+		# Events and symbols
+		"Marcia su Roma" "Sansepolcro" "Ventotto Ottobre" "Quadrumviro" "Rivoluzione Fascista" "Fascio Littorio" "Littore" "Terza Roma" "Mare Nostrum" "Romanità"
+		"Battaglia del Grano" "Bonifica Integrale" "Giovinezza" "Reggenza del Carnaro" "Fiamme Nere" "Arditi" "Avanguardista"
+		# Roman-revival militia terms
+		"Legione" "Coorte" "Centuria" "Manipolo" "Centurione" "Gagliardetto" "Vessillo" "Aquila Romana"
+		# Irredentist claims
+		"Nizza" "Corsica" "Ajaccio" "Bastia" "Malta" "La Valletta" "Tunisi" "Gibuti"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: MONARCHISM ###
+ITA_MONARCHISM = {
+	name = "House of Savoy"
+
+	for_countries = { ITA }
+
+	can_use = {
+		has_government = neutrality
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Counts and dukes of Savoy
+		"Umberto Biancamano" "Oddone di Savoia" "Adelaide di Susa" "Tommaso di Savoia" "Amedeo il Grande" "Aimone il Pacifico" "Edoardo il Liberale" "Conte Verde"
+		"Conte Rosso" "Filiberto il Bello" "Carlo Emanuele I" "Vittorio Amedeo I" "Carlo Emanuele II"
+		# Kings of Sardinia and Italy
+		"Vittorio Amedeo II" "Carlo Emanuele III" "Vittorio Amedeo III" "Carlo Emanuele IV" "Vittorio Emanuele I" "Carlo Felice" "Vittorio Emanuele III"
+		# Princes and princesses
+		"Principe di Piemonte" "Conte di Torino" "Duca delle Puglie" "Aimone di Savoia" "Principessa Mafalda" "Principessa Iolanda" "Maria José" "Maria Adelaide"
+		# Crown, orders and royal seats
+		"Casa Savoia" "Croce Sabauda" "Nodo di Savoia" "Corona Ferrea" "Corona d'Italia" "Stella d'Italia" "Re Galantuomo" "Padre della Patria"
+		"Annunziata" "Quirinale" "Stupinigi" "Racconigi" "Venaria Reale" "Moncalieri"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: REPUBLICAN IDEALS ###
+ITA_REPUBLICAN_IDEALS = {
+	name = "Republican Ideals"
+
+	for_countries = { ITA }
+
+	can_use = {
+		has_government = democratic
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Republics and Mazzinian ideals
+		"Repubblica Romana" "Repubblica Partenopea" "Repubblica di San Marco" "Giovine Italia" "Giovine Europa" "Dio e Popolo" "Pensiero e Azione"
+		"Libertà" "Uguaglianza" "Fratellanza" "Costituente" "Democrazia" "Resistenza" "Liberazione" "Venticinque Aprile" "Due Giugno"
+		# Republicans of 1799 and 1848-49
+		"Giuseppe Mazzini" "Aurelio Saffi" "Carlo Armellini" "Cristina di Belgioioso" "Carlo Cattaneo" "Giuseppe Ferrari" "Angelo Brunetti"
+		"Eleonora Pimentel Fonseca" "Mario Pagano" "Domenico Cirillo" "Luisa Sanfelice"
+		# Anti-fascists and founders of the Republic
+		"Giacomo Matteotti" "Piero Gobetti" "Carlo Rosselli" "Nello Rosselli" "Giovanni Amendola" "Luigi Sturzo" "Giovanni Minzoni" "Alcide De Gasperi"
+		"Luigi Einaudi" "Benedetto Croce" "Ferruccio Parri" "Gaetano Salvemini" "Emilio Lussu" "Piero Calamandrei" "Eugenio Colorni" "Enrico De Nicola"
+		"Randolfo Pacciardi"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: SOCIALISM ###
+ITA_SOCIALISM = {
+	name = "Socialist Heroes"
+
+	for_countries = { ITA }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "RN "
+	fallback_name = "Nave %d"
+
+	unique = {
+		# Socialist and communist leaders
+		"Antonio Gramsci" "Antonio Labriola" "Andrea Costa" "Amadeo Bordiga" "Palmiro Togliatti" "Filippo Turati" "Anna Kuliscioff" "Camillo Prampolini"
+		"Claudio Treves" "Giuseppe Di Vittorio" "Umberto Terracini" "Luigi Longo" "Pietro Secchia" "Giacinto Menotti Serrati" "Costantino Lazzari" "Bruno Buozzi"
+		"Ruggero Grieco" "Girolamo Li Causi" "Concetto Marchesi" "Pietro Nenni" "Sandro Pertini" "Eugenio Curiel"
+		# Movements, newspapers and slogans
+		"Internazionale" "Biennio Rosso" "Ordine Nuovo" "Avanti" "L'Unità" "Primo Maggio" "Lavoro" "Solidarietà" "Bandiera Rossa" "Proletariato"
+		"Camera del Lavoro" "Mutuo Soccorso" "Fronte Popolare" "Arditi del Popolo" "Brigate Garibaldi"
+	}
+}

@@ -11,6 +11,7 @@
 - [Denmark](Denmark)
 - [Finland](Finland)
 - [Iran](Iran)
+- [Italy](Italy)
 - [Mexico](Mexico)
 - [Norway](Norway)
 - [Philippines](Philippines)

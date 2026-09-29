@@ -24,16 +24,16 @@ BRA_DD_HISTORICAL = {
 		"Santa Catarina" "Maranhão" "Guaporé"
 		# Historic naval heroes & officers (Marcílio Dias M-class and imperial officer traditions)
 		"Marcílio Dias" "Mariz e Barros" "Greenhalgh" "Henrique Dias" "Barão de Teffé" "Custódio de Melo"
-		"Felisberto Freire" "Delamare" "Fernandinho" "Macedo Soares" "Brum" "Vidal de Negreiros"
+		"Delamare" "Vidal de Negreiros"
 		"Tamandaré" "Barroso" "Lima Barros" "Silvado" "Cabral" "Felipe Camarão" "Fernandes Vieira"
-		"Plácido de Castro" "Soares de Andréa" "Salustiano" "Gomes Freire" "Inhaúma" "Jaceguai" "Júlio de Noronha"
+		"Plácido de Castro" "Soares de Andréa" "Gomes Freire" "Inhaúma" "Jaceguai" "Júlio de Noronha"
 		# Coastal municipalities & escort vessels (Wartime DE / Bertioga class tradition)
 		"Babitonga" "Baependi" "Bauru" "Beberibe" "Benevente" "Bertioga" "Bocaina" "Bracuí"
 		"Cananéia" "Caravelas" "Camamu" "Itajaí" "Angra" "Paranaguá" "Guarujá" "Ilhabela"
 		# Corvettes, gunboats, avisos & escort craft
 		"Caboclo" "Angostura" "Imperial Marinheiro" "Forte de Coimbra" "Solimões" "Iguatemi" "Mearim"
 		"Pirajá" "Tramandaí" "Grajaú" "Gurupi" "Macapá" "Maracanã" "Mangaratiba" "Paraty" "Jaguarão"
-		"Itacurubi" "Itaverá" "Pirapama" "Primeiro de Março" "Carioca"
+		"Itaverá" "Pirapama" "Primeiro de Março" "Carioca"
 		# Martial descriptors, weather & naval virtues
 		"Audaz" "Valente" "Destemido" "Bravo" "Veloz" "Trovão" "Relâmpago" "Impávido"
 		"Tenaz" "Vigilante" "Sentinela" "Raio" "Tempestade" "Tornado" "Furacão" "Vendaval"
@@ -93,7 +93,7 @@ BRA_CL_HISTORICAL = {
 		"Cabo Frio" "Ubatuba" "São Sebastião" "Laguna" "Imbituba" "Pelotas"
 		"Aracaju" "João Pessoa" "Santana" "Camocim" "Parintins" "Corumbá"
 		# Expanded coastal ports, historical maritime centers & river gateways
-		"Rio de Janeiro" "São Francisco do Sul" "Santarém" "Macapá" "Porto Velho" "Parnaíba"
+		"São Francisco do Sul" "Santarém" "Macapá" "Porto Velho" "Parnaíba"
 		"São Vicente" "Cananéia" "Itaparica" "Porto Seguro" "Caravelas" "Valença"
 		"Alcântara" "Bragança" "Óbidos" "Itacoatiara" "Tefé" "Araruama" "Maricá"
 		"Mangaratiba" "Paraty" "Antonina" "Guaratuba" "Tubarão" "São José" "Torres"
@@ -115,14 +115,14 @@ BRA_CA_HISTORICAL = {
 
 	unique = {
 		# Great admirals, marshals, coastal defense battleships & historic naval leaders
-		"Almirante Barroso" "Almirante Tamandaré" "Deodoro" "Floriano" "Almirante Cochrane"
+		"Almirante Barroso" "Almirante Tamandaré" "Deodoro" "Floriano" "Marquês do Maranhão" "Almirante Grenfell" "Almirante Taylor"
 		"Almirante Inhaúma" "Almirante Saldanha" "Duque de Caxias" "Belmonte" "Marquês de Olinda"
 		"Custódio de Melo" "Almirante Frontin" "Almirante Wandenkolk" "Almirante Guilhobel"
-		"Almirante Jaceguai" "Barão de Teffé" "Barão do Amazonas" "Visconde de Inhaúma"
+		"Almirante Jaceguai" "Barão de Teffé"
 		"Visconde de Rio Branco" "Almirante Alexandrino" "Marquês de Paranaguá" "General Osório"
 		"Barão de Triunfo" "Marechal Mallet" "General Sampaio" "Almirante Noronha"
 		# Historic capital ships, ironclads & heroic leaders
-		"Aquidabã" "Sete de Setembro" "Javari" "Benjamin Constant" "República" "Tiradentes"
+		"Aquidabã" "Javari" "Benjamin Constant" "República"
 		"Almirante Delamare" "Almirante Boiteux" "Barão de Ladário" "Almirante Pena Boto"
 		"General Polidoro" "General Gurjão"
 	}
@@ -142,17 +142,15 @@ BRA_BB_HISTORICAL = {
 
 	unique = {
 		# Historic dreadnoughts & major federated states (ABC dreadnought race lineage)
-		"Minas Gerais" "São Paulo" "Rio de Janeiro" "Bahia" "Rio Grande do Sul" "Pará"
+		"Minas Gerais" "São Paulo" "Rio de Janeiro" "Pará"
 		"Pernambuco" "Maranhão" "Ceará" "Santa Catarina" "Espírito Santo" "Goiás"
 		"Mato Grosso" "Paraná" "Paraíba" "Piauí" "Alagoas" "Sergipe" "Rio Grande do Norte" "Amazonas"
 		"Acre" "Guanabara"
 		# Founding imperial & national figures
 		"Dom Pedro I" "Dom Pedro II" "Tiradentes" "José Bonifácio" "Dona Leopoldina"
-		"Princesa Isabel" "Duque de Caxias" "Visconde de Cairu"
+		"Princesa Isabel" "Visconde de Cairu" "Rui Barbosa"
 		# National symbols & historic capital ships
-		"Sete de Setembro" "Independência" "Constituição"
-		# Decisive naval battles of Brazilian history
-		"Riachuelo" "Passo da Pátria" "Humaitá" "Tuiutí" "Itororó"
+		"Sete de Setembro" "Independência" "Constituição" "Ipiranga"
 	}
 }
 
@@ -169,13 +167,14 @@ BRA_BC_HISTORICAL = {
 	fallback_name = "Cruzador de Batalha %d"
 
 	unique = {
-		# Decisive battle honours, strategic victories & heroic campaigns
-		"Riachuelo" "Guararapes" "Passo da Pátria" "Humaitá" "Tuiutí" "Itororó" "Avaí"
-		"Campo Grande" "Monte Castelo" "Montese" "Curupaiti" "Itapiru" "Laguna"
-		"Uruguaiana" "Piribebuy" "Jenipapo" "Monte das Tabocas" "Pirajá" "Mata-Fome"
-		"Passo do Rosário" "Itacurubi" "Castelhone" "Coruzu" "Colonia do Sacramento"
-		"Montevideo" "Cabrita" "Toneleros" "Fortaleza de Santa Cruz" "Angostura"
-		"Cuevas" "Taquari" "Lajes"
+		# Decisive naval encounters & river passages
+		"Riachuelo" "Passo da Pátria" "Humaitá"
+		"Curupaiti" "Itapiru"
+		"Curuzu"
+		"Tonelero" "Angostura"
+		"Cuevas" "Quatro de Maio" "Monte Santiago" "Paissandu" "Mercedes" "Timbó"
+		# Coastal fortresses & citadels
+		"Fortaleza de Santa Cruz" "Fortaleza de São João" "Forte de Copacabana" "Forte de Itaipu" "Fortaleza da Laje" "Forte dos Reis Magos" "Forte de São Marcelo" "Forte de Santo Antônio da Barra" "Forte de Monte Serrat" "Forte do Brum" "Forte Orange" "Forte do Presépio" "São José de Macapá" "Forte Príncipe da Beira" "Fortaleza de Anhatomirim" "Fortaleza de Ponta Grossa" "Fortaleza da Barra Grande"
 	}
 }
 
@@ -193,12 +192,12 @@ BRA_CV_HISTORICAL = {
 
 	unique = {
 		# Authentic carrier names & great maritime bays
-		"Minas Gerais" "São Paulo" "Atlântico" "Cruzeiro do Sul" "Brasil" "Independência"
-		"Guanabara" "Todos os Santos" "Paranaguá" "Baía Formosa" "Baía de Ilhéus"
+		"Atlântico" "Cruzeiro do Sul" "Brasil"
+		"Baía de Todos os Santos" "Baía Formosa" "Baía de Ilhéus"
 		"Baía de Santos" "Baía de Paranaguá" "Baía de Guanabara" "Baía de Sepetiba"
-		"Baía de Camamu" "Baía de São Marcos"
+		"Baía de Camamu" "Baía de São Marcos" "Baía de Marajó" "Baía da Ilha Grande"
 		# Celestial constellations & southern skies
-		"Centauro" "Órion" "Fênix"
+		"Centauro" "Órion" "Fênix" "Sirius" "Canopus" "Antares"
 		# Raptors, birds of prey & celestial hunters
 		"Harpia" "Gavião" "Carcará" "Condor" "Águia" "Falcão" "Urubu-Rei"
 		"Gavião-Real" "Açor" "Milhafre" "Gavião-Preto" "Gavião-de-Penacho"
@@ -231,7 +230,7 @@ BRA_CITIES = {
 
 ### UNIVERSAL TOPIC: STATES ###
 BRA_STATES = {
-	name = "States"
+	name = "States & Territories"
 
 	for_countries = { BRA }
 
@@ -246,6 +245,7 @@ BRA_STATES = {
 		"Goiás" "Mato Grosso" "Paraná" "Paraíba" "Piauí" "Alagoas" "Sergipe"
 		"Rio Grande do Norte" "Amazonas" "Acre"
 		"Mato Grosso do Sul" "Rondônia" "Tocantins" "Amapá" "Roraima" "Distrito Federal"
+		"Cisplatina" "Grão-Pará" "Guanabara" "Iguaçu" "Ponta Porã" "Fernando de Noronha" "Guaporé" "Rio Branco" "Itamaracá"
 	}
 }
 
@@ -288,15 +288,15 @@ BRA_HEROES = {
 		"Saldanha da Gama" "Wandenkolk" "Guilhobel" "Jaceguai" "Barão de Teffé"
 		"Henrique Dias" "Vidal de Negreiros" "Felipe Camarão" "Plácido de Castro"
 		"Anita Garibaldi" "Osório" "Mallet" "Sampaio" "Eduardo Gomes" "Santos Dumont"
-		"Joaquim Marques Lisboa" "Benjamin Constant" "Álvaro Alberto" "Henrique Boiteux"
+		"Benjamin Constant" "Álvaro Alberto" "Henrique Boiteux"
 		"Soares de Andréa" "General Gurjão" "Barão de Ladário" "Cunha Matos"
-		"Joaquim Murtinho" "Felisberto Freire"
+		"Maria Quitéria" "Joana Angélica" "Zumbi dos Palmares"
 	}
 }
 
 ### UNIVERSAL TOPIC: INDIGENOUS TRIBES & WARRIORS ###
 BRA_INDIGENOUS = {
-	name = "Indigenous Tribes"
+	name = "Native Peoples & Chiefs"
 
 	for_countries = { BRA }
 
@@ -327,12 +327,13 @@ BRA_BATTLES = {
 	fallback_name = "Batalha %d"
 
 	unique = {
-		"Riachuelo" "Guararapes" "Passo da Pátria" "Humaitá" "Tuiutí" "Itororó"
+		"Riachuelo" "Guararapes" "Passo da Pátria" "Humaitá" "Tuiuti" "Itororó"
 		"Avaí" "Campo Grande" "Monte Castelo" "Montese" "Curupaiti" "Itapiru"
 		"Laguna" "Uruguaiana" "Piribebuy" "Jenipapo" "Monte das Tabocas"
-		"Pirajá" "Mata-Fome" "Itacurubi" "Passo do Rosário" "Castelhone"
-		"Coruzu" "Colonia do Sacramento" "Montevideo" "Cabrita" "Toneleros"
-		"Fortaleza de Santa Cruz" "Angostura" "Cuevas" "Taquari" "Lajes"
+		"Pirajá" "Passo do Rosário" "Castelnuovo"
+		"Curuzu" "Colônia do Sacramento" "Montevidéu" "Ilha da Redenção" "Tonelero"
+		"Fortaleza de Santa Cruz" "Angostura" "Cuevas" "Taquari"
+		"Uruçumirim" "Quatro de Maio" "Monte Santiago" "Paissandu" "Mercedes" "Estero Bellaco" "Boqueirão" "Lomas Valentinas" "Timbó" "Camaiore" "Collecchio" "Fornovo"
 	}
 }
 

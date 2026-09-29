@@ -85,7 +85,7 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 
 [b]Brazil[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
-- Added 7 universal thematic lists: Cities, States, Rivers, Heroes & Admirals, Indigenous Tribes, Battles, and Fauna.
+- Added 7 universal thematic lists: Cities, States & Territories, Rivers, Heroes & Admirals, Native Peoples & Chiefs, Battles, and Fauna.
 
 [b]Chile[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).

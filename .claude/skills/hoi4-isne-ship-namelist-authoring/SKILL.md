@@ -309,8 +309,7 @@ File path: `common/units/names_ships/<TAG>_ship_names.txt`
 - **Encoding**: UTF-8 without BOM.
 - **Curly Braces**: Strictly balanced `{}`.
 - **Display Name Length**: Group `name = "..."` values must not exceed 30–32 characters to prevent visual truncation in the Ship Designer dropdown UI.
-- **Valid Hull Tokens**:
-  `battle_cruiser`, `battleship`, `capital_ship`, `carrier`, `destroyer`, `heavy_cruiser`, `light_cruiser`, `screen_ship`, `ship_hull_carrier`, `ship_hull_cruiser`, `ship_hull_cruiser_submarine`, `ship_hull_heavy`, `ship_hull_light`, `ship_hull_midget_submarine`, `ship_hull_submarine`, `submarine`.
+- **Valid Hull Tokens & Per-Class Canon**: `ship_types` must match `data/ship_types_canon.json` (14 vanilla-live tokens; `capital_ship`/`screen_ship` are invalid). Class sets: `DD` `destroyer ship_hull_light`; `SS` `submarine ship_hull_submarine` (+ optional midget/cruiser-submarine hulls); `CL` `light_cruiser ship_hull_cruiser`; `CA` `heavy_cruiser ship_hull_cruiser`; `BB` `battleship ship_hull_heavy` (+ `battle_cruiser` only without a BC group); `BC` `battle_cruiser ship_hull_heavy`; `CV` `carrier ship_hull_carrier`; thematic pools omit `ship_types`. Check with `powershell -File .\build.ps1 -VerifyShipTypes <TAG>`.
 - **Ordered Blocks**: Unique integer keys (if using `ordered = { ... }`).
 - **No Empty Blocks**: Never leave empty `unique = { }` or `ordered = { }` blocks.
 - **No Self-Links**: `link_numbering_with` must never reference its own group tag.
@@ -361,6 +360,9 @@ powershell -File .\build.ps1 -ValidateOnly
 
 # 2. Automated Pester unit test suite (engine rules, docs sync, build script)
 powershell -File .\build.ps1 -Test
+
+# 2b. ship_types vs the vanilla-derived class canon (one OK line, or one line per deviation)
+powershell -File .\build.ps1 -VerifyShipTypes <TAG>
 
 # 3. Standards audit of one nation's namelist (group depth vs quotas, collisions, prefixes, docs sync)
 powershell -File .\build.ps1 -Audit <TAG>

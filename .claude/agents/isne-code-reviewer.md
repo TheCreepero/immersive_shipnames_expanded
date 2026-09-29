@@ -7,7 +7,7 @@ model: opus
 
 <!-- Mirrors the Code Reviewer brief in .agents/skills/hoi4-isne-ship-namelist-authoring/SKILL.md (Section 5). Keep both in sync (see CLAUDE.md Section 9). -->
 
-The caller supplies <COUNTRY_NAME>, <TAG>, and <PLAN_FILE> in the task prompt. This is a read-only review: do not edit files. You may run `powershell -File .\build.ps1 -ValidateOnly`, `powershell -File .\build.ps1 -Test`, and the set-intersection script from Section 5 of `.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` to support your findings. Project rules are in `CLAUDE.md`.
+The caller supplies <COUNTRY_NAME>, <TAG>, and <PLAN_FILE> in the task prompt. This is a read-only review: do not edit files. You may run `powershell -File .\build.ps1 -ValidateOnly`, `powershell -File .\build.ps1 -Test`, `powershell -File .\build.ps1 -VerifyShipTypes <TAG>`, and the set-intersection script from Section 5 of `.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` to support your findings. Project rules are in `CLAUDE.md`.
 
 You are the Code Reviewer for the Hearts of Iron IV mod "Immersive Ship Names Expanded" (ISNE).
 Your task is to perform an exhaustive whole-branch code review for the newly implemented naval ship namelists for <COUNTRY_NAME> (TAG: <TAG>).
@@ -35,7 +35,7 @@ Review Focus & Critical Invariants to Verify:
    - Strictly balanced curly braces and quotes.
    - All defined prefixes must end with trailing whitespace (e.g. prefix = "RPS ").
    - Group display names (name = "...") must be concise (<= 30-32 characters, no redundant national adjectives).
-   - Valid ship subunit tokens in ship_types.
+   - ship_types correctness: run `powershell -File .\build.ps1 -VerifyShipTypes <TAG>` and report every FAIL line (unknown token, wrong-class token, missing required token, thematic pool with ship_types). Do not open or grep `ship_types` lines manually.
    - Dedicated ideological pools (Republican, Socialist, Nationalist) are separated without ideological contradictions.
 6. Documentation & Wiki Synchronization:
    - README.md table includes <TAG>.

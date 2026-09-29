@@ -1,0 +1,13 @@
+{
+  "meta": { "generated": "2026-09-29", "vanillaFiles": 65 },
+  "tokens": ["battle_cruiser", "battleship", "carrier", "destroyer", "heavy_cruiser", "light_cruiser", "ship_hull_carrier", "ship_hull_cruiser", "ship_hull_cruiser_submarine", "ship_hull_heavy", "ship_hull_light", "ship_hull_midget_submarine", "ship_hull_submarine", "submarine"],
+  "classes": {
+    "DD": { "required": ["destroyer", "ship_hull_light"], "optional": [] },
+    "SS": { "required": ["submarine", "ship_hull_submarine"], "optional": ["ship_hull_midget_submarine", "ship_hull_cruiser_submarine"] },
+    "CL": { "required": ["light_cruiser", "ship_hull_cruiser"], "optional": [] },
+    "CA": { "required": ["heavy_cruiser", "ship_hull_cruiser"], "optional": [] },
+    "BB": { "required": ["battleship", "ship_hull_heavy"], "optional": ["battle_cruiser"] },
+    "BC": { "required": ["battle_cruiser", "ship_hull_heavy"], "optional": [] },
+    "CV": { "required": ["carrier", "ship_hull_carrier"], "optional": [] }
+  }
+}

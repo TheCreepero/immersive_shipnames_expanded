@@ -48,7 +48,7 @@ An audit is a **delta upgrade**: entries that already meet the standard stay unt
    - Drop unverifiable persons; a shorter authentic list beats padding (`CLAUDE.md` §3) — record the scope in the wiki.
 7. **Verify.** Re-run `-Audit <TAG>` until FAIL=0 and every remaining WARN is justified in the plan; then `powershell -File .\build.ps1 -ValidateOnly` and `powershell -File .\build.ps1 -Test`.
 8. **Docs delta** (`CLAUDE.md` §4): README row; workshop cross-reference row and the `[b]<Country>[/b]` block in the 2-bullet "Expanded… / Added…" format; `wiki/<Country>.md` group tables and counts; `wiki/Home.md` group count. Push with `powershell -File .\wiki\push-wiki.ps1 -CommitMessage "Audit <TAG> ship namelists"`.
-9. **Review.** Dispatch `isne-code-reviewer` via the Agent tool with `model: "sonnet"`, passing country, TAG, the audit plan path, and: "This is an audit of an existing namelist. Review `git diff` for this TAG in full, and run the named-individual and English-homonym checks across the whole file. Mechanical invariants (braces, encoding, in-group duplicates, cross-class set intersection, display-name length, docs sync) are already verified by `-Audit`, `-ValidateOnly` and `-Test`: <paste the three summary lines>. Do not re-run them; spend the review on content: named individuals, English homonyms, native forms and diacritics of new entries, display-name accuracy, and whether the plan's change table matches the diff." Fix every Critical and Important finding, then re-run step 7.
+9. **Review.** Dispatch `isne-code-reviewer` via the Agent tool with `model: "sonnet"`, passing country, TAG, the audit plan path, and: "This is an audit of an existing namelist. Review `git diff` for this TAG in full, and run the named-individual and English-homonym checks across the whole file. Mechanical invariants (braces, encoding, in-group duplicates, cross-class set intersection, ship_types canon, display-name length, docs sync) are already verified by `-Audit`, `-ValidateOnly` and `-Test`: <paste the three summary lines>. Do not re-run them; spend the review on content: named individuals, English homonyms, native forms and diacritics of new entries, display-name accuracy, and whether the plan's change table matches the diff." Fix every Critical and Important finding, then re-run step 7.
 10. **Confirm** with `git status` that the namelist, plan, and docs changed as intended.
 
 ## Quick Reference: Finding → Action
@@ -61,6 +61,7 @@ An audit is a **delta upgrade**: entries that already meet the standard stay unt
 | `CrossClass` / `BBBCMirror` | Keep in best-fit class, replace or disambiguate in the other |
 | `DuplicateInGroup` | Remove the repeat (check article/spelling variants too) |
 | `ThemeRestricted` / `ThemeCount` | Drop `ship_types` from thematic pools / add pools agreed at the checkpoint |
+| `UnknownToken` / `WrongClassToken` / `MissingRequired` | Set `ship_types` to the class set in `data/ship_types_canon.json` (`CLAUDE.md` §7); `-Audit` runs this check, so the reviewer need not re-run `-VerifyShipTypes` |
 | `PrefixSpace` / `PrefixInconsistent` | Add trailing space / apply the national prefix to every group |
 | `VanillaPrefix` | Restore vanilla parity unless the wiki documents a reason (`CLAUDE.md` §3) |
 | `Fallback*` | Verify native term; fix definite suffixes, `Lys` calques, English hull words |

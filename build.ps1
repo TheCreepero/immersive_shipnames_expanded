@@ -49,6 +49,17 @@
     Audit the mod's ship namelist for a country tag against current ISNE standards (e.g. -Audit CUB).
     Prints a compact report: group table (counts vs tier quotas), findings by severity (FAIL/WARN/INFO), and a summary line.
 
+.PARAMETER VerifyShipTypes
+    Verify every group's ship_types against data/ship_types_canon.json (e.g. -VerifyShipTypes FIN, or -VerifyShipTypes ALL).
+    Prints a single "ship_types OK" line when clean, otherwise one "FAIL/WARN <group> <check> <detail>" line per deviation. Exit code 1 on any FAIL.
+
+.PARAMETER SyncShipTypeCanon
+    Scan vanilla names_ships, print the observed ship_types sets per class, and diff them against data/ship_types_canon.json.
+    Run after a Hearts of Iron IV patch. Add -Write to refresh the canon's token list and metadata (class rules are curated by hand).
+
+.PARAMETER Write
+    With -SyncShipTypeCanon: rewrite data/ship_types_canon.json (tokens and meta only).
+
 .PARAMETER Group
     Optional specific ship namelist group tag to excerpt directly when using -InspectVanilla or -Audit (e.g. -Group FIN_DD_HISTORICAL).
     With -Audit, accepts a comma-separated list, and the TAG_ prefix may be omitted (e.g. -Group RULERS,HEROES,CV_HISTORICAL).
@@ -103,6 +114,10 @@
     # Prints the listed groups as one compact line each (names only, no block boilerplate).
 
 .EXAMPLE
+    .\build.ps1 -VerifyShipTypes ALL
+    # Checks ship_types of every mod namelist against the vanilla-derived canon.
+
+.EXAMPLE
     .\build.ps1 -PublishSteam -DryRun
     # Previews the Steam Workshop VDF and staged files without uploading.
 #>
@@ -139,6 +154,15 @@ param(
     [Parameter(ParameterSetName = 'Audit', Mandatory = $true)]
     [string]$Audit,
 
+    [Parameter(ParameterSetName = 'VerifyShipTypes', Mandatory = $true)]
+    [string]$VerifyShipTypes,
+
+    [Parameter(ParameterSetName = 'SyncShipTypeCanon', Mandatory = $true)]
+    [switch]$SyncShipTypeCanon,
+
+    [Parameter(ParameterSetName = 'SyncShipTypeCanon')]
+    [switch]$Write,
+
     [Parameter(ParameterSetName = 'InspectVanilla')]
     [Parameter(ParameterSetName = 'Audit')]
     [string]$Group,
@@ -148,6 +172,7 @@ param(
 
     [Parameter(ParameterSetName = 'InspectVanilla')]
     [Parameter(ParameterSetName = 'Audit')]
+    [Parameter(ParameterSetName = 'SyncShipTypeCanon')]
     [string]$Hoi4InstallDir,
 
     [switch]$Validate,
@@ -283,6 +308,16 @@ function New-LauncherModContent {
     return ($lines -join "`r`n")
 }
 
+# --- Helper: Load the vanilla-derived ship_types canon ---
+$ShipTypeCanonPath = Join-Path $RepoDir "data\ship_types_canon.json"
+
+function Get-ShipTypeCanon {
+    param([string]$Path = $ShipTypeCanonPath)
+
+    if (-not (Test-Path $Path)) { return $null }
+    return [System.IO.File]::ReadAllText($Path, [System.Text.Encoding]::UTF8) | ConvertFrom-Json
+}
+
 # --- Helper: Validate Ship Namelists and Descriptor ---
 function Invoke-Validation {
     Write-Step "Validating ship namelist syntax and files..."
@@ -321,12 +356,12 @@ function Invoke-Validation {
         Write-Warn "No ship namelist files found in $namelistDir"
     }
 
-    $validShipTypes = @(
-        'battle_cruiser', 'battleship', 'capital_ship', 'carrier', 'destroyer',
-        'heavy_cruiser', 'light_cruiser', 'screen_ship', 'ship_hull_carrier',
-        'ship_hull_cruiser', 'ship_hull_cruiser_submarine', 'ship_hull_heavy',
-        'ship_hull_light', 'ship_hull_midget_submarine', 'ship_hull_submarine', 'submarine'
-    )
+    $canon = Get-ShipTypeCanon
+    if (-not $canon) {
+        Write-Err "ship_types canon not found: $ShipTypeCanonPath (regenerate with -SyncShipTypeCanon -Write)"
+        $hasErrors = $true
+    }
+    $validShipTypes = if ($canon) { @($canon.tokens) } else { @() }
     $globalGroupTags = @{}
 
     $checkedCount = 0
@@ -672,7 +707,8 @@ function Get-NamelistAuditFindings {
         [object[]]$Groups,
         [string]$Tag,
         [string]$RepoDir,
-        [object[]]$VanillaGroups
+        [object[]]$VanillaGroups,
+        [object]$Canon
     )
 
     $findings = [System.Collections.Generic.List[psobject]]::new()
@@ -734,16 +770,13 @@ function Get-NamelistAuditFindings {
             Add-Finding 'FAIL' 'MissingHull' '-' $detail
         }
     }
-    if ($byClass.ContainsKey('BC') -and $byClass.ContainsKey('BB') -and $byClass['BB'].ShipTypes -match '\bbattle_cruiser\b') {
-        Add-Finding 'WARN' 'BBCarriesBC' $byClass['BB'].GroupTag "BB ship_types include battle_cruiser although a BC group exists"
-    }
     if ($themes.Count -lt 6) {
         Add-Finding 'WARN' 'ThemeCount' '-' "$($themes.Count) thematic pools; standard is 6+"
     }
-    foreach ($t in $themes) {
-        if ($t.ShipTypes -ne 'N/A') {
-            Add-Finding 'FAIL' 'ThemeRestricted' $t.GroupTag "Thematic pool restricts ship_types ($($t.ShipTypes)); omit for universal selection"
-        }
+    if ($Canon) {
+        foreach ($f in (Get-ShipTypeFindings -Groups $Groups -Canon $Canon)) { $findings.Add($f) }
+    } else {
+        Add-Finding 'INFO' 'ShipTypes' '-' "ship_types check skipped (data/ship_types_canon.json not found)"
     }
 
     # 3. Collisions: intra-group duplicates, cross-class overlaps, BB/BC mirroring
@@ -908,6 +941,175 @@ function Get-NamelistAuditFindings {
     return , $findings.ToArray()
 }
 
+# --- Helper: Check each group's ship_types against the canon ---
+# Returns findings (Severity/Check/Group/Detail): UnknownToken, WrongClassToken, MissingRequired, BBCarriesBC, ThemeRestricted.
+function Get-ShipTypeFindings {
+    param(
+        [object[]]$Groups,
+        [object]$Canon
+    )
+
+    $findings = [System.Collections.Generic.List[psobject]]::new()
+    function Add-TypeFinding([string]$Sev, [string]$Check, [string]$Grp, [string]$Detail) {
+        $findings.Add([PSCustomObject]@{ Severity = $Sev; Check = $Check; Group = $Grp; Detail = $Detail })
+    }
+
+    $hasBC = @($Groups | Where-Object { $_.GroupTag -match '_BC_HISTORICAL$' }).Count -gt 0
+    foreach ($g in $Groups) {
+        $present = if ($g.ShipTypes -eq 'N/A') { @() } else { @($g.ShipTypes -split '\s+' | Where-Object { $_ }) }
+        $m = [regex]::Match($g.GroupTag, '_(DD|SS|CL|CA|BB|BC|CV)_HISTORICAL$')
+        if (-not $m.Success) {
+            if ($present.Count -gt 0) {
+                Add-TypeFinding 'FAIL' 'ThemeRestricted' $g.GroupTag "Thematic pool restricts ship_types ($($g.ShipTypes)); omit for universal selection"
+            }
+            continue
+        }
+
+        $cls = $m.Groups[1].Value
+        $rule = $Canon.classes.$cls
+        $required = @($rule.required)
+        $optional = @($rule.optional)
+        $allowed = $required + $optional
+
+        $unknown = @($present | Where-Object { $Canon.tokens -notcontains $_ })
+        if ($unknown.Count -gt 0) {
+            Add-TypeFinding 'FAIL' 'UnknownToken' $g.GroupTag "$($unknown -join ' ') not used by vanilla names_ships"
+        }
+        $wrong = @($present | Where-Object { $Canon.tokens -contains $_ -and $allowed -notcontains $_ })
+        if ($wrong.Count -gt 0) {
+            Add-TypeFinding 'FAIL' 'WrongClassToken' $g.GroupTag "$($wrong -join ' ') invalid for $cls (expected: $($required -join ' '))"
+        }
+        $missing = @($required | Where-Object { $present -notcontains $_ })
+        if ($missing.Count -gt 0) {
+            Add-TypeFinding 'FAIL' 'MissingRequired' $g.GroupTag "missing $($missing -join ' ') (expected: $($required -join ' '))"
+        }
+        if ($cls -eq 'BB' -and $hasBC -and $present -contains 'battle_cruiser') {
+            Add-TypeFinding 'WARN' 'BBCarriesBC' $g.GroupTag "BB ship_types include battle_cruiser although a BC group exists"
+        }
+    }
+
+    return , $findings.ToArray()
+}
+
+# --- Action: Verify ship_types of mod namelists against the canon ---
+function Invoke-VerifyShipTypes {
+    param([string]$Tag)
+
+    $canon = Get-ShipTypeCanon
+    if (-not $canon) {
+        Write-Host "FAIL canon missing: $ShipTypeCanonPath (run -SyncShipTypeCanon -Write)"
+        return 1
+    }
+
+    $dir = Join-Path $RepoDir "common\units\names_ships"
+    $Tag = $Tag.ToUpper().Trim()
+    $files = if ($Tag -eq 'ALL') {
+        @(Get-ChildItem -Path $dir -Filter *.txt)
+    } else {
+        $p = Join-Path $dir "${Tag}_ship_names.txt"
+        if (-not (Test-Path $p)) { Write-Host "FAIL namelist not found: $p"; return 1 }
+        @(Get-Item $p)
+    }
+
+    $groupCount = 0
+    $all = [System.Collections.Generic.List[psobject]]::new()
+    foreach ($file in $files) {
+        $groups = Get-NamelistGroups -Path $file.FullName
+        $groupCount += $groups.Count
+        foreach ($f in (Get-ShipTypeFindings -Groups $groups -Canon $canon)) { $all.Add($f) }
+    }
+
+    foreach ($f in $all) { Write-Host "$($f.Severity) $($f.Group) $($f.Check) $($f.Detail)" }
+    $fails = @($all | Where-Object { $_.Severity -eq 'FAIL' }).Count
+    if ($all.Count -eq 0) { Write-Host "ship_types OK: $($files.Count) files, $groupCount groups" }
+    return $(if ($fails -gt 0) { 1 } else { 0 })
+}
+
+# --- Action: Diff vanilla ship_types against the canon (optionally refresh tokens/meta) ---
+function Invoke-SyncShipTypeCanon {
+    param(
+        [string]$CustomHoi4Dir,
+        [switch]$WriteCanon
+    )
+
+    $hoi4Dir = Find-Hoi4Install -CustomPath $CustomHoi4Dir
+    if (-not $hoi4Dir) {
+        Write-Err "Could not locate Hearts of Iron IV game installation directory. Specify -Hoi4InstallDir '<path>'."
+        return 1
+    }
+    $vanillaDir = Join-Path $hoi4Dir "common\units\names_ships"
+    $vanillaFiles = @(Get-ChildItem -Path $vanillaDir -Filter *.txt)
+
+    $tokenCounts = @{}
+    $classSets = @{}
+    foreach ($file in $vanillaFiles) {
+        foreach ($g in (Get-NamelistGroups -Path $file.FullName)) {
+            if ($g.ShipTypes -eq 'N/A') { continue }
+            $toks = @($g.ShipTypes -split '\s+' | Where-Object { $_ } | Sort-Object -Unique)
+            foreach ($t in $toks) { $tokenCounts[$t] = 1 + [int]$tokenCounts[$t] }
+            $m = [regex]::Match($g.GroupTag, '_(DD|SS|CL|CA|BB|BC|CV)_HISTORICAL$')
+            if (-not $m.Success) { continue }
+            $cls = $m.Groups[1].Value
+            if (-not $classSets.ContainsKey($cls)) { $classSets[$cls] = @{} }
+            $key = $toks -join ' '
+            $classSets[$cls][$key] = 1 + [int]$classSets[$cls][$key]
+        }
+    }
+
+    $liveTokens = @($tokenCounts.Keys | Sort-Object)
+    Write-Host "Vanilla: $($vanillaFiles.Count) files, $($liveTokens.Count) live ship_types tokens"
+    Write-Host ("Tokens: " + (($liveTokens | ForEach-Object { "$_=$($tokenCounts[$_])" }) -join ', '))
+
+    $canon = Get-ShipTypeCanon
+    $drift = 0
+    foreach ($cls in @('DD', 'SS', 'CL', 'CA', 'BB', 'BC', 'CV')) {
+        $sets = @($classSets[$cls].GetEnumerator() | Sort-Object Value -Descending)
+        Write-Host ("${cls}: " + (($sets | ForEach-Object { "$($_.Value)x[$($_.Key)]" }) -join ' '))
+        if (-not $canon) { continue }
+        $rule = $canon.classes.$cls
+        $req = (@($rule.required) | Sort-Object) -join ' '
+        $allowed = @($rule.required) + @($rule.optional)
+        if ($sets.Count -gt 0 -and $sets[0].Key -ne $req) {
+            Write-Host "  DRIFT ${cls}: most common vanilla set [$($sets[0].Key)] differs from canon required [$req]" -ForegroundColor Yellow
+            $drift++
+        }
+        foreach ($s in $sets) {
+            $extra = @($s.Key -split ' ' | Where-Object { $allowed -notcontains $_ })
+            if ($extra.Count -gt 0) { Write-Host "  INFO ${cls}: vanilla variant [$($s.Key)] uses tokens the canon does not allow ($($extra -join ' '))" }
+        }
+    }
+
+    if ($canon) {
+        $added = @($liveTokens | Where-Object { $canon.tokens -notcontains $_ })
+        $removed = @($canon.tokens | Where-Object { $liveTokens -notcontains $_ })
+        if ($added.Count -or $removed.Count) {
+            Write-Host "  DRIFT tokens: +[$($added -join ' ')] -[$($removed -join ' ')]" -ForegroundColor Yellow
+            $drift++
+        }
+    }
+    Write-Host $(if ($drift -eq 0) { "Canon matches vanilla." } else { "Canon differs from vanilla in $drift place(s)." })
+
+    if ($WriteCanon) {
+        $sb = [System.Text.StringBuilder]::new()
+        $join = { param($a) ($a | ForEach-Object { '"' + $_ + '"' }) -join ', ' }
+        [void]$sb.AppendLine('{')
+        [void]$sb.AppendLine("  `"meta`": { `"generated`": `"$((Get-Date).ToString('yyyy-MM-dd'))`", `"vanillaFiles`": $($vanillaFiles.Count) },")
+        [void]$sb.AppendLine("  `"tokens`": [$(& $join $liveTokens)],")
+        [void]$sb.AppendLine('  "classes": {')
+        $classNames = @('DD', 'SS', 'CL', 'CA', 'BB', 'BC', 'CV')
+        for ($i = 0; $i -lt $classNames.Count; $i++) {
+            $rule = $canon.classes.($classNames[$i])
+            $comma = if ($i -lt $classNames.Count - 1) { ',' } else { '' }
+            [void]$sb.AppendLine("    `"$($classNames[$i])`": { `"required`": [$(& $join @($rule.required))], `"optional`": [$(& $join @($rule.optional))] }$comma")
+        }
+        [void]$sb.AppendLine('  }')
+        [void]$sb.AppendLine('}')
+        [System.IO.File]::WriteAllText($ShipTypeCanonPath, $sb.ToString(), (New-Object System.Text.UTF8Encoding $false))
+        Write-Host "Wrote $ShipTypeCanonPath (tokens and meta refreshed; class rules preserved)."
+    }
+    return 0
+}
+
 # --- Action: Audit a mod ship namelist ---
 function Invoke-NamelistAudit {
     param(
@@ -957,7 +1159,7 @@ function Invoke-NamelistAudit {
         }
     }
 
-    $findings = Get-NamelistAuditFindings -Groups $groups -Tag $Tag -RepoDir $RepoDir -VanillaGroups $vanillaGroups
+    $findings = Get-NamelistAuditFindings -Groups $groups -Tag $Tag -RepoDir $RepoDir -VanillaGroups $vanillaGroups -Canon (Get-ShipTypeCanon)
 
     Write-Host "ISNE audit: ${Tag}_ship_names.txt ($($groups.Count) groups)" -ForegroundColor Cyan
     $table = $groups | Select-Object @{ n = 'Group'; e = { $_.GroupTag -replace "^${Tag}_", '' } }, Class,
@@ -1040,6 +1242,16 @@ if ($InspectVanilla) {
 if ($Audit) {
     Invoke-NamelistAudit -Tag $Audit -TargetGroup $Group -CustomHoi4Dir $Hoi4InstallDir -NamesOnly:$NamesOnly
     exit 0
+}
+
+# --- Action: VerifyShipTypes ---
+if ($VerifyShipTypes) {
+    exit (Invoke-VerifyShipTypes -Tag $VerifyShipTypes)
+}
+
+# --- Action: SyncShipTypeCanon ---
+if ($SyncShipTypeCanon) {
+    exit (Invoke-SyncShipTypeCanon -CustomHoi4Dir $Hoi4InstallDir -WriteCanon:$Write)
 }
 
 # --- Action: InstallSteamCmd ---

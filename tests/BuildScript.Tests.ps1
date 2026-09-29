@@ -21,7 +21,9 @@ BeforeAll {
         . ([ScriptBlock]::Create($launcherFuncMatch.Groups[1].Value))
     }
 
-    foreach ($fn in @('Get-NamelistGroups', 'Get-NamelistAuditFindings')) {
+    $script:Canon = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot "data\ship_types_canon.json"), [System.Text.Encoding]::UTF8) | ConvertFrom-Json
+
+    foreach ($fn in @('Get-NamelistGroups', 'Get-NamelistAuditFindings', 'Get-ShipTypeFindings', 'Get-ShipTypeCanon')) {
         $fnMatch = [regex]::Match($script:BuildContent, "(?s)(function $fn\s*\{.*?\n\})")
         if ($fnMatch.Success) {
             . ([ScriptBlock]::Create($fnMatch.Groups[1].Value))
@@ -61,7 +63,20 @@ BeforeAll {
         try {
             [System.IO.File]::WriteAllText($tempFile, $Text, (New-Object System.Text.UTF8Encoding $false))
             $groups = Get-NamelistGroups -Path $tempFile
-            return , (Get-NamelistAuditFindings -Groups $groups -Tag 'TST' -RepoDir $RepoDir)
+            return , (Get-NamelistAuditFindings -Groups $groups -Tag 'TST' -RepoDir $RepoDir -Canon $script:Canon)
+        }
+        finally {
+            if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
+        }
+    }
+
+    function Invoke-FixtureTypeCheck([string]$Text) {
+        $tempFile = [System.IO.Path]::GetTempFileName()
+        try {
+            [System.IO.File]::WriteAllText($tempFile, $Text, (New-Object System.Text.UTF8Encoding $false))
+            $groups = Get-NamelistGroups -Path $tempFile
+            $findings = Get-ShipTypeFindings -Groups $groups -Canon $script:Canon
+            return $findings
         }
         finally {
             if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
@@ -244,6 +259,60 @@ Describe "build.ps1 Helper: Get-NamelistAuditFindings" {
         finally {
             if (Test-Path $repo) { Remove-Item -Recurse -Force $repo }
         }
+    }
+}
+
+Describe "build.ps1 Helper: Get-ShipTypeFindings" {
+    It "Reports nothing for a compliant namelist" {
+        @(Invoke-FixtureTypeCheck (Get-CompliantFixtureText)).Count | Should -Be 0
+    }
+
+    It "Fails a valid token on the wrong class (WrongClassToken)" {
+        $text = (Get-CompliantFixtureText) -replace 'ship_hull_heavy battleship', 'ship_hull_cruiser battleship'
+        $f = @(Invoke-FixtureTypeCheck $text | Where-Object { $_.Check -eq 'WrongClassToken' })
+        $f.Count | Should -Be 1
+        $f[0].Group | Should -Be 'TST_BB_HISTORICAL'
+        $f[0].Severity | Should -Be 'FAIL'
+    }
+
+    It "Fails a missing required hull token (MissingRequired)" {
+        $text = (Get-CompliantFixtureText) -replace 'ship_hull_light destroyer', 'destroyer'
+        $f = @(Invoke-FixtureTypeCheck $text | Where-Object { $_.Check -eq 'MissingRequired' })
+        $f.Count | Should -Be 1
+        $f[0].Detail | Should -Match 'ship_hull_light'
+    }
+
+    It "Fails tokens vanilla never uses (UnknownToken)" {
+        $text = (Get-CompliantFixtureText) -replace 'ship_hull_heavy battleship', 'ship_hull_heavy battleship capital_ship'
+        $f = @(Invoke-FixtureTypeCheck $text | Where-Object { $_.Check -eq 'UnknownToken' })
+        $f.Count | Should -Be 1
+        $f[0].Detail | Should -Match 'capital_ship'
+    }
+
+    It "Allows battle_cruiser on BB without a BC group but warns when a BC group exists" {
+        $text = (Get-CompliantFixtureText) -replace 'ship_hull_heavy battleship', 'ship_hull_heavy battleship battle_cruiser'
+        $withBc = @(Invoke-FixtureTypeCheck $text)
+        $withBc.Count | Should -Be 1
+        $withBc[0].Check | Should -Be 'BBCarriesBC'
+        $withBc[0].Severity | Should -Be 'WARN'
+
+        $noBc = $text -replace '(?s)TST_BC_HISTORICAL = \{.*?\n\}\n', ''
+        @(Invoke-FixtureTypeCheck $noBc).Count | Should -Be 0
+    }
+
+    It "Fails a thematic pool that restricts ship_types (ThemeRestricted)" {
+        $text = (Get-CompliantFixtureText) + (New-FixtureGroup 'TST_WINDS' 'ship_hull_light destroyer' (New-NameRange 'Wind' 35) 'TNS ' '"Winds"')
+        $f = @(Invoke-FixtureTypeCheck $text | Where-Object { $_.Check -eq 'ThemeRestricted' })
+        $f.Count | Should -Be 1
+        $f[0].Group | Should -Be 'TST_WINDS'
+    }
+}
+
+Describe "build.ps1 -VerifyShipTypes action" {
+    It "Prints a single OK line and exits 0 when every repo namelist matches the canon" {
+        $output = (& powershell -NoProfile -File $script:BuildScriptPath -VerifyShipTypes ALL 2>&1 | Out-String).Trim()
+        $LASTEXITCODE | Should -Be 0
+        $output | Should -Match '^ship_types OK: \d+ files, \d+ groups$'
     }
 }
 

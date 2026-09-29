@@ -7,12 +7,15 @@ BeforeAll {
     $script:RepoRoot = Resolve-Path (Join-Path $PSScriptRoot "..")
     $script:NamelistDir = Join-Path $script:RepoRoot "common\units\names_ships"
 
-    $script:ValidShipTypeTokens = @(
-        'battle_cruiser', 'battleship', 'capital_ship', 'carrier', 'destroyer',
-        'heavy_cruiser', 'light_cruiser', 'screen_ship', 'ship_hull_carrier',
-        'ship_hull_cruiser', 'ship_hull_cruiser_submarine', 'ship_hull_heavy',
-        'ship_hull_light', 'ship_hull_midget_submarine', 'ship_hull_submarine', 'submarine'
-    )
+    # Vanilla-derived ship_types canon (see build.ps1 -SyncShipTypeCanon)
+    $script:ShipTypeCanon = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot "data\ship_types_canon.json"), [System.Text.Encoding]::UTF8) | ConvertFrom-Json
+    $script:ValidShipTypeTokens = @($script:ShipTypeCanon.tokens)
+
+    $buildContent = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot "build.ps1"), [System.Text.Encoding]::UTF8)
+    foreach ($fn in @('Get-NamelistGroups', 'Get-ShipTypeFindings')) {
+        $fnMatch = [regex]::Match($buildContent, "(?s)(function $fn\s*\{.*?\n\})")
+        if ($fnMatch.Success) { . ([ScriptBlock]::Create($fnMatch.Groups[1].Value)) }
+    }
 
     $script:NamelistFiles = Get-ChildItem -Path $script:NamelistDir -Filter "*_ship_names.txt"
 }
@@ -118,6 +121,12 @@ Describe "Ship Namelist Files: Per-File Invariants" {
                     $script:ValidShipTypeTokens -contains $token | Should -BeTrue -Because "'$token' must be an approved ship type subunit token"
                 }
             }
+        }
+
+        It "Every group's ship_types must match the vanilla-derived class canon" {
+            $groups = Get-NamelistGroups -Path $script:CurrentFile.FullName
+            $findings = @(Get-ShipTypeFindings -Groups $groups -Canon $script:ShipTypeCanon | Where-Object { $_.Severity -eq 'FAIL' })
+            ($findings | ForEach-Object { "$($_.Group) $($_.Check) $($_.Detail)" }) | Should -BeNullOrEmpty
         }
 
         It "link_numbering_with must not be self-referential" {

@@ -96,6 +96,11 @@ Whenever a new country ship namelist is added, expanded, or modified:
   ```powershell
   powershell -File .\build.ps1 -Test
   ```
+- Verify `ship_types` against the vanilla-derived class canon (prints one `ship_types OK` line, or one line per deviation; exit 1 on FAIL):
+  ```powershell
+  powershell -File .\build.ps1 -VerifyShipTypes <TAG>   # or ALL
+  ```
+  After a Hearts of Iron IV patch, run `powershell -File .\build.ps1 -SyncShipTypeCanon` to diff vanilla against `data/ship_types_canon.json` (`-Write` refreshes tokens/meta; class rules are curated by hand).
 - Use `build.ps1 -Package` to test clean staging and zip distribution (ensuring `.git`, `.github`, `tests`, scripts, and documentation are strictly excluded from mod releases).
 - Use `build.ps1 -DevLink` when zero-copy live editing in the Paradox launcher is required.
 - **Automated Set-Intersection Verification**: Run programmatic cross-class collision checks across `CL`, `CA`, `BB`, `BC`, and `CV` to mathematically guarantee zero overlapping names before finalizing any ship namelist file.
@@ -111,8 +116,12 @@ Whenever a new country ship namelist is added, expanded, or modified:
 - **Historical Overhauls & New Thematic Pools**: Mod files provide clean, comprehensive overrides for standard `<TAG>_<HULL>_HISTORICAL` groups while seamlessly introducing new universal thematic groups (`<TAG>_<THEME>`) in the same file.
 
 ## 7. Engine Ship Namelist Invariants
-- **Ship Subunit Tokens**: In `ship_types = { ... }`, only use recognized line naval tokens:
-  `battle_cruiser`, `battleship`, `capital_ship`, `carrier`, `destroyer`, `heavy_cruiser`, `light_cruiser`, `screen_ship`, `ship_hull_carrier`, `ship_hull_cruiser`, `ship_hull_cruiser_submarine`, `ship_hull_heavy`, `ship_hull_light`, `ship_hull_midget_submarine`, `ship_hull_submarine`, `submarine`.
+- **Ship Subunit Tokens & Per-Class Canon**: `ship_types = { ... }` must match the vanilla-derived canon in `data/ship_types_canon.json`: only the 14 tokens live in vanilla `names_ships` are valid (`capital_ship` and `screen_ship` are script categories, never valid here), and each hull group must carry its class set:
+  - `DD`: `destroyer ship_hull_light`; `CL`: `light_cruiser ship_hull_cruiser`; `CA`: `heavy_cruiser ship_hull_cruiser`; `CV`: `carrier ship_hull_carrier`; `BC`: `battle_cruiser ship_hull_heavy`.
+  - `BB`: `battleship ship_hull_heavy` (`battle_cruiser` only when the file has no BC group).
+  - `SS`: `submarine ship_hull_submarine` (optionally `ship_hull_midget_submarine`, `ship_hull_cruiser_submarine`).
+  - Thematic pools omit `ship_types`.
+  - Verify with `powershell -File .\build.ps1 -VerifyShipTypes <TAG|ALL>`; after a Hearts of Iron IV patch run `-SyncShipTypeCanon` (see §5).
 - **Unique & Ordered Blocks**:
   - `unique = { ... }` contains strings of individual ship names.
   - Integer keys in `ordered = { ... }` must be strictly unique. Duplicate keys silently overwrite earlier entries. Never leave empty `unique = { }` or `ordered = { }` blocks.

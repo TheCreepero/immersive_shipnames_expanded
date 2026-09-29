@@ -18,7 +18,10 @@ Every nation has two categories, plus optional role pools.
 - Geography: major & coastal cities, provinces / regions, rivers & lakes, mountains / landmarks.
 - History & heritage: legendary rulers & monarchs, national heroes, mythological figures / deities, historic battles.
 - Martial virtues & metaphor: virtues, meteorological / celestial phenomena.
-- Political / ideological: never mix opposing ideologies in one pool (socialist/syndicalist with fascist/synarchist/reactionary; royalist slogans with radical republicanism). Author one pool per branch (e.g. `<TAG>_REPUBLICAN_IDEALS`, `<TAG>_SOCIALISM`, `<TAG>_NATIONALISM` / `<TAG>_FASCISM`, `<TAG>_MONARCHISM`) so players and alternate-history AI regimes get cohesive political flavor.
+- Political / ideological: never mix opposing ideologies in one pool (socialist/syndicalist with fascist/synarchist/reactionary; royalist slogans with radical republicanism). Author distinct thematic pools per branch (e.g. `<TAG>_REPUBLICAN_IDEALS`, `<TAG>_SOCIALISM`, `<TAG>_NATIONALISM` / `<TAG>_FASCISM`, `<TAG>_MONARCHISM`).
+  - **Gating via `can_use`**: gate ideological pools with `can_use = { has_government = <ideology> }` (`democratic`, `neutrality` [monarchist/unaligned], `fascism`, `communism`). Never gate behind national focuses (`has_completed_focus`): focus IDs cause mod incompatibilities (overhauls, Rt56) and fail on peaceful advisor flips, referendums, civil wars, and puppet regime changes.
+  - **Pool cap**: to prevent flooding the Ship Designer dropdown and namelist pool, author at most **1–2 namelists per ideology** for any nation.
+  - **Architecture & display names**: author as universal thematic pools (no `ship_types`) with descriptive flavor names (`"Socialist Heroes"`, `"Imperial Dynasties"`, `"Republican Ideals"`), adhering to the ≤ 25 character standard (hard max 30–32).
 
 **C. Role-specific pools (optional, precedent-driven)**: roles with no vanilla `ship_types` token that the Ship Designer can still build: minelayers, minesweepers, escort carriers, escort destroyers, corvettes / frigates / sloops / avisos, patrol vessels, scout cruisers, flotilla leaders, torpedo boats, coastal defense ships, monitors, gunboats, light carriers, seaplane tenders, submarine sub-types, auxiliary cruisers, training ships, icebreakers, and any other role research surfaces (catalogue: authoring skill §2C). Never required, but consider every one for every nation.
 - Create `<TAG>_<ROLE>` (no `ship_types`; national prefix and native fallback like any thematic pool) only on real precedent: a distinct class or designation with its own naming convention, a documented naming formula that differs from the parent hull's, or enough verifiable names to reach the floor without padding. Otherwise record `considered, skipped: <reason>` in the plan file.
@@ -104,6 +107,7 @@ All commands take the form `powershell -File .\build.ps1 <switch>`.
 - `fallback_name`: authentic native naval term, not a literal translation (Swedish BC `"Slagkryssare %d"`, not `"Stridsskepp %d"`), in the indefinite nominative singular (`"Slagkrydser %d"`, `"Jager %d"`; never definite `-en` forms like `"Slagkrydseren %d"` or `"Cruiseren %d"`). Watch homonym calques: "Light Cruiser" as illumination (Scandinavian `"Lys"`) instead of displacement (`"Let"`, `"Lett"`, `"Lätt"`, `"Leicht"`).
 - Display names: ≤ 30–32 characters (§2).
 - `link_numbering_with` links only to other groups, never to its own group.
+- `can_use = { ... }`: optional group trigger evaluated in `Country` scope. Used for ideology gating with `has_government = democratic|neutrality|fascism|communism` (with boolean operators `NOT = { ... }` or `OR = { ... }`). Never use focus triggers (`has_completed_focus`), decisions, or event flags that cause mod incompatibilities.
 - Root-level group tags are unique across the whole repository: never defined twice within a file or across files.
 
 ## 8. Workspace

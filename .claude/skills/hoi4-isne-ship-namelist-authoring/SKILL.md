@@ -41,6 +41,8 @@ Categories, depth tiers, display-name rules, decoupling and BB/BC doctrine: `CLA
 ### B. Thematic pool tag suffixes
 `BIRDS`, `FISH`, `BEASTS` · `CITIES`, `PROVINCES` (historical provinces & counties), `RIVERS` (rivers, lakes, waterways), `GEOGRAPHY` (mountains, landmarks) · `RULERS`, `MYTHOLOGY`, `BATTLES`, `HEROES` · `VIRTUES`, `NATURE` (weather, tempests, celestial bodies) · ideological: `REPUBLICAN_IDEALS` or `REVOLUTION` (republican/constitutional), `SOCIALISM` (socialist/labor/agrarian), `NATIONALISM` or `FASCISM` (nationalist/synarchist/traditionalist), `MONARCHISM` (monarchist/imperial).
 
+Ideological pools are capped at **at most 1–2 pools per ideology** per nation to prevent flooding the Ship Designer dropdown. Gate each pool behind its ideology using `can_use = { has_government = <ideology> }` (`democratic`, `neutrality` [unaligned/monarchist], `fascism`, `communism`). Never gate behind national focuses (`has_completed_focus`), which breaks under mod overhauls and misses peaceful or civil-war regime shifts. Use descriptive thematic display names (e.g. `"Socialist Heroes"`, `"Imperial Dynasties"`, `"Republican Ideals"`), ≤ 25 characters.
+
 ### C. Role-specific pools
 Rules: `CLAUDE.md` §2C. A minelayer is a light hull and an escort carrier a `carrier` hull, so `ship_types` cannot isolate a role; role pools stay universal and `-VerifyShipTypes` rejects `ship_types` on them. Walk every family below for every nation; create a pool only if it passes the precedent test, otherwise record `considered, skipped: <reason>` in the plan (one line per family is enough).
 
@@ -141,6 +143,26 @@ Rules: `CLAUDE.md` §2. Players field several cruiser and capital classes at onc
 
 	unique = {
 		"Eagle" "Falcon" "Hawk" "Osprey"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: SOCIALISM ###
+<TAG>_SOCIALISM = {
+	name = "Socialist Ideals"
+
+	for_countries = { <TAG> }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "<Fallback> %d"
+
+	unique = {
+		"Name1" "Name2" "Name3"
 	}
 }
 ```

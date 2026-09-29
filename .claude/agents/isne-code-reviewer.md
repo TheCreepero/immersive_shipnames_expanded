@@ -15,10 +15,10 @@ Mechanical checks: run `powershell -File .\build.ps1 -Audit <TAG>` once and cite
 
 Review focus:
 1. **Foreign vessels & hallucinations**: all foreign copy-pasted vessels (e.g. RNZN/RAN frigates, wrong national prefixes) and fictional or OCR-garbled entries (e.g. "General Manchatas") are gone.
-2. **Cross-class duplication**: CL, CA, BB, BC and CV share no names (`-Audit` `CrossClass`).
+2. **Cross-class duplication**: CL, CA, BB, BC and CV share no names (`-Audit` `CrossClass`), including spelling variants of one name (`CrossClassVariant`) and exonyms the script cannot see (*Scania* / *Skåne*).
 3. **Capital ships**: BB and BC are not mirrors and each has a distinct doctrinal flavor.
 4. **Named individuals & homonyms**:
-   - Fact-check every named person (admiral, commander, monarch, hero) against known sources. Sounding plausible for the role or era is not grounds to keep a name. Flag each one you cannot corroborate as Important, even if the surrounding vocabulary and place names are fine.
+   - Fact-check every named person (admiral, commander, monarch, hero) against known sources. Sounding plausible for the role or era is not grounds to keep a name. Flag each one you cannot corroborate as Important, even if the surrounding vocabulary and place names are fine. A person listed with a source or a "well documented" flag in the plan's **Persons verified** list counts as corroborated: fact-check the persons not on that list, and spot-check a listed entry only if its source looks wrong.
    - Flag single-word transliterations that double as a common, unrelated English word and read as a UI placeholder or typo to an English-speaking player ("Ship", "Bum", "Dad", "Mad").
    - Flag thematic pools whose `name = "..."` no longer describes the final entries (a "Birds of Prey" pool containing owls, songbirds or waterfowl should be "Birds").
 5. **Engine invariants** (confirm via the commands above): UTF-8 without BOM; balanced braces and quotes; every prefix ends with a space (`prefix = "RPS "`); display names ≤ 30–32 characters with no redundant national adjective; `ship_types` correct (report every FAIL line: unknown token, wrong-class token, missing required token, thematic pool with `ship_types`); ideological pools (Republican, Socialist, Nationalist) separated with no contradictions.

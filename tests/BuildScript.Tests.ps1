@@ -23,7 +23,7 @@ BeforeAll {
 
     $script:Canon = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot "data\ship_types_canon.json"), [System.Text.Encoding]::UTF8) | ConvertFrom-Json
 
-    foreach ($fn in @('Get-NamelistGroups', 'Get-NamelistAuditFindings', 'Get-ShipTypeFindings', 'Get-ShipTypeCanon', 'Get-RolePoolSuffixes')) {
+    foreach ($fn in @('Get-NamelistGroups', 'Get-NamelistAuditFindings', 'Get-ShipTypeFindings', 'Get-ShipTypeCanon', 'Get-RolePoolSuffixes', 'Get-NameVariantKey', 'Edit-NamelistGroupText')) {
         $fnMatch = [regex]::Match($script:BuildContent, "(?s)(function $fn\s*\{.*?\n\})")
         if ($fnMatch.Success) {
             . ([ScriptBlock]::Create($fnMatch.Groups[1].Value))
@@ -212,6 +212,20 @@ Describe "build.ps1 Helper: Get-NamelistAuditFindings" {
         $f[0].Detail | Should -Match 'Cl 1'
     }
 
+    It "Warns on spelling variants of one name across major hulls (CrossClassVariant), not on exact repeats" {
+        $text = (Get-CompliantFixtureText) -replace '"Ca 1"', '"Gustav V"' -replace '"Bb 1"', '"Gustaf V"'
+        $findings = Invoke-FixtureAudit $text
+        $f = @($findings | Where-Object { $_.Check -eq 'CrossClassVariant' })
+        $f.Count | Should -Be 1
+        $f[0].Severity | Should -Be 'WARN'
+        $f[0].Group | Should -Be 'CA/BB'
+        $f[0].Detail | Should -Match 'Gustav V ~ Gustaf V'
+        @($findings | Where-Object { $_.Check -eq 'CrossClass' }).Count | Should -Be 0
+
+        $exact = (Get-CompliantFixtureText) -replace '"Ca 1"', '"Cl 1"'
+        @(Invoke-FixtureAudit $exact | Where-Object { $_.Check -eq 'CrossClassVariant' }).Count | Should -Be 0
+    }
+
     It "Fails a prefix without trailing space" {
         $findings = Invoke-FixtureAudit (Get-CompliantFixtureText -Prefix 'TNS')
         @($findings | Where-Object { $_.Check -eq 'PrefixSpace' -and $_.Severity -eq 'FAIL' }).Count | Should -BeGreaterThan 0
@@ -298,6 +312,70 @@ Describe "build.ps1 Helper: Get-NamelistAuditFindings" {
     }
 }
 
+Describe "build.ps1 Helper: Get-NameVariantKey" {
+    It "Folds orthographic variants of the same name" {
+        $o = [string][char]0x00F6
+        (Get-NameVariantKey 'Gustav V') | Should -Be (Get-NameVariantKey 'Gustaf V')
+        (Get-NameVariantKey "G${o}ta Lejon") | Should -Be (Get-NameVariantKey "G${o}talejon")
+        (Get-NameVariantKey 'Lennart Torstenson') | Should -Be (Get-NameVariantKey 'Lennart Torstensson')
+        (Get-NameVariantKey 'Wasa') | Should -Be (Get-NameVariantKey 'Vasa')
+        (Get-NameVariantKey 'Carl Gustaf') | Should -Be (Get-NameVariantKey 'Karl Gustav')
+        (Get-NameVariantKey 'Thordon') | Should -Be (Get-NameVariantKey "Tord${o}n")
+    }
+
+    It "Keeps distinct names and exonyms apart" {
+        (Get-NameVariantKey 'Gustav IV') | Should -Not -Be (Get-NameVariantKey 'Gustav V')
+        (Get-NameVariantKey 'Oscar I') | Should -Not -Be (Get-NameVariantKey 'Oscar II')
+        (Get-NameVariantKey 'Scania') | Should -Not -Be (Get-NameVariantKey "Sk$([char]0x00E5)ne")
+    }
+}
+
+Describe "build.ps1 Helper: Edit-NamelistGroupText" {
+    BeforeAll {
+        $script:EditFixture = "TST_CA_HISTORICAL = {`n`tname = NAME_THEME_HISTORICAL_CA`n`tship_types = { ship_hull_cruiser heavy_cruiser }`n`tprefix = `"TNS `"`n`tunique = {`n`t`t# Ships`n`t`t`"Alpha`" `"Beta`" `"Gamma`"`n`t`t`"Delta`"`n`t}`n}`n" +
+            "TST_BIRDS = {`n`tname = `"Birds`"`n`tunique = { `"Alpha`" `"Delta`" }`n}`n"
+        function Get-FixtureNames([string]$Text, [string]$Tag) {
+            $tempFile = [System.IO.Path]::GetTempFileName()
+            try {
+                [System.IO.File]::WriteAllText($tempFile, $Text, (New-Object System.Text.UTF8Encoding $false))
+                $groups = Get-NamelistGroups -Path $tempFile
+                return , @(($groups | Where-Object { $_.GroupTag -eq $Tag }).Names)
+            }
+            finally {
+                if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
+            }
+        }
+    }
+
+    It "Renames in place, removes, and appends on a new line with the block's indentation" {
+        $out = Edit-NamelistGroupText -Text $script:EditFixture -GroupTag 'TST_CA_HISTORICAL' -Rename @('Beta=Bravo') -Remove @('Delta') -Add @('Echo', 'Foxtrot')
+        (Get-FixtureNames $out 'TST_CA_HISTORICAL') -join ',' | Should -Be 'Alpha,Bravo,Gamma,Echo,Foxtrot'
+        $out | Should -Match "`t`t# Ships`n`t`t`"Alpha`" `"Bravo`" `"Gamma`"`n`t`t`"Echo`" `"Foxtrot`"`n`t\}"
+        (Get-FixtureNames $out 'TST_BIRDS') -join ',' | Should -Be 'Alpha,Delta'
+    }
+
+    It "Inserts after an anchor name and removes the first entry of a line cleanly" {
+        $out = Edit-NamelistGroupText -Text $script:EditFixture -GroupTag 'TST_CA_HISTORICAL' -Add @('Echo') -After 'Alpha'
+        (Get-FixtureNames $out 'TST_CA_HISTORICAL') -join ',' | Should -Be 'Alpha,Echo,Beta,Gamma,Delta'
+        $out2 = Edit-NamelistGroupText -Text $script:EditFixture -GroupTag 'TST_CA_HISTORICAL' -Remove @('Alpha')
+        $out2 | Should -Match "`n`t`t`"Beta`" `"Gamma`"`n"
+    }
+
+    It "Preserves CRLF line endings" {
+        $crlf = $script:EditFixture -replace "`n", "`r`n"
+        $out = Edit-NamelistGroupText -Text $crlf -GroupTag 'TST_CA_HISTORICAL' -Add @('Echo')
+        ($out -replace "`r`n", '') | Should -Not -Match "`n"
+    }
+
+    It "Refuses misses, duplicates and an emptied block" {
+        { Edit-NamelistGroupText -Text $script:EditFixture -GroupTag 'TST_CA_HISTORICAL' -Remove @('Zulu') } | Should -Throw '*Zulu*'
+        { Edit-NamelistGroupText -Text $script:EditFixture -GroupTag 'TST_CA_HISTORICAL' -Add @('Gamma') } | Should -Throw '*already*'
+        { Edit-NamelistGroupText -Text $script:EditFixture -GroupTag 'TST_CA_HISTORICAL' -Rename @('Alpha=Beta') } | Should -Throw '*already exists*'
+        { Edit-NamelistGroupText -Text $script:EditFixture -GroupTag 'TST_BIRDS' -Remove @('Alpha', 'Delta') } | Should -Throw '*empty*'
+        { Edit-NamelistGroupText -Text $script:EditFixture -GroupTag 'TST_NOPE' -Add @('X') } | Should -Throw '*not found*'
+    }
+}
+
 Describe "build.ps1 Helper: Get-ShipTypeFindings" {
     It "Reports nothing for a compliant namelist" {
         @(Invoke-FixtureTypeCheck (Get-CompliantFixtureText)).Count | Should -Be 0
@@ -367,5 +445,14 @@ Describe "build.ps1 -Audit action" {
         $lines[0] | Should -Match '^FIN_CV_HISTORICAL \(\d+\): \S.*; '
         $lines[1] | Should -Match '^FIN_RULERS \(\d+\) "[^"]+": '
         $output | Should -Not -Match 'fallback_name|AUDIT SUMMARY'
+    }
+
+    It "Refuses an -EditNames miss with exit 1 and leaves the namelist untouched" {
+        $path = Join-Path $script:RepoRoot 'common\units\names_ships\FIN_ship_names.txt'
+        $before = [System.IO.File]::ReadAllText($path)
+        $output = & powershell -NoProfile -File $script:BuildScriptPath -EditNames FIN -Group RULERS -Remove 'No Such Ruler' 2>&1 | Out-String
+        $LASTEXITCODE | Should -Be 1
+        $output | Should -Match 'No Such Ruler'
+        [System.IO.File]::ReadAllText($path) | Should -Be $before
     }
 }

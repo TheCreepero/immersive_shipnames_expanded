@@ -63,10 +63,28 @@
 .PARAMETER Group
     Optional specific ship namelist group tag to excerpt directly when using -InspectVanilla or -Audit (e.g. -Group FIN_DD_HISTORICAL).
     With -Audit, accepts a comma-separated list, and the TAG_ prefix may be omitted (e.g. -Group RULERS,HEROES,CV_HISTORICAL).
+    With -EditNames (required): the single group to edit; the TAG_ prefix may be omitted.
 
 .PARAMETER NamesOnly
     With -Audit: print one compact line per group (tag, count, display name, names separated by "; ") instead of raw blocks.
     Combine with -Group to limit output to the listed groups; without -Group, prints every group and skips the report.
+
+.PARAMETER EditNames
+    Edit one group of a mod namelist in place without opening the file (e.g. -EditNames SWE -Group CA_HISTORICAL -Remove "Rolf Krake").
+    Lists use "; " separators, as printed by -NamesOnly. Each operation must match exactly once; the edit is refused on any
+    miss, duplicate or emptied block. Prints the group's -NamesOnly line afterwards. Only unique = { } blocks are supported.
+
+.PARAMETER Add
+    With -EditNames: names to add ("A; B"). Appended on a new line at the end of the unique block, or after -After.
+
+.PARAMETER Remove
+    With -EditNames: names to remove ("A; B").
+
+.PARAMETER Rename
+    With -EditNames: in-place renames as "Old=New; Old2=New2" (keeps the entry's position).
+
+.PARAMETER After
+    With -EditNames -Add: insert the added names directly after this existing name instead of at the block end.
 
 .PARAMETER Hoi4InstallDir
     Custom path to the Hearts of Iron IV installation folder if installed in a non-standard directory.
@@ -112,6 +130,10 @@
 .EXAMPLE
     .\build.ps1 -Audit FIN -Group RULERS,HEROES,BC_HISTORICAL -NamesOnly
     # Prints the listed groups as one compact line each (names only, no block boilerplate).
+
+.EXAMPLE
+    .\build.ps1 -EditNames SWE -Group CA_HISTORICAL -Remove "Rolf Krake; Birger Jarl" -Rename "Gustav V=Gustaf V" -Add "Garmer; Fenris" -After "Loke"
+    # Edits one group in place and prints its updated names line.
 
 .EXAMPLE
     .\build.ps1 -VerifyShipTypes ALL
@@ -163,12 +185,28 @@ param(
     [Parameter(ParameterSetName = 'SyncShipTypeCanon')]
     [switch]$Write,
 
+    [Parameter(ParameterSetName = 'EditNames', Mandatory = $true)]
+    [string]$EditNames,
+
     [Parameter(ParameterSetName = 'InspectVanilla')]
     [Parameter(ParameterSetName = 'Audit')]
+    [Parameter(ParameterSetName = 'EditNames', Mandatory = $true)]
     [string]$Group,
 
     [Parameter(ParameterSetName = 'Audit')]
     [switch]$NamesOnly,
+
+    [Parameter(ParameterSetName = 'EditNames')]
+    [string]$Add,
+
+    [Parameter(ParameterSetName = 'EditNames')]
+    [string]$Remove,
+
+    [Parameter(ParameterSetName = 'EditNames')]
+    [string]$Rename,
+
+    [Parameter(ParameterSetName = 'EditNames')]
+    [string]$After,
 
     [Parameter(ParameterSetName = 'InspectVanilla')]
     [Parameter(ParameterSetName = 'Audit')]
@@ -715,6 +753,37 @@ function Get-RolePoolSuffixes {
     )
 }
 
+# --- Helper: Spelling-insensitive comparison key for a ship name ---
+# Folds case, diacritics, spacing/punctuation, doubled letters and common orthographic variants
+# (Gustav/Gustaf, Wasa/Vasa, Carl/Karl, Thor/Tor, y/i, ae/a), so "Gotalejon" matches "Gota Lejon".
+# Exonyms (Scania/Skane) are out of scope. Kept ASCII-only for Windows PowerShell 5.1.
+function Get-NameVariantKey {
+    param([string]$Name)
+    $s = $Name.ToLowerInvariant()
+    $map = @{ 0x00E6 = 'ae'; 0x00F8 = 'o'; 0x0153 = 'oe'; 0x00DF = 'ss'; 0x0142 = 'l'; 0x0111 = 'd'; 0x00F0 = 'd'; 0x00FE = 'th'; 0x0131 = 'i' }
+    foreach ($code in $map.Keys) { $s = $s.Replace([string][char]$code, $map[$code]) }
+    $s = [regex]::Replace($s.Normalize([System.Text.NormalizationForm]::FormD), '\p{Mn}', '')
+    # Regnal numerals become digits first, so letter folding below cannot merge "Oscar I" with "Oscar II"
+    $s = [regex]::Replace($s, '\b[ivx]+\b', [System.Text.RegularExpressions.MatchEvaluator] {
+        param($m)
+        if ($m.Value -notmatch '^x{0,3}(ix|iv|v?i{0,3})$') { return $m.Value }
+        $total = 0; $prev = 0
+        $vals = @{ [char]'i' = 1; [char]'v' = 5; [char]'x' = 10 }
+        $chars = $m.Value.ToCharArray()
+        for ($k = $chars.Count - 1; $k -ge 0; $k--) {
+            $v = $vals[$chars[$k]]
+            if ($v -lt $prev) { $total -= $v } else { $total += $v; $prev = $v }
+        }
+        return [string]$total
+    })
+    $s = $s -replace '[fv]\b', 'f'
+    $s = $s -replace '[^a-z0-9]', ''
+    $s = $s -replace 'ph', 'f' -replace 'th', 't' -replace 'w', 'v' -replace 'ck', 'k' -replace '[cq]', 'k' -replace 'z', 's' -replace 'y', 'i'
+    $s = $s -replace 'ae', 'a' -replace 'oe', 'o' -replace 'ue', 'u'
+    $s = $s -replace '([a-z])\1+', '$1'
+    return $s
+}
+
 # --- Helper: Audit a mod namelist against current ISNE standards ---
 # Returns findings as objects: Severity (FAIL/WARN/INFO), Check, Group, Detail.
 # -RepoDir enables documentation sync checks; -VanillaGroups enables vanilla prefix parity.
@@ -818,6 +887,24 @@ function Get-NamelistAuditFindings {
                         Add-Finding 'FAIL' 'BBBCMirror' 'BB/BC' "$($inter.Count) of $minCount names shared; specialize BB vs BC doctrine"
                     }
                 }
+            }
+        }
+    }
+
+    # 3a. Spelling variants of one name across major hulls or role pools (Gustav V / Gustaf V): exact checks miss them
+    $variantScope = @($major | ForEach-Object { $byClass[$_] }) + @($roles)
+    for ($a = 0; $a -lt $variantScope.Count; $a++) {
+        for ($b = $a + 1; $b -lt $variantScope.Count; $b++) {
+            $ga = $variantScope[$a]; $gb = $variantScope[$b]
+            $keysB = @{}
+            foreach ($n in $gb.Names) { $keysB[(Get-NameVariantKey $n)] = $n }
+            $pairs = @(foreach ($n in ($ga.Names | Select-Object -Unique)) {
+                $k = Get-NameVariantKey $n
+                if ($keysB.ContainsKey($k) -and $keysB[$k] -cne $n -and $gb.Names -cnotcontains $n) { "$n ~ $($keysB[$k])" }
+            })
+            if ($pairs.Count -gt 0) {
+                $label = { param($g) if ($g.Class -eq 'ROLE') { $g.GroupTag -replace "^$([regex]::Escape($Tag))_", '' } else { $g.Class } }
+                Add-Finding 'WARN' 'CrossClassVariant' "$(& $label $ga)/$(& $label $gb)" (Format-NameList $pairs)
             }
         }
     }
@@ -947,7 +1034,8 @@ function Get-NamelistAuditFindings {
                         }
                     }
                 }
-                if ($staleSamples.Count -gt 0) { Add-Finding 'WARN' 'DocsWikiSamples' '-' "Wiki sample names not in their group: $(Format-NameList $staleSamples.ToArray())" }
+                # Listed in full (not truncated): each entry is a cell edit, so the caller never has to open the page to find them
+                if ($staleSamples.Count -gt 0) { Add-Finding 'WARN' 'DocsWikiSamples' '-' "Wiki sample names not in their group: $($staleSamples -join ', ')" }
             }
 
             $homePath = Join-Path $wikiDir "Home.md"
@@ -1211,6 +1299,127 @@ function Invoke-NamelistAudit {
     Write-Host "`nAUDIT SUMMARY ${Tag}: FAIL=$fails WARN=$warns INFO=$infos"
 }
 
+# --- Helper: Edit the unique = { } block of one group in namelist text ---
+# Pure text transform used by -EditNames: renames in place, removes, then adds (at block end or after -After).
+# Throws on any name that does not match exactly once, on duplicates within the group, and on an emptied block.
+function Edit-NamelistGroupText {
+    param(
+        [string]$Text,
+        [string]$GroupTag,
+        [string[]]$Add = @(),
+        [string[]]$Remove = @(),
+        [string[]]$Rename = @(),
+        [string]$After
+    )
+
+    $nl = if ($Text.Contains("`r`n")) { "`r`n" } else { "`n" }
+    $head = [regex]::Match($Text, "(?m)^[ \t]*$([regex]::Escape($GroupTag))[ \t]*=[ \t]*\{")
+    if (-not $head.Success) { throw "Group $GroupTag not found" }
+
+    # Walk the group's braces (skipping comments and quoted names) to find its unique block
+    $depth = 0; $pos = $head.Index + $head.Length - 1; $blockEnd = -1
+    $uStart = -1; $uEnd = -1
+    for ($i = $pos; $i -lt $Text.Length; $i++) {
+        $ch = $Text[$i]
+        if ($ch -eq '#') { while ($i -lt $Text.Length -and $Text[$i] -ne "`n") { $i++ }; continue }
+        if ($ch -eq '"') { $i++; while ($i -lt $Text.Length -and $Text[$i] -ne '"') { $i++ }; continue }
+        if ($ch -eq '{') {
+            $depth++
+            if ($depth -eq 2 -and $uStart -lt 0 -and $Text.Substring($pos, $i - $pos) -match 'unique\s*=\s*$') { $uStart = $i + 1 }
+        } elseif ($ch -eq '}') {
+            if ($depth -eq 2 -and $uStart -ge 0 -and $uEnd -lt 0) { $uEnd = $i }
+            $depth--
+            if ($depth -eq 0) { $blockEnd = $i; break }
+        }
+    }
+    if ($blockEnd -lt 0) { throw "Group $GroupTag has unbalanced braces" }
+    if ($uStart -lt 0 -or $uEnd -lt 0) { throw "Group $GroupTag has no unique = { } block (ordered blocks must be edited by hand)" }
+
+    $inner = $Text.Substring($uStart, $uEnd - $uStart)
+    $current = { @([regex]::Matches(($inner -replace '(?m)#.*$', ''), '"([^"]+)"') | ForEach-Object { $_.Groups[1].Value }) }
+    $countOf = { param($n) @(& $current | Where-Object { $_ -ceq $n }).Count }
+
+    foreach ($pair in $Rename) {
+        $parts = $pair -split '=', 2
+        if ($parts.Count -ne 2 -or -not $parts[0].Trim() -or -not $parts[1].Trim()) { throw "Rename '$pair' must be Old=New" }
+        $old = $parts[0].Trim(); $new = $parts[1].Trim()
+        if ((& $countOf $old) -ne 1) { throw "Rename: '$old' found $(& $countOf $old) times in $GroupTag (expected 1)" }
+        if ((& $countOf $new) -gt 0) { throw "Rename: '$new' already exists in $GroupTag" }
+        $inner = $inner.Replace("`"$old`"", "`"$new`"")
+    }
+
+    foreach ($name in $Remove) {
+        if ((& $countOf $name) -ne 1) { throw "Remove: '$name' found $(& $countOf $name) times in $GroupTag (expected 1)" }
+        $q = [regex]::Escape("`"$name`"")
+        $lines = @($inner -split "`n")
+        $drop = -1
+        for ($l = 0; $l -lt $lines.Count; $l++) {
+            if ($lines[$l] -notmatch $q -or $lines[$l].TrimStart().StartsWith('#')) { continue }
+            $edited = if ($lines[$l] -match "$q[ \t]+") { $lines[$l] -replace "$q[ \t]+", '' } else { $lines[$l] -replace "[ \t]*$q", '' }
+            # Drop a line the removal emptied (keeps comment and blank separator lines intact)
+            if ($edited.Trim()) { $lines[$l] = $edited } else { $drop = $l }
+            break
+        }
+        $inner = @(for ($l = 0; $l -lt $lines.Count; $l++) { if ($l -ne $drop) { $lines[$l] } }) -join "`n"
+    }
+
+    if ($Add.Count -gt 0) {
+        $dupes = @($Add | Where-Object { (& $countOf $_) -gt 0 })
+        if ($dupes.Count -gt 0) { throw "Add: already in ${GroupTag}: $($dupes -join ', ')" }
+        $repeat = @($Add | Group-Object | Where-Object { $_.Count -gt 1 } | ForEach-Object { $_.Name })
+        if ($repeat.Count -gt 0) { throw "Add: listed twice: $($repeat -join ', ')" }
+        $quoted = ($Add | ForEach-Object { "`"$_`"" }) -join ' '
+        if ($After) {
+            if ((& $countOf $After) -ne 1) { throw "After: '$After' found $(& $countOf $After) times in $GroupTag (expected 1)" }
+            $inner = $inner.Replace("`"$After`"", "`"$After`" $quoted")
+        } else {
+            $entryLines = @($inner -split "`n" | Where-Object { $_ -match '"' -and -not $_.TrimStart().StartsWith('#') })
+            $indent = if ($entryLines.Count -gt 0) { [regex]::Match($entryLines[-1], '^[ \t]*').Value } else { "`t`t" }
+            $body = $inner.TrimEnd()
+            $inner = $body + $nl + $indent + $quoted + $inner.Substring($body.Length)
+        }
+    }
+
+    if ((& $current).Count -eq 0) { throw "Edit would leave $GroupTag with an empty unique block" }
+    return $Text.Substring(0, $uStart) + $inner + $Text.Substring($uEnd)
+}
+
+# --- Action: Edit names in one group of a mod namelist ---
+function Invoke-NamelistEdit {
+    param(
+        [string]$Tag,
+        [string]$TargetGroup,
+        [string]$AddList,
+        [string]$RemoveList,
+        [string]$RenameList,
+        [string]$AfterName
+    )
+
+    $Tag = $Tag.ToUpper().Trim()
+    $modFile = Join-Path $RepoDir "common\units\names_ships\${Tag}_ship_names.txt"
+    if (-not (Test-Path $modFile)) { Write-Err "Mod namelist not found: $modFile"; return 1 }
+    $split = { param($s) @(if ($s) { $s -split ';' | ForEach-Object { $_.Trim() } | Where-Object { $_ } }) }
+    $adds = & $split $AddList; $removes = & $split $RemoveList; $renames = & $split $RenameList
+    if (($adds.Count + $removes.Count + $renames.Count) -eq 0) { Write-Err "Nothing to do: pass -Add, -Remove and/or -Rename"; return 1 }
+
+    $wanted = $TargetGroup.Trim().ToUpper()
+    $groupTag = if ($wanted.StartsWith("${Tag}_")) { $wanted } else { "${Tag}_$wanted" }
+    $text = [System.IO.File]::ReadAllText($modFile, [System.Text.Encoding]::UTF8)
+    try {
+        $newText = Edit-NamelistGroupText -Text $text -GroupTag $groupTag -Add $adds -Remove $removes -Rename $renames -After $AfterName
+    } catch {
+        Write-Err $_.Exception.Message
+        return 1
+    }
+    [System.IO.File]::WriteAllText($modFile, $newText, (New-Object System.Text.UTF8Encoding $false))
+
+    $groups = Get-NamelistGroups -Path $modFile
+    $g = $groups | Where-Object { $_.GroupTag -eq $groupTag }
+    Write-Host "Edited ${groupTag}: +$($adds.Count) -$($removes.Count) ~$($renames.Count)"
+    Write-Host "$($g.GroupTag) ($($g.Count)): $($g.Names -join '; ')"
+    return 0
+}
+
 # --- Action: Inspect Vanilla Ship Namelists ---
 function Invoke-InspectVanilla {
     param(
@@ -1273,6 +1482,11 @@ if ($InspectVanilla) {
 if ($Audit) {
     Invoke-NamelistAudit -Tag $Audit -TargetGroup $Group -CustomHoi4Dir $Hoi4InstallDir -NamesOnly:$NamesOnly
     exit 0
+}
+
+# --- Action: EditNames ---
+if ($EditNames) {
+    exit (Invoke-NamelistEdit -Tag $EditNames -TargetGroup $Group -AddList $Add -RemoveList $Remove -RenameList $Rename -AfterName $After)
 }
 
 # --- Action: VerifyShipTypes ---

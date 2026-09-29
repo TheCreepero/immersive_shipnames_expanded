@@ -79,12 +79,13 @@ All commands take the form `powershell -File .\build.ps1 <switch>`.
 | `-Test` | Pester suite (engine invariants, docs sync). Required. |
 | `-VerifyShipTypes <TAG\|ALL>` | `ship_types` vs `data/ship_types_canon.json`: one `ship_types OK` line or one line per deviation; exit 1 on FAIL. |
 | `-SyncShipTypeCanon [-Write]` | After a HoI4 patch: diff vanilla against the canon. `-Write` refreshes tokens/meta; class rules are curated by hand. |
-| `-Audit <TAG>` | Standards report: depth, cross-class collisions (`CrossClass`), prefixes, display names, docs sync. |
+| `-Audit <TAG>` | Standards report: depth, cross-class collisions (`CrossClass`) and spelling variants (`CrossClassVariant`), prefixes, display names, docs sync. |
+| `-EditNames <TAG> -Group <GROUP> [-Remove "A; B"] [-Rename "Old=New"] [-Add "C; D" [-After <name>]]` | Edit one group's names in place without opening the file; refuses misses and duplicates; prints the updated names line. |
 | `-InspectVanilla <TAG> [-Group <GROUP>]` | Vanilla groups, counts, prefix. |
 | `-Package` | Clean staging and zip; `.git`, `.github`, `tests`, scripts and docs must be excluded. |
 | `-DevLink` | Zero-copy live link for the Paradox launcher. |
 
-- Cross-class set intersection over `CL`/`CA`/`BB`/`BC`/`CV` must be zero before a namelist is final (`-Audit` reports `CrossClass`).
+- Cross-class set intersection over `CL`/`CA`/`BB`/`BC`/`CV` must be zero before a namelist is final (`-Audit` reports `CrossClass`); spelling variants of one name (`CrossClassVariant`, e.g. *Gustav V* / *Gustaf V*) count as collisions unless the plan shows they are different names.
 - To bring an existing namelist up to standard, use the `hoi4-isne-namelist-audit` skill (delta upgrade starting from `-Audit <TAG>`), not the full authoring runbook.
 - **Review gate**: before completion, dispatch a fresh Code Reviewer subagent via `invoke_subagent` (`Role: "Code Reviewer"`, `Model: "pro"`, brief: `.claude/agents/isne-code-reviewer.md`) with the country name, TAG and plan file path. It verifies engine invariants, foreign-vessel purges and cross-class decoupling.
 

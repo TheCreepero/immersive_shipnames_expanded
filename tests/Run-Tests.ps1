@@ -98,15 +98,21 @@ if ($CI) {
 # Execute tests
 $result = Invoke-Pester -Configuration $config
 
+# A file that fails discovery (or a block whose setup throws) runs no tests, so FailedCount alone misses it.
+$failedTotal = $result.FailedCount + $result.FailedBlocksCount + $result.FailedContainersCount
+$summary = "  Summary: $($result.PassedCount) Passed, $($result.FailedCount) Failed, $($result.SkippedCount) Skipped"
+if ($result.FailedContainersCount -gt 0) { $summary += ", $($result.FailedContainersCount) test file(s) failed to run" }
+if ($result.FailedBlocksCount -gt 0) { $summary += ", $($result.FailedBlocksCount) block(s) failed in setup/teardown" }
+
 Write-Host "`n-------------------------------------------------------" -ForegroundColor Cyan
-Write-Host "  Summary: $($result.PassedCount) Passed, $($result.FailedCount) Failed, $($result.SkippedCount) Skipped" -ForegroundColor $(if ($result.FailedCount -gt 0) { "Red" } else { "Green" })
+Write-Host $summary -ForegroundColor $(if ($failedTotal -gt 0) { "Red" } else { "Green" })
 Write-Host "-------------------------------------------------------" -ForegroundColor Cyan
 
 if ($CI -and (Test-Path $OutputFile)) {
     Write-Host "NUnit Test Results saved to: $OutputFile" -ForegroundColor Green
 }
 
-if ($result.FailedCount -gt 0) {
+if ($failedTotal -gt 0) {
     exit 1
 } else {
     exit 0

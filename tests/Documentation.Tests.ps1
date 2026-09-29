@@ -116,3 +116,47 @@ Describe "Documentation Synchronization: Wiki" {
         }
     }
 }
+
+BeforeDiscovery {
+    $script:MirrorPairs = @(
+        @{ Claude = 'CLAUDE.md'; Gemini = 'GEMINI.md' }
+        @{ Claude = '.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md'; Gemini = '.agents/skills/hoi4-isne-ship-namelist-authoring/SKILL.md' }
+        @{ Claude = '.claude/skills/hoi4-isne-namelist-audit/SKILL.md'; Gemini = '.agents/skills/hoi4-isne-namelist-audit/SKILL.md' }
+    )
+}
+
+Describe "Agent Config Mirrors (CLAUDE.md / GEMINI.md section 9)" {
+    BeforeAll {
+        # Mirrors are kept line-for-line; a line may differ only when it carries tool-specific wording.
+        $script:ToolMarker = 'invoke_subagent|Agent tool|Antigravity|Claude Code|[Mm]odel:|Sonnet|flash|Mirror'
+        $script:AntigravitySkills = @(
+            '.agents/skills/hoi4-isne-ship-namelist-authoring/SKILL.md'
+            '.agents/skills/hoi4-isne-namelist-audit/SKILL.md'
+        )
+        function Get-MirrorLines([string]$RelPath) {
+            $text = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot $RelPath), [System.Text.Encoding]::UTF8)
+            $text = $text -replace 'GEMINI\.md', 'CLAUDE.md' -replace '\.agents/skills', '.claude/skills'
+            return @($text -split '\r?\n')
+        }
+    }
+
+    It "<Gemini> mirrors <Claude> except for tool-specific lines" -TestCases $script:MirrorPairs {
+        param($Claude, $Gemini)
+        $a = Get-MirrorLines $Claude
+        $b = Get-MirrorLines $Gemini
+        $b.Count | Should -Be $a.Count -Because "mirrors must stay line-for-line; apply every rule change to both files"
+        $drift = for ($i = 0; $i -lt $a.Count; $i++) {
+            if ($a[$i] -cne $b[$i] -and -not ($a[$i] -match $script:ToolMarker -and $b[$i] -match $script:ToolMarker)) { "line $($i + 1)" }
+        }
+        $drift | Should -BeNullOrEmpty -Because "only lines with tool-specific wording may differ"
+    }
+
+    It "Subagent briefs referenced by the Antigravity skills exist" {
+        foreach ($skill in $script:AntigravitySkills) {
+            $text = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot $skill), [System.Text.Encoding]::UTF8)
+            foreach ($m in [regex]::Matches($text, '\.claude/agents/[\w-]+\.md')) {
+                (Test-Path (Join-Path $script:RepoRoot $m.Value)) | Should -BeTrue -Because "$skill dispatches $($m.Value)"
+            }
+        }
+    }
+}

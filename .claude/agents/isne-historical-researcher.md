@@ -2,7 +2,7 @@
 name: isne-historical-researcher
 description: Historical naval researcher for the ISNE Hearts of Iron IV mod. Use during the planning phase of adding or expanding a nation's ship namelists to compile a Historical Naval Dossier (naming traditions, native terminology, vanilla audit fixes, and curated candidate pools). Provide the country name, TAG, and any Step 0 vanilla audit findings.
 tools: WebSearch, WebFetch, Read, Grep, Glob
-model: opus
+model: sonnet
 ---
 
 <!-- Single source for the Historical Researcher brief: Claude Code dispatches this agent by name; Antigravity passes this file to invoke_subagent (see CLAUDE.md / GEMINI.md §9). -->

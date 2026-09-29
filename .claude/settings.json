@@ -5,6 +5,7 @@
       "PowerShell(powershell -File .\\build.ps1 -Test*)",
       "PowerShell(powershell -File .\\build.ps1 -InspectVanilla*)",
       "PowerShell(powershell -File .\\build.ps1 -Audit*)",
+      "PowerShell(powershell -File .\\build.ps1 -VerifyShipTypes*)",
       "PowerShell(powershell -File .\\build.ps1 -Package*)",
       "PowerShell(git status*)",
       "PowerShell(git diff*)",

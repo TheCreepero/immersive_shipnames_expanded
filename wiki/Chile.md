@@ -17,7 +17,7 @@ In vanilla Hearts of Iron IV, Chile's ship namelist file (`CHL_ship_names.txt`) 
 - **Copy-Paste Submarine Tail:** The last 20 entries of the destroyer list were copied verbatim into submarines, assigning destroyers, battleships, and random nouns (*Fósforo* = Matchstick) to submarines.
 - **Corrupted Diacritics & Backticks:** Vanilla used backticks instead of standard apostrophes (`Capitán O`Brien`, `O`Higgins`) and stripped diacritics across dozens of names (`Pueyrredn`, `guila`, `Bo Bo`, `Yaez`, `Muoz Gamero`, `Errzuriz`, `Caupolicn`, `Capitn Prat`).
 
-**ISNE** comprehensively rebuilds Chile's naval namelists into two balanced tiers: dedicated ship-type categories grounded in authentic *Armada de Chile* doctrine, and expansive universal thematic pools covering Chilean geography, provinces, historical battles, founding heroes, Mapuche warrior traditions, waterways, and native fauna.
+**ISNE** comprehensively rebuilds Chile's naval namelists into two balanced tiers: dedicated ship-type categories grounded in authentic *Armada de Chile* doctrine, and expansive universal thematic pools covering Chilean geography, provinces, historical battles, founding heroes, Mapuche toquis and Araucana heroes, waterways, and native fauna.
 
 ---
 
@@ -31,11 +31,19 @@ Dedicated namelists tied to specific ship hulls and naval classifications:
 | :--- | :--- | :--- | :--- |
 | `CHL_DD_HISTORICAL` | Destroyers & Escorts | `ship_hull_light destroyer` | Serrano, Orella, Riquelme, Hyatt, Videla, Aldea, Almirante Lynch, Almirante Condell, Almirante Riveros, Almirante Williams, Audaz, Intrépido, Relámpago |
 | `CHL_SS_HISTORICAL` | Submarines | `ship_hull_submarine submarine` | Guacolda, Tegualda, Rucumilla, Quidora, Fresia, Guale, Capitán O'Brien, Almirante Simpson, Capitán Thomson, General Carrera, Tiburón, Orca, Cachalote |
-| `CHL_CL_HISTORICAL` | Light Cruisers | `ship_hull_cruiser light_cruiser` | Chacabuco, Blanco Encalada, Ministro Zenteno, Presidente Errázuriz, Presidente Pinto, Esmeralda, Valparaíso, Concepción, Antofagasta, Iquique, Arica |
-| `CHL_CA_HISTORICAL` | Heavy Cruisers & Coastal Defense | `ship_hull_cruiser heavy_cruiser` | O'Higgins, Esmeralda, Blanco Encalada, Almirante Cochrane, Capitán Prat, Bernardo O'Higgins, José Miguel Carrera, Manuel Rodríguez, Lautaro, Caupolicán |
-| `CHL_BB_HISTORICAL` | Battleships & Dreadnoughts | `ship_hull_heavy battleship` | Almirante Latorre, Almirante Cochrane, Capitán Prat, Constitución, Libertad, Blanco Encalada, Bernardo O'Higgins, José Miguel Carrera, Diego Portales |
-| `CHL_BC_HISTORICAL` | Battlecruisers | `ship_hull_heavy battle_cruiser` | Iquique, Punta Gruesa, Angamos, Chacabuco, Maipú, Abtao, Papudo, Casma, Yungay, Pisagua, Chorrillos, Miraflores, Huamachuco, Rancagua |
+| `CHL_CL_HISTORICAL` | Light Cruisers | `ship_hull_cruiser light_cruiser` | Chacabuco, Blanco Encalada, Ministro Zenteno, Presidente Errázuriz, Presidente Pinto, Valparaíso, Concepción, Antofagasta, Arica, Talcahuano |
+| `CHL_CA_HISTORICAL` | Heavy Cruisers & Coastal Defense | `ship_hull_cruiser heavy_cruiser` | O'Higgins, Esmeralda, Manuel Baquedano, Patricio Lynch, Carlos Condell, Almirante Riveros, Almirante Simpson, Almirante Wilson, Capitán Wooster, Lautaro, Caupolicán |
+| `CHL_BB_HISTORICAL` | Battleships & Dreadnoughts | `ship_hull_heavy battleship` | Almirante Latorre, Almirante Cochrane, Capitán Prat, Constitución, Libertad, Bernardo O'Higgins, José Miguel Carrera, Diego Portales, Joaquín Prieto, Por la Razón o la Fuerza |
+| `CHL_BC_HISTORICAL` | Battlecruisers | `ship_hull_heavy battle_cruiser` | Iquique, Punta Gruesa, Angamos, Abtao, Papudo, Casma, Pisagua, Callao, María Isabel, Covadonga, Castillo de Niebla, Estrecho de Magallanes |
 | `CHL_CV_HISTORICAL` | Aircraft Carriers | `ship_hull_carrier carrier` | Cóndor, Águila, Halcón, Aguilucho, Carancho, Gavilán, Albatros, Petrel, Los Andes, Aconcagua, Ojos del Salado, Arturo Merino Benítez, Dagoberto Godoy |
+
+**Class doctrine.** The capital-ship rosters share no names:
+- **CL**: the historic protected cruisers and the port cities.
+- **CA**: the 1890s armored cruisers, the admirals and naval commanders of the Armada (1818–1936), and the historical Araucanian toquis.
+- **BB**: the authentic battleship names (*Almirante Latorre*, *Almirante Cochrane*, *Capitán Prat*, *Constitución*, *Libertad*), the founding fathers, the presidents, and the national and Armada mottos (*Por la Razón o la Fuerza*, *Vencer o Morir*).
+- **BC**: Chile's naval engagements and amphibious operations (1820–1891), historic sail-era warships and prizes, the Spanish colonial fortresses of Valdivia and Valparaíso, and strategic straits. The land battles stay in the universal *Historic Battles* pool.
+
+**Scope.** The *Mapuche Heroes* pool holds only toquis and leaders traceable to the historical toqui lists, plus the heroes and heroines of Ercilla's *La Araucana*. Unverifiable names were removed in the 2026 audit rather than padded.
 
 ---
 
@@ -48,7 +56,7 @@ Universal selection pools available for any ship hull or squadron in the Ship De
 | `CHL_CITIES` | Cities | Universal | Santiago, Valparaíso, Concepción, Antofagasta, Iquique, Arica, Coquimbo, La Serena, Valdivia, Puerto Montt, Punta Arenas, Talcahuano, Chillán |
 | `CHL_PROVINCES` | Provinces | Universal | Tarapacá, Antofagasta, Atacama, Coquimbo, Aconcagua, Valparaíso, Santiago, O'Higgins, Colchagua, Curicó, Talca, Maule, Linares, Ñuble, Concepción |
 | `CHL_HEROES` | Heroes | Universal | Prat, Condell, Lynch, Latorre, Riveros, Williams, Uribe, Serrano, Orella, Riquelme, Aldea, Hyatt, Videla, Cochrane, O'Higgins, Carrera, Rodríguez |
-| `CHL_MAPUCHE` | Mapuche Warriors | Universal | Lautaro, Caupolicán, Colocolo, Galvarino, Janequeo, Pelantaro, Guacolda, Tegualda, Fresia, Quidora, Lincoyán, Tucapel, Elicura, Orompello |
+| `CHL_MAPUCHE` | Mapuche Heroes | Universal | Lautaro, Caupolicán, Colocolo, Galvarino, Janequeo, Pelantaro, Guacolda, Tegualda, Fresia, Quidora, Lincoyán, Tucapel, Elicura, Orompello |
 | `CHL_BATTLES` | Historic Battles | Universal | Iquique, Punta Gruesa, Angamos, Chacabuco, Maipú, Abtao, Papudo, Casma, Yungay, Pisagua, Chorrillos, Miraflores, Huamachuco, Rancagua |
 | `CHL_WATERWAYS` | Waterways & Fjords | Universal | Bío Bío, Mapocho, Maipo, Aconcagua, Maule, Toltén, Calle-Calle, Valdivia, Bueno, Baker, Loa, Magallanes, Beagle, Drake, Cabo de Hornos, Chiloé |
 | `CHL_FAUNA` | Native Fauna | Universal | Cóndor, Huemul, Puma, Águila, Halcón, Guanaco, Vicuña, Pudú, Zorro Culpeo, Tiburón, Orca, Cachalote, Delfín, Ballena Azul, Lobo Marino, Albatros |

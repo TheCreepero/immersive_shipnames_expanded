@@ -169,6 +169,7 @@ Rules: `GEMINI.md` §2. Players field several cruiser and capital classes at onc
 
 ## 7. Review & Docs
 - **Review**: invoke a fresh subagent via `invoke_subagent` (`Role: "Code Reviewer"`, `Model: "pro"`) that reads and follows the brief in `.claude/agents/isne-code-reviewer.md`, with country, TAG, plan file (`docs/superpowers/plans/<PLAN_FILE>.md`) and implementation files (`common/units/names_ships/<TAG>_ship_names.txt`, `README.md`, `WORKSHOP_DESCRIPTION_GUIDELINES.md`, `wiki/<Country>.md`, `wiki/Home.md`, `wiki/_Sidebar.md`). Fix every Critical and Important finding before reporting completion.
+- **Reviewer input**: run `-Audit <TAG>`, `-ValidateOnly` and `-Test` before the review and paste their summary lines into the prompt, so the reviewer trusts them instead of re-running them; it reads the namelist through `-Audit <TAG> -NamesOnly` (and `-DiffNames <TAG>` when expanding an existing file).
 - **Docs** (`GEMINI.md` §4):
   - Cross-reference row: `| <TAG>_ship_names.txt | <Country> | <TAG> | Included (<Summary of highlights>) |`
   - Included-nations block (role pools count toward `<N>` and may be named generically among the topics, e.g. minelayers, escort carriers):

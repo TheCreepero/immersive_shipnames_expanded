@@ -89,7 +89,7 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 
 [b]Chile[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
-- Added 7 universal thematic lists: Cities, Provinces, Heroes, Mapuche Warriors, Battles, Waterways, and Fauna.
+- Added 7 universal thematic lists: Cities, Provinces, Heroes, Mapuche Heroes, Battles, Waterways, and Fauna.
 
 [b]Cuba[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, CV).

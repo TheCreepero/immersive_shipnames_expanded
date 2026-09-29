@@ -32,15 +32,15 @@ CHL_DD_HISTORICAL = {
 		"Almirante Lynch" "Almirante Condell" "Almirante Riveros" "Almirante Uribe" "Almirante Williams"
 		"Almirante Goñi" "Almirante Simpson" "Almirante Montt" "Almirante Viel" "Almirante Gómez Carreño"
 		# Distinguished Naval Officers, Corvette & Torpedo Commanders
-		"Muñoz Gamero" "Zegers" "Sánchez" "Cabrales" "Medina" "Hurtado" "Segura" "Garrao"
-		"Bolados" "Amigo" "Ortiz Yáñez" "Contreras" "Uribe" "Thomson" "Gana" "Bannen"
-		"Policarpo Toro" "Castillo" "Salinas" "Fuenzalida" "Cruz" "Simpson" "López" "Prat"
+		"Muñoz Gamero" "Zegers" "Sánchez" "Cabrales" "Hurtado"
+		"Bolados" "Guardiamarina Contreras" "Uribe" "Thomson" "Bannen"
+		"Policarpo Toro" "Salinas" "Simpson" "Prat"
 		# Historic Torpedo Boats, Gunboats & Escort Craft (Torpederas & Escoltas)
-		"Vedette" "Lauca" "Rauco" "Glaura" "Guale" "Meli" "Lincoyán" "Colocolo" "Fresia"
-		"Quidora" "Tegualda" "Janequeo" "Tucapel" "Elicura" "Orompello" "Catrileo" "Millarapue"
+		"Vedette" "Lauca" "Rauco" "Glaura" "Guale" "Lincoyán" "Colocolo" "Fresia"
+		"Quidora" "Tegualda" "Janequeo" "Tucapel" "Elicura" "Orompello" "Millarapue"
 		"Papudo" "Yelcho" "Huáscar" "Magallanes" "Pilcomayo" "Toro" "Angamos"
 		# Historic Torpedo Craft, Patrol Ships & Naval Auxiliaries
-		"Mutilla" "Rodríguez" "Teniente Rodríguez" "Ingeniero Mery" "Alférez Ortiz" "Alférez Díaz"
+		"Mutilla" "Rodríguez" "Teniente Rodríguez" "Ingeniero Mery" "Grumete Díaz"
 		"Ingeniero Hyatt" "Cirujano Videla" "Guardiamarina Riquelme" "Teniente Serrano" "Capitán Orella"
 		"Sargento Aldea" "Rucumilla" "Señoret" "Micalvi" "Piloto Pardo" "Águila" "Araucano"
 		"Lautaro" "Galvarino" "Cachapoal" "Maule" "Toltén" "Ancud" "Loa" "Itata"
@@ -73,13 +73,13 @@ CHL_SS_HISTORICAL = {
 		# Historic H-Class Submarines (Araucanian / Mapuche Warrior Heroines Tradition)
 		"Guacolda" "Tegualda" "Rucumilla" "Quidora" "Fresia" "Guale"
 		# Capitán O'Brien Class (O-Class / Odin Submarine Commanders Tradition)
-		"Capitán O'Brien" "Almirante Simpson" "Capitán Thomson" "Comandante Hyatt"
+		"Capitán O'Brien" "Almirante Simpson" "Capitán Thomson" "Hyatt"
 		# National Liberators & Modern Submarine Classes (Scorpène / 209 Tradition)
 		"General Carrera" "General O'Higgins" "Carrera" "O'Higgins"
 		# Legendary Mapuche Leaders, Caciques & Epic Arauco Figures
 		"Janequeo" "Glaura" "Colocolo" "Galvarino" "Caupolicán" "Lautaro" "Pelantaro"
-		"Lincoyán" "Tucapel" "Elicura" "Orompello" "Catrileo" "Millarapue" "Anganamón"
-		"Butapichón" "Ainavillo" "Turcupichun" "Michimalonco"
+		"Lincoyán" "Tucapel" "Elicura" "Orompello" "Millarapue" "Anganamón"
+		"Butapichón" "Aillavilú" "Turcupichun" "Michimalonco"
 		# Southern Sea Spirits & Chilote Oceanic Mythology
 		"Cai Cai Vilu" "Tren Tren Vilu" "Millalobo" "Pincoya" "Caleuche" "Cuero"
 		"Camahueto" "Huenchula" "Pincoy" "Sirena Chilota"
@@ -88,7 +88,7 @@ CHL_SS_HISTORICAL = {
 		"Lobo Marino" "Barracuda" "Morena" "Raya" "Corvina" "Congrio" "Jurel"
 		"Centolla" "Calamar" "Ballena" "Tintorera" "Marrajo" "Tollo" "Pejezorro"
 		"Pejegallo" "Sierra" "Merluza" "Pulpo" "Calamar Gigante" "Foca" "Pingüino"
-		"Albatros" "Petrel" "Jaiba" "Loco" "Erizo" "Macha" "Cholga" "Atún"
+		"Albatros" "Petrel" "Jaiba" "Erizo" "Macha" "Cholga" "Atún"
 		"Albacora" "Lenguado" "Cazón" "Angelote" "Pez Martillo"
 	}
 }
@@ -108,19 +108,16 @@ CHL_CL_HISTORICAL = {
 	unique = {
 		# Historic Chilean Protected Cruisers & Flagships
 		"Chacabuco" "Blanco Encalada" "Ministro Zenteno" "Presidente Errázuriz" "Presidente Pinto"
-		"Esmeralda" "O'Higgins"
-		# Historic Training Cruisers & Naval Envoys
-		"General Baquedano" "Baquedano" "Ministro Portales"
 		# Major Coastal Ports, Commercial Centers & Maritime Naval Bases
-		"Valparaíso" "Concepción" "Antofagasta" "Iquique" "Arica" "Coquimbo" "La Serena"
+		"Valparaíso" "Concepción" "Antofagasta" "Arica" "Coquimbo" "La Serena"
 		"Valdivia" "Talcahuano" "Punta Arenas" "Puerto Montt" "Osorno" "Chillán" "Rancagua"
 		"Talca" "Calama" "Copiapó" "Ancud" "Castro" "Viña del Mar" "San Antonio"
-		"Mejillones" "Tocopilla" "Chañaral" "Constitución" "Lebu" "Corral" "Caldera"
+		"Mejillones" "Tocopilla" "Chañaral" "Lebu" "Corral"
 		"Puerto Natales" "Puerto Williams" "Huasco" "Lota" "Tomé" "Coronel" "Quintero"
 		# Coastal Harbours, Maritime Towns & Pacific Anchorages
-		"Taltal" "Pichilemu" "Papudo" "Zapallar" "Algarrobo" "Quellón" "Chaitén"
+		"Taltal" "Pichilemu" "Zapallar" "Algarrobo" "Quellón" "Chaitén"
 		"Puerto Aysén" "Puerto Chacabuco" "Calbuco" "Penco" "Los Vilos" "Pichidangui"
-		"Bahía Inglesa" "Pisagua" "Caleta Tortel" "Puerto Edén" "Porvenir" "San Vicente"
+		"Bahía Inglesa" "Caleta Tortel" "Puerto Edén" "Porvenir" "San Vicente"
 		"Lirquén" "Melinka" "Achao" "Dalcahue" "Curaco de Vélez" "Maullín"
 	}
 }
@@ -139,19 +136,21 @@ CHL_CA_HISTORICAL = {
 
 	unique = {
 		# Historic Armored Cruisers & Armored Flagships
-		"O'Higgins" "Esmeralda" "Blanco Encalada" "Almirante Cochrane" "Capitán Prat"
-		# National Liberators, Founding Fathers & Revolutionary Statesmen
-		"Bernardo O'Higgins" "José Miguel Carrera" "Manuel Rodríguez" "Diego Portales"
-		"Ramón Freire" "Manuel Bulnes" "José de San Martín" "Lord Cochrane"
-		"Manuel Blanco Encalada" "Camilo Henríquez" "Pedro de Valdivia" "José Antonio Manso de Velasco"
-		"Juan Martínez de Rozas" "Ignacio Carrera Pinto" "José Manuel Balmaceda"
-		# Supreme Commanders, Generals & Architects of the Republic
-		"Almirante Latorre" "Manuel Baquedano" "Patricio Lynch" "Carlos Condell" "Arturo Prat"
+		"O'Higgins" "Esmeralda"
+		# Colonial Governors, Patriot Juntas & Pacific War Commanders
+		"José Antonio Manso de Velasco"
+		"Juan Martínez de Rozas" "Ignacio Carrera Pinto"
+		"Manuel Baquedano" "Patricio Lynch" "Carlos Condell"
+		# Admirals & Directors General of the Armada (1818-1936)
 		"Almirante Riveros" "Almirante Simpson" "Almirante Williams" "Almirante Montt" "Almirante Viel"
-		"Mariano Egaña" "Andrés Bello" "Aníbal Pinto" "Federico Errázuriz"
-		# Legendary Araucanian Tokis & Epic War Leaders
+		"Almirante Wilson" "Almirante Nef" "Almirante Molinas" "Almirante Castillo" "Almirante Señoret"
+		"Almirante Muñoz Hurtado" "Almirante Pérez Gacitúa" "Almirante Langlois"
+		# Independence-Era Squadron Captains & Naval Explorers
+		"Capitán Forster" "Capitán Wilkinson" "Capitán Wooster" "Capitán Vidal Gormaz" "Comandante Bynnon"
+		# Historical Araucanian Toquis & War Leaders
 		"Lautaro" "Caupolicán" "Colocolo" "Pelantaro" "Galvarino" "Michimalonco"
-		"Anganamón" "Butapichón" "Ainavillo" "Turcupichun" "Janequeo"
+		"Anganamón" "Butapichón" "Aillavilú" "Turcupichun" "Janequeo"
+		"Paillamachu" "Lientur" "Quilapán"
 	}
 }
 
@@ -170,18 +169,18 @@ CHL_BB_HISTORICAL = {
 	unique = {
 		# Historic Super-Dreadnoughts & Pre-Dreadnought Battleships
 		"Almirante Latorre" "Almirante Cochrane" "Capitán Prat" "Constitución" "Libertad"
-		"Blanco Encalada"
 		# Founding Statesmen, Supreme Directors & Constitutional Architects
 		"Bernardo O'Higgins" "José Miguel Carrera" "Diego Portales" "Manuel Bulnes"
-		"Manuel Blanco Encalada" "Ramón Freire" "Arturo Prat" "Lord Cochrane"
-		"José de San Martín" "Camilo Henríquez" "José Manuel Balmaceda" "Pedro Montt"
-		# Supreme Commanders & Historic Statesmen
-		"Manuel Baquedano" "Patricio Lynch" "Carlos Condell" "Almirante Riveros" "Manuel Rodríguez"
-		"Pedro de Valdivia" "Manuel Montt" "Federico Errázuriz" "Aníbal Pinto" "Mariano Egaña" "Andrés Bello"
-		# Sovereign Milestones, Constitutional Principles & Republic Virtues
-		"República de Chile" "Soberanía" "Independencia" "Igualdad" "Patria"
-		"Fraternidad" "Estado de Chile" "Unión Nacional" "Justicia" "Razón y Fuerza"
-		"Libertad y Orden" "Honor y Gloria" "Victoria"
+		"Ramón Freire" "José de San Martín" "Camilo Henríquez" "Manuel Rodríguez"
+		"Pedro de Valdivia" "Mariano Egaña" "Andrés Bello"
+		"Mateo de Toro y Zambrano" "José Miguel Infante" "Manuel de Salas" "Juan Egaña"
+		# Presidents of the Republic (1829-1920)
+		"José Tomás Ovalle" "Joaquín Prieto" "Manuel Montt" "José Joaquín Pérez"
+		"Domingo Santa María" "José Manuel Balmaceda" "Germán Riesco" "Pedro Montt"
+		"Ramón Barros Luco" "Juan Luis Sanfuentes"
+		# Sovereign Milestones, National & Armada Mottos
+		"República de Chile" "Soberanía" "Independencia" "Patria" "Primera Junta" "Patria Vieja"
+		"Por la Razón o la Fuerza" "Vencer o Morir" "Honor y Gloria" "Victoria"
 	}
 }
 
@@ -198,15 +197,15 @@ CHL_BC_HISTORICAL = {
 	fallback_name = "Crucero de batalla %d"
 
 	unique = {
-		# Decisive Naval Engagements & Landmark Battle Honours of Chilean History
-		"Iquique" "Punta Gruesa" "Angamos" "Chacabuco" "Maipú" "Abtao" "Papudo"
-		"Casma" "Yungay" "Pisagua" "Chorrillos" "Miraflores" "Huamachuco" "Rancagua"
-		"San Carlos" "Yerbas Buenas" "El Roble" "Cancha Rayada" "Curapaligüe" "Bellavista"
-		"Penco" "Talcahuano" "Valdivia" "Callao" "Arica" "Dolores" "Tarapacá"
-		# Landmark Engagements of the Pacific, Confederation & Independence Campaigns
-		"Tacna" "Campo de la Alianza" "Topáter" "San Juan" "San Francisco" "La Concepción"
-		"Portada de Guías" "Buin" "Quechereguas" "El Membrillar" "Tres Acequias" "Caldera"
-		"Concón" "Placilla"
+		# Decisive Naval Engagements & Amphibious Operations (1820-1891)
+		"Iquique" "Punta Gruesa" "Angamos" "Abtao" "Papudo" "Casma" "Pisagua" "Callao"
+		"Caldera" "Chipana" "Islay" "Mollendo" "Ilo" "Pisco" "Curayaco" "Punta Pichalo"
+		# Historic Warships, Flagships & Captured Prizes (Sail Era)
+		"María Isabel" "Covadonga" "Aquiles" "Arequipeño" "Confederación" "Monteagudo" "Moctezuma"
+		# Spanish Colonial Coastal Fortresses (Valdivia & Valparaíso)
+		"Castillo de Niebla" "San Sebastián de la Cruz" "San Pedro de Alcántara" "Amargos" "Castillo San José"
+		# Strategic Straits, Channels & Capes
+		"Estrecho de Magallanes" "Canal Beagle" "Cabo de Hornos" "Canal Chacao" "Golfo de Penas" "Primera Angostura"
 	}
 }
 
@@ -231,9 +230,9 @@ CHL_CV_HISTORICAL = {
 		"Pacífico" "Aurora" "Meteoro" "Invencible" "Araucanía"
 		"Tupungato" "Llullaillaco" "Villarrica" "Cerro San Valentín" "Torres del Paine" "Monte Darwin"
 		# Southern Waterways & Maritime Territories
-		"Estrecho de Magallanes" "Canal Beagle" "Cabo de Hornos" "Mar de Chile" "Tierra del Fuego"
+		"Mar de Chile" "Tierra del Fuego"
 		# Pioneers of Chilean Aviation & Aerial Exploration
-		"Arturo Merino Benítez" "Dagoberto Godoy" "Teniente Bello" "Armando Cortinez"
+		"Arturo Merino Benítez" "Dagoberto Godoy" "Teniente Bello" "Armando Cortínez"
 		"Manuel Ávalos" "David Fuentes" "Clodomiro Figueroa"
 	}
 }
@@ -301,16 +300,16 @@ CHL_HEROES = {
 		"Orella" "Riquelme" "Aldea" "Hyatt" "Videla" "Zegers" "Toro" "Thomson"
 		"Simpson" "Montt" "Cochrane" "Blanco Encalada" "O'Higgins" "Carrera" "Rodríguez"
 		"Freire" "Portales" "Bulnes" "San Martín" "Henríquez" "Balmaceda" "Rozas"
-		"Viel" "Goñi" "Gómez Carreño" "Muñoz Gamero" "Contreras" "Gana" "Castillo"
+		"Viel" "Goñi" "Gómez Carreño" "Muñoz Gamero"
 		"Baquedano" "Lagos" "Ramírez" "Carrera Pinto" "Cruz Martínez" "Pérez Canto"
 		"Montt Salamanca" "Vergara" "Amengual" "Escala" "Velásquez" "Piloto Pardo"
 		"Bello" "Egaña" "Lastarria" "Lillo" "Manso de Velasco" "Valdivia" "Ercilla"
 	}
 }
 
-### UNIVERSAL TOPIC: MAPUCHE WARRIORS & LEGENDS ###
+### UNIVERSAL TOPIC: MAPUCHE TOQUIS & ARAUCANA HEROES ###
 CHL_MAPUCHE = {
-	name = "Mapuche Warriors"
+	name = "Mapuche Heroes"
 
 	for_countries = { CHL }
 
@@ -322,11 +321,11 @@ CHL_MAPUCHE = {
 	unique = {
 		"Lautaro" "Caupolicán" "Colocolo" "Galvarino" "Janequeo" "Pelantaro"
 		"Guacolda" "Tegualda" "Fresia" "Quidora" "Lincoyán" "Tucapel" "Elicura"
-		"Orompello" "Catrileo" "Millarapue" "Anganamón" "Butapichón" "Ainavillo"
-		"Turcupichun" "Michimalonco" "Glaura" "Guale" "Meli"
-		"Antiguenu" "Calcurián" "Huenecura" "Lemu-Lemu" "Mariguenu" "Antifil"
-		"Colipí" "Pailacar" "Guanacache" "Rengo" "Nahuel" "Pangui" "Huilliche"
-		"Pehuenche" "Pikunche"
+		"Orompello" "Anganamón" "Butapichón" "Aillavilú"
+		"Turcupichun" "Michimalonco" "Glaura" "Guale"
+		"Antiguenu" "Huenecura" "Lemolemo"
+		"Colipí" "Rengo"
+		"Malloquete" "Lemucaguín" "Paillataru" "Cadeguala" "Cayancura" "Guanoalca" "Quintuguenu" "Paillaeco" "Vilumilla" "Curiñancu" "Mañil" "Leucotón"
 	}
 }
 
@@ -392,7 +391,7 @@ CHL_FAUNA = {
 		"Zorro Culpeo" "Tiburón" "Orca" "Cachalote" "Delfín" "Ballena Azul" "Lobo Marino"
 		"Albatros" "Petrel" "Pingüino" "Pez Espada" "Raya" "Corvina" "Congrio"
 		"Jurel" "Centolla" "Calamar" "Gavilán" "Carancho" "Pelícano" "Chinchilla"
-		"Sierra" "Tollo" "Pejegallo" "Pejezorro" "Loco" "Macha" "Cholga" "Erizo"
+		"Sierra" "Tollo" "Pejegallo" "Pejezorro" "Macha" "Cholga" "Erizo"
 		"Jaiba" "Atún" "Albacora" "Lenguado" "Foca" "Chungungo" "Vizcacha" "Cernícalo"
 		"Nuco" "Tucúquere" "Bandurria" "Flamenco" "Aguilucho" "Tagua" "Cormorán"
 		"Piquero" "Fardela"

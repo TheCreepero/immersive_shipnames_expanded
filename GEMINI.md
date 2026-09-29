@@ -82,8 +82,11 @@ All commands take the form `powershell -File .\build.ps1 <switch>`.
 | `-Test` | Pester suite (engine invariants, docs sync). Required. |
 | `-VerifyShipTypes <TAG\|ALL>` | `ship_types` vs `data/ship_types_canon.json`: one `ship_types OK` line or one line per deviation; exit 1 on FAIL. |
 | `-SyncShipTypeCanon [-Write]` | After a HoI4 patch: diff vanilla against the canon. `-Write` refreshes tokens/meta; class rules are curated by hand. |
-| `-Audit <TAG>` | Standards report: depth, cross-class collisions (`CrossClass`) and spelling variants (`CrossClassVariant`), prefixes, display names, docs sync. |
-| `-EditNames <TAG> -Group <GROUP> [-Remove "A; B"] [-Rename "Old=New"] [-Add "C; D" [-After <name>]]` | Edit one group's names in place without opening the file; refuses misses and duplicates; prints the updated names line. |
+| `-Audit <TAG>` | Standards report: depth, cross-class collisions (`CrossClass`), spelling variants (`CrossClassVariant`) and possible same-person pairs (`CrossClassPerson`, INFO), prefixes, display names, docs sync, plan TODOs. `-Group <A>,<B> -NamesOnly [-Sections]` prints compact name lines. |
+| `-EditNames <TAG> -Group <GROUP> [-Remove "A; B"] [-Rename "Old=New"] [-Add "C; D" [-After <name> \| -Section <header>]] [-RenameSection "Old=New"] [-Quiet]` | Edit one group's names in place without opening the file; refuses misses and duplicates; drops section headers an edit empties; prints the updated names line. `-Group` accepts `CL` for `<TAG>_CL_HISTORICAL`. |
+| `-DiffNames <TAG> [-Base <rev>]` | Name-level diff against git (default `HEAD`): added / removed / moved names and attribute changes per group; input for plan change tables and reviews. |
+| `-AuditPlan <TAG>` | Create `docs/superpowers/plans/<date>-<country>-audit.md` (initial report, TODO sections, change table generated from `-DiffNames`), or refresh only its table; `-Audit` reports unfilled TODOs as `PlanTodo`. |
+| `-SyncWiki <TAG>` | Sync `wiki/<Country>.md` display names and sample cells and the `wiki/Home.md` group count with the namelist; lists rows to add or remove by hand. |
 | `-InspectVanilla <TAG> [-Group <GROUP>]` | Vanilla groups, counts, prefix. |
 | `-Package` | Clean staging and zip; `.git`, `.github`, `tests`, scripts and docs must be excluded. |
 | `-DevLink` | Zero-copy live link for the Paradox launcher. |
@@ -119,6 +122,6 @@ All commands take the form `powershell -File .\build.ps1 <switch>`.
 Google Antigravity and Claude Code use mirrored configs:
 - `GEMINI.md` ⇄ `CLAUDE.md`
 - `.agents/skills/<skill>/SKILL.md` ⇄ `.claude/skills/<skill>/SKILL.md`, for `hoi4-isne-ship-namelist-authoring` and `hoi4-isne-namelist-audit`.
-- The subagent briefs exist once, in `.claude/agents/isne-historical-researcher.md` and `.claude/agents/isne-code-reviewer.md`. Claude dispatches them as named agents; Antigravity passes their path to `invoke_subagent`.
+- The subagent briefs exist once, in `.claude/agents/`: `isne-historical-researcher.md` (full dossier for authoring), `isne-audit-researcher.md` (budgeted fact-check for audits: web tools only, 25 web calls, `effort: medium`, `maxTurns: 30`) and `isne-code-reviewer.md`. Claude dispatches them as named agents; Antigravity passes their path to `invoke_subagent`.
 
 When a rule, standard or runbook step changes in one file, change its mirror in the same task. Translate only tool-specific wording (Antigravity: `invoke_subagent` with `Role`/`Model`; Claude: Agent tool with named agents); the project rules stay identical. Confirm with `git status` that both sides changed before reporting completion.

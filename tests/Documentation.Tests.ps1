@@ -151,6 +151,18 @@ Describe "Agent Config Mirrors (CLAUDE.md / GEMINI.md section 9)" {
         $drift | Should -BeNullOrEmpty -Because "only lines with tool-specific wording may differ"
     }
 
+    It "Audit researcher stays budgeted (effort, maxTurns, web-only tools, stated call budget)" {
+        $text = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot '.claude/agents/isne-audit-researcher.md'), [System.Text.Encoding]::UTF8)
+        $front = [regex]::Match($text, '(?s)^---\r?\n(.*?)\r?\n---').Groups[1].Value
+        $front | Should -Match '(?m)^effort:\s*(low|medium)\s*$' -Because "audit research is lookup work; high effort multiplies thinking tokens"
+        $turns = [regex]::Match($front, '(?m)^maxTurns:\s*(\d+)\s*$')
+        $turns.Success | Should -BeTrue -Because "a hard turn cap stops runaway research"
+        [int]$turns.Groups[1].Value | Should -BeLessOrEqual 40
+        $tools = [regex]::Match($front, '(?m)^tools:\s*(.+)$').Groups[1].Value
+        $tools | Should -Not -Match '\b(Read|Grep|Glob|Bash|PowerShell|Write|Edit)\b' -Because "group names are pasted into the prompt; the namelist is never opened"
+        $text | Should -Match 'at most \d+ web calls'
+    }
+
     It "Subagent briefs referenced by the Antigravity skills exist" {
         foreach ($skill in $script:AntigravitySkills) {
             $text = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot $skill), [System.Text.Encoding]::UTF8)

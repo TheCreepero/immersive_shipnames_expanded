@@ -23,7 +23,9 @@ BeforeAll {
 
     $script:Canon = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot "data\ship_types_canon.json"), [System.Text.Encoding]::UTF8) | ConvertFrom-Json
 
-    foreach ($fn in @('Get-NamelistGroups', 'Get-NamelistAuditFindings', 'Get-ShipTypeFindings', 'Get-ShipTypeCanon', 'Get-RolePoolSuffixes', 'Get-NameVariantKey', 'Edit-NamelistGroupText')) {
+    foreach ($fn in @('Get-NamelistGroups', 'Get-NamelistAuditFindings', 'Get-ShipTypeFindings', 'Get-ShipTypeCanon', 'Get-RolePoolSuffixes', 'Get-NameVariantKey', 'Edit-NamelistGroupText', 'Compare-NamelistGroupSets', 'Format-NamelistDiff',
+            'Resolve-GroupTag', 'Get-GroupSections', 'Get-PersonKeyWords', 'Get-OrphanHeaderLines', 'Format-PlanChangeTable',
+            'Set-PlanChangeTable', 'New-AuditPlanText', 'Update-WikiGroupRows', 'Format-AuditFindingLines', 'Format-AuditSummary')) {
         $fnMatch = [regex]::Match($script:BuildContent, "(?s)(function $fn\s*\{.*?\n\})")
         if ($fnMatch.Success) {
             . ([ScriptBlock]::Create($fnMatch.Groups[1].Value))
@@ -226,6 +228,18 @@ Describe "build.ps1 Helper: Get-NamelistAuditFindings" {
         @(Invoke-FixtureAudit $exact | Where-Object { $_.Check -eq 'CrossClassVariant' }).Count | Should -Be 0
     }
 
+    It "Lists one person under two forms across major hulls as INFO (CrossClassPerson), not namesakes or places" {
+        $text = (Get-CompliantFixtureText) -replace '"Cl 1"', '"Presidente Pinto"' -replace '"Bb 1"', '"Anibal Pinto"' `
+            -replace '"Cl 2"', '"Villa Constitucion"' -replace '"Bb 2"', '"Constitucion"' `
+            -replace '"Cl 3"', '"Manuel Montt"' -replace '"Bb 3"', '"Jorge Montt"'
+        $findings = Invoke-FixtureAudit $text
+        $f = @($findings | Where-Object { $_.Check -eq 'CrossClassPerson' })
+        $f.Count | Should -Be 1
+        $f[0].Severity | Should -Be 'INFO'
+        $f[0].Group | Should -Be 'CL/BB'
+        $f[0].Detail | Should -Be 'Presidente Pinto ~ Anibal Pinto'
+    }
+
     It "Fails a prefix without trailing space" {
         $findings = Invoke-FixtureAudit (Get-CompliantFixtureText -Prefix 'TNS')
         @($findings | Where-Object { $_.Check -eq 'PrefixSpace' -and $_.Severity -eq 'FAIL' }).Count | Should -BeGreaterThan 0
@@ -374,6 +388,130 @@ Describe "build.ps1 Helper: Edit-NamelistGroupText" {
         { Edit-NamelistGroupText -Text $script:EditFixture -GroupTag 'TST_BIRDS' -Remove @('Alpha', 'Delta') } | Should -Throw '*empty*'
         { Edit-NamelistGroupText -Text $script:EditFixture -GroupTag 'TST_NOPE' -Add @('X') } | Should -Throw '*not found*'
     }
+
+    It "Adds under a named section header, or creates the header at the block end" {
+        $sec = "TST_BC = {`n`tname = N`n`tunique = {`n`t`t# Empty legacy header`n`t`t# Flagships`n`t`t`"Alpha`" `"Beta`"`n`t`t# Forts`n`t`t`"Gamma`"`n`t}`n}`n"
+        $out = Edit-NamelistGroupText -Text $sec -GroupTag 'TST_BC' -Add @('Delta') -Section 'Flagships'
+        $out | Should -Match "`"Beta`"`n`t`t`"Delta`"`n`t`t# Forts"
+        $out2 = Edit-NamelistGroupText -Text $sec -GroupTag 'TST_BC' -Add @('Echo') -Section 'Straits'
+        $out2 | Should -Match "`"Gamma`"`n`t`t# Straits`n`t`t`"Echo`"`n`t\}"
+        { Edit-NamelistGroupText -Text $sec -GroupTag 'TST_BC' -Add @('Echo') -Section 'Forts' -After 'Alpha' } | Should -Throw '*not both*'
+    }
+
+    It "Drops a header its removals emptied, keeps one that was already empty, and renames headers" {
+        $sec = "TST_BC = {`n`tname = N`n`tunique = {`n`t`t# Empty legacy header`n`t`t# Flagships`n`t`t`"Alpha`" `"Beta`"`n`t`t# Forts`n`t`t`"Gamma`"`n`t}`n}`n"
+        $out = Edit-NamelistGroupText -Text $sec -GroupTag 'TST_BC' -Remove @('Gamma')
+        $out | Should -Not -Match '# Forts'
+        $out | Should -Match '# Empty legacy header'
+        $out2 = Edit-NamelistGroupText -Text $sec -GroupTag 'TST_BC' -RenameSection @('Forts=Fortresses')
+        $out2 | Should -Match "`t`t# Fortresses`n`t`t`"Gamma`""
+        { Edit-NamelistGroupText -Text $sec -GroupTag 'TST_BC' -RenameSection @('Nope=X') } | Should -Throw '*found 0 times*'
+    }
+
+    It "Parses sections from a group block (Get-GroupSections)" {
+        $sec = "TST_BC = {`n`tname = N`n`tunique = {`n`t`t# Empty legacy header`n`t`t# Flagships`n`t`t`"Alpha`" `"Beta`"`n`t`t# Forts`n`t`t`"Gamma`"`n`t}`n}`n"
+        $tempFile = [System.IO.Path]::GetTempFileName()
+        try {
+            [System.IO.File]::WriteAllText($tempFile, $sec, (New-Object System.Text.UTF8Encoding $false))
+            $groups = Get-NamelistGroups -Path $tempFile
+            $sections = @(Get-GroupSections -RawBlock $groups[0].RawBlock)
+            ($sections | ForEach-Object { "$($_.Header)=$($_.Names -join '+')" }) -join '|' | Should -Be 'Empty legacy header=|Flagships=Alpha+Beta|Forts=Gamma'
+        }
+        finally {
+            if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
+        }
+    }
+
+    It "Resolves group shorthand (Resolve-GroupTag)" {
+        $known = @('TST_CL_HISTORICAL', 'TST_BIRDS')
+        Resolve-GroupTag -Tag 'TST' -Name 'CL' -Known $known | Should -Be 'TST_CL_HISTORICAL'
+        Resolve-GroupTag -Tag 'TST' -Name 'cl_historical' -Known $known | Should -Be 'TST_CL_HISTORICAL'
+        Resolve-GroupTag -Tag 'TST' -Name 'BIRDS' -Known $known | Should -Be 'TST_BIRDS'
+        Resolve-GroupTag -Tag 'TST' -Name 'TST_BIRDS' -Known $known | Should -Be 'TST_BIRDS'
+        Resolve-GroupTag -Tag 'TST' -Name 'XX' -Known $known | Should -BeNullOrEmpty
+    }
+}
+
+Describe "build.ps1 Helper: Compare-NamelistGroupSets and Format-NamelistDiff" {
+    BeforeAll {
+        function ConvertTo-FixtureGroups([string]$Text) {
+            $tempFile = [System.IO.Path]::GetTempFileName()
+            try {
+                [System.IO.File]::WriteAllText($tempFile, $Text, (New-Object System.Text.UTF8Encoding $false))
+                return , (Get-NamelistGroups -Path $tempFile)
+            }
+            finally {
+                if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
+            }
+        }
+        $script:DiffOld = ConvertTo-FixtureGroups ((New-FixtureGroup 'TST_CL' 'ship_hull_cruiser light_cruiser' @('Alpha', 'Beta', 'Gamma')) +
+            (New-FixtureGroup 'TST_CV' 'ship_hull_carrier carrier' @('Delta', 'Echo')) +
+            (New-FixtureGroup 'TST_BIRDS' '' @('Owl') '' '"Birds"') +
+            (New-FixtureGroup 'TST_GONE' '' @('Xray') '' '"Gone"'))
+        $script:DiffNew = ConvertTo-FixtureGroups ((New-FixtureGroup 'TST_CL' 'ship_hull_cruiser light_cruiser' @('Alpha', 'Gamma', 'Zeta')) +
+            (New-FixtureGroup 'TST_CV' 'ship_hull_carrier carrier' @('Echo', 'Beta')) +
+            (New-FixtureGroup 'TST_BIRDS' '' @('Owl') '' '"Raptors"') +
+            (New-FixtureGroup 'TST_NEW' '' @('Yankee') '' '"New"'))
+    }
+
+    It "Reports added, removed and attribute changes per group, plus new and removed groups" {
+        $diff = Compare-NamelistGroupSets -Old $script:DiffOld -New $script:DiffNew
+        $cl = $diff | Where-Object GroupTag -eq 'TST_CL'
+        ($cl.Added -join ',') | Should -Be 'Zeta'
+        ($cl.Removed -join ',') | Should -Be 'Beta'
+        ($diff | Where-Object GroupTag -eq 'TST_BIRDS').Attributes | Should -Be @("ThemeName 'Birds' -> 'Raptors'")
+        ($diff | Where-Object GroupTag -eq 'TST_NEW').Status | Should -Be 'added'
+        ($diff | Where-Object GroupTag -eq 'TST_GONE').Status | Should -Be 'removed'
+    }
+
+    It "Renders compact lines with moves between groups" {
+        $lines = Format-NamelistDiff -Diff (Compare-NamelistGroupSets -Old $script:DiffOld -New $script:DiffNew) -Tag 'TST' -BaseLabel 'HEAD'
+        $lines[0] | Should -Be 'Name diff TST (HEAD -> working tree): 5 changed, 0 unchanged'
+        $lines | Should -Contain 'CL 3->3: + Zeta | - Beta'
+        $lines | Should -Contain 'CV 2->2: + Beta | - Delta'
+        $lines | Should -Contain 'NEW (new group, 1): + Yankee'
+        $lines | Should -Contain 'GONE (group removed, had 1)'
+        $lines | Should -Contain 'Moved: Beta (CL->CV)'
+    }
+
+    It "Lists every group as unchanged for identical input" {
+        $lines = Format-NamelistDiff -Diff (Compare-NamelistGroupSets -Old $script:DiffOld -New $script:DiffOld) -Tag 'TST' -BaseLabel 'HEAD'
+        $lines.Count | Should -Be 2
+        $lines[1] | Should -Be 'Unchanged: CL, CV, BIRDS, GONE'
+    }
+
+    It "Builds the plan change table with move annotations (Format-PlanChangeTable)" {
+        $table = Format-PlanChangeTable -Diff (Compare-NamelistGroupSets -Old $script:DiffOld -New $script:DiffNew) -Tag 'TST'
+        $table[0] | Should -Be '| Group | Count | Added | Removed | Other |'
+        $table | Should -Contain '| CL | 3 -> 3 | Zeta | Beta (to CV) | - |'
+        $table | Should -Contain '| CV | 2 -> 2 | Beta (from CL) | Delta | - |'
+        $table | Should -Contain "| BIRDS | 1 -> 1 | - | - | ThemeName 'Birds' -> 'Raptors' |"
+        $table | Should -Contain '| NEW | new, 1 | Yankee | - | - |'
+        (Format-PlanChangeTable -Diff (Compare-NamelistGroupSets -Old $script:DiffOld -New $script:DiffOld) -Tag 'TST') | Should -Be @('No name changes versus the base revision.')
+    }
+
+    It "Creates a plan skeleton with markers and TODOs, and refreshes only the table (Set-PlanChangeTable)" {
+        $plan = New-AuditPlanText -Country 'Testland' -Tag 'TST' -Date '2026-01-01' -FindingLines @('[FAIL] CrossClass CL/CA : X') -Summary 'AUDIT SUMMARY TST: FAIL=1 WARN=0 INFO=0' -TableLines @('old table')
+        $plan | Should -Match '<!-- BEGIN CHANGE TABLE'
+        $plan | Should -Match '- \[FAIL\] CrossClass CL/CA : X'
+        ([regex]::Matches($plan, '<!-- TODO')).Count | Should -BeGreaterThan 5
+        $filled = $plan -replace '<!-- TODO: checkpoint answers, or "None required" -->', 'None required.'
+        $refreshed = Set-PlanChangeTable -PlanText $filled -TableLines @('| new | table |')
+        $refreshed | Should -Match "-->`n\| new \| table \|`n<!-- END CHANGE TABLE -->"
+        $refreshed | Should -Not -Match 'old table'
+        $refreshed | Should -Match 'None required\.'
+        { Set-PlanChangeTable -PlanText 'no markers here' -TableLines @('x') } | Should -Throw '*markers*'
+    }
+
+    It "Syncs wiki rows: display names, stale samples topped up, missing and stale rows reported (Update-WikiGroupRows)" {
+        $wiki = "# Testland`n| ``TST_CL`` | Light | ``x`` | Alpha, Gone, Gamma |`n| ``TST_BIRDS`` | Birds | Universal | Owl |`n| ``TST_GONE`` | Gone | Universal | Xray |`n"
+        $r = Update-WikiGroupRows -WikiText $wiki -Groups $script:DiffNew -Tag 'TST'
+        $r.Text | Should -Match '\| `TST_CL` \| Light \| `x` \| Alpha, Gamma, Zeta \|'
+        $r.Text | Should -Match '\| `TST_BIRDS` \| Raptors \| Universal \| Owl \|'
+        ($r.Changes -join "`n") | Should -Match 'CL: samples -\[Gone\] \+\[Zeta\]'
+        $r.Stale | Should -Be @('TST_GONE')
+        $r.Missing | Should -Be @('TST_CV', 'TST_NEW')
+    }
 }
 
 Describe "build.ps1 Helper: Get-ShipTypeFindings" {
@@ -454,5 +592,22 @@ Describe "build.ps1 -Audit action" {
         $LASTEXITCODE | Should -Be 1
         $output | Should -Match 'No Such Ruler'
         [System.IO.File]::ReadAllText($path) | Should -Be $before
+    }
+
+    It "Accepts hull shorthand in -Group (CL for FIN_CL_HISTORICAL)" {
+        $output = & powershell -NoProfile -File $script:BuildScriptPath -Audit FIN -Group CL -NamesOnly 2>&1 | Out-String
+        $LASTEXITCODE | Should -Be 0
+        $output | Should -Match '(?m)^FIN_CL_HISTORICAL \(\d+\): '
+        $output | Should -Not -Match 'not found'
+    }
+
+    It "Prints a name-level diff header for -DiffNames and rejects an unknown revision" {
+        $output = & powershell -NoProfile -File $script:BuildScriptPath -DiffNames FIN 2>&1 | Out-String
+        $LASTEXITCODE | Should -Be 0
+        $output | Should -Match '(?m)^Name diff FIN \(HEAD -> working tree\): \d+ changed, \d+ unchanged'
+
+        $bad = & powershell -NoProfile -File $script:BuildScriptPath -DiffNames FIN -Base 'no-such-rev-xyz' 2>&1 | Out-String
+        $LASTEXITCODE | Should -Be 1
+        $bad | Should -Match 'Unknown git revision'
     }
 }

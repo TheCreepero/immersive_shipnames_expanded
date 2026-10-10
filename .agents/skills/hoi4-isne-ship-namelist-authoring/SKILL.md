@@ -179,4 +179,5 @@ Rules: `GEMINI.md` §2. Players field several cruiser and capital classes at onc
     - Added <N> universal thematic lists for the Ship Designer (<Topics>).
     ```
   - Wiki page: tables of group tags, types and sample names. Push: `powershell -File .\wiki\push-wiki.ps1 -CommitMessage "Document <TAG> ship namelists"`.
+  - Roadmap: delete the nation's candidate row in `docs/ROADMAP.md` (`GEMINI.md` §4.7).
 - **Validate**: `-ValidateOnly`, `-Test`, `-VerifyShipTypes <TAG>`, `-Audit <TAG>`; `-Package` for release checks (`GEMINI.md` §5).

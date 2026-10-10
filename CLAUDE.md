@@ -72,6 +72,7 @@ Every nation has two categories, plus optional role pools.
 4. Steam description: no emojis; stay under ~17,000 characters (concise bullets, no ship names, no `[quote=author]` blocks); concise, direct tone, consistent past tense, varied verbs (not repeated "fixed"), no tautologies ("expanded ... expansion fleets"); Steam BBCode only (`[h1]`, `[b]`, `[i]`, `[url]`, `- ` bullets).
 5. Jackhall scope: never author or propose namelists for nations covered by Jackhall's series: Netherlands (`HOL`), China (`CHI`), Spain (`SPR`), Poland (`POL`), Soviet Union (`SOV`), Greece (`GRE`), Germany (`GER`).
 6. When the user asks for an updated description in chat, output the complete ready-to-copy BBCode block plus a concise summary of the changes.
+7. `docs/ROADMAP.md`: update it in the same task as any change it covers. An implemented nation loses its candidate row; a changed vanilla state, plan or Jackhall exclusion updates the affected row; a legacy namelist without a passing audit is added to the Audit Queue and removed when `hoi4-isne-namelist-audit` passes.
 
 ## 5. Build & Validation
 All commands take the form `powershell -File .\build.ps1 <switch>`.

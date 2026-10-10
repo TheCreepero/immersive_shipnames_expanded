@@ -25,7 +25,7 @@
 | [Portugal](Portugal) | `POR` | 14 | `POR_ship_names.txt` |
 | [Sweden](Sweden) | `SWE` | 18 | `SWE_ship_names.txt` |
 | [Turkey](Turkey) | `TUR` | 18 | `TUR_ship_names.txt` |
-| [Yugoslavia](Yugoslavia) | `YUG` | 15 | `YUG_ship_names.txt` |
+| [Yugoslavia](Yugoslavia) | `YUG` | 16 | `YUG_ship_names.txt` |
 
 ---
 

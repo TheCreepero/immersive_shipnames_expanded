@@ -15,6 +15,11 @@ In vanilla Hearts of Iron IV, Turkish naval namelists suffered from severe inacc
 
 *Immersive Ship Names Expanded* provides complete, historically and linguistically authentic namelists for Turkey, featuring 7 expanded ship-type specific groups and 11 universal thematic pools for the Ship Designer. All Turkish ships carry the historical prefix `TCG ` (*Türkiye Cumhuriyeti Gemisi*).
 
+**Scope notes**:
+- **Submarines**: the vessel names and the corsair captains (*Reisler*) are attested: the battle names of the first Republican boats, the *Ay*-class names (*Atılay*, *Saldıray*, *Batıray*, *Yıldıray*) with their successors *Doğanay* and *Dolunay*, and the three Ottoman submarines (*Abdülhamid*, *Abdülmecid*, *Müstecip Onbaşı*). The marine-fauna section and the descriptors *Hilal*, *Yeniay*, *Derin*, *Dalgıç* and *Sualtı* are plausible extrapolation from real Turkish words for a large wartime fleet. Invented extensions of the *-ay* pattern are not listed.
+- **Admirals & Corsairs**: every entry is an individually verified kapudan pasha, corsair or naval officer. Names that could not be traced to a specific person were removed rather than kept as filler.
+- **One personal form per class**: each sultan, founder or admiral appears under one personal form in a hull group (the battlecruisers carry *Yavuz*, the battleships *Atatürk* and *Sultan Osman-ı Evvel*). The navy's historic *-iye* ship names derived from sultans (*Reşadiye*, *Orhaniye*, *Osmaniye*) are kept beside them. City names stay with the light cruisers, while the battleships take sovereigns, historic ironclads and realm-level names.
+
 ---
 
 ## Namelist Groups
@@ -24,12 +29,12 @@ In vanilla Hearts of Iron IV, Turkish naval namelists suffered from severe inacc
 | Group Tag | Type | Ship Types | Sample Names |
 | :--- | :--- | :--- | :--- |
 | `TUR_DD_HISTORICAL` | Destroyers & Escorts | `ship_hull_light destroyer` | Kocatepe, Adatepe, Tınaztepe, Zafer, Yücetepe, Savaştepe, Alçıtepe, Anıttepe, Metristepe, Duatepe, Demirhisar, Sultanhisar, Muavenet, Gayret, Yarhisar, Sivrihisar, Peyk, Berk, Alp Arslan, Mareşal Fevzi Çakmak, Kılıç Ali Paşa, Piyale Paşa, Gaziantep, Gelibolu |
-| `TUR_SS_HISTORICAL` | Submarines | `ship_hull_submarine submarine ship_hull_midget_submarine` | Birinci İnönü, İkinci İnönü, Sakarya, Dumlupınar, Atılay, Saldıray, Batıray, Yıldıray, Korkutay, Vuray, Pusulay, Gür, Doğanay, Dolunay, Oruç Reis, Murat Reis, Burak Reis, Seydi Ali Reis, Hızır Reis, Piri Reis, Turgut Reis, Uluç Ali Reis, Preveze, Cerbe |
-| `TUR_CL_HISTORICAL` | Light Cruisers | `ship_hull_cruiser light_cruiser` | Hamidiye, Mecidiye, Midilli, İzmir, Samsun, Trabzon, Sinop, Mersin, İskenderun, Bandırma, Antalya, Giresun, Rize, Fethiye, Bodrum, Çeşme, Alanya, Mudanya, Ayvalık, Zonguldak, Hopa, Bartın, İnebolu, Marmaris, Keşan, Balıkesir |
-| `TUR_CA_HISTORICAL` | Heavy Cruisers & Coastal Defense | `ship_hull_cruiser heavy_cruiser` | Çanakkale, Gelibolu, Edirne, Seddülbahir, Kilitbahir, Kumkale, Boğaziçi, Kafkas, Anadolu, Rumeli, Anadolu Kavağı, Rumeli Kavağı, Dardanel, Gölcük, Tuzla, Yalova, Gebze, Urla, Marmara, Trakya, Ege, Akdeniz, Karadeniz |
-| `TUR_BB_HISTORICAL` | Battleships & Capital Ships | `ship_hull_heavy battleship` | Reşadiye, Sultan Osman-ı Evvel, Fatih Sultan Mehmed, Barbaros Hayreddin, Turgut Reis, Mesudiye, Mahmudiye, Asar-ı Tevfik, Âsâr-ı Şevket, Necm-i Şevket, Gazi Mustafa Kemal, Atatürk, Fatih, Kanuni, Yavuz Sultan Selim, Alp Arslan, İstanbul, Bursa, Edirne |
-| `TUR_BC_HISTORICAL` | Battlecruisers | `ship_hull_heavy battle_cruiser` | Yavuz, Yavuz Sultan Selim, Yıldırım, Yıldırım Bayezid, Attila, Timur, Subutay, Cengiz Han, Kılıç Arslan, Selim, Gazi Umur Bey, Çaka Bey, Tuğrul Bey, Yıldırım Kemal, Şimşek, Kasırga, Bora, Tayfun, Fırtına, Poyraz |
-| `TUR_CV_HISTORICAL` | Aircraft Carriers | `ship_hull_carrier carrier` | Bandırma, Samsun, Cumhuriyet, İstiklal, Kurtuluş, Zafer, Vatan, Millet, Hürriyet, Gazi, Gökdoğan, Bozdoğan, Şahin, Kartal, Sungur, Doğan, Tuğrul, Hüma, Gökler, Gökyüzü |
+| `TUR_SS_HISTORICAL` | Submarines | `ship_hull_submarine submarine ship_hull_midget_submarine` | Birinci İnönü, İkinci İnönü, Sakarya, Dumlupınar, Atılay, Saldıray, Batıray, Yıldıray, Gür, Doğanay, Dolunay, Oruç Reis, Murat Reis, Burak Reis, Seydi Ali Reis, Hızır Reis, Piri Reis, Turgut Reis, Uluç Ali Reis, Preveze, Cerbe, Hilal, Yeniay, Derin |
+| `TUR_CL_HISTORICAL` | Light Cruisers | `ship_hull_cruiser light_cruiser` | Hamidiye, Mecidiye, Midilli, İzmir, Samsun, Trabzon, Sinop, Mersin, İskenderun, Antalya, Giresun, Rize, Fethiye, Bodrum, Çeşme, Alanya, Mudanya, Ayvalık, Zonguldak, Hopa, Bartın, İnebolu, Marmaris, Keşan, Balıkesir, Peyk-i Şevket |
+| `TUR_CA_HISTORICAL` | Heavy Cruisers & Coastal Defense | `ship_hull_cruiser heavy_cruiser` | Çanakkale, Gelibolu, Seddülbahir, Kilitbahir, Kumkale, Boğaziçi, Kafkas, Anadolu, Rumeli, Anadolu Kavağı, Rumeli Kavağı, Gölcük, Tuzla, Gebze, Marmara, Trakya, Ege, Akdeniz, Karadeniz, Anafartalar, Conkbayırı, Arıburnu, Kanlısırt |
+| `TUR_BB_HISTORICAL` | Battleships & Capital Ships | `ship_hull_heavy battleship` | Reşadiye, Sultan Osman-ı Evvel, Fatih Sultan Mehmed, Barbaros Hayreddin, Turgut Reis, Mesudiye, Mahmudiye, Âsâr-ı Şevket, Necm-i Şevket, Atatürk, Kanuni Sultan Süleyman, Alp Arslan, Âsâr-ı Tevfik, Orhaniye, Osmaniye, Aziziye, Feth-i Bülend, Mukaddeme-i Hayır, Avnillah |
+| `TUR_BC_HISTORICAL` | Battlecruisers | `ship_hull_heavy battle_cruiser` | Yavuz, Yıldırım Bayezid, Attila, Timur, Subutay, Cengiz Han, Kılıç Arslan, Gazi Umur Bey, Çaka Bey, Tuğrul Bey, Şimşek, Kasırga, Bora, Tayfun, Fırtına, Poyraz, Çağrı Bey, Babür Şah, Baybars, Battal Gazi |
+| `TUR_CV_HISTORICAL` | Aircraft Carriers | `ship_hull_carrier carrier` | Bandırma, Cumhuriyet, İstiklal, Kurtuluş, Zafer, Vatan, Hürriyet, Gökdoğan, Bozdoğan, Şahin, Kartal, Sungur, Doğan, Tuğrul Kuşu, Hüma, Gökler, Gökyüzü, Anka, Karakuş, Hâkimiyet-i Milliye |
 
 ---
 
@@ -40,13 +45,13 @@ Universal selection pools available for any ship hull or squadron:
 | Group Tag | Topic Name | Ship Types | Sample Names |
 | :--- | :--- | :--- | :--- |
 | `TUR_RULERS` | Sultans & Khans | Universal | Osman Gazi, Orhan Gazi, Murad Hüdavendigâr, Yıldırım Bayezid, Fatih Sultan Mehmed, Yavuz Sultan Selim, Kanuni Sultan Süleyman, Alp Arslan, Tuğrul Bey, Kılıç Arslan, Alaeddin Keykubad, Attila, Bilge Kağan |
-| `TUR_ADMIRALS` | Admirals & Corsairs | Universal | Çaka Bey, Barbaros Hayreddin Paşa, Turgut Reis, Piri Reis, Oruç Reis, Kılıç Ali Paşa, Piyale Paşa, Seydi Ali Reis, Murat Reis, Burak Reis, Salih Reis, Uluç Ali Reis, Cezayirli Gazi Hasan Paşa, Karamürsel Bey, Rauf Orbay |
+| `TUR_ADMIRALS` | Admirals & Corsairs | Universal | Çaka Bey, Barbaros Hayreddin Paşa, Turgut Reis, Piri Reis, Oruç Reis, Kılıç Ali Paşa, Piyale Paşa, Seydi Ali Reis, Murat Reis, Burak Reis, Salih Reis, Cezayirli Gazi Hasan Paşa, Karamürsel Bey, Rauf Orbay, Kemal Reis |
 | `TUR_CITIES` | Cities & Ports | Universal | İstanbul, İzmir, Ankara, Bursa, Adana, Antalya, Trabzon, Samsun, Mersin, Gaziantep, Diyarbakır, Konya, Eskişehir, Kayseri, Edirne, Çanakkale, Sinop, İskenderun, Tekirdağ, Zonguldak, Balıkesir, Kocaeli, Manisa |
 | `TUR_PROVINCES` | Provinces & Regions | Universal | Anadolu, Rumeli, Trakya, Ege, Akdeniz, Karadeniz, Marmara, Kapadokya, Kilikya, Hüdavendigâr, Aydın, Saruhan, Karesi, Menteşe, Kastamonu, Sivas, Erzurum, Diyarbekir, Trabzon, Halep, Musul |
-| `TUR_RIVERS` | Rivers & Waterways | Universal | Fırat, Dicle, Kızılırmak, Yeşilırmak, Sakarya, Seyhan, Ceyhan, Gediz, Büyük Menderes, Küçük Menderes, Meriç, Aras, Çoruh, Asi, Göksu, Susurluk, Tunca, Ergene, Bakırçay, Dalaman, Manavgat |
-| `TUR_MOUNTAINS` | Peaks & Landmarks | Universal | Ağrı, Erciyes, Süphan, Kaçkar, Toros, Uludağ, Palandöken, Hasan Dağı, Ilgaz, Cilo, Munzur, Yıldız, Murat Dağı, Nemrut, Kocatepe, Adatepe, Tınaztepe, Metristepe, Duatepe, Kaz Dağı |
-| `TUR_BATTLES` | Historic Battles | Universal | Preveze, Cerbe, Çanakkale, Dumlupınar, Sakarya, İnönü, Malazgirt, Mohaç, Niğbolu, Varna, Kosova, Ridaniye, Mercidabık, Çaldıran, Otlukbeli, Dandanaqan, Büyük Taarruz, Anafartalar |
-| `TUR_BIRDS` | Birds of Prey | Universal | Kartal, Şahin, Doğan, Atmaca, Gökdoğan, Bozdoğan, Sungur, Çakır, Kerkenez, Akbaba, Kuzgun, Tuğrul, Balıkkartalı, Kızılşahin, Tavşancıl, Şah Kartal, Kaya Kartalı, Turna |
-| `TUR_FISH` | Aquatic Life | Universal | Yunus, Kılıç, Levrek, Orfoz, Lüfer, Palamut, Kefal, Kalkan, Mersin, Torik, Zargana, Çipura, Barbun, Uskumru, Alabalık, Vatoz, Kolyoz, Sardalya, Hamsi, Mercan, Sinarit |
+| `TUR_RIVERS` | Rivers | Universal | Fırat, Dicle, Kızılırmak, Yeşilırmak, Sakarya, Seyhan, Ceyhan, Gediz, Büyük Menderes, Küçük Menderes, Meriç, Aras, Çoruh, Asi, Göksu, Susurluk, Tunca, Ergene, Bakırçay, Dalaman, Manavgat |
+| `TUR_MOUNTAINS` | Mountains & Hills | Universal | Ağrı, Erciyes, Süphan, Kaçkar, Toros, Uludağ, Palandöken, Hasan Dağı, Ilgaz, Cilo, Munzur, Yıldız, Murat Dağı, Nemrut, Kocatepe, Adatepe, Tınaztepe, Metristepe, Duatepe, Kaz Dağı |
+| `TUR_BATTLES` | Historic Battles | Universal | Preveze, Cerbe, Çanakkale, Dumlupınar, Sakarya, İnönü, Malazgirt, Mohaç, Niğbolu, Varna, Kosova, Ridaniye, Mercidabık, Çaldıran, Otlukbeli, Büyük Taarruz, Anafartalar, Sırpsındığı |
+| `TUR_BIRDS` | Birds | Universal | Kartal, Şahin, Doğan, Atmaca, Gökdoğan, Bozdoğan, Sungur, Çakır, Kerkenez, Akbaba, Kuzgun, Tuğrul, Balıkkartalı, Kızılşahin, Tavşancıl, Şah Kartal, Kaya Kartalı, Turna |
+| `TUR_FISH` | Aquatic Life | Universal | Yunus, Levrek, Orfoz, Lüfer, Palamut, Kefal, Kalkan, Torik, Zargana, Çipura, Barbun, Uskumru, Alabalık, Vatoz, Kolyoz, Sardalya, Hamsi, Mercan, Sinarit, Lagos, Trança |
 | `TUR_BEASTS` | Fauna & Predators | Universal | Bozkurt, Kurt, Aslan, Kaplan, Pars, Sırtlan, Ayı, Vaşak, Panter, Çakal, Tilki, Anadolu Parsı, Yaban Domuzu, Karaca, Dağ Keçisi, Alageyik, Karakulak, Porsuk |
-| `TUR_VIRTUES` | Martial Virtues | Universal | İstiklal, Hürriyet, Cumhuriyet, Vatan, Millet, Zafer, Gayret, Cesaret, Muavenet, Sadakat, Metanet, Kahramanlık, Şeref, Namus, Azim, Fedakarlık, Hakimiyet, Adalet, Birlik |
+| `TUR_VIRTUES` | Virtues & Ideals | Universal | İstiklal, Hürriyet, Cumhuriyet, Vatan, Zafer, Gayret, Cesaret, Muavenet, Sadakat, Metanet, Kahramanlık, Şeref, Namus, Azim, Adalet, Birlik, Fedakârlık, Hâkimiyet, Millî İrade |

@@ -42,6 +42,22 @@ Ranking of vanilla nations not yet covered by the mod (assessed 2026-10-10). Int
 - **`ENG`, `USA`, `FRA`**: deep enough already.
 - **Central American tail (`DOM`, `HON`, `PAN`, `HAI`, `ELS`, `NIC`, `COS`, `GUA`, `ECU`)**: 26-40 names each, little verifiable naval history.
 
+## Existing Nations: Audit Queue
+
+Namelists already in the mod that have never been audited, ranked by severity (assessed 2026-10-10 with `build.ps1 -Audit <TAG>`). All six were first committed on 2026-09-26. Austria (`AUS`) and Finland (`FIN`) are older (2026-09-24) but are already audited: `FIN` passes clean and `AUS` has depth warnings only.
+
+| Rank | Tag | Hard fails | Warnings | Main problems |
+|---|---|---|---|---|
+| 1 | `DEN` | 7 | 2 | Six cross-class collisions (`Valkyrien` in CL, BC and CV; `Odin` in CA and CV; seven CA/BB or CA/BC names). DD 141 and BB 50 are over target. |
+| 2 | `TUR` | 5 | 0 | Five cross-class collisions (`Edirne` in CA and BB; `Samsun` in CL and CV; `İstanbul` in CL and BB). Three BB/BC or BB/CV person overlaps. |
+| 3 | `NOR` | 4 | 10 | Four cross-class collisions (`Albatross` CL/CV; `Norge` CA/BB). Spelling-variant pair (`Harald Haarfagre` / `Hårfagre`). Seven thematic pools below depth. |
+| 4 | `YUG` | 3 | 2 | `Kosovo` in CA and BB; `Dalmacija` in CL and BB; no BC group. Wiki references `YUG_REGIONS`, which is not in the file. |
+| 5 | `CUB` | 2 | 5 | `La Habana`, `Matanzas` and similar in CL and BB; no BC group. Vanilla prefix `ARC ` vs none in the mod. Four pools below depth. |
+| 6 | `MEX` | 1 | 4 | No BC group (BB carries `battle_cruiser`). Wiki references `MEX_BC_HISTORICAL` and `MEX_AZTECS`, which are not in the file. |
+
+- **Structure only.** `-Audit` does not verify names. Legacy lists can hide fabricated entries past a clean audit, so each nation also needs an `isne-audit-researcher` fact-check before it counts as audited.
+- **Plans.** None of the six has a `docs/superpowers/plans/` audit plan yet; create one with `-AuditPlan <TAG>` before the review.
+
 ## Status Tracking
 
 When a nation moves from this list to implementation, delete its row here and follow CLAUDE.md §4 (README, Steam description guidelines, wiki).

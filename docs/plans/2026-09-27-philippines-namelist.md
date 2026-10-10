@@ -1,6 +1,6 @@
 # Philippines (TAG: PHI) Ship Namelist Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Overhaul and expand the naval ship namelists for the Philippines (`TAG: PHI`) in *Immersive Ship Names Expanded*, eliminating critical vanilla bugs (such as foreign RNZN/RAN frigates in the submarine pool, the fictional "General Manchatas", and 100% duplicate cruiser/capital rosters) while introducing two-category architecture with 11 universal thematic and ideological pools.
 

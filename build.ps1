@@ -109,7 +109,7 @@
     With -EditNames: print only the summary line (count and dropped sections), not the group's names.
 
 .PARAMETER AuditPlan
-    Create docs/superpowers/plans/<today>-<country>-audit.md (e.g. -AuditPlan CHL): the initial -Audit report, TODO
+    Create docs/plans/<today>-<country>-audit.md (e.g. -AuditPlan CHL): the initial -Audit report, TODO
     sections to fill, and a per-group change table generated from -DiffNames between markers. Run again to refresh
     the table; the rest of the plan is left untouched. -Audit reports unfilled TODOs as PlanTodo.
 
@@ -1237,11 +1237,11 @@ function Get-NamelistAuditFindings {
             $sidebar = if (Test-Path $sidebarPath) { [System.IO.File]::ReadAllText($sidebarPath, [System.Text.Encoding]::UTF8) } else { '' }
             if ($sidebar -notmatch "\($([regex]::Escape($pageName))\)") { Add-Finding 'FAIL' 'DocsWikiSidebar' '-' "wiki/_Sidebar.md has no link to $pageName" }
 
-            $plansDir = Join-Path $RepoDir "docs\superpowers\plans"
+            $plansDir = Join-Path $RepoDir "docs\plans"
             $slug = $country.ToLower() -replace ' ', '-'
             $plans = if (Test-Path $plansDir) { @(Get-ChildItem -Path $plansDir -Filter "*-$slug-*.md") } else { @() }
             if ($plans.Count -eq 0) {
-                Add-Finding 'INFO' 'PlanFile' '-' "No docs/superpowers/plans/*-$slug-*.md (create one with -AuditPlan $Tag before review)"
+                Add-Finding 'INFO' 'PlanFile' '-' "No docs/plans/*-$slug-*.md (create one with -AuditPlan $Tag before review)"
             } else {
                 # Skeletons from -AuditPlan carry <!-- TODO --> markers until the author fills them in
                 $latest = $plans | Sort-Object Name | Select-Object -Last 1
@@ -1971,12 +1971,12 @@ function Invoke-AuditPlan {
     $table = Format-PlanChangeTable -Diff $result.Diff -Tag $Tag
     $changedCount = @($result.Diff | Where-Object { $_.Status -ne 'unchanged' }).Count
 
-    $plansDir = Join-Path $RepoDir 'docs\superpowers\plans'
+    $plansDir = Join-Path $RepoDir 'docs\plans'
     if (-not (Test-Path $plansDir)) { New-Item -ItemType Directory -Force $plansDir | Out-Null }
     $date = (Get-Date).ToString('yyyy-MM-dd')
     $slug = $country.ToLower() -replace ' ', '-'
     $path = Join-Path $plansDir "$date-$slug-audit.md"
-    $rel = "docs/superpowers/plans/$date-$slug-audit.md"
+    $rel = "docs/plans/$date-$slug-audit.md"
     $utf8 = New-Object System.Text.UTF8Encoding $false
 
     if (Test-Path $path) {

@@ -16,7 +16,7 @@ File: `common/units/names_ships/ARG_ship_names.txt`
 - [INFO] CrossClassPerson CA/CV : San Martín ~ General San Martín
 - [INFO] CrossClassPerson CL/CA : Presidente Sarmiento ~ Domingo Faustino Sarmiento, Comodoro Rivadavia ~ Bernardino Rivadavia, Necochea ~ Mariano Necochea, General Lavalle ~ Juan Lavalle
 - [INFO] CrossClassPerson CL/BB : Presidente Sarmiento ~ Domingo Faustino Sarmiento, Comodoro Rivadavia ~ Rivadavia, Comodoro Rivadavia ~ Bernardino Rivadavia, Rawson ~ Guillermo Rawson
-- [INFO] PlanFile - : No docs/superpowers/plans/*-argentina-*.md (create one with -AuditPlan ARG before review)
+- [INFO] PlanFile - : No docs/plans/*-argentina-*.md (create one with -AuditPlan ARG before review)
 - Found on manual review:
   - BB held the same persons twice (Rivadavia / Bernardino Rivadavia, Moreno / Mariano Moreno).
   - BATTLES held Caseros and Monte Caseros, which are the same battle.

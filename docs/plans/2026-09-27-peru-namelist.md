@@ -1,6 +1,6 @@
 # Peru (TAG: PRU) Ship Namelist Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Overhaul and expand the naval ship namelists for Peru (`TAG: PRU`) in *Immersive Ship Names Expanded*, eliminating critical vanilla bugs (severe character encoding mojibake, duplicated entries, 100% clone rosters between CL/CA and BB/BC, and severe depth deficits) while establishing a complete two-category architecture with 7 ship-type specific pools and 14 universal thematic and ideological pools.
 

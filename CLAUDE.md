@@ -85,7 +85,7 @@ All commands take the form `powershell -File .\build.ps1 <switch>`.
 | `-Audit <TAG>` | Standards report: depth, cross-class collisions (`CrossClass`), spelling variants (`CrossClassVariant`) and possible same-person pairs (`CrossClassPerson`, INFO), prefixes, display names, docs sync, plan TODOs. `-Group <A>,<B> -NamesOnly [-Sections]` prints compact name lines. |
 | `-EditNames <TAG> -Group <GROUP> [-Remove "A; B"] [-Rename "Old=New"] [-Add "C; D" [-After <name> \| -Section <header>]] [-RenameSection "Old=New"] [-Quiet]` | Edit one group's names in place without opening the file; refuses misses and duplicates; drops section headers an edit empties; prints the updated names line. `-Group` accepts `CL` for `<TAG>_CL_HISTORICAL`. |
 | `-DiffNames <TAG> [-Base <rev>]` | Name-level diff against git (default `HEAD`): added / removed / moved names and attribute changes per group; input for plan change tables and reviews. |
-| `-AuditPlan <TAG>` | Create `docs/superpowers/plans/<date>-<country>-audit.md` (initial report, TODO sections, change table generated from `-DiffNames`), or refresh only its table; `-Audit` reports unfilled TODOs as `PlanTodo`. |
+| `-AuditPlan <TAG>` | Create `docs/plans/<date>-<country>-audit.md` (initial report, TODO sections, change table generated from `-DiffNames`), or refresh only its table; `-Audit` reports unfilled TODOs as `PlanTodo`. |
 | `-SyncWiki <TAG>` | Sync `wiki/<Country>.md` display names and sample cells and the `wiki/Home.md` group count with the namelist; lists rows to add or remove by hand. |
 | `-InspectVanilla <TAG> [-Group <GROUP>]` | Vanilla groups, counts, prefix. |
 | `-Package` | Clean staging and zip; `.git`, `.github`, `tests`, scripts and docs must be excluded. |
@@ -116,7 +116,7 @@ All commands take the form `powershell -File .\build.ps1 <switch>`.
 ## 8. Workspace
 - `C:\dev\immersive-shipnames-expanded\` is the Git root and holds everything directly: mod content (`common/`, `descriptor.mod`, `thumbnail.png`), `build.ps1`, `tests/`, docs (`README.md`, `WORKSHOP_DESCRIPTION_GUIDELINES.md`, `wiki/`) and agent configs (`CLAUDE.md`, `.claude/` for Claude Code; `GEMINI.md`, `.agents/` for Google Antigravity). The legacy nested two-level layout is gone; never duplicate files across paths.
 - After modifying rules, skills or mod files, run `git status` (and `git diff` when useful) from the root to confirm the changes before reporting completion.
-- Per-nation plans: `docs/superpowers/plans/YYYY-MM-DD-<nation>-namelist.md`.
+- Per-nation plans: `docs/plans/YYYY-MM-DD-<nation>-namelist.md`.
 
 ## 9. Agent Config Mirrors
 Claude Code and Google Antigravity use mirrored configs:

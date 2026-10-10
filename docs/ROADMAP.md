@@ -13,7 +13,7 @@ Ranking of vanilla nations not yet covered by the mod (assessed 2026-10-10). Int
 
 | Tag | Nation | Vanilla state | Why now |
 |---|---|---|---|
-| `PRU` | Peru | Mojibake; CL and CA identical; BB and BC identical | Plan exists (`superpowers/plans/2026-09-27-peru-namelist.md`), no namelist, docs or wiki page yet. Cheapest win. Re-validate the plan against current standards before implementing. |
+| `PRU` | Peru | Mojibake; CL and CA identical; BB and BC identical | Plan exists (`docs/plans/2026-09-27-peru-namelist.md`), no namelist, docs or wiki page yet. Cheapest win. Re-validate the plan against current standards before implementing. |
 | `CAN` | Canada | 272 names; 56 of 109 capital-ship names duplicated; BB repeats the provinces from CL | Heavily played. Deep RCN history (Tribals, River-class frigates, Flower corvettes, Bangor and Algerine minesweepers) supports role pools. |
 | `ROM` | Romania | DD 13, SS 8; BB list is only cities | Black Sea navy and Danube monitors and gunboats give real precedent for role pools. |
 | `BUL` | Bulgaria | SS reuses the DD list; curly quotes (`“Shipka”`); inconsistent transliteration (Levski/Levsky) | Small but well-documented navy (Drazki, torpedo boats). |

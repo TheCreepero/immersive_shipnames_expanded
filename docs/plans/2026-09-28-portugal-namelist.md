@@ -1,6 +1,6 @@
 # Portugal (TAG: POR) Ship Namelist Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Overhaul and expand the naval ship namelists for Portugal (`TAG: POR`) in *Immersive Ship Names Expanded*, eliminating a critical vanilla content-integrity bug (the entire file is headed `##### ARGENTINA NAME LISTS #####` and the battleship roster is not Argentine *or* Portuguese but a near-complete list of real Brazilian Navy ship/state names), a verbatim CL/CA clone duplication, missing diacritics, a mistranslated battlecruiser fallback term, and severe depth deficits, while establishing a complete two-category architecture with 7 ship-type specific pools and 7 universal thematic/ideological pools (moderate scope, per author decision).
 
@@ -151,7 +151,7 @@
 - Test: `tests/BuildScript.Tests.ps1`
 
 - [ ] **Step 1: Dispatch `isne-code-reviewer` agent**
-  - Provide: country name (Portugal), TAG (`POR`), this plan file path (`docs/superpowers/plans/2026-09-28-portugal-namelist.md`), and implementation files (`common/units/names_ships/POR_ship_names.txt`, `README.md`, `WORKSHOP_DESCRIPTION_GUIDELINES.md`, `wiki/Portugal.md`, `wiki/Home.md`, `wiki/_Sidebar.md`).
+  - Provide: country name (Portugal), TAG (`POR`), this plan file path (`docs/plans/2026-09-28-portugal-namelist.md`), and implementation files (`common/units/names_ships/POR_ship_names.txt`, `README.md`, `WORKSHOP_DESCRIPTION_GUIDELINES.md`, `wiki/Portugal.md`, `wiki/Home.md`, `wiki/_Sidebar.md`).
   - Address all Critical and Important findings before proceeding.
 
 - [ ] **Step 2: Run full Pester test suite**

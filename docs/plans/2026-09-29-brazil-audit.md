@@ -16,7 +16,7 @@ File: `common/units/names_ships/BRA_ship_names.txt`
 - [INFO] CrossClassPerson CA/CV : Marquês de Paranaguá ~ Paranaguá
 - [INFO] CrossClassPerson CL/CA : Paranaguá ~ Marquês de Paranaguá, Tefé ~ Barão de Teffé, Olinda ~ Marquês de Olinda
 - [INFO] CrossClassPerson CL/CV : Santos ~ Todos os Santos
-- [INFO] PlanFile - : No docs/superpowers/plans/*-brazil-*.md (create one with -AuditPlan BRA before review)
+- [INFO] PlanFile - : No docs/plans/*-brazil-*.md (create one with -AuditPlan BRA before review)
 - Found on manual review:
   - BC was a verbatim copy of the BATTLES pool. 20 of its 32 entries were land battles, outside the §2 BC doctrine.
   - CA repeated two persons: Almirante Barroso = Barão do Amazonas, and Almirante Inhaúma = Visconde de Inhaúma.

@@ -96,4 +96,6 @@ Development rules and the namelist authoring runbook are maintained as mirrored 
 | `TUR` | Turkey | `TUR_ship_names.txt` |
 | `YUG` | Yugoslavia | `YUG_ship_names.txt` |
 
+Candidate nations for future namelists are ranked in [docs/ROADMAP.md](docs/ROADMAP.md).
+
 *(Refer to [WORKSHOP_DESCRIPTION_GUIDELINES.md](WORKSHOP_DESCRIPTION_GUIDELINES.md) for full descriptions, examples, and Steam BBCode formatting rules).*

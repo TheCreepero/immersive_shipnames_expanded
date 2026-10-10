@@ -28,6 +28,8 @@ Every nation has two categories, plus optional role pools.
 - Below the floor (table below; `build.ps1 -Audit` WARNs), fold the names into the parent hull group or a thematic pool. Every name individually verifiable (§3); never pad with generic thematic names.
 - No name shared with `CL`/`CA`/`BB`/`BC`/`CV` (FAIL). Overlap with `DD`/`SS` is a WARN, since an escort pool legitimately borders its parent hull. Role pools do not count toward the "6+ thematic pools" standard.
 
+**D. Regime-variant hull sets (vanilla parity only)**: where vanilla ships a second, `can_use`-gated hull set for a breakaway or alternate regime in the same file (the USA's Confederate lists, shared with `CSA`), keep it as vanilla built it: tags `<TAG3>_<HULL>_<SET>` (`CSA_DD_CONFEDERATE`, `USA_BB_CONFEDERATE`), `for_countries`, hull `ship_types` and prefix. `<SET>` must be listed under `variantSets` in `data/ship_types_canon.json` and the tag must exist in vanilla. The breakaway tag has no other lists, so the set stays hull-bound. Repair it (typos, wrong `ship_types`, focus gates) and keep `CL`/`CA`/`BB`/`BC`/`CV` mutually exclusive inside the set; depth targets and the ideology pool cap do not apply. Never author a new variant set.
+
 **Depth** (unique names). Small combat vessels are mass-produced in wartime, so lists must be deep enough not to fall back to numbered names:
 
 | Group | Target | Minor-navy minimum |
@@ -83,12 +85,12 @@ All commands take the form `powershell -File .\build.ps1 <switch>`.
 | `-Test` | Pester suite (engine invariants, docs sync). Required. |
 | `-VerifyShipTypes <TAG\|ALL>` | `ship_types` vs `data/ship_types_canon.json`: one `ship_types OK` line or one line per deviation; exit 1 on FAIL. |
 | `-SyncShipTypeCanon [-Write]` | After a HoI4 patch: diff vanilla against the canon. `-Write` refreshes tokens/meta; class rules are curated by hand. |
-| `-Audit <TAG>` | Standards report: depth, cross-class collisions (`CrossClass`), spelling variants (`CrossClassVariant`) and possible same-person pairs (`CrossClassPerson`, INFO), prefixes, display names, docs sync, plan TODOs. `-Group <A>,<B> -NamesOnly [-Sections]` prints compact name lines. |
+| `-Audit <TAG>` | Standards report: depth, cross-class collisions (`CrossClass`), spelling variants (`CrossClassVariant`) and possible same-person pairs (`CrossClassPerson`, INFO), prefixes, display names, tags vanilla script assigns by `name_group` (`VanillaReference`), `can_use` triggers (`CanUseTrigger`), docs sync, plan TODOs. `-Group <A>,<B> -NamesOnly [-Sections]` prints compact name lines. |
 | `-EditNames <TAG> -Group <GROUP> [-Remove "A; B"] [-Rename "Old=New"] [-Add "C; D" [-After <name> \| -Section <header>]] [-RenameSection "Old=New"] [-Quiet]` | Edit one group's names in place without opening the file; refuses misses and duplicates; drops section headers an edit empties; prints the updated names line. `-Group` accepts `CL` for `<TAG>_CL_HISTORICAL`. |
 | `-DiffNames <TAG> [-Base <rev>]` | Name-level diff against git (default `HEAD`): added / removed / moved names and attribute changes per group; input for plan change tables and reviews. |
 | `-AuditPlan <TAG>` | Create `docs/plans/<date>-<country>-audit.md` (initial report, TODO sections, change table generated from `-DiffNames`), or refresh only its table; `-Audit` reports unfilled TODOs as `PlanTodo`. |
 | `-SyncWiki <TAG>` | Sync `wiki/<Country>.md` display names and sample cells and the `wiki/Home.md` group count with the namelist; lists rows to add or remove by hand. |
-| `-InspectVanilla <TAG> [-Group <GROUP>]` | Vanilla groups, counts, prefix. |
+| `-InspectVanilla <TAG> [-Group <GROUP>]` | Vanilla groups, counts, prefix, and the tags vanilla script assigns by `name_group`. |
 | `-Package` | Clean staging and zip; `.git`, `.github`, `tests`, scripts and docs must be excluded. |
 | `-DevLink` | Zero-copy live link for the Paradox launcher. |
 
@@ -106,12 +108,13 @@ All commands take the form `powershell -File .\build.ps1 <switch>`.
   - `DD` `destroyer ship_hull_light`; `CL` `light_cruiser ship_hull_cruiser`; `CA` `heavy_cruiser ship_hull_cruiser`; `CV` `carrier ship_hull_carrier`; `BC` `battle_cruiser ship_hull_heavy`.
   - `BB` `battleship ship_hull_heavy` (+ `battle_cruiser` only when the file has no BC group).
   - `SS` `submarine ship_hull_submarine` (optionally `ship_hull_midget_submarine`, `ship_hull_cruiser_submarine`).
-  - Thematic and role pools: no `ship_types`.
+  - Thematic and role pools: no `ship_types`. A regime-variant hull set (§2D) follows the class set of its hull.
 - `unique = { ... }` holds name strings. Integer keys in `ordered = { ... }` must be unique (duplicates silently overwrite earlier entries). Never leave an empty `unique` or `ordered` block.
 - `fallback_name`: authentic native naval term, not a literal translation (Swedish BC `"Slagkryssare %d"`, not `"Stridsskepp %d"`), in the indefinite nominative singular (`"Slagkrydser %d"`, `"Jager %d"`; never definite `-en` forms like `"Slagkrydseren %d"` or `"Cruiseren %d"`). Watch homonym calques: "Light Cruiser" as illumination (Scandinavian `"Lys"`) instead of displacement (`"Let"`, `"Lett"`, `"Lätt"`, `"Leicht"`).
 - Display names: ≤ 30–32 characters (§2).
 - `link_numbering_with` links only to other groups, never to its own group.
-- `can_use = { ... }`: optional group trigger evaluated in `Country` scope. Used for ideology gating with `has_government = democratic|neutrality|fascism|communism` (with boolean operators `NOT = { ... }` or `OR = { ... }`). Never use focus triggers (`has_completed_focus`), decisions, or event flags that cause mod incompatibilities.
+- `can_use = { ... }`: optional group trigger evaluated in `Country` scope. Used for ideology gating with `has_government = democratic|neutrality|fascism|communism` (with boolean operators `NOT = { ... }` or `OR = { ... }`); a regime-variant set may also test `tag = <TAG>`. Never use focus triggers (`has_completed_focus`), decisions, or event flags that cause mod incompatibilities (`-Audit` fails every trigger other than `has_government` and `tag` as `CanUseTrigger`).
+- A mod file shadows the whole vanilla file (§6), so every tag that vanilla script assigns with `name_group` (starting variants in `history/countries`, focus and decision rewards) must stay defined under its vanilla tag, even when it becomes a role pool (`USA_CVL_HISTORICAL`, `USA_MINELAYERS_HISTORICAL`). `-InspectVanilla` lists these tags and `-Audit` fails a missing one (`VanillaReference`).
 - Root-level group tags are unique across the whole repository: never defined twice within a file or across files.
 
 ## 8. Workspace

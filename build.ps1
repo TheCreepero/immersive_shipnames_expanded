@@ -798,6 +798,7 @@ function Get-NamelistGroups {
                 HasPrefix     = $prefixM.Success
                 Prefix        = if ($prefixM.Success) { $prefixM.Groups[1].Value } else { "" }
                 Fallback      = if ($fallbackM.Success) { $fallbackM.Groups[1].Value } else { "N/A" }
+                HasCanUse     = [bool]($cleanBlock -match '(?m)^\s*can_use\s*=')
                 Names         = $names
                 Count         = $names.Count
                 SampleNames   = ($samples -join ', ')
@@ -824,8 +825,35 @@ function Get-RolePoolSuffixes {
         'FAST_BATTLESHIPS', 'LARGE_CRUISERS', 'ARMORED_CRUISERS', 'LIGHT_CARRIERS',
         'SEAPLANE_TENDERS',
         'CRUISER_SUBMARINES', 'COASTAL_SUBMARINES', 'MINELAYING_SUBMARINES',
-        'AUXILIARY_CRUISERS', 'TRAINING_SHIPS', 'ICEBREAKERS', 'SUBMARINE_TENDERS', 'STATE_YACHTS'
+        'AUXILIARY_CRUISERS', 'TRAINING_SHIPS', 'ICEBREAKERS', 'SUBMARINE_TENDERS', 'STATE_YACHTS',
+        'AA_CRUISERS',
+        # Vanilla tags that vanilla script still assigns with name_group (USA: the starting Oglala Class and the
+        # focus-built Casablanca Class), so the role pool keeps its vanilla tag instead of the catalogue suffix
+        'MINELAYERS_HISTORICAL', 'CVL_HISTORICAL'
     )
+}
+
+# --- Helper: Name group tags of a TAG that vanilla script assigns with name_group (history files, focus and decision rewards) ---
+# A mod file shadows the whole vanilla namelist, so a tag referenced here must stay defined or the variant loses its names.
+function Get-VanillaNameGroupRefs {
+    param(
+        [string]$Hoi4Dir,
+        # Tag prefixes of the vanilla file's groups: the nation's own, plus a breakaway's (USA and CSA)
+        [string[]]$Tags
+    )
+    $refs = [System.Collections.Generic.HashSet[string]]::new()
+    $rx = [regex]"name_group\s*=\s*((?:$(($Tags | ForEach-Object { [regex]::Escape($_) }) -join '|'))_[A-Z0-9_]+)"
+    foreach ($d in @('history\countries', 'common\national_focus', 'common\scripted_effects', 'common\decisions', 'common\special_projects', 'events')) {
+        $p = Join-Path $Hoi4Dir $d
+        if (-not (Test-Path $p)) { continue }
+        foreach ($f in (Get-ChildItem -Path $p -Filter *.txt -Recurse -File)) {
+            $text = [System.IO.File]::ReadAllText($f.FullName)
+            if ($text.IndexOf('name_group') -lt 0) { continue }
+            foreach ($m in $rx.Matches($text)) { [void]$refs.Add($m.Groups[1].Value) }
+        }
+    }
+    # Unrolled on purpose: callers pipe the tags (wrap in @() for a count)
+    return @($refs | Sort-Object)
 }
 
 # --- Helper: Spelling-insensitive comparison key for a ship name ---
@@ -933,7 +961,8 @@ function Get-NamelistAuditFindings {
         [string]$Tag,
         [string]$RepoDir,
         [object[]]$VanillaGroups,
-        [object]$Canon
+        [object]$Canon,
+        [string[]]$VanillaReferencedTags
     )
 
     $findings = [System.Collections.Generic.List[psobject]]::new()
@@ -958,6 +987,8 @@ function Get-NamelistAuditFindings {
         CV = @{ Target = 30;  Floor = 30 }
         THEME = @{ Target = 35; Floor = 20 }
         ROLE = @{ Target = 20; Floor = 10 }
+        # Regime-variant hull sets are vanilla content kept for parity: no depth quota
+        VARIANT = @{ Target = 0; Floor = 0 }
     }
     $hulls = @('DD', 'SS', 'CL', 'CA', 'BB', 'BC', 'CV')
     $roleTags = @(Get-RolePoolSuffixes | ForEach-Object { "${Tag}_$_" })
@@ -965,13 +996,23 @@ function Get-NamelistAuditFindings {
     $byClass = @{}
     $themes = @()
     $roles = @()
+    $variants = @()
     foreach ($g in $Groups) {
         $m = [regex]::Match($g.GroupTag, "^$([regex]::Escape($Tag))_(DD|SS|CL|CA|BB|BC|CV)_HISTORICAL$")
-        $cls = if ($m.Success) { $m.Groups[1].Value } elseif ($roleTags -contains $g.GroupTag) { 'ROLE' } else { 'THEME' }
+        # Regime-variant hull group: a can_use-gated second hull set kept from vanilla, possibly under the breakaway's
+        # tag (USA's Confederate lists, shared with CSA: CSA_DD_CONFEDERATE, USA_BB_CONFEDERATE)
+        $vm = if (-not $m.Success -and $g.HasCanUse) { [regex]::Match($g.GroupTag, '^[A-Z0-9]{3}_(DD|SS|CL|CA|BB|BC|CV)_([A-Z0-9]+)$') } else { $null }
+        # Only the vanilla sets listed in the canon (variantSets) qualify; any other gated pool is graded as a thematic pool
+        $isVariant = $vm -and $vm.Success -and $Canon -and @($Canon.variantSets) -contains $vm.Groups[2].Value
+        $cls = if ($m.Success) { $m.Groups[1].Value } elseif ($roleTags -contains $g.GroupTag) { 'ROLE' } elseif ($isVariant) { 'VARIANT' } else { 'THEME' }
         $g | Add-Member -NotePropertyName Class -NotePropertyValue $cls -Force
         $g | Add-Member -NotePropertyName Target -NotePropertyValue $quotas[$cls].Target -Force
-        if ($cls -eq 'THEME') { $themes += $g } elseif ($cls -eq 'ROLE') { $roles += $g } else { $byClass[$cls] = $g }
-        if (-not $g.GroupTag.StartsWith("${Tag}_")) {
+        if ($cls -eq 'THEME') { $themes += $g } elseif ($cls -eq 'ROLE') { $roles += $g } elseif ($cls -eq 'VARIANT') {
+            $g | Add-Member -NotePropertyName VariantHull -NotePropertyValue $vm.Groups[1].Value -Force
+            $g | Add-Member -NotePropertyName VariantSet -NotePropertyValue $vm.Groups[2].Value -Force
+            $variants += $g
+        } else { $byClass[$cls] = $g }
+        if ($cls -ne 'VARIANT' -and -not $g.GroupTag.StartsWith("${Tag}_")) {
             Add-Finding 'WARN' 'TagNaming' $g.GroupTag "Group tag does not start with '${Tag}_'"
         }
     }
@@ -1006,6 +1047,43 @@ function Get-NamelistAuditFindings {
     } else {
         Add-Finding 'INFO' 'ShipTypes' '-' "ship_types check skipped (data/ship_types_canon.json not found)"
     }
+    # Name groups that vanilla script assigns by tag must stay defined (the mod file shadows the whole vanilla file)
+    if ($VanillaReferencedTags) {
+        $defined = @($Groups | ForEach-Object { $_.GroupTag })
+        $lost = @($VanillaReferencedTags | Where-Object { $defined -notcontains $_ })
+        if ($lost.Count -gt 0) {
+            Add-Finding 'FAIL' 'VanillaReference' '-' "Vanilla script sets name_group to tags this file does not define: $(Format-NameList $lost)"
+        }
+    }
+    # can_use may test government or tag only: focus, decision, flag and idea triggers break under overhauls and regime flips
+    foreach ($g in $Groups) {
+        if (-not $g.HasCanUse) { continue }
+        $clean = $g.RawBlock -replace '(?m)#.*$', ''
+        $start = [regex]::Match($clean, 'can_use\s*=\s*\{')
+        $end = $start.Index + $start.Length
+        $depth = 1
+        while ($end -lt $clean.Length -and $depth -gt 0) {
+            if ($clean[$end] -eq '{') { $depth++ } elseif ($clean[$end] -eq '}') { $depth-- }
+            $end++
+        }
+        $body = $clean.Substring($start.Index + $start.Length, $end - $start.Index - $start.Length)
+        $bad = @([regex]::Matches($body, '([A-Za-z_][A-Za-z0-9_]*)\s*=') | ForEach-Object { $_.Groups[1].Value } |
+            Where-Object { $_ -notin @('OR', 'AND', 'NOT', 'has_government', 'tag') } | Select-Object -Unique)
+        if ($bad.Count -gt 0) {
+            Add-Finding 'FAIL' 'CanUseTrigger' $g.GroupTag "can_use uses $($bad -join ', '); gate with has_government or tag"
+        }
+    }
+    if ($variants.Count -gt 0) {
+        $sets = @($variants | Group-Object VariantSet | ForEach-Object { "$($_.Name) ($(($_.Group | ForEach-Object { "$($_.VariantHull) $($_.Count)" }) -join ', '))" })
+        Add-Finding 'INFO' 'VariantSet' '-' "Regime-variant hull sets kept from vanilla: $($sets -join '; ')"
+        # A variant set is vanilla content kept for parity; a tag vanilla does not define is a newly authored set
+        if ($null -ne $VanillaGroups) {
+            $vanillaTags = @($VanillaGroups | ForEach-Object { $_.GroupTag })
+            foreach ($g in ($variants | Where-Object { $vanillaTags -notcontains $_.GroupTag })) {
+                Add-Finding 'FAIL' 'VariantSet' $g.GroupTag "Not a vanilla group; regime-variant hull sets are kept from vanilla, never authored"
+            }
+        }
+    }
 
     # 3. Collisions: intra-group duplicates, cross-class overlaps, BB/BC mirroring
     foreach ($g in $Groups) {
@@ -1026,6 +1104,20 @@ function Get-NamelistAuditFindings {
                     if ($minCount -gt 0 -and ($inter.Count / $minCount) -ge 0.3) {
                         Add-Finding 'FAIL' 'BBBCMirror' 'BB/BC' "$($inter.Count) of $minCount names shared; specialize BB vs BC doctrine"
                     }
+                }
+            }
+        }
+    }
+
+    # Regime-variant hull sets: the same decoupling inside each set
+    foreach ($set in ($variants | Group-Object VariantSet)) {
+        $vMajor = @($set.Group | Where-Object { $_.VariantHull -in @('CL', 'CA', 'BB', 'BC', 'CV') })
+        for ($a = 0; $a -lt $vMajor.Count; $a++) {
+            for ($b = $a + 1; $b -lt $vMajor.Count; $b++) {
+                $ga = $vMajor[$a]; $gb = $vMajor[$b]
+                $inter = @($ga.Names | Where-Object { $gb.Names -ccontains $_ } | Select-Object -Unique)
+                if ($inter.Count -gt 0) {
+                    Add-Finding 'FAIL' 'CrossClass' "$($set.Name) $($ga.VariantHull)/$($gb.VariantHull)" (Format-NameList $inter)
                 }
             }
         }
@@ -1098,7 +1190,8 @@ function Get-NamelistAuditFindings {
             Add-Finding 'FAIL' 'PrefixSpace' $g.GroupTag "Prefix '$($g.Prefix)' lacks trailing space"
         }
     }
-    $prefixCounts = @($Groups | Where-Object { $_.Prefix } | Group-Object Prefix | Sort-Object Count -Descending)
+    # A regime-variant set may carry its own prefix (CSS), so it never sets or breaks the national prefix
+    $prefixCounts = @($Groups | Where-Object { $_.Prefix -and $_.Class -ne 'VARIANT' } | Group-Object Prefix | Sort-Object Count -Descending)
     $dominant = if ($prefixCounts.Count -gt 0) { $prefixCounts[0].Name } else { '' }
     # Vanilla hull-specific prefix scheme (e.g. ITA: RCT/RI/RN/RSmg): parity is checked per group, not against one national prefix
     $vPrefixes = if ($null -ne $VanillaGroups) { @($VanillaGroups | Where-Object { $_.Prefix } | ForEach-Object { $_.Prefix } | Select-Object -Unique) } else { @() }
@@ -1116,7 +1209,7 @@ function Get-NamelistAuditFindings {
             }
         }
     } elseif ($dominant) {
-        $off = @($Groups | Where-Object { $_.Prefix -ne $dominant } | ForEach-Object { $_.GroupTag -replace "^$([regex]::Escape($Tag))_", '' })
+        $off = @($Groups | Where-Object { $_.Class -ne 'VARIANT' -and $_.Prefix -ne $dominant } | ForEach-Object { $_.GroupTag -replace "^$([regex]::Escape($Tag))_", '' })
         if ($off.Count -gt 0) {
             Add-Finding 'FAIL' 'PrefixInconsistent' '-' "Dominant prefix '$dominant' missing/different in: $(Format-NameList $off)"
         }
@@ -1271,6 +1364,12 @@ function Get-ShipTypeFindings {
     foreach ($g in $Groups) {
         $present = if ($g.ShipTypes -eq 'N/A') { @() } else { @($g.ShipTypes -split '\s+' | Where-Object { $_ }) }
         $m = [regex]::Match($g.GroupTag, '_(DD|SS|CL|CA|BB|BC|CV)_HISTORICAL$')
+        # A can_use-gated regime-variant hull group (CSA_DD_CONFEDERATE) is hull-bound like its HISTORICAL counterpart;
+        # only the vanilla sets listed in the canon qualify, so a new gated pool cannot claim hull binding
+        if (-not $m.Success -and $g.HasCanUse) {
+            $vm = [regex]::Match($g.GroupTag, '^[A-Z0-9]{3}_(DD|SS|CL|CA|BB|BC|CV)_([A-Z0-9]+)$')
+            if ($vm.Success -and @($Canon.variantSets) -contains $vm.Groups[2].Value) { $m = $vm }
+        }
         if (-not $m.Success) {
             if ($present.Count -gt 0) {
                 Add-TypeFinding 'FAIL' 'ThemeRestricted' $g.GroupTag "Thematic pool restricts ship_types ($($g.ShipTypes)); omit for universal selection"
@@ -1415,7 +1514,9 @@ function Invoke-SyncShipTypeCanon {
             $comma = if ($i -lt $classNames.Count - 1) { ',' } else { '' }
             [void]$sb.AppendLine("    `"$($classNames[$i])`": { `"required`": [$(& $join @($rule.required))], `"optional`": [$(& $join @($rule.optional))] }$comma")
         }
-        [void]$sb.AppendLine('  }')
+        [void]$sb.AppendLine('  },')
+        # Curated by hand like the class rules: suffixes of vanilla regime-variant hull sets (CLAUDE.md section 2D)
+        [void]$sb.AppendLine("  `"variantSets`": [$(& $join @($canon.variantSets))]")
         [void]$sb.AppendLine('}')
         [System.IO.File]::WriteAllText($ShipTypeCanonPath, $sb.ToString(), (New-Object System.Text.UTF8Encoding $false))
         Write-Host "Wrote $ShipTypeCanonPath (tokens and meta refreshed; class rules preserved)."
@@ -1503,7 +1604,14 @@ function Get-TagAuditFindings {
             if (Test-Path $vp) { $vanillaGroups = Get-NamelistGroups -Path $vp; break }
         }
     }
-    return , (Get-NamelistAuditFindings -Groups $Groups -Tag $Tag -RepoDir $RepoDir -VanillaGroups $vanillaGroups -Canon (Get-ShipTypeCanon))
+    # name_group also names railway-gun and other lists, so only tags of the vanilla ship namelist count
+    $referenced = @()
+    if ($vanillaGroups) {
+        $vanillaTags = @($vanillaGroups | ForEach-Object { $_.GroupTag })
+        $prefixes = @($vanillaTags | ForEach-Object { ($_ -split '_')[0] } | Select-Object -Unique)
+        $referenced = @(Get-VanillaNameGroupRefs -Hoi4Dir $hoi4Dir -Tags $prefixes | Where-Object { $vanillaTags -contains $_ })
+    }
+    return , (Get-NamelistAuditFindings -Groups $Groups -Tag $Tag -RepoDir $RepoDir -VanillaGroups $vanillaGroups -Canon (Get-ShipTypeCanon) -VanillaReferencedTags $referenced)
 }
 
 # --- Helper: Audit findings as report lines, FAIL first ---
@@ -2192,6 +2300,10 @@ function Invoke-InspectVanilla {
     } else {
         Write-Host "`nFound $($groups.Count) ship name groups in vanilla for ${Tag}:" -ForegroundColor Green
         $groups | Select-Object GroupTag, ShipTypes, Prefix, Count, SampleNames | Format-Table -AutoSize
+        $tags = @($groups | ForEach-Object { $_.GroupTag })
+        $prefixes = @($tags | ForEach-Object { ($_ -split '_')[0] } | Select-Object -Unique)
+        $referenced = @(Get-VanillaNameGroupRefs -Hoi4Dir $hoi4Dir -Tags $prefixes | Where-Object { $tags -contains $_ })
+        if ($referenced.Count -gt 0) { Write-Host "Assigned by vanilla script (name_group); keep these tags defined: $($referenced -join ', ')" }
     }
 }
 

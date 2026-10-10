@@ -92,8 +92,10 @@ Development rules and the namelist authoring runbook are maintained as mirrored 
 | `PER` | Iran | `PER_ship_names.txt` |
 | `PHI` | Philippines | `PHI_ship_names.txt` |
 | `POR` | Portugal | `POR_ship_names.txt` |
+| `PRU` | Peru | `PRU_ship_names.txt` |
 | `SWE` | Sweden | `SWE_ship_names.txt` |
 | `TUR` | Turkey | `TUR_ship_names.txt` |
+| `USA` | United States | `USA_ship_names.txt` |
 | `YUG` | Yugoslavia | `YUG_ship_names.txt` |
 
 Candidate nations for future namelists are ranked in [docs/ROADMAP.md](docs/ROADMAP.md).

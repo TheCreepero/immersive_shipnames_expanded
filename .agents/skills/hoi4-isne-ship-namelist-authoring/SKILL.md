@@ -59,7 +59,7 @@ Catalogue (a prompt, not a ceiling; tag = `<TAG>_` + suffix):
 | Convoy escort & ASW | `ESCORT_CARRIERS`, `ESCORT_DESTROYERS`, `CORVETTES`, `FRIGATES`, `SLOOPS`, `AVISOS`, `PATROL_VESSELS` (coast guard, armed trawlers) | carrier hull; light hull |
 | Scouting & torpedo craft | `SCOUT_CRUISERS`, `FLOTILLA_LEADERS`, `TORPEDO_BOATS`, `FAST_ATTACK_CRAFT` | cruiser or light hull |
 | Coastal & riverine | `COASTAL_DEFENSE` (only where its formula differs from `CA`), `MONITORS`, `GUNBOATS` | heavy, cruiser or light hull |
-| Capital & carrier sub-types | `FAST_BATTLESHIPS`, `LARGE_CRUISERS`, `ARMORED_CRUISERS` (pre-1914 legacy), `LIGHT_CARRIERS` | heavy, cruiser or carrier hull |
+| Capital & carrier sub-types | `FAST_BATTLESHIPS`, `LARGE_CRUISERS`, `ARMORED_CRUISERS` (pre-1914 legacy), `AA_CRUISERS`, `LIGHT_CARRIERS` | heavy, cruiser or carrier hull |
 | Aviation support | `SEAPLANE_TENDERS` | light, cruiser or carrier hull |
 | Submarine sub-types | `CRUISER_SUBMARINES`, `COASTAL_SUBMARINES` (incl. midget), `MINELAYING_SUBMARINES` | submarine hull |
 | Auxiliary & converted | `AUXILIARY_CRUISERS` (merchant raiders, armed merchant cruisers), `TRAINING_SHIPS`, `ICEBREAKERS`, `SUBMARINE_TENDERS`, `STATE_YACHTS` | light or cruiser hull |
@@ -85,6 +85,9 @@ Role-pool specifics beyond §2C: fallback in native indefinite nominative; displ
 - **Doctrinal formulas** worth keeping (Argentina: submarines after provinces starting with "S").
 - **Anachronisms** (divisions or cities created after 1945).
 - **Prefix usage** (e.g. `NRB `, or none).
+- **Tags vanilla script assigns** (printed under the table): starting variants and focus rewards pick a list with `name_group`, so those tags must stay defined (`GEMINI.md` §7). A hull-bound sub-type list among them (the USA's `USA_CVL_HISTORICAL`) becomes a role pool under its vanilla tag; add the suffix to `Get-RolePoolSuffixes`.
+- **Regime-variant hull sets** (the USA's Confederate lists): keep and repair, never extend or rebuild (`GEMINI.md` §2D).
+- **Deep vanilla files** (USA): work as a delta. Keep every list, fix it, decouple it and add pools; pull bulk class rosters by script from list pages instead of through the researcher, and let the dossier cover conventions, decoupling rulings and verification.
 
 ### Step 1: Researcher dispatch
 Web research floods the context, so delegate it. Invoke a subagent via `invoke_subagent` (`Role: "Historical Researcher"`, `TypeName: "research"` or `"self"`, `Model: "pro"` or `"inherit"`) and have it read and follow the brief in `.claude/agents/isne-historical-researcher.md` (body below the frontmatter); do not paste the brief into your own context. Prompt: country and TAG; the Step 0 findings (anomalies, prefix, existing tags and counts); any focus (canceled programs, an ideological path, regional folklore); nation-specific role hints (e.g. a known minelayer or escort program). It returns a structured dossier; never paste raw web research into the main context.

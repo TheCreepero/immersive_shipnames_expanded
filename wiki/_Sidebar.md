@@ -14,10 +14,12 @@
 - [Italy](Italy)
 - [Mexico](Mexico)
 - [Norway](Norway)
+- [Peru](Peru)
 - [Philippines](Philippines)
 - [Portugal](Portugal)
 - [Sweden](Sweden)
 - [Turkey](Turkey)
+- [United States](United-States)
 - [Yugoslavia](Yugoslavia)
 
 ---

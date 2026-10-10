@@ -23,7 +23,7 @@ BeforeAll {
 
     $script:Canon = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot "data\ship_types_canon.json"), [System.Text.Encoding]::UTF8) | ConvertFrom-Json
 
-    foreach ($fn in @('Get-NamelistGroups', 'Get-NamelistAuditFindings', 'Get-ShipTypeFindings', 'Get-ShipTypeCanon', 'Get-RolePoolSuffixes', 'Get-NameVariantKey', 'Edit-NamelistGroupText', 'Compare-NamelistGroupSets', 'Format-NamelistDiff',
+    foreach ($fn in @('Get-NamelistGroups', 'Get-NamelistAuditFindings', 'Get-ShipTypeFindings', 'Get-ShipTypeCanon', 'Get-RolePoolSuffixes', 'Get-VanillaNameGroupRefs', 'Get-NameVariantKey', 'Edit-NamelistGroupText', 'Compare-NamelistGroupSets', 'Format-NamelistDiff',
             'Resolve-GroupTag', 'Get-GroupSections', 'Get-PersonKeyWords', 'Get-OrphanHeaderLines', 'Format-PlanChangeTable',
             'Set-PlanChangeTable', 'New-AuditPlanText', 'Update-WikiGroupRows', 'Format-AuditFindingLines', 'Format-AuditSummary',
             'Find-WikiProseMentions')) {
@@ -332,6 +332,98 @@ Describe "build.ps1 Helper: Get-NamelistAuditFindings" {
         $f[0].Detail | Should -Match 'target 35'
     }
 
+    It "Grades a role pool kept under its vanilla tag (CVL_HISTORICAL) as a role pool" {
+        $role = New-FixtureGroup 'TST_CVL_HISTORICAL' '' (New-NameRange 'Cvl' 20) 'TNS ' '"Light & Escort Carriers"'
+        $findings = Invoke-FixtureAudit ((Get-CompliantFixtureText) + $role)
+        @($findings | Where-Object { $_.Severity -ne 'INFO' }).Count | Should -Be 0
+    }
+
+    It "Accepts a can_use-gated regime-variant hull set with its own tag and prefix, and decouples inside the set" {
+        $gate = "`tfor_countries = { TSB TST }`n`tcan_use = { OR = { tag = TSB has_government = fascism } }"
+        $variant = ((New-FixtureGroup 'TSB_DD_CONFEDERATE' 'ship_hull_light destroyer' (New-NameRange 'Rd' 5) 'TRS ') +
+            (New-FixtureGroup 'TSB_CL_CONFEDERATE' 'ship_hull_cruiser light_cruiser' @('Shared', 'Rc 1') 'TRS ') +
+            (New-FixtureGroup 'TST_BB_CONFEDERATE' 'ship_hull_heavy battleship' @('Rb 1', 'Rb 2') 'TRS ')) -replace "`tfor_countries = \{ TST \}", $gate
+        $findings = Invoke-FixtureAudit ((Get-CompliantFixtureText) + $variant)
+        @($findings | Where-Object { $_.Severity -ne 'INFO' }).Count | Should -Be 0
+        $info = @($findings | Where-Object { $_.Check -eq 'VariantSet' })
+        $info.Count | Should -Be 1
+        $info[0].Detail | Should -Match 'CONFEDERATE \(DD 5, CL 2, BB 2\)'
+
+        $clash = Invoke-FixtureAudit ((Get-CompliantFixtureText) + ($variant -replace '"Rb 1"', '"Shared"'))
+        $f = @($clash | Where-Object { $_.Check -eq 'CrossClass' })
+        $f.Count | Should -Be 1
+        $f[0].Group | Should -Be 'CONFEDERATE CL/BB'
+
+        # Without can_use the same tag is an ordinary pool, so its ship_types are rejected
+        $ungated = (Get-CompliantFixtureText) + (New-FixtureGroup 'TSB_DD_CONFEDERATE' 'ship_hull_light destroyer' (New-NameRange 'Rd' 35) 'TNS ')
+        @(Invoke-FixtureAudit $ungated | Where-Object { $_.Check -eq 'ThemeRestricted' }).Count | Should -Be 1
+    }
+
+    It "Refuses a newly authored variant set: a suffix outside the canon list, or a tag vanilla does not define" {
+        $gate = "`tfor_countries = { TST }`n`tcan_use = { has_government = fascism }"
+        # A gated pool with a hull-shaped tag and a suffix the canon does not list stays an ordinary pool
+        $invented = (New-FixtureGroup 'TST_BB_FASCIST' 'ship_hull_heavy battleship' (New-NameRange 'Fb' 35) 'TNS ') -replace "`tfor_countries = \{ TST \}", $gate
+        $findings = Invoke-FixtureAudit ((Get-CompliantFixtureText) + $invented)
+        @($findings | Where-Object { $_.Check -eq 'ThemeRestricted' -and $_.Group -eq 'TST_BB_FASCIST' }).Count | Should -Be 1
+        @($findings | Where-Object { $_.Check -eq 'VariantSet' }).Count | Should -Be 0
+
+        # A listed suffix still fails when vanilla has no such group
+        $copied = (New-FixtureGroup 'TST_BB_CONFEDERATE' 'ship_hull_heavy battleship' (New-NameRange 'Cb' 5) 'TNS ') -replace "`tfor_countries = \{ TST \}", $gate
+        $tempFile = [System.IO.Path]::GetTempFileName()
+        try {
+            [System.IO.File]::WriteAllText($tempFile, (Get-CompliantFixtureText), (New-Object System.Text.UTF8Encoding $false))
+            $vanilla = Get-NamelistGroups -Path $tempFile
+            [System.IO.File]::WriteAllText($tempFile, ((Get-CompliantFixtureText) + $copied), (New-Object System.Text.UTF8Encoding $false))
+            $findings = Get-NamelistAuditFindings -Groups (Get-NamelistGroups -Path $tempFile) -Tag 'TST' -VanillaGroups $vanilla -Canon $script:Canon
+            $f = @($findings | Where-Object { $_.Check -eq 'VariantSet' -and $_.Severity -eq 'FAIL' })
+            $f.Count | Should -Be 1
+            $f[0].Group | Should -Be 'TST_BB_CONFEDERATE'
+        }
+        finally {
+            if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
+        }
+    }
+
+    It "Fails a can_use gated behind a national focus (CanUseTrigger)" {
+        $gated = (New-FixtureGroup 'TST_FASCISM' '' (New-NameRange 'Fa' 35) 'TNS ' '"Regime"') -replace "(`tfor_countries = \{ TST \})", "`$1`n`tcan_use = { has_completed_focus = TST_some_focus }"
+        $findings = Invoke-FixtureAudit ((Get-CompliantFixtureText) + $gated)
+        $f = @($findings | Where-Object { $_.Check -eq 'CanUseTrigger' })
+        $f.Count | Should -Be 1
+        $f[0].Severity | Should -Be 'FAIL'
+        $f[0].Group | Should -Be 'TST_FASCISM'
+
+        $byGovernment = $gated -replace 'has_completed_focus = TST_some_focus', 'OR = { has_government = fascism NOT = { tag = TSB } }'
+        @(Invoke-FixtureAudit ((Get-CompliantFixtureText) + $byGovernment) | Where-Object { $_.Check -eq 'CanUseTrigger' }).Count | Should -Be 0
+
+        # Only government and tag tests are allowed, so ideas and cosmetic tags fail too
+        $byIdea = $gated -replace 'has_completed_focus = TST_some_focus', 'OR = { has_government = fascism has_idea = TST_some_idea has_cosmetic_tag = TST_x }'
+        $findings = Invoke-FixtureAudit ((Get-CompliantFixtureText) + $byIdea)
+        $f = @($findings | Where-Object { $_.Check -eq 'CanUseTrigger' })
+        $f.Count | Should -Be 1
+        $f[0].Detail | Should -Match 'has_idea, has_cosmetic_tag'
+
+        # A gate does not license ship_types on an ordinary pool
+        $bound = $byGovernment -replace "`ttype = ship`n", "`ttype = ship`n`tship_types = { ship_hull_light destroyer }`n"
+        @(Invoke-FixtureAudit ((Get-CompliantFixtureText) + $bound) | Where-Object { $_.Check -eq 'ThemeRestricted' }).Count | Should -Be 1
+    }
+
+    It "Fails when a tag that vanilla script assigns by name_group is no longer defined (VanillaReference)" {
+        $tempFile = [System.IO.Path]::GetTempFileName()
+        try {
+            [System.IO.File]::WriteAllText($tempFile, (Get-CompliantFixtureText), (New-Object System.Text.UTF8Encoding $false))
+            $groups = Get-NamelistGroups -Path $tempFile
+            $findings = Get-NamelistAuditFindings -Groups $groups -Tag 'TST' -Canon $script:Canon -VanillaReferencedTags @('TST_DD_HISTORICAL', 'TST_CVL_HISTORICAL')
+            $f = @($findings | Where-Object { $_.Check -eq 'VanillaReference' })
+            $f.Count | Should -Be 1
+            $f[0].Severity | Should -Be 'FAIL'
+            $f[0].Detail | Should -Match 'TST_CVL_HISTORICAL'
+            $f[0].Detail | Should -Not -Match 'TST_DD_HISTORICAL'
+        }
+        finally {
+            if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
+        }
+    }
+
     It "Warns on wiki sample names missing from their group, accepting shortened forms" {
         $repo = Join-Path ([System.IO.Path]::GetTempPath()) ("isne_fixture_" + [guid]::NewGuid().ToString('N'))
         try {
@@ -604,6 +696,33 @@ Describe "build.ps1 Helper: Get-ShipTypeFindings" {
         $f = @(Invoke-FixtureTypeCheck $text | Where-Object { $_.Check -eq 'ThemeRestricted' })
         $f.Count | Should -Be 1
         $f[0].Group | Should -Be 'TST_WINDS'
+    }
+
+    It "Checks a can_use-gated regime-variant hull group against its hull class (CSA_CL_CONFEDERATE)" {
+        $gate = "`tfor_countries = { TSB TST }`n`tcan_use = { tag = TSB }"
+        $good = (New-FixtureGroup 'TSB_CL_CONFEDERATE' 'ship_hull_cruiser light_cruiser' (New-NameRange 'Rc' 5) 'TRS ') -replace "`tfor_countries = \{ TST \}", $gate
+        @(Invoke-FixtureTypeCheck ((Get-CompliantFixtureText) + $good)).Count | Should -Be 0
+
+        # Vanilla's Confederate light cruiser list is bound to destroyer hulls
+        $bad = $good -replace 'ship_hull_cruiser light_cruiser', 'ship_hull_light destroyer'
+        $f = @(Invoke-FixtureTypeCheck ((Get-CompliantFixtureText) + $bad))
+        ($f | Where-Object { $_.Check -eq 'WrongClassToken' }).Group | Should -Be 'TSB_CL_CONFEDERATE'
+        ($f | Where-Object { $_.Check -eq 'MissingRequired' }).Group | Should -Be 'TSB_CL_CONFEDERATE'
+    }
+
+    It "Collects name_group tags from vanilla script for several tag prefixes (Get-VanillaNameGroupRefs)" {
+        $root = Join-Path ([System.IO.Path]::GetTempPath()) ("isne_refs_" + [guid]::NewGuid().ToString('N'))
+        try {
+            New-Item -ItemType Directory -Force (Join-Path $root 'history/countries'), (Join-Path $root 'common/national_focus') | Out-Null
+            $utf8 = New-Object System.Text.UTF8Encoding $false
+            [System.IO.File]::WriteAllText((Join-Path $root 'history/countries/TST - Testland.txt'), "create_equipment_variant = { name_group = TST_DD_HISTORICAL }`nname_group = OTH_BB_HISTORICAL`n", $utf8)
+            [System.IO.File]::WriteAllText((Join-Path $root 'common/national_focus/tst.txt'), "name_group = TST_CVL_HISTORICAL`nname_group=TSB_DD_CONFEDERATE`n", $utf8)
+            $refs = @(Get-VanillaNameGroupRefs -Hoi4Dir $root -Tags @('TST', 'TSB'))
+            ($refs -join ',') | Should -Be 'TSB_DD_CONFEDERATE,TST_CVL_HISTORICAL,TST_DD_HISTORICAL'
+        }
+        finally {
+            if (Test-Path $root) { Remove-Item -Recurse -Force $root }
+        }
     }
 }
 

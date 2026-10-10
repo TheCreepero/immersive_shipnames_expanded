@@ -21,10 +21,12 @@
 | [Italy](Italy) | `ITA` | 30 | `ITA_ship_names.txt` |
 | [Mexico](Mexico) | `MEX` | 20 | `MEX_ship_names.txt` |
 | [Norway](Norway) | `NOR` | 19 | `NOR_ship_names.txt` |
+| [Peru](Peru) | `PRU` | 22 | `PRU_ship_names.txt` |
 | [Philippines](Philippines) | `PHI` | 18 | `PHI_ship_names.txt` |
 | [Portugal](Portugal) | `POR` | 14 | `POR_ship_names.txt` |
 | [Sweden](Sweden) | `SWE` | 18 | `SWE_ship_names.txt` |
 | [Turkey](Turkey) | `TUR` | 18 | `TUR_ship_names.txt` |
+| [United States](United-States) | `USA` | 41 | `USA_ship_names.txt` |
 | [Yugoslavia](Yugoslavia) | `YUG` | 16 | `YUG_ship_names.txt` |
 
 ---

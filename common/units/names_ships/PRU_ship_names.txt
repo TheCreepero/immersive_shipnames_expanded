@@ -1,0 +1,638 @@
+##### PERU NAVAL NAME LISTS (ISNE) #####
+# Note: Vanilla HoI4 PRU_ship_names.txt had these anomalies:
+# 1. Light and heavy cruisers shared one verbatim 10-name list; battleships and battlecruisers shared one 3-name list.
+# 2. Missing diacritics ("Ferre", "Capitán Quinones") and a duplicate entry ("Angamos" twice in SS).
+# 3. "Coronel Bolognesi", "Capitán Quiñones" and "Aguirre" sat in destroyers and in both cruiser lists.
+# 4. Untraceable names ("Gloriosa") and severe depth deficits (3 carriers, 3 battleships, 12 destroyers).
+
+### SHIP-TYPE SPECIFIC: DESTROYERS & ESCORTS ###
+PRU_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { PRU }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "BAP "
+	fallback_name = "Destructor %d"
+
+	unique = {
+		# Historic destroyers and escorts
+		"Almirante Guise" "Almirante Villar" "Teniente Rodríguez" "Castilla" "Palacios" "Ferré" "García y García" "Gálvez" "Diez Canseco"
+		# Officers of the Huáscar and the squadrons of 1866 and 1879
+		"Carvajal" "Villavicencio" "Montero" "Gárezon" "Velarde" "Santillana" "De los Heros" "Herrera" "Larrea"
+		"Juan Guillermo Moore" "Juan Fanning" "Astete" "Ferreyros" "Sánchez Lagomarsino" "Carrillo" "Nicolás Portal" "Oyague"
+		# Founders of the navy, explorers and naval scholars
+		"Vivero" "Carrasco" "Bouchard" "Boterín" "Valle Riestra" "Mariátegui"
+		"Stiglich" "Melo" "Caballero y Lastres"
+		# Historic gunboats, torpedo boats and transports
+		"Pilcomayo" "Chanchamayo" "República" "Alianza" "Talismán" "Chalaco" "Oroya" "Limeña" "Santa Rosa"
+		# Brigs, schooners and steamers of the early navy
+		"Sacramento" "Macedonia" "Belgrano" "Balcarce" "Coronel Spano" "Congreso" "Guayas" "Peruviana"
+		"Arequipeña" "Catalina" "Flor de Mar" "Yanacocha" "General Lerzundi"
+		# Warriors, messengers and regiments
+		"Chasqui" "Sinchi" "Auca" "Montonero" "Breñero" "Morochuco" "Húsares de Junín" "Legión Peruana" "Lancero"
+		"Cazador" "Dragón" "Granadero" "Coracero" "Guerrero" "Centinela" "Vigía" "Explorador" "Batidor" "Hondero"
+		# Andean weapons
+		"Huaraca" "Macana" "Champi" "Tumi" "Estólica"
+		# Storms, winds and swift phenomena
+		"Relámpago" "Rayo" "Trueno" "Centella" "Huracán" "Tormenta" "Tempestad" "Torbellino" "Ciclón" "Tifón"
+		"Vendaval" "Borrasca" "Chubasco" "Turbonada" "Ráfaga" "Remolino" "Paraca" "Virazón" "Terral" "Huayco"
+		"Aluvión" "Meteoro" "Bólido" "Cometa" "Fulgor" "Destello" "Flecha" "Lanza" "Dardo" "Saeta" "Venablo"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: SUBMARINES ###
+PRU_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { PRU }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "BAP "
+	fallback_name = "Submarino %d"
+
+	unique = {
+		# Submarine pioneers
+		"Toro Submarino" "Federico Blume" "Teniente Ferré" "Teniente Palacios"
+		# R-class names
+		"Islay" "Casma" "Pacocha" "Arica"
+		# Battle-name boats of the submarine force
+		"Dos de Mayo" "Abtao" "Angamos" "Iquique" "La Pedrera" "Antofagasta" "Pisagua" "Chipana"
+		# Battles and combats (extension of the battle formula)
+		"Alto de la Alianza" "San Juan" "Chorrillos" "Miraflores" "Huamachuco" "Pucará" "Marcavalle" "Concepción"
+		"Sangrar" "San Pablo" "San Francisco" "Zepita" "Zarumilla" "Quebrada Seca" "Higos Urco"
+		# Predators of the Humboldt Current and the Amazon
+		"Tiburón" "Tintorera" "Tollo" "Pez Espada" "Pez Vela" "Merlín Negro" "Albacora" "Atún" "Bonito" "Barrilete"
+		"Cachalote" "Orca" "Delfín" "Bufeo" "Marsopa" "Lobo Marino" "Chungungo" "Manta" "Raya" "Pulpo"
+		"Calamar" "Jibia" "Morena" "Congrio" "Anguila" "Paiche" "Zúngaro" "Caimán" "Anaconda"
+		# Water spirits
+		"Mama Cocha" "Yacumama" "Yacuruna" "Urpayhuachac"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: LIGHT CRUISERS ###
+PRU_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { PRU }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "BAP "
+	fallback_name = "Crucero Ligero %d"
+
+	unique = {
+		# Historic cruisers
+		"Almirante Grau" "Coronel Bolognesi" "Capitán Quiñones" "Aguirre"
+		# Ports with naval precedent
+		"Callao" "Paita" "Chimbote" "Salaverry" "Pisco" "Eten" "Lomas" "Atico" "Ilo" "Mollendo"
+		# Cities
+		"Arequipa" "Cusco" "Huancayo" "Puno" "Trujillo" "Chiclayo" "Huaraz" "Cerro de Pasco" "Abancay"
+		"Chachapoyas" "Moyobamba" "Tarapoto" "Puerto Maldonado" "Sullana" "Jauja" "Tarma" "Juliaca" "Sicuani"
+		"Yurimaguas" "Catacaos"
+		# Further Pacific and river ports
+		"Talara" "Zorritos" "Lobitos" "Máncora" "Sechura" "Pimentel" "Pacasmayo" "Huanchaco" "Samanco" "Huarmey"
+		"Supe" "Huacho" "Chancay" "Ancón" "Cerro Azul" "Tambo de Mora" "Chala" "Quilca" "Camaná" "Puerto Pizarro"
+		"Nauta" "Contamana"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: HEAVY CRUISERS ###
+PRU_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { PRU }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "BAP "
+	fallback_name = "Crucero Pesado %d"
+
+	unique = {
+		# Historic ironclads and monitors
+		"Huáscar" "Independencia" "Manco Cápac" "Atahualpa" "Victoria" "Loa"
+		# Inca conquerors and war captains
+		"Pachacútec" "Túpac Yupanqui" "Huayna Cápac" "Manco Inca" "Cahuide" "Rumiñahui" "Quisquis" "Calcuchímac"
+		"Illa Túpac" "Ollantay"
+		# Precursors and martyrs of independence
+		"Túpac Amaru" "Micaela Bastidas" "Mateo Pumacahua" "Juan Santos Atahualpa" "Francisco de Zela" "José Olaya"
+		"Mariano Melgar" "María Parado de Bellido" "Crespo y Castillo" "Andrés Rázuri"
+		# Champions of 1866 and the War of the Pacific
+		"José Gálvez" "Alfonso Ugarte" "Leoncio Prado" "Ladislao Espinar" "Arias y Aragüez" "Ramón Zavala"
+		"José Joaquín Inclán" "Mariano Bustamante" "Narciso de la Colina" "Pedro Ruiz Gallo" "Isaac Recavarren"
+		"Gregorio Albarracín" "Leonor Ordóñez"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLESHIPS ###
+PRU_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { PRU }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "BAP "
+	fallback_name = "Acorazado %d"
+
+	unique = {
+		# Capital and departments
+		"Lima" "Áncash" "Junín" "Ayacucho" "Piura" "Tacna" "Moquegua" "Ica" "Cajamarca" "Huánuco" "Lambayeque"
+		"La Libertad" "Huancavelica" "Madre de Dios" "Tumbes" "Tarapacá"
+		# Founders of the Republic
+		"San Martín" "Bolívar" "Sucre" "Riva-Agüero" "Torre Tagle" "Unanue" "Luna Pizarro" "Sánchez Carrión" "Vidaurre"
+		# Grand Marshals of Peru
+		"Mariscal Castilla" "Mariscal Cáceres" "Mariscal La Mar" "Mariscal Gamarra" "Mariscal Orbegoso"
+		"Mariscal Nieto" "Mariscal San Román" "Mariscal Miller" "Mariscal Necochea" "Mariscal La Fuente"
+		# Sovereignty symbols
+		"Perú" "República del Perú" "Constitución" "Soberanía" "Tahuantinsuyo" "Veintiocho de Julio" "Sol del Perú"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLECRUISERS ###
+PRU_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { PRU }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "BAP "
+	fallback_name = "Crucero de Batalla %d"
+
+	unique = {
+		# Historic flagships and war vessels
+		"Protector" "Libertad" "Apurímac" "Rímac" "Unión" "Confederación" "Socabaya" "Monteagudo" "Pichincha" "Fundador"
+		# Coastal fortresses and citadels
+		"Real Felipe" "Torre de la Merced" "Fuerte Santa Rosa" "Morro de Arica" "Morro Solar" "Sacsayhuamán"
+		"Ollantaytambo" "Kuélap" "Paramonga" "Chan Chan" "Pachacámac" "Machu Picchu" "Vilcabamba" "Choquequirao"
+		# Naval encounters, islands and passages
+		"Punta Gruesa" "Punta Malpelo" "Cruces" "Jambelí" "Islas Chincha" "Isla San Lorenzo" "El Frontón"
+		"Lobos de Afuera" "Lobos de Tierra" "El Boquerón" "Bahía de Paracas" "Punta Pariñas" "Cabo Blanco"
+		# Sea kingdoms and seaborne founders of the coast
+		"Chimor" "Naylamp" "Tacaynamo"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: AIRCRAFT CARRIERS ###
+PRU_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { PRU }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "BAP "
+	fallback_name = "Portaaviones %d"
+
+	unique = {
+		# Andean ranges
+		"Los Andes" "Cordillera Occidental" "Cordillera Central" "Cordillera Oriental" "Cordillera Blanca"
+		"Cordillera Negra" "Cordillera Huayhuash" "Cordillera Vilcanota" "Cordillera de Carabaya"
+		# Peaks and volcanoes
+		"Huascarán" "Yerupajá" "Alpamayo" "Salcantay" "Ausangate" "Misti" "Chachani" "Ampato" "Coropuna" "Huandoy"
+		"Huantsán" "Siula Grande" "Pumasillo" "Artesonraju" "Tocllaraju" "Chopicalqui" "Ubinas" "Sabancaya"
+		# Sky deities
+		"Inti" "Illapa" "Viracocha" "Mama Quilla" "Chasca" "Pariacaca" "Catequil" "Kon"
+		# Andean raptors
+		"Cóndor" "Halcón" "Águila Mora" "Gavilán" "Cernícalo" "Aguilucho"
+		# Aviation pioneers
+		"Jorge Chávez" "Juan Bielovucic" "Carlos Tenaud" "Velasco Astete" "Pedro Paulet"
+	}
+}
+
+### ROLE POOL: RIVER GUNBOATS ###
+PRU_GUNBOATS = {
+	name = "River Gunboats"
+
+	for_countries = { PRU }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Cañonera %d"
+
+	unique = {
+		# Amazon and Titicaca flotilla
+		"Loreto" "Amazonas" "Napo" "Putumayo" "Morona" "Pastaza" "América" "Iquitos" "Coronel Portillo" "Yavarí"
+		"Yapurá"
+		# Later gunboat names and Amazon tributaries (extension of the river formula)
+		"Marañón" "Ucayali" "Huallaga" "Tigre" "Nanay" "Pachitea" "Curaray" "Purús" "Yurúa" "Itaya"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES & PORTS ###
+PRU_CITIES = {
+	name = "Cities & Ports"
+
+	for_countries = { PRU }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Ciudad %d"
+
+	unique = {
+		# Pacific ports
+		"Callao" "Paita" "Talara" "Zorritos" "Máncora" "Sechura" "Eten" "Pimentel" "Pacasmayo" "Salaverry"
+		"Huanchaco" "Chimbote" "Casma" "Huarmey" "Supe" "Huacho" "Chancay" "Ancón" "Cerro Azul" "Pisco"
+		"Lomas" "Chala" "Camaná" "Mollendo" "Islay" "Ilo"
+		# Cities of the coast
+		"Lima" "Trujillo" "Chiclayo" "Lambayeque" "Piura" "Sullana" "Catacaos" "Tumbes" "Ica" "Nazca"
+		"Chincha Alta" "Cañete" "Arequipa" "Moquegua" "Tacna"
+		# Cities of the sierra
+		"Cusco" "Cajamarca" "Huaraz" "Huancayo" "Jauja" "Tarma" "Cerro de Pasco" "Huánuco" "Ayacucho" "Huancavelica"
+		"Abancay" "Andahuaylas" "Sicuani" "Urubamba" "Puno" "Juliaca" "Chucuito" "Ayaviri" "Huamachuco"
+		# Amazon river ports and towns
+		"Iquitos" "Nauta" "Requena" "Contamana" "Yurimaguas" "Tarapoto" "Moyobamba" "Chachapoyas" "Jaén"
+		"La Merced" "Puerto Maldonado" "Caballococha"
+	}
+}
+
+### UNIVERSAL TOPIC: DEPARTMENTS & REGIONS ###
+PRU_DEPARTMENTS = {
+	name = "Departments & Regions"
+
+	for_countries = { PRU }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Departamento %d"
+
+	unique = {
+		# Departments and littoral provinces of the 1930s
+		"Amazonas" "Áncash" "Apurímac" "Arequipa" "Ayacucho" "Cajamarca" "Callao" "Cusco" "Huancavelica" "Huánuco"
+		"Ica" "Junín" "La Libertad" "Lambayeque" "Lima" "Loreto" "Madre de Dios" "Moquegua" "Piura" "Puno"
+		"San Martín" "Tacna" "Tumbes"
+		# Historical departments and provinces
+		"Tarapacá" "Arica" "Maynas" "Huaylas" "Huamanga" "Tarma" "Jaén"
+		# Suyus of the Inca realm
+		"Tahuantinsuyo" "Chinchaysuyo" "Antisuyo" "Collasuyo" "Contisuyo"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS & LAKES ###
+PRU_RIVERS = {
+	name = "Rivers & Lakes"
+
+	for_countries = { PRU }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Río %d"
+
+	unique = {
+		# Amazon basin
+		"Río Amazonas" "Río Marañón" "Río Ucayali" "Río Huallaga" "Río Napo" "Río Putumayo" "Río Yavarí" "Río Purús"
+		"Río Yurúa" "Río Madre de Dios" "Río Urubamba" "Río Apurímac" "Río Mantaro" "Río Pachitea" "Río Pastaza"
+		"Río Tigre" "Río Nanay" "Río Morona" "Río Santiago" "Río Cenepa" "Río Curaray" "Río Tambopata" "Río Inambari"
+		"Río Ene" "Río Perené" "Río Mayo" "Río Utcubamba" "Río Chinchipe" "Río Vilcanota" "Río Pampas" "Río Aguaytía"
+		"Río Manu"
+		# Pacific slope
+		"Río Zarumilla" "Río Tumbes" "Río Chira" "Río Piura" "Río Zaña" "Río Jequetepeque" "Río Chicama" "Río Moche"
+		"Río Virú" "Río Santa" "Río Pativilca" "Río Huaura" "Río Chillón" "Río Rímac" "Río Lurín" "Río Cañete"
+		"Río Pisco" "Río Ica" "Río Acarí" "Río Ocoña" "Río Majes" "Río Chili" "Río Tambo" "Río Locumba" "Río Sama"
+		"Río Caplina"
+		# Titicaca basin
+		"Río Desaguadero" "Río Ramis" "Río Coata" "Río Ilave"
+		# Lakes and lagoons
+		"Lago Titicaca" "Lago Junín" "Laguna Umayo" "Laguna de Arapa" "Laguna Parinacochas" "Laguna Llanganuco"
+		"Laguna Huacachina" "Laguna Yarinacocha" "Laguna Lauricocha" "Laguna Parón"
+	}
+}
+
+### UNIVERSAL TOPIC: MOUNTAINS ###
+PRU_GEOGRAPHY = {
+	name = "Mountains"
+
+	for_countries = { PRU }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Nevado %d"
+
+	unique = {
+		# Cordillera Blanca
+		"Huascarán" "Huandoy" "Huantsán" "Alpamayo" "Artesonraju" "Chopicalqui" "Chacraraju" "Tocllaraju" "Hualcán"
+		"Copa" "Ranrapalca" "Palcaraju" "Taulliraju" "Quitaraju" "Pucaranra" "Chinchey"
+		# Huayhuash and the central ranges
+		"Yerupajá" "Siula Grande" "Jirishanca" "Rasac" "Rondoy" "Sarapo" "Huaytapallana" "Pariacaca" "Ticlla" "Tunshu"
+		# Southern ranges
+		"Salcantay" "Ausangate" "Pumasillo" "Sahuasiray" "Chicón" "Huayna Picchu" "Callangate" "Allincapac"
+		"Coropuna" "Ampato" "Solimana" "Sara Sara" "Hualca Hualca" "Mismi"
+		# Volcanoes
+		"Misti" "Chachani" "Pichu Pichu" "Ubinas" "Sabancaya" "Huaynaputina" "Yucamane" "Tutupaca" "Ticsani"
+		# Cordilleras
+		"Los Andes" "Cordillera Blanca" "Cordillera Negra" "Cordillera Huayhuash" "Cordillera Vilcabamba"
+		"Cordillera Vilcanota" "Cordillera de Carabaya" "Cordillera Occidental" "Cordillera Central"
+		"Cordillera Oriental" "Cordillera del Cóndor"
+	}
+}
+
+### UNIVERSAL TOPIC: INCAS & RULERS ###
+PRU_RULERS = {
+	name = "Incas & Rulers"
+
+	for_countries = { PRU }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Inca %d"
+
+	unique = {
+		# Hurin Cusco dynasty
+		"Manco Cápac" "Sinchi Roca" "Lloque Yupanqui" "Mayta Cápac" "Cápac Yupanqui"
+		# Hanan Cusco dynasty
+		"Inca Roca" "Yáhuar Huácac" "Viracocha Inca" "Inca Urco" "Pachacútec" "Amaru Inca Yupanqui" "Túpac Yupanqui"
+		"Huayna Cápac" "Ninan Cuyuchi" "Huáscar" "Atahualpa"
+		# Conquest and Vilcabamba
+		"Túpac Huallpa" "Manco Inca" "Paullu Inca" "Sayri Túpac" "Titu Cusi Yupanqui" "Túpac Amaru"
+		# Legendary founders and coyas
+		"Ayar Cachi" "Ayar Uchu" "Ayar Auca" "Mama Ocllo" "Mama Huaco" "Mama Cora" "Mama Rahua" "Mama Anahuarque"
+		"Mama Runtu" "Mama Micay" "Rahua Ocllo" "Cusi Rimay" "Cura Ocllo" "Chuqui Huipa" "Beatriz Clara Coya"
+		"Inés Huaylas Yupanqui"
+		# Lords of the coast and the altiplano
+		"Naylamp" "Fempellec" "Tacaynamo" "Guacricaur" "Ñancenpinco" "Minchançaman" "Cuismancu" "Chuquimancu"
+		"Zapana" "Cari" "Uscovilca"
+	}
+}
+
+### UNIVERSAL TOPIC: MYTHOLOGY ###
+PRU_MYTHOLOGY = {
+	name = "Mythology"
+
+	for_countries = { PRU }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Huaca %d"
+
+	unique = {
+		# Inca and Andean deities
+		"Viracocha" "Inti" "Mama Quilla" "Pachamama" "Illapa" "Mama Cocha" "Pachacámac" "Supay" "Inkarrí" "Mama Sara"
+		"Mama Allpa" "Mama Coca" "Axomama" "Chasca" "Coyllur" "Amaru" "Urcuchillay" "Catachillay" "Huanacauri"
+		"Ekeko" "Tunupa"
+		# Huacas of Huarochirí, the coast and the northern sierra
+		"Pariacaca" "Huallallo Carhuincho" "Cuniraya" "Cahuillaca" "Chaupiñamca" "Huatiacuri" "Tutayquiri" "Chuquisuso"
+		"Macahuisa" "Urpayhuachac" "Kon" "Vichama" "Ai Apaec" "Catequil" "Ataguju" "Piguerao"
+		# Spirits of the Amazon and the mines
+		"Yacumama" "Sachamama" "Chullachaqui" "Tunche" "Yacuruna" "Runamula" "Muqui" "Jarjacha"
+	}
+}
+
+### UNIVERSAL TOPIC: BATTLES ###
+PRU_BATTLES = {
+	name = "Battles"
+
+	for_countries = { PRU }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Batalla %d"
+
+	unique = {
+		# Rebellions and the War of Independence
+		"Sangarará" "La Apacheta" "Umachiri" "Pasco" "Higos Urco" "Zepita" "Torata" "Junín" "Ayacucho"
+		# Early Republic and the Confederation
+		"Punta Malpelo" "Cruces" "Yanacocha" "Uchumayo" "Socabaya" "Islay" "Casma" "Yungay"
+		# War with Spain
+		"Abtao" "Dos de Mayo"
+		# Naval combats of the Huáscar era
+		"Pacocha" "Chipana" "Iquique" "Punta Gruesa" "Antofagasta" "Angamos"
+		# War of the Pacific on land
+		"Pisagua" "San Francisco" "Tarapacá" "Los Ángeles" "Alto de la Alianza" "Arica" "San Juan" "Chorrillos"
+		"Miraflores" "Pucará" "Marcavalle" "Concepción" "Sangrar" "San Pablo" "Huamachuco"
+		# Twentieth century
+		"La Pedrera" "Zarumilla" "Quebrada Seca" "Jambelí" "Puerto Bolívar"
+	}
+}
+
+### UNIVERSAL TOPIC: HEROES & SCHOLARS ###
+PRU_HEROES = {
+	name = "Heroes & Scholars"
+
+	for_countries = { PRU }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Héroe %d"
+
+	unique = {
+		# Precursors and martyrs of independence
+		"Túpac Amaru II" "Micaela Bastidas" "Tomasa Tito Condemayta" "Pedro Vilcapaza" "Juan Santos Atahualpa"
+		"Viscardo y Guzmán" "Francisco de Zela" "Enrique Paillardelle" "Crespo y Castillo" "Mateo Pumacahua"
+		"José Angulo" "Mariano Melgar" "José Olaya" "María Parado de Bellido" "Andrés Rázuri"
+		# Inca war captains
+		"Cahuide" "Ollantay" "Rumiñahui" "Quisquis" "Calcuchímac" "Illa Túpac"
+		# Marshals and generals of the Republic
+		"Ramón Castilla" "José de la Mar" "Agustín Gamarra" "Domingo Nieto" "Felipe Santiago Salaverry"
+		"Guillermo Miller" "Andrés Avelino Cáceres"
+		# Heroes of 1866 and the War of the Pacific
+		"José Gálvez" "Miguel Grau" "Francisco Bolognesi" "Alfonso Ugarte" "Leoncio Prado" "Elías Aguirre"
+		"Juan Guillermo Moore" "Juan Fanning" "Ladislao Espinar" "Justo Arias y Aragüez" "Ramón Zavala"
+		"José Joaquín Inclán" "Mariano Bustamante" "Narciso de la Colina" "Pedro Ruiz Gallo" "Isaac Recavarren"
+		"Gregorio Albarracín" "Leonor Ordóñez" "Antonia Moreno de Cáceres"
+		# Twentieth-century heroes, scholars and writers
+		"Manuel Clavero" "Jorge Chávez" "José Quiñones" "Hipólito Unanue" "Daniel Alcides Carrión" "Antonio Raimondi"
+		"Cayetano Heredia" "Ricardo Palma" "Inca Garcilaso" "Federico Villarreal"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS ###
+PRU_BIRDS = {
+	name = "Birds"
+
+	for_countries = { PRU }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Ave %d"
+
+	unique = {
+		# Raptors and owls
+		"Cóndor" "Águila Mora" "Águila Harpía" "Águila Pescadora" "Aguilucho" "Gavilán" "Halcón Peregrino"
+		"Cernícalo" "Caracara" "Búho" "Lechuza"
+		# Seabirds of the Humboldt Current
+		"Guanay" "Piquero" "Camanay" "Alcatraz" "Pelícano" "Potoyunco" "Zarcillo" "Gaviota" "Gaviotín" "Tijereta"
+		"Rabijunco" "Pingüino de Humboldt" "Albatros" "Petrel" "Cormorán" "Chuita" "Ostrero" "Rayador"
+		# Birds of the Andes and the coastal valleys
+		"Gallito de las Rocas" "Picaflor" "Quinde" "Parihuana" "Huallata" "Suri" "Yanavico" "Cuculí" "Chiguanco"
+		"Jilguero" "Huerequeque" "Chilalo" "Chaucato" "Turtupilín"
+		# Birds of the Amazon
+		"Guacamayo" "Tucán" "Paujil" "Shansho" "Garza" "Martín Pescador" "Loro" "Pihuicho" "Jabirú" "Camungo"
+		"Tanrilla" "Ayaymama"
+	}
+}
+
+### UNIVERSAL TOPIC: AQUATIC LIFE ###
+PRU_FISH = {
+	name = "Aquatic Life"
+
+	for_countries = { PRU }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Pez %d"
+
+	unique = {
+		# Fish of the Humboldt Current
+		"Anchoveta" "Sardina" "Bonito" "Jurel" "Caballa" "Merluza" "Pejerrey" "Corvina" "Cojinova"
+		"Cabrilla" "Robalo" "Lenguado" "Cachema" "Machete" "Chita" "Mero" "Congrio" "Pintadilla" "Tramboyo"
+		"Perico" "Atún" "Albacora" "Barrilete" "Pez Espada" "Pez Vela" "Merlín Negro"
+		# Sharks and rays
+		"Tiburón" "Tintorera" "Diamante" "Pez Zorro" "Pez Martillo" "Tollo" "Raya" "Manta"
+		# Cephalopods and crustaceans
+		"Pulpo" "Calamar" "Jibia" "Langostino" "Cangrejo"
+		# Marine mammals and turtles
+		"Cachalote" "Ballena Azul" "Ballena Jorobada" "Orca" "Delfín" "Marsopa" "Lobo Marino" "Lobo Fino"
+		"Lobo Chusco" "Chungungo" "Tortuga Laúd"
+		# Amazon and Titicaca
+		"Paiche" "Gamitana" "Doncella" "Zúngaro" "Dorado" "Sábalo" "Boquichico" "Palometa" "Carachama" "Arahuana"
+		"Paña" "Anguila Eléctrica" "Bufeo" "Manatí" "Lobo de Río" "Caimán Negro" "Charapa" "Taricaya" "Suche"
+		"Mauri" "Carachi" "Ispi" "Boga"
+	}
+}
+
+### UNIVERSAL TOPIC: VIRTUES ###
+PRU_VIRTUES = {
+	name = "Virtues"
+
+	for_countries = { PRU }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Virtud %d"
+
+	unique = {
+		# Martial descriptors
+		"Intrépido" "Vencedor" "Valiente" "Audaz" "Invencible" "Indomable" "Heroico" "Gallardo" "Altivo" "Arrojado"
+		"Brioso" "Denodado" "Esforzado" "Leal" "Fiel" "Firme" "Poderoso" "Temible" "Osado" "Impávido"
+		"Incansable" "Tenaz" "Bravo" "Resuelto" "Veloz" "Constante" "Sereno" "Glorioso" "Triunfante" "Victorioso"
+		"Animoso"
+		# Virtues
+		"Valor" "Honor" "Gloria" "Lealtad" "Victoria" "Fortaleza" "Constancia" "Bravura" "Audacia" "Heroísmo"
+		"Abnegación" "Sacrificio" "Deber" "Patriotismo" "Coraje" "Entereza" "Tenacidad" "Triunfo" "Firmeza"
+		"Hidalguía" "Gallardía" "Pundonor"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: REPUBLICAN IDEALS ###
+PRU_REPUBLICAN_IDEALS = {
+	name = "Republican Ideals"
+
+	for_countries = { PRU }
+
+	# Peru's non-aligned government is the constitutional republic of the 1933 charter
+	can_use = {
+		OR = {
+			has_government = democratic
+			has_government = neutrality
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Ideal %d"
+
+	unique = {
+		# Republic and constitution
+		"República" "Constitución" "Congreso Constituyente" "Convención Nacional" "Veintiocho de Julio"
+		"Acta de la Independencia" "Balcón de Huaura" "Sociedad Patriótica" "Firme y Feliz por la Unión"
+		"Somos Libres" "La Bicolor"
+		# Civic ideals
+		"Independencia" "Libertad" "Soberanía" "Igualdad" "Justicia" "Democracia" "Sufragio" "Ciudadanía"
+		"Legalidad" "Patria" "Nación" "Unión" "Abolición" "Libertad de Imprenta"
+		# Liberal statesmen and jurists
+		"Sánchez Carrión" "Luna Pizarro" "González Vigil" "Vidaurre" "Rodríguez de Mendoza" "Baquíjano y Carrillo"
+		"Manuel Pardo" "Pedro Gálvez" "Francisco García Calderón"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: SOCIALIST IDEALS ###
+PRU_SOCIALISM = {
+	name = "Socialist Ideals"
+
+	for_countries = { PRU }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Socialista %d"
+
+	unique = {
+		# Thinkers, indigenists and labour leaders
+		"José Carlos Mariátegui" "González Prada" "Rumi Maqui" "Ezequiel Urviola" "Pedro Zulen" "Dora Mayer" "Castro Pozo"
+		"Delfín Lévano" "Manuel Lévano" "Nicolás Gutarra" "Adalberto Fonkén"
+		# Journals and books
+		"Amauta" "Siete Ensayos" "Horas de Lucha" "Los Parias" "La Protesta" "Tempestad en los Andes"
+		# Labour struggle
+		"Ocho Horas" "Huelga General" "Primero de Mayo" "Federación Obrera" "Vitarte" "Proletariado" "Solidaridad"
+		"Fraternidad" "Internacional" "Emancipación" "Justicia Social" "Reforma Agraria"
+		# Indigenism and the Andean commune
+		"Indigenismo" "Ayllu" "Ayni" "Minka"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: NATIONALIST IDEALS ###
+PRU_NATIONALISM = {
+	name = "Nationalist Ideals"
+
+	for_countries = { PRU }
+
+	can_use = {
+		has_government = fascism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "BAP "
+	fallback_name = "Nacionalista %d"
+
+	unique = {
+		# Unión Revolucionaria
+		"Unión Revolucionaria" "Sánchez Cerro" "Revolución de Arequipa" "Veintidós de Agosto" "Camisas Negras"
+		"Luis A. Flores" "El Perú sobre Todo"
+		# Nationalist and corporatist vocabulary
+		"Peruanidad" "Hispanidad" "Nacionalismo" "Orden" "Autoridad" "Jerarquía" "Disciplina" "Tradición"
+		"Corporativismo" "Estado Corporativo" "Legión" "Milicia" "Caudillo"
+	}
+}

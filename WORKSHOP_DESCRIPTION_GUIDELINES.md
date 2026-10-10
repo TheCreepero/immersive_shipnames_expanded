@@ -50,8 +50,10 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 | `PER_ship_names.txt` | Iran | `PER` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
 | `PHI_ship_names.txt` | Philippines | `PHI` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics) |
 | `POR_ship_names.txt` | Portugal | `POR` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
+| `PRU_ship_names.txt` | Peru | `PRU` | Included (DD, SS, CL, CA, BB, BC, CV, 14 Thematic Topics, 1 Role Pool) |
 | `SWE_ship_names.txt` | Sweden | `SWE` | Included (DD, SS, CL, CA, BB, BC, CV, 10 Thematic Topics, 1 Role Pool) |
 | `TUR_ship_names.txt` | Turkey | `TUR` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics) |
+| `USA_ship_names.txt` | United States | `USA` | Included (DD, SS, CL, CA, BB, BC, CV, 15 Thematic Topics, 12 Role Pools, 7 Confederate hull lists) |
 | `YUG_ship_names.txt` | Yugoslavia | `YUG` | Included (DD, SS, CL, CA, BB, BC, CV, 9 Thematic Topics) |
 
 ---
@@ -59,7 +61,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 ## Current Description Template (BBCode)
 
 ```bbcode
-More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, and Italy. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
+More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, Italy, Peru, and the United States. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
 Check out my other mods:
 - [url=https://steamcommunity.com/workshop/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
@@ -120,6 +122,10 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
 - Added 11 universal thematic lists: Cities, Provinces, Fjords, Monarchs, Heroes, Norse Mythology, Birds, Wildlife, Fish, Natural Phenomena, and Virtues, plus a Minesweepers role list.
 
+[b]Peru[/b]
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 14 universal thematic lists: Cities & Ports, Departments & Regions, Rivers & Lakes, Mountains, Incas & Rulers, Mythology, Battles, Heroes & Scholars, Birds, Aquatic Life, Virtues, and separate Republican, Socialist, and Nationalist ideological pools, plus a River Gunboats role list.
+
 [b]Philippines[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
 - Added 11 universal thematic lists: Birds & Raptors, Marine Life & Fish, Peaks & Volcanoes, Rivers, Datus & Rajahs, Patriots & Heroes, Mythology, Martial Virtues, and separate Republican, Socialist, and Nationalist ideological pools.
@@ -135,6 +141,10 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 [b]Turkey[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
 - Added 11 universal thematic lists: Sultans & Khans, Admirals, Cities & Ports, Provinces, Rivers, Mountains & Hills, Battles, Birds, Aquatic Life, Predators, and Virtues.
+
+[b]United States[/b]
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV), keeping vanilla's depth and its Confederate lists.
+- Added 9 universal thematic lists to vanilla's six (States, Cities, Battles, Leaders, Birds, Fish): Native Nations, Rivers, Peaks, Parks & Regions, Celestial Bodies, Mythology, Virtues, Age of Sail, and separate democratic and socialist ideological pools, plus role lists for destroyer escorts, anti-aircraft cruisers, light and escort carriers, minelayers, minesweepers, patrol frigates, corvettes, gunboats, Coast Guard cutters, seaplane tenders, submarine tenders, and monitors.
 
 [b]Yugoslavia[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).

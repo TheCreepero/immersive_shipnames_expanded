@@ -41,7 +41,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 | `AUS_ship_names.txt` | Austria | `AUS` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics) |
 | `BRA_ship_names.txt` | Brazil | `BRA` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
 | `CHL_ship_names.txt` | Chile | `CHL` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
-| `CUB_ship_names.txt` | Cuba | `CUB` | Included (DD, SS, CL, CA, BB, CV, 7 Thematic Topics) |
+| `CUB_ship_names.txt` | Cuba | `CUB` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
 | `DEN_ship_names.txt` | Denmark | `DEN` | Included (DD, SS, CL, CA, BB, BC, CV, 8 Thematic Topics) |
 | `FIN_ship_names.txt` | Finland | `FIN` | Included (DD, SS, CL, CA, BB, BC, CV, 13 Thematic Topics) |
 | `ITA_ship_names.txt` | Italy | `ITA` | Included (DD, SS, CL, CA, BB, BC, CV, 17 Thematic Topics, 6 Role Pools) |
@@ -93,8 +93,8 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 - Added 7 universal thematic lists: Cities, Provinces, Heroes, Mapuche Heroes, Battles, Waterways, and Fauna.
 
 [b]Cuba[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, CV).
-- Added 7 universal thematic lists: Cities, Provinces, Heroes, Battles & Dates, Mythology, Fauna, and Rivers.
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 7 universal thematic lists: Cities, Provinces & Regions, Heroes, Battles & Dates, Mythology, Fauna, and Rivers & Waterways.
 
 [b]Denmark[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
@@ -114,7 +114,7 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 
 [b]Mexico[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
-- Added 13 universal thematic lists: Admirals, Saints, Ports, Bodies of Water, Monarchs & Rulers, Republican Ideals, Socialist Ideals, Nationalist Ideals, Mythology, Birds, States, Cities, and Rivers.
+- Added 13 universal thematic lists: Naval Heroes, Saints, Ports, Bodies of Water, Monarchs & Rulers, Republican Ideals, Socialist Ideals, Nationalist Ideals, Mythology, Birds, States, Cities, and Rivers.
 
 [b]Norway[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).

@@ -15,15 +15,15 @@ In vanilla Hearts of Iron IV, Mexico's ship namelist file (`MEX_ship_names.txt`)
 - **Doctrinal Blur & Kitchen Sink Lists:** Destroyers mixed Aztec emperors, admirals, state names, rivers, and weather descriptors in a single unstructured list.
 - **Severe Typographical & Date Errors:** Included corrupted names like `"Chuela"` (likely intended as Cholula), `"Zacatacas"` (Zacatecas), and the anachronistic `"18 de Mayo"` (instead of Cinco de Mayo).
 - **Inconsistent Nahuatl Diacritics:** Inconsistent accents between lists (e.g. *Quetzalcóatl* vs. *Quetzalcoatl*, *Netzahualcóyotl* vs. *Nezahualcoyotl*).
-- **Mixed Deities and Monarchs:** Vanilla `MEX_AZTECS` blended mythic deities with historical tlatoanis.
+- **Mixed Deities and Monarchs:** Vanilla's Aztec-themed pool blended mythic deities with historical tlatoanis.
 - **Missing Fallback Names:** Thematic pools lacked fallback naming templates.
 
-**ISNE** completely overhauls Mexican naval namelists into a clean 19-group architecture:
-- Merging BB and BC into a cohesive capital ship roster covering historical regions and states.
+**ISNE** completely overhauls Mexican naval namelists into a clean 20-group architecture:
+- Splitting capital ships by doctrine: battleships carry historical regions and the states of the federation, battlecruisers carry coastal fortresses, decisive battles, historic warships and pre-Columbian sea kingdoms, with no name shared between them.
 - Providing dedicated, doctrine-aligned rosters across all combat hulls.
 - Establishing 13 universal thematic pools in the Ship Designer.
-- **Authenticity over Artificial Padding:** The `MEX_ADMIRALS` roster contains 25 verified historical naval commanders from independence through the mid-20th century. In accordance with ISNE guidelines, this list prioritizes 100% verified historical figures over synthetic or fabricated filler.
-- **Ideological Separation:** Slogans and concepts from opposing political paths are strictly segregated into dedicated pools for Republican, Socialist, and Nationalist ideals.
+- **Authenticity over Artificial Padding:** The `MEX_ADMIRALS` roster ("Naval Heroes") holds 24 sourced naval figures of every rank, from the founders of the navy in the 1820s and the defenders of Veracruz in 1914 to the career officers who later led the Secretariat of the Navy. The October 2026 audit removed nine names that could not be traced to a source and one army general, and added only figures that could be. The list stays below the 35-name target rather than being padded.
+- **Ideological Separation:** Slogans and concepts from opposing political paths are strictly segregated into dedicated pools, each gated by the ruling ideology through `can_use`: Republican Ideals under democratic or non-aligned governments (Mexico's non-aligned government is the revolutionary republic), Socialist Ideals under communism, and Nationalist Ideals under fascism.
 
 ---
 
@@ -39,7 +39,8 @@ Dedicated namelists tied to specific ship hulls and naval classifications:
 | `MEX_SS_HISTORICAL` | Submarines | `ship_hull_submarine submarine` | Tiburón, Delfín, Ballena, Manta, Raya, Pulpo, Cachalote, Barracuda, Pez Espada, Tláloc, Chalchiuhtlicue, Chaac, Huixtocíhuatl, Opochtli, Atlaua, Amimitl |
 | `MEX_CL_HISTORICAL` | Light Cruisers | `ship_hull_cruiser light_cruiser` | Ensenada, Guaymas, Mazatlán, San Blas, Puerto Vallarta, Manzanillo, Acapulco, Salina Cruz, Tampico, Tuxpan, Veracruz, Coatzacoalcos, Campeche, Progreso, Chetumal |
 | `MEX_CA_HISTORICAL` | Heavy Cruisers | `ship_hull_cruiser heavy_cruiser` | Miguel Hidalgo, José María Morelos, Benito Juárez, Ignacio Zaragoza, Francisco I. Madero, Venustiano Carranza, Álvaro Obregón, Cuauhtémoc, Cuitláhuac, Nezahualcóyotl, Moctezuma |
-| `MEX_BB_HISTORICAL` | Battleships & Battlecruisers | `ship_hull_heavy battleship battle_cruiser` | Anáhuac, Nueva España, Nueva Galicia, Tenochtitlan, Aztlán, México, Jalisco, Puebla, Veracruz, Sonora, Chihuahua, Nuevo León, Yucatán, Oaxaca, Michoacán |
+| `MEX_BB_HISTORICAL` | Battleships | `ship_hull_heavy battleship` | Anáhuac, Nueva España, Nueva Galicia, Tenochtitlan, Aztlán, México, Jalisco, Puebla, Guanajuato, Sonora, Chihuahua, Nuevo León, Yucatán, Oaxaca, Michoacán |
+| `MEX_BC_HISTORICAL` | Battlecruisers | `ship_hull_heavy battle_cruiser` | San Juan de Ulúa, Fuerte de San Diego, Baluarte de Santiago, Monte de las Cruces, Puente de Calderón, Chapultepec, Churubusco, Cinco de Mayo, Dos de Abril, Celaya, Mayapán, Chichén Itzá, Tzintzuntzan |
 | `MEX_CV_HISTORICAL` | Aircraft Carriers | `ship_hull_carrier carrier` | República, Independencia, Libertad, Democracia, Soberanía, Revolución, Constitución, Águila Real, Quetzal, Cóndor, Huitzilopochtli, Tonatiuh, Ehécatl |
 
 ---
@@ -50,8 +51,8 @@ Universal selection pools available for any ship hull or squadron in the Ship De
 
 | Group Tag | Topic Name | Ship Types | Sample Names |
 | :--- | :--- | :--- | :--- |
-| `MEX_ADMIRALS` | Admirals | Universal | Pedro Sainz de Baranda, David Porter, Virgilio Uribe, Blas Godínez, Tomás Marín, Manuel Azueta, José Azueta, Othón P. Blanco, Hilario Rodríguez Malpica, Sebastián José Holzinger |
-| `MEX_SAINTS` | Saints | Universal | San Juan de Ulúa, San Blas, Santa Cruz, San Ignacio, San Francisco Javier, Santo Tomás, San Telmo, Santa Bárbara, San Miguel, San Gabriel, San Rafael, Virgen de Guadalupe |
+| `MEX_ADMIRALS` | Naval Heroes | Universal | Pedro Sainz de Baranda, David Porter, Virgilio Uribe, Blas Godínez, Tomás Marín, Manuel Azueta, José Azueta, Othón P. Blanco, Hilario Rodríguez Malpica, Sebastián José Holzinger |
+| `MEX_SAINTS` | Saints | Universal | San Blas, Santa Cruz, San Ignacio, San Francisco Javier, Santo Tomás, San Telmo, Santa Bárbara, San Miguel, San Gabriel, San Rafael, Virgen de Guadalupe, San Felipe de Jesús |
 | `MEX_PORTS` | Ports | Universal | Ensenada, Guaymas, Mazatlán, San Blas, Puerto Vallarta, Manzanillo, Zihuatanejo, Acapulco, Salina Cruz, Tampico, Tuxpan, Veracruz, Coatzacoalcos, Campeche, Progreso |
 | `MEX_WATERS` | Bodies of Water | Universal | Golfo de México, Golfo de California, Mar de Cortés, Bahía de Banderas, Bahía de Acapulco, Laguna de Términos, Laguna de Chapala, Lago de Pátzcuaro, Canal de Yucatán |
 | `MEX_RULERS` | Monarchs & Rulers | Universal | Acamapichtli, Itzcóatl, Moctezuma Ilhuicamina, Axayácatl, Nezahualcóyotl, Agustín de Iturbide, Maximiliano, Antonio de Mendoza, Bernardo de Gálvez, Carlos V, Felipe II |

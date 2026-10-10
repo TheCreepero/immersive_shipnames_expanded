@@ -16,18 +16,18 @@ MEX_DD_HISTORICAL = {
 		### Independence War heroes & fighters ###
 		"Juan Aldama" "Mariano Matamoros" "Hermenegildo Galeana" "Francisco Xavier Mina" "Pedro Moreno"
 		"Víctor Rosales" "Ignacio López Rayón" "Leonardo Bravo" "José María Cos" "Mariano Jiménez"
-		"José Antonio Torres" "Ramón López Rayón" "Francisco Osorno" "Albino García" "Juan José de los Reyes"
+		"José Antonio Torres" "Ramón López Rayón" "Francisco Osorno" "Albino García" "El Pípila"
 		"Gertrudis Bocanegra" "José Mariano Michelena" "Miguel Ramos Arizpe" "Servando Teresa de Mier" "José María Izazaga"
 		### Reform War & French Intervention ###
 		"Santos Degollado" "Jesús González Ortega" "Ramón Corona" "Mariano Escobedo" "Sóstenes Rocha"
 		"Carlos Pacheco" "Leandro Valle" "Ignacio de la Llave" "Ignacio Altamirano" "Florencio Villarreal"
 		"Antonio Rosales" "Ponciano Arriaga" "Felipe Berriozábal" "Ignacio Mejía" "Miguel Negrete"
-		"Juan N. Méndez" "Epitacio Huerta" "Juan N. Álvarez" "Manuel Doblado" "Gutiérrez Zamora"
+		"Juan N. Méndez" "Epitacio Huerta" "Juan N. Álvarez" "Manuel Doblado" "Manuel Gutiérrez Zamora"
 		### Mexican Revolution ###
 		"Felipe Ángeles" "Salvador Alvarado" "Pascual Orozco" "Pablo González" "Jesús Carranza"
 		"Lucio Blanco" "Francisco Murguía" "Manuel Diéguez" "Juan Carrasco" "Ramón F. Iturbe"
 		"Benjamín Hill" "Joaquín Amaro" "Saturnino Cedillo" "Francisco J. Múgica" "Heriberto Jara"
-		"Adalberto Tejeda" "Pino Suárez" "Antonio I. Villarreal" "Eulalio Gutiérrez" "Roque González Garza"
+		"Adalberto Tejeda" "José María Pino Suárez" "Antonio I. Villarreal" "Eulalio Gutiérrez" "Roque González Garza"
 		"Cándido Aguilar" "Rafael Buelna" "Carmen Serdán" "Genovevo de la O" "Otilio Montaño"
 		"Ricardo Flores Magón" "Enrique Flores Magón" "Librado Rivera" "Práxedis Guerrero" "Bernardo Reyes"
 		### Mexican-American War & other military ###
@@ -112,26 +112,28 @@ MEX_CA_HISTORICAL = {
 		### Founding fathers & supreme national heroes ###
 		"Miguel Hidalgo" "José María Morelos" "Ignacio Allende" "Vicente Guerrero" "Guadalupe Victoria"
 		"Benito Juárez" "Ignacio Zaragoza" "Nicolás Bravo" "Melchor Ocampo" "Valentín Gómez Farías"
-		"Sebastián Lerdo de Tejada" "Josefa Ortiz" "Leona Vicario" "Belisario Domínguez" "Aquiles Serdán"
+		"Sebastián Lerdo de Tejada" "Josefa Ortiz de Domínguez" "Leona Vicario" "Belisario Domínguez" "Aquiles Serdán"
 		### Presidents & revolutionary leaders ###
 		"Francisco I. Madero" "Venustiano Carranza" "Álvaro Obregón" "Plutarco Elías Calles" "Lázaro Cárdenas"
-		"Porfirio Díaz" "Emiliano Zapata" "Pancho Villa" "Manuel Ávila Camacho"
+		"Porfirio Díaz" "Emiliano Zapata" "Francisco Villa" "Manuel Ávila Camacho" "Santa Anna"
 		### Intellectuals & statesmen ###
-		"Justo Sierra" "José Vasconcelos" "Lucas Alamán" "Alfonso Reyes" "Santa Anna"
-		### Pre-Columbian emperors ###
+		"Justo Sierra" "José Vasconcelos" "Lucas Alamán" "Alfonso Reyes"
+		### Pre-Columbian rulers ###
 		"Cuauhtémoc" "Cuitláhuac" "Nezahualcóyotl" "Moctezuma" "Itzcóatl" "Axayácatl" "Ahuízotl" "Tízoc"
-		"Chimalpopoca" "Huitzilíhuitl" "Agustín de Iturbide" "Maximiliano"
+		"Chimalpopoca" "Huitzilíhuitl"
+		### Mexican emperors ###
+		"Agustín de Iturbide" "Maximiliano"
 	}
 }
 
-### SHIP-TYPE SPECIFIC: BATTLESHIPS & BATTLECRUISERS ###
+### SHIP-TYPE SPECIFIC: BATTLESHIPS ###
 MEX_BB_HISTORICAL = {
 	name = NAME_THEME_HISTORICAL_BB
 
 	for_countries = { MEX }
 
 	type = ship
-	ship_types = { ship_hull_heavy battleship battle_cruiser }
+	ship_types = { ship_hull_heavy battleship }
 
 	prefix = "ARM "
 	fallback_name = "Acorazado %d"
@@ -145,6 +147,34 @@ MEX_BB_HISTORICAL = {
 		"Oaxaca" "Chihuahua" "Guerrero" "Tamaulipas" "Baja California" "Sinaloa" "Coahuila" "Hidalgo"
 		"Sonora" "San Luis Potosí" "Tabasco" "Yucatán" "Querétaro" "Morelos" "Durango" "Zacatecas"
 		"Quintana Roo" "Aguascalientes" "Tlaxcala" "Nayarit" "Colima" "Baja California Sur"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLECRUISERS ###
+MEX_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { MEX }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "ARM "
+	fallback_name = "Crucero de Batalla %d"
+
+	unique = {
+		### Coastal fortresses & citadels ###
+		"San Juan de Ulúa" "San Carlos de Perote" "Fuerte de San Diego" "Baluarte de Santiago" "Fuerte de San Miguel"
+		"Fuerte de Loreto" "Fuerte de San Felipe" "La Ciudadela" "Fuerte del Sombrero" "Cóporo"
+		### Decisive battles & sieges ###
+		"Monte de las Cruces" "Alhóndiga de Granaditas" "Puente de Calderón" "Zitácuaro" "El Veladero" "Cuautla"
+		"La Angostura" "Padierna" "Churubusco" "Molino del Rey" "Chapultepec"
+		"Silao" "Calpulalpan" "Acultzingo" "Cinco de Mayo" "Miahuatlán" "La Carbonera" "Dos de Abril" "Tecoac"
+		"Ciudad Juárez" "Tierra Blanca" "Torreón" "Celaya" "Mariel" "Santa Gertrudis" "El Ébano"
+		### Pre-Columbian sea kingdoms & strongholds ###
+		"Mayapán" "Chichén Itzá" "Tzintzuntzan" "Cempoala" "Tututepec" "Xicalango" "Acalan" "Potonchán"
+		### Historic warships ###
+		"Iguala" "Guadalupe" "Congreso Mexicano" "Hermón" "Demócrata"
 	}
 }
 
@@ -174,9 +204,9 @@ MEX_CV_HISTORICAL = {
 	}
 }
 
-### UNIVERSAL TOPIC: ADMIRALS ###
+### UNIVERSAL TOPIC: NAVAL HEROES ###
 MEX_ADMIRALS = {
-	name = "Admirals"
+	name = "Naval Heroes"
 
 	for_countries = { MEX }
 
@@ -189,9 +219,9 @@ MEX_ADMIRALS = {
 		"Pedro Sainz de Baranda" "David Porter" "Virgilio Uribe" "Blas Godínez" "Tomás Marín"
 		"Manuel Azueta" "José Azueta" "Othón P. Blanco" "Hilario Rodríguez Malpica"
 		"Sebastián José Holzinger" "Ángel Ortiz Monasterio" "Carlos Castillo Bretón"
-		"Rafael E. Melgar" "Eduardo Colina" "Luis Hurtado de Mendoza" "Miguel de la Sierra"
-		"David Coello" "José María de la Vega" "Alejandro B. Uribe" "Roberto Gómez Maqueo"
-		"Gabriel Carvallo" "Carlos R. España" "Álvaro Sandoval" "Ramón de Navia" "Ramón Arnáiz"
+		"Eduardo Colina"
+		"David Coello Ochoa" "José María de la Vega" "Roberto Gómez Maqueo"
+		"Antonio de Medina" "David Henry Porter" "Pedro Díaz Mirón" "Luis F. Schaufelberger" "Alberto J. Pawling" "Manuel Zermeño Araico" "Antonio Vázquez del Mercado" "Luis Bravo Carrera"
 	}
 }
 
@@ -208,7 +238,7 @@ MEX_SAINTS = {
 
 	unique = {
 		### Patron saints of Mexican ports & maritime dedications ###
-		"San Juan de Ulúa" "San Blas" "Santa Cruz" "San Ignacio" "San Francisco Javier" "Santo Tomás"
+		"San Felipe de Jesús" "San Blas" "Santa Cruz" "San Ignacio" "San Francisco Javier" "Santo Tomás"
 		### Patron saints of sailors & seafarers ###
 		"San Nicolás" "San Telmo" "San Cristóbal" "Virgen del Carmen" "Virgen de Guadalupe" "Santa Bárbara"
 		### Major Catholic saints relevant to Mexico ###
@@ -216,7 +246,7 @@ MEX_SAINTS = {
 		"San Francisco" "San Diego" "San Martín" "Santa María" "Santa Ana" "San Andrés" "San Sebastián"
 		"San Lorenzo" "San Bartolomé" "San Marcos" "San Mateo" "Santa Teresa" "Santa Clara" "Santa Cecilia"
 		"Santa Catalina" "San Patricio" "San Juan" "Santa Inés" "San Lázaro" "San Fernando"
-		"San Lucas" "San Felipe" "Santa Rosalía" "San José del Cabo"
+		"San Lucas" "San Felipe" "Santa Rosalía" "San José"
 	}
 }
 
@@ -312,6 +342,14 @@ MEX_REPUBLICAN_IDEALS = {
 
 	for_countries = { MEX }
 
+	# Mexico's non-aligned government is the revolutionary republic (PNR)
+	can_use = {
+		OR = {
+			has_government = democratic
+			has_government = neutrality
+		}
+	}
+
 	type = ship
 
 	prefix = "ARM "
@@ -333,6 +371,10 @@ MEX_SOCIALISM = {
 	name = "Socialist Ideals"
 
 	for_countries = { MEX }
+
+	can_use = {
+		has_government = communism
+	}
 
 	type = ship
 
@@ -357,6 +399,10 @@ MEX_NATIONALISM = {
 	name = "Nationalist Ideals"
 
 	for_countries = { MEX }
+
+	can_use = {
+		has_government = fascism
+	}
 
 	type = ship
 
@@ -392,7 +438,7 @@ MEX_MYTHOLOGY = {
 		"Chalchiuhtlicue" "Tlazoltéotl" "Tonatiuh" "Coatlicue" "Centéotl" "Xochiquetzal" "Xochipilli"
 		"Huehuetéotl" "Xiuhtecuhtli" "Mayahuel" "Patécatl" "Tepeyóllotl" "Tlaltecuhtli" "Cihuacóatl"
 		"Mixcóatl" "Opochtli" "Tecciztécatl" "Tlahuizcalpantecuhtli" "Xólotl" "Yacatecuhtli"
-		"Ehécatl" "Atlaua" "Amimitl" "Huixtocíhuatl" "Ometeotl" "Tonacatecuhtli" "Ilamatecuhtli"
+		"Ehécatl" "Atlaua" "Amimitl" "Huixtocíhuatl" "Ometéotl" "Tonacatecuhtli" "Ilamatecuhtli"
 		### Maya deities ###
 		"Kukulkán" "Chaac" "Ixchel" "Itzamná" "Ah Puch" "Kinich Ahau" "Yum Kaax"
 		"Hunahpú" "Ixbalanqué" "Tohil" "Huracán" "Tepeu"

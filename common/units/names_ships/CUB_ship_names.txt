@@ -30,21 +30,21 @@ CUB_DD_HISTORICAL = {
 		"Mal Tiempo" "Las Guásimas" "Peralejo" "Palo Seco" "Dos Ríos" "El Caney"
 		"San Juan" "Jimaguayú" "Ceja del Negro" "Loma del Gato" "Calimete" "Guisa"
 		"Cacarajícara" "Baraguá" "Guáimaro" "La Yaya" "Iguará" "Punta Brava"
-		"El Jigüe" "El Salado" "Melones" "Sabanilla" "San Pedro" "Moncada"
-		"Las Tunas" "Tumbas de Estorino" "El Zanjón" "Jíbaro" "Taguasco" "Potrero de Consuegra"
-		"Loma de Hierro" "Jobito" "San Jerónimo"
+		"El Salado" "Melones" "San Pedro"
+		"Las Tunas" "Tumbas de Estorino" "El Jíbaro" "Taguasco"
+		"Loma del Hierro" "El Jobito" "Las Taironas" "Sao del Indio" "Coliseo" "La Indiana" "Manaquitas" "Paso Real de San Diego" "Jiguaní"
 		# Martial Descriptors & Naval Virtues
 		"Audaz" "Intrépido" "Vigilante" "Valiente" "Centinela" "Rápido"
 		"Veloz" "Temerario" "Bravo" "Alerta" "Tenaz" "Firmeza" "Vencedor"
 		"Vigía" "Guardián" "Corsario" "Defensor" "Protector" "Vengador"
 		"Invicto" "Indómito" "Custodio" "Avizor" "Constante" "Arrojo"
-		"Atrevido" "Osado" "Furia" "Torbellino" "Centella" "Saeta"
+		"Atrevido" "Osado" "Furia" "Torbellino" "Saeta"
 		"Flecha" "Belicoso" "Combatiente" "Lanzatorpedos" "Cazador" "Inflexible"
 		"Dinámico" "Alférez"
 		# Historic Gunboat Waters, Coastal Patrols & Rivers
 		"Yateras" "Jagua" "Yumurí" "Ariguanabo" "Canímar" "Hanabanilla"
 		"Sagua" "Zaza" "Cauto" "Toa" "Cuyaguateje" "Damují"
-		"Agabama" "Mayarí" "Arimao" "Máximo"
+		"Agabama" "Mayarí" "Arimao" "Río Máximo"
 	}
 }
 
@@ -92,11 +92,11 @@ CUB_CL_HISTORICAL = {
 
 	unique = {
 		# Major Coastal Ports, Commercial Centers & Historic Municipalities
-		"La Habana" "Santiago de Cuba" "Cienfuegos" "Matanzas" "Marianao" "Guantánamo"
+		"Ciudad de La Habana" "Santiago de Cuba" "Cienfuegos" "Ciudad de Matanzas" "Marianao" "Guantánamo"
 		"Holguín" "Bayamo" "Trinidad" "Cárdenas" "Manzanillo" "Nuevitas"
 		"Sagua la Grande" "Sancti Spíritus" "Remedios" "Baracoa" "Gibara" "Mariel"
 		"Regla" "Batabanó" "Caibarién" "Banes" "Ciego de Ávila" "Morón"
-		"Júcaro" "Puerto Padre" "Santa Clara" "Pinar del Río" "Camagüey" "Moa"
+		"Júcaro" "Puerto Padre" "Santa Clara" "Ciudad de Pinar del Río" "Ciudad de Camagüey" "Moa"
 		"Palma Soriano" "Colón" "Jovellanos" "Güines" "Artemisa" "San Cristóbal"
 		"Consolación del Sur" "Guane" "Nueva Gerona" "Jaruco" "Madruga" "San José de las Lajas"
 		"Bejucal" "Guanabacoa" "Placetas" "Florida" "Contramaestre" "Bauta"
@@ -132,14 +132,14 @@ CUB_CA_HISTORICAL = {
 	}
 }
 
-### BATTLESHIPS & CAPITAL SHIPS ###
+### BATTLESHIPS ###
 CUB_BB_HISTORICAL = {
 	name = NAME_THEME_HISTORICAL_BB
 
 	for_countries = { CUB }
 
 	type = ship
-	ship_types = { ship_hull_heavy battleship battle_cruiser }
+	ship_types = { ship_hull_heavy battleship }
 
 	fallback_name = "Acorazado %d"
 
@@ -155,6 +155,33 @@ CUB_BB_HISTORICAL = {
 		"Fulgencio Batista" "Sierra Maestra" "Sierra del Rosario" "Sierra de Cubitas"
 		"Sierra de Escambray" "Sierra de los Órganos" "Pico Turquino" "Pan de Guajaibón"
 		"La Gran Antilla"
+	}
+}
+
+### BATTLECRUISERS ###
+CUB_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { CUB }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	fallback_name = "Crucero de Batalla %d"
+
+	unique = {
+		# Colonial Fortresses, Citadels & Harbour Batteries
+		"Tres Reyes del Morro" "La Cabaña" "La Real Fuerza" "La Punta" "Castillo del Príncipe"
+		"Castillo de Atarés" "Castillo de Jagua" "San Pedro de la Roca" "San Severino"
+		"El Morrillo" "Fuerte Matachín" "Torreón de la Chorrera" "Torreón de Cojímar"
+		"Torreón de San Lázaro" "La Socapa" "Castillo de la Estrella" "Batería de Santa Clara" "Batería de la Reina" "Castillo de Seboruco" "Torreón de Bacuranao" "Fuerte El Viso"
+		# Straits & Sea Passages
+		"Estrecho de la Florida" "Canal de Yucatán" "Paso de los Vientos"
+		"Canal Viejo de Bahama" "Canal de San Nicolás"
+		# Taíno Cacicazgos & Indigenous Provinces
+		"Cubanacán" "Guamuhaya" "Maniabón" "Hanábana"
+		# Landing Sites of the Mambí Expeditions
+		"Duaba" "Playitas de Cajobabo"
 	}
 }
 
@@ -174,7 +201,6 @@ CUB_CV_HISTORICAL = {
 		"Río Cauto" "Río Toa" "Río Almendares" "Río Sagua la Grande" "Río Zaza"
 		"Río Cuyaguateje" "Río Jatibonico" "Río Damují" "Río Hanabanilla"
 		"Río Mayarí" "Río Yumurí" "Río San Juan" "Río Canímar" "Río Agabama"
-		"La Sabana"
 		# Strategic Maritime Gulfs & Bays
 		"Bahía de Nipe" "Golfo de Guacanayabo" "Bahía de Cienfuegos"
 		"Bahía de La Habana" "Bahía de Santiago" "Bahía de Matanzas" "Golfo de Batabanó"
@@ -211,7 +237,7 @@ CUB_CITIES = {
 
 ### UNIVERSAL TOPIC: PROVINCES & REGIONS ###
 CUB_PROVINCES = {
-	name = "Provinces"
+	name = "Provinces & Regions"
 
 	for_countries = { CUB }
 
@@ -227,6 +253,7 @@ CUB_PROVINCES = {
 		"Cayo Romano" "Península de Guanahacabibes" "Península de Zapata"
 		"Pico Turquino" "Pan de Guajaibón" "Cayo Saetía" "Cayo Santa María"
 		"Cayo Levisa" "Cayo Jutías" "Cayo Sabinal" "Cayo Guajaba"
+		"Jardines de la Reina" "Jardines del Rey" "Sierra Cristal" "Sierra de Nipe" "Valle del Yumurí" "Península de Hicacos" "Gran Piedra" "Topes de Collantes" "Valle de los Ingenios" "Archipiélago de los Canarreos"
 	}
 }
 
@@ -251,6 +278,7 @@ CUB_HEROES = {
 		"Félix Varela" "José de la Luz y Caballero" "Francisco Vicente Aguilera"
 		"José Maceo" "Manuel Sanguily" "Modesto Díaz" "Ana Betancourt"
 		"Joaquín de Agüero" "Narciso López" "Gaspar Betancourt Cisneros"
+		"Hatuey" "Guamá"
 	}
 }
 
@@ -266,12 +294,14 @@ CUB_BATTLES = {
 
 	unique = {
 		"Diez de Octubre" "Veinticuatro de Febrero" "Veinte de Mayo" "Grito de Yara"
-		"Grito de Baire" "Dos Ríos" "Las Guásimas" "El Caney" "Colina de San Juan"
+		"Grito de Baire" "Dos Ríos" "Las Guásimas" "El Caney" "Loma de San Juan"
 		"Mal Tiempo" "Peralejo" "Palo Seco" "La Demajagua" "Jimaguayú"
 		"Ceja del Negro" "Loma del Gato" "Guisa" "Calimete" "Iguará"
-		"Punta Brava" "El Jigüe" "Cacarajícara" "Baraguá" "Guáimaro"
-		"La Yaya" "El Salado" "Melones" "Sabanilla" "San Pedro"
-		"Moncada" "Las Tunas"
+		"Punta Brava" "Cacarajícara" "Baraguá" "Guáimaro"
+		"La Yaya" "El Salado" "Melones" "San Pedro"
+		"Las Tunas"
+		"Las Taironas" "Sao del Indio" "Coliseo" "La Indiana" "Manaquitas" "Paso Real de San Diego" "El Jíbaro" "Loma del Hierro" "Taguasco"
+		"El Jobito" "Tumbas de Estorino" "El Rubí" "La Sacra"
 	}
 }
 
@@ -286,12 +316,14 @@ CUB_MYTHOLOGY = {
 	fallback_name = "Mito %d"
 
 	unique = {
-		# Taíno Indigenous Figures & Mythological Deities
-		"Hatuey" "Guamá" "Atabey" "Yucajú" "Guabancex" "Huracán"
+		# Taíno Zemis & Mythological Deities
+		"Atabey" "Yucajú" "Guabancex" "Huracán" "Boinayel" "Márohu" "Guataubá" "Coatrisquie" "Guahayona" "Deminán Caracaracol" "Itiba Cahubaba" "Opiyelguobirán" "Maquetaurie Guayaba"
 		# Afro-Cuban Yoruba & Santería Orishas
 		"Yemayá" "Olokun" "Changó" "Oshún" "Obatalá" "Elegguá" "Oggún"
 		"Babalú-Ayé" "Oyá" "Inle" "Agayú" "Orunmila" "Osain" "Ochosi"
-		"Ibeji" "Nana Burukú" "Osun" "Iroko" "Olofin" "Olorun" "Yewá" "Obbá"
+		"Ibeji" "Nana Burukú" "Osun" "Iroko" "Olofin" "Olorun" "Yewá" "Obbá" "Orisha Oko"
+		# Cuban Folklore Beings
+		"Güije" "Madre de Aguas"
 	}
 }
 
@@ -333,7 +365,7 @@ CUB_RIVERS = {
 		"Río Cauto" "Río Toa" "Río Almendares" "Río Sagua la Grande" "Río Zaza"
 		"Río Cuyaguateje" "Río Jatibonico" "Río Damují" "Río Hanabanilla"
 		"Río Mayarí" "Río Yumurí" "Río San Juan" "Río Canímar" "Río Agabama"
-		"Río Arimao" "Río Máximo" "Río Sevilla" "Río Cabañas"
+		"Río Arimao" "Río Máximo" "Río Sevilla" "Río Cabañas" "Río Caonao" "Río Sagua de Tánamo" "Río Saramaguacán" "Río Hatiguanico" "Río Guaso" "Río Jobabo"
 		# Strategic Maritime Bays, Channels & Gulfs
 		"Bahía de Nipe" "Golfo de Guacanayabo" "Bahía de Cienfuegos"
 		"Bahía de La Habana" "Bahía de Santiago" "Bahía de Matanzas"

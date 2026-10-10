@@ -14,12 +14,12 @@
 | [Austria](Austria) | `AUS` | 18 | `AUS_ship_names.txt` |
 | [Brazil](Brazil) | `BRA` | 14 | `BRA_ship_names.txt` |
 | [Chile](Chile) | `CHL` | 14 | `CHL_ship_names.txt` |
-| [Cuba](Cuba) | `CUB` | 13 | `CUB_ship_names.txt` |
+| [Cuba](Cuba) | `CUB` | 14 | `CUB_ship_names.txt` |
 | [Denmark](Denmark) | `DEN` | 15 | `DEN_ship_names.txt` |
 | [Finland](Finland) | `FIN` | 20 | `FIN_ship_names.txt` |
 | [Iran](Iran) | `PER` | 14 | `PER_ship_names.txt` |
 | [Italy](Italy) | `ITA` | 30 | `ITA_ship_names.txt` |
-| [Mexico](Mexico) | `MEX` | 19 | `MEX_ship_names.txt` |
+| [Mexico](Mexico) | `MEX` | 20 | `MEX_ship_names.txt` |
 | [Norway](Norway) | `NOR` | 19 | `NOR_ship_names.txt` |
 | [Philippines](Philippines) | `PHI` | 18 | `PHI_ship_names.txt` |
 | [Portugal](Portugal) | `POR` | 14 | `POR_ship_names.txt` |

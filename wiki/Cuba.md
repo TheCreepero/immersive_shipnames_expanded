@@ -19,6 +19,12 @@ In vanilla Hearts of Iron IV, Cuba's ship namelist file (`CUB_ship_names.txt`) s
 
 **ISNE** completely overhauls Cuba's ship namelists: removing the erroneous Colombian prefix, fixing typographical errors, doctrinally segregating ship classes, removing foreign leaders, and providing expansive universal thematic pools covering Cuban cities, provinces, founding heroes, historic battles, Taíno and Afro-Cuban mythology, wildlife, and waterways.
 
+**Scope notes (2026-10 audit):**
+- **Battlecruisers** form their own group, distinct from the battleship roster of provinces and republican ideals: colonial fortresses and harbour batteries, the straits around the island, Taíno cacicazgos, and the 1895 landing sites of the Mambí expeditions. Only cacicazgos that could be sourced are included, so that section is deliberately short.
+- **City vs province:** the six historical provinces name battleships; the provincial capitals that share a name appear among the light cruisers as *Ciudad de La Habana*, *Ciudad de Matanzas*, *Ciudad de Pinar del Río* and *Ciudad de Camagüey*.
+- **Era:** battle honours stop at 1898. Actions of the 1950s revolution and the 1878 capitulation pact are not used as ship names.
+- **Mythology** holds only zemis, orishas and folklore beings; the historical caciques *Hatuey* and *Guamá* are listed under Heroes.
+
 ---
 
 ## Namelist Groups
@@ -31,9 +37,10 @@ Dedicated namelists tied to specific ship hulls and naval classifications:
 | :--- | :--- | :--- | :--- |
 | `CUB_DD_HISTORICAL` | Destroyers & Escorts | `ship_hull_light destroyer` | Diez de Octubre, Veinticuatro de Febrero, Veinte de Mayo, Patria, Yara, Baire, Enrique Villuendas, Caribe, Siboney, Hatuey, Mal Tiempo, Las Guásimas, Dos Ríos, Audaz, Intrépido |
 | `CUB_SS_HISTORICAL` | Submarines | `ship_hull_submarine submarine` | Caguama, Manatí, Delfín, Tiburón, Barracuda, Carey, Cocodrilo, Morena, Aguja, Manjuarí, Almiquí, Majá, Yucajú, Atabey, Olokun, Cabo Maisí, Cabo Cruz, Cabo San Antonio |
-| `CUB_CL_HISTORICAL` | Light Cruisers | `ship_hull_cruiser light_cruiser` | La Habana, Santiago de Cuba, Cienfuegos, Matanzas, Marianao, Guantánamo, Holguín, Bayamo, Trinidad, Cárdenas, Manzanillo, Nuevitas, Sagua la Grande, Sancti Spíritus, Santa Clara |
+| `CUB_CL_HISTORICAL` | Light Cruisers | `ship_hull_cruiser light_cruiser` | Ciudad de La Habana, Santiago de Cuba, Cienfuegos, Ciudad de Matanzas, Marianao, Guantánamo, Holguín, Bayamo, Trinidad, Cárdenas, Manzanillo, Nuevitas, Sagua la Grande, Sancti Spíritus, Santa Clara |
 | `CUB_CA_HISTORICAL` | Heavy Cruisers & Coastal Defense | `ship_hull_cruiser heavy_cruiser` | José Martí, Antonio Maceo, Máximo Gómez, Calixto García, Carlos Manuel de Céspedes, Ignacio Agramonte, Vicente García González, Juan Bruno Zayas, Serafín Sánchez, Guillermón Moncada |
-| `CUB_BB_HISTORICAL` | Battleships & Capital Ships | `ship_hull_heavy battleship battle_cruiser` | Cuba, República de Cuba, Isla de Cuba, Pinar del Río, Las Villas, Camagüey, Oriente, Isla de Pinos, Soberanía, Constitución, Libertad, Independencia, Victoria, Fulgencio Batista |
+| `CUB_BB_HISTORICAL` | Battleships | `ship_hull_heavy battleship` | Cuba, República de Cuba, Isla de Cuba, Pinar del Río, Las Villas, Camagüey, Oriente, Isla de Pinos, Soberanía, Constitución, Libertad, Independencia, Victoria, Fulgencio Batista |
+| `CUB_BC_HISTORICAL` | Battlecruisers | `ship_hull_heavy battle_cruiser` | La Cabaña, La Real Fuerza, La Punta, Castillo del Príncipe, Castillo de Atarés, Castillo de Jagua, San Pedro de la Roca, Estrecho de la Florida, Canal de Yucatán, Cubanacán, Guamuhaya, Duaba, Tres Reyes del Morro |
 | `CUB_CV_HISTORICAL` | Aircraft Carriers | `ship_hull_carrier carrier` | Río Cauto, Río Toa, Río Almendares, Río Sagua la Grande, Río Zaza, Río Cuyaguateje, Bahía de Nipe, Golfo de Guacanayabo, Huracán, Ciclón, Changó, Oyá, Tocororo, Gavilán |
 
 ---
@@ -45,9 +52,9 @@ Universal selection pools available for any ship hull or squadron in the Ship De
 | Group Tag | Topic Name | Ship Types | Sample Names |
 | :--- | :--- | :--- | :--- |
 | `CUB_CITIES` | Cities | Universal | La Habana, Santiago de Cuba, Camagüey, Holguín, Santa Clara, Guantánamo, Cienfuegos, Matanzas, Bayamo, Pinar del Río, Cárdenas, Manzanillo, Sancti Spíritus, Ciego de Ávila, Marianao |
-| `CUB_PROVINCES` | Provinces | Universal | Pinar del Río, La Habana, Matanzas, Las Villas, Camagüey, Oriente, Isla de Pinos, Sierra Maestra, Sierra del Rosario, Sierra de los Órganos, Sierra de Cubitas, Sierra de Escambray |
+| `CUB_PROVINCES` | Provinces & Regions | Universal | Pinar del Río, La Habana, Matanzas, Las Villas, Camagüey, Oriente, Isla de Pinos, Sierra Maestra, Sierra del Rosario, Sierra de los Órganos, Sierra de Cubitas, Sierra de Escambray |
 | `CUB_HEROES` | Heroes | Universal | José Martí, Antonio Maceo, Máximo Gómez, Calixto García, Carlos Manuel de Céspedes, Ignacio Agramonte, Vicente García González, Juan Bruno Zayas, Serafín Sánchez, Guillermón Moncada |
-| `CUB_BATTLES` | Battles & Dates | Universal | Diez de Octubre, Veinticuatro de Febrero, Veinte de Mayo, Grito de Yara, Grito de Baire, Dos Ríos, Las Guásimas, El Caney, Colina de San Juan, Mal Tiempo, Peralejo, Palo Seco |
-| `CUB_MYTHOLOGY` | Mythology | Universal | Hatuey, Guamá, Atabey, Yucajú, Guabancex, Huracán, Yemayá, Olokun, Changó, Oshún, Obatalá, Elegguá, Oggún, Babalú-Ayé, Oyá, Inle, Agayú, Orunmila, Osain |
+| `CUB_BATTLES` | Battles & Dates | Universal | Diez de Octubre, Veinticuatro de Febrero, Veinte de Mayo, Grito de Yara, Grito de Baire, Dos Ríos, Las Guásimas, El Caney, Mal Tiempo, Peralejo, Palo Seco, Loma de San Juan |
+| `CUB_MYTHOLOGY` | Mythology | Universal | Atabey, Yucajú, Guabancex, Huracán, Yemayá, Olokun, Changó, Oshún, Obatalá, Elegguá, Oggún, Babalú-Ayé, Oyá, Inle, Agayú, Orunmila, Osain, Boinayel, Márohu |
 | `CUB_FAUNA` | Fauna | Universal | Tocororo, Zunzuncito, Gavilán, Cernícalo, Halcón, Flamenco, Cotorra, Pelícano, Caguama, Manatí, Delfín, Tiburón, Barracuda, Cocodrilo, Majá, Almiquí, Jutía, Carey |
 | `CUB_RIVERS` | Rivers & Waterways | Universal | Río Cauto, Río Toa, Río Almendares, Río Sagua la Grande, Río Zaza, Río Cuyaguateje, Río Jatibonico, Río Damují, Bahía de Nipe, Golfo de Guacanayabo, Bahía de Cienfuegos, Bahía de La Habana |

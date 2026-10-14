@@ -43,7 +43,7 @@ Ranking of vanilla nations not yet covered by the mod (assessed 2026-10-10). Int
 
 ## Audit Queue
 
-Legacy namelists waiting for the `hoi4-isne-namelist-audit` skill. Empty as of 2026-10-10: the six legacy namelists assessed that day (`DEN`, `TUR`, `NOR`, `YUG`, `CUB`, `MEX`) have been audited and removed.
+Legacy namelists waiting for the `hoi4-isne-namelist-audit` skill. The six legacy namelists assessed on 2026-10-10 (`DEN`, `TUR`, `NOR`, `YUG`, `CUB`, `MEX`) have been audited and removed; `PER` was audited on 2026-10-14. The queue is currently empty.
 
 Add a row when a legacy namelist without a passing audit is found (rank, tag, hard fails, warnings, main problems). Remove it when the audit passes.
 

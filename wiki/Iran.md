@@ -24,7 +24,7 @@ In vanilla Hearts of Iron IV, Iranian naval namelists suffered from a severe cro
 | Group Tag | Type | Ship Types | Sample Names |
 | :--- | :--- | :--- | :--- |
 | `PER_DD_HISTORICAL` | Destroyers & Escorts | `ship_hull_light destroyer` | Babr, Palang, Artemiz, Saam, Zaal, Rostam, Faramarz, Bayandor, Naghdi, Shahbaz, Karkas, Kaman, Zoubin, Khadang, Paykan, Sohrab, Esfandiyar, Siyavash, Bijan, Giv, Ariabignes, Vahrez |
-| `PER_SS_HISTORICAL` | Submarines | `ship_hull_submarine submarine ship_hull_midget_submarine` | Kousseh, Nahang, Dolfin, Arrehmahi, Shamshirmahi, Marmahi, Fok, Gando, Filmahi, Uzunbrun, Tasmahi, Shipmahi, Morvarid, Marjan, Gerdab, Zharfa, Shabgard |
+| `PER_SS_HISTORICAL` | Submarines | `ship_hull_submarine submarine ship_hull_midget_submarine` | Kousseh, Nahang, Dolfin, Arrehmahi, Shamshirmahi, Marmahi, Fok-e Khazari, Gando, Filmahi, Uzunbrun, Tasmahi, Shipmahi, Morvarid, Marjan, Gerdab, Zharfa, Shabgard |
 | `PER_CL_HISTORICAL` | Light Cruisers | `ship_hull_cruiser light_cruiser` | Bandar Abbas, Bushehr, Khorramshahr, Abadan, Chabahar, Bandar Pahlavi, Rasht, Sari, Tehran, Tabriz, Esfahan, Shiraz, Mashhad, Kerman, Yazd, Hamadan, Kermanshah, Qazvin |
 | `PER_CA_HISTORICAL` | Heavy Cruisers & Coastal Defense | `ship_hull_cruiser heavy_cruiser` | Persepolis, Pasargad, Shush, Anshan, Istakhr, Tisfun, Bishapur, Taq-e Kasra, Bisotun, Naqsh-e Rostam, Azargoshasb, Balkh, Herat, Samarqand, Bukhara |
 | `PER_BB_HISTORICAL` | Battleships & Capital Ships | `ship_hull_heavy battleship` | Hakhamanesh, Kourosh, Kambujiyeh, Dariush, Khashayar, Ardeshir, Sasan, Shapour, Anoushirvan, Khosrow Parviz, Nader, Shah Abbas, Pahlavi, Iranshahr, Shahanshah, Shir-o-Khorshid |
@@ -41,9 +41,9 @@ Universal selection pools available for any ship hull or squadron:
 | :--- | :--- | :--- | :--- |
 | `PER_MYTHOLOGY` | Mythology | Universal | Kiumars, Hushang, Jamshid, Fereydun, Kay Khosrow, Goshtasp, Mehr, Anahita, Tishtar, Sorush, Gordafarid, Rudabeh, Rakhsh, Shabdiz, Derafsh-e Kaviani, Jam-e Jam |
 | `PER_RULERS` | Rulers | Universal | Diyako, Taher, Esmail-e Samani, Alp Arslan, Shah Tahmasb, Lotf Ali Khan, Agha Mohammad Khan, Fath-Ali Shah, Naser od-Din Shah, Reza Shah, Mohammad Reza, Atoosa, Azarmidokht |
-| `PER_PROVINCES` | Provinces | Universal | Azarbaijan, Gilan, Mazandaran, Khorasan, Fars, Khuzestan, Kurdestan, Lorestan, Sistan, Baluchestan, Bakhtiari, Mad, Parthav, Hirkan, Arran, Shirvan, Soghd |
+| `PER_PROVINCES` | Provinces | Universal | Azarbaijan, Gilan, Mazandaran, Khorasan, Fars, Khuzestan, Kurdestan, Lorestan, Sistan, Baluchestan, Bakhtiari, Parthav, Hirkan, Arran, Shirvan, Soghd, Makran |
 | `PER_RIVERS` | Rivers & Lakes | Universal | Sefid Rud, Karun, Karkheh, Dez, Zayandeh Rud, Aras, Atrak, Hirmand, Zab, Chichast, Hamun, Bakhtegan, Gavkhuni, Jazmurian |
-| `PER_BIRDS` | Birds | Universal | Oqab, Oqab-e Talaei, Baz, Qarqi, Tarlan, Balaban, Sonqor, Joghd, Bum, Hodhod, Tavus, Bolbol, Chakavak, Kabk, Kabutar |
+| `PER_BIRDS` | Birds | Universal | Oqab, Oqab-e Talaei, Baz, Qarqi, Tarlan, Balaban, Sonqor, Joghd, Hodhod, Tavus, Bolbol, Chakavak, Kabk, Kabutar, Dal |
 | `PER_VIRTUES` | Virtues | Universal | Daliri, Delavar, Shoja'at, Piruzi, Zafar, Nosrat, Sharaf, Gheyrat, Esteqlal, Niru, Kherad, Edalat, Pendar-e Nik, Goftar-e Nik, Kerdar-e Nik |
 | `PER_BEASTS` | Beasts & Predators | Universal | Shir, Yuzpalang, Siyahgush, Gorg, Khers, Goraz, Gur, Ahu, Gavazn, Maral, Fil, Kargadan, Ezhdeha |
 

@@ -17,9 +17,9 @@ PER_DD_HISTORICAL = {
 		"Babr" "Palang" "Artemiz"
 		# Saam-class frigates (Shahnameh heroes)
 		"Saam" "Zaal" "Rostam" "Faramarz"
-		# Bayandor-class corvettes & minesweepers honoring the dead of Khorramshahr, 25 Aug 1941
-		"Bayandor" "Naghdi" "Milanian" "Kahnamoie" "Harischi" "Riazi"
-		# 1930s gunboats & minesweepers
+		# Bayandor-class corvettes honoring naval officers killed in 1941
+		"Bayandor" "Naghdi" "Milanian" "Kahnamuie"
+		# Interwar patrol craft & gunboats
 		"Shahbaz" "Karkas" "Shahrokh" "Shahin"
 		# Royal yacht
 		"Shahsavar"
@@ -32,14 +32,18 @@ PER_DD_HISTORICAL = {
 		"Separ" "Zereh" "Khud" "Kamand" "Tabar" "Nachakh" "Tigh" "Deshneh"
 		"Qameh" "Sheshpar" "Qaddareh" "Sonan" "Tarkash" "Manjaniq" "Arradeh" "Bargostvan"
 		"Zanburak"
+		"Pishqabz" "Chomaq" "Navak"
 		# Shahnameh heroes, extending the Saam-class naming formula
 		"Sohrab" "Esfandiyar" "Siyavash" "Bijan" "Giv" "Gudarz" "Tus" "Fariborz"
 		"Gostaham" "Garshasp" "Nariman" "Zavareh" "Borzu" "Kaveh" "Qaren" "Milad"
 		"Keshvad" "Ashkash" "Rohham" "Hojir" "Zarir" "Bastur" "Pashutan" "Zangeh"
 		"Rivniz" "Nastuh" "Gazhdaham" "Shidush" "Farud" "Arash"
+		"Gorgin" "Siamak"
 		# Naval commanders & admirals, from the Achaemenids to 1979
 		"Rasaei" "Habibollahi" "Ariabignes" "Megabat" "Megabaz" "Prexaspes" "Farnabaz"
 		"Tiribaz" "Datis" "Artafern" "Vahrez" "Latif Khan"
+		# Cape-class inshore minesweepers (1964)
+		"Harischi" "Riazi"
 	}
 }
 
@@ -59,7 +63,7 @@ PER_SS_HISTORICAL = {
 		# Tang-class submarines planned for the Imperial Iranian Navy (cancelled 1979)
 		"Kousseh" "Nahang" "Dolfin"
 		# Marine predators & sea creatures
-		"Arrehmahi" "Shamshirmahi" "Marmahi" "Sofrehmahi" "Sagmahi" "Hashtpa" "Fok" "Gando"
+		"Arrehmahi" "Shamshirmahi" "Marmahi" "Sofrehmahi" "Sagmahi" "Hashtpa" "Fok-e Khazari" "Gando"
 		"Tamsah" "Lakposht" "Kharchang" "Aroos-e Darya" "Gav-e Daryaei" "Mar-e Daryaei"
 		"Mahi-ye Parandeh"
 		# Caspian sturgeons & pearl-diving heritage
@@ -70,7 +74,8 @@ PER_SS_HISTORICAL = {
 		"Gerdab" "Zharfa" "Moj" "Shekarchi" "Kamin" "Shabgard" "Shabrow" "Sayeh" "Penhan"
 		"Khamush" "Shabahang"
 		# Persian Gulf & Caspian food fish
-		"Mahi-ye Sefid" "Kilka" "Kapur" "Azadmahi" "Kafal" "Hamur" "Shirmahi" "Sardin" "Meygu"
+		"Mahi-ye Sefid" "Kilka" "Kapur" "Esbeleh" "Suf" "Azadmahi" "Kafal" "Hamur" "Shirmahi" "Sardin" "Meygu"
+		"Halva Siyah" "Shurideh" "Kutar" "Sangsar" "Sobeyti" "Sorkhu"
 	}
 }
 
@@ -254,11 +259,11 @@ PER_RULERS = {
 		"Diyako" "Hovakhshatar" "Ishtovigu"
 		# Early Islamic-era Persian dynasties
 		"Taher" "Yaqub-e Leys" "Amr-e Leys" "Esmail-e Samani" "Nasr-e Samani" "Mardavij"
-		"Qabus" "Emad od-Dowleh" "Rokn od-Dowleh" "Azod od-Dowleh"
+		"Qabus" "Vushmgir" "Emad od-Dowleh" "Rokn od-Dowleh" "Mo'ezz od-Dowleh" "Azod od-Dowleh"
 		# Seljuk sultans over Persia
-		"Alp Arslan" "Malekshah"
+		"Alp Arslan" "Malekshah" "Toghrol" "Soltan Sanjar"
 		# Safavid Shahs
-		"Shah Tahmasb" "Shah Safi" "Shah Soleyman"
+		"Shah Tahmasb" "Shah Mohammad Khodabandeh" "Shah Safi" "Shah Soleyman"
 		# Zand dynasty
 		"Lotf Ali Khan"
 		# Qajar dynasty
@@ -288,9 +293,9 @@ PER_PROVINCES = {
 		# Historic provinces & regions
 		"Khorasan" "Fars" "Khuzestan" "Kurdestan" "Lorestan" "Sistan" "Baluchestan" "Makran"
 		"Bakhtiari" "Laristan" "Tabarestan" "Deylaman" "Talesh" "Kuhgiluyeh" "Kohestan"
-		"Qumes" "Elam"
+		"Qumes" "Elam" "Ardalan" "Mokrian" "Ruyan"
 		# Ancient Persian regions
-		"Mad" "Parthav" "Hirkan" "Aturpatakan" "Nimruz" "Khvarvaran"
+		"Mada" "Parthav" "Hirkan" "Aturpatakan" "Nimruz" "Khvarvaran" "Asurestan" "Mishan"
 		# Historic realms of Greater Iran
 		"Arran" "Shirvan" "Kharazm" "Soghd" "Bakhtar"
 	}
@@ -335,7 +340,7 @@ PER_BIRDS = {
 		"Oqab" "Oqab-e Talaei" "Oqab-e Shahi" "Oqab-e Mahigir" "Baz" "Qarqi" "Tarlan"
 		"Balaban" "Sonqor" "Dal" "Charkh" "Lachin"
 		# Owls
-		"Joghd" "Bum" "Morgh-e Haq"
+		"Joghd" "Shahbuf" "Morgh-e Haq"
 		# Other native birds
 		"Hodhod" "Tavus" "Dorna" "Laklak" "Qu" "Parastu" "Bolbol" "Andalib"
 		"Chakavak" "Kabk" "Kabk-e Dari" "Tihu" "Qarqavol" "Hoberah" "Morgh-e Saqa"
@@ -356,17 +361,17 @@ PER_VIRTUES = {
 
 	unique = {
 		# Courage & bravery
-		"Daliri" "Delavar" "Shoja'at" "Jor'at" "Shahamat" "Mardanegi" "Javanmardi"
+		"Daliri" "Delavar" "Shoja'at" "Jor'at" "Shahamat" "Mardanegi" "Javanmardi" "Fadakari"
 		# Victory
 		"Piruzi" "Zafar" "Nosrat" "Fath"
 		# Honor & loyalty
-		"Sharaf" "Gheyrat" "Vafa" "Sarbolandi"
+		"Sharaf" "Gheyrat" "Vafa" "Sarbolandi" "Azadegi" "Ghorur"
 		# Nation & unity
 		"Esteqlal" "Vahdat"
 		# Strength & majesty
 		"Niru" "Tavana" "Shokuh"
 		# Wisdom & justice
-		"Kherad" "Farzanegi" "Dad" "Edalat" "Rasti"
+		"Kherad" "Farzanegi" "Dadgari" "Edalat" "Rasti"
 		# The Zoroastrian triad
 		"Pendar-e Nik" "Goftar-e Nik" "Kerdar-e Nik"
 		# Resolve & vigilance
@@ -387,13 +392,13 @@ PER_BEASTS = {
 
 	unique = {
 		# Predators
-		"Shir" "Yuzpalang" "Siyahgush" "Gorg" "Khers" "Goraz" "Kaftar" "Rubah" "Shoghal"
+		"Shir" "Yuzpalang" "Siyahgush" "Gorg" "Khers" "Goraz" "Kaftar" "Rubah" "Shoghal" "Gorbeh-ye Vahshi" "Gurkan" "Rasu" "Sag-e Abi"
 		# Wild hoofed animals
-		"Gur" "Ahu" "Gavazn" "Gavazn-e Zard" "Maral" "Qoch" "Kal" "Pazan" "Bozkuhi" "Jebir"
+		"Gur" "Ahu" "Gavazn" "Gavazn-e Zard" "Maral" "Shuka" "Qoch" "Kal" "Pazan" "Bozkuhi" "Jebir"
 		# Large native & domestic animals
 		"Fil" "Asb" "Kargadan" "Gavmish" "Shotor"
 		# Reptiles & burrowers
-		"Afi" "Kazhdom" "Samur"
+		"Afi" "Kazhdom" "Samur" "Tashi" "Kharposht" "Bozmajeh"
 		# Mythical beast
 		"Ezhdeha"
 	}

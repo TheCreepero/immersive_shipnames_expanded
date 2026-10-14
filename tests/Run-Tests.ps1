@@ -30,7 +30,7 @@
 
 [CmdletBinding()]
 param(
-    [ValidateSet('All', 'Shipnames', 'Documentation', 'BuildScript')]
+    [ValidateSet('All', 'Shipnames', 'Documentation', 'BuildScript', 'Knowledge')]
     [string]$Suite = 'All',
 
     [switch]$CI,
@@ -71,6 +71,10 @@ if ($Suite -eq 'All' -or $Suite -eq 'Documentation') {
 }
 if ($Suite -eq 'All' -or $Suite -eq 'BuildScript') {
     $testFiles.Add((Join-Path $testDir "BuildScript.Tests.ps1"))
+}
+
+if ($Suite -eq 'All' -or $Suite -eq 'Knowledge') {
+    $testFiles.Add((Join-Path $testDir "Knowledge.Tests.ps1"))
 }
 
 Write-Host "`n=======================================================" -ForegroundColor Cyan

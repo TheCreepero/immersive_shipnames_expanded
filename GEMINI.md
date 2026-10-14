@@ -3,9 +3,9 @@
 > Mirrors `CLAUDE.md` (Claude Code); see §9 before editing either file.
 
 ## 1. Files & Tags
-- Namelists live at `common/units/names_ships/<TAG>_ship_names.txt`, the vanilla path and filename, so the mod file cleanly shadows the base-game file (§6).
+- Namelists live at `common/units/names_ships/<TAG>_ship_names.txt`, the vanilla path and filename, so the mod file cleanly shadows the base-game file (§6) [LOAD-010].
 - Group tags: hull groups `<TAG>_<HULL>_HISTORICAL` (`DD`, `SS`, `CL`, `CA`, `BB`, `BC`, `CV`; e.g. `FIN_DD_HISTORICAL`); thematic pools `<TAG>_<THEME>` (e.g. `FIN_BIRDS`, `FIN_FISH`, `FIN_RULERS`, `FIN_CITIES`, `FIN_PROVINCES`, `FIN_MYTHOLOGY`).
-- UTF-8 without BOM; strictly balanced `{}`.
+- UTF-8 without BOM [ENC-001]; strictly balanced `{}`.
 - Large naval powers may organize categories logically (historical classes, mythical themes, geographic conventions).
 
 ## 2. Namelist Architecture
@@ -60,7 +60,7 @@ Every nation has two categories, plus optional role pools.
 - **No fabricated names**: never invent filler persons (admirals, commodores, commanders) to meet depth quotas. If a small navy has only 20–30 verifiable officers, keep that shorter, fully authentic roster and document the scope in the nation's wiki page.
 - **Per-individual verification**: every named person (admiral, commander, monarch, hero) must be traceable to a source, even inside a list of verified vocabulary or places. "Sounds plausible for the role/era" is not enough: if the researcher's dossier or the reviewer cannot corroborate a person, drop the entry or flag it for author confirmation.
 - **English homonym check**: a single-word transliteration that doubles as a common, unrelated English word ("Ship", "Bum", "Dad", "Mad") can read as a UI placeholder, typo or joke. Prefer a compound or qualified form ("Shipmahi", not bare "Ship") over dropping the authentic entry.
-- **Prefixes**: `prefix = "..."` always ends with a space (`"NRB "`, `"HMS "`, `"ORP "`); otherwise the engine concatenates (`NRBMinas Gerais`). A national prefix applies to both hull groups and thematic pools unless the nation is deliberately prefix-free. Check vanilla with `build.ps1 -InspectVanilla <TAG>` and keep vanilla's prefix (including semi-fictional ones like `NRB `) unless correcting a demonstrable engine bug. Where vanilla uses hull-specific prefixes (Italy: `RCT ` destroyers, `RI ` cruisers, `RN ` capital ships, carriers and pools, `RSmg ` submarines), keep each group's vanilla prefix; `-Audit` then checks parity per group instead of against one national prefix.
+- **Prefixes**: `prefix = "..."` always ends with a space (`"NRB "`, `"HMS "`, `"ORP "`); otherwise the engine concatenates (`NRBMinas Gerais`) [NAM-011]. A national prefix applies to both hull groups and thematic pools unless the nation is deliberately prefix-free. Check vanilla with `build.ps1 -InspectVanilla <TAG>` and keep vanilla's prefix (including semi-fictional ones like `NRB `) unless correcting a demonstrable engine bug. Where vanilla uses hull-specific prefixes (Italy: `RCT ` destroyers, `RI ` cruisers, `RN ` capital ships, carriers and pools, `RSmg ` submarines), keep each group's vanilla prefix; `-Audit` then checks parity per group instead of against one national prefix.
 
 ## 4. Documentation Sync (every add, expansion or modification)
 1. `WORKSHOP_DESCRIPTION_GUIDELINES.md`:
@@ -99,22 +99,22 @@ All commands take the form `powershell -File .\build.ps1 <switch>`.
 - **Review gate**: before completion, dispatch a fresh Code Reviewer subagent via `invoke_subagent` (`Role: "Code Reviewer"`, `Model: "pro"`, brief: `.claude/agents/isne-code-reviewer.md`) with the country name, TAG and plan file path. It verifies engine invariants, foreign-vessel purges and cross-class decoupling.
 
 ## 6. VFS Shadowing
-- A mod file with the exact vanilla relative path and filename replaces the vanilla file, which is then read exclusively.
-- With distinct filenames (e.g. `ISNE_<TAG>` beside vanilla `<TAG>`), Clausewitz does not overwrite groups but accumulates properties: prefixes concatenate (`NRB NRB `, `BACH BACH `) and mod entries are appended after vanilla's erroneous names.
+- A mod file with the exact vanilla relative path and filename replaces the vanilla file, which is then read exclusively [LOAD-010].
+- With distinct filenames (e.g. `ISNE_<TAG>` beside vanilla `<TAG>`), Clausewitz does not overwrite groups but accumulates properties: prefixes concatenate (`NRB NRB `, `BACH BACH `) and mod entries are appended after vanilla's erroneous names [NAM-012].
 - One file can therefore fully override the `<TAG>_<HULL>_HISTORICAL` groups and add new `<TAG>_<THEME>` pools.
 
 ## 7. Engine Invariants
-- `ship_types` must match `data/ship_types_canon.json`: only the 14 tokens live in vanilla `names_ships` are valid (`capital_ship` and `screen_ship` are script categories, never valid). Class sets:
+- `ship_types` must match `data/ship_types_canon.json`: only the 14 tokens live in vanilla `names_ships` are valid (`capital_ship` and `screen_ship` are script categories, never valid) [NAM-010]. Class sets:
   - `DD` `destroyer ship_hull_light`; `CL` `light_cruiser ship_hull_cruiser`; `CA` `heavy_cruiser ship_hull_cruiser`; `CV` `carrier ship_hull_carrier`; `BC` `battle_cruiser ship_hull_heavy`.
   - `BB` `battleship ship_hull_heavy` (+ `battle_cruiser` only when the file has no BC group).
   - `SS` `submarine ship_hull_submarine` (optionally `ship_hull_midget_submarine`, `ship_hull_cruiser_submarine`).
   - Thematic and role pools: no `ship_types`. A regime-variant hull set (§2D) follows the class set of its hull.
-- `unique = { ... }` holds name strings. Integer keys in `ordered = { ... }` must be unique (duplicates silently overwrite earlier entries). Never leave an empty `unique` or `ordered` block.
+- `unique = { ... }` holds name strings. Integer keys in `ordered = { ... }` must be unique (duplicates silently overwrite earlier entries). Never leave an empty `unique` or `ordered` block (a rule of this mod; vanilla has empty ones [NAM-006]).
 - `fallback_name`: authentic native naval term, not a literal translation (Swedish BC `"Slagkryssare %d"`, not `"Stridsskepp %d"`), in the indefinite nominative singular (`"Slagkrydser %d"`, `"Jager %d"`; never definite `-en` forms like `"Slagkrydseren %d"` or `"Cruiseren %d"`). Watch homonym calques: "Light Cruiser" as illumination (Scandinavian `"Lys"`) instead of displacement (`"Let"`, `"Lett"`, `"Lätt"`, `"Leicht"`).
-- Display names: ≤ 30–32 characters (§2).
-- `link_numbering_with` links only to other groups, never to its own group.
-- `can_use = { ... }`: optional group trigger evaluated in `Country` scope. Used for ideology gating with `has_government = democratic|neutrality|fascism|communism` (with boolean operators `NOT = { ... }` or `OR = { ... }`); a regime-variant set may also test `tag = <TAG>`. Never use focus triggers (`has_completed_focus`), decisions, or event flags that cause mod incompatibilities (`-Audit` fails every trigger other than `has_government` and `tag` as `CanUseTrigger`).
-- A mod file shadows the whole vanilla file (§6), so every tag that vanilla script assigns with `name_group` (starting variants in `history/countries`, focus and decision rewards) must stay defined under its vanilla tag, even when it becomes a role pool (`USA_CVL_HISTORICAL`, `USA_MINELAYERS_HISTORICAL`). `-InspectVanilla` lists these tags and `-Audit` fails a missing one (`VanillaReference`).
+- Display names: ≤ 30–32 characters (§2) [NAM-013].
+- `link_numbering_with` links only to other groups, never to its own group [NAM-007].
+- `can_use = { ... }`: optional group trigger evaluated in `Country` scope [NAM-009]. Used for ideology gating with `has_government = democratic|neutrality|fascism|communism` (with boolean operators `NOT = { ... }` or `OR = { ... }`); a regime-variant set may also test `tag = <TAG>`. Never use focus triggers (`has_completed_focus`), decisions, or event flags that cause mod incompatibilities (`-Audit` fails every trigger other than `has_government` and `tag` as `CanUseTrigger`).
+- A mod file shadows the whole vanilla file (§6), so every tag that vanilla script assigns with `name_group` (starting variants in `history/countries`, focus and decision rewards) must stay defined under its vanilla tag [NAM-017], even when it becomes a role pool (`USA_CVL_HISTORICAL`, `USA_MINELAYERS_HISTORICAL`). `-InspectVanilla` lists these tags and `-Audit` fails a missing one (`VanillaReference`).
 - Root-level group tags are unique across the whole repository: never defined twice within a file or across files.
 
 ## 8. Workspace
@@ -129,3 +129,9 @@ Google Antigravity and Claude Code use mirrored configs:
 - The subagent briefs exist once, in `.claude/agents/`: `isne-historical-researcher.md` (full dossier for authoring), `isne-audit-researcher.md` (budgeted fact-check for audits: web tools only, 25 web calls, `effort: medium`, `maxTurns: 30`) and `isne-code-reviewer.md`. Claude dispatches them as named agents; Antigravity passes their path to `invoke_subagent`.
 
 When a rule, standard or runbook step changes in one file, change its mirror in the same task. Translate only tool-specific wording (Antigravity: `invoke_subagent` with `Role`/`Model`; Claude: Agent tool with named agents); the project rules stay identical. Confirm with `git status` that both sides changed before reporting completion.
+
+## 10. Engine Knowledge
+- Facts about how the game and its engine behave live in one place: the knowledge register of the Modding Manager, reached through the user-level `hoi4-modding-knowledge` skill. Search it before writing a kind of mod file for the first time in a session and before asking for a game launch.
+- Do not write an engine fact into this repository (this file, `wiki/`, `docs/`, skills). Add it to the register with `Add-HoiKnowledge.ps1` and cite its id here, as in `[LOAD-010]`.
+- Topics this mod leans on: `namelists`, `loading-and-overrides`, `encoding-and-syntax`.
+- `tests/Knowledge.Tests.ps1` runs the register's audit for this repository. Keep it identical to the Manager's `Scripts/Knowledge/Knowledge.Tests.ps1`.

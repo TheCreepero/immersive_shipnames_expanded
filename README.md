@@ -17,24 +17,12 @@ Vanilla Hearts of Iron IV ship namelists often run dry during extended naval cam
 
 ## Technical Architecture & Engine Mechanics
 
-### File Structure & Clean Replacement
-- All ship namelists reside in:
-  ```text
-  common/units/names_ships/<TAG>_ship_names.txt
-  ```
-- By matching the exact filename of vanilla namelists (`<TAG>_ship_names.txt`), Hearts of Iron IV's Virtual File System (VFS) cleanly replaces the vanilla file. This prevents Clausewitz additive merging bugs (which duplicate prefixes like `NRB NRB` or `BACH BACH` and leave vanilla typos/duplicate ships at the front of lists).
+- All ship namelists reside in `common/units/names_ships/<TAG>_ship_names.txt`, the vanilla path and file name, so that each file takes the place of the vanilla one.
+- How the game loads name list files, why ISNE replaces the vanilla files, and which tokens a group may use: [Engine Mechanics](https://github.com/TheCreepero/immersive_shipnames_expanded/wiki/Engine-Mechanics) in the wiki.
 
 ### Overhauls & New Thematic Pools
 - **Vanilla Historical Groups**: All historical groups (e.g. `FIN_DD_HISTORICAL`, `BRA_BB_HISTORICAL`) are overhauled with complete class lineages, eliminating vanilla typos and non-combat entries.
 - **New Thematic Groups**: ISNE introduces rich universal thematic groups following `<TAG>_<THEME>` (e.g. `Cities`, `Provinces`, `Heroes`, `Fauna`) selectable for any hull type in the Ship Designer.
-
-### Ship Namelist Invariants
-- **Recognized Hull Subunit Tokens**: In `ship_types = { ... }`, only valid naval combat tokens are recognized:
-  `battle_cruiser`, `battleship`, `capital_ship`, `carrier`, `destroyer`, `heavy_cruiser`, `light_cruiser`, `screen_ship`, `ship_hull_carrier`, `ship_hull_cruiser`, `ship_hull_cruiser_submarine`, `ship_hull_heavy`, `ship_hull_light`, `ship_hull_midget_submarine`, `ship_hull_submarine`, `submarine`.
-- **Ordered & Unique Blocks**: Keys inside `ordered = { ... }` must be unique integers (`1 = "..."`). Blocks must not be empty.
-- **Fallback Formats**: Every group requires a `fallback_name` containing an ordinal token (`%d` for Arabic, `%s` for Roman numerals).
-- **Link Numbering**: `link_numbering_with` is used exclusively across separate external groups. Self-referential links are invalid.
-- **Encoding**: Files must be UTF-8 without BOM with balanced brackets `{}` and quotes `"`.
 
 ---
 

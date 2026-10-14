@@ -25,7 +25,7 @@ Rigid accuracy limits lists to hulls that were actually commissioned (Finland: 2
 - alternate-history paths (monarchist dynasties, regional leagues, great-power ambitions).
 
 ## 2. Architecture Details
-Categories, depth tiers, display-name rules, decoupling and BB/BC doctrine: `GEMINI.md` §2. Tokens: §7.
+Categories, depth tiers, display-name rules, decoupling and BB/BC doctrine: `GEMINI.md` §2. Tokens: §7. What the engine does behind those rules is in the knowledge register (`hoi4-modding-knowledge` skill, topic `namelists`), which §6 and §7 cite.
 
 ### A. Default hull themes (adapt to the nation's documented formulas)
 | Group | Themes |

@@ -1,36 +1,5 @@
-<#
-.SYNOPSIS
-    Test runner script for Immersive Ship Names Expanded (ISNE).
-
-.DESCRIPTION
-    Executes Pester test suites for ship namelists, documentation synchronization,
-    and build automation. Supports CI export to NUnit XML format.
-
-.PARAMETER Suite
-    Filter test execution to a specific suite: 'All' (default), 'Shipnames', 'Documentation', or 'BuildScript'.
-
-.PARAMETER CI
-    When specified, generates an NUnit XML test report for CI/CD systems (GitHub Actions).
-
-.PARAMETER OutputFile
-    Path to save the test results XML file when running in CI mode (default: tests/test-results.xml).
-
-.PARAMETER InstallPrereqs
-    Ensure minimum required Pester version (>= 5.3.0) is installed in CurrentUser scope.
-
-.EXAMPLE
-    powershell -File .\tests\Run-Tests.ps1
-
-.EXAMPLE
-    powershell -File .\tests\Run-Tests.ps1 -Suite Shipnames
-
-.EXAMPLE
-    powershell -File .\tests\Run-Tests.ps1 -CI
-#>
-
 [CmdletBinding()]
 param(
-    [ValidateSet('All', 'Shipnames', 'Documentation', 'BuildScript', 'Knowledge')]
     [string]$Suite = 'All',
 
     [switch]$CI,
@@ -40,8 +9,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 
-# Ensure Pester 5+
-$pesterModule = Get-Module -ListAvailable Pester | Where-Object { $_.Version.Major -ge 5 } | Select-Object -First 1
+$pesterModule = Get-Module -ListAvailable Pester | Where-Object { $_.Version.Major -ge 5 } | Sort-Object Version -Descending | Select-Object -First 1
 
 if (-not $pesterModule) {
     if ($InstallPrereqs -or $env:CI) {
@@ -50,43 +18,35 @@ if (-not $pesterModule) {
         Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Scope CurrentUser -Force | Out-Null
         Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
         Install-Module -Name Pester -MinimumVersion 5.3.0 -Scope CurrentUser -Force -SkipPublisherCheck | Out-Null
-        $pesterModule = Get-Module -ListAvailable Pester | Where-Object { $_.Version.Major -ge 5 } | Select-Object -First 1
+        $pesterModule = Get-Module -ListAvailable Pester | Where-Object { $_.Version.Major -ge 5 } | Sort-Object Version -Descending | Select-Object -First 1
     } else {
-        Write-Error "Pester 5.0+ is required to execute the test suite. Run with -InstallPrereqs to install it automatically."
+        Write-Host "Pester 5.0+ is required to run the tests. Run with -InstallPrereqs to install it." -ForegroundColor Red
         exit 1
     }
 }
 
 Import-Module $pesterModule -Force
 
-# Locate test files
 $testDir = $PSScriptRoot
-$testFiles = [System.Collections.Generic.List[string]]::new()
-
-if ($Suite -eq 'All' -or $Suite -eq 'Shipnames') {
-    $testFiles.Add((Join-Path $testDir "Shipnames.Tests.ps1"))
+$testFiles = @(Get-ChildItem -Path $testDir -Filter '*.Tests.ps1' -File | Sort-Object Name | ForEach-Object { $_.FullName })
+if ($Suite -ne 'All') {
+    $testFiles = @($testFiles | Where-Object { (Split-Path -Leaf $_) -eq "$Suite.Tests.ps1" })
 }
-if ($Suite -eq 'All' -or $Suite -eq 'Documentation') {
-    $testFiles.Add((Join-Path $testDir "Documentation.Tests.ps1"))
-}
-if ($Suite -eq 'All' -or $Suite -eq 'BuildScript') {
-    $testFiles.Add((Join-Path $testDir "BuildScript.Tests.ps1"))
-}
-
-if ($Suite -eq 'All' -or $Suite -eq 'Knowledge') {
-    $testFiles.Add((Join-Path $testDir "Knowledge.Tests.ps1"))
+if ($testFiles.Count -eq 0) {
+    $availableSuites = @(Get-ChildItem -Path $testDir -Filter '*.Tests.ps1' -File | ForEach-Object { $_.Name -replace '\.Tests\.ps1$', '' })
+    Write-Host "No test file matches suite '$Suite'. Suites: All, $($availableSuites -join ', ')" -ForegroundColor Red
+    exit 1
 }
 
 Write-Host "`n=======================================================" -ForegroundColor Cyan
-Write-Host "  ISNE Test Suite Runner (Pester $($pesterModule.Version))" -ForegroundColor Cyan
+Write-Host "  Mod Test Suite Runner (Pester $($pesterModule.Version))" -ForegroundColor Cyan
 Write-Host "=======================================================" -ForegroundColor Cyan
 Write-Host "Suite:       $Suite" -ForegroundColor Gray
-Write-Host "Test Files:  $($testFiles.Count)" -ForegroundColor Gray
+Write-Host "Test Files:  $(($testFiles | ForEach-Object { Split-Path -Leaf $_ }) -join ', ')" -ForegroundColor Gray
 Write-Host "CI Mode:     $($CI.IsPresent)`n" -ForegroundColor Gray
 
-# Configure Pester
 $config = [PesterConfiguration]::Default
-$config.Run.Path = $testFiles.ToArray()
+$config.Run.Path = $testFiles
 $config.Run.PassThru = $true
 $config.Output.Verbosity = if ($CI) { 'Detailed' } else { 'Normal' }
 
@@ -99,14 +59,12 @@ if ($CI) {
     $config.TestResult.OutputPath = $OutputFile
 }
 
-# Execute tests
 $result = Invoke-Pester -Configuration $config
 
-# A file that fails discovery (or a block whose setup throws) runs no tests, so FailedCount alone misses it.
 $failedTotal = $result.FailedCount + $result.FailedBlocksCount + $result.FailedContainersCount
 $summary = "  Summary: $($result.PassedCount) Passed, $($result.FailedCount) Failed, $($result.SkippedCount) Skipped"
 if ($result.FailedContainersCount -gt 0) { $summary += ", $($result.FailedContainersCount) test file(s) failed to run" }
-if ($result.FailedBlocksCount -gt 0) { $summary += ", $($result.FailedBlocksCount) block(s) failed in setup/teardown" }
+if ($result.FailedBlocksCount -gt 0) { $summary += ", $($result.FailedBlocksCount) block(s) failed in setup or teardown" }
 
 Write-Host "`n-------------------------------------------------------" -ForegroundColor Cyan
 Write-Host $summary -ForegroundColor $(if ($failedTotal -gt 0) { "Red" } else { "Green" })
@@ -118,6 +76,5 @@ if ($CI -and (Test-Path $OutputFile)) {
 
 if ($failedTotal -gt 0) {
     exit 1
-} else {
-    exit 0
 }
+exit 0

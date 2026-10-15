@@ -153,7 +153,7 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 - Added 11 universal thematic lists: Sultans & Khans, Admirals, Cities & Ports, Provinces, Rivers, Mountains & Hills, Battles, Birds, Aquatic Life, Predators, and Virtues.
 
 [b]United States[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV), keeping vanilla's depth and its Confederate lists.
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV), keeping vanilla's depth and its Confederate lists, with deeper cruiser, carrier and capital-ship lists for a full wartime building programme.
 - Added 9 universal thematic lists to vanilla's six (States, Cities, Battles, Leaders, Birds, Fish): Native Nations, Rivers, Peaks, Parks & Regions, Celestial Bodies, Mythology, Virtues, Age of Sail, and separate democratic and socialist ideological pools, plus role lists for destroyer escorts, anti-aircraft cruisers, light and escort carriers, minelayers, minesweepers, patrol frigates, corvettes, gunboats, Coast Guard cutters, seaplane tenders, submarine tenders, and monitors.
 
 [b]Yugoslavia[/b]

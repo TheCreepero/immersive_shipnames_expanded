@@ -10,16 +10,9 @@ BeforeAll {
     # Read build.ps1 script content to extract functions without executing the full script
     $script:BuildContent = [System.IO.File]::ReadAllText($script:BuildScriptPath, [System.Text.Encoding]::UTF8)
 
-    # Dot-source Get-ModMetadata and New-LauncherModContent definitions safely
-    $metaFuncMatch = [regex]::Match($script:BuildContent, '(?s)(function Get-ModMetadata\s*\{.*?\n\})')
-    $launcherFuncMatch = [regex]::Match($script:BuildContent, '(?s)(function New-LauncherModContent\s*\{.*?\n\})')
-
-    if ($metaFuncMatch.Success) {
-        . ([ScriptBlock]::Create($metaFuncMatch.Groups[1].Value))
-    }
-    if ($launcherFuncMatch.Success) {
-        . ([ScriptBlock]::Create($launcherFuncMatch.Groups[1].Value))
-    }
+    # Get-ModMetadata, New-LauncherModContent and the lifecycle actions live in the shared engine
+    . (Join-Path $script:RepoRoot 'tools\HoiModBuild.ps1')
+    $script:BuildConfig = Get-ModBuildConfig -RepoDir $script:RepoRoot
 
     $script:Canon = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot "data\ship_types_canon.json"), [System.Text.Encoding]::UTF8) | ConvertFrom-Json
 
@@ -156,17 +149,20 @@ remote_file_id="99999"
 }
 
 Describe "build.ps1 Packaging & Staging Whitelist" {
-    It "Defines a mod content whitelist limited to common, descriptor.mod and thumbnail.png" {
-        $script:BuildContent | Should -Match "ModContentDirs\s*=\s*@\('common'\)"
-        $script:BuildContent | Should -Match "ModContentFiles\s*=\s*@\('descriptor\.mod',\s*'thumbnail\.png'\)"
+    It "Limits the mod content to common, descriptor.mod and thumbnail.png" {
+        @($script:BuildConfig.ContentDirs) | Should -Be @('common') -Because "data/ holds the ship_types canon, a development file"
+        $shippedTopLevel = @(Get-ModContentFiles -Config $script:BuildConfig | ForEach-Object { ($_ -split '/')[0] } | Sort-Object -Unique)
+        $shippedTopLevel | Should -Be @('common', 'descriptor.mod', 'thumbnail.png')
     }
 
-    It "Package, Workshop upload and Deploy all copy through Copy-ModContent" {
-        ([regex]::Matches($script:BuildContent, 'Copy-ModContent\s+-Source')).Count | Should -BeGreaterOrEqual 3
+    It "Installs as immersive_shipnames_expanded and packages isne.zip as a mod folder with its launcher file" {
+        $script:BuildConfig.ModFolderName | Should -Be 'immersive_shipnames_expanded'
+        $script:BuildConfig.ZipArchiveName | Should -Be 'isne.zip'
+        $script:BuildConfig.PackageLayout | Should -Be 'ModFolder'
     }
 
-    It "Never copies the repo root wholesale with robocopy" {
-        $script:BuildContent | Should -Not -Match 'robocopy\.exe\s+\$RepoDir'
+    It "Hands the ship namelist validation to the shared engine" {
+        $script:BuildContent | Should -Match 'Invoke-ModBuild -Config \$buildConfig -ExtraValidation \{ Invoke-Validation \}'
     }
 }
 

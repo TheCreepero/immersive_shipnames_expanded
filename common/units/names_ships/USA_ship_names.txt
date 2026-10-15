@@ -153,6 +153,18 @@ USA_CL_HISTORICAL = {
 		"Baton Rouge" "Jefferson City" "Frankfort" "Dover" "Canton" "South Bend" "Sioux City" "Sioux Falls" "Cedar Rapids" "Green Bay" "Saginaw" "Durham" "Winston-Salem"
 		"Greenville" "Wichita Falls" "St. Petersburg" "Lake Charles" "Waco" "Amarillo" "Laredo" "Colorado Springs" "Billings" "Butte" "Great Falls" "Las Vegas" "Bakersfield"
 		"Berkeley" "Anchorage" "Fairbanks" "Ketchikan" "Santa Monica" "Riverside" "New London" "Waterbury" "Huntsville" "Lubbock"
+		# Expansion: New England cities
+		"Chicopee" "Taunton" "Waltham" "Fitchburg" "Norwalk" "Meriden" "Middletown" "Danbury" "Lewiston" "Waterville" "Rockland" "Nashua" "Keene" "Rutland"
+		# Expansion: Mid-Atlantic cities
+		"Morristown" "Cape May" "Plainfield" "Vineland" "Watertown" "Oswego" "Newburgh" "Ogdensburg" "Easton" "Hazleton" "Carlisle" "Pottsville" "Hagerstown" "Danville" "Staunton" "Parkersburg" "Clarksburg" "Morgantown" "Martinsburg"
+		# Expansion: Southern cities
+		"High Point" "Rocky Mount" "Fayetteville" "New Bern" "Goldsboro" "Elizabeth City" "Gastonia" "Spartanburg" "Rock Hill" "Valdosta" "Waycross" "Thomasville" "Gadsden" "Dothan" "Selma" "Bessemer" "Daytona Beach" "West Palm Beach" "Fort Lauderdale" "Fort Myers" "Lakeland" "Gainesville" "Sarasota" "Johnson City" "Kingsport" "Clarksville" "Owensboro" "Bowling Green" "Hattiesburg" "Tupelo" "Houma" "Pine Bluff" "Hot Springs" "Texarkana" "San Angelo" "Longview" "Lawton" "Bartlesville" "Stillwater"
+		# Expansion: Midwestern cities
+		"Zanesville" "Steubenville" "Elyria" "Massillon" "Chillicothe" "Ashtabula" "Findlay" "Kokomo" "Bloomington" "Elkhart" "Rock Island" "Moline" "Elgin" "Champaign" "Galesburg" "Waukegan" "Belleville" "Alton" "Battle Creek" "Ann Arbor" "Marquette" "Traverse City" "Ypsilanti" "Oshkosh" "La Crosse" "Eau Claire" "Wausau" "Janesville" "Appleton" "Fond du Lac" "St. Cloud" "Mankato" "Ottumwa" "Mason City" "Joplin" "Sedalia" "Cape Girardeau" "Salina" "Leavenworth" "Atchison" "Dodge City" "North Platte" "Rapid City" "Minot"
+		# Expansion: Western cities
+		"Grand Junction" "Fort Collins" "Leadville" "Cedar City" "Nogales" "Tempe" "Silver City" "Elko" "Tonopah" "Nampa" "Coeur d'Alene" "Kalispell" "Rock Springs" "Wenatchee" "Port Angeles" "Port Townsend" "Anacortes" "Klamath Falls" "Corvallis" "Roseburg" "Redding" "Salinas" "San Mateo" "Ventura" "San Luis Obispo" "Santa Clara" "Chico" "Merced" "Visalia" "Petaluma" "San Rafael" "Oceanside" "Inglewood"
+		# Expansion: Alaska, Hawaii and island territories
+		"Nome" "Kodiak" "Wrangell" "Valdez" "Skagway" "Lahaina" "Wailuku" "Lihue" "Ponce" "Mayagüez" "Arecibo" "Caguas" "Christiansted"
 	}
 }
 
@@ -175,10 +187,12 @@ USA_CA_HISTORICAL = {
 		"Augusta" "Portland" "Indianapolis" "New Orleans" "Astoria" "Minneapolis" "Tuscaloosa" "San Francisco"
 		# Canceled hulls
 		"Cambridge" "Bridgeport" "Kansas City" "Tulsa" "Norfolk" "Scranton"
+		"Dallas"
 		# Armored cruisers under their later city names, and Charleston (CA-19)
 		"Pueblo" "Frederick" "Huron" "Charleston" "Seattle" "Charlotte" "Missoula"
 		# Expansion: major cities without a cruiser namesake
 		"San Antonio" "Fort Worth" "Jersey City" "Syracuse" "Akron" "Hoboken" "Jacksonville" "San Jose" "Harrisburg" "Fort Wayne" "Yonkers" "Lowell" "Santa Barbara"
+		"Lincoln" "Paterson" "Somerville" "Utica" "Schenectady" "Altoona" "Binghamton" "Pawtucket" "Hammond" "East Orange" "Johnstown" "Atlantic City" "Brockton" "Terre Haute" "Medford" "Kenosha" "Malden" "Bethlehem" "New Rochelle" "Holyoke" "McKeesport" "Haverhill" "Joliet" "Evanston" "Cranston" "Alameda" "Lynchburg" "Perth Amboy" "Elmira" "Pittsfield" "Fort Smith" "Council Bluffs" "Hamtramck" "Bay City" "Muncie" "Oak Park" "Union City" "Lakewood" "Williamsport"
 	}
 }
 
@@ -203,6 +217,8 @@ USA_BB_HISTORICAL = {
 		"Minnesota" "North Dakota" "Oregon" "Connecticut" "Vermont" "New Hampshire" "Florida" "Utah" "Delaware" "Michigan" "Kansas" "Rhode Island" "Nebraska" "Virginia"
 		# Remaining states
 		"Maine" "Louisiana" "South Carolina" "Wyoming" "Georgia"
+		# Expansion: presidents and founding statesmen (41 for Freedom convention)
+		"John Adams" "Thomas Jefferson" "James Madison" "James Monroe" "John Quincy Adams" "James K. Polk" "Zachary Taylor" "Ulysses S. Grant" "Rutherford B. Hayes" "James A. Garfield" "William McKinley" "William Howard Taft" "Woodrow Wilson" "John Jay" "John Marshall" "Patrick Henry" "Samuel Adams" "Roger Sherman" "Henry Clay" "Daniel Webster"
 	}
 }
 
@@ -229,8 +245,14 @@ USA_BC_HISTORICAL = {
 		"Chesapeake" "Congress" "President" "Alfred" "Alliance" "Warren" "Trumbull" "Andrew Doria"
 		# Sail-era frigates and War of 1812 flagships
 		"Guerriere" "Java" "Macedonian" "Niagara" "Argus" "Peacock" "Potomac" "Brandywine" "Raritan" "St. Lawrence"
+		"Sabine"
 		# Steam frigates and Civil War flagships
 		"Hartford" "Monitor" "Merrimack" "Cumberland" "Susquehanna" "Powhatan" "Wabash" "Lackawanna" "Carondelet" "Cairo" "Benton" "New Ironsides" "Wampanoag"
+		"Dunderberg" "Tuscarora" "Monongahela" "Juniata" "Ossipee" "Narragansett" "Seminole"
+		# Expansion: decisive naval actions
+		"Flamborough Head" "Port Royal" "Mobile Bay"
+		# Expansion: coastal forts
+		"Fort Independence" "Fort Mifflin" "Fort Wadsworth" "Fort Pickens" "Fort Point" "Fort Rosecrans" "Fort Stevens" "Fort Kamehameha" "Fort Drum"
 	}
 }
 
@@ -255,11 +277,15 @@ USA_CV_HISTORICAL = {
 		"Forrestal" "Kitty Hawk" "America" "Theodore Roosevelt" "Abraham Lincoln" "George Washington"
 		# First carrier and renamed Essex-class hull
 		"Langley" "Crown Point"
-		# Expansion: battles of the Revolution, War of 1812 and Mexican War (Essex-class convention)
+		# Expansion: battles from the Revolution to the Mexican War (Essex-class convention)
 		"Germantown" "Monmouth" "Kings Mountain" "Guilford Court House" "Eutaw Springs" "Stony Point" "Fort Moultrie" "Lake Erie" "Lundy's Lane" "Fort McHenry"
 		"Horseshoe Bend" "Palo Alto" "Buena Vista" "Cerro Gordo" "Chapultepec" "Veracruz"
+		"Moores Creek" "Great Bridge" "Harlem Heights" "Red Bank" "Kettle Creek" "Paulus Hook" "Derna" "Tippecanoe" "Craney Island" "Fort Meigs" "Fort Stephenson" "Chippawa" "Fort Erie" "North Point" "Alamo" "Resaca de la Palma" "Contreras" "Churubusco" "Molino del Rey"
 		# Expansion: Civil War, Spanish-American War and World War I
 		"Fort Donelson" "Hampton Roads" "Appomattox" "Fort Fisher" "Santiago" "San Juan Hill" "Château-Thierry" "Meuse-Argonne" "Saint-Mihiel" "Cantigny"
+		"Mill Springs" "Pea Ridge" "Glorieta Pass" "Perryville" "Stones River" "Port Hudson" "Champion Hill" "Gettysburg" "Lookout Mountain" "Missionary Ridge" "Cedar Creek" "Five Forks" "Las Guasimas" "El Caney" "Guantánamo Bay" "Soissons" "Blanc Mont"
+		# Expansion: World War II battles
+		"Eastern Solomons" "Santa Cruz" "Buna" "Kolombangara" "Komandorski Islands" "Empress Augusta Bay" "Cape St. George" "Biak" "Normandy" "Morotai" "Peleliu" "Remagen"
 	}
 }
 
@@ -340,6 +366,8 @@ USA_AA_CRUISERS = {
 		"Atlanta" "Juneau" "San Diego" "San Juan" "Oakland" "Reno" "Flint" "Tucson" "Spokane" "Fresno"
 		# Worcester class
 		"Worcester" "Roanoke" "Vallejo" "Gary"
+		# Expansion: cities without a cruiser namesake
+		"Santa Ana" "Santa Rosa" "Modesto" "Pomona" "Anaheim" "Bellingham" "Yakima" "Walla Walla" "Provo" "Las Cruces" "Roswell" "Prescott" "Flagstaff" "Laramie" "Bozeman" "Twin Falls"
 	}
 }
 

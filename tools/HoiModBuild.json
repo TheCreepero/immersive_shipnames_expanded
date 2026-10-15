@@ -1,0 +1,7 @@
+{
+    "modFolderName": "immersive_shipnames_expanded",
+    "zipArchiveName": "isne.zip",
+    "packageLayout": "ModFolder",
+    "contentDirs": [ "common" ],
+    "defaultChangeNote": "Updated ship namelists"
+}

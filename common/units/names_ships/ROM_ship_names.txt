@@ -1,0 +1,667 @@
+##### ROMANIA NAVAL NAME LISTS (ISNE) #####
+# Note: Vanilla HoI4 ROM_ship_names.txt had these anomalies:
+# 1. Light and heavy cruisers shared one verbatim 10-name list; battleships and battlecruisers shared one 3-name list of cities.
+# 2. Calqued fallbacks ("Crucisator Lumina" for light cruiser, "Vas de Razboi" for battleship) and no diacritics in the hull lists.
+# 3. A Mexican city ("Puebla") and a duplicate ("Piatra Neamt") in the cities list; exonyms ("Dobruja", "Bukovina", "Budjak") in the regions list.
+# 4. Destroyers carried the names of corvettes commissioned in the 1980s and 1990s; post-1945 place names ("Cluj Napoca", "Navodari").
+# Romanian s-comma and t-comma are written with the cedilla forms, which the game fonts carry [SPR-023].
+
+### SHIP-TYPE SPECIFIC: DESTROYERS & ESCORTS ###
+ROM_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { ROM }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "NMS "
+	fallback_name = "Distrugător %d"
+
+	unique = {
+		# Destroyers, flotilla leaders and the escort minelayer
+		"Mărăşti" "Mărăşeşti" "Regele Ferdinand" "Regina Maria" "Amiral Murgescu"
+		# The 1913 destroyer order
+		"Vifor" "Vijelie" "Vârtej" "Viscol"
+		# Winds, storms and swift phenomena (formula of the Vifor class)
+		"Crivăţ" "Austru" "Băltăreţ" "Furtună" "Uragan" "Trăsnet" "Tunet" "Grindină" "Rafală" "Volbură"
+		"Vâltoare" "Năvală" "Iureş" "Avânt" "Meteor" "Cometă"
+		# Battles of 1877-78 and 1916-19 (formula of Mărăşti and Mărăşeşti)
+		"Plevna" "Vidin" "Calafat" "Oituz" "Neajlov" "Prunaru" "Robăneşti" "Cireşoaia" "Coşna"
+		"Răzoare" "Muncelu" "Varniţa" "Doaga"
+		# Senior naval commanders (formula of Amiral Murgescu)
+		"Nicolae Steriade" "Scarlat Murguleţ" "Emanoil Boteanu" "Nicolae Dimitrescu-Maican" "Emanoil Koslinski"
+		"Constantin Bălescu" "Vasile Scodrea" "Vasile Urseanu"
+		# Heroes of the ranks
+		"Peneş Curcanul" "Grigore Ignat" "Constantin Muşat"
+		# Rivers (formula of the river torpedo boats and gunboats)
+		"Prutul" "Nistrul" "Mureşul" "Someşul" "Streiul" "Jiul" "Buzăul" "Timişul" "Crişul" "Motrul"
+		"Lotrul" "Olteţul" "Arieşul" "Bârladul" "Teleajenul" "Cibinul"
+		# Soldiers and troops of the old armies
+		"Dorobanţul" "Roşiorul" "Călăraşul" "Vânătorul" "Grănicerul" "Pandurul" "Plăieşul" "Arcaşul" "Străjerul"
+		"Suliţaşul" "Seimenul" "Haiducul" "Voinicul" "Vitejul"
+		# Weapons
+		"Buzduganul" "Paloşul" "Ghioaga" "Săgeata" "Lancea" "Scutul" "Sabia" "Spada"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: SUBMARINES ###
+ROM_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { ROM }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "NMS "
+	fallback_name = "Submarin %d"
+
+	unique = {
+		# Historic submarines
+		"Delfinul" "Rechinul" "Marsuinul"
+		# Marine animals with the article (formula of the historic boats)
+		"Baracuda" "Narvalul" "Somonul" "Peştele-spadă"
+		# Black Sea and Danube fish
+		"Calcanul" "Morunul" "Nisetrul" "Păstruga" "Cega" "Şipul" "Sturionul" "Chefalul" "Stavridul" "Lufarul"
+		"Zărganul" "Scrumbia" "Hamsia" "Şprotul" "Barbunul" "Guvidul" "Ştiuca" "Şalăul" "Lostriţa" "Mreana"
+		"Bibanul" "Păstrăvul" "Lipanul" "Mihalţul" "Tonul" "Macroul" "Anghila"
+		# Sea creatures
+		"Foca" "Balena" "Caşalotul" "Orca" "Morsa" "Caracatiţa" "Calmarul" "Sepia" "Meduza" "Crabul"
+		"Homarul" "Vulpea-de-mare" "Câinele-de-mare" "Pisica-de-mare" "Scorpia-de-mare" "Calul-de-mare"
+		"Dracul-de-mare"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: LIGHT CRUISERS ###
+ROM_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { ROM }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "NMS "
+	fallback_name = "Crucişător uşor %d"
+
+	unique = {
+		# Historic cruiser
+		"Elisabeta"
+		# Black Sea and Danube ports
+		"Constanţa" "Mangalia" "Sulina" "Galaţi" "Brăila" "Tulcea" "Balcic" "Ismail" "Reni" "Chilia Nouă"
+		"Giurgiu" "Turnu Severin" "Olteniţa" "Corabia" "Cernavodă" "Turnu Măgurele" "Călăraşi" "Medgidia"
+		# Capital and cities of the Old Kingdom
+		"Bucureşti" "Iaşi" "Craiova" "Ploieşti" "Piteşti" "Târgovişte" "Buzău" "Râmnicu Sărat" "Focşani"
+		"Bacău" "Piatra Neamţ" "Botoşani" "Vaslui" "Bârlad" "Huşi" "Tecuci" "Caracal" "Slatina"
+		"Râmnicu Vâlcea" "Târgu Jiu" "Roşiorii de Vede" "Bazargic" "Silistra"
+		# Cities of Transylvania, Banat, Crişana and Maramureş
+		"Cluj" "Timişoara" "Arad" "Oradea" "Braşov" "Sibiu" "Alba Iulia" "Târgu Mureş" "Sighişoara" "Mediaş"
+		"Turda" "Deva" "Lugoj" "Caransebeş" "Satu Mare" "Baia Mare" "Sighet" "Bistriţa" "Reghin" "Zalău"
+		# Cities of Bucovina and Basarabia
+		"Cernăuţi" "Suceava" "Chişinău" "Bălţi" "Orhei" "Soroca" "Hotin" "Tighina" "Cahul" "Bolgrad"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: HEAVY CRUISERS ###
+ROM_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { ROM }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "NMS "
+	fallback_name = "Crucişător greu %d"
+
+	unique = {
+		# Warrior princes
+		"Vlad Ţepeş" "Vlad Dracul" "Iancu de Hunedoara" "Petru Rareş" "Ioan Vodă cel Cumplit" "Radu de la Afumaţi"
+		"Petru Cercel" "Radu Şerban" "Matei Basarab" "Vasile Lupu" "Constantin Brâncoveanu" "Dimitrie Cantemir"
+		"Dromichete"
+		# Captains of Mihai Viteazul
+		"Baba Novac" "Preda Buzescu" "Stroe Buzescu" "Radu Calomfirescu"
+		# Outlaws and leaders of 1784, 1821 and 1848
+		"Pintea Viteazul" "Iancu Jianu" "Horea" "Cloşca" "Crişan" "Tudor Vladimirescu" "Avram Iancu"
+		"Nicolae Bălcescu" "Gheorghe Magheru" "Axente Sever" "Ioan Buteanu" "Petre Dobra"
+		# Commanders and heroes of 1877 and 1916-19
+		"General Cernat" "General Cerchez" "General Dragalina" "General Grigorescu" "General Praporgescu"
+		"Ecaterina Teodoroiu"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLESHIPS ###
+ROM_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { ROM }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "NMS "
+	fallback_name = "Cuirasat %d"
+
+	unique = {
+		# Sovereignty and union
+		"România" "România Mare" "Unirea" "Independenţa" "Principatele Unite" "Regatul României"
+		# Historical provinces and lands
+		"Ţara Românească" "Moldova" "Muntenia" "Oltenia" "Transilvania" "Ardeal" "Banat" "Crişana" "Maramureş"
+		"Dobrogea" "Bucovina" "Basarabia" "Bugeac" "Cadrilater"
+		# Founders and great rulers
+		"Burebista" "Decebal" "Gelu" "Voievodul Glad" "Menumorut" "Litovoi" "Negru Vodă" "Basarab I" "Dragoş Vodă"
+		"Bogdan I" "Mircea cel Bătrân" "Ştefan cel Mare" "Mihai Viteazul" "Alexandru Ioan Cuza" "Regele Carol I"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLECRUISERS ###
+ROM_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { ROM }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "NMS "
+	fallback_name = "Crucişător de linie %d"
+
+	unique = {
+		# Historic vessels
+		"Mircea" "Dacia"
+		# Fortresses and citadels
+		"Cetatea Albă" "Cetatea Chiliei" "Cetatea Tighina" "Cetatea Sorocii" "Cetatea Hotinului" "Cetatea Neamţului"
+		"Cetatea Sucevei" "Poenari" "Enisala" "Râşnov" "Rupea" "Sarmizegetusa" "Blidaru" "Piatra Roşie" "Căpâlna" "Băniţa" "Histria" "Tomis" "Callatis"
+		"Capidava"
+		# Danube mouths and the sea approaches
+		"Gurile Dunării" "Insula Şerpilor"
+		# Battles of the voivodes
+		"Posada" "Rovine" "Nicopole" "Baia" "Lipnic" "Podul Înalt" "Războieni" "Şcheia" "Codrii Cosminului"
+		"Obertin" "Jilişte" "Călugăreni" "Şelimbăr" "Guruslău" "Finta"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: AIRCRAFT CARRIERS ###
+ROM_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { ROM }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "NMS "
+	fallback_name = "Portavion %d"
+
+	unique = {
+		# Carpathian peaks and massifs
+		"Moldoveanu" "Negoiu" "Omu" "Peleaga" "Parângul Mare" "Ceahlău" "Retezat" "Bucegi" "Rarău" "Vlădeasa"
+		"Pietrosul Rodnei" "Ineu" "Ţarcu" "Godeanu" "Ciucaş" "Piatra Craiului" "Penteleu" "Cozia"
+		# Raptors
+		"Acvila" "Uliul" "Eretele" "Codalbul" "Gaia" "Zăganul" "Vânturelul" "Şorecarul" "Bufniţa"
+		# Aviation pioneers
+		"Aurel Vlaicu" "Traian Vuia" "Henri Coandă"
+		# Sky figures of folklore
+		"Zburătorul" "Pasărea Măiastră" "Luceafărul"
+	}
+}
+
+### ROLE POOL: TORPEDO BOATS ###
+ROM_TORPEDO_BOATS = {
+	name = "Torpedo Boats"
+
+	for_countries = { ROM }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Torpilor %d"
+
+	unique = {
+		# Torpedo boats of 1875-1888
+		"Rândunica" "Şoimul" "Vulturul" "Năluca" "Sborul" "Smeul" "Vedea" "Argeşul" "Trotuşul" "Teleorman"
+		# River torpedo boats of 1906-07, named for officers of 1877
+		"Maior Ene Constantin" "Căpitan Nicolae Lascăr Bogdan" "Căpitan Romano Mihail" "Maior Giurescu Dimitrie"
+		"Maior Şonţu Gheorghe" "Maior Nicolae Grigore Ioan" "Locotenent Călinescu Dimitrie" "Căpitan Valter Mărăcineanu"
+		# Torpedo boats of 1920 and motor torpedo boats of 1940-44
+		"Viforul" "Vârtejul" "Vijelia" "Viscolul" "Vedenia" "Vântul" "Vulcanul"
+	}
+}
+
+### ROLE POOL: MONITORS & GUNBOATS ###
+ROM_GUNBOATS = {
+	name = "Monitors & Gunboats"
+
+	for_countries = { ROM }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Canonieră %d"
+
+	unique = {
+		# Danube monitors of 1907-08
+		"Ion C. Brătianu" "Lascăr Catargiu" "Mihail Kogălniceanu" "Alexandru Lahovari"
+		# Gunboats and guard ships of 1873-1888
+		"Fulgerul" "Griviţa" "Rahova" "Smârdan" "Opanezul" "Alexandru cel Bun" "Oltul" "Siretul" "Monteano" "Olteano" "Imeo"
+		# Gunboats of 1920, named for officers
+		"Căpitan Dumitrescu Constantin" "Locotenent-Comandor Stihi Eugen" "Sublocotenent Ghiculescu"
+		"Locotenent Lepri Remus"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES & PORTS ###
+ROM_CITIES = {
+	name = "Cities & Ports"
+
+	for_countries = { ROM }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Oraş %d"
+
+	unique = {
+		# Black Sea and Danube ports
+		"Constanţa" "Mangalia" "Balcic" "Sulina" "Tulcea" "Isaccea" "Măcin" "Galaţi" "Brăila" "Hârşova"
+		"Cernavodă" "Medgidia" "Babadag" "Silistra" "Călăraşi" "Olteniţa" "Giurgiu" "Zimnicea" "Turnu Măgurele"
+		"Corabia" "Calafat" "Turnu Severin" "Orşova" "Ismail" "Reni" "Chilia Nouă" "Cetatea Albă"
+		# The Old Kingdom
+		"Bucureşti" "Ploieşti" "Câmpina" "Târgovişte" "Piteşti" "Câmpulung" "Craiova" "Caracal" "Slatina"
+		"Alexandria" "Slobozia" "Târgu Jiu" "Râmnicu Vâlcea" "Buzău" "Râmnicu Sărat" "Focşani" "Tecuci" "Bârlad"
+		"Huşi" "Vaslui" "Iaşi" "Botoşani" "Dorohoi" "Fălticeni" "Piatra Neamţ" "Bacău" "Bazargic"
+		# Transylvania, Banat, Crişana and Maramureş
+		"Cluj" "Turda" "Alba Iulia" "Sibiu" "Sighişoara" "Mediaş" "Braşov" "Făgăraş" "Târgu Mureş" "Bistriţa"
+		"Sfântu Gheorghe" "Miercurea Ciuc" "Odorhei" "Deva" "Timişoara" "Arad" "Lugoj" "Caransebeş" "Reşiţa"
+		"Oradea" "Satu Mare" "Baia Mare" "Sighet" "Zalău"
+		# Bucovina and Basarabia
+		"Cernăuţi" "Suceava" "Rădăuţi" "Chişinău" "Bălţi" "Soroca" "Orhei" "Tighina" "Cahul" "Hotin"
+	}
+}
+
+### UNIVERSAL TOPIC: PROVINCES & COUNTIES ###
+ROM_PROVINCES = {
+	name = "Provinces & Counties"
+
+	for_countries = { ROM }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Judeţ %d"
+
+	unique = {
+		# Historical provinces
+		"Ţara Românească" "Muntenia" "Oltenia" "Moldova" "Transilvania" "Banat" "Crişana" "Maramureş"
+		"Dobrogea" "Bucovina" "Basarabia" "Bugeac" "Cadrilater"
+		# Historical lands
+		"Ţara Bârsei" "Ţara Haţegului" "Ţara Oltului" "Ţara Moţilor" "Ţara Oaşului" "Ţara Vrancei"
+		"Ţara Dornelor" "Ţara Lăpuşului" "Ţara Năsăudului" "Ţara Zarandului" "Ţara Almăjului" "Ţara Loviştei"
+		"Ţara Chioarului"
+		# Interwar counties named apart from their seats
+		"Covurlui" "Tutova" "Fălciu" "Putna" "Vlaşca" "Romanaţi" "Muscel" "Mehedinţi" "Gorj" "Dolj" "Ilfov"
+		"Vâlcea" "Neamţ" "Baia" "Lăpuşna" "Caliacra" "Durostor" "Severin" "Hunedoara" "Târnava Mare"
+		"Târnava Mică" "Trei Scaune" "Ciuc" "Năsăud" "Sălaj" "Bihor" "Timiş-Torontal"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS & LAKES ###
+ROM_RIVERS = {
+	name = "Rivers & Lakes"
+
+	for_countries = { ROM }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Râu %d"
+
+	unique = {
+		# The Danube and its mouths
+		"Dunărea" "Braţul Chilia" "Braţul Sulina" "Braţul Sfântu Gheorghe" "Borcea" "Porţile de Fier"
+		# Rivers
+		"Prut" "Siret" "Nistru" "Olt" "Mureş" "Someş" "Tisa" "Timiş" "Jiu" "Argeş" "Dâmboviţa" "Ialomiţa"
+		"Buzău" "Bistriţa" "Trotuş" "Bârlad" "Prahova" "Teleajen" "Vedea" "Teleorman" "Motru" "Cerna" "Bega"
+		"Bârzava" "Caraş" "Nera" "Arieş" "Lotru" "Strei" "Crasna" "Barcău" "Crişul Repede" "Crişul Alb"
+		"Crişul Negru" "Bahlui" "Jijia" "Sebeş" "Râul Doamnei" "Bicaz" "Vişeu" "Iza" "Lăpuş" "Răut" "Bâc"
+		# Lakes and lagoons
+		"Razim" "Sinoie" "Goloviţa" "Zmeica" "Siutghiol" "Techirghiol" "Snagov" "Lacul Roşu" "Sfânta Ana"
+		"Ialpug"
+		# Capes
+		"Capul Midia" "Capul Tuzla" "Capul Caliacra"
+	}
+}
+
+### UNIVERSAL TOPIC: MOUNTAINS ###
+ROM_GEOGRAPHY = {
+	name = "Mountains"
+
+	for_countries = { ROM }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Munte %d"
+
+	unique = {
+		# Massifs
+		"Bucegi" "Făgăraş" "Retezat" "Parâng" "Ceahlău" "Rarău" "Rodna" "Călimani" "Ciucaş" "Piatra Craiului"
+		"Postăvarul" "Piatra Mare" "Cozia" "Cindrel" "Godeanu" "Ţarcu" "Semenic" "Vlădeasa" "Gutâi" "Suhard"
+		"Hăşmaş" "Penteleu" "Giumalău" "Apuseni" "Siriu" "Leaota" "Iezer" "Baiu"
+		# Peaks
+		"Moldoveanu" "Negoiu" "Omu" "Peleaga" "Parângul Mare" "Vârful lui Pătru" "Toaca" "Pietrosul Rodnei"
+		"Ineu" "Cucurbăta Mare" "Caraiman" "Coştila"
+		# Passes
+		"Predeal" "Tihuţa" "Prislop" "Turnu Roşu" "Vâlcan" "Ghimeş" "Mestecăniş"
+	}
+}
+
+### UNIVERSAL TOPIC: RULERS ###
+ROM_RULERS = {
+	name = "Rulers"
+
+	for_countries = { ROM }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Voievod %d"
+
+	unique = {
+		# Dacian kings
+		"Dromichete" "Oroles" "Rubobostes" "Burebista" "Deceneu" "Cotiso" "Comosicus" "Scorilo" "Duras" "Decebal"
+		# Early voivodes and dukes
+		"Gelu" "Voievodul Glad" "Menumorut" "Litovoi" "Seneslau" "Bărbat"
+		# Voivodes of Wallachia
+		"Basarab I" "Nicolae Alexandru" "Vlaicu Vodă" "Radu I" "Dan I" "Mircea cel Bătrân" "Vlad Dracul"
+		"Vlad Ţepeş" "Radu cel Frumos" "Radu cel Mare" "Neagoe Basarab" "Radu de la Afumaţi" "Mircea Ciobanul"
+		"Petru Cercel" "Mihai Viteazul" "Radu Şerban" "Matei Basarab" "Şerban Cantacuzino" "Constantin Brâncoveanu"
+		"Gheorghe Bibescu" "Barbu Ştirbei"
+		# Voivodes of Moldavia
+		"Dragoş" "Bogdan I" "Laţcu" "Petru I Muşat" "Roman I" "Alexandru cel Bun" "Ştefan cel Mare"
+		"Bogdan cel Chior" "Ştefăniţă" "Petru Rareş" "Alexandru Lăpuşneanu" "Ioan Vodă cel Cumplit"
+		"Petru Şchiopul" "Ieremia Movilă" "Vasile Lupu" "Gheorghe Ştefan" "Dimitrie Cantemir" "Grigore III Ghica"
+		"Ioan Sturdza" "Mihail Sturdza" "Grigore Alexandru Ghica"
+		# Prince of the United Principalities
+		"Alexandru Ioan Cuza"
+	}
+}
+
+### UNIVERSAL TOPIC: HEROES & SCHOLARS ###
+ROM_HEROES = {
+	name = "Heroes & Scholars"
+
+	for_countries = { ROM }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Erou %d"
+
+	unique = {
+		# Uprisings and revolutions
+		"Horea" "Cloşca" "Crişan" "Tudor Vladimirescu" "Avram Iancu" "Nicolae Bălcescu" "Andrei Mureşanu"
+		"Simion Bărnuţiu"
+		# The Transylvanian School and the first schools
+		"Samuil Micu" "Gheorghe Şincai" "Petru Maior" "Ion Budai-Deleanu" "Gheorghe Lazăr" "Gheorghe Asachi"
+		"Ion Heliade Rădulescu"
+		# Soldiers of 1877 and 1916-19
+		"Peneş Curcanul" "Ecaterina Teodoroiu" "Ion Dragalina" "Eremia Grigorescu" "David Praporgescu" "Grigore Ignat" "Constantin Muşat" "Măriuca Zaharia"
+		# Writers
+		"Mihai Eminescu" "Ion Creangă" "Ion Luca Caragiale" "Vasile Alecsandri" "George Coşbuc" "Alexandru Vlahuţă"
+		"Barbu Delavrancea" "Ioan Slavici" "Titu Maiorescu" "Bogdan Petriceicu Hasdeu" "Dimitrie Bolintineanu"
+		"Grigore Alexandrescu" "Costache Negruzzi" "Alecu Russo" "Iancu Văcărescu"
+		# Painters and composers
+		"Nicolae Grigorescu" "Theodor Aman" "Ciprian Porumbescu"
+		# Scientists, engineers and aviators
+		"Anghel Saligny" "Spiru Haret" "Carol Davila" "Victor Babeş" "Ion Cantacuzino" "Petrache Poenaru"
+		"Ion Ionescu de la Brad" "Aurel Vlaicu" "Traian Vuia"
+	}
+}
+
+### UNIVERSAL TOPIC: BATTLES ###
+ROM_BATTLES = {
+	name = "Battles"
+
+	for_countries = { ROM }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Bătălie %d"
+
+	unique = {
+		# Battles of the voivodes
+		"Posada" "Rovine" "Nicopole" "Baia" "Lipnic" "Podul Înalt" "Războieni" "Şcheia" "Codrii Cosminului"
+		"Obertin" "Jilişte" "Călugăreni" "Giurgiu" "Şelimbăr" "Guruslău" "Finta"
+		# War of Independence, 1877-78
+		"Plevna" "Griviţa" "Rahova" "Smârdan" "Opanez" "Vidin"
+		# The First World War, 1916-19
+		"Oituz" "Mărăşti" "Mărăşeşti" "Neajlov" "Prunaru" "Robăneşti" "Valea Jiului" "Cireşoaia" "Coşna"
+		 "Răzoare" "Muncelu" "Varniţa" "Doaga"
+	}
+}
+
+### UNIVERSAL TOPIC: MYTH & FOLKLORE ###
+ROM_MYTHOLOGY = {
+	name = "Myth & Folklore"
+
+	for_countries = { ROM }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Legendă %d"
+
+	unique = {
+		# Dacian and Thracian gods
+		"Zamolxe" "Gebeleizis" "Derzelas" "Bendis"
+		# Heroes of the folk tales
+		"Făt-Frumos" "Ileana Cosânzeana" "Harap-Alb" "Prâslea cel Voinic" "Greuceanu" "Aleodor" "Iovan Iorgovan"
+		"Toma Alimoş" "Meşterul Manole" "Mioriţa" "Păcală" "Tândală"
+		# Creatures and spirits
+		"Zmeu" "Balaur" "Pasărea Măiastră" "Zburător" "Solomonar" "Căpcăun" "Muma Pădurii" "Gheonoaia"
+		"Statu-Palmă-Barbă-Cot" "Strigoi" "Moroi" "Pricolici" "Iele" "Sânziene" "Ursitoare" "Vâlva Băilor"
+		# Figures of the calendar and the sky
+		"Baba Dochia" "Dragobete" "Joimăriţa" "Sfânta Vineri" "Zorilă" "Murgilă" "Miazănoapte"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS ###
+ROM_BIRDS = {
+	name = "Birds"
+
+	for_countries = { ROM }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Pasăre %d"
+
+	unique = {
+		# Birds of the Danube Delta and the coast
+		"Pelican" "Pelican Creţ" "Egretă" "Stârc" "Lebădă" "Cormoran" "Pescăruş" "Chirighiţă" "Lopătar"
+		"Piciorong" "Fluierar" "Ţigănuş" "Lişiţă" "Cocor" "Barză" "Barză Neagră" "Pescăraş Albastru"
+		# Raptors and owls
+		"Acvilă" "Vultur" "Zăgan" "Şoim" "Uliu" "Erete" "Codalb" "Gaie" "Vânturel" "Şorecar" "Bufniţă"
+		"Cucuvea" "Huhurez" "Ciuf"
+		# Birds of the forests and fields
+		"Cocoş de Munte" "Ieruncă" "Dropie" "Prepeliţă" "Potârniche" "Ciocârlie" "Privighetoare" "Mierlă"
+		"Piţigoi" "Sticlete" "Lăstun" "Rândunică" "Pupăză" "Ciocănitoare" "Cristel"
+	}
+}
+
+### UNIVERSAL TOPIC: FISH ###
+ROM_FISH = {
+	name = "Fish"
+
+	for_countries = { ROM }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Peşte %d"
+
+	unique = {
+		# Sturgeons
+		"Morun" "Nisetru" "Cegă" "Păstrugă" "Ghiborţ"
+		# Black Sea fish
+		"Scrumbie de Dunăre" "Hamsie" "Şprot" "Calcan" "Barbun" "Chefal" "Lufar" "Stavrid" "Zărgan" "Guvid"
+		"Scorpie-de-mare" "Pisică-de-mare" "Rândunică-de-mare"
+		# Danube and mountain fish
+		"Lostriţă" "Şalău" "Ştiucă" "Sabiţă" "Mreană" "Biban" "Plătică" "Caras" "Obleţ" "Lipan" "Păstrăv"
+		"Mihalţ" "Ţipar" "Avat" "Văduviţă" "Babuşcă" "Somn"
+	}
+}
+
+### UNIVERSAL TOPIC: VIRTUES & ELEMENTS ###
+ROM_VIRTUES = {
+	name = "Virtues & Elements"
+
+	for_countries = { ROM }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Virtute %d"
+
+	unique = {
+		# Martial virtues
+		"Vitejia" "Credinţa" "Dreptatea" "Onoarea" "Datoria" "Curajul" "Bărbăţia" "Jertfa" "Biruinţa" "Izbânda"
+		"Neatârnarea" "Statornicia" "Hotărârea" "Cutezanţa" "Vrednicia" "Dârzenia" "Demnitatea" "Speranţa"
+		"Loialitatea" "Abnegaţia" "Eroismul" "Gloria" "Victoria"
+		# Winds and storms
+		"Furtuna" "Uraganul" "Trăsnetul" "Tunetul" "Crivăţul" "Austrul" "Volbura" "Grindina"
+		# Sky and stars
+		"Luceafărul" "Steaua Polară" "Carul Mare" "Calea Robilor" "Răsăritul" "Zorile" "Aurora" "Curcubeul"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: ROYAL HOUSE ###
+ROM_MONARCHISM = {
+	name = "Royal House"
+
+	for_countries = { ROM }
+
+	# Romania stays a kingdom under every government except a communist one
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Coroană %d"
+
+	unique = {
+		# Kings, queens and princes
+		"Regele Carol I" "Regina Elisabeta" "Regele Ferdinand" "Regina Maria" "Regele Carol II" "Regina Elena"
+		"Mare Voievod de Alba Iulia" "Principele Nicolae" "Principesa Ileana" "Principesa Elisabeta" "Principesa Mărioara"
+		# Crown, motto and anthem
+		"Nihil Sine Deo" "Coroana de Oţel" "Stema Regală" "Casa Regală" "Trăiască Regele"
+		# Royal orders
+		"Steaua României" "Coroana României" "Ordinul Carol I" "Ordinul Mihai Viteazul"
+		# Royal residences
+		"Peleş" "Pelişor" "Cotroceni" "Castelul Bran"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: UNION & LIBERTY ###
+ROM_REVOLUTION = {
+	name = "Union & Liberty"
+
+	for_countries = { ROM }
+
+	can_use = {
+		has_government = democratic
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Ideal %d"
+
+	unique = {
+		# The revolution of 1848
+		"Proclamaţia de la Islaz" "Câmpia Libertăţii" "Dreptate, Frăţie" "Paşoptiştii"
+		# The unions and the constitutions
+		"Divanul ad-hoc" "Mica Unire" "Unirea Principatelor" "Marea Unire" "Memorandul"
+		"Constituţia din 1866" "Constituţia din 1923" "Votul Universal"
+		# Ideals
+		"Libertatea" "Egalitatea" "Frăţia" "Suveranitatea" "Parlamentul"
+		# Statesmen of 1848, the Union and Greater Romania
+		"Ion C. Brătianu" "Ion I. C. Brătianu" "Vintilă Brătianu" "Mihail Kogălniceanu" "C. A. Rosetti" "Ion Ghica"
+		"Costache Negri" "Ion Câmpineanu" "Nicolae Golescu" "Take Ionescu" "Ioan Raţiu" "Gheorghe Pop de Băseşti"
+		"Vasile Goldiş"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: LABOUR MOVEMENT ###
+ROM_SOCIALISM = {
+	name = "Labour Movement"
+
+	for_countries = { ROM }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Socialist %d"
+
+	unique = {
+		# Socialists and labour activists
+		"Constantin Dobrogeanu-Gherea" "I. C. Frimu" "Ştefan Gheorghiu" "Vasile Roaită" "Haia Lifşiţ"
+		"Leonte Filipescu" "Pavel Tcacenco"
+		# Revolts and strikes
+		"Răscoala din 1907" "13 Decembrie 1918" "Greva de la Lupeni" "Greva de la Griviţa" "Doftana"
+		# Press and slogans
+		"România Muncitoare" "Socialismul" "Internaţionala" "Întâi Mai" "Solidaritatea" "Proletarul"
+		"Muncitorul" "Steagul Roşu" "Secera şi Ciocanul" "Revoluţia"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: NATIONALIST IDEALS ###
+ROM_NATIONALISM = {
+	name = "Nationalist Ideals"
+
+	for_countries = { ROM }
+
+	can_use = {
+		has_government = fascism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "NMS "
+	fallback_name = "Naţionalist %d"
+
+	unique = {
+		# National revival
+		"România Mare" "Columna lui Traian" "Latinitatea" "Ginta Latină" "Dacia Felix" "Neamul" "Glia"
+		"Strămoşii" "Datina" "Tricolorul" "Neam şi Ţară"
+		# The Legionary movement
+		"Garda de Fier" "Legiunea" "Cuibul" "Frăţia de Cruce" "Arhanghelul Mihail" "Mişcarea Legionară" "Totul pentru Ţară"
+		"Pământul Strămoşesc" "Buna Vestire"
+	}
+}

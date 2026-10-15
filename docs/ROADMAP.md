@@ -13,8 +13,6 @@ Ranking of vanilla nations not yet covered by the mod (assessed 2026-10-10). Int
 
 | Tag | Nation | Vanilla state | Why now |
 |---|---|---|---|
-| `CAN` | Canada | 272 names; 56 of 109 capital-ship names duplicated; BB and BC identical, CA a copy of CL; three Australian destroyers in DD; frigates listed as destroyers | Heavily played. Planned 2026-10-11 with two dossiers: `docs/plans/2026-10-11-canada-namelist.md` (31 groups; role pools for corvettes, frigates, minesweepers and patrol vessels). Not implemented. |
-| `ROM` | Romania | DD 13, SS 8; BB list is only cities; CL/CA and BB/BC cloned | Planned 2026-10-11, not implemented: `docs/plans/2026-10-11-romania-namelist.md` (24 groups, role pools for torpedo boats and for Danube monitors and gunboats). The file must use cedilla `ş`/`ţ`; most game fonts lack the comma-below letters. |
 | `BUL` | Bulgaria | SS reuses the DD list; curly quotes (`“Shipka”`); inconsistent transliteration (Levski/Levsky) | Small but well-documented navy (Drazki, torpedo boats). |
 | `EGY` | Egypt | DD, CL and SS are the same five names; BB, BC and CV empty | Worst structural defect. Real navy is tiny, so depth comes from thematic pools (pharaohs, Nile, Muhammad Ali dynasty, cities). |
 

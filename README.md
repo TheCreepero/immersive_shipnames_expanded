@@ -70,6 +70,7 @@ Development rules and the namelist authoring runbook are maintained as mirrored 
 | `ARG` | Argentina | `ARG_ship_names.txt` |
 | `AUS` | Austria | `AUS_ship_names.txt` |
 | `BRA` | Brazil | `BRA_ship_names.txt` |
+| `CAN` | Canada | `CAN_ship_names.txt` |
 | `CHL` | Chile | `CHL_ship_names.txt` |
 | `CUB` | Cuba | `CUB_ship_names.txt` |
 | `DEN` | Denmark | `DEN_ship_names.txt` |
@@ -81,6 +82,7 @@ Development rules and the namelist authoring runbook are maintained as mirrored 
 | `PHI` | Philippines | `PHI_ship_names.txt` |
 | `POR` | Portugal | `POR_ship_names.txt` |
 | `PRU` | Peru | `PRU_ship_names.txt` |
+| `ROM` | Romania | `ROM_ship_names.txt` |
 | `SWE` | Sweden | `SWE_ship_names.txt` |
 | `TUR` | Turkey | `TUR_ship_names.txt` |
 | `USA` | United States | `USA_ship_names.txt` |

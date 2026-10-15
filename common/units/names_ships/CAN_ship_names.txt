@@ -1,0 +1,865 @@
+##### CANADA NAVAL NAME LISTS (ISNE) #####
+# Note: Vanilla HoI4 CAN_ship_names.txt had these anomalies:
+# 1. Battleships and battlecruisers shared one 11-name list; heavy cruisers copied the light cruisers (plus the typo "Kingson").
+# 2. The nine provinces sat in light cruisers, heavy cruisers, battleships, battlecruisers and the provinces pool at once.
+# 3. Foreign vessels: three Australian destroyers (Vendetta, Voyager, Waterhen), the Royal Navy-only Lancaster, and the Royal Navy submarines Olympus and Osiris.
+# 4. River-class frigates listed as destroyers; "Ottawa" twice; "Chaudiere", "St. Catherine's", "St. John" and "Trois-Rivieres" misspelt; "Ile de Québec" untraceable.
+# 5. Anachronisms: Nunavut (1999) and post-war suburbs (Mississauga, Laval, Vaughan, Markham, Brampton, Surrey, Burnaby, Richmond, Gatineau).
+
+### SHIP-TYPE SPECIFIC: DESTROYERS ###
+CAN_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { CAN }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "HMCS "
+	fallback_name = "Destroyer %d"
+
+	unique = {
+		# Interwar destroyers
+		"Patriot" "Patrician" "Champlain" "Vancouver" "Saguenay" "Skeena"
+		# River-named fleet destroyers of 1937-1944
+		"Fraser" "St. Laurent" "Restigouche" "Assiniboine" "Ottawa" "Margaree" "Kootenay" "Gatineau" "Qu'Appelle" "Saskatchewan" "Chaudière"
+		# Tribal, V and Cr classes
+		"Athabaskan" "Cayuga" "Haida" "Huron" "Iroquois" "Micmac" "Nootka" "Algonquin" "Sioux" "Crescent" "Crusader"
+		# Ex-US destroyers of 1940: river names, and the town names of the Royal Navy loans
+		"Annapolis" "Columbia" "Niagara" "St. Clair" "St. Croix" "St. Francis"
+		"Buxton" "Caldwell" "Chelsea" "Georgetown" "Hamilton" "Leamington" "Mansfield" "Montgomery" "Richmond" "Salisbury"
+		# Post-war destroyer escorts
+		"Mackenzie" "Terra Nova"
+		# Further Canadian rivers in the destroyer formula
+		"Hayes" "Winisk" "Attawapiskat" "Coppermine" "Thelon" "Dubawnt" "Koksoak" "Eastmain" "Nottaway"
+		"Liard" "Peace River" "Souris" "Pelly" "Alsek" "Porcupine" "Stikine" "Nass" "Thompson"
+		"Bella Coola" "Similkameen" "Chilcotin" "Nechako" "Bulkley" "Kicking Horse" "Clearwater"
+		"Rideau" "Moira" "Madawaska" "Petawawa" "Mattawa" "Missinaibi" "Mattagami" "Kaministiquia" "Kipawa" "Dumoine"
+		"Richelieu" "Saint-Maurice" "Batiscan" "Rouge" "Yamaska" "Nicolet" "Etchemin" "Montmorency" "Manicouagan" "Moisie" "Natashquan" "Harricana" "Romaine" "Péribonka" "Caniapiscau" "Bersimis" "Cascapédia"
+		"Nashwaak" "Tobique" "Kennebecasis" "Petitcodiac" "Shubenacadie" "LaHave" "Gander"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: SUBMARINES ###
+CAN_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { CAN }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "HMCS "
+	fallback_name = "Submarine %d"
+
+	unique = {
+		# Canadian submarines
+		"Grilse" "Ojibwa" "Onondaga" "Okanagan" "Victoria" "Windsor" "Corner Brook"
+		# Fish of Canadian waters, the formula of Grilse
+		"Salmon" "Sockeye" "Coho" "Steelhead" "Arctic Char" "Trout" "Rainbow Trout" "Brook Trout" "Lake Trout" "Grayling" "Whitefish" "Cisco"
+		"Sturgeon" "Pike" "Muskellunge" "Walleye" "Sauger" "Perch" "Burbot" "Goldeye" "Bowfin" "Mooneye" "Tomcod" "Lumpfish" "Lamprey"
+		"Cod" "Haddock" "Halibut" "Pollock" "Hake" "Herring" "Mackerel" "Capelin" "Shad" "Gaspereau" "Alewife" "Eulachon"
+		"Sculpin" "Lingcod" "Sablefish" "Rockfish" "Redfish" "Wolffish" "Dogfish" "Porbeagle" "Turbot" "Flounder" "Plaice" "Tuna" "Swordfish"
+		# Whales
+		"Narwhal" "Beluga" "Orca"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: LIGHT CRUISERS ###
+CAN_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { CAN }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "HMCS "
+	fallback_name = "Light Cruiser %d"
+
+	unique = {
+		# Canadian cruisers
+		"Niobe" "Rainbow" "Aurora" "Uganda" "Québec" "Ontario"
+		# Provinces and territories
+		"Alberta" "British Columbia" "Manitoba" "New Brunswick" "Nova Scotia" "Prince Edward Island" "Newfoundland" "Labrador" "Yukon" "Northwest Territories"
+		# Former colonies, districts and regions
+		"Keewatin" "Assiniboia" "Athabasca" "Franklin" "Cariboo" "Klondike" "Vancouver Island" "Rainy River" "Red River" "Avalon"
+		"Canada East" "Canada West" "Île Royale" "Île Saint-Jean" "Gaspésie" "Charlevoix" "Beauce" "Kamouraska" "Abitibi" "Timiskaming"
+		"Muskoka" "Nipissing" "Huronia"
+		# Cities and ports without a wartime escort namesake
+		"Edmonton" "Kingston" "London" "Sydney" "Dartmouth" "Yarmouth" "Cornwall" "Niagara Falls" "Bathurst" "Campbellton"
+		"St. John's" "Dawson City" "Prince George" "Penticton"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: HEAVY CRUISERS ###
+CAN_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { CAN }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "HMCS "
+	fallback_name = "Heavy Cruiser %d"
+
+	unique = {
+		# Navigators and explorers
+		"Jacques Cartier" "John Cabot" "Martin Frobisher" "Henry Hudson" "William Baffin" "Cavelier de La Salle" "Jolliet" "Radisson" "Groseilliers" "d'Iberville"
+		"La Vérendrye" "Henry Kelsey" "Samuel Hearne" "Alexander Mackenzie" "Simon Fraser" "David Thompson" "George Vancouver" "John Franklin" "Bernier"
+		# Commanders and champions of New France
+		"Maisonneuve" "Dollard des Ormeaux" "Madeleine de Verchères" "Comte de Frontenac" "Jean Talon" "Montcalm" "Chevalier de Lévis" "Donnacona"
+		# Defenders of British North America
+		"Wolfe" "Carleton" "Simcoe" "Prevost" "Brock" "Tecumseh" "Joseph Brant" "John Norton" "Salaberry" "Laura Secord" "FitzGibbon"
+		# Naval figures
+		"Charles Kingsmill" "William Hall"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLESHIPS ###
+CAN_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { CAN }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "HMCS "
+	fallback_name = "Battleship %d"
+
+	unique = {
+		# The Dominion and its realms
+		"Canada" "Dominion" "Confederation" "Acadia" "New France" "Rupert's Land" "Upper Canada" "Lower Canada" "British North America"
+		# Sovereignty symbols
+		"Maple Leaf" "Red Ensign"
+		# Sovereigns of Canada
+		"Queen Victoria" "King Edward VII" "King George V" "King George VI" "Queen Mary" "Queen Elizabeth" "King George III" "Queen Anne" "King Charles II"
+		# Fathers of Confederation and prime ministers
+		"John A. Macdonald" "George-Étienne Cartier" "George Brown" "Charles Tupper" "Leonard Tilley" "Alexander Galt" "D'Arcy McGee"
+		"Hector Langevin" "Étienne-Paschal Taché" "Oliver Mowat" "Wilfrid Laurier" "Robert Borden" "John Abbott" "Mackenzie Bowell"
+		# Fathers of responsible government
+		"Robert Baldwin" "Louis-Hippolyte LaFontaine" "Joseph Howe"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLECRUISERS ###
+CAN_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { CAN }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "HMCS "
+	fallback_name = "Battlecruiser %d"
+
+	unique = {
+		# Provincial Marine and Great Lakes squadrons, 1775-1815
+		"St. Lawrence" "Prince Regent" "Princess Charlotte" "Royal George" "Queen Charlotte" "General Hunter" "Lady Prevost" "Lord Melville"
+		"Earl of Moira" "Duke of Gloucester" "Sir Sydney Smith" "General Gage" "Caledonia" "Confiance" "Linnet" "Montague" "Netley" "Psyche" "Speedy" "Nancy"
+		# Ships of New France
+		"Grande Hermine" "Petite Hermine" "Émérillon" "Don de Dieu" "Griffon" "Pélican" "Machault" "Bienfaisant" "Marquis de Malauze"
+		# Ships of discovery and of the Arctic
+		"Matthew" "Nonsuch" "Resolution" "Discovery" "Chatham" "Erebus" "Terror" "St. Roch" "Royal William" "Bluenose"
+		# Armed merchant cruisers of 1940
+		"Prince David" "Prince Henry" "Prince Robert"
+		# Fortresses and citadels
+		"Louisbourg" "Citadel Hill" "Fort Henry" "Fort Frontenac" "Fort York" "Fort George" "Fort Chambly" "Fort Beauséjour" "Fort Garry" "Prince of Wales Fort"
+		# Straits and waters
+		"Belle Isle" "Cabot Strait" "Northumberland Strait" "Juan de Fuca" "Hecate Strait" "Davis Strait" "Hudson Strait" "Lancaster Sound" "Hudson Bay"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: AIRCRAFT CARRIERS ###
+CAN_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { CAN }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "HMCS "
+	fallback_name = "Aircraft Carrier %d"
+
+	unique = {
+		# Carriers crewed or commissioned by the RCN
+		"Warrior" "Magnificent" "Bonaventure" "Nabob" "Puncher"
+		# Naval bases and reserve divisions
+		"Stadacona" "Naden" "Shearwater" "Bytown" "Royal Roads" "Peregrine" "Venture" "Protector"
+		"Star" "York" "Cataraqui" "Chippawa" "Malahat" "Queen" "Unicorn" "Brunswicker" "Scotian"
+		# Seabirds and raptors
+		"Gannet" "Fulmar" "Goshawk" "Petrel" "Kittiwake" "Osprey" "Gyrfalcon" "Golden Eagle" "Snowy Owl"
+		# Summits
+		"Mount Logan" "Mount Robson" "Mount Waddington" "Mount Columbia" "Mount Saint Elias" "Mount Lucania"
+	}
+}
+
+### ROLE-SPECIFIC: CORVETTES ###
+CAN_CORVETTES = {
+	name = "Corvettes"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Corvette %d"
+
+	unique = {
+		# Flower class: Canadian towns
+		"Agassiz" "Alberni" "Algoma" "Amherst" "Arvida" "Asbestos" "Atholl" "Baddeck" "Barrie" "Battleford" "Beauharnois" "Belleville"
+		"Brandon" "Brantford" "Buctouche" "Calgary" "Camrose" "Chambly" "Charlottetown" "Chicoutimi" "Chilliwack" "Cobalt" "Cobourg" "Collingwood"
+		"Dauphin" "Dawson" "Drumheller" "Dundas" "Dunvegan" "Edmundston" "Fergus" "Forest Hill" "Fredericton" "Frontenac" "Galt" "Giffard"
+		"Guelph" "Halifax" "Hawkesbury" "Kamloops" "Kamsack" "Kenogami" "Kitchener" "La Malbaie" "Lachute" "Lethbridge" "Lévis" "Lindsay"
+		"Long Branch" "Louisburg" "Lunenburg" "Matapédia" "Merrittonia" "Midland" "Mimico" "Moncton" "Moose Jaw" "Morden" "Nanaimo" "Napanee"
+		"New Westminster" "Norsyd" "North Bay" "Oakville" "Orillia" "Owen Sound" "Parry Sound" "Peterborough" "Pictou" "Port Arthur" "Prescott" "Quesnel"
+		"Regina" "Rimouski" "Rivière du Loup" "Rosthern" "St. Lambert" "Sackville" "Saskatoon" "Shawinigan" "Shediac" "Sherbrooke" "Smiths Falls" "Sorel"
+		"Stellarton" "Strathroy" "Sudbury" "Summerside" "The Pas" "Thorlock" "Timmins" "Trail" "Trentonian" "Ville de Québec" "Wetaskiwin" "Weyburn"
+		"West York" "Whitby" "Woodstock"
+		# Flower class: the Royal Navy order transferred in 1940-41
+		"Arrowhead" "Bittersweet" "Eyebright" "Fennel" "Hepatica" "Mayflower" "Snowberry" "Spikenard" "Trillium" "Windflower"
+		# Castle class
+		"Arnprior" "Bowmanville" "Copper Cliff" "Hespeler" "Humberstone" "Huntsville" "Kincardine" "Leaside" "Orangeville" "Petrolia" "St. Thomas" "Tillsonburg"
+	}
+}
+
+### ROLE-SPECIFIC: FRIGATES ###
+CAN_FRIGATES = {
+	name = "Frigates"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Frigate %d"
+
+	unique = {
+		# River class: Canadian towns
+		"Antigonish" "Beacon Hill" "Buckingham" "Cap de la Madeleine" "Cape Breton" "Capilano" "Carlplace" "Chebogue" "Coaticook" "Dunver"
+		"Eastview" "Fort Erie" "Glace Bay" "Grou" "Hallowell" "Inch Arran" "Joliette" "Jonquière" "Kirkland Lake" "Kokanee" "La Hulloise"
+		"Lanark" "Lasalle" "Lauzon" "Longueuil" "Magog" "Matane" "Montréal" "New Glasgow" "New Waterford" "Orkney" "Outremont" "Penetang"
+		"Port Colborne" "Poundmaker" "Prestonian" "Prince Rupert" "Royal Mount" "Runnymede" "Saint John" "Sea Cliff" "Springhill" "St. Catharines"
+		"St. Pierre" "St. Stephen" "Ste. Thérèse" "Stettler" "Stone Town" "Stormont" "Strathadam" "Sussexvale" "Swansea" "Thetford Mines"
+		"Toronto" "Valleyfield" "Victoriaville" "Waskesiu" "Wentworth"
+		# River class: Royal Navy ships transferred with their river names
+		"Annan" "Ettrick" "Meon" "Monnow" "Nene" "Ribble" "Teme"
+		# Loch class
+		"Loch Achanalt" "Loch Alvie" "Loch Morlich"
+		# River class: ordered and cancelled in December 1943
+		"Alexandria" "Alvington" "Foster" "Hardrock" "Henryville" "Lingabar" "Northumberland" "Pesaquid" "Plessisville" "Ranney Falls"
+		"Rouyn" "Shipton" "Tisdale" "Westbury" "Westville" "Wulastock"
+	}
+}
+
+### ROLE-SPECIFIC: MINESWEEPERS ###
+CAN_MINESWEEPERS = {
+	name = "Minesweepers"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Minesweeper %d"
+
+	unique = {
+		# Bangor class
+		"Bayfield" "Bellechasse" "Blairmore" "Brockville" "Burlington" "Canso" "Caraquet" "Chedabucto" "Chignecto" "Clayoquot" "Courtenay" "Cowichan"
+		"Digby" "Drummondville" "Esquimalt" "Fort William" "Gananoque" "Georgian" "Goderich" "Granby" "Grandmère" "Guysborough" "Ingonish" "Kelowna"
+		"Kenora" "Kentville" "Lachine" "Lockeport" "Mahone" "Malpeque" "Medicine Hat" "Melville" "Milltown" "Minas" "Miramichi" "Mulgrave"
+		"Nipigon" "Noranda" "Outarde" "Port Hope" "Quatsino" "Quinte" "Red Deer" "Sarnia" "Stratford" "Swift Current" "Thunder" "Transcona"
+		"Trois-Rivières" "Truro" "Ungava" "Vegreville" "Wasaga" "Westmount"
+		# Algerine class
+		"Border Cities" "Fort Frances" "Kapuskasing" "Middlesex" "New Liskeard" "Oshawa" "Portage" "Rockcliffe" "Sault Ste. Marie" "St. Boniface" "Wallaceburg" "Winnipeg"
+		# Fundy class
+		"Comox" "Fundy" "Gaspé" "Nanoose"
+		# Llewellyn class
+		"Coquitlam" "Cranbrook" "Daerwood" "Kalamalka" "Lavallee" "Llewellyn" "Lloyd George" "Revelstoke" "Rossland" "St. Joseph"
+	}
+}
+
+### ROLE-SPECIFIC: PATROL VESSELS ###
+CAN_PATROL_VESSELS = {
+	name = "Patrol Vessels"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Patrol Vessel %d"
+
+	unique = {
+		# Armed yachts of 1940
+		"Ambler" "Beaver" "Caribou" "Cougar" "Elk" "Grizzly" "Husky" "Lynx" "Moose" "Otter" "Raccoon" "Reindeer" "Renard" "Sans Peur" "Vison" "Wolf"
+		# Patrol vessels of 1914-1918
+		"Hochelaga" "Margaret" "Florence" "Laurentian" "Lady Evelyn" "Cartier" "Malaspina" "Galiano"
+		# Battle-class trawlers of 1917: battles of the Canadian Corps
+		"Arleux" "Armentières" "Arras" "Festubert" "Givenchy" "Loos" "Messines" "St. Eloi" "St. Julien" "Thiepval" "Vimy" "Ypres"
+		# Isles-class trawlers
+		"Anticosti" "Baffin" "Cailiff" "Ironbound" "Liscomb" "Magdalen" "Manitoulin" "Miscou"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES ###
+CAN_CITIES = {
+	name = "Cities"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Major cities
+		"Toronto" "Montréal" "Vancouver" "Winnipeg" "Hamilton" "Ottawa" "Québec City" "Windsor" "Edmonton" "Calgary" "Halifax" "Victoria"
+		"Regina" "Saskatoon" "London" "Kitchener" "Fredericton" "Longueuil"
+		# Maritimes
+		"Dartmouth" "Sydney" "North Sydney" "Glace Bay" "Louisbourg" "Yarmouth" "Lunenburg" "Digby" "Annapolis Royal" "Pictou" "Liverpool"
+		"Shelburne" "Canso" "Saint John" "Moncton" "Chatham" "Dalhousie" "Campbellton" "Bathurst" "Charlottetown" "Summerside"
+		# Newfoundland
+		"St. John's" "Corner Brook" "Harbour Grace" "Placentia" "Bonavista" "Twillingate" "Grand Falls"
+		# Québec
+		"Trois-Rivières" "Sorel" "Lévis" "Rimouski" "Rivière-du-Loup" "Gaspé" "Chicoutimi" "Sept-Îles" "Matane" "Tadoussac" "Sherbrooke"
+		"Saint-Hyacinthe" "Drummondville" "Shawinigan Falls" "Valleyfield" "Granby" "Joliette" "Verdun" "Westmount" "Saint-Jean"
+		# Ontario
+		"Kingston" "Sarnia" "Port Arthur" "Fort William" "Sault Ste. Marie" "Oshawa" "Belleville" "Cobourg" "Brockville" "Cornwall" "Prescott"
+		"Niagara Falls" "St. Catharines" "Port Colborne" "Welland" "Owen Sound" "Collingwood" "Midland" "Orillia" "Peterborough" "Sudbury"
+		"North Bay" "Guelph" "Brantford" "Stratford" "Barrie"
+		# Prairies
+		"Brandon" "Moose Jaw" "Prince Albert" "Lethbridge" "Medicine Hat" "Red Deer"
+		# British Columbia and the North
+		"New Westminster" "Nanaimo" "Prince Rupert" "Esquimalt" "Port Alberni" "Kamloops" "Kelowna" "Vernon" "Nelson" "Prince George"
+		"Penticton" "Chilliwack" "Dawson City" "Whitehorse"
+	}
+}
+
+### UNIVERSAL TOPIC: PROVINCES & REGIONS ###
+CAN_PROVINCES = {
+	name = "Provinces & Regions"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Provinces and territories
+		"Ontario" "Québec" "Nova Scotia" "New Brunswick" "Manitoba" "British Columbia" "Prince Edward Island" "Saskatchewan" "Alberta"
+		"Northwest Territories" "Yukon" "Newfoundland" "Labrador"
+		# Colonies and realms
+		"Acadia" "New France" "Rupert's Land" "Upper Canada" "Lower Canada" "Canada West" "Canada East" "Île Royale" "Île Saint-Jean"
+		"Vancouver Island" "Rainy River" "Red River" "Avalon"
+		# Districts and regions
+		"Keewatin" "Assiniboia" "Athabasca" "Franklin" "Ungava" "Cariboo" "Klondike" "Kootenay" "Okanagan" "Peace River"
+		"Algoma" "Muskoka" "Nipissing" "Timiskaming" "Huronia" "Niagara" "Abitibi" "Gaspésie" "Charlevoix" "Beauce" "Kamouraska" "Saguenay" "Cape Breton"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS & LAKES ###
+CAN_RIVERS = {
+	name = "Rivers & Lakes"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Great rivers
+		"St. Lawrence" "Mackenzie" "Yukon River" "Columbia" "Fraser" "Ottawa River" "Saskatchewan River" "Athabasca River" "Nelson River" "Churchill River"
+		"Peace River" "Liard" "Assiniboine" "Winnipeg River" "Saint John River" "Saguenay" "Skeena" "Severn River" "Albany River" "Coppermine" "Thelon" "Koksoak"
+		# Rivers of the East
+		"Restigouche" "Miramichi" "Margaree" "Annapolis River" "Shubenacadie" "Petitcodiac" "Gander" "Richelieu" "Chaudière" "Saint-Maurice"
+		"Gatineau" "Rideau" "Trent River" "Madawaska" "Moisie" "Manicouagan" "Matapédia" "Montmorency" "Nipigon" "Kaministiquia" "Niagara River" "St. Clair"
+		# Rivers of the West
+		"Qu'Appelle" "Souris" "Oldman River" "Bow River" "Red Deer River" "Kootenay River" "Thompson" "Stikine" "Nass" "Bella Coola" "Similkameen" "Pelly" "Porcupine"
+		# Lakes
+		"Lake Superior" "Lake Huron" "Lake Erie" "Lake Ontario" "Lake Winnipeg" "Winnipegosis" "Lake Manitoba" "Great Bear Lake" "Great Slave Lake"
+		"Lake Athabasca" "Reindeer Lake" "Lake Nipigon" "Lake Nipissing" "Lake Simcoe" "Lake Temagami" "Lake of the Woods" "Lac Saint-Jean"
+		"Lake Mistassini" "Lake Champlain" "Lake Memphremagog" "Okanagan Lake" "Kootenay Lake" "Atlin Lake" "Kluane Lake" "Bras d'Or"
+	}
+}
+
+### UNIVERSAL TOPIC: CAPES, ISLES & STRAITS ###
+CAN_COASTS = {
+	name = "Capes, Isles & Straits"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Capes
+		"Cape Race" "Cape Spear" "Cape Bonavista" "Cape St. Mary's" "Cape Ray" "Cape Chidley" "Cape Sable" "Cape North" "Cape Tormentine"
+		"Cap Diamant" "Cap Tourmente" "Cap Trinité" "Cap-Chat" "Cape Wolstenholme" "Cape Bathurst" "Cape Parry" "Cape Columbia"
+		"Cape Scott" "Cape Mudge" "Cape Beale"
+		# Islands
+		"Cape Breton Island" "Sable Island" "Grand Manan" "Campobello" "Îles de la Madeleine" "Île d'Orléans" "Île Bonaventure" "Île aux Coudres"
+		"Anticosti" "Manitoulin" "Thousand Islands" "Baffin Island" "Ellesmere" "Victoria Island" "Banks Island" "Melville Island" "Devon Island"
+		"Southampton Island" "Bylot" "Axel Heiberg" "Queen Charlotte Islands" "Saltspring" "Texada"
+		# Straits, sounds and channels
+		"Strait of Belle Isle" "Northumberland Strait" "Cabot Strait" "Hudson Strait" "Davis Strait" "Lancaster Sound" "Barrow Strait" "McClure Strait"
+		"Fury and Hecla" "Smith Sound" "Jones Sound" "Strait of Georgia" "Johnstone Strait" "Haro Strait" "Hecate Strait" "Juan de Fuca"
+		# Bays and inlets
+		"Hudson Bay" "James Bay" "Ungava Bay" "Frobisher Bay" "Bay of Fundy" "Chaleur Bay" "Placentia Bay" "Trinity Bay" "Conception Bay"
+		"Notre Dame Bay" "Chedabucto Bay" "Mahone Bay" "Minas Basin" "Passamaquoddy Bay" "Georgian Bay" "Bay of Quinte"
+		"Burrard Inlet" "Howe Sound" "Barkley Sound" "Clayoquot Sound" "Nootka Sound"
+	}
+}
+
+### UNIVERSAL TOPIC: MOUNTAINS ###
+CAN_GEOGRAPHY = {
+	name = "Mountains"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Peaks
+		"Mount Logan" "Mount Saint Elias" "Mount Lucania" "Mount Steele" "Mount Fairweather" "Mount Waddington" "Mount Robson" "Mount Columbia"
+		"Mount Alberta" "Mount Athabasca" "Mount Assiniboine" "Mount Temple" "Mount Lefroy" "Mount Victoria" "Mount Stephen" "Mount Sir Donald"
+		"Mount Macdonald" "Mount Edith Cavell" "Mount Royal" "Mount Carleton" "Mont Tremblant" "Mont Jacques-Cartier" "Mont Albert" "Mont Mégantic"
+		# Ranges
+		"Rockies" "Selkirks" "Purcells" "Monashees" "Laurentians" "Torngats"
+	}
+}
+
+### UNIVERSAL TOPIC: INDIGENOUS PEOPLES ###
+CAN_TRIBES = {
+	name = "Indigenous Peoples"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Eastern Woodlands and the Atlantic
+		"Mi'kmaq" "Wolastoqiyik" "Passamaquoddy" "Abenaki" "Beothuk" "Innu" "Naskapi" "Wendat" "Haudenosaunee" "Mohawk" "Oneida" "Seneca"
+		"Tuscarora" "Anishinaabe" "Odawa" "Nipissing" "Potawatomi" "Mississauga" "Saulteaux"
+		# Plains and Subarctic
+		"Cree" "Dakota" "Nakoda" "Siksika" "Kainai" "Piikani" "Tsuut'ina" "Dene" "Denesuline" "Dane-zaa" "Sekani" "Dakelh" "Wet'suwet'en"
+		"Tlicho" "Sahtu" "Gwich'in" "Hän" "Tutchone" "Tagish" "Kaska" "Tahltan" "Tlingit"
+		# Plateau
+		"Ktunaxa" "Syilx" "Secwepemc" "St'at'imc" "Nlaka'pamux" "Tsilhqot'in" "Sinixt"
+		# Northwest Coast
+		"Nisga'a" "Gitxsan" "Tsimshian" "Haisla" "Heiltsuk" "Nuxálk" "Kwakwaka'wakw" "Nuu-chah-nulth" "Ditidaht"
+		# Coast Salish
+		"Squamish" "Musqueam" "Tsleil-Waututh" "Tsawwassen" "Katzie" "Kwantlen" "Semiahmoo" "Lekwungen" "Quw'utsun" "Penelakut" "Snuneymuxw"
+		"Chehalis" "Qualicum" "K'ómoks" "Homalco" "Klahoose" "Tla'amin" "Sechelt"
+		# Inuit and Métis
+		"Inuit" "Inuvialuit" "Métis"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS ###
+CAN_BIRDS = {
+	name = "Birds"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Raptors and owls
+		"Peregrine Falcon" "Gyrfalcon" "Merlin" "Kestrel" "Osprey" "Bald Eagle" "Golden Eagle" "Northern Goshawk" "Snowy Owl" "Great Horned Owl" "Great Gray Owl"
+		# Seabirds
+		"Atlantic Puffin" "Tufted Puffin" "Razorbill" "Dovekie" "Black Guillemot" "Common Murre" "Kittiwake" "Ivory Gull" "Herring Gull" "Arctic Tern"
+		"Northern Gannet" "Northern Fulmar" "Great Shearwater" "Storm Petrel" "Double-crested Cormorant" "Great Auk"
+		# Waterfowl and waterbirds
+		"Common Loon" "Red-throated Loon" "Trumpeter Swan" "Tundra Swan" "Snow Goose" "Canada Goose" "Brant Goose" "Wood Duck" "Mallard" "Black Duck"
+		"Pintail" "Canvasback" "King Eider" "Common Eider" "Harlequin Duck" "Goldeneye" "Merganser" "Labrador Duck" "Great Blue Heron"
+		"American White Pelican" "Whooping Crane" "Sandhill Crane"
+		# Shorebirds
+		"Whimbrel" "Long-billed Curlew" "Hudsonian Godwit" "Sanderling" "Dunlin"
+		# Land birds
+		"Ruffed Grouse" "Spruce Grouse" "Willow Ptarmigan" "Rock Ptarmigan" "Common Raven" "Canada Jay" "Blue Jay" "Black-capped Chickadee"
+		"Meadowlark" "Snow Bunting" "Bohemian Waxwing" "Belted Kingfisher" "Pileated Woodpecker" "Passenger Pigeon"
+	}
+}
+
+### UNIVERSAL TOPIC: AQUATIC LIFE ###
+CAN_FISH = {
+	name = "Aquatic Life"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Salmon, trout and char
+		"Atlantic Salmon" "Chinook Salmon" "Sockeye" "Coho" "Steelhead" "Kokanee" "Arctic Char" "Lake Trout" "Brook Trout" "Rainbow Trout" "Arctic Grayling"
+		# Freshwater fish
+		"Lake Sturgeon" "White Sturgeon" "Northern Pike" "Muskellunge" "Walleye" "Sauger" "Yellow Perch" "Whitefish" "Cisco" "Burbot" "Goldeye" "American Eel"
+		# Sea fish
+		"Atlantic Cod" "Haddock" "Halibut" "Pollock" "Herring" "Mackerel" "Capelin" "Shad" "Alewife" "Eulachon" "Lingcod" "Sablefish" "Redfish"
+		"Wolffish" "Sculpin" "Lumpfish" "Swordfish" "Bluefin Tuna" "Spiny Dogfish" "Porbeagle" "Basking Shark" "Greenland Shark"
+		# Whales and porpoises
+		"Blue Whale" "Fin Whale" "Humpback" "Bowhead" "Right Whale" "Grey Whale" "Sperm Whale" "Minke" "Pilot Whale" "Orca" "Beluga" "Narwhal" "Harbour Porpoise"
+		# Seals, walrus and otters
+		"Walrus" "Harp Seal" "Hooded Seal" "Ringed Seal" "Bearded Seal" "Grey Seal" "Fur Seal" "Steller Sea Lion" "Sea Otter"
+		# Shellfish
+		"Lobster" "Snow Crab" "Dungeness Crab"
+	}
+}
+
+### UNIVERSAL TOPIC: WILDLIFE ###
+CAN_BEASTS = {
+	name = "Wildlife"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# The armed yachts of 1940
+		"Beaver" "Caribou" "Cougar" "Elk" "Grizzly" "Husky" "Lynx" "Moose" "Otter" "Raccoon" "Reindeer" "Renard" "Vison" "Wolf"
+		# Predators
+		"Wolverine" "Polar Bear" "Black Bear" "Kermode Bear" "Coyote" "Arctic Fox" "Red Fox" "Bobcat" "Marten" "Mink"
+		# Hoofed animals
+		"Plains Bison" "Wood Bison" "Muskox" "Mule Deer" "White-tailed Deer" "Pronghorn" "Mountain Goat" "Bighorn" "Dall Sheep"
+		# Small mammals
+		"Muskrat" "Marmot" "Snowshoe Hare" "Arctic Hare"
+	}
+}
+
+### UNIVERSAL TOPIC: MONARCHS & GOVERNORS ###
+CAN_RULERS = {
+	name = "Monarchs & Governors"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Sovereigns of New France
+		"François Ier" "Henri IV" "Louis XIII" "Louis XIV" "Louis XV"
+		# British sovereigns
+		"Henry VII" "Elizabeth I" "James I" "Charles II" "Queen Anne" "George II" "George III" "William IV" "Victoria" "Edward VII" "George V" "George VI"
+		# Governors of New France
+		"Montmagny" "Courcelle" "Frontenac" "Denonville" "Callière" "Vaudreuil" "Beauharnois" "La Galissonière" "La Jonquière" "Duquesne"
+		# British governors, 1760-1867
+		"Amherst" "James Murray" "Dorchester" "Haldimand" "James Craig" "Prevost" "Drummond" "Sherbrooke" "Dalhousie" "Kempt" "Aylmer" "Gosford"
+		"Colborne" "Lord Durham" "Sydenham" "Bagot" "Metcalfe" "Cathcart" "Lord Elgin" "Edmund Head"
+		# Governors general of the Dominion
+		"Monck" "Lisgar" "Dufferin" "Lorne" "Lansdowne" "Lord Stanley" "Aberdeen" "Minto" "Earl Grey" "Connaught" "Devonshire" "Byng of Vimy"
+		"Willingdon" "Bessborough" "Tweedsmuir"
+		# Princesses with Canadian namesakes
+		"Princess Louise" "Princess Patricia"
+	}
+}
+
+### UNIVERSAL TOPIC: EXPLORERS ###
+CAN_EXPLORERS = {
+	name = "Explorers"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Navigators of the Atlantic and the Northwest Passage
+		"John Cabot" "Jacques Cartier" "Martin Frobisher" "John Davis" "Henry Hudson" "William Baffin" "Thomas James" "Luke Foxe"
+		# Explorers of New France
+		"Samuel de Champlain" "Étienne Brûlé" "Jean Nicolet" "Louis Jolliet" "Jacques Marquette" "Cavelier de La Salle" "Radisson" "Groseilliers"
+		"d'Iberville" "La Vérendrye"
+		# Fur-trade explorers of the West
+		"Henry Kelsey" "Anthony Henday" "Samuel Hearne" "Peter Pond" "Alexander Mackenzie" "Simon Fraser" "David Thompson"
+		# Pacific navigators
+		"James Cook" "George Vancouver"
+		# Arctic explorers
+		"John Franklin" "George Back" "John Rae" "Robert McClure" "Francis Crozier" "Joseph-Elzéar Bernier" "Vilhjalmur Stefansson" "Robert Bartlett" "Henry Larsen"
+		# Surveyors of the West
+		"John Palliser" "Henry Youle Hind" "Joseph Tyrrell"
+	}
+}
+
+### UNIVERSAL TOPIC: HEROES ###
+CAN_HEROES = {
+	name = "Heroes"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# New France
+		"Louis Hébert" "Maisonneuve" "Jeanne Mance" "Jean de Brébeuf" "François de Laval" "Jean Talon" "Dollard des Ormeaux" "Madeleine de Verchères"
+		"Montcalm" "James Wolfe" "Duc de Lévis"
+		# The War of 1812
+		"Isaac Brock" "Tecumseh" "Charles de Salaberry" "Laura Secord" "James FitzGibbon" "John Norton" "Joseph Brant"
+		# Chiefs of the West
+		"Poundmaker" "Crowfoot"
+		# The navy
+		"William Hall" "Charles Kingsmill" "Walter Hose"
+		# Victoria Cross recipients, 1854-1918
+		"Alexander Dunn" "Filip Konowal" "Thain MacDowell" "John Pattison" "Ellis Sifton" "Okill Learmonth" "Harcus Strachan" "Billy Bishop"
+		"William Barker" "Alan McLeod" "Gordon Flowerdew" "Cyrus Peck" "Joseph Kaeble" "Jean Brillant" "Raphael Zengel" "Coulson Mitchell"
+		"Rowland Bourke" "Thomas Ricketts"
+	}
+}
+
+### UNIVERSAL TOPIC: BATTLES ###
+CAN_BATTLES = {
+	name = "Battles"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# New France and the conquest
+		"Québec 1690" "Hudson Bay 1697" "Port-Royal 1710" "Louisbourg 1745" "Louisbourg 1758" "Carillon" "Plains of Abraham" "Sainte-Foy" "Québec 1775"
+		# The War of 1812
+		"Michilimackinac" "Queenston Heights" "Stoney Creek" "Beaver Dams" "Châteauguay" "Crysler's Farm" "Lacolle" "Lundy's Lane"
+		# South Africa
+		"Paardeberg" "Leliefontein"
+		# The Western Front, 1915-1918
+		"Ypres" "St. Julien" "Festubert" "Givenchy" "St. Eloi" "Mont Sorrel" "Sanctuary Wood" "Courcelette" "Thiepval" "Vimy" "Arleux"
+		"Arras" "Hill 70" "Passchendaele" "Moreuil Wood" "Amiens" "Drocourt-Quéant" "Canal du Nord" "Cambrai" "Valenciennes" "Mons"
+		"Armentières" "Loos" "Messines"
+	}
+}
+
+### UNIVERSAL TOPIC: MYTH & FOLKLORE ###
+CAN_MYTHOLOGY = {
+	name = "Myth & Folklore"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Indigenous tradition
+		"Glooscap" "Nanabozho" "Qalupalik" "Sasquatch"
+		# Lake and sea monsters
+		"Ogopogo" "Cadborosaurus" "Memphré"
+		# French-Canadian folklore
+		"Chasse-galerie" "Loup-garou" "Feu Follet" "Lutin" "Rose Latulipe" "Bonhomme Sept-Heures" "Ti-Jean" "Dalbec" "Jean Cadieux"
+		# Folk heroes and legends of the Maritimes and the Ottawa Valley
+		"Big Joe Mufferaw" "Louis Cyr" "Dungarvon Whooper" "Phantom Ship"
+	}
+}
+
+### UNIVERSAL TOPIC: VIRTUES & ELEMENTS ###
+CAN_VIRTUES = {
+	name = "Virtues & Elements"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Names of the Royal Canadian Navy
+		"Warrior" "Magnificent" "Powerful" "Crescent" "Crusader" "Patriot" "Patrician" "Venture" "Preserver" "Provider" "Protector"
+		# Virtues
+		"Valiant" "Vigilant" "Resolute" "Intrepid" "Indomitable" "Formidable" "Courageous" "Fearless" "Dauntless" "Undaunted" "Steadfast"
+		"Fortitude" "Defiance" "Diligence" "Endeavour" "Enterprise" "Perseverance" "Sentinel" "Guardian" "Vanguard" "Gallant"
+		# Northern weather and sky
+		"Chinook" "Williwaw" "Nor'easter" "Squall" "Gale" "Tempest" "Hurricane" "Tornado" "Lightning" "Avalanche" "Hoarfrost" "Zephyr" "Boreas"
+		"Aurora" "Borealis" "Northern Lights" "Sundog" "Polaris" "Comet" "Meteor"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: CONFEDERATION (democratic) ###
+CAN_CONFEDERATION = {
+	name = "Confederation"
+
+	for_countries = { CAN }
+
+	can_use = {
+		has_government = democratic
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Responsible government
+		"Robert Baldwin" "Louis-Hippolyte LaFontaine" "Joseph Howe" "Francis Hincks" "Egerton Ryerson" "Responsible Government" "Durham Report"
+		# The Fathers of Confederation
+		"John A. Macdonald" "George-Étienne Cartier" "George Brown" "Charles Tupper" "Leonard Tilley" "Alexander Galt" "D'Arcy McGee" "Hector Langevin"
+		"Étienne-Paschal Taché" "Oliver Mowat" "Adams Archibald" "Alexander Campbell" "Frederick Carter" "Edward Chandler" "Jean-Charles Chapais"
+		"James Cockburn" "George Coles" "Charles Fisher" "Thomas Haviland" "William Howland" "William McDougall" "Jonathan McCully" "Peter Mitchell"
+		"Edward Palmer" "William Pope" "Ambrose Shea" "Edward Whelan" "Robert Wilmot"
+		# The Dominion
+		"Charlottetown Conference" "Québec Resolutions" "British North America Act" "Wilfrid Laurier" "Robert Borden" "Statute of Westminster"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: PATRIOTES & REBELS (democratic or communism) ###
+CAN_REVOLUTION = {
+	name = "Patriotes & Rebels"
+
+	for_countries = { CAN }
+
+	can_use = {
+		OR = {
+			has_government = democratic
+			has_government = communism
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# The Patriotes of Lower Canada
+		"Louis-Joseph Papineau" "Wolfred Nelson" "Robert Nelson" "Chevalier de Lorimier" "Jean-Olivier Chénier" "Ludger Duvernay"
+		"Joseph-Narcisse Cardinal" "Joseph Duquet" "Thomas Storrow Brown"
+		# The rebels of Upper Canada
+		"William Lyon Mackenzie" "Samuel Lount" "Peter Matthews" "Charles Duncombe" "Nils von Schoultz"
+		# Causes and engagements of 1834-1838
+		"Ninety-Two Resolutions" "Fils de la Liberté" "Frères Chasseurs" "Saint-Denis" "Saint-Charles" "Saint-Eustache" "Odelltown"
+		"Navy Island" "Republic of Canada" "Short Hills"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: REFORM & CO-OPERATION (neutrality: the CCF) ###
+CAN_REFORM = {
+	name = "Reform & Co-operation"
+
+	for_countries = { CAN }
+
+	can_use = {
+		has_government = neutrality
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# The Co-operative Commonwealth Federation
+		"Co-operative Commonwealth" "Regina Manifesto" "J. S. Woodsworth" "M. J. Coldwell" "William Irvine" "A. A. Heaps" "Angus MacInnis"
+		"Agnes Macphail" "Ginger Group" "Social Gospel"
+		# The farm and co-operative movements
+		"Henry Wise Wood" "Alberta Wheat Pool" "Antigonish Movement" "Moses Coady" "Jimmy Tompkins"
+		# The Famous Five
+		"Persons Case" "Emily Murphy" "Nellie McClung" "Louise McKinney" "Irene Parlby" "Henrietta Muir Edwards"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: LABOUR STRUGGLE (communism) ###
+CAN_SOCIALISM = {
+	name = "Labour Struggle"
+
+	for_countries = { CAN }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Strikes and struggles
+		"Winnipeg General Strike" "Bloody Saturday" "One Big Union" "Estevan Strike" "Crowsnest Pass Strike" "Ballantyne Pier"
+		"Relief Camp Workers" "On-to-Ottawa Trek" "Regina Riot" "Workers' Unity League" "Mackenzie-Papineau"
+		# Militants and organizers
+		"Ginger Goodwin" "Mike Sokolowski" "Tim Buck" "Tom McEwen" "Annie Buller" "Becky Buhay" "Harvey Murphy" "Slim Evans"
+		"Edward Cecil-Smith" "Norman Bethune"
+	}
+}
+
+### HERITAGE TOPIC: LOYALISTS & EMPIRE ###
+CAN_LOYALISTS = {
+	name = "Loyalists & Empire"
+
+	for_countries = { CAN }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMCS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# The United Empire Loyalists
+		"United Empire Loyalists" "Sir John Johnson" "King's Royal Regiment" "John Butler" "Butler's Rangers" "Edward Jessup" "Joseph Brant"
+		"Molly Brant" "Tyendinaga" "Edward Winslow" "Ward Chipman" "Jonathan Odell" "Shelburne"
+		# Governors and the Tory establishment
+		"John Graves Simcoe" "Thomas Carleton" "John Strachan" "John Beverley Robinson" "Allan MacNab"
+		# The imperial connection
+		"Imperial Federation" "Empire Day"
+	}
+}

@@ -40,6 +40,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 | `ARG_ship_names.txt` | Argentina | `ARG` | Included (DD, SS, CL, CA, BB, BC, CV, 6 Thematic Topics) |
 | `AUS_ship_names.txt` | Austria | `AUS` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics) |
 | `BRA_ship_names.txt` | Brazil | `BRA` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
+| `CAN_ship_names.txt` | Canada | `CAN` | Included (DD, SS, CL, CA, BB, BC, CV, 20 Thematic Topics, 4 Role Pools) |
 | `CHL_ship_names.txt` | Chile | `CHL` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
 | `CUB_ship_names.txt` | Cuba | `CUB` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
 | `DEN_ship_names.txt` | Denmark | `DEN` | Included (DD, SS, CL, CA, BB, BC, CV, 8 Thematic Topics) |
@@ -51,6 +52,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 | `PHI_ship_names.txt` | Philippines | `PHI` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics) |
 | `POR_ship_names.txt` | Portugal | `POR` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
 | `PRU_ship_names.txt` | Peru | `PRU` | Included (DD, SS, CL, CA, BB, BC, CV, 14 Thematic Topics, 1 Role Pool) |
+| `ROM_ship_names.txt` | Romania | `ROM` | Included (DD, SS, CL, CA, BB, BC, CV, 15 Thematic Topics, 2 Role Pools) |
 | `SWE_ship_names.txt` | Sweden | `SWE` | Included (DD, SS, CL, CA, BB, BC, CV, 10 Thematic Topics, 1 Role Pool) |
 | `TUR_ship_names.txt` | Turkey | `TUR` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics) |
 | `USA_ship_names.txt` | United States | `USA` | Included (DD, SS, CL, CA, BB, BC, CV, 15 Thematic Topics, 12 Role Pools, 7 Confederate hull lists) |
@@ -61,7 +63,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 ## Current Description Template (BBCode)
 
 ```bbcode
-More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, Italy, Peru, and the United States. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
+More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, Italy, Peru, Romania, Canada, and the United States. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
 Check out my other mods:
 - [url=https://steamcommunity.com/workshop/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
@@ -89,6 +91,10 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 [b]Brazil[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
 - Added 7 universal thematic lists: Cities, States & Territories, Rivers, Heroes & Admirals, Native Peoples & Chiefs, Battles, and Fauna.
+
+[b]Canada[/b]
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 20 universal thematic lists: Cities, Provinces & Regions, Rivers & Lakes, Capes, Isles & Straits, Mountains, Indigenous Peoples, Birds, Aquatic Life, Wildlife, Monarchs & Governors, Explorers, Heroes, Battles, Myth & Folklore, Virtues & Elements, Loyalists & Empire, and separate Confederation, Patriotes & Rebels, Reform & Co-operation, and Labour Struggle ideological pools, plus role lists for corvettes, frigates, minesweepers, and patrol vessels.
 
 [b]Chile[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
@@ -133,6 +139,10 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 [b]Portugal[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
 - Added 7 universal thematic lists: Birds, Aquatic Life, Legends, Heroes, Virtues, Monarchs, and Estado Novo.
+
+[b]Romania[/b]
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Added 15 universal thematic lists: Cities & Ports, Provinces & Counties, Rivers & Lakes, Mountains, Rulers, Heroes & Scholars, Battles, Myth & Folklore, Birds, Fish, Virtues & Elements, and separate Royal House, Union & Liberty, Labour Movement, and Nationalist ideological pools, plus Torpedo Boats and Monitors & Gunboats role lists.
 
 [b]Sweden[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).

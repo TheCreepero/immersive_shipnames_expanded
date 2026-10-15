@@ -13,6 +13,7 @@
 | [Argentina](Argentina) | `ARG` | 13 | `ARG_ship_names.txt` |
 | [Austria](Austria) | `AUS` | 18 | `AUS_ship_names.txt` |
 | [Brazil](Brazil) | `BRA` | 14 | `BRA_ship_names.txt` |
+| [Canada](Canada) | `CAN` | 31 | `CAN_ship_names.txt` |
 | [Chile](Chile) | `CHL` | 14 | `CHL_ship_names.txt` |
 | [Cuba](Cuba) | `CUB` | 14 | `CUB_ship_names.txt` |
 | [Denmark](Denmark) | `DEN` | 15 | `DEN_ship_names.txt` |
@@ -24,6 +25,7 @@
 | [Peru](Peru) | `PRU` | 22 | `PRU_ship_names.txt` |
 | [Philippines](Philippines) | `PHI` | 18 | `PHI_ship_names.txt` |
 | [Portugal](Portugal) | `POR` | 14 | `POR_ship_names.txt` |
+| [Romania](Romania) | `ROM` | 24 | `ROM_ship_names.txt` |
 | [Sweden](Sweden) | `SWE` | 18 | `SWE_ship_names.txt` |
 | [Turkey](Turkey) | `TUR` | 18 | `TUR_ship_names.txt` |
 | [United States](United-States) | `USA` | 41 | `USA_ship_names.txt` |

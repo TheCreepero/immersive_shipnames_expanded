@@ -101,6 +101,22 @@ Immersive Ship Names Expanded keeps every tag vanilla assigns, also where the gr
 
 Evidence: the `name_group` uses in the vanilla files, as listed by that mod's tooling.
 
+## Most vanilla bitmap fonts have the cedilla letters ş and ţ but not the Romanian comma-below letters ș and ț
+
+`SPR-023` | status: vanilla | game: 1.19.3
+
+A vanilla bitmap font (`gfx/fonts/*.fnt`) lists each glyph it has as a line `char id=<decimal code point> `. Of the 59 `.fnt` files in 1.19.3:
+
+- The comma-below letters of standard Romanian, `Ș ș Ț ț` (U+0218 to U+021B, ids 536 to 539), are in only five: `hoi_20`, `hoi_22tech`, `hoi_30`, `hoi_33` and `hoi_arrow_font`. The map font `hoi_mapfont4`, `hoi_16mbs`, `hoi_18mbs`, `hoi_20b`, `hoi_20bs`, `hoi_26mbs`, the typewriter fonts and `hoi_16tooltip3` lack them.
+- The cedilla letters `Ş ş Ţ ţ` (U+015E to U+0163) and `Ă ă` (U+0102, U+0103) are in every Latin UI font named above, the map font included.
+- `hoi_24header` and `hoi_36header` lack `ă`, `ţ`, `č` and `ğ` (ids 259, 355, 269, 287) but have `ş`, `ł`, `â` and `î`.
+- The Cyrillic fonts, `garamond_12` and `newsfeed_body` lack all of these letters.
+- No vanilla file under `common/`, `history/` or `localisation/english/` contains a comma-below letter.
+
+What to do: write Romanian text that the map or the fleet views show (ship names, state and city names) with the cedilla forms `ş` and `ţ`. How the game draws a code point that the font lacks (blank, box or skipped) was not checked in game.
+
+Evidence: `grep "char id=<id> "` over `C:\Gaming\Steam\steamapps\common\Hearts of Iron IV\gfx\fonts\*.fnt` and a byte search for `C8 98` to `C8 9B` over `common/`, `history/` and `localisation/english/`, game 1.19.3, 2026-10-11 and 2026-10-14.
+
 <!-- knowledge:end -->
 
 ## What ISNE does with this

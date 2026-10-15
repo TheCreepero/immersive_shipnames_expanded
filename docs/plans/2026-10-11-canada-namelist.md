@@ -2,309 +2,217 @@
 
 **Goal:** Replace the vanilla Canadian namelist (`CAN_ship_names.txt`, 10 groups, 272 names) with a full ISNE namelist of 31 groups. The work breaks the cloned cruiser and capital-ship rosters, restores the Royal Canadian Navy's naming formulas (rivers and peoples for destroyers, towns for escorts, provinces for cruisers), gives the wartime escort fleet its own role pools, and adds thematic and ideological pools for the Ship Designer.
 
-**Status:** planned 2026-10-11, not implemented. No namelist, README, workshop or wiki change has been made yet.
+**Status:** planned 2026-10-11; implemented 2026-10-14. `-Audit CAN`: FAIL 0, WARN 6 (depth of six short pools), INFO 3. The namelist file is the source for every name; this plan records the decisions and the verification.
 
 **Sources:**
-- Two parallel `isne-historical-researcher` dossiers (2026-10-11). Dossier A covered hulls, roles, language and vanilla fixes (36 tool calls, 23 pages read). Dossier B covered thematic and ideological pools (33 tool calls, 18 pages read). Both mark each list as page-checked or general knowledge (GK); the GK lists are the fact-check backlog in "Verification Plan".
-- Scope decisions by the author (2026-10-11): the full set of about 31 groups; Indigenous names split by context (see "Indigenous Names Policy").
+- Two parallel `isne-historical-researcher` dossiers (2026-10-11). Dossier A covered hulls, roles, language and vanilla fixes (36 tool calls, 23 pages read). Dossier B covered thematic and ideological pools (33 tool calls, 18 pages read).
+- Six `isne-audit-researcher` fact-check passes (2026-10-14, 103 web calls in total): explorers (7), heroes and VC recipients (7), rebels, Loyalists and governors (23), CCF and labour (18), vessels and establishments (24), places and folklore (15, including a follow-up on folklore replacements).
+- Escort rosters scripted from the wikitext of en.wikipedia "List of Royal Canadian Navy ships of the Second World War" (Flower, Castle, River, Loch, Bangor, Algerine, Fundy, Llewellyn, Isles, armed yachts, destroyers) and "List of River-class frigates" (Dunver, which the first page omits, and the 1943 cancellations).
+- Six closing searches by the main session (Thomas Storrow Brown, Edward Jessup, Molly Brant and Tyendinaga, Odelltown and the Frères Chasseurs, the Ninety-Two Resolutions, Harvey Murphy).
+- Scope decisions by the author (2026-10-11): the full set of about 31 groups; Indigenous names split by context.
 
 ## Vanilla Audit Findings (Step 0)
 
-1. **Cloned rosters:** BB and BC are the same 11 names (*Canada*, *Dominion* and nine provinces). CA is CL plus `Kingston` and the typo `Kingson`.
-2. **One list across five groups:** the nine provinces sit in CL, CA, BB, BC and the Provinces pool at once. 56 of 109 capital-ship names are duplicates.
-3. **Foreign vessels:** `Vendetta`, `Voyager` and `Waterhen` (DD) are Royal Australian Navy destroyers. `Lancaster` (DD) is a Town-class destroyer that served only in the Royal Navy. `Olympus` and `Osiris` (SS) are Royal Navy Oberons that were never commissioned as HMCS. All six are dropped.
-4. **Town class confirmed:** *Buxton*, *Caldwell*, *Chelsea*, *Georgetown*, *Hamilton*, *Leamington*, *Mansfield*, *Montgomery*, *Richmond* and *Salisbury* all served in the RCN (Wikipedia, Town-class destroyer). Kept.
-5. **Duplicate:** `Ottawa` appears twice in DD.
-6. **Spelling:** `Chaudiere` → `Chaudière`, `St. Catherine's` → `St. Catharines`, `St. John` → `Saint John`, `Montreal` → `Montréal`, `Trois-Rivieres` → `Trois-Rivières` (CL has it unaccented, CA accented), `Kingson` → gone with the CA rebuild.
-7. **Untraceable name:** `Ile de Québec` (CL, CA) matches no place. It is probably a corruption of *Ville de Québec*, the corvette. Dropped from the cruisers; `Ville de Québec` goes to the Corvettes pool.
-8. **Role mismatch:** 28 River-class frigates sit in the destroyer list (21 Canadian-named, 7 Royal Navy loans). They move to the Frigates pool.
-9. **Cross-hull names:** `Rainbow` is in CL, CA and SS; `Victoria` and `Windsor` in CL, CA and SS; `Hamilton`, `Ottawa`, `Vancouver` and `Saskatchewan` in DD and the cruisers.
-10. **Anachronisms:**
-    - Provinces pool: `Nunavut` (1999).
-    - Cities pool: `Mississauga` (1968), `Laval` (1965), `Vaughan`, `Markham`, `Brampton`, `Surrey`, `Burnaby`, `Richmond` (townships or district municipalities until 1974-1993), `Gatineau` (the city was Hull until 2002).
-    - Cruisers: `Abbotsford`, `Kelowna` and `Barrie` are small inland towns, not cruiser names; the last two are real escort names and move to the role pools.
-11. **Tribes pool:** it mixes nations, single bands and a language family (`Wakashan`), and repeats nine destroyer names. Vanilla's display name is "Native Tribes".
-12. **Prefix:** `HMCS ` on all 10 groups. Kept on all 31.
-13. **Fallbacks:** English terms with `%s` (`"Destroyer %s"`). The three thematic pools have no fallback. All groups get a `%d` fallback.
-14. **Vanilla script:** `history/countries/CAN - Canada.txt` assigns `CAN_DD_HISTORICAL` three times by `name_group`. The tag stays defined.
-15. **Thin groups:** CV 6, SS 11, BB 11, BC 11.
+1. **Cloned rosters:** BB and BC were the same 11 names (*Canada*, *Dominion* and nine provinces). CA was CL plus `Kingston` and the typo `Kingson`.
+2. **One list across five groups:** the nine provinces sat in CL, CA, BB, BC and the Provinces pool at once.
+3. **Foreign vessels, dropped:** `Vendetta`, `Voyager`, `Waterhen` (Royal Australian Navy destroyers); `Lancaster` (Town class, Royal Navy only); `Olympus`, `Osiris` (Royal Navy Oberons, never HMCS).
+4. **Town class confirmed:** *Buxton*, *Caldwell*, *Chelsea*, *Georgetown*, *Hamilton*, *Leamington*, *Mansfield*, *Montgomery*, *Richmond* and *Salisbury* served in the RCN (Wikipedia, Town-class destroyer). Kept in DD.
+5. **Duplicate:** `Ottawa` twice in DD.
+6. **Spelling:** `Chaudiere` → `Chaudière`, `St. Catherine's` → `St. Catharines`, `St. John` → `Saint John`, `Montreal` → `Montréal`, `Trois-Rivieres` → `Trois-Rivières`, `Kingson` gone.
+7. **Untraceable:** `Ile de Québec` (CL, CA). Dropped; `Ville de Québec` is in Corvettes.
+8. **Role mismatch:** 28 River-class frigates in DD moved to `CAN_FRIGATES`.
+9. **Anachronisms, dropped:** `Nunavut` (1999); `Mississauga`, `Laval`, `Vaughan`, `Markham`, `Brampton`, `Surrey`, `Burnaby`, `Richmond` (as a city), `Gatineau` (the city was Hull until 2002); `Abbotsford` as a cruiser.
+10. **Prefix:** `HMCS ` on all 10 groups. Kept on all 31.
+11. **Fallbacks:** vanilla used `%s`, which prints a Roman numeral [NAM-005], and the three pools had none. Every group now has a `%d` fallback, as in every other ISNE file: `Destroyer`, `Submarine`, `Light Cruiser`, `Heavy Cruiser`, `Battleship`, `Battlecruiser`, `Aircraft Carrier`, `Corvette`, `Frigate`, `Minesweeper`, `Patrol Vessel`, and `Ship %d` for the pools, as in the USA file.
+12. **Vanilla script:** `history/countries/CAN - Canada.txt` assigns `CAN_DD_HISTORICAL` by `name_group` [NAM-017]. Defined.
+13. **Fonts:** every non-ASCII letter the file uses (á, â, ä, ç, è, é, É, Î, ó, û) is in every Latin game font; only the Cyrillic fonts lack them.
 
 ## Rulings
 
-- **Era:** a name is judged by whether the name itself is plausible for 1936-1950, not by the commissioning date of the ship that bore it. Post-war RCN ship names stay when the name is a period river, people or city (*Mackenzie*, *Ojibwa*, *Corner Brook*). Places created or renamed after 1949 are dropped. Newfoundland and Labrador names are allowed: vanilla has them and a Canadian player can annex the dominion.
-- **French names:** standard Canadian orthography with diacritics everywhere (`Québec`, `Montréal`, `Chaudière`, `Lévis`, `Trois-Rivières`, `Jonquière`, `Qu'Appelle`). Dossier A proposed the unaccented `Quebec` for the cruiser, as the navy wrote it in 1944. This plan keeps vanilla's `Québec`, so that the cruiser and the province in the Provinces pool do not appear under two spellings. The RCN's own ships-histories index accents *Montréal*, *Lévis* and *Chaudière*.
-- **Corvette and fortress:** `Louisburg` is the corvette's own spelling and `Louisbourg` the fortress. If `-Audit` reports the pair, the fortress is listed as `Forteresse de Louisbourg`.
-- **Living persons:** kept where their fame predates 1936, as in the Peru plan, and listed under "Verification Plan". The CCF pool consists largely of such persons; the author chose to include it.
-- **No Royal Navy sister-class names:** Dossier A offered the *Majestic* and *Colossus* class names for CV. They are foreign vessels the RCN never used. Not adopted.
+- **Era:** a name is judged by whether the name itself is plausible for 1936-1950. Post-war RCN names stay when the name is a period river, people or city (*Mackenzie*, *Terra Nova*, *Ojibwa*, *Corner Brook*). Places created or renamed after 1949 are dropped. Newfoundland names are allowed (vanilla has them; a Canadian player can annex the dominion).
+- **French names:** standard Canadian orthography with diacritics (`Québec`, `Montréal`, `Chaudière`, `Lévis`, `Trois-Rivières`, `Jonquière`, `Ste. Thérèse`, `Matapédia`, `Gaspé`). The cruiser keeps vanilla's `Québec` rather than the unaccented form the navy wrote in 1944, so the cruiser and the province do not appear under two spellings. Ship names otherwise keep the navy's own form: `Lasalle`, `Rivière du Loup`, `Grandmère`, `Dunver`, `Daerwood`, `Lavallee`, `Louisburg` (the corvette; the fortress in BC is `Louisbourg`).
+- **Living persons:** kept where their fame predates 1936 (Peru plan precedent), and listed below. Sitting politicians and serving officers of 1936 are left out of the hull groups and pools that are not gated (Mackenzie King, Bennett, Meighen; Percy Nelles, Chief of the Naval Staff 1934-44). The Crown and its viceregal representatives are exempt, as they are above party: the sovereigns of 1936 in BB and Rulers, and *Tweedsmuir*, Governor General 1935-40, in Rulers.
+- **No Royal Navy sister-class names in CV:** the *Majestic* and *Colossus* class names the dossier offered are foreign vessels the RCN never used.
+- **Royal names in BB:** *King George V*, *Queen Mary*, *Queen Elizabeth* and the other sovereigns and consorts also named Royal Navy ships. They stand here as the sovereigns of Canada and their consorts, not as the British ships. The same holds for the reserve division *Unicorn* (CV; HMS *Unicorn* was a Royal Navy carrier of 1943) and the Nova Scotia port *Sydney* (CL; HMAS *Sydney* was an Australian cruiser).
 
 ## Final Architecture (31 groups)
 
-Counts are estimates until the rosters are scripted and fact-checked.
+### Hull groups
 
-### Hull groups (7)
-
-| Group | Est. | Formula |
+| Group | Count | Formula |
 |---|---|---|
-| `CAN_DD_HISTORICAL` | 105-110 | The 47 fleet destroyers of 1920-1945 (S class, River class, Tribal, V, Cr, Town and the ex-US river-named hulls); post-war river names (*Mackenzie*, *Terra Nova*); about 60 further Canadian rivers in the same formula |
-| `CAN_SS_HISTORICAL` | 52-58 | *Grilse*; the Oberon "O" names and their extension (*Odawa*, *Oneida*, *Oji-Cree*); *Victoria*, *Windsor*, *Corner Brook*; fish, the formula *Grilse* stands for |
-| `CAN_CL_HISTORICAL` | 50-54 | The six cruiser names (*Niobe*, *Rainbow*, *Aurora*, *Uganda*, *Québec*, *Ontario*); provinces and territories; districts and regions; major cities that had no wartime escort namesake |
-| `CAN_CA_HISTORICAL` | 38-42 | Explorers and navigators; commanders and champions of 1660-1814; the person-named naval reserve divisions (*Montcalm*, *Tecumseh*, *Carleton*, *Donnacona*) |
-| `CAN_BB_HISTORICAL` | 34-38 | *Canada*, *Dominion*, *Confederation*; realms (*Acadia*, *New France*, *Rupert's Land*, *Upper Canada*, *Lower Canada*); sovereigns; Fathers of Confederation and prime ministers; sovereignty symbols |
-| `CAN_BC_HISTORICAL` | 45-50 | Provincial Marine and Great Lakes squadrons of 1812-14; French-regime ships; exploration vessels; forts and citadels; straits and naval encounters |
-| `CAN_CV_HISTORICAL` | 35-40 | The five carriers and *Powerful*; "stone frigates" not named for persons (*Stadacona*, *Naden*, *Shearwater*, *York*, *Star*, *Cataraqui*); seabirds and raptors after *Shearwater*; peaks as "Mount ..." |
+| `CAN_DD_HISTORICAL` | 105 | Every RCN fleet destroyer of 1920-1945 (S, A, C, D, E, F, G, H, Tribal, V, Cr and Town classes, the ex-US river-named hulls); post-war destroyer escorts *Mackenzie* and *Terra Nova*; 59 further Canadian rivers || `CAN_SS_HISTORICAL` | 60 | *Grilse*, the Oberon names *Ojibwa*, *Onondaga*, *Okanagan*, the Victoria-class names *Victoria*, *Windsor*, *Corner Brook*; fish of Canadian waters, the formula *Grilse* (a young salmon) stands for; three whales |
+| `CAN_CL_HISTORICAL` | 53 | *Niobe*, *Rainbow*, *Aurora*, *Uganda*, *Québec*, *Ontario*; provinces and territories; former colonies, districts and regions; 14 cities that had no wartime escort namesake |
+| `CAN_CA_HISTORICAL` | 40 | Navigators and explorers; commanders of New France; defenders of British North America; Kingsmill and William Hall |
+| `CAN_BB_HISTORICAL` | 37 | The Dominion and its realms; *Maple Leaf*, *Red Ensign*; sovereigns of Canada; Fathers of Confederation, prime ministers, fathers of responsible government |
+| `CAN_BC_HISTORICAL` | 61 | Provincial Marine and Great Lakes squadrons; ships of New France; ships of discovery and the Arctic; the armed merchant cruisers of 1940; fortresses; straits and waters |
+| `CAN_CV_HISTORICAL` | 37 | The RCN's carriers; naval bases and reserve divisions; seabirds and raptors; summits |
 
-Doctrine notes:
-- **CL takes the provinces, not CA.** The RCN's two wartime cruisers were light cruisers named for provinces. Dossier A put the provinces in CA and filled CL with cities, which splits *Ontario* and *Québec* from the other provinces. It also leaves CL short: the escort fleet took almost every Canadian town of note, and role pools may share no name with a major hull, so most of Dossier A's collision-free cities were post-war suburbs (*Mississauga*, *Laval*, *Vaughan*, *Thunder Bay*, *Iqaluit*).
-- **Cities live in the role pools and the Cities pool.** That is where the RCN put them.
-- **BB against BC:** BB holds realms, sovereigns, founders and symbols. BC holds vessels, forts and waters. No name is shared.
-- **SS floor:** `-Audit` fails SS below 50. Only eight names are attested boats, so the fish formula carries the group. Single-word fish names are kept where the Royal Navy or US Navy used them for submarines (*Pike*, *Perch*, *Shad*, *Sturgeon*); `Sucker`, `Chub` and `Smelt` are left out.
+- **CL takes the provinces, not CA.** The navy's two wartime cruisers were light cruisers named for provinces. The escort fleet took almost every Canadian town of note, so a city-based CL would have needed post-war suburbs.
+- **BB against BC:** no shared name. BB holds realms, sovereigns, founders and symbols; BC holds vessels, forts and waters.
+- **CV:** every base and division used is named for a place, a ship or a bird, not a person (fact-check pass 5). `Protector` is the Point Edward naval base at Sydney, NS (1940-64). `Scotian` dates from 1947, inside the era. Left out: `Hunter` (named for the brig *General Hunter*, in BC), `Avalon` (commissioned only in 1951; the colony is in CL), `Cornwallis` (named for Edward Cornwallis, whose 1749 proclamation set a bounty on the Mi'kmaq; contested, and at odds with this file's Indigenous names policy) and `Powerful` (the launch name of the *Bonaventure* hull; one hull, one name; it stays in Virtues).
 
-### Role pools (4)
+### Role pools
 
-| Group | Est. | Display name | Fallback | Series |
-|---|---|---|---|---|
-| `CAN_CORVETTES` | ~120 | Corvettes | `Corvette %d` | Flower class (about 109 unique: Canadian towns, plus the ten flower names of the Royal Navy order) and Castle class (12) |
-| `CAN_FRIGATES` | ~70 | Frigates | `Frigate %d` | River class (Canadian towns; the seven Royal Navy loans *Annan*, *Ettrick*, *Meon*, *Monnow*, *Nene*, *Ribble*, *Teme*) and Loch class (*Loch Achanalt*, *Loch Alvie*, *Loch Morlich*) |
-| `CAN_MINESWEEPERS` | ~80 | Minesweepers | `Minesweeper %d` | Bangor (54), Algerine (12), Llewellyn (10), Fundy (4) |
-| `CAN_PATROL_VESSELS` | 38-45 | Patrol Vessels | `Patrol Vessel %d` | Armed yachts of 1940 (16 animal names) and of 1915 (*Hochelaga*); Battle-class trawlers of 1917 (12 Canadian Corps battles); Isles-class trawlers (8 islands); Fisheries Protection vessels commissioned in 1914-18 |
+| Group | Count | Series |
+|---|---|---|
+| `CAN_CORVETTES` | 121 | 99 Flower-class town names, the 10 flower names of the Royal Navy order, 12 Castle class. *Vancouver* is left to DD. |
+| `CAN_FRIGATES` | 84 | 58 River-class town names (with *Dunver*), the 7 Royal Navy loans, 3 Loch class, 16 River-class names ordered and cancelled in December 1943 |
+| `CAN_MINESWEEPERS` | 80 | Bangor (54), Algerine (12), Fundy (4), Llewellyn (10) |
+| `CAN_PATROL_VESSELS` | 44 | 16 armed yachts of 1940; 8 patrol vessels of 1914-18; 12 Battle-class and 8 Isles-class trawlers |
 
-All four suffixes are already in `Get-RolePoolSuffixes`; `build.ps1` needs no change.
+### Thematic pools
 
-### Thematic pools (15)
+| Group | Count | Display name |
+|---|---|---|
+| `CAN_CITIES` | 112 | Cities |
+| `CAN_PROVINCES` | 49 | Provinces & Regions |
+| `CAN_RIVERS` | 82 | Rivers & Lakes |
+| `CAN_COASTS` | 80 | Capes, Isles & Straits |
+| `CAN_GEOGRAPHY` | 30 | Mountains |
+| `CAN_TRIBES` | 78 | Indigenous Peoples |
+| `CAN_BIRDS` | 68 | Birds |
+| `CAN_FISH` | 70 | Aquatic Life |
+| `CAN_BEASTS` | 37 | Wildlife |
+| `CAN_RULERS` | 64 | Monarchs & Governors |
+| `CAN_EXPLORERS` | 39 | Explorers |
+| `CAN_HEROES` | 41 | Heroes |
+| `CAN_BATTLES` | 43 | Battles |
+| `CAN_MYTHOLOGY` | 20 | Myth & Folklore |
+| `CAN_VIRTUES` | 52 | Virtues & Elements |
+| `CAN_LOYALISTS` | 20 | Loyalists & Empire (heritage, not gated) |
 
-| Group | Est. | Display name | Notes |
+### Ideological pools
+
+| Group | Count | Display name | Gate |
 |---|---|---|---|
-| `CAN_CITIES` | ~90 | Cities | Ports and cities that existed by 1941, both coasts and the Great Lakes first |
-| `CAN_PROVINCES` | ~50 | Provinces & Regions | Provinces, territories, former colonies and districts |
-| `CAN_RIVERS` | ~85 | Rivers & Lakes | Lakes as `Lake ...` where the bare name is a city or river |
-| `CAN_COASTS` | ~80 | Capes, Isles & Straits | Capes, islands, straits, sounds and bays |
-| `CAN_GEOGRAPHY` | ~28 | Mountains | Peaks as `Mount ...` / `Mont ...`, and ranges. Thin by nature |
-| `CAN_TRIBES` | ~60 | Indigenous Peoples | Vanilla tag kept. See the policy below |
-| `CAN_BIRDS` | ~70 | Birds | |
-| `CAN_FISH` | ~70 | Aquatic Life | Fish, marine mammals, shellfish |
-| `CAN_BEASTS` | ~38 | Wildlife | Seeded by the 1940 armed yachts |
-| `CAN_RULERS` | ~60 | Monarchs & Governors | Sovereigns, governors of New France, British governors, governors general to 1940 |
-| `CAN_EXPLORERS` | ~45 | Explorers | |
-| `CAN_HEROES` | ~40 | Heroes | War of 1812, New France, chiefs, naval figures, Victoria Cross recipients to 1918 |
-| `CAN_BATTLES` | ~40 | Battles | 1690-1918; the Battle-class trawlers are the precedent |
-| `CAN_MYTHOLOGY` | ~22 | Myth & Folklore | Each figure attributed to its people. Thin by nature |
-| `CAN_VIRTUES` | ~60 | Virtues & Elements | Royal Navy style abstract names the RCN inherited, with northern weather and sky |
+| `CAN_CONFEDERATION` | 41 | Confederation | `democratic` |
+| `CAN_REVOLUTION` | 24 | Patriotes & Rebels | `democratic` or `communism` |
+| `CAN_REFORM` | 21 | Reform & Co-operation | `neutrality` (the CCF in vanilla) |
+| `CAN_SOCIALISM` | 21 | Labour Struggle | `communism` |
 
-`CAN_COASTS` and `CAN_EXPLORERS` are not standard suffixes; `-Audit` grades any non-role tag as a thematic pool, so no script change is needed.
+- **Cap:** democratic sees Confederation and Patriotes & Rebels; communism sees Labour Struggle and Patriotes & Rebels; neutrality sees Reform & Co-operation; fascism sees none.
+- **No fascism pool:** the only material is the party press of Adrien Arcand's antisemitic movement (Wikipedia, Adrien Arcand).
+- **Separation:** Labour Struggle holds no CCF social democrats; the Winnipeg strike leaders who later joined the CCF (Ivens, Russell, Queen, Heaps, Woodsworth) are not in it, and Heaps and Woodsworth sit in Reform & Co-operation. *One Big Union* (syndicalist, not CPC) and *Ginger Goodwin* (Socialist Party of Canada) stand in Labour Struggle as militant labour; neither ideology opposes the pool's gate. The Tories who fought the Patriotes (MacNab, Strachan, Robinson) are in Loyalists & Empire only. Marshall Spring Bidwell, a reformer who took no part in the rising, is left out of Patriotes & Rebels. Wolfred Nelson, the one rebel with a later public career, never disavowed reform and stays with the rebels.
+- **Loyalists & Empire is ungated** and treated like Monarchs & Governors. It was renamed from "Loyalists" because it also holds *Imperial Federation* and *Empire Day*. Gating it would give democratic governments a third pool.
 
-### Ideological and heritage pools (5)
+### Depth warnings accepted
 
-| Group | Est. | Display name | Gate |
-|---|---|---|---|
-| `CAN_CONFEDERATION` | ~45 | Confederation | `has_government = democratic` |
-| `CAN_REVOLUTION` | ~25 | Patriotes & Rebels | `democratic` or `communism` |
-| `CAN_REFORM` | ~22 | Reform & Co-operation | `has_government = neutrality` |
-| `CAN_SOCIALISM` | ~22 | Labour Struggle | `has_government = communism` |
-| `CAN_LOYALISTS` | ~22 | Loyalists | none (heritage pool) |
-
-- **Cap check (§2B, at most two pools per ideology):** democratic sees Confederation and Patriotes & Rebels; communism sees Labour Struggle and Patriotes & Rebels; neutrality sees Reform & Co-operation; fascism sees none.
-- **Neutrality is the CCF:** vanilla's non-aligned Canadian party is the Co-operative Commonwealth Federation, so the `neutrality` pool is social-democratic, not monarchist.
-- **Patriotes & Rebels under two gates:** the rebels of 1837-38 are claimed by liberal democrats and by the left alike; the Mackenzie-Papineau Battalion of 1937 took its name from them (Wikipedia, Mackenzie-Papineau Battalion).
-- **Labour Struggle excludes the CCF:** the Winnipeg General Strike is listed as an event, but its leaders (Ivens, Russell, Queen, Heaps, Woodsworth) were socialists who later joined the CCF, and stay out of a `communism` pool.
-- **No fascism pool:** the only material is the party press and party names of Adrien Arcand's antisemitic movement (Wikipedia, Adrien Arcand). A short honest list does not exist.
-- **Loyalists ungated:** United Empire Loyalist heritage is mainstream in every Canadian government form short of a republic, and gating it to `democratic` would break the cap. It is treated like `CAN_RULERS`. Open decision 2 below.
+Mountains (30), Myth & Folklore (20), Loyalists & Empire (20), Patriotes & Rebels (24), Reform & Co-operation (21) and Labour Struggle (21) are below the 35 target and above the floor of 20. Each holds only verified names. Myth & Folklore lost five figures to the sacred-names rule below.
 
 ## Indigenous Names Policy (author decision: split by context)
 
-- **Destroyers** keep the spellings the RCN gave its ships: *Athabaskan*, *Cayuga*, *Haida*, *Huron*, *Iroquois*, *Micmac*, *Nootka*, *Algonquin*, *Sioux*. They are historical ship names. The same holds for the river-named destroyers *Assiniboine*, *Kootenay* and *Ottawa*, and for the submarines *Ojibwa*, *Okanagan* and *Onondaga*.
-- **The pool** is renamed "Indigenous Peoples" ("First Nations" excludes Inuit and Métis) and uses current self-designations.
-- **No overlap with the destroyers.** Where the ship name and the self-designation are the same word (*Haida*, *Cayuga*, *Algonquin*, *Onondaga*), the hull group owns it and the pool leaves it out.
-- **Replacements:** `Micmac` → `Mi'kmaq`, `Nootka` → `Nuu-chah-nulth`, `Athabaskan` → `Dene`, `Huron` and `Wyandot` → `Wendat`, `Iroquois` → `Haudenosaunee`, `Sioux` → `Dakota`, `Ottawa` → `Odawa`, `Kwakiutl` → `Kwakwaka'wakw`, `Lillooet` → `St'at'imc`, `Nlakapamuk` → `Nlaka'pamux`, `Shuswap` → `Secwepemc`, `Burrard` → `Tsleil-Waututh`, `Okanagan` → `Syilx`, `Kootenay` → `Ktunaxa`, `Assiniboine` → `Nakoda`.
-- **Dropped:** `Wakashan` (a language family), `Stahlo` (its correct form *Stó:lō* has a colon and macrons).
-- **Font safety:** the game font covers Latin-1 and Latin Extended-A. Forms outside it take the plain spelling: `Tlicho`, `Mohawk`, `Oneida`, `Tuscarora`. Safe as written: `Nuxálk`, `Hän`, `Métis`.
-- **Exonyms that are English words or slurs are never used:** *Blood*, *Stoney*, *Carrier*, *Beaver*, *Neutral*, *Slavey*, *Sarcee*, *Eskimo*. The pool lists *Kainai*, *Nakoda*, *Dakelh*, *Dane-zaa*, *Tsuut'ina*, *Inuit*.
-- **Additions** (Wikipedia, List of First Nations peoples in Canada): Squamish, Musqueam, Katzie, Kwantlen, Tsawwassen, Songhees, Semiahmoo, Qualicum, Homalco, Klahoose, Tla'amin, Heiltsuk, Haisla, Tsimshian, Gitxsan, Nisga'a, Ditidaht, Tsilhqot'in, Dakelh, Wet'suwet'en, Gwich'in, Tahltan, Tagish, Kaska, Sekani, Hän, Tutchone, Dane-zaa, Sahtu, Tlicho, Kainai, Piikani, Siksika, Tsuut'ina, Saulteaux, Wolastoqiyik, Passamaquoddy, Abenaki, Beothuk, Naskapi, Mississauga; and Inuit, Inuvialuit, Métis.
-- **Kept from vanilla:** Anishinaabe, Chipewyan, Comox, Cowichan, Cree, Innu, Lekwungen, Mohawk, Nipissing, Nuxálk, Oneida, Penelakut, Potawatomi, Sechelt, Seneca, Sinixt, Snuneymuxw, Tlingit, Tuscarora, Chehalis.
+- Hull groups keep the spellings the RCN gave its ships: *Athabaskan*, *Cayuga*, *Haida*, *Huron*, *Iroquois*, *Micmac*, *Nootka*, *Algonquin*, *Sioux* (DD); *Ojibwa*, *Onondaga*, *Okanagan* (SS).
+- `CAN_TRIBES` keeps its vanilla tag, is renamed "Indigenous Peoples" ("First Nations" excludes Inuit and Métis), uses current self-designations, and repeats none of the hull names.
+- Replacements: `Micmac` → `Mi'kmaq`, `Nootka` → `Nuu-chah-nulth`, `Athabaskan` → `Dene`, `Huron` and `Wyandot` → `Wendat`, `Iroquois` → `Haudenosaunee`, `Sioux` → `Dakota`, `Ottawa` → `Odawa`, `Kwakiutl` → `Kwakwaka'wakw`, `Lillooet` → `St'at'imc`, `Nlakapamuk` → `Nlaka'pamux`, `Shuswap` → `Secwepemc`, `Burrard` → `Tsleil-Waututh`, `Okanagan` → `Syilx`, `Kootenay` → `Ktunaxa`, `Assiniboine` → `Nakoda`.
+- Dropped: `Wakashan` (a language family), `Stahlo` (*Stó:lō* needs a colon and macrons), `Algonquin`, `Haida`, `Cayuga`, `Onondaga` and `Ojibwa` (owned by the hull groups), `Songhees` (the English name of the Lekwungen, who are listed).
+- Replaced after review so that the pool repeats no ship name of any group: `Comox` → `K'ómoks`, `Cowichan` → `Quw'utsun` (both are Bangor and Fundy minesweeper names); `Chipewyan` → `Denesuline` (the exonym beside `Dene`).
+- Exonyms that are English words or slurs are not used (*Blood*, *Stoney*, *Carrier*, *Beaver*, *Neutral*, *Slavey*, *Sarcee*, *Eskimo*). Font-safe forms: `Tlicho`, `Mohawk`, `Oneida`, `Tuscarora`; Latin-1 forms `Nuxálk`, `Hän`, `Métis`.
+- Source: Wikipedia, List of First Nations peoples in Canada (Dossier B).
 
 ## Role Pools: considered / created / skipped
 
-- **Corvettes:** created. The RCN commissioned over 120 Flower and Castle-class corvettes, named for Canadian communities.
-- **Frigates:** created. About 70 River and Loch-class frigates, named for towns and cities; the British-built loans kept their river and loch names.
-- **Minesweepers:** created. Four classes, about 80 names. The Lake class is left out: its hulls went to the Soviet Union or were cancelled, and none was commissioned as HMCS. The post-war Bay class is left out: nine of its 14 names repeat Bangor and Fundy names.
-- **Patrol vessels:** created, combining three auxiliary patrol series that are each below or at the floor on their own (armed yachts 17, Battle-class trawlers 12, Isles-class trawlers 8).
-- **Escort destroyers:** considered, skipped: the post-war destroyer escorts take river names and sit in DD.
-- **Escort carriers, light carriers:** considered, skipped: two and three names, all in CV.
-- **Auxiliary cruisers:** considered, skipped: three names (*Prince David*, *Prince Henry*, *Prince Robert*). Folded into BC as historic war vessels.
-- **Sloops, avisos, gunboats, torpedo boats, fast attack craft:** considered, skipped: no named RCN series (the Fairmile launches carried numbers).
-- **Scout cruisers, flotilla leaders, AA cruisers, armored cruisers, large cruisers, fast battleships, coastal defense, monitors:** considered, skipped: no precedent.
+- **Corvettes, frigates, minesweepers:** created (documented class series with the towns-adopt-a-ship naming rule).
+- **Patrol vessels:** created, combining three auxiliary patrol series that are each at or below the floor on their own.
+- **Escort destroyers:** considered, skipped: post-war, river names, in DD.
+- **Escort carriers, light carriers:** considered, skipped: five names, all in CV.
+- **Auxiliary cruisers:** considered, skipped: three names (*Prince David*, *Prince Henry*, *Prince Robert*), in BC.
+- **Minesweepers of the Lake class:** left out; none was commissioned as HMCS. **Post-war Bay class:** left out; nine of 14 names repeat Bangor and Fundy names.
+- **Castle-class corvettes cancelled in 1943:** left out; the 36 Canadian-built ships were ordered for the Royal Navy under Castle names.
+- **Sloops, avisos, gunboats, torpedo boats, fast attack craft:** considered, skipped: no named series (the Fairmile launches carried numbers).
+- **Scout cruisers, flotilla leaders, AA cruisers, armored and large cruisers, fast battleships, coastal defense, monitors:** considered, skipped: no precedent.
 - **Minelayers, seaplane tenders, submarine tenders, icebreakers, state yachts:** considered, skipped: no named series before 1950.
-- **Cruiser, coastal and minelaying submarines:** considered, skipped: the navy had no named submarines before 1961.
-- **Training ships and auxiliaries:** considered, skipped: a handful of names (*Venture*, *Preserver*, *Provider*), which go to the Virtues pool.
-- **Gate vessels:** considered, skipped: five names (Porte class), post-war.
-- **Bird-class patrol vessels:** considered, skipped: post-war; the names are in the Birds pool.
+- **Submarine sub-types:** considered, skipped: no named submarines before 1961.
+- **Training ships and auxiliaries, gate vessels, Bird-class patrol vessels:** considered, skipped: a handful of names or post-war.
 
 ## Collision Resolutions
 
-Single owners of contested names:
-- *Ontario*, *Québec*, *Niobe*, *Rainbow*, *Aurora*, *Uganda* → CL. `Rainbow` leaves SS (`Rainbow Trout` may stand there).
-- *Canada*, *Dominion* → BB. The 1914 patrol vessel *Canada* is left out of the Patrol Vessels pool.
-- *Acadia* → BB (the name floated for a 1913 Naval Aid Bill dreadnought, per Schleihauf 2000; treated as a hedge, not a fact). The hydrographic ship *Acadia* is left out of Patrol Vessels.
-- *Saskatchewan*, *Kootenay*, *Niagara*, *Columbia*, *Mackenzie* → DD; CL leaves them out. *Yukon* → CL; the 1960s destroyer escort name is not used in DD.
-- *Hamilton*, *Ottawa*, *Vancouver* → DD (real destroyers). The corvette *Vancouver* is left out of Corvettes.
-- *Victoria*, *Windsor*, *Corner Brook* → SS; CL leaves them out. *Chicoutimi* → Corvettes (1941); SS leaves it out.
-- *Champlain* → DD (the 1928 destroyer); CA leaves him out.
-- *Brock*, *Wolfe*, *Prevost* → CA as persons; BC leaves out the 1812 vessels *Sir Isaac Brock*, *Wolfe* and *Sir George Prevost*.
-- *Griffon*, *Nonsuch*, *Discovery*, *Queen Charlotte*, *Chatham* → BC as vessels; CV leaves out the reserve divisions of the same names.
-- *Stadacona* → CV (the Halifax base); the 1915 yacht is left out of Patrol Vessels.
-- *Montcalm*, *Tecumseh*, *Carleton*, *Donnacona*, *Cabot*, *Radisson*, *d'Iberville*, *Jolliet* → CA; CV takes only establishments not named for persons.
-- *Restigouche* → DD; BC lists the 1760 action's ships (*Machault*, *Bienfaisant*, *Marquis de Malauze*) instead.
+`-Audit CAN` reports no `CrossClass`, `CrossClassVariant` or `RoleOverlap` finding.
 
-Names taken by a role pool and therefore closed to CL/CA/BB/BC/CV (`RoleOverlap` FAIL):
-- CL districts: *Ungava* (Bangor), *Cape Breton* (frigate), *Algoma* (corvette) are left out. Every other district and city candidate is checked against the scripted rosters before it enters CL.
-- CA persons that are also escort names take a qualified form: `Comte de Frontenac`, `Chevalier de Lévis`, `Cavelier de La Salle`, `William Baffin`.
-- BC forts: *Fort William*, *Fort Frances*, *Fort Erie* are escort names and are left out.
-- BB: no founder surname may match an escort (*Brockville* is distinct from *Brock*; check `Galt`, `Tupper`, `Tilley`, `Borden` against the rosters).
+Single owners:
+- *Ontario*, *Québec*, *Niobe*, *Rainbow*, *Aurora*, *Uganda* → CL (`Rainbow Trout` stands in SS).
+- *Canada*, *Dominion*, *Acadia* → BB; the 1914-18 vessels *Canada* and *Acadia* are left out of Patrol Vessels.
+- *Saskatchewan*, *Kootenay*, *Niagara*, *Columbia*, *Mackenzie*, *Vancouver*, *Hamilton*, *Ottawa*, *Champlain* → DD. *Yukon* → CL.
+- *Victoria*, *Windsor*, *Corner Brook* → SS. *Chicoutimi* and *Kokanee* → the role pools; SS leaves them out.
+- *Charlottetown*, *Lévis* (Flower and River names) → Corvettes. *Leamington* → DD. *Nanoose* (ex-*Nootka*) → Minesweepers.
+- *Brock*, *Wolfe*, *Prevost*, *Simcoe* → CA; BC leaves out *Sir Isaac Brock* and *Wolfe*.
+- *Griffon*, *Nonsuch*, *Discovery*, *Queen Charlotte*, *Chatham* → BC; CV leaves out the reserve divisions of the same names.
+- *Stadacona* → CV; the 1915 yacht is not in Patrol Vessels.
+- One hull, one name: `Charwell` (ex-*Earl of Moira*) and `Lord Beresford` (ex-*Prince Regent* schooner, later *Netley*) are left out; `Earl of Moira`, `Netley` and `Prince Regent` (the 1814 frigate) stand. `Powerful` is left out of CV for the same reason (the *Bonaventure* hull). `Megantic` is the hull commissioned as *Sea Cliff*.
+- Qualified forms keep persons apart from escort names: `Comte de Frontenac` (corvette *Frontenac*), `Chevalier de Lévis`, `Cavelier de La Salle` (frigate *Lasalle*), `William Baffin` (trawler *Baffin*), `Alexander Galt` (corvette *Galt*), `Lord Melville` (minesweeper *Melville*).
+- Left out because a role pool owns the name: CL *Ungava*, *Cape Breton*, *Algoma*, *Nelson* (DD); BC *Fort William*, *Fort Frances*, *Fort Erie*; DD *Miramichi*, *Matapédia*, *Klondike*.
 
-Between role pools (single owner):
-- *Charlottetown*, *Lévis*: Flower and River classes both used them → Corvettes.
-- *Leamington* → DD (Town class); the frigate of that name was renamed *Sea Cliff*.
-- *Nootka* (Fundy class, renamed *Nanoose* in 1943) → listed as `Nanoose` in Minesweepers.
-- *Nipigon* → Minesweepers (Bangor); not used in DD.
-- *Dunver* is the frigate's official name (an anagram for Verdun). Kept as `Dunver`.
+INFO pairs in `-Audit` (`CrossClassPerson`), all different names:
+- *Franklin* (CL, the district) and *John Franklin* (CA, the explorer it is named for): one is a place, one a person.
+- *Prevost* (CA, Sir George Prevost) and *Lady Prevost* (BC, the 1812 schooner named for his wife).
+- *Prince George* (CL, the city) and *Royal George* (BC, the 1809 corvette).
 
-Thematic pools stand alone and may repeat hull and role names, as in the Finnish model file. Inside them, homonyms take qualified forms: `Québec City`, `Lake Winnipeg`, `Ottawa River`, `Vancouver Island`, `Cape Breton Island`, `Queen Victoria`, `Samuel de Champlain`, `Alexander Mackenzie` (the explorer), `William Lyon Mackenzie`, `George-Étienne Cartier`, `Jacques Cartier`, `Simon Fraser`, `David Thompson`, `John Franklin`, `Henry Hudson`, `Louisbourg 1758`, `Québec 1690`, `Charlottetown Conference`, `Chinook Salmon`, `Common Raven`.
+Thematic pools stand alone and may repeat hull and role names. Homonyms inside them take qualified forms: `Québec City`, `Ottawa River`, `Lake Winnipeg`, `Cape Breton Island`, `Samuel de Champlain`, `Alexander Mackenzie`, `William Lyon Mackenzie`, `George-Étienne Cartier`, `Jacques Cartier`, `Louisbourg 1758`, `Québec 1690`, `Chinook Salmon`, `Common Raven`.
 
-## Candidate Lists
+## Language and Homonym Notes
 
-Recorded so the implementing session does not need a new dossier. "Page" means the dossier read the list on a named page; "GK" means general knowledge, to be fact-checked.
+- Destroyer rivers left out as English words or confusable: `Slave`, `Back`, `Don`, `Bow`, `Credit`, `Grand`, `Campbell`, `Exploits`, `Rupert`, `Kazan` (reads Russian), `Churchill` (reads as Winston Churchill in a 1936-50 game; also left out of CL and Cities), `Thames`, `Avon`, `Mersey`, `Humber` (read as the British rivers and Royal Navy ships). `Peace` is listed as `Peace River`.
+- Submarine fish left out: `Sucker`, `Chub`, `Smelt`, `Skate`, `Inconnu` (reads as "unknown"); `Char` is listed as `Arctic Char`.
+- Birds: `Loon` only as `Common Loon` and `Red-throated Loon`; `Coot`, `Ruff`, `Knot`, `Bufflehead` and `Eskimo Curlew` left out.
+- Wildlife: `Skunk`, `Lemming`, `Badger`, `Fisher`, `Buffalo` left out; `Husky` kept as the 1940 yacht name.
+- Cities: `Hope`, `Trail` (as a city; *Trail* stays a corvette name) left out; `Shawinigan Falls` is the period name of the city (renamed 1958).
+- Kept as real ship names despite the homonym: `Thunder`, `Speedy`, `Nancy`, `Star`, `Queen`, `Terror`, `Matthew`.
 
-### DD
-- **Fleet destroyers (page: RCN ships of WWII, Town class, Tribal class):** Patriot, Patrician, Champlain, Vancouver, Saguenay, Skeena, Fraser, St. Laurent, Restigouche, Assiniboine, Ottawa, Margaree, Kootenay, Gatineau, Qu'Appelle, Saskatchewan, Chaudière, Athabaskan, Cayuga, Haida, Huron, Iroquois, Micmac, Nootka, Algonquin, Sioux, Crescent, Crusader, Annapolis, Columbia, Niagara, St. Clair, St. Croix, St. Francis, Buxton, Caldwell, Chelsea, Georgetown, Hamilton, Leamington, Mansfield, Montgomery, Richmond, Salisbury.
-- **To verify:** Roxborough (listed as RCN on the WWII page, not found on the Town-class page).
-- **Post-war river names:** Mackenzie, Terra Nova.
-- **Not adopted:** the six untransferred Cr-class names (Creole, Crispin, Cromwell, Crown, Croziers, Crystal); no source ties them to the RCN.
-- **River extension (GK, checked against the escort rosters):** Peace, Nelson, Albany, Severn, Hayes, Coppermine, Back, Liard, Slave, Bow, Oldman, Souris, Rideau, Humber, Don, Credit, Grand, Thames, Trent, Moira, Madawaska, Petawawa, Mattawa, Richelieu, Saint-Maurice, Batiscan, Rouge, Yamaska, Nicolet, Manicouagan, Moisie, Natashquan, Nashwaak, Tobique, Shubenacadie, Mersey, Avon, Exploits, Thompson, Nass, Stikine, Bella Coola, Campbell, Porcupine, Klondike, Pelly, Alsek, Miramichi, Kaministiquia, Similkameen, Montmorency, Matapédia, Churchill, Thelon, Kazan, Dubawnt, Koksoak, Eastmain, Rupert, Attawapiskat, Nottaway. Homonym check needed on `Back`, `Don`, `Red`, `Bow`, `Milk`, `Hay`, `Peel`.
+## Verification Notes
 
-### SS
-- **Boats (page: canada.ca submarine facts):** Grilse, Ojibwa, Onondaga, Okanagan, Victoria, Windsor, Corner Brook.
-- **"O" extension (GK):** Odawa, Oneida, Oji-Cree.
-- **Fish (GK):** Salmon, Sockeye, Coho, Steelhead, Sturgeon, Cod, Haddock, Halibut, Herring, Mackerel, Capelin, Shad, Gaspereau, Alewife, Pike, Muskellunge, Walleye, Perch, Whitefish, Cisco, Char, Trout, Rainbow Trout, Grayling, Burbot, Sauger, Sculpin, Lingcod, Sablefish, Rockfish, Dogfish, Wolffish, Pollock, Hake, Redfish, Turbot, Flounder, Plaice, Tuna, Swordfish, Lamprey, Kokanee, Eulachon, Goldeye, Porbeagle, Narwhal, Beluga, Orca.
+Every named person in the file, with its source. "WD" means well documented, kept without a lookup.
 
-### CL
-- **Cruisers:** Niobe, Rainbow, Aurora, Uganda, Québec, Ontario.
-- **Provinces and territories:** Alberta, British Columbia, Manitoba, New Brunswick, Nova Scotia, Prince Edward Island, Newfoundland, Labrador, Yukon, Northwest Territories.
-- **Districts and regions (GK):** Keewatin, Assiniboia, Athabasca, Franklin, Cariboo, Klondike, Vancouver Island, New Caledonia, Canada East, Canada West, Île Royale, Île Saint-Jean, Gaspésie, Muskoka, Nipissing, Temiskaming, Abitibi, Charlevoix, Beauce, Mauricie, Kamouraska, Peace River, Red River, Avalon, Huronia.
-- **Cities without a wartime escort namesake (GK, to check against the rosters):** Edmonton, Kingston, London, Sydney, Dartmouth, Yarmouth, Cornwall, Niagara Falls, Bathurst, Campbellton, St. John's, Whitehorse, Dawson City, Churchill, Prince George, Penticton.
+### Sourced
+- **Explorers (pass 1):** Brûlé (Canadian Encyclopedia), Kelsey (DCB), Henday (DCB), Bernier (Canadian Encyclopedia), Tyrrell (Parks Canada), Palliser (DCB), Henry Youle Hind (Wikipedia), Bartlett (Canadian Encyclopedia), Larsen (Wikipedia), Donnacona (DCB).
+- **Heroes (pass 2):** Kingsmill, Hose (Wikipedia, Chief of the Naval Staff (Canada)); William Hall and every VC recipient (Wikipedia, List of Canadian Victoria Cross recipients): Alexander Dunn, Filip Konowal, Thain MacDowell, John Pattison, Ellis Sifton, Okill Learmonth, Harcus Strachan, Billy Bishop, William Barker, Alan McLeod, Gordon Flowerdew, Cyrus Peck, Joseph Kaeble, Jean Brillant, Raphael Zengel, Coulson Mitchell, Thomas Ricketts, and Rowland Bourke (the London Gazette citation of 28 Aug 1918, Veterans Affairs Canada and the RCN use "Rowland"; review fix).
+- **Governors (Dossier B):** the governors of New France, the British governors 1760-1841 and the governors general 1867-1940 (Wikipedia, List of governors general of Canada). 1841-67 governors Bagot, Metcalfe, Cathcart, Elgin and Edmund Head (pass 3, same page).
+- **Fathers of Confederation (Dossier B):** all 28 in the Confederation pool and the ten in BB (Wikipedia, Fathers of Confederation).
+- **Patriotes & Rebels (pass 3):** Papineau, Wolfred and Robert Nelson, Chevalier de Lorimier, Chénier, Duvernay, Cardinal, Joseph Duquet (hanged with Cardinal), William Lyon Mackenzie, Lount, Matthews, Duncombe, Nils von Schoultz (Wikipedia, Lower Canada Rebellion, Patriot War and individual pages). Thomas Storrow Brown (DCB; main-session search).
+- **Loyalists (pass 3):** Simcoe, Sir John Johnson, John Butler, Edward Winslow, Thomas Carleton, Ward Chipman, John Strachan, Allan MacNab, John Beverley Robinson, Jonathan Odell. Edward Jessup (DCB), Molly Brant (New-York Historical Society), Tyendinaga (Canadian Encyclopedia, Crown grant to the Mohawks of the Bay of Quinte): main-session searches.
+- **Reform & Co-operation (pass 4):** Woodsworth, Coldwell, Irvine, Heaps, MacInnis, Macphail, Henry Wise Wood, Coady, Tompkins, the Famous Five (Wikipedia, Co-operative Commonwealth Federation; Famous Five; Antigonish movement; individual pages).
+- **Labour Struggle (pass 4):** Tim Buck, Tom McEwen, Annie Buller, `Becky Buhay` (respelled from "Beckie"), Norman Bethune (CPC from 1935), Ginger Goodwin, Slim Evans, Edward Cecil-Smith, Mike Sokolowski (Wikipedia and Canadian Encyclopedia). Harvey Murphy (Canadian Encyclopedia, Crowsnest Pass Strike 1932; main-session search).
+- **Folklore persons (pass 6):** Jean Cadieux (Canadian Encyclopedia), Big Joe Mufferaw (Wikipedia, Joseph Montferrand), Louis Cyr (DCB).
 
-### CA
-Jacques Cartier, John Cabot, Frobisher, Henry Hudson, William Baffin, Cavelier de La Salle, Jolliet, Radisson, Groseilliers, d'Iberville, La Vérendrye, Kelsey, Hearne, Alexander Mackenzie, Simon Fraser, David Thompson, George Vancouver, John Franklin, Bernier, Brock, Tecumseh, Salaberry, Laura Secord, Dollard des Ormeaux, Madeleine de Verchères, Maisonneuve, Montcalm, Wolfe, Chevalier de Lévis, Comte de Frontenac, Carleton, Prevost, Donnacona, Joseph Brant, Kingsmill, William Hall, Jean Talon, Brébeuf, FitzGibbon, Simcoe. All GK except Kingsmill and William Hall (page).
+### Well documented, kept without a lookup
+- Sovereigns of France and Britain from François Ier to George VI; Princess Louise and Princess Patricia (pass 3 confirmed both).
+- Prime ministers Laurier, Borden, Abbott, Bowell; Baldwin, LaFontaine, Howe, Hincks, Ryerson (pass 4 rated them WD).
+- Canonical explorers and heroes (pass 1 and 2 rated them WD): Cartier, Cabot, Frobisher, Davis, Hudson, Baffin, Champlain, Jolliet, Marquette, La Salle, Radisson, Groseilliers, d'Iberville, La Vérendrye, Hearne, Mackenzie, Simon Fraser, David Thompson, Vancouver, Cook, Franklin; Brock, Tecumseh, Salaberry, Laura Secord, Joseph Brant, Dollard des Ormeaux, Madeleine de Verchères, Maisonneuve, Jeanne Mance, Talon, Laval, Brébeuf, Montcalm, Wolfe.
+- Persons pass 1 and 2 kept from memory without a source (real, standard dates, no doubt raised): Thomas James, Luke Foxe, Jean Nicolet, Peter Pond, George Back, John Rae, Robert McClure, Francis Crozier, Stefansson; FitzGibbon, John Norton, Louis Hébert, Lévis, Poundmaker, Crowfoot.
 
-### BB
-- **Realms and symbols:** Canada, Dominion, Confederation, Acadia, New France, Rupert's Land, Upper Canada, Lower Canada, British North America, Maple Leaf, Red Ensign.
-- **Sovereigns (GK):** Queen Victoria, King Edward VII, King George V, King George VI, Queen Mary, King George III, King Charles II, King Louis XIV, King Henri IV, King Francis I.
-- **Founders and prime ministers (page: Fathers of Confederation; GK for the prime ministers):** John A. Macdonald, George-Étienne Cartier, George Brown, Charles Tupper, Leonard Tilley, Alexander Galt, D'Arcy McGee, Hector Langevin, Étienne-Paschal Taché, Oliver Mowat, Wilfrid Laurier, Robert Borden, John Abbott, Mackenzie Bowell, Robert Baldwin, LaFontaine, Joseph Howe.
-- **Left out:** the sitting leaders of 1936 (Mackenzie King, Bennett, Meighen). They are party leaders in game.
+### Dropped after fact-check
+- Vessels: `Roxborough` (never RCN: served under the Royal Navy, then the Soviet Union), `Culver` (no RCN record; HMS *Culver* was a Royal Navy sloop), `Earl Grey` (commissioned only to deliver an icebreaker to Russia), `Charwell`, `Lord Beresford`, `Detroit` (reads as the US city). `Linnet` (built at Île aux Noix 1814, captured at Plattsburgh) is kept, like the other squadron ships taken by the Americans (*Confiance*, *Caledonia*, *Queen Charlotte*, *General Hunter*, *Lady Prevost*, *Duke of Gloucester*).
+- Persons: Marshall Spring Bidwell (not a rebel), Henri Bourassa (not Confederation-era; alive and active in 1936), Percy Nelles (serving Chief of the Naval Staff), Bellenden Hutcheson (US-born; kept short), Napoléon La Rue (unverified), Sam McGee and Dan McGrew (literary characters, not folklore).
+- Places: `Mauricie` (a 1930s coinage), `Yellowknife` and `Whitehorse` from CL (unincorporated in 1941; Whitehorse stays in Cities), `Powell River` (company town, incorporated 1955), `Churchill` (see homonyms).
+- Folklore: Sedna, Wisakedjak, Mishipeshu, Thunderbird and Raven are sacred or crest figures (pass 6). Also Amarok (unverified), Wendigo, Kitchi Manitou and La Corriveau. `Qalupalik` (an Inuit cautionary figure, not a deity), `Nanabozho`, `Glooscap` and `Sasquatch` are kept as moderate-sensitivity figures that are widely used in place names and published folklore.
+- Events: `Montgomery's Tavern` (a poor ship name), `London Conference` and `Balfour Declaration` (read as WWII and 1917 events), `Chippawa` from Battles (a US victory).
 
-### BC
-- **Provincial Marine and Lakes squadrons (page: Provincial Marine):** Royal George, Prince Regent, Princess Charlotte, Queen Charlotte, General Hunter, Detroit, Earl of Moira, Caledonia, Confiance, Duke of Gloucester, Speedy, Nancy, St. Lawrence, Netley, Sir Sydney Smith, Psyche, Montague, General Gage.
-- **To verify (GK):** Lady Prevost, Melville, Beresford, Charwell, Linnet.
-- **French regime (page: Battle of the Restigouche):** Machault, Bienfaisant, Marquis de Malauze. **GK:** Pélican, Griffon, Don de Dieu, Grande Hermine, Petite Hermine, Émérillon.
-- **Exploration and later vessels (GK):** Nonsuch, Discovery, Chatham, Resolution, Erebus, Terror, St. Roch, Matthew, Bluenose, Royal William, Prince David, Prince Henry, Prince Robert.
-- **Forts (GK):** Louisbourg, Citadel, Fort Henry, Fort Frontenac, Fort York, Fort Malden, Fort George, Fort Chambly, Fort Anne, Fort Beauséjour, Fort Lennox, Fort Garry, Prince of Wales Fort, Signal Hill, Fort Rodd Hill.
-- **Waters and encounters (GK):** Belle Isle, Cabot Strait, Northumberland Strait, Juan de Fuca, Hecate Strait, Davis Strait, Hudson Strait, Lancaster Sound, Hudson Bay.
+### Living on 1 January 1936
+King George V (d. 20 Jan 1936), King George VI, Queen Mary, Queen Elizabeth (BB); Connaught, Devonshire, Willingdon, Bessborough, Tweedsmuir, Princess Louise, Princess Patricia (Rulers); Robert Borden (BB, Confederation; d. 1937); Tyrrell, Stefansson, Bartlett, Larsen (Explorers); Walter Hose, Konowal, MacDowell, Strachan, Bishop, Peck, Zengel, Mitchell, Bourke, Ricketts (Heroes); Woodsworth, Coldwell, Irvine, Heaps, MacInnis, Macphail, Henry Wise Wood, McClung, Parlby, Coady, Tompkins (Reform & Co-operation); Tim Buck, McEwen, Buller, Buhay, Bethune, Slim Evans, Cecil-Smith, Harvey Murphy (Labour Struggle).
 
-### CV
-- **Carriers:** Warrior, Magnificent, Bonaventure, Nabob, Puncher, Powerful (the name under which the *Bonaventure* hull was launched; vanilla).
-- **Establishments (page: Royal Canadian Naval Reserve, for the divisions):** Star, York, Cataraqui, Chippawa, Malahat, Queen, Unicorn, Brunswicker, Hunter, Scotian. **GK:** Stadacona, Naden, Cornwallis, Shearwater, Avalon, Bytown, Venture, Royal Roads, Protector, Peregrine.
-- **Seabirds and raptors:** Gannet, Fulmar, Albatross, Petrel, Kittiwake, Osprey, Gyrfalcon, Golden Eagle, Snowy Owl, Thunderbird.
-- **Peaks:** Mount Logan, Mount Robson, Mount Waddington, Mount Columbia, Mount Saint Elias, Mount Royal.
-- **To settle:** `Hunter` (Windsor division) and `Cornwallis` are named for persons; if the fact-check confirms it, they move to CA or drop.
+## Review Fixes (isne-code-reviewer, 2026-10-14)
 
-### Role pools
-Rosters are scripted, not typed (see "Implementation Steps"). Known inputs:
-- **Flower flower-names:** Arrowhead, Bittersweet, Eyebright, Fennel, Hepatica, Mayflower, Snowberry, Spikenard, Trillium, Windflower.
-- **Armed yachts:** Ambler, Beaver, Caribou, Cougar, Culver, Elk, Grizzly, Husky, Lynx, Moose, Otter, Raccoon, Reindeer, Renard, Sans Peur, Vison, Wolf, Hochelaga.
-- **Battle class:** Arleux, Armentières, Arras, Festubert, Givenchy, Loos, Messines, St. Eloi, St. Julien, Thiepval, Vimy, Ypres.
-- **Isles class:** Anticosti, Baffin, Cailiff, Ironbound, Liscomb, Magdalen, Manitoulin, Miscou.
-- **Fisheries and patrol vessels of 1914-18 (canada.ca index, to verify):** Margaret, Malaspina, Galiano, Laurentian, Florence, Cartier, Earl Grey.
-- **Spellings to settle:** `Daerwood` (index) against *Deerwood*; `Cranbrook` (one page misprints it); `Lunenburg` (the index prints *Lunenberg*).
+Verdict: approve after three Important fixes; no Critical findings. All applied:
+- **Tweedsmuir** kept: the living-persons rule now exempts the Crown and its viceregal representatives explicitly (see Rulings).
+- **`Rowland Bourke`** replaces `Roland Bourke`.
+- **`Hull`** dropped from Cities (reads as the Ship Designer's own term, and as Hull, England).
 
-### Thematic pools
-- **Cities:** the vanilla 18 that survive (Toronto, Montréal, Calgary, Vancouver, Ottawa, Edmonton, Winnipeg, Québec City, Halifax, Hamilton, Regina, Victoria, Fredericton, London, Saskatoon, Longueuil, Kitchener, Windsor) plus Hull. Additions by region:
-  - Atlantic: Dartmouth, Sydney, North Sydney, Glace Bay, Louisbourg, Yarmouth, Lunenburg, Digby, Annapolis Royal, Pictou, Liverpool, Shelburne, Canso, Saint John, Moncton, Chatham, Dalhousie, Campbellton, Charlottetown, Summerside, Georgetown.
-  - Newfoundland: St. John's, Corner Brook, Harbour Grace, Placentia, Bonavista, Twillingate, Grand Falls.
-  - Québec: Trois-Rivières, Sorel, Lévis, Rimouski, Rivière-du-Loup, Gaspé, Chicoutimi, Sept-Îles, Matane, Sherbrooke, Saint-Hyacinthe, Drummondville, Shawinigan, Valleyfield, Granby, Joliette, Verdun, Westmount, Saint-Jean, Tadoussac.
-  - Ontario: Kingston, Sarnia, Port Arthur, Fort William, Sault Ste. Marie, Oshawa, Belleville, Cobourg, Brockville, Cornwall, Prescott, Niagara-on-the-Lake, St. Catharines, Port Colborne, Welland, Owen Sound, Collingwood, Midland, Orillia, Peterborough, Sudbury, North Bay, Guelph, Brantford, Stratford, Barrie.
-  - Prairies: Brandon, Moose Jaw, Prince Albert, Lethbridge, Medicine Hat, Red Deer, Churchill.
-  - British Columbia and the north: New Westminster, Nanaimo, Prince Rupert, Esquimalt, Kamloops, Kelowna, Vernon, Nelson, Port Alberni, Powell River, Chilliwack, Whitehorse, Dawson City, Yellowknife.
-  - Left out: `Hope`, `Trail` (common nouns), Flin Flon, Baie-Comeau (founded 1937).
-- **Provinces & Regions:** the vanilla 13 without Nunavut, plus the BB realms and the CL districts listed above, and Okanagan, Kootenay, Algoma, Ungava, Cape Breton, Niagara, Saguenay, Selkirk.
-- **Rivers & Lakes:** the DD rivers, the river-named destroyers, and (page: longest rivers) Mackenzie, Yukon, Saint Lawrence, Columbia, Fraser, Athabasca, Winnipeg River, Red Deer River, Great Whale, Saint John River, Saguenay River. Lakes: Superior, Lake Huron, Lake Erie, Lake Ontario, Lake Winnipeg, Winnipegosis, Lake Manitoba, Great Bear, Great Slave, Lake Athabasca, Reindeer Lake, Lake Nipigon, Lake Nipissing, Lake Simcoe, Atlin, Kluane, Lac Saint-Jean, Mistassini, Lake of the Woods, Bras d'Or, Lake Champlain. Left out: La Grande (a hydro-era name), Pend d'Oreille.
-- **Capes, Isles & Straits (GK):**
-  - Capes: Cape Race, Cape Spear, Cape Bonavista, Cape Chidley, Cape Sable, Cape North, Cape Tormentine, Cape Scott, Cape Columbia, Cape Wolstenholme, Cape Bathurst, Cape Parry, Cape Mudge, Cape Beale, Cape St. Mary's, Cape Ray, Cap Tourmente, Cap Diamant, Cap Trinité, Cap-Chat.
-  - Islands: Vancouver Island, Anticosti, Cape Breton Island, Manitoulin, Baffin Island, Ellesmere, Victoria Island, Banks Island, Melville Island, Devon Island, Southampton Island, Bylot, Axel Heiberg, Queen Charlotte Islands (period name), Sable Island, Grand Manan, Campobello, Île d'Orléans, Île Bonaventure, Île aux Coudres, Îles de la Madeleine, Saltspring, Texada, Thousand Islands.
-  - Waters: the BC waters above, and Georgia Strait, Johnstone Strait, Barrow Strait, McClure Strait, Fury and Hecla, Smith Sound, Jones Sound, Haro Strait, James Bay, Ungava Bay, Bay of Fundy, Chaleur Bay, Placentia Bay, Trinity Bay, Conception Bay, Frobisher Bay, Georgian Bay, Burrard Inlet, Howe Sound, Barkley Sound, Clayoquot Sound, Nootka Sound, Chedabucto Bay, Minas Basin, Passamaquoddy Bay, Mahone Bay, Bay of Quinte.
-- **Mountains (GK):** Mount Logan, Mount Robson, Mount Columbia, Mount Waddington, Mount Assiniboine, Mount Sir Donald, Mount Edith Cavell, Mount Temple, Mount Stephen, Mount Alberta, Mount Athabasca, Mount Lefroy, Mount Victoria, Mount Macdonald, Mount Saint Elias, Mount Lucania, Mount Steele, Mount Fairweather, Mount Royal, Mount Carleton, Mont Tremblant, Mont Jacques-Cartier, Mont Albert, Mont Mégantic, Rockies, Selkirks, Purcells, Monashees, Laurentians, Torngats.
-- **Birds:** page-checked seabirds, waterfowl, grouse and shorebirds (Wikipedia, List of birds of Canada): Dovekie, Razorbill, Black Guillemot, Atlantic Puffin, Tufted Puffin, Kittiwake, Ivory Gull, Herring Gull, Arctic Tern, Common Loon, Trumpeter Swan, Snow Goose, Canada Goose, Brant, Wood Duck, Mallard, Pintail, Canvasback, King Eider, Harlequin Duck, Goldeneye, Merganser, Ruffed Grouse, Ptarmigan, Whooping Crane, Sandhill Crane, Killdeer, Whimbrel, Curlew, Godwit, Sanderling, Dunlin, Great Auk, Labrador Duck. GK: Peregrine Falcon, Gyrfalcon, Merlin, Kestrel, Osprey, Bald Eagle, Golden Eagle, Goshawk, Snowy Owl, Great Horned Owl, Great Gray Owl, Common Raven, Canada Jay, Blue Jay, Chickadee, Meadowlark, Snow Bunting, Kingfisher, Gannet, Fulmar, Shearwater, Storm Petrel, Cormorant, Great Blue Heron. Left out or compounded: bare `Loon`, `Coot`, `Ruff`, `Knot`, `Bufflehead`, `Eskimo Curlew`.
-- **Aquatic Life:** the SS fish, and (page: List of mammals of Canada) Beluga, Narwhal, Bowhead, Humpback, Fin Whale, Blue Whale, Minke, Right Whale, Grey Whale, Orca, Sperm Whale, Pilot Whale, Harbour Porpoise, Walrus, Harp Seal, Hooded Seal, Ringed Seal, Bearded Seal, Grey Seal, Steller Sea Lion, Fur Seal, Sea Otter; Lobster, Snow Crab, Dungeness Crab. Left out: `Sucker`, `Chub`, `Shiner`, `Inconnu` (reads as "unknown").
-- **Wildlife:** the armed-yacht names, and (page) Canada Lynx, Bobcat, Coyote, Arctic Fox, Red Fox, Black Bear, Polar Bear, Wolverine, Marten, Mink, Mule Deer, White-tailed Deer, Pronghorn, Bison, Mountain Goat, Muskox, Bighorn, Dall Sheep; GK: Muskrat, Marmot, Snowshoe Hare, Arctic Hare, Kermode Bear, Carcajou, Orignal. Left out: `Skunk`, `Lemming`, `Badger`, `Fisher`, `Buffalo`.
-- **Monarchs & Governors:** the BB sovereigns, and (page: List of governors general of Canada) Montmagny, Courcelle, Frontenac, Denonville, Callière, Vaudreuil, Beauharnois, La Galissonière, La Jonquière, Duquesne, Amherst, Murray, Dorchester, Haldimand, Craig, Prevost, Drummond, Sherbrooke, Dalhousie, Kempt, Aylmer, Gosford, Colborne, Durham, Sydenham, Monck, Lisgar, Dufferin, Lorne, Lansdowne, Stanley, Aberdeen, Minto, Grey, Connaught, Devonshire, Byng, Willingdon, Bessborough, Tweedsmuir. GK (the page omitted 1841-67): Bagot, Metcalfe, Cathcart, Elgin, Head. Consorts with place-name precedent: Princess Louise, Princess Patricia.
-- **Explorers (GK unless noted):** John Cabot, Jacques Cartier, Martin Frobisher, John Davis, Henry Hudson, William Baffin, Thomas James, Luke Foxe, Samuel de Champlain, Étienne Brûlé, Jean Nicolet, Louis Jolliet, Jacques Marquette, Cavelier de La Salle, Radisson, Groseilliers, d'Iberville, La Vérendrye, Henry Kelsey, Anthony Henday, Samuel Hearne, Peter Pond, Alexander Mackenzie, Simon Fraser, David Thompson, George Vancouver, James Cook, John Franklin, George Back, John Rae, Robert McClure, Francis Crozier, Joseph-Elzéar Bernier, Joseph Tyrrell, John Palliser, Henry Youle Hind. Alive in 1936: Stefansson, Bartlett, Larsen.
-- **Heroes:** Isaac Brock, Tecumseh, Charles de Salaberry, Laura Secord, James FitzGibbon, Joseph Brant, John Norton, Dollard des Ormeaux, Madeleine de Verchères, Maisonneuve, Jeanne Mance, Louis Hébert, Jean Talon, François de Laval, Montcalm, James Wolfe, Duc de Lévis, Jean de Brébeuf, Poundmaker (also a frigate name), Crowfoot, William Hall (page), Charles Kingsmill (page), Walter Hose (page; alive in 1936), and Victoria Cross recipients to 1918 under full names (page gives surnames: Dunn, Kaeble, Brillant, Konowal, Peck, Barker, Bishop, Ricketts, McLeod, Pattison, Flowerdew, Zengel).
-- **Battles:** the 12 Battle-class names (page), and GK: Passchendaele, Hill 70, Courcelette, Mont Sorrel, Cambrai, Amiens, Canal du Nord, Valenciennes, Mons, Drocourt-Quéant, Sanctuary Wood, Paardeberg, Leliefontein, Queenston Heights, Châteauguay, Crysler's Farm, Lundy's Lane, Stoney Creek, Beaver Dams, Chippawa, Michilimackinac, Lacolle, Québec 1690, Hudson Bay 1697, Port-Royal 1710, Louisbourg 1745, Louisbourg 1758, Carillon, Plains of Abraham, Sainte-Foy, Québec 1775.
-- **Myth & Folklore (page: Canadian folklore):** Raven (Haida), Nanabozho (Anishinaabe), Glooscap (Mi'kmaq, Wabanaki), Chasse-galerie, Loup-garou, Ti-Jean, Dungarvon Whooper, Sam McGee. GK: Sedna (Inuit), Thunderbird, Wisakedjak (Cree), Mishipeshu (Ojibwe), Sasquatch, Ogopogo, Cadborosaurus, Memphré, Bonhomme Sept-Heures. Left out: Kitchi Manitou (religious), La Corriveau (a real executed woman), Wendigo unless the author wants it.
-- **Virtues & Elements:** Warrior, Magnificent, Powerful, Crescent, Crusader, Patriot, Patrician, Venture, Preserver, Provider, Protector (RCN names); Valiant, Vigilant, Resolute, Intrepid, Indomitable, Formidable, Courageous, Fearless, Fortitude, Defiance, Constance, Diligence, Endeavour, Enterprise, Perseverance, Sentinel, Guardian, Vanguard, Triumph, Gallant; Chinook, Borealis, Aurora, Squall, Gale, Tempest, Zephyr, Williwaw, Sundog, Northern Lights, Polaris, Boreas, Nor'easter. Left out: `Blizzard`, `Whiteout`.
+Minor findings applied:
+- `Linnet` restored to BC; the captured-ships reasoning made consistent (see Verification Notes).
+- `Powerful` and `Cornwallis` out of CV; `Protector` (Point Edward base, 1940-64) in. `Albatross` → `Goshawk` (no Canadian rationale; a Royal Navy seaplane carrier). `Mount Royal` → `Mount Lucania` (near-variant of the frigate *Royal Mount*).
+- Destroyer rivers that read as British rivers or ships, a US city or a phrase (`Severn`, `Trent`, `Albany`, `Nelson`, `Oldman`) replaced by `Harricana`, `Romaine`, `Péribonka`, `Caniapiscau`, `Bersimis`; the Rivers pool lists them as `Severn River`, `Trent River`, `Albany River`, `Nelson River`, `Oldman River`.
+- `Brant` → `Brant Goose`; `Killdeer` dropped; `Anne` → `Queen Anne`; `Frobisher` → `Martin Frobisher`; `Triumph` dropped from Virtues (a *Colossus*-class name); `Orignal` and `Carcajou` dropped (French synonyms of animals already listed); `Forrest Hill` → `Forest Hill` (Wikipedia, HMCS Forest Hill).
+- `New Caledonia` → `Rainy River` in CL and Provinces (reads as the French Pacific colony, a state in the game; the District of Rainy River dates from 1885).
+- Indigenous pool: `K'ómoks`, `Quw'utsun`, `Denesuline` (see the policy section).
+- Workshop block uses the exact display names.
 
-### Ideological and heritage pools
-- **Confederation (page: Fathers of Confederation, 36 names):** the BB founders, and Adams Archibald, Alexander Campbell, Frederick Carter, Edward Chandler, Jean-Charles Chapais, James Cockburn, George Coles, Charles Fisher, Thomas Haviland, William Howland, William McDougall, Jonathan McCully, Peter Mitchell, Edward Palmer, William Pope, Ambrose Shea, Edward Whelan, Robert Wilmot. GK: Francis Hincks, Egerton Ryerson, Henri Bourassa (alive in 1936); Charlottetown Conference, Québec Resolutions, London Conference, British North America Act, Responsible Government, Durham Report, Statute of Westminster, Balfour Declaration.
-- **Patriotes & Rebels (GK):** Louis-Joseph Papineau, Wolfred Nelson, Robert Nelson, Chevalier de Lorimier, Jean-Olivier Chénier, Ludger Duvernay, Joseph-Narcisse Cardinal, William Lyon Mackenzie, Samuel Lount, Peter Matthews, Charles Duncombe, Marshall Spring Bidwell, Nils von Schoultz; Saint-Denis, Saint-Charles, Saint-Eustache, Fils de la Liberté, Navy Island, Montgomery's Tavern, Short Hills.
-- **Reform & Co-operation (page: Regina Manifesto, for the first four):** Regina Manifesto, Co-operative Commonwealth, J. S. Woodsworth, M. J. Coldwell; GK: William Irvine, A. A. Heaps, Angus MacInnis, Agnes Macphail, Henry Wise Wood, Nellie McClung, Emily Murphy, Louise McKinney, Irene Parlby, Henrietta Muir Edwards, Moses Coady, Jimmy Tompkins; Social Gospel, Wheat Pool, Farmer-Labour, Antigonish Movement. Left out: Tommy Douglas (his fame dates from 1944).
-- **Labour Struggle (page: On-to-Ottawa Trek, Mackenzie-Papineau Battalion):** On-to-Ottawa Trek, Slim Evans, Regina Riot, Estevan, Relief Camp Workers, Workers' Unity League, Mackenzie-Papineau, Edward Cecil-Smith. GK: Tim Buck, Tom McEwen, Annie Buller, Beckie Buhay, Norman Bethune, Ginger Goodwin, Winnipeg General Strike, Bloody Saturday, One Big Union, Mike Sokolowski, Ballantyne Pier, Blairmore.
-- **Loyalists (GK):** United Empire Loyalists, John Graves Simcoe, Sir John Johnson, John Butler, Butler's Rangers, Edward Winslow, Thomas Carleton, Ward Chipman, John Strachan, Allan MacNab, Beverley Robinson, Jonathan Odell, Canada First, Imperial Federation, Empire Day.
-
-## Verification Plan
-
-Every named person must be accounted for in this file before the review: sourced, kept on ship precedent, kept without a lookup, or dropped. Fact-checks go to `isne-audit-researcher` in passes of at most about 40 items, persons apart from vessels and vocabulary.
-
-| Pass | Items | Batch pages to name in the prompt |
-|---|---|---|
-| 1. Explorers and CA persons | ~45 persons | Dictionary of Canadian Biography (biographi.ca); Wikipedia, List of explorers of Canada |
-| 2. Heroes and VC recipients | ~35 persons, with life dates and alive-in-1936 status | Wikipedia, List of Canadian Victoria Cross recipients; DCB |
-| 3. Rebels, Loyalists, 1841-67 governors | ~40 persons | Wikipedia, Rebellions of 1837-1838; United Empire Loyalist; DCB |
-| 4. CCF and labour figures | ~30 persons | Wikipedia, Co-operative Commonwealth Federation; Communist Party of Canada; Winnipeg general strike |
-| 5. Vessels and establishments | ~40 names | Wikipedia, Provincial Marine; Engagements on Lake Ontario; canada.ca ships-histories index (Roxborough, WWI patrol vessels, Hunter, Cornwallis, Stadacona, Naden, Avalon) |
-| 6. Dated places | ~40 names | Incorporation or founding dates for the CL cities and the Cities pool additions; the CL districts |
-
-Kept without a lookup (canonical, to be listed by name in the final plan): the sovereigns, the prime ministers, Cartier, Champlain, Brock, Tecumseh, Montcalm, Wolfe, and the vanilla ship eponyms.
-
-Living in 1936, to be flagged in the final plan: King George VI, Queen Mary, Connaught, Devonshire, Willingdon, Bessborough, Tweedsmuir, Robert Borden, Henri Bourassa, Woodsworth, Coldwell, Irvine, Heaps, MacInnis, Macphail, Wise Wood, McClung, Coady, Tompkins, Tim Buck, McEwen, Buller, Buhay, Slim Evans, Bethune, Hose, Stefansson, Bartlett, Larsen, and the surviving VC recipients.
-
-## Implementation Steps
-
-1. **Script the escort rosters** (scratch script, not committed) from en.wikipedia "List of Royal Canadian Navy ships of the Second World War" (Flower, Castle, Bangor, Algerine, Llewellyn, Fundy) and "River-class frigate" / "List of River-class frigates" (River, Loch). Take spellings from the canada.ca ships-histories index, restore diacritics, and de-duplicate renamed hulls.
-2. **Build the blocklist:** the union of the four role rosters. Check every CL, CA, BB, BC and CV candidate against it before authoring.
-3. **Run the fact-check passes** above; record the outcome per name in this file.
-4. **Author** `common/units/names_ships/CAN_ship_names.txt` (UTF-8 without BOM): 31 groups, `HMCS ` on each, `%d` fallbacks (`Destroyer`, `Submarine`, `Light Cruiser`, `Heavy Cruiser`, `Battleship`, `Battlecruiser`, `Aircraft Carrier`, the role terms above, and one noun per pool). Hull display names keep the vanilla `NAME_THEME_HISTORICAL_*` keys; pools take string names.
-5. **Validate:** `-ValidateOnly`, `-Test`, `-VerifyShipTypes CAN`, `-Audit CAN`. Expected warnings: `Depth` on Mountains, Myth & Folklore and the four small ideological and heritage pools; `RoleOverlap` WARN where an escort borders DD.
-6. **Docs:** README row; workshop cross-reference row, Canada block and header pitch; `wiki/Canada.md`, `wiki/Home.md`, `wiki/_Sidebar.md`; delete the `CAN` row from `docs/ROADMAP.md`. Push only the three Canada wiki files if another session is active.
-7. **Review:** a fresh `isne-code-reviewer` with this plan, the validation summary lines and the implementation files.
-
-Workshop block draft:
-```bbcode
-[b]Canada[/b]
-- Expanded ship-type lists for destroyers, submarines, light cruisers, heavy cruisers, battleships, battlecruisers and carriers.
-- Added 24 universal thematic lists for the Ship Designer (corvettes, frigates, minesweepers, patrol vessels, cities, provinces, rivers, coasts, mountains, Indigenous peoples, birds, aquatic life, wildlife, monarchs and governors, explorers, heroes, battles, folklore, virtues, Confederation, rebels of 1837, co-operative reform, labour, Loyalists).
-```
-
-## Open Decisions
-
-1. **CL provinces, CA persons.** This departs from Dossier A (CL cities, CA provinces). If the author prefers the dossier's layout, CL drops to about 40 names and CA to about 25, below the CA floor of 35.
-2. **Loyalists ungated.** The alternative is `NOT = { has_government = communism }`, which would give democratic governments three pools and break the cap unless Patriotes & Rebels is gated to `communism` alone.
-3. **`Powerful` in CV.** A vanilla name, but the same hull as *Bonaventure* and never an HMCS name.
-4. **Divisive names left out by default:** Riel, Dumont and the 1885 battles (Batoche, Duck Lake, Cut Knife); Seven Oaks. The 1837-38 engagements appear only in the gated Patriotes & Rebels pool. *Plains of Abraham*, *Sainte-Foy* and *Louisbourg 1758* stay in Battles.
-5. **`Wendigo`** in Myth & Folklore: left out by default (a cannibal spirit; sensitive).
+Noted, no change: *Unicorn*, *Sydney* and the royal names in BB (see Rulings); *Asbestos* is an authentic corvette name; Loyalists & Empire stays ungated. `Dalbec` (Myth & Folklore) is a Québec folk hero (Wikipedia, Dalbec (folklore); pass 6).
 
 ## Review Focus
 
-1. **Vanilla fixes:** the six foreign vessels gone, the duplicate `Ottawa` gone, spellings corrected, `Ile de Québec` gone, the anachronistic cities and `Nunavut` gone, every other vanilla name present in some group.
+1. **Vanilla fixes:** the six foreign vessels gone, `Ottawa` once, spellings corrected, `Ile de Québec`, the anachronistic cities and `Nunavut` gone, every other vanilla name in some group.
 2. **Cross-class and role overlap:** zero shared names between CL/CA/BB/BC/CV; BB and BC on separate doctrines; no role-pool name in a major hull.
-3. **Indigenous names:** ship spellings only in DD and SS; self-designations only in the pool; no overlap; no character outside Latin-1 and Latin Extended-A.
+3. **Indigenous names:** ship spellings only in DD and SS; self-designations only in the pool; no overlap.
 4. **Ideology:** gates use `has_government` only; at most two pools per ideology; no CCF names in Labour Struggle; no fascism pool.
-5. **Prefix and tags:** `HMCS ` with a trailing space on all 31 groups; no `ship_types` on any pool; `CAN_DD_HISTORICAL` and `CAN_TRIBES` defined.
+5. **Prefix and tags:** `HMCS ` on all 31 groups; no `ship_types` on any pool; `CAN_DD_HISTORICAL` defined.
 6. **Persons:** every named person is in the verification notes.
-7. **Docs:** README, workshop row, block and pitch, the three wiki files, and the removed roadmap row.
+7. **Docs:** README row, workshop row, Canada block and header pitch, `wiki/Canada.md`, `wiki/Home.md`, `wiki/_Sidebar.md`, the removed roadmap row.

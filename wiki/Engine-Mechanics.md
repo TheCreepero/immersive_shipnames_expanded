@@ -13,7 +13,7 @@ The facts in the first part are written by a script from the knowledge register 
 
 `%d. Infanterie-Division` gives "3. Infanterie-Division"; `%s. Divizija` gives "III. Divizija". Every vanilla `fallback_name` holds exactly one of the two: `%d` in 972 division groups and 439 ship groups, `%s` in 66 and 91. Without a token every unit past the listed names would get the same name.
 
-A suffix written for one language (`%er`) is not a token. One number token per name.
+A suffix written for one language (`%er`) is not a token. One number token per name: the code looks for `%s` first and fills it, else `%d`. `ordered` texts are filled the same way [NAM-021].
 
 Evidence: scan of both folders in game 1.19.3.0.
 
@@ -45,7 +45,7 @@ TAG_DD_HISTORICAL =
 
 `name` is a text or a localisation key. `unique` is a pool of names; `ordered` gives names by number. Vanilla 1.19.3 has 620 groups with `type = ship`.
 
-A group without `ship_types` is said to be offered for every hull in the ship designer; Immersive Ship Names Expanded builds its thematic pools on that.
+A group without `ship_types` is said to be offered for every hull in the ship designer; the code matches it to every variant [NAM-025]. Immersive Ship Names Expanded builds its thematic pools on that.
 
 Evidence: scan of `common/units/names_ships/` in game 1.19.3.0.
 
@@ -69,19 +69,21 @@ Evidence: scan of `common/units/names_ships/` in game 1.19.3.0.
 
 `prefix = "NRB"` gives "NRBMinas Gerais". Of the 498 prefixes in vanilla 1.19.3, 488 end with a space and 10 are empty.
 
-Evidence: the joined name is reported in the rules of Immersive Ship Names Expanded without a dated test; the count is from `common/units/names_ships/` in game 1.19.3.0.
+The code does the same: after each definition of a group it writes the `prefix` and the name together, with nothing between, into every `ordered` and `unique` name the group holds [NAM-020]. Division groups may carry a `prefix` too [NAM-025].
+
+Evidence: the joined name is reported in the rules of Immersive Ship Names Expanded without a dated test; the count is from `common/units/names_ships/` in game 1.19.3.0; the code is `FUN_1409c54f0` of hoi4.exe 1.19.3.
 
 ## A ship name group defined again in a file with another name is added to the first instead of replacing it
 
-`NAM-012` | status: provisional | game: 1.19.3
+`NAM-012` | status: confirmed | game: 1.19.3
 
 Reported by Immersive Ship Names Expanded: with a file `ISNE_<TAG>_ship_names.txt` beside the vanilla `<TAG>_ship_names.txt`, the properties of a group both define pile up. The prefix shows twice ("NRB NRB ", "BACH BACH "), and the mod's names are appended after vanilla's.
 
 That mod therefore ships its files under the vanilla file names, so that each replaces the vanilla file whole [LOAD-010].
 
-This is the opposite of what was seen for division name lists, where the later group replaces the earlier one whole [NAM-002]. The two folders may simply be read differently, but the ship report carries no date and no description of the test, and its file name sorts before most vanilla file names, where the division test used names that sort after. Worth one launch to settle: a `zz_` file that redefines one vanilla ship group.
+The read of hoi4.exe 1.19.3 explains both effects: a second definition of a tag is read into the group already loaded, its `unique` names are added after the first's, and the prefix is written again in front of every stored name, so the names of the first definition carry it twice [NAM-020]. Both folders go through the same loader and parser, and division groups merge the same way [NAM-002].
 
-Evidence: the doubled prefixes are quoted in the mod's rules; no dated launch is recorded.
+Evidence: the doubled prefixes are quoted in the mod's rules; no dated launch is recorded. The code read of 2026-10-15 [NAM-020]. A launch of 2026-10-15 at 22:57 with only a test mod loaded, whose `common/units/names_ships/zz_exe_check_ships.txt` defined `GER_DD_HISTORICAL = { name = "EXE SHIP GROUP" prefix = "EXE " unique = { "Exe-Testschiff" } }`: Germany's destroyer production lines showed `EXE Exe-Testschiff`, `EXE Z1 Leberecht Maass`, `EXE Z2 Georg Thiele`, `EXE Z3 Max Schultz` and `EXE Z4 Richard Beitzen`. The vanilla names stayed and took the new prefix, and the new name was added; vanilla's group has no prefix, so a doubled one could not show.
 
 ## The name list selector of the ship designer cuts or wraps a group `name` longer than about 30 characters
 
@@ -100,6 +102,123 @@ Starting ship variants in `history/countries/`, and focus and decision rewards, 
 Immersive Ship Names Expanded keeps every tag vanilla assigns, also where the group becomes a pool for a role (`USA_CVL_HISTORICAL`, `USA_MINELAYERS_HISTORICAL`). Its `build.ps1 -InspectVanilla <TAG>` lists the tags, and `-Audit` fails on a missing one.
 
 Evidence: the `name_group` uses in the vanilla files, as listed by that mod's tooling.
+
+## A save keeps a country's ship name group tags, and a tag that no loaded file defines is dropped on load with an error
+
+`NAM-019` | status: provisional | game: 1.19.3
+
+A save stores, per country, the ship name group tags it may use in two lists inside one block. In a binary (`HOI4bin`) save the block is `<0x3c85> = { <0x390b> = { locked tags } <0x390a> = { available tags } ... }`, and each tag is stored as `0F 00 <len16> <ascii>`. The format has no offsets or checksum, so tags can be appended to the available list and the game reads the edited file.
+
+On load, a tag that no loaded `names_ships` file defines gets this line in `error.log`, and the group is not offered:
+
+`Error reading division names tracker - unknown division names group tag: USA_DD_HISTORICAL: }, near line: 0`
+
+So a save shows only groups the active files define. When groups are missing in game, first check which mod's file is in effect (see [LOAD-014]) before editing the save. Whether appending tags that are defined makes them appear in a save started without them has not been seen yet.
+
+Evidence: ISNE, 2026-10-15. Loading `USA.hoi4` with 20 tags appended logged the line above for each of them, because VNR's `USA_ship_names.txt` was in effect instead of ISNE's (no USA ship in three saves of the campaign carried an ISNE-only name). An earlier save of the same campaign still held the appended tags six game years later, so not every load drops them; why is not known. Until 2026-10-15 this record said the game accepts appended tags and re-gates them. That was inferred from that save and is withdrawn.
+
+## A name group defined again in a later file is read into the group already loaded: lists and new `ordered` numbers are added, single values replaced, and the `prefix` is applied again
+
+`NAM-020` | status: confirmed | game: 1.19.3
+
+The four folders `common/units/names_divisions/`, `names_ships/`, `codenames_operatives/` and `names_railway_guns/` load into one database through one parser, in that order, each folder's `.txt` files in byte order of their names [LOAD-013] and without subfolders. What kind of group a block is comes from its `type` key (army when it has none), not from the folder [NAM-025].
+
+When a file defines a tag that an earlier file already defined as an army, ship or codename group (the tags compared without regard to case), the game reads the new block into the group it already has. Nothing is cleared first. Per key:
+
+| Key | Second definition |
+|---|---|
+| `name`, `fallback_name`, `prefix`, `type`, `can_use` | replaced |
+| `for_countries`, `division_types` | added; a value already there is skipped |
+| `link_numbering_with`, `ship_types` | added |
+| `ordered` | a number the group has gets the new text in its old place, with the log line `Adding a duplicate ORDERED division name (...)`; a new number is added after the others |
+| `unique`, `unordered` | added after the names already there |
+
+After each block the group puts its `prefix` in front of every `ordered` and `unique` name it holds [NAM-011]. A group read twice therefore carries the prefix twice on the names of its first definition, and the second definition's names stand after the first's: the "NRB NRB " and appended names reported in [NAM-012].
+
+The belief that the later group replaces the earlier one whole, with the left-out vanilla `ordered` keys gone, is disproved [NAM-002]. A mod that redefines a vanilla tag still gets the names it writes for the numbers it writes, keeps vanilla's other numbers, and doubles `unique` names and the `prefix`; a ship name mod avoids that by shipping the vanilla file under its own name [LOAD-010].
+
+Evidence: a launch of 2026-10-15 at 22:57 with only a test mod loaded: its `zz_` file's `GER_Inf_01` replaced the group's `name` and the text of number 1, with the log line above, and kept vanilla's numbers 2 to 15 and its fallback name [NAM-002]; its `zz_` file's `GER_DD_HISTORICAL` put its `prefix` in front of the vanilla names and added its `unique` name [NAM-012]. The designer shows only the first 15 names of a group, so where the new number 990 stood was not seen. A launch of 2026-10-15 at 23:40 with Immersive Namelists Expanded, whose `zz_INEX_*` files redefine vanilla groups: `error.log` had 3,415 `Adding a duplicate ORDERED division name` lines naming those files (783 of them `zz_INEX_GER_names_divisions.txt`), and Germany's "Special Infantry Divisions" (`GER_ALTINF_01`) showed as its first names 22, 78, 44, 91, 19, 20, "560. Volks-Grenadier-Division", 12, 361, 18, 276, 277, 326, 708 and 349: vanilla's list in vanilla's order with the mod's texts in place of the numbers the mod writes, and vanilla's Volks-Grenadier names that the mod leaves out still there. The code: hoi4.exe 1.19.3 read in Ghidra on 2026-10-15. `FUN_14018bb20` loads the four folders into the database `FUN_140162d30` returns; `FUN_140192fc0` and `FUN_1409c5360` list each folder with `.txt` and depth 0 (`FUN_1424dc380`). `FUN_1409c11c0` takes each top-level tag, looks it up with `_stricmp` in the army, ship and codename maps and, when found, calls the existing `CNameGroup`'s read again; otherwise it creates one. That read is `FUN_1424be690` (`CPersistent::Read`, `persistent.cpp`): the slot it calls first, `0x30` of `CNameGroup::vftable`, is an empty function (`ret`), and after the closing brace it calls slot `0x40`, `FUN_1409c54f0`, which writes the prefix in front of each stored name. The keys are `FUN_1409c6870`, matched to token ids with `DumpTokenTable.java`.
+
+## A ship's name is reserved by its production line: the first free `unique` name of the variant's group in file order, then the first free `ordered` entry, then the fallback
+
+`NAM-022` | status: confirmed | game: 1.19.3
+
+The naval production line names the ships it is going to build when it reserves them, from the name group of the equipment variant, in this order:
+
+1. The first `unique` name of the group that is free, in the order of the file; not a random one.
+2. If none is free, the first free `ordered` entry, and after those the number one above the highest in use, through `fallback_name`, as for divisions [NAM-021].
+
+A name is taken while a ship of the country has it, a production line has reserved it, or a sunk ship of the country had it [NAM-023]. The `prefix` is already part of each stored name [NAM-011]. Railway guns are named the same way from their own groups.
+
+A ship deployed from the line takes the name the line reserved for it. A ship created without one, and without a name from the effect that creates it, goes straight to step 2; so do the ships renamed when their group is lost [NAM-024].
+
+Evidence: a launch of 2026-10-15 at 22:57 with a test mod that added the `unique` name `Exe-Testschiff` to `GER_DD_HISTORICAL`, whose vanilla names are all `ordered` [NAM-012]: of Germany's 1936 destroyer lines, the first (line 13, a 1934 class destroyer) showed `EXE Exe-Testschiff`, line 14 `EXE Z1 Leberecht Maass` and lines 19 to 21 `EXE Z2 Georg Thiele` to `EXE Z4 Richard Beitzen`. The fallback was not reached. The code: hoi4.exe 1.19.3 read in Ghidra on 2026-10-15. `FUN_14145b400`, called from the production code (`FUN_140f6ede0`, `FUN_140f6f630` and others; `production.cpp`), builds a name record for the equipment and calls `FUN_1409c0850(tracker, name, 0)`, then `(..., 1)`, with the ship tracker of the country for naval equipment and the railway gun tracker otherwise. `FUN_140d0f5a0` (`CNavalDeployment::CreateUnit`, `deployment.cpp`) gives the new ship the line's reserved name, else an explicit name, else `FUN_140c349d0`, which calls the `ordered` branch first. The markers `FUN_1409beec0` and `FUN_1409beb60` go through the ships of the country's navies, the names reserved by its production lines and the records of sunk ships.
+
+## A destroyed division's name stays taken until its template is deleted; a sunk ship's name stays taken
+
+`NAM-023` | status: confirmed | game: 1.19.3
+
+When a unit is deleted, the game keeps a record of its name in its country's tracker, and every name pick counts the records as taken [NAM-021] [NAM-022]:
+
+- **Division.** The country's regular update drops a record once the template the division belonged to no longer exists. The number of a destroyed "5. Infanterie-Division" is therefore free again only after its template is deleted; while the template exists, new divisions get other numbers.
+- **Ship.** The regular update leaves a ship's record in place. A sunk ship's `unique` name or `ordered` number is therefore not given to a new ship of that country again, as far as the code was read: a reset that empties a whole tracker exists (`FUN_1409c19c0`), and when it runs was not read.
+- **Railway gun.** Records are kept in a tracker of their own and are left in place too.
+
+A record of a unit whose name the player typed blocks nothing.
+
+The trackers are saved with the game (keys such as `division_names_tracker` and `ship_names_tracker`, each with `available_groups`, `unavailable_groups` and one `post_mortem` block per record; the ship tracker in a binary save: [NAM-019]). On loading, a group tag that no longer exists gives `Error reading division names tracker - unknown division names group tag: <tag>` in `error.log`, once per tag.
+
+Evidence: a launch of 2026-10-15 at 23:55 with vanilla names, Germany: "5. Infanterie-Division" was brought to no strength with the console's `damage_units 10000` and was gone from its army an hour later. A new division of the same template then got "26. Infanterie-Division", and the list of historical names still available on its deployment line had no "5. Infanterie-Division" [NAM-021]. Not seen in the game: the number coming free once the template is deleted, and the ship and railway gun records. The code: hoi4.exe 1.19.3 read in Ghidra on 2026-10-15. `FUN_1401d6690` (`DeleteUnit`, `gamestate.cpp`) calls `FUN_140c8e520` for a division, `FUN_140c3d900` for a ship and `FUN_140e8d310` for a railway gun, each appending a record with `FUN_1409c0fa0`. `FUN_1409c1780`, called from the country update `FUN_1406e8210` for every tracker, removes army records whose template is gone and leaves the others. `FUN_1409c8330` and `FUN_1409c8510` read the saved tracker (token ids `available_groups` 0x390a, `unavailable_groups` 0x390b, `post_mortem` 0x390c). The loading message was in the user's `error.log` of the launch of 2026-10-15 at 21:53, one line per `USA_*` ship group, on loading `save games/USA.hoi4` (game 1.19.3; the next launch overwrote the log).
+
+## When a ship name group stops passing `can_use`, the variants that use it lose it and their ships are renamed
+
+`NAM-024` | status: confirmed | game: 1.19.3
+
+The country's update checks `can_use` of its name groups again [NAM-018]. When that changes which ship groups are available, the game:
+
+- takes the group away from every equipment variant of the country whose group is no longer available;
+- names each ship of such a variant in the country's navies again; with no group the name comes from the country's names in `common/units/names/` [NAM-014] and stays fixed;
+- drops the names the production lines of those variants had reserved, so their next ships are named the same way.
+
+The ships are not given their old names back when the group becomes available again; the variant has no group until one is chosen for it again.
+
+A ship name group with a `can_use` that a country can lose during the game (a government, an idea) therefore renames that country's ships when it is lost. Gating a ship group only by DLC or by `always = yes` avoids it. Division templates are treated differently: they get another group [NAM-018].
+
+Evidence: two launches of 2026-10-15 with a test mod that redefined a vanilla ship group's `can_use` as `NOT = { has_country_flag = <flag> }` [NAM-020]. At 23:40, with `GER_DD_HISTORICAL`: two hours after the flag was set, Germany's five destroyer production lines had dropped their reserved names ("Z1 Leberecht Maass" to "Z5 Paul Jacobi") and showed the button's fallback label "Ship Names". At 23:55, with `GER_TB_HISTORICAL`: one hour after the flag was set, the four Type 24 boats of the Hochseeflotte, "Jaguar", "Leopard", "Luchs" and "Tiger", were "Z1" to "Z4", the first names of the `destroyer` list of `common/units/names/00_GER_names.txt`; two hours after the flag was cleared they were still "Z1" to "Z4". The code: hoi4.exe 1.19.3 read in Ghidra on 2026-10-15. `FUN_1406fdba0` runs the `can_use` update `FUN_1409c9680` (profiler label `division_names.update`) on the ship tracker and, when it reports a change (`FUN_1409c6520`), calls `FUN_140717700`. That function clears the group field (`+0x480`) of each variant whose group is not in the tracker's available list, calls `FUN_140c349d0` on each ship of those variants, and clears the reserved names of the naval production lines building them. `FUN_140c349d0` then finds no group (`FUN_1409c40e0` reads the variant's field) and falls through to `FUN_1409c1b30`, the `common/units/names` naming.
+
+## Division, ship, railway gun and codename groups share one parser: every group may use every key, including `unordered`
+
+`NAM-025` | status: confirmed | game: 1.19.3
+
+One parser reads the groups of all four folders [NAM-020], so every group may use every key:
+
+| Key | Read as | A bad value |
+|---|---|---|
+| `name` | text or localisation key for the selector | |
+| `type` | `army` (also when the key is missing), `ship`, `railway_gun`, `codename` | `unexpected name type` |
+| `for_countries` | country tags; empty or missing means every country | `... There is unknown tag in for_countries scope: <tag>` |
+| `can_use` | trigger; empty or only `always = yes` makes the group always available, any other is checked in the country's update [NAM-018] | |
+| `division_types` | sub-unit ids; support companies (`artillery`, `anti_air`, `military_police`) are sub-unit ids too | `..., division_types has unknown token: <token>` |
+| `link_numbering_with` | tags of army, ship or codename groups; resolved after all files, both ways [NAM-021]; the group's own tag is skipped silently | `Error loading division names group. Unknown tag specified in link_numbering_with scope: <tag>` |
+| `fallback_name` | text with `%d` or `%s` [NAM-005] | |
+| `prefix` | text put in front of every `ordered` and `unique` name [NAM-011] | |
+| `ship_types` | script keywords, looked up without regard to case; empty means every variant [NAM-009] | none: an unknown word is kept as a placeholder and matches nothing |
+| `ordered` | `<number> = { "name" "description" "link" }` | `Error reading ORDERED division names group - <name>. The entry index of <n> is out of range. Should be a value of 1 or higher.`; a number used twice: [NAM-020] |
+| `unique` | names | |
+| `unordered` | `<any key> = { "name" "description" "link" }`; the key is not read; added to the same list as `unique` | |
+| any other key | | `Unexpected token while reading division names database: <key>` |
+
+The messages starting `Error reading` and `Unexpected token` are parser errors with the file and line; `<name>` in them is the group's `name`, not its tag.
+
+So a division group may carry `unique`, `unordered` and `prefix`, and a ship group `ordered` (eight vanilla ship files do). `unordered` is described in the header comment of every vanilla division file ("a list of historical division names that did not have a number ... available here mainly for a mods"), with the description shown where a name is chosen and the link "not currently working"; no vanilla file uses it. New divisions take these names before the `ordered` ones [NAM-021].
+
+An `ordered` number below 1 (`0`, `-1`) also throws the reader off by one level of braces: the entries after it are not read, and what follows in the group is read as blocks of their own. Each `<key> = { ... }` after it (`2 = { ... }`, `unique = { ... }`) becomes a name group without a `name` and without `for_countries`, which every country is offered as an empty entry in the division designer; its texts give `Unexpected token while reading division names database: : <text>`, and a key after the `ordered` block can end in such a group (one of them carried the broken group's `fallback_name`). A group whose `ordered` block ends with the bad number loses the keys after the block, and the file ends with an extra `}` (`[parser.cpp:1111]: Error: unexpected token in file: ... ( } )`). The next group of the same file is read normally. A group with a wrong `type` is still read, as an army group. Keep every `ordered` number at 1 or higher.
+
+`can_use = { always = no }` is evaluated like any other trigger: the group is never available, and a template that names it is moved [NAM-018].
+
+A key written twice in one block gives no message: both are read, so lists add up and the last single value stays. The folders are listed without subfolders: a file in a subfolder of `common/units/names_divisions/` is not read.
+
+Evidence: a launch of 2026-10-15 at 22:57 with only a test mod loaded. Its division group `EXE_PARSE` (`for_countries = { GER XQZ }`, `division_types = { "artillery" "no_such_unit" }`, `link_numbering_with = { EXE_PARSE XQZ_NO_SUCH_GROUP }`, `unordered`, `unique`, `ordered` with the numbers 0, 5 and 5, then `bogus_key = yes`) gave in `error.log`, with the file and line: `Error reading division names group - EXE PARSE GROUP. There is unknown tag in for_countries scope: XQZ`, `Error reading division names group - EXE PARSE GROUP, division_types has unknown token: no_such_unit`, `Error reading ORDERED division names group - EXE PARSE GROUP. The entry index of 0 is out of range. Should be a value of 1 or higher.`, `Unexpected token while reading division names database: : %d. EXE-Five` and `... : 5`, and `[divisionnamesdatabase.cpp:1684]: Error loading division names group. Unknown tag specified in link_numbering_with scope: XQZ_NO_SUCH_GROUP`; nothing for the group's own tag or for `bogus_key`. The group `EXE_PARSE_TYPE` with `type = boat` gave `unexpected name type: type`. The division designer offered both groups to Germany; "EXE PARSE GROUP" showed the example names `EXE Unordered One` and `EXE Unique One` and no `ordered` one. The designer's list also had two entries without a name, the groups made of the misread keys. A launch of 2026-10-15 at 23:40 with one broken group per file: `0` as the last entry (`zz_exe2_zero_last.txt`), `0` first with a `unique` list and a `fallback_name` after the block, followed by a second group (`zz_exe2_zero_first.txt`), and `-1` first (`zz_exe2_negative.txt`), gave the lines above and five empty entries, one of them with the example "Fallback name: 123. ZF-Fallback"; "EXE AFTER ZERO", the second group of its file, was listed with its name. `bogus_key = yes` alone in a group gave `Unexpected token while reading division names database: : bogus_key`, and a number written twice in one block gave `Adding a duplicate ORDERED division name (common/units/names_divisions/zz_exe2_dup.txt:6) id: EXE DUP id:5 name:%d. D-Five-Again`. The code: hoi4.exe 1.19.3 read in Ghidra on 2026-10-15. `FUN_1409c6870` reads the keys by token id, matched with `DumpTokenTable.java`: `name` 0x1b, `type` 0xe1 (values `army` 0x289d, `ship` 0x28a0, `codename` 0x3d17, `railway_gun` 0x4d14), `prefix` 0x30f8, `unique` 0x30fa, `can_use` 0x37ae, `division_types` 0x38dd, `link_numbering_with` 0x38de, `fallback_name` 0x38e0, `for_countries` 0x38e4, `ordered` 0x3907, `unordered` 0x3908, `ship_types` 0x3c84. `FUN_1409c54f0` sets the always-available flag (no trigger, or one `always`, token 0x2bef), `FUN_1409c59a0` tests `for_countries`, `FUN_1409c6530` resolves the links, `FUN_1409c1610` matches `ship_types` against the variant (no entry: every variant). The repeated-key check of `CPersistent::Read`, slot `0x28` of `CNameGroup::vftable`, is a function returning false. `FUN_1409c5360` lists each folder with depth 0.
 
 ## Most vanilla bitmap fonts have the cedilla letters ş and ţ but not the Romanian comma-below letters ș and ț
 

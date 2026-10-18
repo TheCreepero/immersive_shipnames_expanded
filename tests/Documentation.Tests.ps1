@@ -119,7 +119,6 @@ Describe "Documentation Synchronization: Wiki" {
 
 BeforeDiscovery {
     $script:MirrorPairs = @(
-        @{ Claude = 'CLAUDE.md'; Gemini = 'GEMINI.md' }
         @{ Claude = '.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md'; Gemini = '.agents/skills/hoi4-isne-ship-namelist-authoring/SKILL.md' }
         @{ Claude = '.claude/skills/hoi4-isne-namelist-audit/SKILL.md'; Gemini = '.agents/skills/hoi4-isne-namelist-audit/SKILL.md' }
     )
@@ -138,6 +137,13 @@ Describe "Agent Config Mirrors (CLAUDE.md / GEMINI.md section 9)" {
             $text = $text -replace 'GEMINI\.md', 'CLAUDE.md' -replace '\.agents/skills', '.claude/skills'
             return @($text -split '\r?\n')
         }
+    }
+
+    It "CLAUDE.md imports GEMINI.md and GEMINI.md points to the agent guide" {
+        [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot 'CLAUDE.md')) | Should -Match '(?m)^@GEMINI\.md\s*$' -Because "the rules exist once, in GEMINI.md"
+        $rules = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot 'GEMINI.md'), [System.Text.Encoding]::UTF8)
+        $rules | Should -Match 'docs/isne-agent-guide\.md'
+        (Test-Path (Join-Path $script:RepoRoot 'docs\isne-agent-guide.md')) | Should -BeTrue
     }
 
     It "<Gemini> mirrors <Claude> except for tool-specific lines" -TestCases $script:MirrorPairs {

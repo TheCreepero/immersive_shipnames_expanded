@@ -124,7 +124,7 @@ BeforeDiscovery {
     )
 }
 
-Describe "Agent Config Mirrors (CLAUDE.md / GEMINI.md section 9)" {
+Describe "Agent Config Mirrors (AGENTS.md / CLAUDE.md / GEMINI.md section 9)" {
     BeforeAll {
         # Mirrors are kept line-for-line; a line may differ only when it carries tool-specific wording.
         $script:ToolMarker = 'invoke_subagent|Agent tool|Antigravity|Claude Code|[Mm]odel:|Sonnet|flash|Mirror'
@@ -139,10 +139,12 @@ Describe "Agent Config Mirrors (CLAUDE.md / GEMINI.md section 9)" {
         }
     }
 
-    It "CLAUDE.md imports GEMINI.md and GEMINI.md points to the agent guide" {
-        [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot 'CLAUDE.md')) | Should -Match '(?m)^@GEMINI\.md\s*$' -Because "the rules exist once, in GEMINI.md"
-        $rules = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot 'GEMINI.md'), [System.Text.Encoding]::UTF8)
+    It "CLAUDE.md and GEMINI.md import AGENTS.md and AGENTS.md points to the agent guide" {
+        [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot 'CLAUDE.md')) | Should -Match '(?m)^@AGENTS\.md\s*$' -Because "the rules exist once, in AGENTS.md"
+        [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot 'GEMINI.md')) | Should -Match '(?m)^@AGENTS\.md\s*$' -Because "the rules exist once, in AGENTS.md"
+        $rules = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot 'AGENTS.md'), [System.Text.Encoding]::UTF8)
         $rules | Should -Match 'docs/isne-agent-guide\.md'
+        $rules | Should -Match '\.\./\.\./AGENTS\.md'
         (Test-Path (Join-Path $script:RepoRoot 'docs\isne-agent-guide.md')) | Should -BeTrue
     }
 

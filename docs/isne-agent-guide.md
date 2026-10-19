@@ -1,6 +1,6 @@
 # Immersive Ship Names Expanded (ISNE) - Agent Guide
 
-Moved here from `GEMINI.md` on 2026-10-18, when the rule file was reduced to the rules that always apply; `GEMINI.md` says when to read which section.
+Moved here from `GEMINI.md` on 2026-10-18, when the rule file was reduced to the rules that always apply; `AGENTS.md` says when to read which section.
 
 ## 1. Files & Tags
 - Namelists live at `common/units/names_ships/<TAG>_ship_names.txt`, the vanilla path and filename, so the mod file cleanly shadows the base-game file (§6) [LOAD-010].
@@ -118,13 +118,13 @@ All commands take the form `powershell -File .\build.ps1 <switch>`.
 - Root-level group tags are unique across the whole repository: never defined twice within a file or across files.
 
 ## 8. Workspace
-- The repository root (`mods\immersive-shipnames-expanded` under the Modding Manager) is the Git root and holds everything directly: mod content (`common/`, `descriptor.mod`, `thumbnail.png`), `build.ps1`, `tests/`, docs (`README.md`, `WORKSHOP_DESCRIPTION_GUIDELINES.md`, `wiki/`) and agent configs (`GEMINI.md`, `.agents/` for Google Antigravity; `CLAUDE.md`, `.claude/` for Claude Code). The legacy nested two-level layout is gone; never duplicate files across paths.
+- The repository root (`mods\immersive-shipnames-expanded` under the Modding Manager) is the Git root and holds everything directly: mod content (`common/`, `descriptor.mod`, `thumbnail.png`), `build.ps1`, `tests/`, docs (`README.md`, `WORKSHOP_DESCRIPTION_GUIDELINES.md`, `wiki/`) and agent configs (`AGENTS.md`, `GEMINI.md`, `.agents/` for Google Antigravity; `CLAUDE.md`, `.claude/` for Claude Code). The legacy nested two-level layout is gone; never duplicate files across paths.
 - After modifying rules, skills or mod files, run `git status` (and `git diff` when useful) from the root to confirm the changes before reporting completion.
 - Per-nation plans: `docs/plans/YYYY-MM-DD-<nation>-namelist.md`.
 
 ## 9. Agent Config Mirrors
 Google Antigravity and Claude Code use mirrored configs:
-- `CLAUDE.md` imports `GEMINI.md` (`@GEMINI.md`) and adds only Claude-specific tool wording; the rules exist once.
+- `CLAUDE.md` and `GEMINI.md` import `AGENTS.md` (`@AGENTS.md`), and `CLAUDE.md` adds only Claude-specific tool wording; the rules exist once.
 - `.agents/skills/<skill>/SKILL.md` ⇄ `.claude/skills/<skill>/SKILL.md`, for `hoi4-isne-ship-namelist-authoring` and `hoi4-isne-namelist-audit`.
 - The subagent briefs exist once, in `.claude/agents/`: `isne-historical-researcher.md` (full dossier for authoring), `isne-audit-researcher.md` (budgeted fact-check for audits: web tools only, 25 web calls, `effort: medium`, `maxTurns: 30`) and `isne-code-reviewer.md`. Claude dispatches them as named agents; Antigravity passes their path to `invoke_subagent`.
 

@@ -32,4 +32,19 @@ Review focus:
 7. **Role-specific pools** (only if the file has `<TAG>_<ROLE>` pools, e.g. minelayers, escort carriers): no `ship_types`; display name matches the final entries; names individually verifiable, with no generic padding to reach the floor; no name shared with CL/CA/BB/BC/CV (`-Audit` `RoleOverlap`). Confirm the plan records the role families that were considered and skipped.
 8. **Plan vs change set** (audits and expansions): the plan's per-group change table (added / removed / moved) matches `-DiffNames <TAG>`.
 
-Report findings grouped by severity (Critical, Important, Minor) with an overall verdict.
+<!-- hoi-agent-block:reviewer-contract:begin -->
+A finding that rests on engine behaviour the register does not hold is marked *unverified* and names the game check that would settle it.
+
+## Re-review
+
+When the caller sends fixes for a later round, keep the finding ids. Check each earlier finding against the repository, not against the caller's account of the fix. Then review what the round changed for new problems. New findings continue the numbering.
+
+## Output
+
+- Findings by severity, each with an id (C1, I1, M1), file:line, what is wrong, the evidence (command output or quoted line) and, when you see one, a possible fix.
+  - Critical: the change ships wrong behaviour in what the task is about, or breaks the game.
+  - Important: wrong behaviour elsewhere, a broken rule, or a check that cannot fail.
+  - Minor: everything else.
+- One line per check: PASS, FAIL or NOT CHECKED (why).
+- A verdict: ready, or not ready and why.
+<!-- hoi-agent-block:reviewer-contract:end -->

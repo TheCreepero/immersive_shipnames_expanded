@@ -52,14 +52,15 @@ powershell -File .\build.ps1 -Package
 powershell -File .\build.ps1 -InspectVanilla FIN
 powershell -File .\build.ps1 -InspectVanilla ENG -Group ENG_DD_HISTORICAL
 
-# Publish update to Steam Workshop via SteamCMD (supports -DryRun)
+# Publish update to Steam Workshop via SteamCMD (supports -DryRun). Under the Modding Manager, releases run
+# through its Publish-Mod.ps1 and the hoi4-mod-release skill instead; -PublishSteam serves a standalone checkout.
 powershell -File .\build.ps1 -PublishSteam -DryRun
 powershell -File .\build.ps1 -PublishSteam -ChangeNote "Add Finnish ship namelists"
 ```
 
 ### AI Agent Configuration
 
-Development rules live in `AGENTS.md` (with `GEMINI.md` and `CLAUDE.md` pointing to it), and the namelist authoring runbook is maintained as mirrored skill configurations for two AI agents: `.agents/` (Google Antigravity) and `.claude/` (Claude Code). Changes to project skills must be applied to both. Neither folder is included in mod packages.
+Development rules live in `AGENTS.md` (short form; `GEMINI.md` and `CLAUDE.md` import it) and `docs/isne-agent-guide.md` (long form). The namelist authoring and audit runbooks are maintained as mirrored skills for two AI agents, `.agents/` (Google Antigravity) and `.claude/` (Claude Code); the subagent briefs live once in `.claude/agents/`, and a hook in `.claude/hooks/` protects the files the Modding Manager syncs. Changes to project skills must be applied to both mirrors. Neither folder is included in mod packages.
 
 ---
 

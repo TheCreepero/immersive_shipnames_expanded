@@ -27,12 +27,12 @@ This page describes how to contribute new ship namelists or expand existing ones
 
 ## AI Agent Configuration
 
-ISNE is developed with AI coding agents. Project rules and the namelist authoring runbook exist as mirrored configurations:
+ISNE is developed with AI coding agents. The project rules exist once, in `AGENTS.md` (short form) and `docs/isne-agent-guide.md` (long form); `CLAUDE.md` and `GEMINI.md` import `AGENTS.md`. The two skills exist as mirrored copies and the subagent briefs once:
 
-| Agent | Project rules | Authoring skill | Subagents |
+| Agent | Rule file | Skills | Subagents |
 |---|---|---|---|
-| Google Antigravity | `GEMINI.md` | `.agents/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` | Briefs embedded in the skill |
-| Claude Code | `CLAUDE.md` | `.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` | `.claude/agents/isne-historical-researcher.md`, `.claude/agents/isne-code-reviewer.md` |
+| Google Antigravity | `GEMINI.md` | `.agents/skills/hoi4-isne-ship-namelist-authoring/SKILL.md`, `.agents/skills/hoi4-isne-namelist-audit/SKILL.md` | The briefs in `.claude/agents/`, passed by path to `invoke_subagent` |
+| Claude Code | `CLAUDE.md` | `.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md`, `.claude/skills/hoi4-isne-namelist-audit/SKILL.md` | `.claude/agents/isne-historical-researcher.md`, `isne-audit-researcher.md`, `isne-code-reviewer.md`, dispatched by name |
 
 When a rule or runbook step changes, update both sides of the mirror in the same change. Only tool-specific wording (how subagents are dispatched) should differ.
 

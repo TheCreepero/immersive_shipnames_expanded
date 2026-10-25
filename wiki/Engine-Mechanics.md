@@ -45,9 +45,9 @@ TAG_DD_HISTORICAL =
 
 `name` is a text or a localisation key. `unique` is a pool of names; `ordered` gives names by number. Vanilla 1.19.3 has 620 groups with `type = ship`.
 
-A group without `ship_types` is said to be offered for every hull in the ship designer; the code matches it to every variant [NAM-025]. Immersive Ship Names Expanded builds its thematic pools on that.
+A group without `ship_types` is offered for every hull in the ship designer; the code matches it to every variant [NAM-025]. Immersive Ship Names Expanded builds its thematic pools on that.
 
-Evidence: scan of `common/units/names_ships/` in game 1.19.3.0.
+Evidence: scan of `common/units/names_ships/` in game 1.19.3.0. A launch of 2026-10-20 (the owner's, with RT56 - VNR - UTT Standalone v14 and VNR - Ship Names Merge): a German destroyer variant offered all 23 groups of Germany's file that have no `ship_types` or list `ship_hull_light`, and the fascism-gated `GER_NSDAP`, while Germany was fascist. Among them were 15 groups the merge adds with no `ship_types`, and VNR's 7 theme groups without one. Until then the every-hull reading rested on the code and on vanilla's use.
 
 ## Vanilla uses fourteen tokens in `ship_types`
 

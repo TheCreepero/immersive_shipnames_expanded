@@ -1,6 +1,6 @@
 # Steam Workshop Description Guidelines & Reference
 
-Instructions and reference for maintaining the Steam Workshop description of **Immersive Ship Names Expanded**. Agents: these rules are also summarized in `CLAUDE.md` / `GEMINI.md` §4.
+Instructions and reference for maintaining the Steam Workshop description of **Immersive Ship Names Expanded**. Agents: these rules are also summarized in `docs/isne-agent-guide.md` section 4.
 
 ---
 
@@ -12,7 +12,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
    - **Never list individual ship names**: dozens of names per class would hit the limit as nations are added.
    - No author update quote blocks (`[quote=author]...[/quote]`).
 3. **Tone**: concise, informative, direct and enthusiastic, matching the author's voice; plain bullets and structured headings; no embellishment or marketing buzzwords.
-4. **Preserve author sections**: never rewrite or regenerate the header pitch, companion mod link or Jackhall tribute. The Info section holds standard mod notes and one global notice on vanilla bug fixes for all nations. For a newly implemented nation, update **only** the `[h1]Included nations:[/h1]` block and the Repository Cross-Reference table (plus the nation list in the header pitch, per `CLAUDE.md` §4).
+4. **Preserve author sections**: never rewrite or regenerate the header pitch, companion mod link or Jackhall tribute. The Info section holds standard mod notes and one global notice on vanilla bug fixes for all nations. For a newly implemented nation, update **only** the `[h1]Included nations:[/h1]` block and the Repository Cross-Reference table (plus the nation list in the header pitch, per `docs/isne-agent-guide.md` section 4).
 5. **Jackhall scope**: ISNE extends @Jackhall's ship namelist mod series; never author or propose namelists for nations it covers: Netherlands (`HOL`), China (`CHI`), Spain (`SPR`), Poland (`POL`), Soviet Union (`SOV`), Greece (`GRE`), Germany (`GER`).
 6. **No `[h1]Planned:[/h1]` section.**
 7. **Language**: fix typos, misspellings, formatting anomalies and broken English; use proper diacritics in historical ship names (*Väinämöinen*, *Hämeenmaa*, *L'Audacieux*).

@@ -5,7 +5,7 @@ Ranking of vanilla nations not yet covered by the mod (assessed 2026-10-10). Int
 ## Method
 
 - Source: vanilla `common/units/names_ships/` (65 files), compared with the nations already in `common/units/names_ships/`.
-- Excluded: nations covered by Jackhall's series (`HOL`, `CHI`, `SPR`, `POL`, `SOV`, `GRE`, `GER`; CLAUDE.md §4.5).
+- Excluded: nations covered by Jackhall's series (`HOL`, `CHI`, `SPR`, `POL`, `SOV`, `GRE`, `GER`; `docs/isne-agent-guide.md` section 4, item 5).
 - Signals: vanilla list depth, cross-class duplicates (names shared between `CL`/`CA`/`BB`/`BC`/`CV`, which the mod's decoupling rule forbids), obvious bugs (mojibake, clone rosters, anachronisms), gameplay traffic, and how much verifiable naval history exists.
 - Counts are raw quoted-string counts per vanilla file. The historical claims below are a first impression, not a researched dossier: every nation still needs an `isne-historical-researcher` dossier before authoring.
 
@@ -25,7 +25,7 @@ Ranking of vanilla nations not yet covered by the mod (assessed 2026-10-10). Int
 | `SIA` | Thailand | CL and BB lists are provinces and cities; SS has 4 names | Real names exist (Thonburi, Sri Ayudhya, Phra Ruang). |
 | `INS` | Indonesia | Anachronisms (Usman Harun 2014, Nanggala 1981); BB has 5 names | Hero, kingdom and weapon naming conventions are well documented. |
 | `IRE` | Ireland | DD and SS are 17 names each | Irish Naval Service and Gaelic mythology naming; needs careful diacritics. |
-| `BEL` | Belgium | DD and SS are the same 11 names | Tiny navy: an authentic list will be short (CLAUDE.md §3, no fabricated names). |
+| `BEL` | Belgium | DD and SS are the same 11 names | Tiny navy: an authentic list will be short (guide section 3, no fabricated names). |
 | `PAK` | Pakistan | 24 of 42 capital-ship names duplicated | Conquerors and Mughal rulers are well documented. |
 
 ## Tier 3: Lower Priority
@@ -47,8 +47,8 @@ Add a row when a legacy namelist without a passing audit is found (rank, tag, ha
 
 ## Status Tracking
 
-Update this file in the same task as any change it covers (CLAUDE.md §4.7):
+Update this file in the same task as any change it covers (`docs/isne-agent-guide.md` section 4, item 7):
 
-- Implemented nation: delete its candidate row, then follow CLAUDE.md §4 (README, Steam description guidelines, wiki).
+- Implemented nation: delete its candidate row, then follow guide section 4 (README, Steam description guidelines, wiki).
 - Vanilla state, plan or Jackhall exclusion changes: update the affected row.
 - Legacy namelist without a passing audit: add it to the Audit Queue; delete it when the audit passes.

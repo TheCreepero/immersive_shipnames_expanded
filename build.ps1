@@ -1378,7 +1378,7 @@ function Invoke-SyncShipTypeCanon {
             [void]$sb.AppendLine("    `"$($classNames[$i])`": { `"required`": [$(& $join @($rule.required))], `"optional`": [$(& $join @($rule.optional))] }$comma")
         }
         [void]$sb.AppendLine('  },')
-        # Curated by hand like the class rules: suffixes of vanilla regime-variant hull sets (CLAUDE.md section 2D)
+        # Curated by hand like the class rules: suffixes of vanilla regime-variant hull sets (docs/isne-agent-guide.md section 2D)
         [void]$sb.AppendLine("  `"variantSets`": [$(& $join @($canon.variantSets))]")
         [void]$sb.AppendLine('}')
         [System.IO.File]::WriteAllText($ShipTypeCanonPath, $sb.ToString(), (New-Object System.Text.UTF8Encoding $false))

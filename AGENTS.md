@@ -18,6 +18,7 @@ Shared rules for every mod in this tree (file encodings, build commands, engine 
 
 ## Commands beyond build.ps1
 - The mod's own switches: `-VerifyShipTypes`, `-SyncShipTypeCanon`, `-Audit`, `-EditNames`, `-DiffNames`, `-AuditPlan`, `-SyncWiki`, `-InspectVanilla`; guide section 5 has the table.
+- Run `build.ps1`, don't read it: its switches are in guide section 5 and `Get-Help .\build.ps1 -Parameter <name>`; open its source only to change it.
 
 ## Read when
 | Task | Read |

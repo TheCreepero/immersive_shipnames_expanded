@@ -1,16 +1,28 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(powershell -File .\\build.ps1 -ValidateOnly*)",
-      "PowerShell(powershell -File .\\build.ps1 -Test*)",
-      "PowerShell(powershell -File .\\build.ps1 -InspectVanilla*)",
-      "PowerShell(powershell -File .\\build.ps1 -Audit*)",
-      "PowerShell(powershell -File .\\build.ps1 -VerifyShipTypes*)",
-      "PowerShell(powershell -File .\\build.ps1 -EditNames*)",
-      "PowerShell(powershell -File .\\build.ps1 -DiffNames*)",
-      "PowerShell(powershell -File .\\build.ps1 -AuditPlan*)",
-      "PowerShell(powershell -File .\\build.ps1 -SyncWiki*)",
-      "PowerShell(powershell -File .\\build.ps1 -Package*)",
+      "PowerShell(powershell*build.ps1 -ValidateOnly*)",
+      "PowerShell(powershell*build.ps1 -Test*)",
+      "PowerShell(powershell*build.ps1 -InspectVanilla*)",
+      "PowerShell(powershell*build.ps1 -Audit*)",
+      "PowerShell(powershell*build.ps1 -VerifyShipTypes*)",
+      "PowerShell(powershell*build.ps1 -SyncShipTypeCanon*)",
+      "PowerShell(powershell*build.ps1 -EditNames*)",
+      "PowerShell(powershell*build.ps1 -DiffNames*)",
+      "PowerShell(powershell*build.ps1 -AuditPlan*)",
+      "PowerShell(powershell*build.ps1 -SyncWiki*)",
+      "PowerShell(powershell*build.ps1 -Package*)",
+      "PowerShell(.\\build.ps1 -ValidateOnly*)",
+      "PowerShell(.\\build.ps1 -Test*)",
+      "PowerShell(.\\build.ps1 -InspectVanilla*)",
+      "PowerShell(.\\build.ps1 -Audit*)",
+      "PowerShell(.\\build.ps1 -VerifyShipTypes*)",
+      "PowerShell(.\\build.ps1 -SyncShipTypeCanon*)",
+      "PowerShell(.\\build.ps1 -EditNames*)",
+      "PowerShell(.\\build.ps1 -DiffNames*)",
+      "PowerShell(.\\build.ps1 -AuditPlan*)",
+      "PowerShell(.\\build.ps1 -SyncWiki*)",
+      "PowerShell(.\\build.ps1 -Package*)",
       "PowerShell(*Test-HoiKnowledge.ps1*)",
       "PowerShell(git status*)",
       "PowerShell(git diff*)",
@@ -21,6 +33,7 @@
       "Bash(powershell*build.ps1 -InspectVanilla*)",
       "Bash(powershell*build.ps1 -Audit*)",
       "Bash(powershell*build.ps1 -VerifyShipTypes*)",
+      "Bash(powershell*build.ps1 -SyncShipTypeCanon*)",
       "Bash(powershell*build.ps1 -EditNames*)",
       "Bash(powershell*build.ps1 -DiffNames*)",
       "Bash(powershell*build.ps1 -AuditPlan*)",
@@ -60,6 +73,18 @@
             "type": "command",
             "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"$CLAUDE_PROJECT_DIR/.claude/hooks/Protect-ProjectFiles.ps1\"",
             "timeout": 15
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"$CLAUDE_PROJECT_DIR/.claude/hooks/Validate-NamelistEdit.ps1\"",
+            "timeout": 60
           }
         ]
       }

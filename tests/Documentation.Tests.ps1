@@ -124,7 +124,7 @@ BeforeDiscovery {
     )
 }
 
-Describe "Agent Config Mirrors (AGENTS.md / CLAUDE.md / GEMINI.md section 9)" {
+Describe "Agent Config Mirrors (docs/isne-agent-guide.md section 9)" {
     BeforeAll {
         # Mirrors are kept line-for-line; a line may differ only when it carries tool-specific wording.
         $script:ToolMarker = 'invoke_subagent|Agent tool|Antigravity|Claude Code|[Mm]odel:|Sonnet|flash|Mirror'
@@ -176,6 +176,47 @@ Describe "Agent Config Mirrors (AGENTS.md / CLAUDE.md / GEMINI.md section 9)" {
             $text = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot $skill), [System.Text.Encoding]::UTF8)
             foreach ($m in [regex]::Matches($text, '\.claude/agents/[\w-]+\.md')) {
                 (Test-Path (Join-Path $script:RepoRoot $m.Value)) | Should -BeTrue -Because "$skill dispatches $($m.Value)"
+            }
+        }
+    }
+}
+
+Describe "Agent docs point at the current rule files" {
+    BeforeAll {
+        $script:AgentDocPaths = @(
+            'AGENTS.md', 'CLAUDE.md', 'GEMINI.md', 'README.md', 'WORKSHOP_DESCRIPTION_GUIDELINES.md', 'build.ps1'
+            'docs\isne-agent-guide.md', 'docs\ROADMAP.md', 'wiki\Contributing.md'
+            '.claude\skills\hoi4-isne-ship-namelist-authoring\SKILL.md', '.claude\skills\hoi4-isne-namelist-audit\SKILL.md'
+            '.agents\skills\hoi4-isne-ship-namelist-authoring\SKILL.md', '.agents\skills\hoi4-isne-namelist-audit\SKILL.md'
+            '.claude\agents\isne-historical-researcher.md', '.claude\agents\isne-audit-researcher.md', '.claude\agents\isne-code-reviewer.md'
+        )
+        $script:AgentDocs = foreach ($relativePath in $script:AgentDocPaths) {
+            $path = Join-Path $script:RepoRoot $relativePath
+            [PSCustomObject]@{ Name = $relativePath; Text = [System.IO.File]::ReadAllText($path, [System.Text.Encoding]::UTF8) }
+        }
+        $guideText = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot 'docs\isne-agent-guide.md'), [System.Text.Encoding]::UTF8)
+        $script:GuideSections = @([regex]::Matches($guideText, '(?m)^## (\d+)\.') | ForEach-Object { [int]$_.Groups[1].Value })
+    }
+
+    It "No doc cites a section of CLAUDE.md or GEMINI.md (the rules live in AGENTS.md and docs/isne-agent-guide.md)" {
+        foreach ($doc in $script:AgentDocs) {
+            $doc.Text | Should -Not -Match '(CLAUDE|GEMINI)\.md`?\s*(\xA7|section\b)' -Because "$($doc.Name) must cite docs/isne-agent-guide.md sections; CLAUDE.md and GEMINI.md are one-line imports"
+        }
+    }
+
+    It "No doc claims the guide is already in context or names the retired plan folder" {
+        foreach ($doc in $script:AgentDocs) {
+            $doc.Text | Should -Not -Match 'already in context' -Because "$($doc.Name): the guide is read by section on demand"
+            $doc.Text | Should -Not -Match 'docs[/\\]superpowers' -Because "$($doc.Name): plans live under docs/plans, finished ones under docs/plans/archive"
+        }
+        (Test-Path (Join-Path $script:RepoRoot 'docs\plans\archive')) | Should -BeTrue
+    }
+
+    It "Every guide section a doc cites exists" {
+        $script:GuideSections.Count | Should -BeGreaterThan 0
+        foreach ($doc in $script:AgentDocs) {
+            foreach ($match in [regex]::Matches($doc.Text, 'guide sections? (\d+)')) {
+                [int]$match.Groups[1].Value | Should -BeIn $script:GuideSections -Because "$($doc.Name) cites guide section $($match.Groups[1].Value)"
             }
         }
     }

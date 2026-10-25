@@ -5,6 +5,7 @@ Shared rules for every mod in this tree (file encodings, build commands, engine 
 ## What this mod is
 - Ship name lists, one file per nation at the vanilla path `common/units/names_ships/<TAG>_ship_names.txt`, so the mod file shadows the vanilla file whole [LOAD-010]; Workshop id 3807415216.
 - Every nation has hull groups `<TAG>_<HULL>_HISTORICAL` and thematic pools `<TAG>_<THEME>`, optional role pools on real precedent, and vanilla's regime-variant hull sets kept as vanilla built them (guide section 2).
+- `tools/`, `tests/BuildEngine.Tests.ps1`, `tests/Run-Tests.ps1`, `tests/Knowledge.Tests.ps1` and `.github/workflows/ci.yml` are copies the Manager syncs; a hook in `.claude/hooks/` refuses edits to them. The skill mirrors under `.agents/skills/` are kept by hand, line for line (guide section 9).
 
 ## Mod invariants
 - A shadowed file must keep every tag that vanilla script assigns by `name_group` [NAM-017]; `-InspectVanilla` lists them and `-Audit` fails a missing one.
@@ -21,11 +22,15 @@ Shared rules for every mod in this tree (file encodings, build commands, engine 
 ## Read when
 | Task | Read |
 |---|---|
-| Authoring a nation | skill `hoi4-isne-ship-namelist-authoring`, then guide sections 2 and 3; the plan goes to `docs/plans/YYYY-MM-DD-<nation>-namelist.md` |
+| Authoring a nation | skill `hoi4-isne-ship-namelist-authoring`, then guide sections 2 and 3; the plan goes to `docs/plans/YYYY-MM-DD-<nation>-namelist.md` and to `docs/plans/archive/` once the task is complete |
 | Bringing an existing namelist up to standard | skill `hoi4-isne-namelist-audit`, starting from `-Audit <TAG>` |
 | Choosing the next nation, or after a game patch | `docs/ROADMAP.md`; update it in the same task as any change it covers |
-| Workshop text, README and wiki | guide section 4 |
+| Workshop text, README and wiki | `WORKSHOP_DESCRIPTION_GUIDELINES.md` (rules at the top), guide section 4 |
+| Releasing to the Workshop | the user-level skill `hoi4-mod-release` (`Publish-Mod.ps1 "Immersive Ship Names Expanded"`); the mod has no release skill of its own |
 | Editing skills or agent briefs | guide section 9 (mirrors) |
+
+## Compacting
+Keep: the active nation and TAG, the plan file path, the first unfinished runbook step, group tags edited and their remaining TODOs, pending docs-sync steps, whether the reviewer has run and its open findings, and the latest `-ValidateOnly`, `-Test` and `-Audit <TAG>` result. Drop raw audit, test and research output once its findings are in the plan file.
 
 ## Engine Knowledge
 - Engine facts live in the Modding Manager's register, reached through the user-level `hoi4-modding-knowledge` skill: search it before a new kind of file and before asking for a game launch, cite ids here, never write a fact into this repository.

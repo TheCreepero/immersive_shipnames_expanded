@@ -6,13 +6,63 @@
       "PowerShell(powershell -File .\\build.ps1 -InspectVanilla*)",
       "PowerShell(powershell -File .\\build.ps1 -Audit*)",
       "PowerShell(powershell -File .\\build.ps1 -VerifyShipTypes*)",
+      "PowerShell(powershell -File .\\build.ps1 -EditNames*)",
+      "PowerShell(powershell -File .\\build.ps1 -DiffNames*)",
+      "PowerShell(powershell -File .\\build.ps1 -AuditPlan*)",
+      "PowerShell(powershell -File .\\build.ps1 -SyncWiki*)",
       "PowerShell(powershell -File .\\build.ps1 -Package*)",
+      "PowerShell(*Test-HoiKnowledge.ps1*)",
       "PowerShell(git status*)",
       "PowerShell(git diff*)",
       "PowerShell(git log*)",
+      "Write(scratch/**)",
+      "Bash(powershell*build.ps1 -ValidateOnly*)",
+      "Bash(powershell*build.ps1 -Test*)",
+      "Bash(powershell*build.ps1 -InspectVanilla*)",
+      "Bash(powershell*build.ps1 -Audit*)",
+      "Bash(powershell*build.ps1 -VerifyShipTypes*)",
+      "Bash(powershell*build.ps1 -EditNames*)",
+      "Bash(powershell*build.ps1 -DiffNames*)",
+      "Bash(powershell*build.ps1 -AuditPlan*)",
+      "Bash(powershell*build.ps1 -SyncWiki*)",
+      "Bash(*Test-HoiKnowledge.ps1*)",
       "Bash(git status*)",
       "Bash(git diff*)",
       "Bash(git log*)"
+    ],
+    "ask": [
+      "PowerShell(*build.ps1*-PublishSteam*)",
+      "PowerShell(*build.ps1*-InstallSteamCmd*)",
+      "PowerShell(*build.ps1*-Deploy*)",
+      "PowerShell(*build.ps1*-DevLink*)",
+      "PowerShell(*build.ps1*-Clean*)",
+      "PowerShell(*build.ps1*-SyncShipTypeCanon*-Write*)",
+      "PowerShell(*steamcmd*)",
+      "PowerShell(*push-wiki.ps1*)",
+      "PowerShell(git push*)",
+      "Bash(*build.ps1*-PublishSteam*)",
+      "Bash(*build.ps1*-InstallSteamCmd*)",
+      "Bash(*build.ps1*-Deploy*)",
+      "Bash(*build.ps1*-DevLink*)",
+      "Bash(*build.ps1*-Clean*)",
+      "Bash(*build.ps1*-SyncShipTypeCanon*-Write*)",
+      "Bash(*steamcmd*)",
+      "Bash(*push-wiki.ps1*)",
+      "Bash(git push*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit|NotebookEdit|Bash|PowerShell",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell -NoProfile -ExecutionPolicy Bypass -File \"$CLAUDE_PROJECT_DIR/.claude/hooks/Protect-ProjectFiles.ps1\"",
+            "timeout": 15
+          }
+        ]
+      }
     ]
   }
 }

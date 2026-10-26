@@ -41,27 +41,25 @@
       "Bash(*Test-HoiKnowledge.ps1*)",
       "Bash(git status*)",
       "Bash(git diff*)",
-      "Bash(git log*)"
+      "Bash(git log*)",
+      "PowerShell(*build.ps1*-Deploy*)",
+      "PowerShell(*build.ps1*-DevLink*)",
+      "PowerShell(*build.ps1*-Clean*)",
+      "PowerShell(*push-wiki.ps1*)",
+      "PowerShell(git push*)",
+      "Bash(*build.ps1*-Deploy*)",
+      "Bash(*build.ps1*-DevLink*)",
+      "Bash(*build.ps1*-Clean*)",
+      "Bash(*push-wiki.ps1*)",
+      "Bash(git push*)"
     ],
     "ask": [
       "PowerShell(*build.ps1*-PublishSteam*)",
       "PowerShell(*build.ps1*-InstallSteamCmd*)",
-      "PowerShell(*build.ps1*-Deploy*)",
-      "PowerShell(*build.ps1*-DevLink*)",
-      "PowerShell(*build.ps1*-Clean*)",
-      "PowerShell(*build.ps1*-SyncShipTypeCanon*-Write*)",
       "PowerShell(*steamcmd*)",
-      "PowerShell(*push-wiki.ps1*)",
-      "PowerShell(git push*)",
       "Bash(*build.ps1*-PublishSteam*)",
       "Bash(*build.ps1*-InstallSteamCmd*)",
-      "Bash(*build.ps1*-Deploy*)",
-      "Bash(*build.ps1*-DevLink*)",
-      "Bash(*build.ps1*-Clean*)",
-      "Bash(*build.ps1*-SyncShipTypeCanon*-Write*)",
-      "Bash(*steamcmd*)",
-      "Bash(*push-wiki.ps1*)",
-      "Bash(git push*)"
+      "Bash(*steamcmd*)"
     ]
   },
   "hooks": {

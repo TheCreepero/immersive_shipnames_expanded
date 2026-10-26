@@ -171,10 +171,17 @@ Describe 'Hook registration in .claude/settings.json' {
         (Test-Path (Join-Path $script:RepoRoot '.claude\hooks\Validate-NamelistEdit.ps1')) | Should -BeTrue
     }
 
-    It 'asks before the outward-facing commands' {
+    It 'asks before the Steam Workshop commands only' {
         $ask = @($script:Settings.permissions.ask)
-        foreach ($command in '-PublishSteam', '-Deploy', '-DevLink', '-Clean', 'push-wiki.ps1', 'git push') {
-            @($ask | Where-Object { $_ -like "*$command*" }).Count | Should -BeGreaterThan 0 -Because "$command is outward-facing and runs on the user's word"
+        $allow = @($script:Settings.permissions.allow)
+        foreach ($toolName in 'Bash', 'PowerShell') {
+            foreach ($command in '-PublishSteam', '-InstallSteamCmd', 'steamcmd') {
+                @($ask | Where-Object { $_ -like "$toolName(*$command*" }).Count | Should -BeGreaterThan 0 -Because "$command reaches the Workshop and runs on the user's word"
+            }
+            foreach ($command in '-Deploy', '-DevLink', '-Clean', 'push-wiki.ps1', 'git push') {
+                @($ask | Where-Object { $_ -like "*$command*" }).Count | Should -Be 0 -Because "$command does not wait for the user's word"
+                @($allow | Where-Object { $_ -like "$toolName(*$command*" }).Count | Should -BeGreaterThan 0 -Because "$command runs without a prompt from the $toolName tool"
+            }
         }
     }
 

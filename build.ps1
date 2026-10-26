@@ -691,8 +691,9 @@ function Get-RolePoolSuffixes {
         'AUXILIARY_CRUISERS', 'TRAINING_SHIPS', 'ICEBREAKERS', 'SUBMARINE_TENDERS', 'STATE_YACHTS',
         'AA_CRUISERS',
         # Vanilla tags that vanilla script still assigns with name_group (USA: the starting Oglala Class and the
-        # focus-built Casablanca Class), so the role pool keeps its vanilla tag instead of the catalogue suffix
-        'MINELAYERS_HISTORICAL', 'CVL_HISTORICAL'
+        # focus-built Casablanca Class; FRA: the starting Bourrasque and Le Hardi classes), so the role pool keeps
+        # its vanilla tag instead of the catalogue suffix
+        'MINELAYERS_HISTORICAL', 'CVL_HISTORICAL', 'DE_HISTORICAL'
     )
 }
 

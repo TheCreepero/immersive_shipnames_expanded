@@ -1,0 +1,769 @@
+##### FRANCE NAVAL NAME LISTS (ISNE) #####
+# The Marine nationale used no ship prefix; vanilla has none, so the file stays prefix-free.
+# FRA_DE_HISTORICAL and FRA_MINELAYERS_HISTORICAL keep their vanilla tags as universal role pools:
+# vanilla history assigns FRA_DE_HISTORICAL to the starting Bourrasque and Le Hardi classes.
+
+### SHIP-TYPE SPECIFIC: DESTROYERS (CONTRE-TORPILLEURS) ###
+FRA_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { FRA }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	fallback_name = "Contre-torpilleur %d"
+
+	unique = {
+		# Contre-torpilleurs of 1922-1940 (Jaguar, Guépard, Aigle, Vauquelin, Le Fantasque and Mogador classes)
+		"Chacal" "Jaguar" "Léopard" "Lynx" "Panthère" "Tigre" "Bison" "Guépard" "Lion" "Valmy" "Verdun" "Vauban" "Aigle" "Albatros" "Gerfaut" "Milan" "Épervier" "Vautour"
+		"Vauquelin" "Cassard" "Kersaint" "Maillé-Brézé" "Tartu" "Chevalier Paul" "Le Fantasque" "L'Audacieux" "Le Malin" "Le Terrible" "L'Indomptable" "Le Triomphant"
+		"Mogador" "Volta"
+		# Free French and post-war destroyers (Hunt class, ex-German Hoche and Marceau, T 47 and T 53 escorteurs)
+		"La Combattante" "Hoche" "Marceau" "Duperré" "La Bourdonnais"
+		# Forerunners of the contre-torpilleurs: torpilleurs-avisos and croiseurs-torpilleurs of 1885-1899 (Bombe, Condor, Lévrier, Dunois and Wattignies classes)
+		"Bombe" "Couleuvrine" "Dragonne" "Flèche" "Lance" "Salve" "Sainte-Barbe" "Condor" "Faucon" "Lévrier" "Léger" "Cassini" "Dunois" "Wattignies" "Fleurus"
+		# Contre-torpilleurs of 1899-1917 (Durandal to Enseigne Roux classes, Arabe class)
+		"Durandal" "Hallebarde" "Fauconneau" "Espingole" "Pique" "Épée" "Framée" "Yatagan" "Pertuisane" "Escopette" "Flamberge" "Rapière" "Carabine" "Sarbacane" "Arquebuse"
+		"Arbalète" "Mousquet" "Javeline" "Sagaie" "Épieu" "Harpon" "Fronde" "Francisque" "Sabre" "Dard" "Baliste" "Mousqueton" "Arc" "Pistolet" "Bélier" "Catapulte" "Bombarde"
+		"Stylet" "Tromblon" "Pierrier" "Obusier" "Mortier" "Claymore" "Carquois" "Trident" "Fleuret" "Coutelas" "Cognée" "Hache" "Massue" "Glaive" "Poignard" "Sabretache"
+		"Oriflamme" "Étendard" "Fanion" "Sape" "Gabion" "Branlebas" "Fanfare" "Spahi" "Hussard" "Carabinier" "Lansquenet" "Mameluck" "Enseigne Henry" "Aspirant Herber"
+		"Voltigeur" "Tirailleur" "Chasseur" "Janissaire" "Fantassin" "Cavalier" "Cimeterre" "Dague" "Fourche" "Faulx" "Boutefeu" "Bouclier" "Casque" "Capitaine Mehl"
+		"Dehorter" "Francis Garnier" "Commandant Lucas" "Magon" "Mangini" "Bisson" "Renaudin" "Protet" "Mécanicien Principal Lestin" "Enseigne Roux" "Enseigne Gabolde"
+		"Algérien" "Arabe" "Bambara" "Hova" "Kabyle" "Marocain" "Sakalave" "Sénégalais" "Somali" "Tonkinois" "Touareg"
+		# War prizes of 1919-1920 (ex-German and ex-Austro-Hungarian destroyers)
+		"Pierre Durand" "Matelot Leblanc" "Buino" "Chastang" "Vesco" "Mazaré" "Deligny" "Rageot de la Touche" "Marcel Delage" "Amiral Sénès"
+		# Expansion: martial adjectives of ships of the line (Le Fantasque formula)
+		"Le Formidable" "L'Invincible" "Le Magnanime" "Le Superbe" "Le Courageux" "L'Impétueux" "Le Vaillant" "Le Brave" "Le Sévère" "Le Furieux" "L'Inflexible"
+		"L'Orgueilleux" "Le Protecteur" "Le Zélé" "Le Fendant" "L'Illustre" "Le Souverain" "Le Magnifique" "L'Altier" "L'Excellent" "Le Victorieux" "L'Actif" "Le Défenseur"
+		"Le Robuste" "Le Solitaire" "L'Éclatant" "Le Puissant" "Le Vigilant" "Le Hasardeux" "Le Belliqueux" "L'Ambitieux" "L'Arrogant" "Le Capricieux" "Le Fulminant"
+		"Le Guerrier" "Le Majestueux" "Le Merveilleux" "L'Assuré" "Le Brillant" "Le Constant" "Le Ferme" "Le Volontaire" "Le Vainqueur" "Le Spartiate" "Le Généreux"
+		"Le Diligent" "Le Prompt" "Le Fidèle" "Le Content" "Le Sage"
+		# Expansion: beasts of prey (Chacal and Guépard formula)
+		"Loup" "Sanglier" "Puma" "Ocelot" "Couguar" "Hyène" "Lycaon" "Serval" "Caracal"
+		# Expansion: further adjectives of ships of the line
+		"L'Admirable" "Le Bienfaisant" "Le Célèbre" "Le Fort" "Le Gaillard" "L'Heureux" "Le Juste" "Le Monarque" "Le Parfait" "Le Pompeux" "Le Prudent" "Le Réfléchi"
+		"Le Solide" "Le Vétéran" "Le Censeur"
+		# Expansion: weapons (Arquebuse and Claymore formula)
+		"Rondache" "Targe" "Estoc" "Braquemart" "Fauchard" "Guisarme" "Vouge" "Javelot" "Fléau" "Trébuchet" "Mangonneau" "Onagre"
+		# Expansion: arms of service (Spahi and Chasseur formula)
+		"Cuirassier" "Goumier" "Méhariste" "Légionnaire" "Sapeur" "Artilleur" "Canonnier" "Fusilier" "Arbalétrier"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: SUBMARINES ###
+FRA_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { FRA }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	fallback_name = "Sous-marin %d"
+
+	unique = {
+		# Vanilla roster (mythology, sea creatures, scientists, revolutionary months, gems, officers)
+		"Le Conquérant" "Sfax" "Casabianca" "Agosta" "Le Tonnant" "Bévéziers" "Ouessant" "Sidi-Ferruch" "Minerve" "Junon" "Vénus" "Iris" "Pallas" "Cérès" "Aurore" "Andromède"
+		"Astrée" "Africaine" "Artémis" "Créole" "Bayadère" "Favorite" "Antigone" "Andromaque" "Armide" "Hermione" "Gorgone" "Clorinde" "Cornélie" "Blaison" "Laubie" "Bouan"
+		"Gymnote" "Daphné" "Curie" "Sirène" "Naïade" "Galatée" "Ariane" "Ondine" "Eurydice" "Danaé" "Circé" "Calypso" "Thétis" "Doris" "Requin" "Souffleur" "Marsouin"
+		"Dauphin" "Narval" "Morse" "Phoque" "Espadon" "Caïman" "Redoutable" "Vengeur" "Archimède" "Fresnel" "Henri Poincaré" "Monge" "Pasteur" "Poncelet" "Achille" "Ajax"
+		"Actéon" "Achéron" "Argo" "Protée" "Pégase" "Persée" "Phénix" "Orion" "Diane" "Méduse" "Antiope" "Amphitrite" "Amazone" "Orphée" "Oréade" "La Sibylle" "La Psyché"
+		"Argonaute" "Aréthuse" "Atalante" "La Vestale" "La Sultane" "Surcouf" "Prométhée" "Nymphe" "Saphir" "Turquoise" "Diamant" "Nautilus" "Rubis" "Plongeur" "Gustave Zédé"
+		"Triton" "Silure" "Farfadet" "Korrigan" "Gnôme" "Lutin" "Alose" "Anguille" "Bonite" "Castor" "Dorade" "Esturgeon" "Grondin" "Loutre" "Ludion" "Otarie" "Oursin" "Perle"
+		"Thon" "Truite" "Tarasque" "Aigrette" "Cigogne" "Émeraude" "Opale" "Topaze" "Pluviôse" "Ampère" "Berthelot" "Cugnot" "Floréal" "Fructidor" "Gay-Lussac" "Germinal"
+		"Giffard" "Messidor" "Papin" "Prairial" "Thermidor" "Vendémiaire" "Ventôse" "Watt" "Charles Brun" "Mariotte" "Brumaire" "Arago" "Bernoulli" "Coulomb" "Euler" "Faraday"
+		"Foucault" "Franklin" "Frimaire" "Joule" "Le Verrier" "Montgolfier" "Newton" "Nivôse" "Amiral Bourgois" "Néréide" "Amarante" "Bellone" "Sané" "Roland Morillot"
+		"Trinité-Schillemans" "Carissan" "Jean Corre" "Fulton" "Joessel" "Lagrange" "Laplace" "Regnault" "Romazotti" "Jean-Autric" "Léon Mignot" "Pierre Marrast"
+		"Jean Roulier" "Victor Réveille" "René Audry" "Halbronn" "Henri Fournier" "Louis Dupetit-Thouars" "O'Byrne" "Maurice Callot" "Pierre Chailley" "Le Centaure" "Pascal"
+		# Further boats of 1888-1945 (Liste des sous-marins français)
+		"Français" "Follet" "L'Espoir" "Le Glorieux" "Le Héros" "La Praya" "Martinique" "Guadeloupe" "Réunion" "Millé"
+		# Boats of the 1937-1940 programmes never completed (Émeraude class)
+		"Agate" "Corail" "Escarboucle"
+		# Expansion: heroines of French tragedy and opera (Aurore-class formula: Créole, Bayadère, Favorite, Armide)
+		"Phèdre" "Bérénice" "Athalie" "Esther" "Roxane" "Monime" "Junie" "Atalide" "Chimène" "Émilie" "Rodogune" "Médée" "Sophonisbe" "Électre" "Alceste" "Didon" "Esclarmonde"
+		"Manon" "Lakmé" "Mireille" "Thaïs" "Carmen" "Mignon" "Hérodiade" "Salammbô"
+		# Expansion: scientists and inventors (Pluviôse and Redoutable formula)
+		"Lamarck" "Cuvier" "Buffon" "Becquerel" "Coriolis" "Cauchy" "Fermat" "Réaumur" "D'Alembert" "Legendre" "Fizeau" "Biot" "Malus" "Niépce" "Daguerre" "Jacquard" "Laennec"
+		"Claude Bernard" "Chaptal" "Berthollet" "Haüy" "Clairaut" "Maupertuis" "La Condamine" "Messier" "Delambre" "Navier" "Fourcroy"
+		# Expansion: Nereids (Néréide, Galatée, Thétis, Doris formula)
+		"Panope" "Eudore" "Glaucé" "Cymodocée" "Thalie" "Spio" "Nésée" "Actée" "Mélite" "Agavé" "Dynamène" "Callianire" "Callianasse" "Clymène" "Orithye" "Psamathé"
+		"Leucothoé" "Amathée"
+		# Expansion: gems (Saphir minelaying formula)
+		"Améthyste" "Grenat" "Jaspe" "Onyx" "Béryl" "Cornaline" "Jade" "Ambre"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: LIGHT CRUISERS ###
+FRA_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { FRA }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	fallback_name = "Croiseur léger %d"
+
+	unique = {
+		# Light cruisers of 1922-1940 and the 1937-1939 programme
+		"Duguay-Trouin" "Lamotte-Picquet" "Primauguet" "Jeanne d'Arc" "Émile Bertin" "La Galissonnière" "Jean de Vienne" "Marseillaise" "Gloire" "Montcalm" "Georges Leygues"
+		"De Grasse" "Châteaurenault" "Guichen"
+		# Ex-German and ex-Austro-Hungarian cruisers ceded in 1920
+		"Colmar" "Mulhouse" "Metz" "Thionville"
+		# Protected cruisers of 1882-1904
+		"Tage" "Amiral Cécille" "Davout" "Suchet" "Coëtlogon" "Troude" "Cosmao" "Lalande" "Isly" "Alger" "Friant" "Chasseloup-Laubat" "Bugeaud" "Linois" "Galilée" "Lavoisier"
+		"Descartes" "D'Assas" "Du Chayla" "Catinat" "D'Estrées" "Infernet" "Jurien de la Gravière"
+		# Unprotected and station cruisers of 1862-1890
+		"Talisman" "Limier" "Hamelin" "L'Hermitte" "Champlain" "La Clocheterie" "Seignelay" "Fabert" "Bourayne" "Segond" "Dayot" "Vaudreuil" "Hugon" "Kerguélen" "Hirondelle"
+		"Éclaireur" "D'Estaing" "Nielly" "Villars" "Forfait" "Roland"
+		# Expansion: Amiraux de France (Jean de Vienne formula)
+		"Florent de Varennes" "Othon de Torcy" "Béranger Blanc" "Jean de Nanteuil" "Renaud de Trie" "Louis de Culant" "Prigent de Coëtivy" "Jean de Bueil" "Jean de Montauban"
+		"Malet de Graville" "Bonnivet" "Philippe Chabot" "Anne de Joyeuse" "Aubert de Longueval" "Enguerrand de Coucy" "Mathieu de Montmorency" "Rainier Grimaldi"
+		"Gentian Tristan" "Jean de la Heuse" "Aymeri de Narbonne" "Pierre de Bréban" "Jacques de Châtillon" "Robert de Bracquemont" "Louis de La Trémoille" "Comte de Toulouse"
+		"Penthièvre" "Truguet" "Roussin" "Mackau" "Baudin" "Parseval-Deschênes" "Bruat" "Romain-Desfossés" "Tréhouart"
+		# Expansion: admirals and officers of the Marine royale, the Republic and the Empire
+		"Villaret de Joyeuse" "Ganteaume" "Missiessy" "Allemand" "Émeriau" "D'Orvilliers" "Ternay" "Cloué" "Krantz" "Peyron" "Boué de Lapeyrère" "Darrieus" "Rieunier"
+		"Bienaimé" "Du Casse" "Pointis" "Nesmond" "Villette-Mursay" "Destouches" "Barras de Saint-Laurent" "Sercey" "Rosily"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: HEAVY CRUISERS ###
+FRA_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { FRA }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	fallback_name = "Croiseur lourd %d"
+
+	unique = {
+		# Heavy cruisers (Duquesne, Suffren and Algérie classes)
+		"Duquesne" "Tourville" "Suffren" "Colbert" "Foch" "Dupleix" "Algérie"
+		# Armoured cruisers of 1890-1911
+		"Dupuy de Lôme" "Bruix" "Chanzy" "Latouche-Tréville" "Pothuau" "Gueydon" "Dupetit-Thouars" "Desaix" "Kléber" "Condé" "Sully" "Amiral Aube" "Léon Gambetta"
+		"Jules Ferry" "Victor Hugo" "Jules Michelet" "Ernest Renan" "Edgar Quinet" "Waldeck-Rousseau"
+		# Colonies (Algérie formula)
+		"Indochine" "Syrie" "Le Liban" "Maroc" "Polynésie" "Tunisie" "Dahomey" "Côte d'Ivoire" "Cameroun" "Madagascar"
+		# Gaulish hero (vanilla)
+		"Vercingétorix"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLESHIPS ###
+FRA_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { FRA }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	fallback_name = "Cuirassé %d"
+
+	unique = {
+		# Vanilla roster (Richelieu, Alsace, Courbet, Bretagne, Normandie classes; pre-dreadnoughts; ideals; cities)
+		"Richelieu" "Jean Bart" "Clemenceau" "Gascogne" "Alsace" "Bourgogne" "Champagne" "Poitou" "Artois" "Foix" "Picardie" "Normandie" "Flandre" "Touraine" "Languedoc"
+		"Charlemagne" "Charles Martel" "Gaulois" "Saint-Louis" "Liberté" "Justice" "Vérité" "Démocratie" "République" "Patrie" "Paris" "Orléans" "Marseille" "Lyon" "Toulouse"
+		"Nice" "Courbet" "France" "Bretagne" "Lorraine" "Provence" "Océan"
+		# Pre-dreadnoughts and the Danton class
+		"Brennus" "Henri IV" "Bouvet" "Carnot" "Jauréguiberry" "Masséna" "Danton" "Condorcet" "Diderot" "Mirabeau" "Vergniaud" "Voltaire"
+		# Expansion: provinces (Bretagne and Normandie formula)
+		"Guyenne" "Savoie" "Auvergne" "Dauphiné"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLECRUISERS ###
+FRA_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { FRA }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	fallback_name = "Croiseur de bataille %d"
+
+	unique = {
+		# Dunkerque class and cities of national memory (Dunkerque formula)
+		"Dunkerque" "Strasbourg" "Bourges" "Lille" "Nantes" "Toulon" "Rouen" "Montpellier" "Brest" "Cherbourg" "Lorient" "Rochefort" "Le Havre" "Saint-Malo" "Bayonne"
+		"Bordeaux"
+		# Captains of the Hundred Years War (vanilla)
+		"La Hire" "Jean Bureau" "Bertrand du Guesclin" "Pierre de Brézé" "Jean Le Maingre"
+		# Flagships of the Marine royale and the Republic
+		"Couronne" "Soleil Royal" "Royal Louis" "Dauphin Royal" "Bucentaure" "Commerce de Marseille" "Ville de Paris"
+		# Naval victories and fleet actions
+		"Lagos" "Vélez-Málaga" "Minorque" "Fort-Royal" "Chesapeake" "Négapatam" "Trinquemalay" "Provédien" "Gondelour" "Grand-Port" "Navarin" "Fou-Tchéou"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: AIRCRAFT CARRIERS ###
+FRA_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { FRA }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	fallback_name = "Porte-avions %d"
+
+	unique = {
+		# Carriers and seaplane carriers (vanilla)
+		"Joffre" "Painlevé" "Béarn" "Commandant Teste" "Foudre" "Dixmude" "Arromanches" "La Fayette" "Bois Belleau"
+		# Presidents of the Republic (vanilla)
+		"Félix Faure" "Émile Loubet" "Armand Fallières" "Raymond Poincaré" "Alexandre Millerand" "Gaston Doumergue" "Paul Doumer" "Albert Lebrun"
+		# Expansion: marshals of the Great War (Joffre and Foch formula)
+		"Gallieni" "Lyautey" "Fayolle" "Maunoury"
+		# Expansion: pioneers of aviation (Commandant Teste formula)
+		"Clément Ader" "Guynemer" "Roland Garros" "Nungesser" "Coli" "Latham" "Pégoud" "Védrines" "Capitaine Ferber" "Delagrange" "Pilâtre de Rozier"
+		# Expansion: battles of the Great War (Dixmude formula)
+		"Douaumont" "Mort-Homme" "Argonne" "La Malmaison" "Saint-Gond" "Ourcq" "Chemin des Dames"
+	}
+}
+
+### ROLE POOL: TORPILLEURS (vanilla tag, assigned to the Bourrasque and Le Hardi classes) ###
+FRA_DE_HISTORICAL = {
+	name = "Torpedo Boats"
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Torpilleur %d"
+
+	unique = {
+		# Torpilleurs d'escadre of 1924-1940 (Bourrasque, L'Adroit, Le Hardi and Le Fier classes)
+		"Bourrasque" "Cyclone" "Mistral" "Orage" "Ouragan" "Simoun" "Siroco" "Tempête" "Tornade" "Tramontane" "Trombe" "Typhon" "L'Adroit" "L'Alcyon" "Basque" "Bordelais"
+		"Boulonnais" "Brestois" "Forbin" "Le Fortuné" "Le Foudroyant" "Fougueux" "Frondeur" "Le Mars" "La Palme" "La Railleuse" "Le Hardi" "Le Corsaire" "Le Flibustier"
+		"L'Intrépide" "Le Téméraire" "L'Aventurier" "L'Opiniâtre" "Le Fier" "L'Agile" "L'Entreprenant" "Le Farouche" "L'Alsacien" "Le Corse" "Le Breton" "Le Flamand"
+		"Le Tunisien" "Le Normand" "Le Parisien" "Le Provençal" "Le Saintongeais" "Le Niçois" "Le Savoyard"
+		# Torpilleurs légers (La Melpomène class)
+		"La Melpomène" "La Pomone" "La Flore" "L'Iphigénie" "La Bayonnaise" "La Cordelière" "L'Incomprise" "La Poursuivante"
+		# Escorteurs rapides of 1955-1960 (Le Normand class, Le Fier formula)
+		"Le Picard" "Le Gascon" "Le Lorrain" "Le Bourguignon" "Le Champenois" "L'Agenais" "Le Béarnais" "Le Vendéen"
+		# Torpilleurs de haute mer of 1884-1900
+		"Balny" "Doudart de Lagrée" "Edmond Fontaine" "Bouët-Willaumez" "Capitaine Cuny" "Challier" "Alarme" "Défi" "Coureur" "Véloce" "Grondeur" "Avant-Garde" "Archer"
+		"Turco" "Zouave" "Dragon" "Grenadier" "Lancier" "Éclair" "Sarrazin" "Tourbillon" "Mousquetaire" "Averne" "Tourmente" "Ariel" "Aquilon" "Forban" "Libellule"
+	}
+}
+
+### ROLE POOL: AVISOS ###
+FRA_AVISOS = {
+	name = "Avisos"
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Aviso %d"
+
+	unique = {
+		# Avisos de 1re classe of 1916-1922 (Marne, Arras, Ailette and Scarpe classes)
+		"Aisne" "Marne" "Meuse" "Oise" "Somme" "Yser" "Amiens" "Arras" "Baccarat" "Bapaume" "Bar-le-Duc" "Belfort" "Béthune" "Calais" "Coucy" "Craonne" "Épernay" "Épinal"
+		"Lassigny" "Les Éparges" "Liévin" "Lunéville" "Montdement" "Montmirail" "Nancy" "Péronne" "Reims" "Remiremont" "Revigny" "Tahure" "Toul" "Vauquois" "Vimy"
+		"Vitry-le-François" "Ypres" "Laffaux" "Ailette" "Escaut" "Ancre" "Scarpe" "Suippe"
+		# Avisos de 2e classe of 1916-1920 (Ardent, Friponne, Vaillante and Dubourdieu classes)
+		"Alerte" "Ardent" "Audacieuse" "Belliqueuse" "Courageuse" "Dédaigneuse" "Emporté" "Espiègle" "Étourdi" "Éveillé" "Inconstant" "Sans Souci" "Tapageuse" "Bouffonne"
+		"Chiffonne" "Diligente" "Engageante" "Impatiente" "Friponne" "Mignonne" "Surveillante" "Luronne" "Vaillante" "Conquérante" "Quentin Roosevelt" "Du Chaffault"
+		"Du Couëdic" "Dubourdieu"
+		# Avisos coloniaux (Bougainville class, 1931-1939)
+		"Bougainville" "Dumont d'Urville" "Savorgnan de Brazza" "D'Entrecasteaux" "Rigault de Genouilly" "Amiral Charner" "D'Iberville" "La Grandière" "Ville d'Ys"
+		"Beautemps-Beaupré" "La Pérouse"
+		# Avisos dragueurs of 1938-1947 (Élan and Chamois classes, with names of the 1939 programme)
+		"Élan" "La Batailleuse" "La Boudeuse" "La Capricieuse" "Commandant Bory" "Commandant Delage" "Commandant Dominé" "Commandant Duboc" "Commandant Rivière" "La Curieuse"
+		"La Gracieuse" "L'Impétueuse" "La Moqueuse" "Chamois" "Chevreuil" "Gazelle" "Surprise" "Annamite" "Commandant Amyot d'Inville" "Commandant de Pimodan"
+		"Alfred de Courcy" "Amiral Gourdon" "Enseigne Ballande" "L'Ambitieuse" "La Furieuse" "La Généreuse" "L'Heureuse" "La Joyeuse" "La Malicieuse" "La Preneuse"
+		"Commandant Ducuing" "La Rieuse" "La Sérieuse" "La Trompeuse" "La Victorieuse"
+		# Avisos-escorteurs of 1962-1970 (Commandant Rivière class)
+		"Victor Schœlcher" "Commandant Bourdais"
+	}
+}
+
+### ROLE POOL: MINE WARFARE (vanilla tag) ###
+FRA_MINELAYERS_HISTORICAL = {
+	name = "Mine Warfare"
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Mouilleur de mines %d"
+
+	unique = {
+		# Minelaying cruiser (renamed La Tour d'Auvergne in 1939) and net-layer of 1929-1935
+		"Pluton" "La Tour d'Auvergne" "Le Gladiateur"
+		# Minesweepers of 1954-1957 named after stars and constellations (Sirius class; also the WWI Aldébaran-class avisos)
+		"Sirius" "Rigel" "Antarès" "Algol" "Aldébaran" "Régulus" "Véga" "Pollux" "Croix du Sud" "Étoile Polaire" "Altaïr" "Capricorne" "Céphée" "Cassiopée" "Éridan"
+		"Sagittaire" "Achernar" "Procyon" "Arcturus" "Bételgeuse" "Bellatrix" "Dénébola" "Fomalhaut" "Canopus" "Capella" "Verseau" "Ariès" "Lyre"
+	}
+}
+
+### ROLE POOL: CORVETTES & FRIGATES ###
+FRA_CORVETTES = {
+	name = "Corvettes & Frigates"
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Corvette %d"
+
+	unique = {
+		# Flower-class corvettes ordered by France (1940) and of the Free French Naval Forces (1941-1947)
+		"La Malouine" "La Bastiaise" "La Dieppoise" "La Paimpolaise" "Aconit" "Alysse" "Commandant Détroyat" "Commandant Drogou" "Commandant d'Estienne d'Orves" "Lobelia"
+		"Mimosa" "Renoncule" "Roselys"
+		# River-class frigates of the Free French Naval Forces (1943-1944)
+		"Croix de Lorraine" "L'Aventure" "L'Escarmouche" "La Découverte"
+	}
+}
+
+### UNIVERSAL TOPIC: PROVINCES ###
+FRA_REGIONS = {
+	name = NAME_THEME_REGIONS
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Provinces and pays of the Ancien Régime
+		"Île-de-France" "Berry" "Orléanais" "Normandie" "Languedoc" "Lyonnais" "Dauphiné" "Champagne" "Aunis" "Saintonge" "Poitou" "Aquitaine" "Bourgogne" "Picardie" "Anjou"
+		"Provence" "Angoumois" "Bourbonnais" "La Marche" "Bretagne" "Gascogne" "Touraine" "Limousin" "Foix" "Auvergne" "Béarn" "Alsace" "Artois" "Roussillon" "Flandre"
+		"Franche-Comté" "Lorraine" "Barrois" "Corse" "Nivernais" "Beaujolais" "Maine" "Guyenne" "Perche" "Forez" "Comtat Venaissin" "Savoie" "Comté de Nice" "Montbéliard"
+		"Hainaut" "Cambrésis" "Navarre" "Bigorre" "Armagnac" "Quercy" "Rouergue" "Périgord" "Vivarais" "Velay" "Gévaudan" "Dombes" "Bresse" "Bugey" "Vexin" "Vermandois"
+		"Soissonnais" "Valois" "Brie" "Beauce" "Gâtinais" "Sologne" "Comminges" "Labourd" "Soule" "Cotentin" "Thiérache" "Trois-Évêchés" "Sundgau" "Principauté d'Orange"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES ###
+FRA_CITIES = {
+	name = NAME_THEME_CITIES
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Cities and ports
+		"Paris" "Marseille" "Lyon" "Toulouse" "Nice" "Nantes" "Strasbourg" "Montpellier" "Bordeaux" "Lille" "Rennes" "Reims" "Le Havre" "Saint-Étienne" "Toulon" "Grenoble"
+		"Dijon" "Nîmes" "Angers" "Villeurbanne" "Le Mans" "Saint-Denis" "Aix-en-Provence" "Clermont-Ferrand" "Brest" "Limoges" "Tours" "Amiens" "Perpignan" "Metz" "Besançon"
+		"Boulogne" "Orléans" "Mulhouse" "Rouen" "Caen" "Argenteuil" "Montreuil" "Nancy" "Roubaix" "Tourcoing" "Nanterre" "Avignon" "Vitry-sur-Seine" "Créteil" "Dunkerque"
+		"Poitiers" "Asnières-sur-Seine" "Courbevoie" "Versailles" "Colombes" "Aulnay-sous-Bois" "Rueil-Malmaison" "Pau" "Aubervilliers" "Champigny-sur-Marne" "Antibes"
+		"Béziers" "La Rochelle" "Cannes" "Calais" "Saint-Nazaire" "Mérignac" "Drancy" "Colmar" "Ajaccio" "Bourges" "La Seyne" "Quimper" "Valence" "Vénissieux" "Pessac"
+		"Troyes" "Chambéry" "Lorient" "Montauban" "Sarcelles" "Niort" "Villejuif" "Hyères" "Saint-Quentin" "Beauvais" "Épinay-sur-Seine" "Cholet" "Meaux" "Fréjus" "Vannes"
+		"La Roche-sur-Yon" "Saint-Louis" "Arles" "Clamart" "Narbonne" "Annecy" "Sartrouville" "Grasse" "Laval" "Belfort" "Évreux" "Vincennes" "Montrouge" "Sevran" "Albi"
+		"Charleville" "Suresnes" "Martigues" "Corbeil" "Saint-Ouen" "Bayonne" "Carcassonne" "Massy" "Blois" "Saint-Brieuc" "Aubagne" "Châteauroux" "Saint-Malo"
+		"Châlons-sur-Marne" "Sète" "Valenciennes" "Angoulême" "Thionville" "Arras" "Alès" "La Courneuve" "Compiègne" "Melun" "Chartres" "Poissy" "Châtillon" "Échirolles"
+		"Saint-Chamond" "Auxerre" "Nevers" "Agen" "Saint-Raphaël" "Mâcon" "Cambrai" "Dreux" "Dieppe" "Périgueux" "Vienne" "Saint-Cloud" "Yerres" "Soissons" "Ermont" "Saumur"
+		"Alençon" "Montbéliard" "Saint-Dizier" "Saintes" "Vichy" "Port-Vendres" "Granville" "Fécamp" "Honfleur" "Villefranche-sur-Mer" "Bastia" "Saint-Tropez" "Morlaix"
+		"Sedan" "Bayeux" "Senlis" "Laon" "Chaumont" "Langres" "Sens" "Autun" "Le Puy" "Aurillac" "Cahors" "Rodez" "Tarbes" "Cognac"
+	}
+}
+
+### UNIVERSAL TOPIC: COLONIES ###
+FRA_COLONIES = {
+	name = NAME_THEME_COLONIES
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Colonies, concessions and former possessions
+		"Algérie" "Indochine" "Syrie" "Le Liban" "Maroc" "Polynésie" "Tunisie" "Dahomey" "Côte d'Ivoire" "Cameroun" "Soudan" "Sénégal" "Madagascar" "Annam" "Cochinchine"
+		"Laos" "Cambodge" "Tonkin" "Afrique Équatoriale" "Acadie" "Louisiane" "Sainte-Croix" "Îles-des-Saintes" "La Désirade" "Guadeloupe" "Martinique" "Guyane" "Saint-Pierre"
+		"Miquelon" "Saint-Barthélemy" "Dominique" "Grenade" "Saint-Vincent" "Plaisance" "Sainte-Lucie" "Tobago" "Guinée" "Mauritanie" "Niger" "Haute-Volta" "Togo" "Albreda"
+		"Tchad" "Le Congo" "Gabon" "Isle de France" "Djibouti" "Mayotte" "Les Seychelles" "Les Comores" "La Réunion" "Pondichéry" "Karikal" "Mahé" "Yanaon" "Chandernagor"
+		"Kouang-Tchéou-Wan" "Tien-Tsin" "Hankou" "Shamian" "Cheikh Saïd" "Nouvelle-Calédonie" "Tahiti" "Wallis-et-Futuna" "Clipperton" "Nouvelles-Hébrides" "Oubangui-Chari"
+		"Obock" "Saint-Domingue" "Île Bourbon" "Louisbourg" "Nouvelle-France" "Fort-de-France" "Cayenne" "Saïgon" "Hanoï" "Tananarive" "Tamatave" "Dakar" "Oran" "Bizerte"
+		"Côte française des Somalis"
+	}
+}
+
+### UNIVERSAL TOPIC: MARSHALS ###
+FRA_MARSHALS = {
+	name = NAME_THEME_MARSHALS
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Marshals of France, 1180-1789 (vanilla)
+		"Albéric Clément" "Henri Clément" "Guillaume de Bournel" "Nivelon d'Arras" "Guillaume de La Tournelle" "Ferry Pasté" "Jean Guillaume de Beaumont" "Gauthier de Nemours"
+		"Héric de Beaujeu" "Renaud de Précigny" "Lancelot de Saint-Maard" "Ferry de Verneuil" "Jean d'Harcourt" "Jean Clément" "Raoul Le Flamenc" "Jean de Varennes"
+		"Simon de Melun" "Guy de Clermont de Nesle" "Foulques du Merle" "Jean de Beaumont" "Bernard de Moreuil" "Jean des Barres" "Mathieu de Trie"
+		"Robert Bertrand de Bricquebec" "Anseau de Joinville" "Charles de Montmorency" "Robert de Waurin" "Édouard de Beaujeu" "Arnoul d'Audrehem" "Rogues de Hangest"
+		"Jean Le Meingre" "Jean de Mauquenchy" "Louis de Sancerre" "Jean de Rieux" "Pierre de Rieux" "Claude de Beauvoir" "Jean de Villiers de L'Isle-Adam"
+		"Jacques de Montberon" "Gilbert Motier de La Fayette" "Antoine de Vergy" "Jean de La Baume" "Amaury de Sévérac" "Jean de Brosse" "Gilles de Montmorency-Laval"
+		"André de Lohéac" "Philippe de Culant" "Jean Poton de Xaintrailles" "Joachim Rouhault" "Jean de Lescun" "Wolfert van Borssele" "Pierre de Rohan-Gié"
+		"Philippe de Crèvecœur d'Esquerdes" "Jean de Baudricourt" "Jacques de Trivulce" "Charles d'Amboise" "Odet de Foix" "Robert Stuart d'Aubigny"
+		"Jacques de Chabannes de La Palice" "Gaspard de Coligny" "Thomas de Foix" "Anne de Montmorency" "Théodore de Trivulce" "Robert de La Marck" "Claude d'Annebault"
+		"René de Montjean" "Oudard du Biez" "Antoine de Lettes-Desprez" "Jean Caraccioli" "Jacques d'Albon de Saint-André" "Charles de Cossé" "Pierre Strozzi"
+		"Paul de La Barthe" "François de Montmorency" "François de Scépeaux" "Imbert de La Platière" "Henri de Montmorency" "Artus de Cossé-Brissac" "Gaspard de Saulx"
+		"Honorat de Savoie" "Albert de Gondi" "Roger de Saint-Lary" "Blaise de Monluc" "Armand de Gontaut-Biron" "Jacques de Goyon" "Jean d'Aumont" "Guillaume de Joyeuse"
+		"François Gouffier" "Henri de La Tour d'Auvergne" "Charles de Gontaut-Biron" "Claude de La Châtre" "Jean de Montluc de Balagny" "Jean de Beaumanoir" "Henri de Joyeuse"
+		"Urbain de Laval Boisdauphin" "Alphonse d'Ornano" "Guillaume de Hautemer" "François de Bonne" "Concino Concini" "Gilles de Courtenvaux" "Antoine de Roquelaure"
+		"Louis de La Châtre" "Pons de Lauzières-Thémines" "François de La Grange d'Arquian" "Nicolas de L'Hospital" "Charles de Choiseul-Praslin" "Jean-François de La Guiche"
+		"Honoré d'Albert" "François d'Esparbes de Lussan" "Charles de Créquy" "Jacques d'Étampes" "Charles de Goyon" "Jacques Nompar de Caumont" "François de Bassompierre"
+		"Henri de Schomberg" "Jean-Baptiste d'Ornano" "François-Annibal d'Estrées" "Timoléon d'Epinay de Saint-Luc" "Louis de Marillac" "Jean de Saint-Bonnet"
+		"Antoine Coëffier de Ruzé" "Urbain de Maillé" "Maximilien de Béthune" "Charles de Schomberg" "Charles de La Porte" "Antoine de Gramont"
+		"Jean-Baptiste Budes de Guébriant" "Philippe de La Mothe-Houdancourt" "François de L'Hospital" "Jean de Gassion" "César du Plessis-Praslin" "Josias Rantzau"
+		"Nicolas de Neufville" "Antoine d'Aumont de Rochebaron" "Henri de La Ferté-Senneterre" "Charles de Monchy" "Jacques Rouxel" "Armand Nompar de Caumont"
+		"Philippe de Clérambault" "César d'Albret" "Louis Foucault" "Jean de Schulemberg" "Abraham Fabert d'Esternay" "Jacques de Castelnau" "Bernardin Gigault"
+		"François de Créquy" "Louis de Crevant" "Godefroi d'Estrades" "Philippe de Montaut-Bénac" "Frédéric-Armand de Schomberg" "Jacques-Henri de Durfort"
+		"François d'Aubusson" "Louis Victor de Rochechouart" "François-Henri de Montmorency-Luxembourg" "Henri Louis d'Aloigny" "Guy Aldonce de Durfort" "Jean d'Estrées"
+		"Claude de Choiseul" "Jean-Armand de Joyeuse" "François de Neufville" "Louis François de Boufflers" "Anne Hilarion de Costentin" "Anne-Jules de Noailles"
+		"Nicolas de Catinat" "Claude-Louis-Hector de Villars" "Noël Bouton" "Victor Marie d'Estrées" "François Louis Rousselet" "Sébastien Le Prestre" "Conrad de Rosen"
+		"Nicolas Chalon du Blé" "René de Froulay" "Camille d'Hostun" "Nicolas Auguste de La Baume" "Henri d'Harcourt" "Ferdinand de Marsin" "Jacques Fitz-James"
+		"Charles Auguste de Goyon" "Jacques Bazin de Bezons" "Pierre de Montesquiou" "Victor-Maurice de Broglie" "Antoine-Gaston de Roquelaure" "Léonor Marie du Maine"
+		"Yves d'Alègre" "Louis d'Aubusson" "Alain Emmanuel de Coëtlogon" "Charles-Armand de Gontaut-Biron" "Jacques François de Chastenet" "Claude François Bidal"
+		"Adrien Maurice de Noailles" "Christian Louis de Montmorency-Luxembourg" "François-Marie de Broglie" "François de Franquetot" "Louis de Brancas"
+		"Louis-Auguste d'Albert d'Ailly" "Louis Armand de Brichanteau" "Louis de Gand de Mérode de Montmorency" "Jean-Baptiste de Durfort" "Jean-Baptiste Desmarets"
+		"Charles Louis Auguste Fouquet" "Maurice de Saxe" "Jean-Baptiste Louis Andrault" "Claude-Guillaume Testu" "Philippe-Charles de La Fare" "François d'Harcourt"
+		"Guy-Claude-Roland de Laval-Montmorency" "Gaspard de Clermont-Tonnerre" "Louis Charles de La Mothe-Houdancourt" "Woldemar de Lowendal"
+		"Louis-François-Armand de Vignerot du Plessis" "Jean de Fay" "Louis Antoine de Gontaut-Biron" "Daniel François de Gélas de Lautrec"
+		"Charles Frédéric de Montmorency-Luxembourg" "Louis Le Tellier" "Jean Charles de Saint-Nectaire" "Charles O'Brien de Thomond" "Gaston-Pierre de Lévis-Mirepoix"
+		"Ladislas Ignace de Bercheny" "Hubert de Brienne" "Louis Georges Érasme de Contades" "Charles de Rohan-Soubise" "Victor-François de Broglie" "Guy-Michel de Durfort"
+		"Louis de Conflans" "Jean Paul Timoléon de Cossé" "Anne Pierre d'Harcourt" "Louis de Noailles" "Philippe de Noailles" "Antoine de Nicolaï" "Charles Fitz-James"
+		"Emmanuel-Félicité de Durfort" "Louis Nicolas Victor de Félix d'Ollières" "Claude-Louis de Saint-Germain" "Guy-André-Pierre de Montmorency-Laval"
+		"Augustin-Joseph de Mailly" "Henri Joseph Bouchard d'Esparbès de Lussan" "Charles-Juste de Beauvau-Craon" "Noël Jourda de Vaux" "Philippe Henri de Ségur"
+		"Jacques Philippe de Choiseul-Stainville" "Charles Eugène Gabriel de La Croix" "Emmanuel de Croÿ-Solre" "François Gaston de Lévis" "Nicolas Luckner"
+		"Jean-Baptiste-Donatien de Vimeur"
+		# Marshals of the Empire and of France, 1804-1870
+		"Louis-Alexandre Berthier" "Joachim Murat" "Jean Lannes" "Étienne Maurice Gérard" "Bon Adrien Jeannot de Moncey" "Jean-Baptiste Jourdan" "André Masséna"
+		"Pierre Augereau" "Jean-de-Dieu Soult" "Guillaume Brune" "Édouard Mortier" "Michel Ney" "Louis Nicolas Davout" "Jean-Baptiste Bessières"
+		"François Christophe Kellermann" "François Joseph Lefebvre" "Catherine-Dominique de Pérignon" "Jean Mathieu Philibert Sérurier" "Claude-Victor Perrin"
+		"Étienne Macdonald" "Nicolas Charles Oudinot" "Louis Gabriel Suchet" "Laurent de Gouvion-Saint-Cyr" "Emmanuel de Grouchy" "Henri Clarke" "Pierre de Beurnonville"
+		"Jacques Lauriston" "Gabriel Jean Joseph Molitor" "Nicolas Joseph Maison" "Bertrand Clauzel" "Georges Mouton" "Sylvain Charles Valée" "Horace Sébastiani"
+		"Jean-Baptiste Drouet d'Erlon" "Thomas Bugeaud" "Honoré Reille" "Guillaume Dode de la Brunerie" "Rémy Exelmans" "Jean Isidore Harispe" "Jean-Baptiste Vaillant"
+		"Achille de Saint-Arnaud" "Bernard Pierre Magnan" "Boniface de Castellane" "Achille Baraguey d'Hilliers" "Aimable Pélissier" "Jacques Louis Randon"
+		"François Certain de Canrobert" "Pierre Bosquet" "Auguste Regnault de Saint-Jean d'Angély" "Adolphe Niel" "Philippe Antoine d'Ornano" "Élie Frédéric Forey"
+		"Edmond Le Bœuf"
+	}
+}
+
+### IDEOLOGY-GATED TOPIC: PRESIDENTS (democratic) ###
+FRA_PRESIDENTS = {
+	name = NAME_THEME_PRESIDENTS
+
+	for_countries = { FRA }
+
+	can_use = {
+		has_government = democratic
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Presidents of the Republic, 1848-1940 (vanilla)
+		"Louis-Napoléon Bonaparte" "Adolphe Thiers" "Patrice de Mac Mahon" "Jules Grévy" "Sadi Carnot" "Jean Casimir-Perier" "Félix Faure" "Émile Loubet" "Armand Fallières"
+		"Raymond Poincaré" "Paul Deschanel" "Alexandre Millerand" "Gaston Doumergue" "Paul Doumer" "Albert Lebrun"
+	}
+}
+
+### IDEOLOGY-GATED TOPIC: KINGS (non-aligned) ###
+FRA_KINGS = {
+	name = NAME_THEME_KINGS
+
+	for_countries = { FRA }
+
+	can_use = {
+		has_government = neutrality
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Kings of the Franks and of France, by epithet (vanilla)
+		"Pépin le Bref" "Carloman" "Charlemagne" "Louis le Pieux" "Charles le Chauve" "Louis le Bègue" "Charles le Gros" "Charles le Simple" "Raoul de Bourgogne"
+		"Louis d'Outremer" "Louis le Fainéant" "Hugues Capet" "Robert le Pieux" "Philippe l'Amoureux" "Louis le Batailleur" "Louis le Jeune" "Philippe Auguste" "Louis le Lion"
+		"Saint-Louis" "Philippe le Hardi" "Philippe le Bel" "Louis le Hutin" "Jean le Posthume" "Philippe le Long" "Charles le Bel" "Philippe de Valois" "Jean le Bon"
+		"Charles le Sage" "Charles le Bien-Aimé" "Charles le Bien Servi" "Louis le Prudent" "Charles l'Affable" "Louis le Père du Peuple" "François Ier" "Henri le Vert-Galant"
+		"Louis le Juste" "Louis le Roi-Soleil" "Louis le Bien-Aimé"
+		# Merovingian, Robertian and later kings
+		"Clovis" "Childebert" "Clotaire" "Dagobert" "Chilpéric" "Gontran" "Sigebert" "Eudes" "Robert Ier" "Lothaire" "Henri Ier" "Henri II" "François II" "Charles IX"
+		"Henri III" "Louis XVI" "Louis le Désiré" "Charles X" "Louis-Philippe"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS ###
+FRA_BIRDS = {
+	name = "Birds"
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Birds of prey and owls
+		"Autour" "Buse" "Busard" "Crécerelle" "Émouchet" "Hobereau" "Émerillon" "Pygargue" "Balbuzard" "Gypaète" "Circaète" "Hibou" "Chouette" "Effraie" "Grand-Duc" "Harfang"
+		# Seabirds and waterbirds
+		"Mouette" "Goéland" "Pétrel" "Fulmar" "Puffin" "Cormoran" "Fou de Bassan" "Pélican" "Héron" "Grue" "Ibis" "Spatule" "Cygne" "Eider" "Macreuse" "Plongeon" "Grèbe"
+		"Courlis" "Bécasse" "Vanneau" "Pluvier" "Martin-Pêcheur"
+		# Other birds
+		"Corbeau" "Corneille" "Choucas" "Geai" "Martinet" "Alouette" "Rossignol" "Fauvette" "Mésange" "Pinson" "Roitelet" "Faisan" "Perdrix" "Caille" "Coq Gaulois"
+	}
+}
+
+### UNIVERSAL TOPIC: AQUATIC LIFE ###
+FRA_FISH = {
+	name = "Aquatic Life"
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Fish
+		"Maquereau" "Sardine" "Hareng" "Germon" "Merlan" "Morue" "Turbot" "Barbue" "Raie" "Pastenague" "Congre" "Murène" "Lamproie" "Saumon" "Brochet" "Rascasse" "Rouget"
+		"Mérou" "Squale" "Barracuda" "Torpille" "Baudroie" "Daurade Royale" "Thazard"
+		# Sea mammals
+		"Orque" "Cachalot" "Baleine" "Rorqual" "Béluga" "Lamantin"
+		# Shellfish and other sea creatures
+		"Homard" "Langouste" "Tourteau" "Pieuvre" "Calmar" "Seiche" "Hippocampe" "Nacre" "Murex" "Étoile de Mer"
+	}
+}
+
+### UNIVERSAL TOPIC: MYTHOLOGY ###
+FRA_MYTHOLOGY = {
+	name = "Mythology"
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Gods, heroes and figures of antiquity borne by French ships of the line
+		"Jupiter" "Neptune" "Apollon" "Mercure" "Hercule" "Thésée" "Jason" "Ulysse" "Hector" "Atlas" "Minotaure" "Polyphème" "Sphinx" "Romulus" "Éole" "Amphion" "Nestor"
+		"Pyrrhus" "Agamemnon" "Annibal" "Scipion" "Brutus"
+		# Breton, Gaulish and medieval legend
+		"Dahut" "Mélusine" "Morgane" "Viviane" "Brocéliande" "Merlin" "Lancelot" "Perceval" "Tristan" "Iseut" "Ankou" "Vouivre" "Graoully" "Gargouille" "Gargantua" "Taranis"
+		"Teutatès" "Bélénos" "Épona" "Cernunnos" "Ogmios" "Olifant" "Ogier"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS & LAKES ###
+FRA_RIVERS = {
+	name = "Rivers & Lakes"
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Rivers
+		"Loire" "Seine" "Garonne" "Rhône" "Rhin" "Saône" "Moselle" "Doubs" "Isère" "Drôme" "Ardèche" "Hérault" "Aude" "Tarn" "Aveyron" "Dordogne" "Charente" "Creuse" "Indre"
+		"Allier" "Yonne" "Aube" "Sarthe" "Mayenne" "Vilaine" "Rance" "Odet" "Aulne" "Blavet" "Orne" "Eure" "Epte" "Bresle" "Authie" "Canche" "Sambre" "Meurthe" "Durance"
+		"Adour" "Nive" "Bidassoa" "Vidourle" "Gironde" "Ain" "Lez" "Vézère" "Loing" "Essonne"
+		# Lakes
+		"Léman" "Lac du Bourget" "Lac de Grand-Lieu" "Étang de Berre"
+	}
+}
+
+### UNIVERSAL TOPIC: BATTLES ###
+FRA_BATTLES = {
+	name = "Battles"
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Victories of the Frankish and royal armies
+		"Tolbiac" "Vouillé" "Taillebourg" "Castillon" "Formigny" "Patay" "Marignan" "Cérisoles" "Les Dunes" "Steinkerque" "Neerwinden" "Denain" "Fontenoy" "Lawfeld" "Raucoux"
+		"Hastenbeck" "Yorktown" "Fornoue" "Agnadel" "Ravenne" "Lens" "Turckheim" "Saint-Cast" "Clostercamp" "Carillon" "Monongahela" "Sainte-Foy" "Cassel" "Seneffe"
+		# Colonial and later victories
+		"Mazagran" "Constantine" "Coulmiers" "Tuyen Quang" "Son Tay" "Lang Son"
+	}
+}
+
+### UNIVERSAL TOPIC: HEROES ###
+FRA_HEROES = {
+	name = "Heroes & Explorers"
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Explorers and navigators
+		"Jacques Cartier" "Marion-Dufresne" "Surville" "Freycinet" "Duperrey" "Bellot" "René Caillié" "Auguste Pavie" "Jean-Baptiste Marchand" "Fernand Foureau"
+		"Paul Flatters" "Émile Gentil" "Charles de Foucauld" "Paul Crampel" "Parfait-Louis Monteil"
+		# Builders and scholars
+		"Gustave Eiffel" "Ferdinand de Lesseps" "Marie Curie" "Champollion"
+		# Writers, artists and composers
+		"Molière" "Montesquieu" "Pierre Corneille" "Jean Racine" "Jean de La Fontaine" "François Rabelais" "Michel de Montaigne" "Honoré de Balzac" "Gustave Flaubert"
+		"Émile Zola" "Jules Verne" "Pierre Loti" "Chateaubriand" "Alexandre Dumas" "Hector Berlioz" "Claude Debussy" "Auguste Rodin" "Claude Monet" "Eugène Delacroix"
+	}
+}
+
+### UNIVERSAL TOPIC: WIND, SKY & SEA ###
+FRA_NATURE = {
+	name = "Wind, Sky & Sea"
+
+	for_countries = { FRA }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Winds and weather
+		"Rafale" "Mousson" "Harmattan" "Autan" "Bise" "Cers" "Zéphyr" "Noroît" "Suroît" "Galerne" "Levant" "Ponant" "Brise" "Borée" "Alizé"
+		# Sky and sea
+		"Tonnerre" "Soleil" "Lune" "Étoile" "Comète" "Météore" "Éclipse" "Zénith" "Équinoxe" "Solstice" "Crépuscule" "Arc-en-Ciel" "Brume" "Grêle" "Givre" "Embrun" "Ressac"
+		"Houle" "Marée" "Mascaret"
+	}
+}
+
+### IDEOLOGY-GATED TOPIC: REPUBLICAN IDEALS (democratic) ###
+FRA_REPUBLIC = {
+	name = "Republican Ideals"
+
+	for_countries = { FRA }
+
+	can_use = {
+		has_government = democratic
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Ships of the Revolutionary navy
+		"Droits de l'Homme" "Républicain" "Tricolore" "Quatorze Juillet" "Constitution" "Révolution" "Ça Ira" "Barra" "Viala" "Jemmapes" "Hondschoote"
+		# Ideals and symbols
+		"Égalité" "Fraternité" "Concorde" "Fédération" "Citoyen" "Souveraineté" "Marianne" "Bastille" "Jeu de Paume" "Déclaration" "Suffrage Universel" "Laïcité" "Indivisible"
+		"Patriote"
+		# Republicans
+		"Jean-Jacques Rousseau" "Abbé Grégoire" "Ledru-Rollin" "Lamartine" "Benjamin Constant" "Jules Favre" "Jules Simon" "Aristide Briand" "Jean Macé" "Ferdinand Buisson"
+	}
+}
+
+### IDEOLOGY-GATED TOPIC: COMMUNE & LABOUR (communist) ###
+FRA_SOCIALISM = {
+	name = "Commune & Labour"
+
+	for_countries = { FRA }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# The Mountain and the Conspiracy of Equals
+		"Montagnard" "Sans-Culotte" "Robespierre" "Saint-Just" "Couthon" "Babeuf" "Buonarroti"
+		# The Paris Commune
+		"Commune de Paris" "Communard" "Mur des Fédérés" "Delescluze" "Varlin" "Rossel" "Flourens" "Ferré" "Jules Vallès" "Gustave Courbet" "Eugène Pottier"
+		"Jean-Baptiste Clément" "Louise Michel" "Nathalie Lemel" "André Léo" "Élisée Reclus"
+		# Socialists and the labour movement
+		"Saint-Simon" "Charles Fourier" "Étienne Cabet" "Proudhon" "Blanqui" "Barbès" "Louis Blanc" "Pierre Leroux" "Flora Tristan" "Victor Considerant" "Jean Jaurès"
+		"Édouard Vaillant" "Jules Guesde" "Paul Lafargue" "Jean Allemane" "Fernand Pelloutier" "Marcel Sembat" "Henri Barbusse"
+		# Songs and symbols
+		"Internationale" "Carmagnole" "Drapeau Rouge" "Canuts"
+	}
+}
+
+### IDEOLOGY-GATED TOPIC: NATIONAL GLORY (fascist) ###
+FRA_NATIONALISM = {
+	name = "National Glory"
+
+	for_countries = { FRA }
+
+	can_use = {
+		has_government = fascism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Virtues
+		"Honneur" "Grandeur" "Ordre" "Autorité" "Discipline" "Sacrifice" "Victoire" "Devoir" "Fidélité" "Vaillance" "Revanche" "Montjoie" "Courage" "Bravoure" "Loyauté"
+		"Ténacité" "Constance" "Abnégation" "Héroïsme" "Persévérance"
+		# Heroes of the nation
+		"Bayard" "Turenne" "Godefroy de Bouillon" "Jeanne Hachette" "Colonel Driant" "Maurice Barrès" "Paul Déroulède"
+		# Feats of arms and last stands
+		"Bouvines" "Rocroi" "Sidi-Brahim" "Camerone" "Bazeilles" "Reichshoffen" "Gravelotte" "Loigny" "Gergovie"
+	}
+}
+
+### IDEOLOGY-GATED TOPIC: IMPERIAL GLORY (non-aligned) ###
+FRA_EMPIRE = {
+	name = "Imperial Glory"
+
+	for_countries = { FRA }
+
+	can_use = {
+		has_government = neutrality
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Navire %d"
+
+	unique = {
+		# Victories of the First Empire and the Italian campaigns
+		"Austerlitz" "Iéna" "Eylau" "Friedland" "Wagram" "La Moskowa" "Rivoli" "Arcole" "Marengo" "Montebello" "Essling" "Auerstaedt" "Ulm" "Elchingen" "Lodi" "Pyramides"
+		"Lützen" "Bautzen" "Dresde" "Champaubert" "Ligny"
+		# Victories of the Second Empire
+		"Alma" "Inkerman" "Malakoff" "Sébastopol" "Magenta" "Solférino" "Palestro" "Puebla"
+		# Imperial names and titles
+		"Empire" "Impérial" "Impératrice" "Grande Armée" "Garde Impériale" "Aiglon" "Napoléon" "Joséphine" "Hortense" "Eugénie" "Napoléon III"
+	}
+}

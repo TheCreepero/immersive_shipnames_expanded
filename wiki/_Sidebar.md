@@ -11,6 +11,7 @@
 - [Cuba](Cuba)
 - [Denmark](Denmark)
 - [Finland](Finland)
+- [France](France)
 - [Iran](Iran)
 - [Italy](Italy)
 - [Mexico](Mexico)

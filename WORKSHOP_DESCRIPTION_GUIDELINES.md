@@ -44,6 +44,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 | `CHL_ship_names.txt` | Chile | `CHL` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
 | `CUB_ship_names.txt` | Cuba | `CUB` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
 | `DEN_ship_names.txt` | Denmark | `DEN` | Included (DD, SS, CL, CA, BB, BC, CV, 8 Thematic Topics) |
+| `ENG_ship_names.txt` | United Kingdom | `ENG` | Included (DD, SS, CL, CA, BB, BC, CV, 30 Thematic Topics, 11 Role Pools, 43 communist WLNS lists mirroring the HMS lists) |
 | `FIN_ship_names.txt` | Finland | `FIN` | Included (DD, SS, CL, CA, BB, BC, CV, 13 Thematic Topics) |
 | `FRA_ship_names.txt` | France | `FRA` | Included (DD, SS, CL, CA, BB, BC, CV, 17 Thematic Topics, 4 Role Pools) |
 | `ITA_ship_names.txt` | Italy | `ITA` | Included (DD, SS, CL, CA, BB, BC, CV, 17 Thematic Topics, 6 Role Pools) |
@@ -64,7 +65,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 ## Current Description Template (BBCode)
 
 ```bbcode
-More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, Italy, Peru, Romania, Canada, the United States, and France. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
+More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, Italy, Peru, Romania, Canada, the United States, France, and the United Kingdom. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
 Check out my other mods:
 - [url=https://steamcommunity.com/workshop/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
@@ -156,6 +157,10 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 [b]Turkey[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
 - Added 11 universal thematic lists: Sultans & Khans, Admirals, Cities & Ports, Provinces, Rivers, Mountains & Hills, Battles, Birds, Aquatic Life, Predators, and Virtues.
+
+[b]United Kingdom[/b]
+- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV), keeping vanilla's depth, with the Royal Navy's destroyer, cruiser, battleship and carrier lineages traced back through the Victorian navy to the ships of the line, for a full wartime building programme.
+- Added 23 universal thematic lists to vanilla's seven (Counties, Cities, Colonies, Kings, Battles, Rivers, Mythology): Admirals, Explorers & Navigators, Generals, Poets & Writers, Saints, Ancient Britain, Shakespeare, Valour & Virtues, Wind, Sky & Sea, Birds, Aquatic Life, Wild Beasts, Flowers, Trees, Gems, Castles, Isles, Lochs & Lakes, Hills & Mountains, Dances, and democratic, monarchist and Jacobite ideological pools, plus role lists for escort destroyers, anti-aircraft cruisers, light and escort carriers, monitors, minelayers, minesweepers, sloops, frigates, gunboats and armed merchant cruisers. The communist workers' navy lists mirrored all of it without royal names and gained a Radicals & Labour pool.
 
 [b]United States[/b]
 - Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV), keeping vanilla's depth and its Confederate lists, with deeper cruiser, carrier and capital-ship lists for a full wartime building programme.

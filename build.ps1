@@ -691,9 +691,9 @@ function Get-RolePoolSuffixes {
         'AUXILIARY_CRUISERS', 'TRAINING_SHIPS', 'ICEBREAKERS', 'SUBMARINE_TENDERS', 'STATE_YACHTS',
         'AA_CRUISERS',
         # Vanilla tags that vanilla script still assigns with name_group (USA: the starting Oglala Class and the
-        # focus-built Casablanca Class; FRA: the starting Bourrasque and Le Hardi classes), so the role pool keeps
-        # its vanilla tag instead of the catalogue suffix
-        'MINELAYERS_HISTORICAL', 'CVL_HISTORICAL', 'DE_HISTORICAL'
+        # focus-built Casablanca Class; FRA: the starting Bourrasque and Le Hardi classes; ENG: the starting monitors
+        # and anti-aircraft cruisers), so the role pool keeps its vanilla tag instead of the catalogue suffix
+        'MINELAYERS_HISTORICAL', 'CVL_HISTORICAL', 'DE_HISTORICAL', 'BM_HISTORICAL', 'CLAA_HISTORICAL'
     )
 }
 
@@ -856,6 +856,8 @@ function Get-NamelistAuditFindings {
     }
     $hulls = @('DD', 'SS', 'CL', 'CA', 'BB', 'BC', 'CV')
     $roleTags = @(Get-RolePoolSuffixes | ForEach-Object { "${Tag}_$_" })
+    # Variant sets the author extended by mirroring the main set, listed per nation in the canon (ENG's communist lists)
+    $mirroredSets = @(if ($Canon -and $Canon.mirroredVariantSets -and $Canon.mirroredVariantSets.PSObject.Properties[$Tag]) { $Canon.mirroredVariantSets.$Tag })
 
     $byClass = @{}
     $themes = @()
@@ -863,16 +865,20 @@ function Get-NamelistAuditFindings {
     $variants = @()
     foreach ($g in $Groups) {
         $m = [regex]::Match($g.GroupTag, "^$([regex]::Escape($Tag))_(DD|SS|CL|CA|BB|BC|CV)_HISTORICAL$")
-        # Regime-variant hull group: a can_use-gated second hull set kept from vanilla, possibly under the breakaway's
-        # tag (USA's Confederate lists, shared with CSA: CSA_DD_CONFEDERATE, USA_BB_CONFEDERATE)
-        $vm = if (-not $m.Success -and $g.HasCanUse) { [regex]::Match($g.GroupTag, '^[A-Z0-9]{3}_(DD|SS|CL|CA|BB|BC|CV)_([A-Z0-9]+)$') } else { $null }
+        # Regime-variant group: a can_use-gated second set kept from vanilla, possibly under the breakaway's tag (USA's
+        # Confederate lists, shared with CSA: CSA_DD_CONFEDERATE, USA_BB_CONFEDERATE). Its base is a hull, or, in a set the
+        # author extended by mirroring the main set (ENG's communist lists), also a role or thematic pool (ENG_DE_COMMUNISM)
+        $vm = if (-not $m.Success -and $g.HasCanUse) { [regex]::Match($g.GroupTag, '^[A-Z0-9]{3}_([A-Z0-9_]+?)_([A-Z0-9]+)$') } else { $null }
         # Only the vanilla sets listed in the canon (variantSets) qualify; any other gated pool is graded as a thematic pool
-        $isVariant = $vm -and $vm.Success -and $Canon -and @($Canon.variantSets) -contains $vm.Groups[2].Value
+        $isVariant = $vm -and $vm.Success -and $Canon -and @($Canon.variantSets) -contains $vm.Groups[2].Value -and
+            ($hulls -contains $vm.Groups[1].Value -or $mirroredSets -contains $vm.Groups[2].Value)
         $cls = if ($m.Success) { $m.Groups[1].Value } elseif ($roleTags -contains $g.GroupTag) { 'ROLE' } elseif ($isVariant) { 'VARIANT' } else { 'THEME' }
         $g | Add-Member -NotePropertyName Class -NotePropertyValue $cls -Force
         $g | Add-Member -NotePropertyName Target -NotePropertyValue $quotas[$cls].Target -Force
         if ($cls -eq 'THEME') { $themes += $g } elseif ($cls -eq 'ROLE') { $roles += $g } elseif ($cls -eq 'VARIANT') {
-            $g | Add-Member -NotePropertyName VariantHull -NotePropertyValue $vm.Groups[1].Value -Force
+            $base = $vm.Groups[1].Value
+            $g | Add-Member -NotePropertyName VariantBase -NotePropertyValue $base -Force
+            $g | Add-Member -NotePropertyName VariantHull -NotePropertyValue $(if ($hulls -contains $base) { $base } else { $null }) -Force
             $g | Add-Member -NotePropertyName VariantSet -NotePropertyValue $vm.Groups[2].Value -Force
             $variants += $g
         } else { $byClass[$cls] = $g }
@@ -938,13 +944,34 @@ function Get-NamelistAuditFindings {
         }
     }
     if ($variants.Count -gt 0) {
-        $sets = @($variants | Group-Object VariantSet | ForEach-Object { "$($_.Name) ($(($_.Group | ForEach-Object { "$($_.VariantHull) $($_.Count)" }) -join ', '))" })
-        Add-Finding 'INFO' 'VariantSet' '-' "Regime-variant hull sets kept from vanilla: $($sets -join '; ')"
-        # A variant set is vanilla content kept for parity; a tag vanilla does not define is a newly authored set
+        $sets = @($variants | Group-Object VariantSet | ForEach-Object { "$($_.Name) ($(($_.Group | ForEach-Object { "$($_.VariantBase) $($_.Count)" }) -join ', '))" })
+        Add-Finding 'INFO' 'VariantSet' '-' "Regime-variant sets kept from vanilla: $($sets -join '; ')"
+        # The main-set group a mirrored variant copies: <TAG>_<BASE>_HISTORICAL, else the pool <TAG>_<BASE>
+        $definedTags = @($Groups | ForEach-Object { $_.GroupTag })
+        $counterpartOf = { param($v) @("${Tag}_$($v.VariantBase)_HISTORICAL", "${Tag}_$($v.VariantBase)") | Where-Object { $definedTags -contains $_ } | Select-Object -First 1 }
+        # A variant set is vanilla content kept for parity; a tag vanilla does not define is a newly authored set, unless the
+        # author extended the set by mirroring the main set (canon mirroredVariantSets) and the group copies a main-set group
         if ($null -ne $VanillaGroups) {
             $vanillaTags = @($VanillaGroups | ForEach-Object { $_.GroupTag })
             foreach ($g in ($variants | Where-Object { $vanillaTags -notcontains $_.GroupTag })) {
-                Add-Finding 'FAIL' 'VariantSet' $g.GroupTag "Not a vanilla group; regime-variant hull sets are kept from vanilla, never authored"
+                $mirrored = $mirroredSets -contains $g.VariantSet
+                if ($mirrored -and (& $counterpartOf $g)) { continue }
+                $why = if ($mirrored) { "mirrors no main-set group (${Tag}_$($g.VariantBase)_HISTORICAL or ${Tag}_$($g.VariantBase))" } else { 'regime-variant hull sets are kept from vanilla, never authored' }
+                Add-Finding 'FAIL' 'VariantSet' $g.GroupTag "Not a vanilla group; $why"
+            }
+        }
+        # A mirrored copy leaves some names out by design (ENG: royal names); the counts show an edit made to one side only
+        foreach ($set in @($variants | Where-Object { $mirroredSets -contains $_.VariantSet } | Group-Object VariantSet)) {
+            $parts = @(foreach ($g in $set.Group) {
+                $c = & $counterpartOf $g
+                if (-not $c) { continue }
+                $main = @($Groups | Where-Object { $_.GroupTag -eq $c })[0]
+                $left = @($main.Names | Where-Object { $g.Names -cnotcontains $_ }).Count
+                $own = @($g.Names | Where-Object { $main.Names -cnotcontains $_ }).Count
+                if ($left -or $own) { "$($g.VariantBase) -$left/+$own" }
+            })
+            if ($parts.Count -gt 0) {
+                Add-Finding 'INFO' 'VariantMirror' $set.Name "Names left out of (-) or added to (+) the mirrored copies: $($parts -join ', ')"
             }
         }
     }
@@ -982,6 +1009,16 @@ function Get-NamelistAuditFindings {
                 $inter = @($ga.Names | Where-Object { $gb.Names -ccontains $_ } | Select-Object -Unique)
                 if ($inter.Count -gt 0) {
                     Add-Finding 'FAIL' 'CrossClass' "$($set.Name) $($ga.VariantHull)/$($gb.VariantHull)" (Format-NameList $inter)
+                }
+            }
+        }
+        # Mirrored role pools stay apart from the set's major hulls, as in the main set
+        $vRoles = @($set.Group | Where-Object { $roleTags -contains "${Tag}_$($_.VariantBase)" -or $roleTags -contains "${Tag}_$($_.VariantBase)_HISTORICAL" })
+        foreach ($r in $vRoles) {
+            foreach ($h in $vMajor) {
+                $inter = @($r.Names | Where-Object { $h.Names -ccontains $_ } | Select-Object -Unique)
+                if ($inter.Count -gt 0) {
+                    Add-Finding 'FAIL' 'RoleOverlap' "$($set.Name) $($r.VariantBase)/$($h.VariantHull)" (Format-NameList $inter)
                 }
             }
         }
@@ -1171,7 +1208,7 @@ function Get-NamelistAuditFindings {
                     if ($cells.Count -lt 2 -or $cells[-1] -match '`') { continue }
                     foreach ($sample in ($cells[-1] -split ',')) {
                         $s = $sample.Trim().Trim('*', '_').Trim()
-                        if (-not $s -or $s -match '^(etc\.?|\.\.\.|…)$') { continue }
+                        if (-not $s -or $s -match '^(etc\.?|\.\.\.|\u2026)$') { continue }
                         $pattern = '(?<![\p{L}\p{N}])' + [regex]::Escape($s) + '(?![\p{L}\p{N}])'
                         if (-not @($g.Names | Where-Object { $_ -cmatch $pattern }).Count) {
                             $staleSamples.Add("$($g.GroupTag -replace "^$([regex]::Escape($Tag))_", ''): $s")
@@ -1380,7 +1417,10 @@ function Invoke-SyncShipTypeCanon {
         }
         [void]$sb.AppendLine('  },')
         # Curated by hand like the class rules: suffixes of vanilla regime-variant hull sets (docs/isne-agent-guide.md section 2D)
-        [void]$sb.AppendLine("  `"variantSets`": [$(& $join @($canon.variantSets))]")
+        [void]$sb.AppendLine("  `"variantSets`": [$(& $join @($canon.variantSets))],")
+        # Curated by hand, per nation: variant sets the author extended by mirroring the main set (ENG's communist lists; section 2D)
+        $mirrored = @($canon.mirroredVariantSets.PSObject.Properties | ForEach-Object { "`"$($_.Name)`": [$(& $join @($_.Value))]" }) -join ', '
+        [void]$sb.AppendLine("  `"mirroredVariantSets`": { $mirrored }")
         [void]$sb.AppendLine('}')
         [System.IO.File]::WriteAllText($ShipTypeCanonPath, $sb.ToString(), (New-Object System.Text.UTF8Encoding $false))
         Write-Host "Wrote $ShipTypeCanonPath (tokens and meta refreshed; class rules preserved)."

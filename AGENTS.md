@@ -4,7 +4,7 @@ Shared rules for every mod in this tree (file encodings, build commands, engine 
 
 ## What this mod is
 - Ship name lists, one file per nation at the vanilla path `common/units/names_ships/<TAG>_ship_names.txt`, so the mod file shadows the vanilla file whole [LOAD-010]; Workshop id 3807415216.
-- Every nation has hull groups `<TAG>_<HULL>_HISTORICAL` and thematic pools `<TAG>_<THEME>`, optional role pools on real precedent, and vanilla's regime-variant hull sets kept as vanilla built them (guide section 2).
+- Every nation has hull groups `<TAG>_<HULL>_HISTORICAL` and thematic pools `<TAG>_<THEME>`, optional role pools on real precedent, and vanilla's regime-variant hull sets kept as vanilla built them or, on the author's word, mirrored from the main set (guide section 2).
 - `tools/`, `tests/BuildEngine.Tests.ps1`, `tests/Run-Tests.ps1`, `tests/Knowledge.Tests.ps1` and `.github/workflows/ci.yml` are copies the Manager syncs; a hook in `.claude/hooks/` refuses edits to them. The skill mirrors under `.agents/skills/` are kept by hand, line for line (guide section 9).
 
 ## Mod invariants

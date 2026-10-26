@@ -380,6 +380,78 @@ Describe "build.ps1 Helper: Get-NamelistAuditFindings" {
         }
     }
 
+    It "Accepts a mirrored variant set (canon mirroredVariantSets) with hull, role and thematic copies of main-set groups" {
+        $gate = "`tfor_countries = { TST }`n`tcan_use = { has_government = communism }"
+        $mirror = ((New-FixtureGroup 'TST_DD_COMMUNIST' 'ship_hull_light destroyer' (New-NameRange 'Dd' 99) 'TWS ') +
+            (New-FixtureGroup 'TST_CL_COMMUNISM' 'ship_hull_cruiser light_cruiser' (New-NameRange 'Cl' 50) 'TWS ') +
+            (New-FixtureGroup 'TST_MINELAYERS_COMMUNISM' '' @('Ml 1', 'Ml 2') 'TWS ') +
+            (New-FixtureGroup 'TST_BIRDS_COMMUNIST' '' ((New-NameRange 'BIRDS' 30) + 'Red Bird') 'TWS ')) -replace "`tfor_countries = \{ TST \}", $gate
+        $main = (Get-CompliantFixtureText) + (New-FixtureGroup 'TST_MINELAYERS' '' (New-NameRange 'Ml' 20) 'TNS ')
+        # The canon lists mirrored sets per nation (ENG); the fixture nation gets its own entry
+        $canon = $script:Canon | ConvertTo-Json -Depth 6 | ConvertFrom-Json
+        $canon.mirroredVariantSets | Add-Member -NotePropertyName TST -NotePropertyValue @('COMMUNISM', 'COMMUNIST')
+        $tempFile = [System.IO.Path]::GetTempFileName()
+        try {
+            [System.IO.File]::WriteAllText($tempFile, $main, (New-Object System.Text.UTF8Encoding $false))
+            $vanilla = Get-NamelistGroups -Path $tempFile
+            $audit = {
+                param([string]$Text)
+                [System.IO.File]::WriteAllText($tempFile, $Text, (New-Object System.Text.UTF8Encoding $false))
+                return , (Get-NamelistAuditFindings -Groups (Get-NamelistGroups -Path $tempFile) -Tag 'TST' -VanillaGroups $vanilla -Canon $canon)
+            }
+
+            # Copies that are not vanilla groups pass when each mirrors a main-set group; the counts show how far they differ
+            $findings = & $audit ($main + $mirror)
+            @($findings | Where-Object { $_.Severity -ne 'INFO' }).Count | Should -Be 0
+            $info = @($findings | Where-Object { $_.Check -eq 'VariantMirror' -and $_.Group -eq 'COMMUNIST' })
+            $info.Count | Should -Be 1
+            $info[0].Detail | Should -Match 'DD -1/\+0, BIRDS -5/\+1'
+
+            # A copy of a group the main set does not have is a newly authored list
+            $orphan = (New-FixtureGroup 'TST_GEMS_COMMUNIST' '' (New-NameRange 'Gem' 35) 'TWS ') -replace "`tfor_countries = \{ TST \}", $gate
+            $findings = & $audit ($main + $mirror + $orphan)
+            $f = @($findings | Where-Object { $_.Check -eq 'VariantSet' -and $_.Severity -eq 'FAIL' })
+            $f.Count | Should -Be 1
+            $f[0].Group | Should -Be 'TST_GEMS_COMMUNIST'
+            $f[0].Detail | Should -Match 'mirrors no main-set group'
+
+            # A mirrored role pool stays apart from the set's major hulls
+            $findings = & $audit ($main + ($mirror -replace '"Ml 2"', '"Cl 1"'))
+            $f = @($findings | Where-Object { $_.Check -eq 'RoleOverlap' })
+            $f.Count | Should -Be 1
+            $f[0].Group | Should -Be 'COMMUNISM MINELAYERS/CL'
+        }
+        finally {
+            if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
+        }
+    }
+
+    It "Keeps gated _COMMUNIST pools out of a mirrored set for a nation the canon does not list, and a CONFEDERATE thematic base out of any set" {
+        $gate = "`tfor_countries = { TST }`n`tcan_use = { has_government = communism }"
+        $copies = ((New-FixtureGroup 'TST_DD_COMMUNIST' 'ship_hull_light destroyer' (New-NameRange 'Dd' 99) 'TWS ') +
+            (New-FixtureGroup 'TST_BIRDS_COMMUNIST' '' (New-NameRange 'Rb' 35) 'TNS ' '"Red Birds"')) -replace "`tfor_countries = \{ TST \}", $gate
+        $confederate = (New-FixtureGroup 'TST_BIRDS_CONFEDERATE' '' (New-NameRange 'Cb' 35) 'TNS ' '"Southern Birds"') -replace "`tfor_countries = \{ TST \}", "`tfor_countries = { TST }`n`tcan_use = { tag = TST }"
+        $main = Get-CompliantFixtureText
+        $tempFile = [System.IO.Path]::GetTempFileName()
+        try {
+            [System.IO.File]::WriteAllText($tempFile, $main, (New-Object System.Text.UTF8Encoding $false))
+            $vanilla = Get-NamelistGroups -Path $tempFile
+            [System.IO.File]::WriteAllText($tempFile, ($main + $copies + $confederate), (New-Object System.Text.UTF8Encoding $false))
+            $findings = Get-NamelistAuditFindings -Groups (Get-NamelistGroups -Path $tempFile) -Tag 'TST' -VanillaGroups $vanilla -Canon $script:Canon
+            # The hull copy is a newly authored variant group; the thematic copies stay ordinary pools
+            $f = @($findings | Where-Object { $_.Check -eq 'VariantSet' -and $_.Severity -eq 'FAIL' })
+            $f.Count | Should -Be 1
+            $f[0].Group | Should -Be 'TST_DD_COMMUNIST'
+            @($findings | Where-Object { $_.Check -eq 'VariantMirror' }).Count | Should -Be 0
+            $info = @($findings | Where-Object { $_.Check -eq 'VariantSet' -and $_.Severity -eq 'INFO' })
+            $info[0].Detail | Should -Match 'COMMUNIST \(DD 99\)'
+            $info[0].Detail | Should -Not -Match 'BIRDS'
+        }
+        finally {
+            if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
+        }
+    }
+
     It "Fails a can_use gated behind a national focus (CanUseTrigger)" {
         $gated = (New-FixtureGroup 'TST_FASCISM' '' (New-NameRange 'Fa' 35) 'TNS ' '"Regime"') -replace "(`tfor_countries = \{ TST \})", "`$1`n`tcan_use = { has_completed_focus = TST_some_focus }"
         $findings = Invoke-FixtureAudit ((Get-CompliantFixtureText) + $gated)

@@ -29,6 +29,7 @@
 | [Romania](Romania) | `ROM` | 24 | `ROM_ship_names.txt` |
 | [Sweden](Sweden) | `SWE` | 18 | `SWE_ship_names.txt` |
 | [Turkey](Turkey) | `TUR` | 18 | `TUR_ship_names.txt` |
+| [United Kingdom](United-Kingdom) | `ENG` | 91 | `ENG_ship_names.txt` |
 | [United States](United-States) | `USA` | 41 | `USA_ship_names.txt` |
 | [Yugoslavia](Yugoslavia) | `YUG` | 16 | `YUG_ship_names.txt` |
 

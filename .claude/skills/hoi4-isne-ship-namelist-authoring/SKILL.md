@@ -86,7 +86,7 @@ Role-pool specifics beyond guide section 2C: fallback in native indefinite nomin
 - **Anachronisms** (divisions or cities created after 1945).
 - **Prefix usage** (e.g. `NRB `, or none).
 - **Tags vanilla script assigns** (printed under the table): starting variants and focus rewards pick a list with `name_group`, so those tags must stay defined (guide section 7). A hull-bound sub-type list among them (the USA's `USA_CVL_HISTORICAL`) becomes a role pool under its vanilla tag; add the suffix to `Get-RolePoolSuffixes`.
-- **Regime-variant hull sets** (the USA's Confederate lists): keep and repair, never extend or rebuild (guide section 2D).
+- **Regime-variant hull sets** (the USA's Confederate lists): keep and repair, never extend or rebuild, unless the author asks for a mirror of the main set (ENG's communist lists; guide section 2D).
 - **Deep vanilla files** (USA): work as a delta. Keep every list, fix it, decouple it and add pools; pull bulk class rosters by script from list pages instead of through the researcher, and let the dossier cover conventions, decoupling rulings and verification.
 
 ### Step 1: Researcher dispatch

@@ -1,0 +1,3157 @@
+##### UNITED KINGDOM NAVAL NAME LISTS (ISNE) #####
+# Two sets, as in vanilla: the Royal Navy lists (prefix HMS) for every government except communism, and the
+# workers' navy lists (prefix WLNS) for a communist Britain, which mirror the HMS lists without royal names.
+# ENG_DE, ENG_CLAA, ENG_CVL, ENG_BM and ENG_MINELAYERS_HISTORICAL keep their vanilla tags as universal role pools:
+# vanilla history assigns them, with the seven hull groups, to the starting variants.
+# Within each set the CL, CA, BB, BC and CV lists share no name, and no role pool shares a name with them.
+
+##### ROYAL NAVY (HMS): every government except communism #####
+
+### SHIP-TYPE SPECIFIC: DESTROYERS ###
+ENG_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "HMS "
+	fallback_name = "Destroyer %s"
+
+	unique = {
+		# 1934-1945 classes, from the G class: alphabetical flotillas, Tribals, wartime emergency flotillas, Battle and Weapon classes
+		"Gallant" "Garland" "Gipsy" "Glowworm" "Grafton" "Grenade" "Grenville" "Greyhound" "Griffin" "Hardy" "Hasty" "Havock"
+		"Hereward" "Hero" "Hostile" "Hotspur" "Hunter" "Hyperion" "Afridi" "Ashanti" "Bedouin" "Cossack" "Eskimo" "Gurkha"
+		"Maori" "Mashona" "Matabele" "Mohawk" "Nubian" "Punjabi" "Sikh" "Somali" "Tartar" "Zulu" "Icarus" "Ilex"
+		"Imogen" "Imperial" "Impulsive" "Inglefield" "Intrepid" "Isis" "Ivanhoe" "Harvester" "Havant" "Hesperus" "Highlander" "Hurricane"
+		"Jervis" "Jackal" "Jaguar" "Juno" "Janus" "Javelin" "Jersey" "Jupiter" "Kelly" "Kandahar" "Kashmir" "Kelvin"
+		"Khartoum" "Kimberley" "Kingston" "Kipling" "Napier" "Nestor" "Nizam" "Norman" "Nepal" "Laforey" "Lance" "Lively"
+		"Legion" "Lightning" "Lookout" "Loyal" "Milne" "Mahratta" "Musketeer" "Myrmidon" "Matchless" "Meteor" "Marne" "Martin"
+		"Onslow" "Offa" "Onslaught" "Oribi" "Obdurate" "Obedient" "Opportune" "Orwell" "Pakenham" "Paladin" "Panther" "Partridge"
+		"Pathfinder" "Penn" "Petard" "Porcupine" "Inconstant" "Ithuriel" "Queenborough" "Quadrant" "Quail" "Quality" "Quentin" "Quiberon"
+		"Quickmatch" "Quilliam" "Rotherham" "Racehorse" "Raider" "Rapid" "Redoubt" "Relentless" "Rocket" "Roebuck" "Saumarez" "Savage"
+		"Scorpion" "Scourge" "Serapis" "Success" "Swift" "Teazer" "Tenacious" "Termagant" "Terpsichore" "Troubridge" "Tumult" "Tuscan"
+		"Tyrian" "Ulster" "Ulysses" "Undaunted" "Undine" "Ursa" "Urchin" "Urania" "Venus" "Verulam" "Vigilant" "Virago"
+		"Valentine" "Vixen" "Volage" "Kempenfelt" "Wager" "Wakeful" "Wessex" "Whelp" "Whirlwind" "Wizard" "Wrangler" "Myngs"
+		"Zephyr" "Zambesi" "Zealous" "Zebra" "Zenith" "Zest" "Zodiac" "Caprice" "Cassandra" "Caesar" "Cavendish" "Cambrian"
+		"Carron" "Cavalier" "Carysfort" "Chaplet" "Charity" "Chequers" "Chieftain" "Chevron" "Cheviot" "Childers" "Chivalrous" "Comus"
+		"Concord" "Contest" "Consort" "Cockade" "Comet" "Constance" "Crescent" "Crusader" "Croziers" "Crystal" "Crispin" "Creole"
+		"Cromwell" "Crown" "Barfleur" "Trafalgar" "Armada" "Solebay" "Camperdown" "Finisterre" "Lagos" "St Kitts" "St James" "Gabbard"
+		"Gravelines" "Saintes" "Sluys" "Cadiz" "Vigo" "Alamein" "Aisne" "Barrosa" "Corunna" "Dunkirk" "Jutland" "Matapan"
+		"Battleaxe" "Broadsword" "Crossbow" "Daring" "Dainty" "Defender" "Decoy" "Diana" "Duchess" "Malplaquet" "Ypres" "Vimiera"
+		# A to F classes and their leaders (1929-1934)
+		"Amazon" "Ambuscade" "Codrington" "Acasta" "Achates" "Acheron" "Active" "Antelope" "Anthony" "Ardent" "Arrow" "Keith"
+		"Basilisk" "Beagle" "Blanche" "Boadicea" "Boreas" "Brazen" "Brilliant" "Bulldog" "Duncan" "Delight" "Diamond" "Echo"
+		"Eclipse" "Electra" "Encounter" "Escapade" "Escort" "Esk" "Express" "Fame" "Fearless" "Firedrake" "Forester" "Foresight"
+		"Fortune" "Foxhound" "Fury" "Exmouth" "Faulknor"
+		# Scott and Shakespeare leaders, S, V and W classes of 1917-1924
+		"Skate" "Wallace" "Keppel" "Broke" "Bruce" "Douglas" "Montrose" "Campbell" "Mackay" "Malcolm" "Scimitar" "Scout"
+		"Sabre" "Saladin" "Shikari" "Tenedos" "Thanet" "Stronghold" "Sardonyx" "Sturdy" "Thracian" "Valorous" "Vanoc" "Vanquisher"
+		"Verdun" "Vega" "Vortigern" "Venetia" "Versatile" "Vivacious" "Velox" "Vesper" "Vimy" "Vivien" "Vidette" "Vanessa"
+		"Vanity" "Viceroy" "Viscount" "Watchman" "Walker" "Winchelsea" "Warwick" "Winchester" "Walpole" "Westcott" "Westminster" "Wrestler"
+		"Wolfhound" "Whitley" "Wryneck" "Windsor" "Wolsey" "Woolston" "Venomous" "Verity" "Volunteer" "Vansittart" "Wanderer" "Whitehall"
+		"Wren" "Wishart" "Witch" "Witherington" "Whitshed" "Wivern" "Veteran" "Wild Swan" "Wolverine" "Worcester" "Restless" "Sable"
+		"Scotsman" "Senator" "Thruster" "Tempest" "Torrid" "Thisbe" "Tyrant" "Shakespeare" "Spenser" "Swallow" "Shamrock" "Trojan"
+		"Seafire" "Sportive" "Trusty" "Serene" "Spindrift" "Turbulent" "Valkyrie" "Violent" "Vectis" "Venturous" "Walrus"
+		# Cancelled or not completed (1944-1946 Battle, Weapon and G classes)
+		"Noble" "Nonpareil" "Cutlass" "Dagger" "Culverin" "Howitzer" "Longbow" "Sword" "Musket" "Carronade" "Claymore" "Dirk"
+		"Halberd" "Poniard" "Rifle" "Spear" "Albuera" "Belle Isle" "Navarino" "Namur" "Oudenarde" "Mons" "Omdurman" "Somme"
+		"San Domingo" "River Plate" "St Lucia" "Waterloo" "Poictiers" "Talavera" "Trincomalee"
+		# Flotilla leaders of 1914-1919 (Faulknor, Marksman, Parker, Admiralty and Thornycroft types)
+		"Botha" "Tipperary" "Marksman" "Nimrod" "Gabriel" "Parker" "Stuart" "Saunders"
+		# Laforey class (L class, 1913-1915)
+		"Llewellyn" "Lydiard" "Leonidas" "Lucifer" "Laurel" "Laverock" "Landrail" "Lochinvar" "Lassoo"
+		# M class (1914-1917)
+		"Murray" "Morris" "Milbrook" "Minion" "Munster" "Magic" "Moresby" "Marmion" "Martial" "Menace" "Mindful" "Mischief"
+		"Nonsuch" "Nepean" "Nereus" "Nessus" "Nomad" "Northesk" "North Star" "Nugent" "Opal" "Ophelia" "Oracle" "Orford"
+		"Nicator" "Norseman" "Observer" "Oriole" "Medina" "Medway" "Pellew" "Peyton" "Pigeon" "Portia" "Prince" "Pylades"
+		"Mentor" "Moon" "Morning Star" "Rival" "Mastiff" "Patriot" "Sabrina" "Surprise" "Sybille" "Ulleswater"
+		# Purchased destroyers of 1914-1915 (Talisman, Medea and Arno)
+		"Medea" "Medusa" "Melampus" "Melpomene" "Arno"
+		# R class (1916-1917)
+		"Radstock" "Rigorous" "Rob Roy" "Redgauntlet" "Setter" "Sylph" "Sarpedon" "Sorceress" "Skilful" "Springbok" "Tancred" "Tormentor"
+		"Tornado" "Torrent" "Tristram" "Tirade" "Tower" "Rosalind" "Radiant" "Retriever" "Taurus"
+		# S class (1918-1924)
+		"Sepoy" "Steadfast" "Sterling" "Swordsman" "Tara" "Tasmania" "Tattoo" "Scythe" "Sesame" "Strenuous" "Stalwart" "Tintagel"
+		"Toreador" "Tourmaline" "Torch" "Tomahawk" "Tryphon" "Turquoise"
+		# V and W classes (1917-1924)
+		"Valhalla" "Vancouver" "Vendetta" "Vittoria" "Voyager" "Waterhen"
+		# Acasta class (K class, 1912-1913)
+		"Christopher" "Lynx" "Midge" "Spitfire" "Paragon" "Victor"
+		# Acheron class (I class, 1911-1912)
+		"Ariel" "Attack" "Badger" "Beaver" "Druid" "Ferret" "Hornet" "Lizard" "Sandfly" "Tigress" "Lurcher" "Oak"
+		# Acorn class (H class, 1910-1911)
+		"Acorn" "Brisk" "Cameleon" "Goldfinch" "Hope" "Larne" "Lyra" "Nemesis" "Nymphe" "Ruby" "Staunch"
+		# Beagle class (G class, 1909-1910)
+		"Racoon" "Renard" "Nautilus" "Harpy"
+		# Tribal class (F class, 1907-1909)
+		"Zubian"
+		# River class (E class, 1903-1905)
+		"Eden" "Ettrick" "Exe" "Ribble" "Teviot" "Foyle" "Itchen" "Arun" "Blackwater" "Welland" "Waveney" "Kennet"
+		"Jed" "Cherwell" "Dee" "Rother" "Boyne" "Doon" "Kale" "Swale" "Ure" "Wear" "Liffey" "Moy"
+		"Ouse" "Gala" "Garry" "Chelmer" "Colne" "Ness" "Nith" "Stour" "Test"
+		# 30-knotters (B, C and D classes, 1895-1901)
+		"Earnest" "Griffon" "Wolf" "Syren" "Kangaroo" "Arab" "Cobra" "Bonetta" "Star" "Whiting" "Bat" "Chamois"
+		"Fawn" "Flirt" "Bullfinch" "Dove" "Violet" "Lee" "Avon" "Otter" "Leopard" "Fairy" "Osprey" "Leven"
+		"Ostrich" "Albatross" "Viper" "Desperate" "Foam" "Angler" "Cynthia" "Stag"
+		# 27-knotters (A class, 1894-1895)
+		"Boxer" "Bruizer" "Charger" "Banshee" "Conflict" "Fervent" "Handy" "Haughty" "Ranger" "Surly"
+		# Expansion: weapons (Weapon-class formula)
+		"Arquebus" "Bayonet" "Blunderbuss" "Harpoon" "Assegai" "Falchion" "Glaive" "Catapult" "Ballista" "Trebuchet" "Carbine" "Stiletto"
+		"Bombard" "Falconet"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: SUBMARINES ###
+ENG_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "HMS "
+	fallback_name = "Submarine %s"
+
+	unique = {
+		# Interwar and wartime classes: S, T, U, V, A, Thames and Porpoise classes, with the 1942 names
+		"Swordfish" "Sturgeon" "Seahorse" "Starfish" "Thames" "Severn" "Clyde" "Sealion" "Shark" "Snapper" "Salmon" "Seawolf"
+		"Spearfish" "Sunfish" "Sterlet" "Porpoise" "Grampus" "Narwhal" "Rorqual" "Cachalot" "Seal" "Triton" "Thetis" "Tribune"
+		"Trident" "Unity" "Ursula" "Umpire" "Una" "Unbeaten" "Union" "Unique" "Upholder" "Upright" "Urge" "Usk"
+		"Utmost" "Taku" "Tarpon" "Thistle" "Tigris" "Triad" "Truant" "Tuna" "Talisman" "Tetrarch" "Torbay" "Thorn"
+		"Thrasher" "Traveller" "Trooper" "Uproar" "Ultimatum" "Umbra" "Unbending" "Safari" "Sahib" "Saracen" "Satyr" "Sceptre"
+		"Seadog" "Sibyl" "Sea Rover" "Seraph" "Sea Nymph" "Sickle" "Simoom" "Sirdar" "Spiteful" "Splendid" "Sportsman" "Unbroken"
+		"Unison" "United" "Unrivalled" "Unruffled" "Unruly" "Unseen" "Ultor" "Unshaken" "P311" "Trespasser" "Tactician" "Truculent"
+		"Templar" "Tally-Ho" "Tantalus" "Tantivy" "Stoic" "Stonehenge" "Storm" "Stratagem" "Strongbow" "Spark" "Scythian" "Stubborn"
+		"Surf" "Syrtis" "Shalimar" "Sea Devil" "Spirit" "Statesman" "Unsparing" "Usurper" "Universal" "Untamed" "Untiring" "Varangian"
+		"Uther" "Unswerving" "Vandal" "Upstart" "Varne" "Vox" "Stygian" "Subtle" "Supreme" "Sea Scout" "Selene" "Seneschal"
+		"Sentinel" "Sidon" "Sleuth" "Solent" "Spearhead" "Venturer" "Viking" "Vampire" "Vigorous" "Virtue" "Visigoth" "Vivid"
+		"Voracious" "Vulpine" "Upshot" "Urtica" "Vengeful" "Vortex" "Virulent" "Volatile" "Springer" "Telemachus" "Terrapin" "Thorough"
+		"Thule" "Tudor" "Tireless" "Token" "Tradewind" "Trenchant" "Tiptoe" "Trump" "Taciturn" "Tapir" "Talent" "Teredo"
+		"Saga" "Scorcher" "Spur" "Sanguine" "Votary" "Vagabond" "Astute" "Auriga" "Aurochs" "Alcide" "Alderney" "Alliance"
+		"Ambush" "Anchorite" "Andrew" "Affray" "Aeneas" "Alaric" "Tabard" "Totem" "Truncheon" "Turpin" "Thermopylae" "Artemis"
+		"Artful" "Ace"
+		# Oberon, Odin, Parthian and Rainbow classes (1926-1932)
+		"Oberon" "Otway" "Oxley" "Odin" "Olympus" "Orpheus" "Osiris" "Oswald" "Otus" "Pandora" "Parthian" "Phoenix"
+		"Proteus" "Rainbow" "Regent" "Regulus" "Rover"
+		# Ordered and cancelled in 1944-1945 (S, U, V and A classes)
+		"Vantage" "Vehement" "Venom" "Verve" "Unbridled" "Upward" "Sea Robin" "Sprightly" "Surface" "Surge" "Poseidon" "Veto"
+		"Virile" "Visitant" "Upas" "Ulex" "Utopia" "Answer" "Antagonist" "Antaeus" "Anzac" "Aphrodite" "Approach" "Arcadian"
+		"Argosy" "Atlantis" "Admirable" "Asperity" "Austere" "Adversary" "Aztec" "Abelard" "Agate" "Aggressor" "Agile" "Aladdin"
+		"Alcestis" "Asgard" "Assurance" "Astarte"
+		# Captured and commissioned (ex-U-570)
+		"Graph"
+		# Post-war boats (Explorer, Porpoise and Oberon classes)
+		"Explorer" "Excalibur" "Finwhale" "Ocelot" "Sovereign"
+		# Names of older RN ships after sea fish, borne again under the S-class formula
+		"Dolphin" "Bream" "Haddock" "Mackerel" "Pilchard" "Sardine" "Grouper" "Bonito" "Pike"
+		# Expansion: marine life, the formula of the S and Porpoise classes (Sturgeon, Swordfish, Snapper, Narwhal, Cachalot)
+		"Barracuda" "Marlin" "Orca" "Conger" "Dogfish" "Stingray" "Sawfish" "Halibut" "Turbot" "Lamprey" "Porbeagle" "Hammerhead"
+		"Mako" "Beluga" "Gurnard" "Wrasse" "Herring"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: LIGHT CRUISERS ###
+ENG_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "HMS "
+	fallback_name = "Light Cruiser %s"
+
+	unique = {
+		# Leander, Amphion and Arethusa classes (1931-1937)
+		"Amphion" "Penelope" "Aurora" "Arethusa" "Galatea" "Leander" "Achilles" "Ajax" "Neptune" "Orion"
+		# Town class (1936-1939): cities
+		"Southampton" "Birmingham" "Glasgow" "Newcastle" "Sheffield" "Gloucester" "Liverpool" "Manchester" "Edinburgh" "Belfast"
+		# Crown Colony class (1939-1943): colonies
+		"Fiji" "Kenya" "Nigeria" "Mauritius" "Trinidad" "Gambia" "Jamaica" "Bermuda" "Ceylon" "Newfoundland" "Uganda"
+		# Minotaur class (1941-1945)
+		"Swiftsure"
+		# C, D and E classes (1914-1926)
+		"Caroline" "Conquest" "Cordelia" "Calliope" "Champion" "Canterbury" "Castor" "Caledon" "Calypso" "Caradoc" "Cardiff" "Ceres"
+		"Capetown" "Danae" "Dauntless" "Dragon" "Delhi" "Dunedin" "Durban" "Despatch" "Diomede" "Emerald" "Enterprise"
+		# Arethusa class (1913-1915)
+		"Phaeton"
+		# Town class (1909-1915): Bristol, Weymouth, Chatham and Birmingham groups
+		"Bristol" "Weymouth" "Dartmouth" "Falmouth" "Yarmouth" "Chatham" "Dublin" "Lowestoft" "Nottingham" "Birkenhead" "Chester"
+		# Scout cruisers (1904-1912)
+		"Attentive" "Forward" "Patrol" "Skirmisher" "Blonde"
+		# Third-class and protected cruisers (1885-1905): Gem, Highflyer, Challenger, Pelorus, Eclipse, Astraea and Apollo classes
+		"Topaze" "Sapphire" "Highflyer" "Hyacinth" "Challenger" "Pactolus" "Pomone" "Prometheus" "Proserpine" "Psyche" "Pyramus" "Doris"
+		"Minerva" "Talbot" "Gladiator" "Astraea" "Flora" "Forte" "Fox" "Aeolus" "Andromache" "Iphigenia" "Pique" "Retribution"
+		"Sappho"
+		# Pearl, Barracouta, Marathon and Archer classes and the despatch cruisers (1878-1892)
+		"Pearl" "Philomel" "Pallas" "Barracouta" "Marathon" "Serpent" "Iris" "Mercury"
+		# Classical names of RN frigates and sloops (Leander and Dido formula)
+		"Adonis" "Alcmene" "Alecto" "Arachne" "Argo" "Atalanta" "Bacchus" "Clio" "Cybele" "Eurydice" "Saturn" "Thalia"
+		"Vesta" "Dryad" "Ganymede" "Meleager" "Pomona" "Romulus" "Hesper" "Nisus" "Thais" "Briseis" "Helena" "Menelaus"
+		"Persephone" "Philoctetes" "Cupid" "Minos" "Euphrosyne" "Procris"
+		# Expansion: cities and towns (Town-class formula)
+		"Plymouth" "Portsmouth" "Leicester" "Wolverhampton" "Sunderland" "Swansea" "Norwich" "Oxford" "Cambridge" "Perth" "Inverness" "Stirling"
+		"Hereford" "Chichester" "Lichfield" "Ely" "Ripon" "Wakefield" "Peterborough" "Preston" "Huddersfield" "Oldham" "Bolton" "Stockport"
+		"Rochdale" "Warrington" "Wigan" "Bournemouth" "Southend" "Gateshead" "Dumbarton" "Paisley" "Motherwell" "Coatbridge" "Armagh" "Lisburn"
+		"Newry" "Wrexham" "Merthyr" "Rhondda" "Llanelly" "Kirkcaldy" "Dunfermline"
+		# Expansion: colonies, protectorates and mandates (Colony-class formula)
+		"Cyprus" "Aden" "Hong Kong" "Rhodesia" "Gold Coast" "Sierra Leone" "British Guiana" "British Honduras" "Sudan" "Burma" "Malacca" "Penang"
+		"Palestine"
+		# Expansion: cities of the Empire (formula of the C and D classes: Cairo, Calcutta, Capetown, Colombo, Delhi, Dunedin, Durban)
+		"Bombay" "Madras" "Karachi" "Rangoon" "Mandalay" "Lahore" "Simla" "Peshawar" "Kandy" "Kuala Lumpur" "Sydney" "Melbourne"
+		"Brisbane" "Adelaide" "Hobart" "Montreal" "Toronto" "Ottawa" "Winnipeg" "Christchurch" "Johannesburg" "Pretoria" "Bloemfontein" "Port Elizabeth"
+		"Nairobi" "Mombasa" "Kampala" "Port Said" "Accra" "Freetown" "Bridgetown" "Port of Spain" "Nassau" "Valletta" "Nicosia" "Haifa"
+		"Suva"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: HEAVY AND ARMOURED CRUISERS ###
+ENG_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "HMS "
+	fallback_name = "Heavy Cruiser %s"
+
+	unique = {
+		# County class (1926-1930): counties, with the two cancelled in 1929
+		"Kent" "Berwick" "Cornwall" "Cumberland" "Suffolk" "London" "Devonshire" "Shropshire" "Sussex" "Norfolk" "Dorsetshire" "York"
+		"Exeter" "Surrey" "Northumberland"
+		# Hawkins class (1918-1925): Elizabethan seamen
+		"Hawkins" "Raleigh" "Frobisher" "Effingham" "Vindictive"
+		# Armoured cruisers (1901-1908): Monmouth, Devonshire, Drake, Duke of Edinburgh, Warrior and Minotaur classes
+		"Monmouth" "Bedford" "Essex" "Donegal" "Hampshire" "Carnarvon" "Antrim" "Roxburgh" "Argyll" "Drake" "Good Hope" "King Alfred"
+		"Duke of Edinburgh" "Cochrane" "Natal" "Minotaur" "Shannon" "Defence"
+		# Cressy class (1901-1904)
+		"Cressy" "Aboukir" "Hogue" "Sutlej" "Bacchante"
+		# First-class cruisers (1888-1900): Diadem, Powerful, Edgar, Blake and Orlando classes, Imperieuse
+		"Andromeda" "Europa" "Niobe" "Amphitrite" "Spartiate" "Powerful" "Terrible" "Edgar" "Hawke" "Endymion" "St George" "Royal Arthur"
+		"Blake" "Blenheim" "Orlando" "Australia" "Immortalité" "Narcissus" "Imperieuse"
+		# Expansion: historic counties (County-class formula)
+		"Yorkshire" "Lancashire" "Lincolnshire" "Somerset" "Wiltshire" "Gloucestershire" "Staffordshire" "Derbyshire" "Cheshire" "Durham" "Northamptonshire" "Warwickshire"
+		"Cambridgeshire" "Nottinghamshire" "Herefordshire" "Leicestershire" "Westmorland" "Oxfordshire" "Worcestershire" "Buckinghamshire" "Berkshire" "Hertfordshire" "Huntingdonshire" "Middlesex"
+		"Rutland" "Caithness" "Sutherland" "Nairnshire" "Moray" "Banffshire" "Aberdeenshire" "Kincardineshire" "Angus" "Perthshire" "Ayrshire" "Renfrewshire"
+		"Dunbartonshire" "Stirlingshire" "Clackmannanshire" "Ross-shire" "Inverness-shire" "Fife" "East Lothian" "Midlothian" "West Lothian" "Lanarkshire" "Peeblesshire" "Dumfriesshire"
+		"Kirkcudbrightshire" "Wigtownshire" "Shetland" "Orkney" "Glamorgan" "Carmarthenshire" "Pembrokeshire" "Cardiganshire" "Brecknockshire" "Radnorshire" "Denbighshire" "Flintshire"
+		"Merionethshire" "Anglesey" "Tyrone" "Fermanagh" "County Down" "Montgomeryshire" "Kinross-shire" "Selkirkshire"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLESHIPS ###
+ENG_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "HMS "
+	fallback_name = "Battleship %s"
+
+	unique = {
+		# Battleships of the 1930s and 1940s: King George V, Lion and Vanguard; KGV-class names Jellicoe and Beatty (renamed Anson and Howe in 1940)
+		"King George V" "Prince of Wales" "Duke of York" "Anson" "Howe" "Jellicoe" "Beatty" "Temeraire" "Conqueror" "Thunderer" "Vanguard"
+		# Nelson class (1927)
+		"Nelson" "Rodney"
+		# Queen Elizabeth and Revenge classes (1913-1917), with the Revenge-class Resistance (cancelled 1914)
+		"Queen Elizabeth" "Warspite" "Valiant" "Barham" "Malaya" "Revenge" "Resolution" "Royal Oak" "Royal Sovereign" "Ramillies" "Resistance"
+		# Dreadnoughts of 1906-1914: Dreadnought, Bellerophon, St Vincent, Neptune, Orion, King George V and Iron Duke classes, and the ships taken over in 1914
+		"Dreadnought" "Bellerophon" "Superb" "St Vincent" "Collingwood" "Monarch" "Centurion" "Audacious" "Iron Duke" "Marlborough" "Benbow" "Emperor of India"
+		"Agincourt" "Erin" "Canada"
+		# Pre-dreadnoughts (1889-1907): Royal Sovereign, Majestic, Canopus, Formidable, London, Duncan, King Edward VII and Lord Nelson classes
+		"Empress of India" "Hannibal" "Prince George" "Mars" "Canopus" "Goliath" "Cornwallis" "Russell" "Albemarle" "Montagu" "King Edward VII" "Commonwealth"
+		"Dominion" "Hindustan" "Britannia" "Hibernia" "Lord Nelson" "Agamemnon"
+		# Ironclads and turret ships (1860-1892)
+		"Prince Consort" "Caledonia" "Research" "Favorite" "Lord Clyde" "Lord Warden" "Sultan" "Devastation" "Alexandra" "Northampton" "Victoria" "Sans Pareil"
+		"Nile" "Belleisle" "Prince Albert"
+		# Ships of the line: first and second rates
+		"Victory" "Royal George" "Queen Charlotte" "Royal William" "Royal Adelaide" "Prince Regent" "Duke of Wellington" "Ville de Paris" "Atlas"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLECRUISERS ###
+ENG_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "HMS "
+	fallback_name = "Battlecruiser %s"
+
+	unique = {
+		# Battlecruisers (1908-1920): Invincible, Indefatigable, Lion, Tiger, Renown and Admiral classes
+		"Invincible" "Inflexible" "New Zealand" "Lion" "Princess Royal" "Queen Mary" "Tiger" "Renown" "Repulse" "Hood"
+		# Fisher's projected battlecruiser of 1915
+		"Incomparable"
+		# Admirals of the sail navy (Admiral-class formula)
+		"Boscawen" "Rooke" "Vernon"
+		# Great ships and flagships of the sail navy
+		"Mary Rose" "Golden Hind" "Sovereign of the Seas" "Prince Royal" "Naseby" "Royal Charles" "Royal James" "Royal Prince" "Elizabeth Bonaventure" "White Bear" "Defiance" "Constant Warwick"
+		"Impregnable"
+		# Expansion: victories at sea (from Damme in 1213 to North Cape in 1943)
+		"Quiberon Bay" "Copenhagen" "Basque Roads" "Glorious First of June" "Dogger Bank" "Heligoland Bight" "Falkland Islands" "Cape Passaro" "Porto Bello" "Kentish Knock" "Scheveningen" "Lissa"
+		"Algiers" "Acre" "Taranto" "Sirte" "North Cape" "Damme" "Cape Ortegal" "Tamatave" "Groix" "Havana" "Louisbourg" "Dover Strait"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: AIRCRAFT CARRIERS ###
+ENG_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "HMS "
+	fallback_name = "Carrier %s"
+
+	unique = {
+		# Fleet carriers (1918-1945): Argus, Eagle, Hermes, the Courageous trio, Ark Royal, Illustrious and Implacable classes
+		"Ark Royal" "Illustrious" "Formidable" "Victorious" "Indomitable" "Implacable" "Indefatigable" "Eagle" "Hermes" "Argus" "Furious" "Courageous"
+		"Glorious"
+		# Audacious and Malta classes (ordered 1942-1943; Irresistible was renamed Ark Royal, Malta, Gibraltar and Africa were cancelled)
+		"Irresistible" "Malta" "Gibraltar" "Africa"
+		# Seaplane carriers (1914-1938)
+		"Pegasus" "Engadine" "Ben-my-Chree" "Riviera"
+		# Expansion: birds of prey and the bird names under which the Fleet Air Arm commissioned its air stations
+		"Kestrel" "Falcon" "Vulture" "Goshawk" "Sparrowhawk" "Peregrine" "Merlin" "Condor" "Buzzard" "Heron" "Fulmar" "Seahawk"
+		"Raven" "Owl" "Daedalus" "Goldcrest" "Godwit" "Nightjar" "Ringtail" "Sanderling" "Shrike" "Wagtail" "Blackcap" "Corncrake"
+		"Dipper" "Jackdaw" "Merganser" "Nuthatch" "Gadwall" "Grebe" "Fieldfare" "Hummingbird" "Nighthawk" "Flycatcher" "Hornbill" "Gamecock"
+		"Peewit" "Siskin" "Saker" "Spurwing" "Sea Eagle"
+		# Expansion: adjectives of the great ships of the line (Illustrious formula)
+		"Tremendous" "Resolute" "Puissant" "Foudroyant" "Tonnant" "Redoubtable"
+	}
+}
+
+### ROLE POOL: ESCORT DESTROYERS (vanilla tag) ###
+ENG_DE_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DE
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Escort Destroyer %s"
+
+	unique = {
+		# Hunt class escort destroyers (Types I to IV, 1939-1943)
+		"Atherstone" "Berkeley" "Blencathra" "Brocklesby" "Cattistock" "Cleveland" "Eglinton" "Exmoor" "Fernie" "Garth" "Hambledon" "Holderness"
+		"Liddesdale" "Cotswold" "Cottesmore" "Mendip" "Meynell" "Pytchley" "Quantock" "Quorn" "Southdown" "Tynedale" "Whaddon" "Avon Vale"
+		"Blankney" "Chiddingfold" "Cowdray" "Croome" "Dulverton" "Eridge" "Farndale" "Heythrop" "Lamerton" "Puckeridge" "Wheatland" "Wilton"
+		"Lauderdale" "Ledbury" "Badsworth" "Beaufort" "Bicester" "Blackmore" "Bramham" "Calpe" "Grove" "Hursley" "Hurworth" "Middleton"
+		"Oakley" "Southwold" "Tetcott" "Zetland" "Airedale" "Albrighton" "Aldenham" "Belvoir" "Blean" "Bleasdale" "Catterick" "Derwent"
+		"Easton" "Eggesford" "Goathland" "Haydon" "Holcombe" "Limbourne" "Melbreak" "Penylan" "Rockwood" "Stevenstone" "Talybont" "Tanatside"
+		"Wensleydale" "Brecon" "Brissenden"
+		# Hunts transferred to Allied navies, and Tickham (renamed on the stocks)
+		"Bedale" "Silverton" "Tickham" "Bolebroke" "Border" "Eskdale" "Glaisdale" "Haldon" "Hatherleigh" "Modbury"
+		# Town class (ex-US flush-deckers of the 1940 destroyers-for-bases deal, RN-manned)
+		"Bath" "Belmont" "Beverley" "Bradford" "Brighton" "Broadwater" "Broadway" "Burnham" "Burwell" "Buxton" "Caldwell" "Cameron"
+		"Campbeltown" "Castleton" "Charlestown" "Chelsea" "Chesterfield" "Churchill" "Clare" "Georgetown" "Hamilton" "Lancaster" "Leamington" "Leeds"
+		"Lewes" "Lincoln" "Ludlow" "Mansfield" "Montgomery" "Newark" "Newmarket" "Newport" "Ramsey" "Reading" "Richmond" "Ripley"
+		"Rockingham" "Roxborough" "Salisbury" "St Albans" "St Mary's" "Sherwood" "Stanley" "Wells"
+	}
+}
+
+### ROLE POOL: ANTI-AIRCRAFT CRUISERS (vanilla tag) ###
+ENG_CLAA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CLAA
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Light Cruiser (AA) %s"
+
+	unique = {
+		# Dido and Bellona classes (1939-1944)
+		"Dido" "Naiad" "Phoebe" "Hermione" "Euryalus" "Charybdis" "Bonaventure" "Sirius" "Cleopatra" "Scylla" "Argonaut" "Bellona"
+		"Black Prince" "Diadem" "Royalist" "Spartan"
+		# C-class cruisers rebuilt as anti-aircraft cruisers (1935-1943)
+		"Coventry" "Curlew" "Cairo" "Calcutta" "Carlisle" "Colombo" "Curacoa"
+	}
+}
+
+### ROLE POOL: LIGHT FLEET CARRIERS (vanilla tag) ###
+ENG_CVL_HISTORICAL = {
+	name = "Light Carriers"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Light Carrier %s"
+
+	unique = {
+		# Colossus class light fleet carriers (1944-1946), with the maintenance carriers Perseus and Pioneer
+		"Colossus" "Glory" "Ocean" "Venerable" "Vengeance" "Theseus" "Triumph" "Warrior" "Perseus" "Pioneer"
+		# Unicorn (aircraft repair carrier, 1943)
+		"Unicorn"
+		# Majestic class (laid down 1943-1945)
+		"Majestic" "Magnificent" "Hercules" "Leviathan"
+		# Centaur class (laid down 1944-1945), with the names cancelled in 1945
+		"Centaur" "Albion" "Bulwark" "Elephant" "Arrogant" "Polyphemus"
+	}
+}
+
+### ROLE POOL: ESCORT CARRIERS ###
+ENG_ESCORT_CARRIERS = {
+	name = "Escort Carriers"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Escort Carrier %d"
+
+	unique = {
+		# Converted escort carriers (1941-1943): Audacity, Activity, Archer and the Avenger class
+		"Audacity" "Activity" "Archer" "Avenger" "Biter" "Dasher"
+		# Attacker class (US-built, 1942-1943)
+		"Attacker" "Battler" "Chaser" "Fencer" "Pursuer" "Ravager" "Searcher" "Stalker" "Striker" "Tracker"
+		# Ruler class (US-built, 1943-1944)
+		"Ameer" "Arbiter" "Atheling" "Begum" "Emperor" "Empress" "Khedive" "Nabob" "Patroller" "Premier" "Puncher" "Queen"
+		"Rajah" "Ranee" "Reaper" "Ruler" "Shah" "Slinger" "Smiter" "Speaker" "Thane" "Trouncer" "Trumpeter"
+		# British-built escort carriers (1943-1944)
+		"Campania" "Nairana" "Vindex" "Pretoria Castle"
+	}
+}
+
+### ROLE POOL: MONITORS (vanilla tag) ###
+ENG_BM_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BM
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "M%d"
+
+	unique = {
+		# Monitors of 1913-1942: Humber, Abercrombie, Lord Clive, Marshal Ney, Erebus and Roberts classes, Glatton and Gorgon
+		"Erebus" "Terror" "Abercrombie" "Gorgon" "Glatton" "Havelock" "Raglan" "Humber" "Mersey" "Roberts" "Lord Clive" "General Craufurd"
+		"Earl of Peterborough" "Sir Thomas Picton" "Prince Eugene" "Prince Rupert" "Sir John Moore" "General Wolfe" "Marshal Soult" "Marshal Ney"
+		# Breastwork monitors and harbour-defence turret ships (1870-1877)
+		"Cyclops" "Hecate" "Magdala" "Abyssinia"
+	}
+}
+
+### ROLE POOL: MINELAYERS (vanilla tag) ###
+ENG_MINELAYERS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_MINELAYERS
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Minelayer %s"
+
+	unique = {
+		# Fast minelayers: Adventure (1924) and the Abdiel class (1940-1943)
+		"Adventure" "Abdiel" "Latona" "Manxman" "Welshman" "Apollo" "Ariadne"
+		# Plover (1937) and the Linnet class (1938)
+		"Plover" "Linnet" "Redstart" "Ringdove"
+		# Isles-class trawlers completed as minelayers (1943)
+		"Blackbird" "Dabchick" "Stonechat" "Whitethroat"
+		# Auxiliary minelayers converted from merchant ships (1939-1944)
+		"Menestheus" "Port Napier" "Port Quebec" "Southern Prince" "Teviotbank"
+		# Auxiliary minelayers of 1914-1918
+		"Angora" "Biarritz" "Princess Margaret" "Wahine" "Perdita" "Princess Irene"
+	}
+}
+
+### ROLE POOL: MINESWEEPERS ###
+ENG_MINESWEEPERS = {
+	name = "Minesweepers"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Minesweeper %d"
+
+	unique = {
+		# Halcyon class (1933-1939): traditional small-ship names
+		"Halcyon" "Skipjack" "Harrier" "Hussar" "Speedwell" "Niger" "Salamander" "Franklin" "Gleaner" "Gossamer" "Hazard" "Hebe"
+		"Jason" "Leda" "Seagull" "Sharpshooter" "Bramble" "Britomart" "Scott" "Speedy" "Sphinx"
+		# Bangor class (1940-1941): coastal towns
+		"Bangor" "Blackpool" "Bridlington" "Bridport" "Ardrossan" "Beaumaris" "Bootle" "Boston" "Brixham" "Clacton" "Cromarty" "Dornoch"
+		"Dunbar" "Greenock" "Hartlepool" "Harwich" "Hythe" "Ilfracombe" "Llandudno" "Lyme Regis" "Middlesbrough" "Newhaven" "Padstow" "Polruan"
+		"Poole" "Rothesay" "Rye" "Tenby" "Whitehaven" "Worthing" "Blyth" "Bude" "Clydebank" "Cromer" "Eastbourne" "Felixstowe"
+		"Fraserburgh" "Beaulieu" "Looe" "Peterhead" "Rhyl" "Romney" "Seaham" "Sidmouth" "Stornoway" "Portland" "Tilbury" "Seaford"
+		# Algerine class (1941-1946)
+		"Algerine" "Acute" "Alarm" "Albacore" "Antares" "Arcturus" "Aries" "Brave" "Cadmus" "Chameleon" "Cheerful" "Circe"
+		"Clinton" "Cockatrice" "Coquette" "Courier" "Espiegle" "Fancy" "Fantome" "Felicity" "Fierce" "Fly" "Flying Fish" "Friendship"
+		"Golden Fleece" "Gozo" "Hare" "Hound" "Hydra" "Jaseur" "Jewel" "Laertes" "Lennox" "Liberty" "Lightfoot" "Lioness"
+		"Loyalty" "Lysander" "Maenad" "Magicienne" "Mameluke" "Mandate" "Marvel" "Melita" "Michael" "Minstrel" "Mutine" "Mystic"
+		"Nerissa" "Octavia" "Onyx" "Orcadia" "Orestes" "Ossory" "Pelorus" "Persian" "Pickle" "Pincher" "Plucky" "Pluto"
+		"Polaris" "Postillion" "Prompt" "Pyrrhus" "Rattlesnake" "Ready" "Recruit" "Rifleman" "Rinaldo" "Romola" "Rosamund" "Rosario"
+		"Rowena" "Seabear" "Spanker" "Squirrel" "Stormcloud" "Sylvia" "Tanganyika" "Truelove" "Vestal" "Waterwitch" "Wave" "Welcome"
+		"Welfare"
+		# Algerine names cancelled in 1943-1944 and never completed
+		"Fireball" "Happy Return" "Seabriar"
+		# Hunt class (1916-1919): towns of the Aberdare group and the renamed survey ships
+		"Aberdare" "Abingdon" "Albury" "Alresford" "Appledore" "Badminton" "Bagshot" "Banchory" "Barnstaple" "Blackburn" "Bloxham" "Bradfield"
+		"Burslem" "Bury" "Caerleon" "Camberley" "Carstairs" "Caterham" "Cheam" "Clonmel" "Craigie" "Cupar" "Derby" "Dorking"
+		"Dundalk" "Dunoon" "Elgin" "Fairfield" "Fareham" "Fermoy" "Faversham" "Ford" "Forres" "Gaddesden" "Gainsborough" "Goole"
+		"Gretna" "Harrow" "Huntley" "Instow" "Irvine" "Kendal" "Kinross" "Longford" "Lydd" "Mallaig" "Malvern" "Marazion"
+		"Marlow" "Mistley" "Monaghan" "Munlochy" "Nailsea" "Northolt" "Pangbourne" "Penarth" "Petersfield" "Pontypool" "Prestatyn" "Repton"
+		"Ross" "Rugby" "Salford" "Saltash" "Saltburn" "Selkirk" "Sherborne" "Shrewsbury" "Sligo" "Stafford" "Stoke" "Sutton"
+		"Swindon" "Tiverton" "Tonbridge" "Tralee" "Tring" "Truro" "Wem" "Weybourne" "Widnes" "Yeovil" "Blackmorevale" "Dartmoor"
+		"Muskerry" "Tedworth" "Collinson" "Crozier" "Kellet" "Flinders"
+		# Racecourse class paddle minesweepers (1915-1919): racecourses
+		"Ascot" "Chelmsford" "Cheltenham" "Chepstow" "Croxton" "Doncaster" "Epsom" "Gatwick" "Goodwood" "Hurst" "Kempton" "Lingfield"
+		"Melton" "Newbury" "Plumpton" "Pontefract" "Redcar" "Sandown" "Totnes" "Banbury" "Harpenden" "Hexham" "Lanark" "Shincliffe"
+		"Shirley" "Wetherby"
+	}
+}
+
+### ROLE POOL: SLOOPS ###
+ENG_SLOOPS = {
+	name = "Sloops"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Sloop %d"
+
+	unique = {
+		# Black Swan, Egret and Bittern classes (1934-1946): mostly birds
+		"Black Swan" "Flamingo" "Erne" "Ibis" "Whimbrel" "Wild Goose" "Woodpecker" "Chanticleer" "Crane" "Cygnet" "Kite" "Lapwing"
+		"Lark" "Magpie" "Peacock" "Pheasant" "Redpole" "Snipe" "Sparrow" "Starling" "Woodcock" "Actaeon" "Amethyst" "Hart"
+		"Hind" "Mermaid" "Alacrity" "Opossum" "Modeste" "Nereide" "Egret" "Auckland" "Pelican" "Bittern" "Enchantress" "Stork"
+		# Kingfisher and Shearwater classes (1935-1939): patrol sloops after birds
+		"Kingfisher" "Mallard" "Puffin" "Kittiwake" "Sheldrake" "Widgeon" "Shearwater" "Guillemot" "Pintail"
+		# Grimsby, Hastings, Shoreham and Bridgewater classes (1928-1936): ports and seaside towns
+		"Grimsby" "Leith" "Wellington" "Londonderry" "Deptford" "Aberdeen" "Fleetwood" "Hastings" "Penzance" "Folkestone" "Scarborough" "Shoreham"
+		"Fowey" "Bideford" "Rochester" "Milford" "Weston" "Dundee" "Bridgewater" "Sandwich"
+		# 24 class (1918-1920): winners of the Derby
+		"Ard Patrick" "Bend Or" "Cicero" "Donovan" "Flying Fox" "Iroquois" "Isinglass" "Ladas" "Merry Hampton" "Minoru" "Orby" "Ormonde"
+		"Persimmon" "Rocksand" "Sanfoin" "Sefton" "Silvio" "Sir Bevis" "Sir Hugo" "Sir Visto" "Spearmint"
+		# Kil class patrol sloops (1917-1919)
+		"Kilbeggan" "Kilberry" "Kilbirnie" "Kilbride" "Kilburn" "Kilcavan" "Kilchattan" "Kilchreest" "Kilchrenan" "Kilchvan" "Kilclaire" "Kilclief"
+		"Kilclogher" "Kilcock" "Kildalkey" "Kildangan" "Kildare" "Kildary" "Kildavin" "Kildimo" "Kildonan" "Kildorough" "Kildorrey" "Kildress"
+		"Kildwick" "Kildysart" "Kilfenora" "Kilfinny" "Kilfree" "Kilfullert" "Kilgarvin" "Kilgobnet" "Kilham" "Kilkeel" "Killena" "Killerig"
+		"Killeney" "Killour" "Killowen" "Killybegs" "Killygordon" "Kilmalcolm" "Kilmacrennan" "Kilmaine" "Kilmallock" "Kilmanahan" "Kilmarnock" "Kilmartin"
+		"Kilmead" "Kilmelford" "Kilmersdon" "Kilmington" "Kilmore" "Kilmuckridge" "Kilmun"
+	}
+}
+
+### ROLE POOL: FRIGATES ###
+ENG_FRIGATES = {
+	name = "Frigates"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Frigate %d"
+
+	unique = {
+		# Captain class (US-built, 1943-1944; Evarts and Buckley types): captains of Nelson's era and other sea officers
+		"Bayntun" "Bazely" "Berry" "Blackwood" "Burges" "Capel" "Cooke" "Dacres" "Domett" "Drury" "Foley" "Garlies"
+		"Gould" "Grindall" "Gardiner" "Goodall" "Goodson" "Gore" "Keats" "Kempthorne" "Kingsmill" "Lawford" "Louis" "Lawson"
+		"Pasley" "Loring" "Hoste" "Moorsom" "Manners" "Mounsey" "Inglis" "Inman" "Bentinck" "Byard" "Calder" "Duckworth"
+		"Duff" "Essington" "Affleck" "Aylmer" "Balfour" "Bentley" "Bickerton" "Bligh" "Braithwaite" "Bullen" "Byron" "Conn"
+		"Cotton" "Cranstoun" "Cubitt" "Curzon" "Dakins" "Deane" "Ekins" "Fitzroy" "Redmill" "Retalick" "Halsted" "Riou"
+		"Rutherford" "Cosby" "Rowley" "Rupert" "Stockham" "Seymour" "Spragge" "Stayner" "Thornborough" "Trollope" "Tyler" "Torrington"
+		"Narborough" "Waldegrave" "Whitaker" "Holmes" "Hargood" "Hotham"
+		# Colony class (US-built, 1943-1944): colonies and protectorates
+		"Anguilla" "Antigua" "Ascension" "Bahamas" "Barbados" "Caicos" "Cayman" "Dominica" "Labuan" "Montserrat" "Nyasaland" "Papua"
+		"Perim" "Pitcairn" "Sarawak" "Seychelles" "Somaliland" "St Helena" "Tobago" "Tortola" "Zanzibar"
+		# Bay class (1945-1946): bays of the British coast
+		"Bigbury Bay" "Burghead Bay" "Cardigan Bay" "Carnarvon Bay" "Cawsand Bay" "Enard Bay" "Hollesley Bay" "Largo Bay" "Morecambe Bay" "Mounts Bay" "Padstow Bay" "Porlock Bay"
+		"Veryan Bay" "St Austell Bay" "St Brides Bay" "Start Bay" "Tremadoc Bay" "Whitesand Bay" "Widemouth Bay" "Wigtown Bay"
+	}
+}
+
+### ROLE POOL: GUNBOATS ###
+ENG_GUNBOATS = {
+	name = "Gunboats"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Gunboat %d"
+
+	unique = {
+		# Insect class river gunboats (1915-1916)
+		"Aphis" "Bee" "Cicala" "Cockchafer" "Cricket" "Ladybird" "Mantis" "Moth" "Scarab" "Tarantula" "Gnat"
+		# Fly class river gunboats (1915-1916)
+		"Blackfly" "Butterfly" "Caddisfly" "Cranefly" "Dragonfly" "Firefly" "Gadfly" "Grayfly" "Greenfly" "Hoverfly" "Mayfly" "Sawfly"
+		"Sedgefly" "Snakefly" "Stonefly" "Waterfly"
+		# Dragonfly class (1937-1938) and the China gunboats of 1927-1931
+		"Grasshopper" "Locust" "Mosquito" "Peterel" "Seamew" "Tern" "Gannet"
+		# River gunboats of the China Station (1897-1903)
+		"Robin" "Sandpiper" "Nightingale" "Woodlark" "Kinsha" "Teal" "Moorhen"
+	}
+}
+
+### ROLE POOL: ARMED MERCHANT CRUISERS ###
+ENG_AUXILIARY_CRUISERS = {
+	name = "Armed Merchant Cruisers"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Armed Merchant Cruiser %d"
+
+	unique = {
+		# Armed merchant cruisers of 1939-1945
+		"Rawalpindi" "Jervis Bay" "Voltaire" "Comorin" "Dunvegan Castle" "Forfar" "Laurentic" "Patroclus" "Salopian" "Andania" "Transylvania" "Scotstoun"
+		"Carinthia" "Rajputana" "Hector" "Alcantara" "Asturias" "Canton" "Carnarvon Castle" "Chitral" "Cilicia" "Circassia" "Corfu" "Dunnottar Castle"
+		"Esperance Bay" "Moreton Bay" "Montclare" "Queen of Bermuda" "Ranchi" "Ranpura" "Wolfe" "California" "Cathay" "Letitia" "Maloja" "Mooltan"
+		"Ascania" "Aurania" "Bulolo" "Antenor" "Arawa" "Ausonia" "Alaunia" "Antonia" "Carthage"
+		# Armed merchant cruisers of 1914-1918
+		"Alsatian" "Otranto" "Orama" "Macedonia" "Carmania" "Armadale Castle" "Kinfauns Castle" "Edinburgh Castle" "Laconia" "Marmora" "Moldavia" "Mantua"
+		"Arlanza" "Andes" "Bayano" "Viknor" "Hilary" "Teutonic" "Changuinola" "Patia" "Patuca" "Motagua" "Clan MacNaughton" "India"
+		"Oceanic" "Columbella"
+	}
+}
+
+### THEME: COUNTIES ###
+ENG_COUNTIES = {
+	name = NAME_THEME_COUNTIES
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		"Yorkshire" "Lincolnshire" "Devon" "Norfolk" "Northumberland" "Lancashire" "Somerset" "Hampshire" "Kent" "Essex" "Cumberland" "Suffolk"
+		"Sussex" "Wiltshire" "Cornwall" "Shropshire" "Gloucestershire" "Staffordshire" "Derbyshire" "Cheshire" "Durham" "Northamptonshire" "Dorset" "Warwickshire"
+		"Cambridgeshire" "Nottinghamshire" "Herefordshire" "Leicestershire" "Westmorland" "Surrey" "Oxfordshire" "Worcestershire" "Buckinghamshire" "Berkshire" "Hertfordshire" "Bedfordshire"
+		"Huntingdonshire" "Middlesex" "Rutland" "Caithness" "Sutherland" "Nairnshire" "Moray" "Banffshire" "Aberdeenshire" "Kincardineshire" "Angus" "Perthshire"
+		"Argyll" "Bute" "Ayrshire" "Renfrewshire" "Dunbartonshire" "Stirlingshire" "Clackmannanshire" "Kinross" "Ross-shire" "Inverness-shire" "Fife" "East Lothian"
+		"Midlothian" "West Lothian" "Lanarkshire" "Peeblesshire" "Selkirkshire" "Berwickshire" "Roxburghshire" "Dumfriesshire" "Kirkcudbrightshire" "Wigtownshire" "Shetland" "Orkney"
+		"Antrim" "Down" "Londonderry" "Tyrone" "Armagh" "Fermanagh" "Monmouthshire" "Glamorganshire" "Carmarthenshire" "Pembrokeshire" "Cardiganshire" "Brecknockshire"
+		"Radnorshire" "Montgomeryshire" "Denbighshire" "Flintshire" "Merionethshire" "Caernarfonshire" "Anglesey"
+	}
+}
+
+### THEME: CITIES ###
+ENG_CITIES = {
+	name = NAME_THEME_CITIES
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		"London" "Birmingham" "Leeds" "Glasgow" "Sheffield" "Bradford" "Manchester" "Edinburgh" "Liverpool" "Bristol" "Cardiff" "Belfast"
+		"Leicester" "Wakefield" "Coventry" "Nottingham" "Newcastle" "Sunderland" "Brighton" "Hove" "Kingston upon Hull" "Plymouth" "Wolverhampton" "Stoke"
+		"Derby" "Swansea" "Southampton" "Salford" "Westminster" "Portsmouth" "York" "Aberdeen" "Peterborough" "Chelmsford" "Dundee" "Oxford"
+		"Canterbury" "Newport" "St Albans" "Preston" "Lancaster" "Norwich" "Cambridge" "Gloucester" "Lisburn" "Exeter" "Winchester" "Londonderry"
+		"Carlisle" "Worcester" "Durham" "Lincoln" "Chester" "Bath" "Inverness" "Armagh" "Hereford" "Perth" "Salisbury" "Stirling"
+		"Lichfield" "Newry" "Chichester" "Ely" "Bangor" "Truro" "Ripon" "Wells" "St Asaph" "St Davids"
+		# Cathedral cities, ports and naval towns
+		"Rochester" "Dover" "Sandwich" "Folkestone" "Ramsgate" "Margate" "Hastings" "Rye" "Newhaven" "Shoreham" "Poole" "Weymouth"
+		"Lyme Regis" "Exmouth" "Teignmouth" "Dartmouth" "Falmouth" "Fowey" "Penzance" "Padstow" "Bideford" "Barnstaple" "Bridgwater" "Harwich"
+		"Ipswich" "Lowestoft" "Great Yarmouth" "King's Lynn" "Boston" "Grimsby" "Whitby" "Scarborough" "Hartlepool" "Tynemouth" "Berwick-upon-Tweed" "Chatham"
+		"Sheerness" "Gravesend" "Greenwich" "Deptford" "Woolwich" "Whitehaven" "Fleetwood" "Barrow-in-Furness" "Holyhead" "Milford Haven" "Pembroke" "Tenby"
+		"Aberystwyth" "Caernarvon" "Conway" "Beaumaris" "Fishguard" "Cardigan" "Carmarthen" "Larne" "Carrickfergus" "Coleraine"
+		# County towns and market towns
+		"Bedford" "Reading" "Aylesbury" "Colchester" "Maidstone" "Lewes" "Northampton" "Warwick" "Stafford" "Taunton" "Dorchester" "Devizes"
+		"Beverley" "Hertford" "Guildford" "Oakham" "Ludlow" "Tewkesbury" "Cheltenham" "Stamford" "Doncaster" "Kendal" "Appleby" "Huntingdon"
+		# Royal burghs and Scottish towns
+		"Linlithgow" "Dunfermline" "Kirkcaldy" "St Andrews" "Arbroath" "Peterhead" "Fraserburgh" "Banff" "Nairn" "Dingwall" "Wick" "Thurso"
+		"Kirkwall" "Lerwick" "Stornoway" "Oban" "Campbeltown" "Greenock" "Ayr" "Dumfries" "Lanark" "Leith" "Jedburgh" "Hawick"
+		"Elgin" "Forfar" "Brechin" "Dunblane" "Dunkeld"
+	}
+}
+
+### THEME: COLONIES ###
+ENG_COLONIES = {
+	name = NAME_THEME_COLONIES
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		"Fiji" "Kenya" "Nigeria" "Mauritius" "Trinidad" "Gambia" "Jamaica" "Bermuda" "Ceylon" "Newfoundland" "Uganda" "Gibraltar"
+		"Falklands" "Hong Kong" "Malta" "Rhodesia" "Burma"
+		# Dominions
+		"Canada" "Australia" "New Zealand" "South Africa" "India"
+		# Colonies, protectorates and mandated territories in 1936
+		"Malaya" "Straits Settlements" "Singapore" "Sarawak" "North Borneo" "Brunei" "Labuan" "Aden" "Cyprus" "Palestine" "Transjordan" "Papua"
+		"Tonga" "Gilbert Islands" "Solomon Islands" "New Hebrides" "Pitcairn" "Sudan" "Somaliland" "Tanganyika" "Zanzibar" "Nyasaland" "Northern Rhodesia" "Bechuanaland"
+		"Basutoland" "Swaziland" "Gold Coast" "Sierra Leone" "Cameroons" "Togoland" "Seychelles" "St Helena" "Ascension" "Tristan da Cunha" "South Georgia" "Bahamas"
+		"Barbados" "Grenada" "St Lucia" "St Vincent" "Dominica" "Antigua" "Montserrat" "St Kitts" "Nevis" "Anguilla" "Virgin Islands" "Cayman Islands"
+		"Turks and Caicos" "British Honduras" "British Guiana" "Tobago"
+	}
+}
+
+### THEME: KINGS AND QUEENS ###
+ENG_KINGS = {
+	name = NAME_THEME_KINGS
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		"King Edward VIII" "King George V" "King Edward VII" "Queen Victoria" "King William IV" "King George IV" "King George III" "King George II" "King George I" "Queen Anne" "King William III" "King James II"
+		"King Charles II" "King Charles I" "King James I" "Queen Elizabeth" "Queen Mary" "King Edward VI" "King Henry VIII" "King Henry VII" "King Richard III" "King Edward V" "King Edward IV" "King Henry VI"
+		"King Henry V" "King Henry IV" "King Richard II" "King Edward III" "King Edward II" "King Edward I" "King Henry III" "King John" "King Richard I" "King Henry II" "King Stephen" "King Henry I"
+		"King William II" "King William I"
+		# Queen regnant omitted by vanilla
+		"Queen Mary II"
+		# Anglo-Saxon and Danish kings of England (802-1066)
+		"King Egbert" "King Ethelwulf" "King Ethelbald" "King Ethelbert" "King Ethelred I" "King Alfred" "King Edward the Elder" "King Athelstan" "King Edmund I" "King Eadred" "King Eadwig" "King Edgar"
+		"King Edward the Martyr" "King Ethelred II" "King Edmund Ironside" "King Cnut" "King Harold I" "King Harthacnut" "King Edward the Confessor" "King Harold II"
+		# Kings and queens of Scots (843-1567)
+		"King Kenneth MacAlpin" "King Constantine II" "King Malcolm II" "King Duncan I" "King Macbeth" "King Malcolm III" "King David I" "King Malcolm IV" "King William the Lion" "King Alexander II" "King Alexander III" "King John Balliol"
+		"King Robert the Bruce" "King David II" "King Robert II" "King Robert III" "King James III" "King James IV" "King James V" "Mary, Queen of Scots"
+	}
+}
+
+### THEME: BATTLES ###
+ENG_BATTLES = {
+	name = NAME_THEME_BATTLES
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		"Waterloo" "Agincourt" "Cressy" "Poitiers" "Vitoria" "Salamanca" "Ramillies" "Blenheim" "Elixheim" "Oudenarde" "Lille" "Malplaquet"
+		"Schellenberg" "Verneuil" "Boyne" "Culloden" "Plassey" "Balaklava" "Rorke's Drift" "Megiddo" "Assaye" "Stamford Bridge" "Edington" "Trafalgar"
+		"Nile" "Jutland" "Sluys" "Quiberon Bay"
+		# Victories of the medieval and Tudor kingdoms
+		"Falkirk" "Halidon Hill" "Neville's Cross" "Homildon Hill" "Shrewsbury" "Evesham" "Towton" "Bosworth" "Flodden" "Pinkie"
+		# Victories of the 18th century
+		"Dettingen" "Minden" "Quebec" "Louisbourg" "Seringapatam" "Alexandria" "Maida" "Wandiwash" "Buxar" "Porto Novo"
+		# Peninsular and Napoleonic Wars
+		"Vimeiro" "Corunna" "Talavera" "Busaco" "Fuentes de Oñoro" "Albuera" "Badajoz" "Ciudad Rodrigo" "San Sebastián" "Orthez"
+		# Victorian campaigns
+		"Aliwal" "Sobraon" "Gujrat" "Alma" "Inkerman" "Sebastopol" "Lucknow" "Delhi" "Magdala" "Tel-el-Kebir" "Kandahar" "Ulundi"
+		"Omdurman" "Atbara" "Paardeberg" "Ladysmith" "Mafeking" "Kimberley"
+		# The Great War
+		"Mons" "Marne" "Aisne" "Ypres" "Somme" "Arras" "Vimy" "Messines" "Cambrai" "Amiens" "Beersheba" "Baghdad"
+		"Jerusalem" "Zeebrugge" "Heligoland" "Falkland Islands" "Dogger Bank"
+	}
+}
+
+### THEME: RIVERS ###
+ENG_RIVERS = {
+	name = NAME_THEME_RIVERS
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		"Severn" "Thames" "Trent" "Great Ouse" "Wye" "Ure" "Tay" "Clyde" "Spey" "Nene" "Bann" "Tweed"
+		"Avon" "Eden" "Dee" "Witham" "Teme" "Don" "Foyle" "Teifi" "Towy" "Ribble" "Tyne" "Derwent"
+		"Aire" "Nith" "Tees" "Medway" "Mersey"
+		# River-class frigates (1942-1944)
+		"Ballinderry" "Chelmer" "Dart" "Derg" "Ettrick" "Exe" "Itchen" "Jed" "Kale" "Ness" "Rother" "Swale"
+		"Test" "Teviot" "Waveney" "Wear" "Adur" "Annan" "Awe" "Barle" "Braid" "Cam" "Cuckmere" "Deveron"
+		"Dovey" "Evenlode" "Fal" "Findhorn" "Frome" "Glenarm" "Halladale" "Helford" "Helmsdale" "Inver" "Lagan" "Lochy"
+		"Lossie" "Meon" "Monnow" "Mourne" "Moyola" "Nadder" "Odzani" "Parret" "Plym" "Shiel" "Taff" "Tavy"
+		"Torridge" "Usk" "Windrush" "Strule"
+		# Other rivers of Britain and Ulster
+		"Humber" "Ouse" "Tamar" "Teign" "Taw" "Arun" "Stour" "Orwell" "Deben" "Blackwater" "Colne" "Crouch"
+		"Welland" "Wharfe" "Lune" "Esk" "Nidd" "Coquet" "Wansbeck" "Conwy" "Clwyd" "Neath" "Mawddach" "Cleddau"
+		"Forth" "Tummel" "Doon" "Cree" "Leven" "Garry" "Erne" "Kennet" "Cherwell" "Isis"
+	}
+}
+
+### THEME: MYTHOLOGY AND LEGEND ###
+ENG_MYTHOLOGY = {
+	name = NAME_THEME_MYTHOLOGY
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		"King Arthur" "Guinevere" "Uther Pendragon" "Mordred" "Agravain" "Bedivere" "Bors" "Caradoc" "Gaheris" "Galahad" "Galehaut" "Gareth"
+		"Gawain" "Geraint" "Lamorak" "Lancelot" "Sir Kay" "Lucan" "Palamedes" "Pelleas" "Pellinore" "Percival" "Sagramore" "Tristan"
+		"Ywain" "Ector" "Merlin" "Nimue" "Morgan le Fay" "Excalibur" "Camelot" "Avalon" "Ambrosius" "Brutus" "Cassivellaunus" "Cadwaladr"
+		"Caradocus" "Corineus" "Coel Hen" "Constantine" "Cunobeline" "Leir" "King Lot" "King Mark" "Urien"
+		# More of the Arthurian cycle
+		"Igraine" "Elaine" "Enid" "Lynette" "Dagonet" "Balin" "Balan" "Lyonesse" "Joyous Gard" "Tintagel"
+		# Welsh legend (the Mabinogion and the Taliesin poems)
+		"Pwyll" "Rhiannon" "Pryderi" "Bran the Blessed" "Branwen" "Manawydan" "Gwydion" "Lleu" "Blodeuwedd" "Arianrhod" "Culhwch" "Olwen"
+		"Taliesin" "Ceridwen" "Gwyn ap Nudd" "Arawn" "Annwn"
+		# Gaelic and Ossianic legend
+		"Fingal" "Ossian" "Oscar" "Cuchulain" "Deirdre" "Diarmuid" "Grainne" "Lugh" "Dagda" "Brigid" "Manannan" "Nuada"
+		"Balor" "Tir na nOg" "Selkie" "Kelpie"
+		# English folklore and legend
+		"Robin Hood" "Little John" "Friar Tuck" "Will Scarlet" "Maid Marian" "Alan-a-Dale" "Wayland" "Herne the Hunter" "Green Man" "Lady Godiva" "Hereward" "Gogmagog"
+		"Bladud" "Thomas the Rhymer" "Tam Lin" "Dick Whittington" "Beowulf" "Grendel" "Hengist" "Horsa" "Black Shuck" "Lambton Worm"
+	}
+}
+
+### THEME: ADMIRALS ###
+ENG_ADMIRALS = {
+	name = "Admirals"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Admirals of the Tudor and Stuart navies
+		"Hawkins" "Drake" "Howard" "Grenville" "Blake" "Monck" "Penn" "Myngs" "Spragge" "Harman" "Narborough" "Herbert"
+		"Russell" "Rooke" "Shovell" "Benbow" "Leake"
+		# Admirals of the 18th century
+		"Norris" "Wager" "Vernon" "Anson" "Hawke" "Boscawen" "Saunders" "Pocock" "Rodney" "Keppel" "Howe" "Hood"
+		"Kempenfelt" "Hughes" "Barrington" "Duncan" "Jervis"
+		# Admirals of the Revolutionary and Napoleonic Wars
+		"Nelson" "Collingwood" "Cornwallis" "Pellew" "Saumarez" "Hardy" "Duckworth" "Cochrane" "Codrington" "Troubridge" "Keith" "Gambier"
+		"Hotham" "Calder" "Warren"
+		# Admirals of the Victorian navy and the Great War
+		"Lyons" "Seymour" "Milne" "Fisher" "Jellicoe" "Cradock" "Sturdee" "Arbuthnot" "Evan-Thomas" "Madden" "Tryon" "Hornby"
+		"Beresford" "De Robeck" "Wemyss"
+	}
+}
+
+### THEME: EXPLORERS AND NAVIGATORS ###
+ENG_EXPLORERS = {
+	name = "Explorers & Navigators"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Tudor and Stuart navigators
+		"Cabot" "Frobisher" "Raleigh" "Cavendish" "Humphrey Gilbert" "John Davis" "Willoughby" "Richard Chancellor" "Hudson" "Baffin" "Dampier"
+		# Voyagers of the 18th century
+		"James Cook" "Wallis" "Carteret" "Vancouver" "Bligh" "Flinders" "George Bass" "Mackenzie" "Hearne"
+		# Polar explorers
+		"Franklin" "William Edward Parry" "Ross" "Beechey" "Belcher" "Collinson" "McClure" "George Back" "Scott" "Shackleton" "Oates"
+		# Explorers of Africa, Asia and Australia
+		"Mungo Park" "Clapperton" "Lander" "James Bruce" "Livingstone" "Burton" "Speke" "Samuel Baker" "Stanley" "Moorcroft" "Eyre" "Sturt"
+		"FitzRoy"
+	}
+}
+
+### THEME: GENERALS ###
+ENG_GENERALS = {
+	name = "Generals"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Generals of the Civil Wars and the Stuart and Hanoverian armies
+		"Cromwell" "Fairfax" "Ireton" "Lambert" "Marlborough" "Stanhope" "Ligonier" "Wolfe" "Amherst" "Clive" "Coote" "Eliott"
+		# Generals of the Revolutionary and Napoleonic Wars
+		"Wellington" "Abercromby" "Moore" "Picton" "Baird" "Uxbridge" "Lynedoch" "Cathcart" "Colborne" "Combermere" "Brock"
+		# Generals of the Victorian army
+		"Raglan" "Napier" "Gough" "Havelock" "Outram" "Nicholson" "Lawrence" "Lord Clyde" "Pollock" "Roberts" "Wolseley" "Gordon"
+		"Kitchener"
+		# Commanders of the Great War
+		"Haig" "Plumer" "Rawlinson" "Smith-Dorrien" "Byng" "Maude" "Horne"
+	}
+}
+
+### THEME: POETS AND WRITERS ###
+ENG_WRITERS = {
+	name = "Poets & Writers"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Medieval and Tudor
+		"Caedmon" "Chaucer" "Langland" "Gower" "Malory" "Spenser" "Philip Sidney" "Marlowe" "Shakespeare" "Jonson" "Hakluyt"
+		# Seventeenth and eighteenth centuries
+		"Donne" "George Herbert" "Marvell" "Milton" "Bunyan" "Dryden" "Pepys" "Defoe" "Jonathan Swift" "Alexander Pope" "Samuel Johnson" "Fielding"
+		"Smollett" "Sterne" "Goldsmith" "Sheridan" "Thomas Gray" "Cowper"
+		# Romantics and Victorians
+		"Robert Burns" "William Blake" "Wordsworth" "Coleridge" "Byron" "Shelley" "Keats" "Walter Scott" "Austen" "Marryat" "Tennyson" "Browning"
+		"Matthew Arnold" "Dickens" "Thackeray" "Bronte" "Trollope" "George Eliot" "Carlyle" "Ruskin" "Stevenson" "Meredith" "Thomas Hardy" "Conrad"
+		"Galsworthy" "Gerard Manley Hopkins" "Rupert Brooke" "Wilfred Owen"
+	}
+}
+
+### THEME: SAINTS ###
+ENG_SAINTS = {
+	name = "Saints"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Patron saints
+		"St George" "St Andrew" "St David" "St Patrick"
+		# Saints of Roman and Anglo-Saxon Britain
+		"St Alban" "St Augustine" "St Aidan" "St Cuthbert" "St Bede" "St Hilda" "St Chad" "St Cedd" "St Wilfrid" "St Oswald" "St Edmund" "St Dunstan"
+		"St Swithun" "St Aldhelm" "St Boniface" "St Botolph" "St Birinus" "St Alphege" "St Edward"
+		# Celtic saints
+		"St Columba" "St Ninian" "St Kentigern" "St Brendan" "St Brigid" "St Piran" "St Petroc" "St Illtud" "St Winifred" "St Neot" "St Ia"
+		# Medieval saints
+		"St Anselm" "St Thomas Becket" "St Margaret" "St Hugh" "St Richard" "St Giles"
+	}
+}
+
+### THEME: ANCIENT BRITAIN ###
+ENG_ANCIENT_BRITAIN = {
+	name = "Ancient Britain"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Names of the islands
+		"Albion" "Britannia" "Caledonia" "Cambria" "Hibernia" "Dalriada"
+		# Tribes of Iron Age Britain
+		"Iceni" "Brigantes" "Trinovantes" "Catuvellauni" "Silures" "Ordovices" "Durotriges" "Dumnonii" "Atrebates" "Belgae" "Cantiaci" "Parisi"
+		"Corieltauvi" "Dobunni" "Cornovii" "Votadini" "Selgovae" "Novantae" "Damnonii" "Caledones" "Demetae" "Deceangli"
+		# Leaders of the resistance to Rome
+		"Boadicea" "Caractacus" "Togodumnus" "Calgacus" "Venutius"
+		# Client rulers under Rome
+		"Cartimandua" "Prasutagus"
+		# Roman Britain
+		"Londinium" "Eboracum" "Deva" "Isca" "Camulodunum" "Verulamium" "Aquae Sulis" "Segedunum" "Vindolanda" "Luguvalium" "Lindum" "Glevum"
+		"Rutupiae" "Segontium"
+	}
+}
+
+### THEME: SHAKESPEARE ###
+ENG_SHAKESPEARE = {
+	name = "Shakespeare"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Shakespearian-class trawlers (1940)
+		"Celia" "Coriolanus" "Fluellen" "Hamlet" "Horatio" "Juliet" "Laertes" "Macbeth" "Ophelia" "Othello" "Romeo" "Rosalind"
+		# Other characters of the plays
+		"Falstaff" "Prospero" "Ariel" "Caliban" "Miranda" "Oberon" "Titania" "Puck" "Portia" "Viola" "Beatrice" "Benedick"
+		"Cordelia" "Iago" "Cassio" "Desdemona" "Cassius" "Antony" "Cleopatra" "Hotspur" "Mercutio" "Orsino" "Malvolio" "Jaques"
+		"Hermione" "Perdita" "Imogen" "Banquo" "Macduff" "Lysander" "Bassanio" "Petruchio" "Orlando" "Florizel" "Autolycus" "Ferdinand"
+		"Polonius" "Fortinbras" "Pericles" "Volumnia" "Lavinia" "Titus" "Timon" "Troilus" "Cressida" "Nerissa" "Hero" "Claudio"
+		"Dogberry" "Bardolph" "Glendower"
+	}
+}
+
+### THEME: VALOUR AND VIRTUES ###
+ENG_VIRTUES = {
+	name = "Valour & Virtues"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Valour and daring: adjectives of the line of battle
+		"Courageous" "Glorious" "Illustrious" "Formidable" "Victorious" "Indomitable" "Implacable" "Invincible" "Inflexible" "Indefatigable" "Irresistible" "Impregnable"
+		"Valiant" "Dauntless" "Undaunted" "Fearless" "Intrepid" "Audacious" "Gallant" "Resolute" "Redoubtable" "Relentless" "Tenacious" "Vigilant"
+		"Vindictive" "Valorous" "Matchless" "Tremendous" "Magnificent"
+		# Steadfastness and duty
+		"Steadfast" "Stalwart" "Staunch" "Loyal" "Loyalty" "Faithful" "Constant" "Constance" "Diligent" "Diligence" "Perseverance" "Endeavour"
+		"Resolution" "Defiance" "Fidelity" "Liberty" "Prudent" "Persistent" "Watchful" "Mindful" "Assiduous" "Strenuous" "Zealous" "Ardent"
+		"Fervent" "Excellent" "Superb" "Venerable" "Triumph" "Glory" "Honour" "Justice" "Fortitude"
+	}
+}
+
+### THEME: WIND, SKY AND SEA ###
+ENG_NATURE = {
+	name = "Wind, Sky & Sea"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Winds and weather
+		"Tempest" "Typhoon" "Cyclone" "Hurricane" "Tornado" "Whirlwind" "Zephyr" "Sirocco" "Mistral" "Monsoon" "Squall" "Thunderbolt"
+		"Lightning" "Thunder" "Storm" "Stormcloud" "Snowflake" "Hailstorm" "Blizzard" "Rainbow" "Aurora" "Sunbeam" "Moonbeam" "Northern Light"
+		# Stars and constellations
+		"Sirius" "Arcturus" "Antares" "Aldebaran" "Betelgeuse" "Rigel" "Capella" "Vega" "Altair" "Canopus" "Polaris" "Regulus"
+		"Castor" "Pollux" "Procyon" "Spica" "Orion" "Pegasus" "Perseus" "Andromeda" "Cassiopeia" "Cygnus" "Lyra" "Draco"
+		"Pleiades" "Comet" "Meteor" "Eclipse" "Equinox"
+		# The sea
+		"Spindrift" "Breaker" "Billow" "Surge" "Torrent" "Maelstrom" "Whirlpool" "Riptide" "Seafoam" "Spray"
+	}
+}
+
+### THEME: BIRDS ###
+ENG_BIRDS = {
+	name = "Birds"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Birds of prey and owls
+		"Eagle" "Golden Eagle" "Sea Eagle" "Osprey" "Peregrine" "Falcon" "Kestrel" "Goshawk" "Sparrowhawk" "Buzzard" "Harrier" "Red Kite"
+		"Owl" "Barn Owl" "Tawny Owl" "Eagle Owl"
+		# Seabirds
+		"Albatross" "Fulmar" "Gannet" "Cormorant" "Puffin" "Guillemot" "Razorbill" "Kittiwake" "Skua" "Petrel" "Storm Petrel" "Shearwater"
+		"Tern" "Seagull" "Herring Gull"
+		# Waders and waterfowl
+		"Heron" "Bittern" "Crane" "Curlew" "Whimbrel" "Godwit" "Redshank" "Greenshank" "Lapwing" "Plover" "Dotterel" "Oystercatcher"
+		"Sanderling" "Dunlin" "Turnstone" "Avocet" "Snipe" "Woodcock" "Swan" "Wild Goose" "Mallard" "Teal" "Widgeon" "Pintail"
+		"Shelduck" "Eider" "Merganser" "Goosander" "Grebe" "Dabchick" "Kingfisher" "Dipper"
+		# Other birds of Britain
+		"Raven" "Rook" "Jackdaw" "Chough" "Magpie" "Jay" "Nightingale" "Skylark" "Linnet" "Goldfinch" "Bullfinch" "Chaffinch"
+		"Greenfinch" "Wren" "Robin" "Thrush" "Blackbird" "Fieldfare" "Redwing" "Redstart" "Wheatear" "Stonechat" "Whitethroat" "Nightjar"
+		"Swallow" "Swift" "House Martin" "Cuckoo" "Woodpecker" "Nuthatch" "Starling" "Corncrake" "Pheasant" "Partridge" "Red Grouse" "Ptarmigan"
+		"Capercaillie" "Peacock"
+	}
+}
+
+### THEME: AQUATIC LIFE ###
+ENG_FISH = {
+	name = "Aquatic Life"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Whales, seals and other sea mammals
+		"Whale" "Narwhal" "Grampus" "Cachalot" "Rorqual" "Finwhale" "Orca" "Porpoise" "Dolphin" "Seal" "Sealion" "Walrus"
+		"Sea Otter"
+		# Sharks and rays
+		"Shark" "Porbeagle" "Thresher" "Hammerhead" "Dogfish" "Stingray" "Skate" "Sawfish"
+		# Sea fish
+		"Sturgeon" "Swordfish" "Marlin" "Tunny" "Bonito" "Albacore" "Mackerel" "Herring" "Pilchard" "Sardine" "Cod" "Haddock"
+		"Whiting" "Hake" "Halibut" "Turbot" "Plaice" "Gurnard" "Wrasse" "Conger" "Snapper" "Grouper" "Barracuda" "Tarpon"
+		"Sunfish" "Flying Fish" "Spearfish" "Starfish" "Seahorse"
+		# Fish of rivers and lakes
+		"Salmon" "Sea Trout" "Grayling" "Arctic Char" "Pike" "Bream" "Tench" "Barbel" "Chub" "Dace" "Gudgeon" "Lamprey"
+		"Sterlet"
+		# Shellfish
+		"Lobster" "Crab" "Oyster" "Nautilus" "Cuttlefish" "Octopus"
+	}
+}
+
+### THEME: WILD BEASTS ###
+ENG_BEASTS = {
+	name = "Wild Beasts"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Beasts of Britain
+		"Red Deer" "Stag" "Hart" "Hind" "Roebuck" "Badger" "Fox" "Otter" "Wolf" "Wild Boar" "Wildcat" "Pine Marten"
+		"Polecat" "Stoat" "Ferret" "Hare" "Beaver" "Bear"
+		# Beasts of the Empire
+		"Lion" "Tiger" "Leopard" "Panther" "Cheetah" "Jaguar" "Lynx" "Elephant" "Rhinoceros" "Buffalo" "Bison" "Gazelle"
+		"Antelope" "Springbok" "Eland" "Kudu" "Zebra" "Giraffe" "Hyena" "Jackal" "Mongoose" "Kangaroo" "Wallaby" "Dingo"
+		"Wolverine" "Grizzly" "Moose" "Wapiti" "Ibex" "Chamois" "Musk Ox" "Gorilla"
+	}
+}
+
+### THEME: FLOWERS ###
+ENG_FLOWERS = {
+	name = "Flowers"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Flower-class corvettes (1940-1944)
+		"Godetia" "Buttercup" "Clover" "Anemone" "Arbutus" "Asphodel" "Aubrietia" "Auricula" "Azalea" "Begonia" "Bluebell" "Campanula"
+		"Candytuft" "Carnation" "Celandine" "Clematis" "Columbine" "Convolvulus" "Coreopsis" "Crocus" "Cyclamen" "Dianella" "Dahlia" "Delphinium"
+		"Dianthus" "Gardenia" "Geranium" "Gladiolus" "Heliotrope" "Hollyhock" "Honeysuckle" "Hydrangea" "Jasmine" "Jonquil" "Larkspur" "Lavender"
+		"Lobelia" "Marguerite" "Marigold" "Mignonette" "Mimosa" "Myosotis" "Narcissus" "Nigella" "Pentstemon" "Petunia" "Polyanthus" "Primrose"
+		"Primula" "Salvia" "Snapdragon" "Snowdrop" "Sunflower" "Tulip" "Verbena" "Veronica" "Wallflower" "Zinnia" "Abelia" "Acanthus"
+		"Aconite" "Alisma" "Alyssum" "Amaranthus" "Anchusa" "Arabis" "Armeria" "Arrowhead" "Aster" "Balsam" "Bellwort" "Bergamot"
+		"Bittersweet" "Borage" "Bryony" "Burdock" "Calendula" "Camellia" "Campion" "Chrysanthemum" "Clarkia" "Coltsfoot" "Coriander" "Cowslip"
+		"Eglantine" "Erica" "Eyebright" "Fennel" "Fleur de Lys" "Freesia" "Fritillary" "Genista" "Gentian" "Gloxinia" "Heartsease" "Heather"
+		"Hepatica" "Hibiscus" "Hyacinth" "Kingcup" "Loosestrife" "Lotus" "Mallow" "Mayflower" "Meadowsweet" "Monkshood" "Montbretia" "Nasturtium"
+		"Orchis" "Oxlip" "Pennywort" "Peony" "Periwinkle" "Picotee" "Pimpernel" "Poppy" "Potentilla" "Renonculus" "Rhododendron" "Rockrose"
+		"Rose" "Samphire" "Saxifrage" "Snowberry" "Spikenard" "Spiraea" "Starwort" "Stonecrop" "Sundew" "Sweetbriar" "Tamarisk" "Thyme"
+		"Trillium" "Vervain" "Vetch" "Violet" "Windflower" "Woodruff" "Comfrey" "Cornel" "Dittany" "Linaria" "Flax" "Mandrake"
+		"Milfoil" "Nepeta" "Privet" "Rosebay" "Smilax" "Statice" "Willowherb" "Betony" "Buddleia" "Burnet" "Ceanothus" "Bugloss"
+		"Bullrush" "Charlock"
+		# Flower-class sloops of 1915-1918 (Acacia, Azalea, Arabis, Aubrietia and Anchusa classes)
+		"Daffodil" "Daphne" "Foxglove" "Iris" "Laburnum" "Lilac" "Lily" "Magnolia" "Jessamine" "Myrtle" "Amaryllis" "Berberis"
+		"Cornflower" "Lupin" "Rosemary" "Valerian" "Gaillardia" "Lychnis" "Gilia" "Ivy" "Marjoram" "Mistletoe" "Pelargonium" "Syringa"
+		"Tuberose"
+	}
+}
+
+### THEME: TREES ###
+ENG_TREES = {
+	name = "Trees"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Tree-class trawlers (1939-1940)
+		"Acacia" "Almond" "Ash" "Bay" "Birch" "Blackthorn" "Chestnut" "Deodar" "Elm" "Fir" "Hazel" "Hickory"
+		"Juniper" "Mangrove" "Olive" "Pine" "Rowan" "Walnut" "Whitethorn" "Wistaria"
+		# Other trees and woods
+		"Oak" "Alder" "Aspen" "Beech" "Cedar" "Cherry" "Cypress" "Hawthorn" "Holly" "Hornbeam" "Larch" "Laurel"
+		"Maple" "Medlar" "Poplar" "Quince" "Spruce" "Sycamore" "Teak" "Willow" "Yew" "Mulberry" "Linden" "Mahogany"
+		"Ebony" "Sandalwood" "Banyan" "Baobab" "Eucalyptus" "Kauri" "Scots Pine" "Silver Birch"
+	}
+}
+
+### THEME: GEMS ###
+ENG_GEMS = {
+	name = "Gems"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Gems and precious stones
+		"Diamond" "Ruby" "Sapphire" "Emerald" "Amethyst" "Topaz" "Opal" "Pearl" "Garnet" "Jasper" "Agate" "Onyx"
+		"Sardonyx" "Beryl" "Aquamarine" "Tourmaline" "Turquoise" "Jade" "Amber" "Coral" "Moonstone" "Bloodstone" "Carnelian" "Chrysolite"
+		"Peridot" "Zircon" "Lapis Lazuli" "Malachite" "Obsidian" "Cairngorm" "Crystal" "Citrine" "Spinel" "Chalcedony" "Jacinth" "Sardius"
+	}
+}
+
+### THEME: CASTLES ###
+ENG_CASTLES = {
+	name = "Castles"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Castle-class corvettes (1943-1945)
+		"Rising Castle" "Nunney Castle" "Hever Castle" "Guildford Castle" "Norham Castle" "Wolvesey Castle" "Tamworth Castle" "Walmer Castle" "Hedingham Castle" "Sherborne Castle" "Sandgate Castle" "Pembroke Castle"
+		"Hadleigh Castle" "Kenilworth Castle" "Allington Castle" "Bamborough Castle" "Caistor Castle" "Denbigh Castle" "Farnham Castle" "Lancaster Castle" "Oakham Castle" "Rayleigh Castle" "Alnwick Castle" "Barnard Castle"
+		"Flint Castle" "Knaresborough Castle" "Launceston Castle" "Leeds Castle" "Morpeth Castle" "Oxford Castle" "Pevensey Castle" "Scarborough Castle" "Tintagel Castle" "Amberley Castle" "Berkeley Castle" "Carisbrooke Castle"
+		"Dumbarton Castle" "Hurst Castle" "Portchester Castle" "Rushen Castle" "Shrewsbury Castle"
+		# Castle-class names cancelled in 1943-1944
+		"Alton Castle" "Appleby Castle" "Aydon Castle" "Barnwell Castle" "Beeston Castle" "Bere Castle" "Bodiam Castle" "Bolton Castle" "Bowes Castle" "Bramber Castle" "Bridgnorth Castle" "Brough Castle"
+		"Caldecot Castle" "Calshot Castle" "Canterbury Castle" "Carew Castle" "Chepstow Castle" "Chester Castle" "Christchurch Castle" "Clare Castle" "Clavering Castle" "Clitheroe Castle" "Clun Castle" "Colchester Castle"
+		"Corfe Castle" "Cornet Castle" "Cowes Castle" "Cowling Castle" "Criccieth Castle" "Cromer Castle" "Devizes Castle" "Dover Castle" "Dudley Castle" "Dunster Castle" "Egremont Castle" "Fotheringay Castle"
+		"Helmsley Castle" "Maiden Castle" "Malling Castle" "Malmesbury Castle" "Monmouth Castle" "Norwich Castle" "Oswestry Castle" "Peel Castle" "Pendennis Castle" "Raby Castle" "Rhuddlan Castle" "Saltash Castle"
+		"Thornbury Castle" "Tonbridge Castle" "Totnes Castle" "Trematon Castle" "Tutbury Castle" "Warkworth Castle" "Wigmore Castle" "York Castle"
+		# Other castles of England, Scotland, Wales and Ulster
+		"Windsor Castle" "Edinburgh Castle" "Stirling Castle" "Caernarvon Castle" "Harlech Castle" "Conway Castle" "Beaumaris Castle" "Raglan Castle" "Caerphilly Castle" "Kidwelly Castle" "Dunstanburgh Castle" "Warwick Castle"
+		"Arundel Castle" "Rochester Castle" "Lewes Castle" "Framlingham Castle" "Orford Castle" "Ludlow Castle" "Richmond Castle" "Skipton Castle" "Durham Castle" "Lincoln Castle" "Newark Castle" "Tattershall Castle"
+		"Bolsover Castle" "Peveril Castle" "Restormel Castle" "St Mawes Castle" "Deal Castle" "Glamis Castle" "Urquhart Castle" "Dunnottar Castle" "Dunvegan Castle" "Tantallon Castle" "Caerlaverock Castle" "Doune Castle"
+		"Rothesay Castle" "Duart Castle" "Kilchurn Castle" "Blair Castle" "Inveraray Castle" "Cawdor Castle" "Carrickfergus Castle" "Dunluce Castle" "Enniskillen Castle"
+	}
+}
+
+### THEME: ISLES ###
+ENG_ISLES = {
+	name = "Isles"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Isles-class trawlers (1939-1945)
+		"Ailsa Craig" "Annet" "Arran" "Balta" "Bardsey" "Benbecula" "Biggal" "Bressay" "Brora" "Bruray" "Bryher" "Burra"
+		"Bute" "Caldy" "Copinsay" "Crowlin" "Cumbrae" "Damsay" "Earraid" "Eday" "Egilsay" "Ensay" "Eriskay" "Fara"
+		"Farne" "Fetlar" "Fiaray" "Filla" "Flatholm" "Flotta" "Foula" "Foulness" "Fuday" "Gairsay" "Ganilly" "Gillstone"
+		"Gorregan" "Graemsay" "Grassholm" "Gruinard" "Gulland" "Gweal" "Hannaray" "Hascosay" "Hayling" "Hellisay" "Hermetray" "Hildasay"
+		"Hoxa" "Hoy" "Hunda" "Imersay" "Inchcolm" "Inchmarnock" "Islay" "Jura" "Kerrera" "Kintyre" "Kittern" "Lindisfarne"
+		"Lingay" "Longa" "Lundy" "Mewstone" "Minalto" "Mincarlo" "Mousa" "Mull" "Neave" "Orfasy" "Oronsay" "Oxna"
+		"Pladda" "Ronaldsay" "Rosevean" "Rousay" "Ruskholm" "Rysa" "Scalpay" "Shapinsay" "Shiant" "Skokholm" "Skomer" "Skye"
+		"Sluna" "St Agnes" "St Kilda" "Staffa" "Steepholm" "Stroma" "Stronsay" "Switha" "Tiree" "Trondra" "Ulva" "Unst"
+		"Vatersay" "Wallasea" "Westray" "Whalsay" "Calvay" "Canna" "Cava" "Coll" "Colsay" "Orsay" "Rona" "Sandray"
+		"Scaravay" "Sheppey" "Shillay" "Sursay" "Tahay" "Tocogay" "Trodday" "Vaceasay" "Vallay" "Wiay" "Inchkeith" "Killegray"
+		"Sanda" "Scarba"
+		# Other islands of the British Isles
+		"Isle of Wight" "Isle of Man" "Isle of Lewis" "Barra" "North Uist" "South Uist" "Iona" "Eigg" "Lismore" "Gigha" "Colonsay" "Raasay"
+		"Sark" "Guernsey" "Herm" "Tresco" "Canvey" "Mersea" "Thanet" "Rathlin" "Fair Isle" "Brownsea" "Portsea" "Walney"
+		"Jersey" "Alderney"
+	}
+}
+
+### THEME: LOCHS AND LAKES ###
+ENG_LOCHS = {
+	name = "Lochs & Lakes"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Loch-class frigates (1944-1946)
+		"Loch Achanalt" "Loch Fada" "Loch Dunvegan" "Loch Eck" "Loch Achray" "Loch Alvie" "Loch Ard" "Loch Arkaig" "Loch Assynt" "Loch Boisdale" "Loch Craggie" "Loch Cree"
+		"Loch Fyne" "Loch Glendhu" "Loch Gorm" "Loch Insh" "Loch Katrine" "Loch Killin" "Loch Killisport" "Loch Lomond" "Loch More" "Loch Morlich" "Loch Quoich" "Loch Ruthven"
+		"Loch Scavaig" "Loch Shin" "Loch Tarbert" "Loch Torridon" "Loch Tralaig" "Loch Veyatie"
+		# Loch-class names cancelled in 1944-1945
+		"Loch Affric" "Loch Awe" "Loch Badcall" "Loch Caroy" "Loch Clunie" "Loch Creran" "Loch Doine" "Loch Earn" "Loch Enoch" "Loch Ericht" "Loch Erisort" "Loch Eye"
+		"Loch Eyenort" "Loch Fionn" "Loch Garve" "Loch Glashan" "Loch Goil" "Loch Griam" "Loch Harray" "Loch Hourn" "Loch Inchard" "Loch Ken" "Loch Kirbister" "Loch Kirkaig"
+		"Loch Kishorn" "Loch Knochie" "Loch Laro" "Loch Linfern" "Loch Linnhe" "Loch Lurgan" "Loch Lyon" "Loch Maberry" "Loch Minnick" "Loch Nell" "Loch Odairn" "Loch Ossian"
+		"Loch Ronald" "Loch Ryan" "Loch Scrivain" "Loch Sheallah" "Loch Shiel" "Loch Skaig" "Loch Skerrow" "Loch Stemster" "Loch Stenness" "Loch Striven" "Loch Sunart" "Loch Swin"
+		"Loch Tanna" "Loch Tilt" "Loch Tummell" "Loch Urgill" "Loch Vanavie" "Loch Vennacher" "Loch Watten"
+		# Other lochs and loughs
+		"Loch Ness" "Loch Maree" "Loch Leven" "Loch Etive" "Loch Ewe" "Loch Long" "Loch Rannoch" "Loch Tay" "Loch Morar" "Loch Oich" "Loch Lochy" "Lough Neagh"
+		"Lough Erne" "Lough Foyle" "Strangford Lough" "Belfast Lough"
+		# Lakes of England and Wales
+		"Windermere" "Ullswater" "Coniston" "Derwentwater" "Bassenthwaite" "Buttermere" "Thirlmere" "Wastwater" "Haweswater" "Grasmere" "Rydal Water" "Bala Lake"
+		"Llyn Padarn"
+	}
+}
+
+### THEME: HILLS AND MOUNTAINS ###
+ENG_GEOGRAPHY = {
+	name = "Hills & Mountains"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Hill-class trawlers (1940-1941)
+		"Birdlip" "Bredon" "Butser" "Duncton" "Dunkery" "Inkpen" "Portsdown" "Yestor"
+		# Mountains of Scotland
+		"Ben Nevis" "Ben Macdui" "Ben Lomond" "Ben Lawers" "Ben More" "Ben Wyvis" "Ben Hope" "Ben Loyal" "Lochnagar" "Schiehallion" "Suilven" "Cuillin"
+		"Goatfell" "Merrick" "Ben Cruachan" "Ben Vorlich" "Buachaille Etive Mor" "Grampian" "Ochil" "Pentland" "Sidlaw" "Lammermuir" "Cheviot"
+		# Mountains and fells of England
+		"Scafell" "Helvellyn" "Skiddaw" "Great Gable" "Blencathra" "Cross Fell" "Kinder Scout" "Ingleborough" "Pen-y-ghent" "Whernside" "Pendle" "Mam Tor"
+		"Wrekin" "Long Mynd" "Malvern Hills" "Leith Hill" "Box Hill" "Ditchling Beacon" "Dunstable Downs" "Bodmin Moor" "High Willhays" "Haytor" "Roseberry Topping"
+		# Mountains of Wales and Ulster
+		"Snowdon" "Cader Idris" "Tryfan" "Glyder" "Plynlimon" "Pen y Fan" "Sugar Loaf" "Arenig" "Aran Fawddwy" "Moel Siabod" "Slieve Donard" "Slieve Gullion"
+		"Sperrin" "Mourne Mountains"
+	}
+}
+
+### THEME: DANCES ###
+ENG_DANCES = {
+	name = "Dances"
+
+	for_countries = { ENG }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Dance-class trawlers (1940), with Tarantella's 1943 name
+		"Cotillion" "Coverley" "Fandango" "Foxtrot" "Gavotte" "Hornpipe" "Mazurka" "Minuet" "Morris Dance" "Pirouette" "Polka" "Quadrille"
+		"Rumba" "Sarabande" "Saltarelo" "Sword Dance" "Tango" "Tarantella" "Valse" "Veleta" "Two Step"
+		# Dances of the British Isles
+		"Highland Fling" "Strathspey" "Lancers" "Galliard" "Pavane" "Lavolta" "Country Dance" "Schottische" "Barn Dance" "Eightsome Reel" "Clog Dance"
+		# Other dances
+		"Waltz" "Bolero" "Allemande" "Courante" "Gigue" "Chaconne" "Bourree" "Rigadoon" "Farandole" "Habanera" "Galop" "Polonaise"
+		"Quickstep" "Charleston"
+	}
+}
+
+### IDEOLOGY-GATED THEME: LIBERTY AND PARLIAMENT (democratic) ###
+ENG_PARLIAMENT = {
+	name = "Liberty & Parliament"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = democratic
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Charters and institutions of liberty
+		"Magna Carta" "Runnymede" "Witenagemot" "Model Parliament" "Petition of Right" "Habeas Corpus" "Bill of Rights" "Reform Act" "Emancipation" "Hansard"
+		# Parliamentarians and reformers
+		"Simon de Montfort" "Hampden" "Pym" "John Eliot" "Algernon Sidney" "John Locke" "Wilkes" "Cartwright" "Romilly" "Wilberforce" "Clarkson" "Cobden"
+		"John Bright" "Shaftesbury" "Elizabeth Fry" "Millicent Fawcett" "Emmeline Pankhurst"
+		# Prime ministers who died before 1936
+		"Walpole" "Lord Chatham" "Pitt" "Charles James Fox" "Burke" "Canning" "Robert Peel" "Lord Melbourne" "Palmerston" "Gladstone" "Disraeli" "Lord Salisbury"
+		"Rosebery" "Balfour" "Campbell-Bannerman" "Asquith" "Bonar Law" "Arthur Henderson"
+	}
+}
+
+### IDEOLOGY-GATED THEME: CROWN AND EMPIRE (non-aligned) ###
+ENG_MONARCHISM = {
+	name = "Crown & Empire"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = neutrality
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# The Crown and its regalia
+		"Crown" "Imperial Crown" "Sceptre" "Orb" "Regalia" "Coronation" "Jubilee" "Royal Standard" "Dieu et mon Droit" "Defender of the Faith" "Rule Britannia"
+		# Orders of chivalry
+		"Garter" "Thistle" "Star of India" "Indian Empire" "St Michael and St George" "Royal Victorian Order"
+		# Royal palaces and residences
+		"Windsor" "Balmoral" "Sandringham" "Osborne" "Buckingham" "Holyrood" "Hampton Court" "Kensington" "Kew" "Whitehall" "St James's Palace" "Greenwich Palace"
+		# Royal yachts
+		"Victoria and Albert" "Royal Charlotte" "Royal Caroline" "Alberta" "Fairy" "Elfin"
+		# Empire
+		"Empire" "Dominion" "Imperial" "Sovereign" "Royal Oak" "Royal George" "Empress of India"
+	}
+}
+
+### IDEOLOGY-GATED THEME: CAVALIERS AND JACOBITES (non-aligned) ###
+ENG_CAVALIERS = {
+	name = "Cavaliers & Jacobites"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = neutrality
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "HMS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Royalist commanders of the Civil Wars
+		"Rupert" "Montrose" "Hopton" "Astley" "Ormonde" "Langdale" "Goring" "George Digby" "Capel" "Falkland" "Wilmot" "Bevil Grenville"
+		# Royalist victories and the escape of 1651
+		"Roundway Down" "Lansdown" "Adwalton Moor" "Stratton" "Cropredy Bridge" "Lostwithiel" "Chalgrove Field" "Braddock Down" "Boscobel" "Restoration"
+		# The Jacobite cause
+		"Bonnie Dundee" "Killiecrankie" "Prestonpans" "Glenfinnan" "Falkirk Muir" "Lochiel" "Lord George Murray" "Flora MacDonald" "Bonnie Prince Charlie" "Keppoch" "Lord Pitsligo" "Lord Ogilvy"
+		"Balmerino"
+	}
+}
+
+##### WORKERS' NAVY (WLNS): communism; mirrors the HMS lists without royal names #####
+
+### SHIP-TYPE SPECIFIC: DESTROYERS (WORKERS' NAVY) ###
+ENG_DD_COMMUNIST = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "WLNS "
+	fallback_name = "Destroyer %s"
+
+	unique = {
+		# 1934-1945 classes, from the G class: alphabetical flotillas, Tribals, wartime emergency flotillas, Battle and Weapon classes
+		"Gallant" "Garland" "Gipsy" "Glowworm" "Grafton" "Grenade" "Grenville" "Greyhound" "Griffin" "Hardy" "Hasty" "Havock"
+		"Hereward" "Hero" "Hostile" "Hotspur" "Hunter" "Hyperion" "Afridi" "Ashanti" "Bedouin" "Cossack" "Eskimo" "Gurkha"
+		"Maori" "Mashona" "Matabele" "Mohawk" "Nubian" "Punjabi" "Sikh" "Somali" "Tartar" "Zulu" "Icarus" "Ilex"
+		"Imogen" "Impulsive" "Inglefield" "Intrepid" "Isis" "Ivanhoe" "Harvester" "Havant" "Hesperus" "Highlander" "Hurricane" "Jervis"
+		"Jackal" "Jaguar" "Juno" "Janus" "Javelin" "Jersey" "Jupiter" "Kelly" "Kandahar" "Kashmir" "Kelvin" "Khartoum"
+		"Kimberley" "Kingston" "Kipling" "Napier" "Nestor" "Norman" "Nepal" "Laforey" "Lance" "Lively" "Legion" "Lightning"
+		"Lookout" "Loyal" "Milne" "Mahratta" "Musketeer" "Myrmidon" "Matchless" "Meteor" "Marne" "Martin" "Onslow" "Offa"
+		"Onslaught" "Oribi" "Obdurate" "Obedient" "Opportune" "Orwell" "Pakenham" "Paladin" "Panther" "Partridge" "Pathfinder" "Penn"
+		"Petard" "Porcupine" "Inconstant" "Ithuriel" "Queenborough" "Quadrant" "Quail" "Quality" "Quentin" "Quiberon" "Quickmatch" "Quilliam"
+		"Rotherham" "Racehorse" "Raider" "Rapid" "Redoubt" "Relentless" "Rocket" "Roebuck" "Saumarez" "Savage" "Scorpion" "Scourge"
+		"Serapis" "Success" "Swift" "Teazer" "Tenacious" "Termagant" "Terpsichore" "Troubridge" "Tumult" "Tuscan" "Tyrian" "Ulster"
+		"Ulysses" "Undaunted" "Undine" "Ursa" "Urchin" "Urania" "Venus" "Verulam" "Vigilant" "Virago" "Valentine" "Vixen"
+		"Volage" "Kempenfelt" "Wager" "Wakeful" "Wessex" "Whelp" "Whirlwind" "Wizard" "Wrangler" "Myngs" "Zephyr" "Zambesi"
+		"Zealous" "Zebra" "Zenith" "Zest" "Zodiac" "Caprice" "Cassandra" "Caesar" "Cavendish" "Cambrian" "Carron" "Carysfort"
+		"Chaplet" "Charity" "Chequers" "Chieftain" "Chevron" "Cheviot" "Childers" "Chivalrous" "Comus" "Concord" "Contest" "Consort"
+		"Cockade" "Comet" "Constance" "Crescent" "Crusader" "Croziers" "Crystal" "Crispin" "Creole" "Cromwell" "Barfleur" "Trafalgar"
+		"Armada" "Solebay" "Camperdown" "Finisterre" "Lagos" "St Kitts" "St James" "Gabbard" "Gravelines" "Saintes" "Sluys" "Cadiz"
+		"Vigo" "Alamein" "Aisne" "Barrosa" "Corunna" "Dunkirk" "Jutland" "Matapan" "Battleaxe" "Broadsword" "Crossbow" "Daring"
+		"Dainty" "Defender" "Decoy" "Diana" "Malplaquet" "Ypres" "Vimiera"
+		# A to F classes and their leaders (1929-1934)
+		"Amazon" "Ambuscade" "Codrington" "Acasta" "Achates" "Acheron" "Active" "Antelope" "Anthony" "Ardent" "Arrow" "Keith"
+		"Basilisk" "Beagle" "Blanche" "Boadicea" "Boreas" "Brazen" "Brilliant" "Bulldog" "Duncan" "Delight" "Diamond" "Echo"
+		"Eclipse" "Electra" "Encounter" "Escapade" "Escort" "Esk" "Express" "Fame" "Fearless" "Firedrake" "Forester" "Foresight"
+		"Fortune" "Foxhound" "Fury" "Exmouth" "Faulknor"
+		# Scott and Shakespeare leaders, S, V and W classes of 1917-1924
+		"Skate" "Wallace" "Keppel" "Broke" "Douglas" "Montrose" "Campbell" "Mackay" "Malcolm" "Scimitar" "Scout" "Sabre"
+		"Saladin" "Shikari" "Tenedos" "Thanet" "Stronghold" "Sardonyx" "Sturdy" "Thracian" "Valorous" "Vanoc" "Vanquisher" "Verdun"
+		"Vega" "Vortigern" "Venetia" "Versatile" "Vivacious" "Velox" "Vesper" "Vimy" "Vivien" "Vidette" "Vanessa" "Vanity"
+		"Viscount" "Watchman" "Walker" "Winchelsea" "Warwick" "Winchester" "Walpole" "Westcott" "Westminster" "Wrestler" "Wolfhound" "Whitley"
+		"Wryneck" "Windsor" "Wolsey" "Woolston" "Venomous" "Verity" "Volunteer" "Vansittart" "Wanderer" "Whitehall" "Wren" "Wishart"
+		"Witch" "Witherington" "Whitshed" "Wivern" "Veteran" "Wild Swan" "Wolverine" "Worcester" "Restless" "Sable" "Scotsman" "Senator"
+		"Thruster" "Tempest" "Torrid" "Thisbe" "Tyrant" "Shakespeare" "Spenser" "Swallow" "Shamrock" "Trojan" "Seafire" "Sportive"
+		"Trusty" "Serene" "Spindrift" "Turbulent" "Valkyrie" "Violent" "Vectis" "Venturous" "Walrus"
+		# Cancelled or not completed (1944-1946 Battle, Weapon and G classes)
+		"Noble" "Nonpareil" "Cutlass" "Dagger" "Culverin" "Howitzer" "Longbow" "Sword" "Musket" "Carronade" "Claymore" "Dirk"
+		"Halberd" "Poniard" "Rifle" "Spear" "Albuera" "Belle Isle" "Navarino" "Namur" "Oudenarde" "Mons" "Omdurman" "Somme"
+		"San Domingo" "River Plate" "St Lucia" "Waterloo" "Poictiers" "Talavera" "Trincomalee"
+		# Flotilla leaders of 1914-1919 (Faulknor, Marksman, Parker, Admiralty and Thornycroft types)
+		"Botha" "Tipperary" "Marksman" "Nimrod" "Gabriel" "Parker" "Saunders"
+		# Laforey class (L class, 1913-1915)
+		"Llewellyn" "Lydiard" "Leonidas" "Lucifer" "Laurel" "Laverock" "Landrail" "Lochinvar" "Lassoo"
+		# M class (1914-1917)
+		"Murray" "Morris" "Milbrook" "Minion" "Munster" "Magic" "Moresby" "Marmion" "Martial" "Menace" "Mindful" "Mischief"
+		"Nonsuch" "Nepean" "Nereus" "Nessus" "Nomad" "Northesk" "North Star" "Nugent" "Opal" "Ophelia" "Oracle" "Orford"
+		"Nicator" "Norseman" "Observer" "Oriole" "Medina" "Medway" "Pellew" "Peyton" "Pigeon" "Portia" "Pylades" "Mentor"
+		"Moon" "Morning Star" "Rival" "Mastiff" "Patriot" "Sabrina" "Surprise" "Sybille" "Ulleswater"
+		# Purchased destroyers of 1914-1915 (Talisman, Medea and Arno)
+		"Medea" "Medusa" "Melampus" "Melpomene" "Arno"
+		# R class (1916-1917)
+		"Radstock" "Rigorous" "Rob Roy" "Redgauntlet" "Setter" "Sylph" "Sarpedon" "Sorceress" "Skilful" "Springbok" "Tancred" "Tormentor"
+		"Tornado" "Torrent" "Tristram" "Tirade" "Tower" "Rosalind" "Radiant" "Retriever" "Taurus"
+		# S class (1918-1924)
+		"Sepoy" "Steadfast" "Sterling" "Swordsman" "Tara" "Tasmania" "Tattoo" "Scythe" "Sesame" "Strenuous" "Stalwart" "Tintagel"
+		"Toreador" "Tourmaline" "Torch" "Tomahawk" "Tryphon" "Turquoise"
+		# V and W classes (1917-1924)
+		"Valhalla" "Vancouver" "Vendetta" "Vittoria" "Voyager" "Waterhen"
+		# Acasta class (K class, 1912-1913)
+		"Christopher" "Lynx" "Midge" "Spitfire" "Paragon" "Victor"
+		# Acheron class (I class, 1911-1912)
+		"Ariel" "Attack" "Badger" "Beaver" "Druid" "Ferret" "Hornet" "Lizard" "Sandfly" "Tigress" "Lurcher" "Oak"
+		# Acorn class (H class, 1910-1911)
+		"Acorn" "Brisk" "Cameleon" "Goldfinch" "Hope" "Larne" "Lyra" "Nemesis" "Nymphe" "Ruby" "Staunch"
+		# Beagle class (G class, 1909-1910)
+		"Racoon" "Renard" "Nautilus" "Harpy"
+		# Tribal class (F class, 1907-1909)
+		"Zubian"
+		# River class (E class, 1903-1905)
+		"Eden" "Ettrick" "Exe" "Ribble" "Teviot" "Foyle" "Itchen" "Arun" "Blackwater" "Welland" "Waveney" "Kennet"
+		"Jed" "Cherwell" "Dee" "Rother" "Boyne" "Doon" "Kale" "Swale" "Ure" "Wear" "Liffey" "Moy"
+		"Ouse" "Gala" "Garry" "Chelmer" "Colne" "Ness" "Nith" "Stour" "Test"
+		# 30-knotters (B, C and D classes, 1895-1901)
+		"Earnest" "Griffon" "Wolf" "Syren" "Kangaroo" "Arab" "Cobra" "Bonetta" "Star" "Whiting" "Bat" "Chamois"
+		"Fawn" "Flirt" "Bullfinch" "Dove" "Violet" "Lee" "Avon" "Otter" "Leopard" "Fairy" "Osprey" "Leven"
+		"Ostrich" "Albatross" "Viper" "Desperate" "Foam" "Angler" "Cynthia" "Stag"
+		# 27-knotters (A class, 1894-1895)
+		"Boxer" "Bruizer" "Charger" "Banshee" "Conflict" "Fervent" "Handy" "Haughty" "Ranger" "Surly"
+		# Expansion: weapons (Weapon-class formula)
+		"Arquebus" "Bayonet" "Blunderbuss" "Harpoon" "Assegai" "Falchion" "Glaive" "Catapult" "Ballista" "Trebuchet" "Carbine" "Stiletto"
+		"Bombard" "Falconet"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: SUBMARINES (WORKERS' NAVY) ###
+ENG_SS_COMMUNISM = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "WLNS "
+	fallback_name = "Submarine %s"
+
+	unique = {
+		# Interwar and wartime classes: S, T, U, V, A, Thames and Porpoise classes, with the 1942 names
+		"Swordfish" "Sturgeon" "Seahorse" "Starfish" "Thames" "Severn" "Clyde" "Sealion" "Shark" "Snapper" "Salmon" "Seawolf"
+		"Spearfish" "Sunfish" "Sterlet" "Porpoise" "Grampus" "Narwhal" "Rorqual" "Cachalot" "Seal" "Triton" "Thetis" "Tribune"
+		"Trident" "Unity" "Ursula" "Umpire" "Una" "Unbeaten" "Union" "Unique" "Upholder" "Upright" "Urge" "Usk"
+		"Utmost" "Taku" "Tarpon" "Thistle" "Tigris" "Triad" "Truant" "Tuna" "Talisman" "Tetrarch" "Torbay" "Thorn"
+		"Thrasher" "Traveller" "Trooper" "Uproar" "Ultimatum" "Umbra" "Unbending" "Safari" "Sahib" "Saracen" "Satyr" "Seadog"
+		"Sibyl" "Sea Rover" "Seraph" "Sea Nymph" "Sickle" "Simoom" "Sirdar" "Spiteful" "Splendid" "Sportsman" "Unbroken" "Unison"
+		"United" "Unrivalled" "Unruffled" "Unruly" "Unseen" "Ultor" "Unshaken" "P311" "Trespasser" "Tactician" "Truculent" "Templar"
+		"Tally-Ho" "Tantalus" "Tantivy" "Stoic" "Stonehenge" "Storm" "Stratagem" "Strongbow" "Spark" "Scythian" "Stubborn" "Surf"
+		"Syrtis" "Shalimar" "Sea Devil" "Spirit" "Statesman" "Unsparing" "Usurper" "Universal" "Untamed" "Untiring" "Varangian" "Uther"
+		"Unswerving" "Vandal" "Upstart" "Varne" "Vox" "Stygian" "Subtle" "Supreme" "Sea Scout" "Selene" "Seneschal" "Sentinel"
+		"Sidon" "Sleuth" "Solent" "Spearhead" "Venturer" "Viking" "Vampire" "Vigorous" "Virtue" "Visigoth" "Vivid" "Voracious"
+		"Vulpine" "Upshot" "Urtica" "Vengeful" "Vortex" "Virulent" "Volatile" "Springer" "Telemachus" "Terrapin" "Thorough" "Thule"
+		"Tireless" "Token" "Tradewind" "Trenchant" "Tiptoe" "Trump" "Taciturn" "Tapir" "Talent" "Teredo" "Saga" "Scorcher"
+		"Spur" "Sanguine" "Votary" "Vagabond" "Astute" "Auriga" "Aurochs" "Alcide" "Alderney" "Alliance" "Ambush" "Anchorite"
+		"Andrew" "Affray" "Aeneas" "Alaric" "Tabard" "Totem" "Truncheon" "Turpin" "Thermopylae" "Artemis" "Artful" "Ace"
+		# Oberon, Odin, Parthian and Rainbow classes (1926-1932)
+		"Oberon" "Otway" "Oxley" "Odin" "Olympus" "Orpheus" "Osiris" "Oswald" "Otus" "Pandora" "Parthian" "Phoenix"
+		"Proteus" "Rainbow" "Regulus" "Rover"
+		# Ordered and cancelled in 1944-1945 (S, U, V and A classes)
+		"Vantage" "Vehement" "Venom" "Verve" "Unbridled" "Upward" "Sea Robin" "Sprightly" "Surface" "Surge" "Poseidon" "Veto"
+		"Virile" "Visitant" "Upas" "Ulex" "Utopia" "Answer" "Antagonist" "Antaeus" "Anzac" "Aphrodite" "Approach" "Arcadian"
+		"Argosy" "Atlantis" "Admirable" "Asperity" "Austere" "Adversary" "Aztec" "Abelard" "Agate" "Aggressor" "Agile" "Aladdin"
+		"Alcestis" "Asgard" "Assurance" "Astarte"
+		# Captured and commissioned (ex-U-570)
+		"Graph"
+		# Post-war boats (Explorer, Porpoise and Oberon classes)
+		"Explorer" "Excalibur" "Finwhale" "Ocelot"
+		# Names of older RN ships after sea fish, borne again under the S-class formula
+		"Dolphin" "Bream" "Haddock" "Mackerel" "Pilchard" "Sardine" "Grouper" "Bonito" "Pike"
+		# Expansion: marine life, the formula of the S and Porpoise classes (Sturgeon, Swordfish, Snapper, Narwhal, Cachalot)
+		"Barracuda" "Marlin" "Orca" "Conger" "Dogfish" "Stingray" "Sawfish" "Halibut" "Turbot" "Lamprey" "Porbeagle" "Hammerhead"
+		"Mako" "Beluga" "Gurnard" "Wrasse" "Herring"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: LIGHT CRUISERS (WORKERS' NAVY) ###
+ENG_CL_COMMUNISM = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "WLNS "
+	fallback_name = "Light Cruiser %s"
+
+	unique = {
+		# Leander, Amphion and Arethusa classes (1931-1937)
+		"Amphion" "Penelope" "Aurora" "Arethusa" "Galatea" "Leander" "Achilles" "Ajax" "Neptune" "Orion"
+		# Town class (1936-1939): cities
+		"Southampton" "Birmingham" "Glasgow" "Newcastle" "Sheffield" "Gloucester" "Liverpool" "Manchester" "Edinburgh" "Belfast"
+		# Crown Colony class (1939-1943): colonies
+		"Fiji" "Kenya" "Nigeria" "Mauritius" "Trinidad" "Gambia" "Jamaica" "Bermuda" "Ceylon" "Newfoundland" "Uganda"
+		# Minotaur class (1941-1945)
+		"Swiftsure"
+		# C, D and E classes (1914-1926)
+		"Caroline" "Conquest" "Cordelia" "Calliope" "Champion" "Canterbury" "Castor" "Caledon" "Calypso" "Caradoc" "Cardiff" "Ceres"
+		"Capetown" "Danae" "Dauntless" "Dragon" "Delhi" "Dunedin" "Durban" "Despatch" "Diomede" "Emerald" "Enterprise"
+		# Arethusa class (1913-1915)
+		"Phaeton"
+		# Town class (1909-1915): Bristol, Weymouth, Chatham and Birmingham groups
+		"Bristol" "Weymouth" "Dartmouth" "Falmouth" "Yarmouth" "Chatham" "Dublin" "Lowestoft" "Nottingham" "Birkenhead" "Chester"
+		# Scout cruisers (1904-1912)
+		"Attentive" "Forward" "Patrol" "Skirmisher" "Blonde"
+		# Third-class and protected cruisers (1885-1905): Gem, Highflyer, Challenger, Pelorus, Eclipse, Astraea and Apollo classes
+		"Topaze" "Sapphire" "Highflyer" "Hyacinth" "Challenger" "Pactolus" "Pomone" "Prometheus" "Proserpine" "Psyche" "Pyramus" "Doris"
+		"Minerva" "Talbot" "Gladiator" "Astraea" "Flora" "Forte" "Fox" "Aeolus" "Andromache" "Iphigenia" "Pique" "Retribution"
+		"Sappho"
+		# Pearl, Barracouta, Marathon and Archer classes and the despatch cruisers (1878-1892)
+		"Pearl" "Philomel" "Pallas" "Barracouta" "Marathon" "Serpent" "Iris" "Mercury"
+		# Classical names of RN frigates and sloops (Leander and Dido formula)
+		"Adonis" "Alcmene" "Alecto" "Arachne" "Argo" "Atalanta" "Bacchus" "Clio" "Cybele" "Eurydice" "Saturn" "Thalia"
+		"Vesta" "Dryad" "Ganymede" "Meleager" "Pomona" "Romulus" "Hesper" "Nisus" "Thais" "Briseis" "Helena" "Menelaus"
+		"Persephone" "Philoctetes" "Cupid" "Minos" "Euphrosyne" "Procris"
+		# Expansion: cities and towns (Town-class formula)
+		"Plymouth" "Portsmouth" "Leicester" "Wolverhampton" "Sunderland" "Swansea" "Norwich" "Oxford" "Cambridge" "Perth" "Inverness" "Stirling"
+		"Hereford" "Chichester" "Lichfield" "Ely" "Ripon" "Wakefield" "Peterborough" "Preston" "Huddersfield" "Oldham" "Bolton" "Stockport"
+		"Rochdale" "Warrington" "Wigan" "Bournemouth" "Southend" "Gateshead" "Dumbarton" "Paisley" "Motherwell" "Coatbridge" "Armagh" "Lisburn"
+		"Newry" "Wrexham" "Merthyr" "Rhondda" "Llanelly" "Kirkcaldy" "Dunfermline"
+		# Expansion: colonies, protectorates and mandates (Colony-class formula)
+		"Cyprus" "Aden" "Hong Kong" "Rhodesia" "Gold Coast" "Sierra Leone" "British Guiana" "British Honduras" "Sudan" "Burma" "Malacca" "Penang"
+		"Palestine"
+		# Expansion: cities of the Empire (formula of the C and D classes: Cairo, Calcutta, Capetown, Colombo, Delhi, Dunedin, Durban)
+		"Bombay" "Madras" "Karachi" "Rangoon" "Mandalay" "Lahore" "Simla" "Peshawar" "Kandy" "Kuala Lumpur" "Sydney" "Melbourne"
+		"Brisbane" "Adelaide" "Hobart" "Montreal" "Toronto" "Ottawa" "Winnipeg" "Christchurch" "Johannesburg" "Pretoria" "Bloemfontein" "Port Elizabeth"
+		"Nairobi" "Mombasa" "Kampala" "Port Said" "Accra" "Freetown" "Bridgetown" "Port of Spain" "Nassau" "Valletta" "Nicosia" "Haifa"
+		"Suva"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: HEAVY AND ARMOURED CRUISERS (WORKERS' NAVY) ###
+ENG_CA_COMMUNISM = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "WLNS "
+	fallback_name = "Heavy Cruiser %s"
+
+	unique = {
+		# County class (1926-1930): counties, with the two cancelled in 1929
+		"Kent" "Berwick" "Cornwall" "Cumberland" "Suffolk" "London" "Devonshire" "Shropshire" "Sussex" "Norfolk" "Dorsetshire" "York"
+		"Exeter" "Surrey" "Northumberland"
+		# Hawkins class (1918-1925): Elizabethan seamen
+		"Hawkins" "Raleigh" "Frobisher" "Effingham" "Vindictive"
+		# Armoured cruisers (1901-1908): Monmouth, Devonshire, Drake, Duke of Edinburgh, Warrior and Minotaur classes
+		"Monmouth" "Bedford" "Essex" "Donegal" "Hampshire" "Carnarvon" "Antrim" "Roxburgh" "Argyll" "Drake" "Good Hope" "Cochrane"
+		"Natal" "Minotaur" "Shannon" "Defence"
+		# Cressy class (1901-1904)
+		"Cressy" "Aboukir" "Hogue" "Sutlej" "Bacchante"
+		# First-class cruisers (1888-1900): Diadem, Powerful, Edgar, Blake and Orlando classes, Imperieuse
+		"Andromeda" "Europa" "Niobe" "Amphitrite" "Spartiate" "Powerful" "Terrible" "Hawke" "Endymion" "St George" "Blake" "Blenheim"
+		"Orlando" "Australia" "Immortalité" "Narcissus" "Imperieuse"
+		# Expansion: historic counties (County-class formula)
+		"Yorkshire" "Lancashire" "Lincolnshire" "Somerset" "Wiltshire" "Gloucestershire" "Staffordshire" "Derbyshire" "Cheshire" "Durham" "Northamptonshire" "Warwickshire"
+		"Cambridgeshire" "Nottinghamshire" "Herefordshire" "Leicestershire" "Westmorland" "Oxfordshire" "Worcestershire" "Buckinghamshire" "Berkshire" "Hertfordshire" "Huntingdonshire" "Middlesex"
+		"Rutland" "Caithness" "Sutherland" "Nairnshire" "Moray" "Banffshire" "Aberdeenshire" "Kincardineshire" "Angus" "Perthshire" "Ayrshire" "Renfrewshire"
+		"Dunbartonshire" "Stirlingshire" "Clackmannanshire" "Ross-shire" "Inverness-shire" "Fife" "East Lothian" "Midlothian" "West Lothian" "Lanarkshire" "Peeblesshire" "Dumfriesshire"
+		"Kirkcudbrightshire" "Wigtownshire" "Shetland" "Orkney" "Glamorgan" "Carmarthenshire" "Pembrokeshire" "Cardiganshire" "Brecknockshire" "Radnorshire" "Denbighshire" "Flintshire"
+		"Merionethshire" "Anglesey" "Tyrone" "Fermanagh" "County Down" "Montgomeryshire" "Kinross-shire" "Selkirkshire"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLESHIPS (WORKERS' NAVY) ###
+ENG_BB_COMMUNISM = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "WLNS "
+	fallback_name = "Battleship %s"
+
+	unique = {
+		# Workers' navy names (vanilla)
+		"Liberator" "Worker"
+		# Battleships of the 1930s and 1940s: King George V, Lion and Vanguard; KGV-class names Jellicoe and Beatty (renamed Anson and Howe in 1940)
+		"Anson" "Howe" "Jellicoe" "Beatty" "Temeraire" "Thunderer" "Vanguard"
+		# Nelson class (1927)
+		"Nelson" "Rodney"
+		# Queen Elizabeth and Revenge classes (1913-1917), with the Revenge-class Resistance (cancelled 1914)
+		"Warspite" "Valiant" "Barham" "Malaya" "Revenge" "Resolution" "Ramillies" "Resistance"
+		# Dreadnoughts of 1906-1914: Dreadnought, Bellerophon, St Vincent, Neptune, Orion, King George V and Iron Duke classes, and the ships taken over in 1914
+		"Dreadnought" "Bellerophon" "Superb" "St Vincent" "Collingwood" "Centurion" "Audacious" "Benbow" "Agincourt" "Erin" "Canada"
+		# Pre-dreadnoughts (1889-1907): Royal Sovereign, Majestic, Canopus, Formidable, London, Duncan, King Edward VII and Lord Nelson classes
+		"Hannibal" "Mars" "Canopus" "Goliath" "Cornwallis" "Russell" "Albemarle" "Montagu" "Commonwealth" "Dominion" "Hindustan" "Britannia"
+		"Hibernia" "Lord Nelson" "Agamemnon"
+		# Ironclads and turret ships (1860-1892)
+		"Caledonia" "Research" "Favorite" "Lord Clyde" "Lord Warden" "Devastation" "Northampton" "Sans Pareil" "Nile" "Belleisle"
+		# Ships of the line: first and second rates
+		"Victory" "Ville de Paris" "Atlas"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLECRUISERS (WORKERS' NAVY) ###
+ENG_BC_COMMUNISM = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "WLNS "
+	fallback_name = "Battlecruiser %s"
+
+	unique = {
+		# Battlecruisers (1908-1920): Invincible, Indefatigable, Lion, Tiger, Renown and Admiral classes
+		"Invincible" "Inflexible" "New Zealand" "Lion" "Tiger" "Renown" "Repulse" "Hood"
+		# Fisher's projected battlecruiser of 1915
+		"Incomparable"
+		# Admirals of the sail navy (Admiral-class formula)
+		"Boscawen" "Rooke" "Vernon"
+		# Great ships and flagships of the sail navy
+		"Mary Rose" "Golden Hind" "Naseby" "White Bear" "Defiance" "Constant Warwick" "Impregnable"
+		# Expansion: victories at sea (from Damme in 1213 to North Cape in 1943)
+		"Quiberon Bay" "Copenhagen" "Basque Roads" "Glorious First of June" "Dogger Bank" "Heligoland Bight" "Falkland Islands" "Cape Passaro" "Porto Bello" "Kentish Knock" "Scheveningen" "Lissa"
+		"Algiers" "Acre" "Taranto" "Sirte" "North Cape" "Damme" "Cape Ortegal" "Tamatave" "Groix" "Havana" "Louisbourg" "Dover Strait"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: AIRCRAFT CARRIERS (WORKERS' NAVY) ###
+ENG_CV_COMMUNISM = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "WLNS "
+	fallback_name = "Carrier %s"
+
+	unique = {
+		# Workers' navy names (vanilla)
+		"Inevitable"
+		# Fleet carriers (1918-1945): Argus, Eagle, Hermes, the Courageous trio, Ark Royal, Illustrious and Implacable classes
+		"Illustrious" "Formidable" "Victorious" "Indomitable" "Implacable" "Indefatigable" "Eagle" "Hermes" "Argus" "Furious" "Courageous" "Glorious"
+		# Audacious and Malta classes (ordered 1942-1943; Irresistible was renamed Ark Royal, Malta, Gibraltar and Africa were cancelled)
+		"Irresistible" "Malta" "Gibraltar" "Africa"
+		# Seaplane carriers (1914-1938)
+		"Pegasus" "Engadine" "Ben-my-Chree" "Riviera"
+		# Expansion: birds of prey and the bird names under which the Fleet Air Arm commissioned its air stations
+		"Kestrel" "Falcon" "Vulture" "Goshawk" "Sparrowhawk" "Peregrine" "Merlin" "Condor" "Buzzard" "Heron" "Fulmar" "Seahawk"
+		"Raven" "Owl" "Daedalus" "Goldcrest" "Godwit" "Nightjar" "Ringtail" "Sanderling" "Shrike" "Wagtail" "Blackcap" "Corncrake"
+		"Dipper" "Jackdaw" "Merganser" "Nuthatch" "Gadwall" "Grebe" "Fieldfare" "Hummingbird" "Nighthawk" "Flycatcher" "Hornbill" "Gamecock"
+		"Peewit" "Siskin" "Saker" "Spurwing" "Sea Eagle"
+		# Expansion: adjectives of the great ships of the line (Illustrious formula)
+		"Tremendous" "Resolute" "Puissant" "Foudroyant" "Tonnant" "Redoubtable"
+	}
+}
+
+### ROLE POOL: ESCORT DESTROYERS (vanilla tag) (WORKERS' NAVY) ###
+ENG_DE_COMMUNISM = {
+	name = NAME_THEME_HISTORICAL_DE
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Escort Destroyer %s"
+
+	unique = {
+		# Hunt class escort destroyers (Types I to IV, 1939-1943)
+		"Atherstone" "Berkeley" "Blencathra" "Brocklesby" "Cattistock" "Cleveland" "Eglinton" "Exmoor" "Fernie" "Garth" "Hambledon" "Holderness"
+		"Liddesdale" "Cotswold" "Cottesmore" "Mendip" "Meynell" "Pytchley" "Quantock" "Quorn" "Southdown" "Tynedale" "Whaddon" "Avon Vale"
+		"Blankney" "Chiddingfold" "Cowdray" "Croome" "Dulverton" "Eridge" "Farndale" "Heythrop" "Lamerton" "Puckeridge" "Wheatland" "Wilton"
+		"Lauderdale" "Ledbury" "Badsworth" "Beaufort" "Bicester" "Blackmore" "Bramham" "Calpe" "Grove" "Hursley" "Hurworth" "Middleton"
+		"Oakley" "Southwold" "Tetcott" "Zetland" "Airedale" "Albrighton" "Aldenham" "Belvoir" "Blean" "Bleasdale" "Catterick" "Derwent"
+		"Easton" "Eggesford" "Goathland" "Haydon" "Holcombe" "Limbourne" "Melbreak" "Penylan" "Rockwood" "Stevenstone" "Talybont" "Tanatside"
+		"Wensleydale" "Brecon" "Brissenden"
+		# Hunts transferred to Allied navies, and Tickham (renamed on the stocks)
+		"Bedale" "Silverton" "Tickham" "Bolebroke" "Border" "Eskdale" "Glaisdale" "Haldon" "Hatherleigh" "Modbury"
+		# Town class (ex-US flush-deckers of the 1940 destroyers-for-bases deal, RN-manned)
+		"Bath" "Belmont" "Beverley" "Bradford" "Brighton" "Broadwater" "Broadway" "Burnham" "Burwell" "Buxton" "Caldwell" "Cameron"
+		"Campbeltown" "Castleton" "Charlestown" "Chelsea" "Chesterfield" "Churchill" "Clare" "Georgetown" "Hamilton" "Lancaster" "Leamington" "Leeds"
+		"Lewes" "Lincoln" "Ludlow" "Mansfield" "Montgomery" "Newark" "Newmarket" "Newport" "Ramsey" "Reading" "Richmond" "Ripley"
+		"Rockingham" "Roxborough" "Salisbury" "St Albans" "St Mary's" "Sherwood" "Stanley" "Wells"
+	}
+}
+
+### ROLE POOL: ANTI-AIRCRAFT CRUISERS (vanilla tag) (WORKERS' NAVY) ###
+ENG_CLAA_COMMUNISM = {
+	name = NAME_THEME_HISTORICAL_CLAA
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Light Cruiser (AA) %s"
+
+	unique = {
+		# Dido and Bellona classes (1939-1944)
+		"Dido" "Naiad" "Phoebe" "Hermione" "Euryalus" "Charybdis" "Bonaventure" "Sirius" "Cleopatra" "Scylla" "Argonaut" "Bellona"
+		"Diadem" "Spartan"
+		# C-class cruisers rebuilt as anti-aircraft cruisers (1935-1943)
+		"Coventry" "Curlew" "Cairo" "Calcutta" "Carlisle" "Colombo" "Curacoa"
+	}
+}
+
+### ROLE POOL: LIGHT FLEET CARRIERS (vanilla tag) (WORKERS' NAVY) ###
+ENG_CVL_COMMUNISM = {
+	name = "Light Carriers"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Light Carrier %s"
+
+	unique = {
+		# Colossus class light fleet carriers (1944-1946), with the maintenance carriers Perseus and Pioneer
+		"Colossus" "Glory" "Ocean" "Venerable" "Vengeance" "Theseus" "Triumph" "Warrior" "Perseus" "Pioneer"
+		# Unicorn (aircraft repair carrier, 1943)
+		"Unicorn"
+		# Majestic class (laid down 1943-1945)
+		"Magnificent" "Hercules" "Leviathan"
+		# Centaur class (laid down 1944-1945), with the names cancelled in 1945
+		"Centaur" "Albion" "Bulwark" "Elephant" "Arrogant" "Polyphemus"
+	}
+}
+
+### ROLE POOL: ESCORT CARRIERS (WORKERS' NAVY) ###
+ENG_ESCORT_CARRIERS_COMMUNISM = {
+	name = "Escort Carriers"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Escort Carrier %d"
+
+	unique = {
+		# Converted escort carriers (1941-1943): Audacity, Activity, Archer and the Avenger class
+		"Audacity" "Activity" "Archer" "Avenger" "Biter" "Dasher"
+		# Attacker class (US-built, 1942-1943)
+		"Attacker" "Battler" "Chaser" "Fencer" "Pursuer" "Ravager" "Searcher" "Stalker" "Striker" "Tracker"
+		# Ruler class (US-built, 1943-1944)
+		"Arbiter" "Patroller" "Premier" "Puncher" "Reaper" "Slinger" "Smiter" "Speaker" "Thane" "Trouncer" "Trumpeter"
+		# British-built escort carriers (1943-1944)
+		"Campania" "Nairana" "Vindex" "Pretoria Castle"
+	}
+}
+
+### ROLE POOL: MONITORS (vanilla tag) (WORKERS' NAVY) ###
+ENG_BM_COMMUNISM = {
+	name = NAME_THEME_HISTORICAL_BM
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "M%d"
+
+	unique = {
+		# Monitors of 1913-1942: Humber, Abercrombie, Lord Clive, Marshal Ney, Erebus and Roberts classes, Glatton and Gorgon
+		"Erebus" "Terror" "Abercrombie" "Gorgon" "Glatton" "Havelock" "Raglan" "Humber" "Mersey" "Roberts" "Lord Clive" "General Craufurd"
+		"Earl of Peterborough" "Sir Thomas Picton" "Sir John Moore" "General Wolfe" "Marshal Soult" "Marshal Ney"
+		# Breastwork monitors and harbour-defence turret ships (1870-1877)
+		"Cyclops" "Hecate" "Magdala" "Abyssinia"
+	}
+}
+
+### ROLE POOL: MINELAYERS (vanilla tag) (WORKERS' NAVY) ###
+ENG_MINELAYERS_COMMUNISM = {
+	name = NAME_THEME_HISTORICAL_MINELAYERS
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Minelayer %s"
+
+	unique = {
+		# Fast minelayers: Adventure (1924) and the Abdiel class (1940-1943)
+		"Adventure" "Abdiel" "Latona" "Manxman" "Welshman" "Apollo" "Ariadne"
+		# Plover (1937) and the Linnet class (1938)
+		"Plover" "Linnet" "Redstart" "Ringdove"
+		# Isles-class trawlers completed as minelayers (1943)
+		"Blackbird" "Dabchick" "Stonechat" "Whitethroat"
+		# Auxiliary minelayers converted from merchant ships (1939-1944)
+		"Menestheus" "Port Napier" "Port Quebec" "Southern Prince" "Teviotbank"
+		# Auxiliary minelayers of 1914-1918
+		"Angora" "Biarritz" "Wahine" "Perdita"
+	}
+}
+
+### ROLE POOL: MINESWEEPERS (WORKERS' NAVY) ###
+ENG_MINESWEEPERS_COMMUNISM = {
+	name = "Minesweepers"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Minesweeper %d"
+
+	unique = {
+		# Halcyon class (1933-1939): traditional small-ship names
+		"Halcyon" "Skipjack" "Harrier" "Hussar" "Speedwell" "Niger" "Salamander" "Franklin" "Gleaner" "Gossamer" "Hazard" "Hebe"
+		"Jason" "Leda" "Seagull" "Sharpshooter" "Bramble" "Britomart" "Scott" "Speedy" "Sphinx"
+		# Bangor class (1940-1941): coastal towns
+		"Bangor" "Blackpool" "Bridlington" "Bridport" "Ardrossan" "Beaumaris" "Bootle" "Boston" "Brixham" "Clacton" "Cromarty" "Dornoch"
+		"Dunbar" "Greenock" "Hartlepool" "Harwich" "Hythe" "Ilfracombe" "Llandudno" "Lyme Regis" "Middlesbrough" "Newhaven" "Padstow" "Polruan"
+		"Poole" "Rothesay" "Rye" "Tenby" "Whitehaven" "Worthing" "Blyth" "Bude" "Clydebank" "Cromer" "Eastbourne" "Felixstowe"
+		"Fraserburgh" "Beaulieu" "Looe" "Peterhead" "Rhyl" "Romney" "Seaham" "Sidmouth" "Stornoway" "Portland" "Tilbury" "Seaford"
+		# Algerine class (1941-1946)
+		"Algerine" "Acute" "Alarm" "Albacore" "Antares" "Arcturus" "Aries" "Brave" "Cadmus" "Chameleon" "Cheerful" "Circe"
+		"Clinton" "Cockatrice" "Coquette" "Courier" "Espiegle" "Fancy" "Fantome" "Felicity" "Fierce" "Fly" "Flying Fish" "Friendship"
+		"Golden Fleece" "Gozo" "Hare" "Hound" "Hydra" "Jaseur" "Jewel" "Laertes" "Lennox" "Liberty" "Lightfoot" "Lioness"
+		"Loyalty" "Lysander" "Maenad" "Magicienne" "Mameluke" "Mandate" "Marvel" "Melita" "Michael" "Minstrel" "Mutine" "Mystic"
+		"Nerissa" "Octavia" "Onyx" "Orcadia" "Orestes" "Ossory" "Pelorus" "Persian" "Pickle" "Pincher" "Plucky" "Pluto"
+		"Polaris" "Postillion" "Prompt" "Pyrrhus" "Rattlesnake" "Ready" "Recruit" "Rifleman" "Rinaldo" "Romola" "Rosamund" "Rosario"
+		"Rowena" "Seabear" "Spanker" "Squirrel" "Stormcloud" "Sylvia" "Tanganyika" "Truelove" "Vestal" "Waterwitch" "Wave" "Welcome"
+		"Welfare"
+		# Algerine names cancelled in 1943-1944 and never completed
+		"Fireball" "Happy Return" "Seabriar"
+		# Hunt class (1916-1919): towns of the Aberdare group and the renamed survey ships
+		"Aberdare" "Abingdon" "Albury" "Alresford" "Appledore" "Badminton" "Bagshot" "Banchory" "Barnstaple" "Blackburn" "Bloxham" "Bradfield"
+		"Burslem" "Bury" "Caerleon" "Camberley" "Carstairs" "Caterham" "Cheam" "Clonmel" "Craigie" "Cupar" "Derby" "Dorking"
+		"Dundalk" "Dunoon" "Elgin" "Fairfield" "Fareham" "Fermoy" "Faversham" "Ford" "Forres" "Gaddesden" "Gainsborough" "Goole"
+		"Gretna" "Harrow" "Huntley" "Instow" "Irvine" "Kendal" "Kinross" "Longford" "Lydd" "Mallaig" "Malvern" "Marazion"
+		"Marlow" "Mistley" "Monaghan" "Munlochy" "Nailsea" "Northolt" "Pangbourne" "Penarth" "Petersfield" "Pontypool" "Prestatyn" "Repton"
+		"Ross" "Rugby" "Salford" "Saltash" "Saltburn" "Selkirk" "Sherborne" "Shrewsbury" "Sligo" "Stafford" "Stoke" "Sutton"
+		"Swindon" "Tiverton" "Tonbridge" "Tralee" "Tring" "Truro" "Wem" "Weybourne" "Widnes" "Yeovil" "Blackmorevale" "Dartmoor"
+		"Muskerry" "Tedworth" "Collinson" "Crozier" "Kellet" "Flinders"
+		# Racecourse class paddle minesweepers (1915-1919): racecourses
+		"Ascot" "Chelmsford" "Cheltenham" "Chepstow" "Croxton" "Doncaster" "Epsom" "Gatwick" "Goodwood" "Hurst" "Kempton" "Lingfield"
+		"Melton" "Newbury" "Plumpton" "Pontefract" "Redcar" "Sandown" "Totnes" "Banbury" "Harpenden" "Hexham" "Lanark" "Shincliffe"
+		"Shirley" "Wetherby"
+	}
+}
+
+### ROLE POOL: SLOOPS (WORKERS' NAVY) ###
+ENG_SLOOPS_COMMUNISM = {
+	name = "Sloops"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Sloop %d"
+
+	unique = {
+		# Black Swan, Egret and Bittern classes (1934-1946): mostly birds
+		"Black Swan" "Flamingo" "Erne" "Ibis" "Whimbrel" "Wild Goose" "Woodpecker" "Chanticleer" "Crane" "Cygnet" "Kite" "Lapwing"
+		"Lark" "Magpie" "Peacock" "Pheasant" "Redpole" "Snipe" "Sparrow" "Starling" "Woodcock" "Actaeon" "Amethyst" "Hart"
+		"Hind" "Mermaid" "Alacrity" "Opossum" "Modeste" "Nereide" "Egret" "Auckland" "Pelican" "Bittern" "Enchantress" "Stork"
+		# Kingfisher and Shearwater classes (1935-1939): patrol sloops after birds
+		"Kingfisher" "Mallard" "Puffin" "Kittiwake" "Sheldrake" "Widgeon" "Shearwater" "Guillemot" "Pintail"
+		# Grimsby, Hastings, Shoreham and Bridgewater classes (1928-1936): ports and seaside towns
+		"Grimsby" "Leith" "Wellington" "Londonderry" "Deptford" "Aberdeen" "Fleetwood" "Hastings" "Penzance" "Folkestone" "Scarborough" "Shoreham"
+		"Fowey" "Bideford" "Rochester" "Milford" "Weston" "Dundee" "Bridgewater" "Sandwich"
+		# 24 class (1918-1920): winners of the Derby
+		"Ard Patrick" "Bend Or" "Cicero" "Donovan" "Flying Fox" "Iroquois" "Isinglass" "Ladas" "Merry Hampton" "Minoru" "Orby" "Ormonde"
+		"Persimmon" "Rocksand" "Sanfoin" "Sefton" "Silvio" "Sir Bevis" "Sir Hugo" "Sir Visto" "Spearmint"
+		# Kil class patrol sloops (1917-1919)
+		"Kilbeggan" "Kilberry" "Kilbirnie" "Kilbride" "Kilburn" "Kilcavan" "Kilchattan" "Kilchreest" "Kilchrenan" "Kilchvan" "Kilclaire" "Kilclief"
+		"Kilclogher" "Kilcock" "Kildalkey" "Kildangan" "Kildare" "Kildary" "Kildavin" "Kildimo" "Kildonan" "Kildorough" "Kildorrey" "Kildress"
+		"Kildwick" "Kildysart" "Kilfenora" "Kilfinny" "Kilfree" "Kilfullert" "Kilgarvin" "Kilgobnet" "Kilham" "Kilkeel" "Killena" "Killerig"
+		"Killeney" "Killour" "Killowen" "Killybegs" "Killygordon" "Kilmalcolm" "Kilmacrennan" "Kilmaine" "Kilmallock" "Kilmanahan" "Kilmarnock" "Kilmartin"
+		"Kilmead" "Kilmelford" "Kilmersdon" "Kilmington" "Kilmore" "Kilmuckridge" "Kilmun"
+	}
+}
+
+### ROLE POOL: FRIGATES (WORKERS' NAVY) ###
+ENG_FRIGATES_COMMUNISM = {
+	name = "Frigates"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Frigate %d"
+
+	unique = {
+		# Captain class (US-built, 1943-1944; Evarts and Buckley types): captains of Nelson's era and other sea officers
+		"Bayntun" "Bazely" "Berry" "Blackwood" "Burges" "Capel" "Cooke" "Dacres" "Domett" "Drury" "Foley" "Garlies"
+		"Gould" "Grindall" "Gardiner" "Goodall" "Goodson" "Gore" "Keats" "Kempthorne" "Kingsmill" "Lawford" "Louis" "Lawson"
+		"Pasley" "Loring" "Hoste" "Moorsom" "Manners" "Mounsey" "Inglis" "Inman" "Bentinck" "Byard" "Calder" "Duckworth"
+		"Duff" "Essington" "Affleck" "Aylmer" "Balfour" "Bentley" "Bickerton" "Bligh" "Braithwaite" "Bullen" "Byron" "Conn"
+		"Cotton" "Cranstoun" "Cubitt" "Curzon" "Dakins" "Deane" "Ekins" "Fitzroy" "Redmill" "Retalick" "Halsted" "Riou"
+		"Rutherford" "Cosby" "Rowley" "Stockham" "Seymour" "Spragge" "Stayner" "Thornborough" "Trollope" "Tyler" "Torrington" "Narborough"
+		"Waldegrave" "Whitaker" "Holmes" "Hargood" "Hotham"
+		# Colony class (US-built, 1943-1944): colonies and protectorates
+		"Anguilla" "Antigua" "Ascension" "Bahamas" "Barbados" "Caicos" "Cayman" "Dominica" "Labuan" "Montserrat" "Nyasaland" "Papua"
+		"Perim" "Pitcairn" "Sarawak" "Seychelles" "Somaliland" "St Helena" "Tobago" "Tortola" "Zanzibar"
+		# Bay class (1945-1946): bays of the British coast
+		"Bigbury Bay" "Burghead Bay" "Cardigan Bay" "Carnarvon Bay" "Cawsand Bay" "Enard Bay" "Hollesley Bay" "Largo Bay" "Morecambe Bay" "Mounts Bay" "Padstow Bay" "Porlock Bay"
+		"Veryan Bay" "St Austell Bay" "St Brides Bay" "Start Bay" "Tremadoc Bay" "Whitesand Bay" "Widemouth Bay" "Wigtown Bay"
+	}
+}
+
+### ROLE POOL: GUNBOATS (WORKERS' NAVY) ###
+ENG_GUNBOATS_COMMUNISM = {
+	name = "Gunboats"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Gunboat %d"
+
+	unique = {
+		# Insect class river gunboats (1915-1916)
+		"Aphis" "Bee" "Cicala" "Cockchafer" "Cricket" "Ladybird" "Mantis" "Moth" "Scarab" "Tarantula" "Gnat"
+		# Fly class river gunboats (1915-1916)
+		"Blackfly" "Butterfly" "Caddisfly" "Cranefly" "Dragonfly" "Firefly" "Gadfly" "Grayfly" "Greenfly" "Hoverfly" "Mayfly" "Sawfly"
+		"Sedgefly" "Snakefly" "Stonefly" "Waterfly"
+		# Dragonfly class (1937-1938) and the China gunboats of 1927-1931
+		"Grasshopper" "Locust" "Mosquito" "Peterel" "Seamew" "Tern" "Gannet"
+		# River gunboats of the China Station (1897-1903)
+		"Robin" "Sandpiper" "Nightingale" "Woodlark" "Kinsha" "Teal" "Moorhen"
+	}
+}
+
+### ROLE POOL: ARMED MERCHANT CRUISERS (WORKERS' NAVY) ###
+ENG_AUXILIARY_CRUISERS_COMMUNISM = {
+	name = "Armed Merchant Cruisers"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Armed Merchant Cruiser %d"
+
+	unique = {
+		# Armed merchant cruisers of 1939-1945
+		"Rawalpindi" "Jervis Bay" "Voltaire" "Comorin" "Dunvegan Castle" "Forfar" "Laurentic" "Patroclus" "Salopian" "Andania" "Transylvania" "Scotstoun"
+		"Carinthia" "Rajputana" "Hector" "Alcantara" "Asturias" "Canton" "Carnarvon Castle" "Chitral" "Cilicia" "Circassia" "Corfu" "Dunnottar Castle"
+		"Esperance Bay" "Moreton Bay" "Montclare" "Queen of Bermuda" "Ranchi" "Ranpura" "Wolfe" "California" "Cathay" "Letitia" "Maloja" "Mooltan"
+		"Ascania" "Aurania" "Bulolo" "Antenor" "Arawa" "Ausonia" "Alaunia" "Antonia" "Carthage"
+		# Armed merchant cruisers of 1914-1918
+		"Alsatian" "Otranto" "Orama" "Macedonia" "Carmania" "Armadale Castle" "Kinfauns Castle" "Edinburgh Castle" "Laconia" "Marmora" "Moldavia" "Mantua"
+		"Arlanza" "Andes" "Bayano" "Viknor" "Hilary" "Teutonic" "Changuinola" "Patia" "Patuca" "Motagua" "Clan MacNaughton" "India"
+		"Oceanic" "Columbella"
+	}
+}
+
+### THEME: COUNTIES (WORKERS' NAVY) ###
+ENG_COUNTIES_COMMUNIST = {
+	name = NAME_THEME_COUNTIES
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		"Yorkshire" "Lincolnshire" "Devon" "Norfolk" "Northumberland" "Lancashire" "Somerset" "Hampshire" "Kent" "Essex" "Cumberland" "Suffolk"
+		"Sussex" "Wiltshire" "Cornwall" "Shropshire" "Gloucestershire" "Staffordshire" "Derbyshire" "Cheshire" "Durham" "Northamptonshire" "Dorset" "Warwickshire"
+		"Cambridgeshire" "Nottinghamshire" "Herefordshire" "Leicestershire" "Westmorland" "Surrey" "Oxfordshire" "Worcestershire" "Buckinghamshire" "Berkshire" "Hertfordshire" "Bedfordshire"
+		"Huntingdonshire" "Middlesex" "Rutland" "Caithness" "Sutherland" "Nairnshire" "Moray" "Banffshire" "Aberdeenshire" "Kincardineshire" "Angus" "Perthshire"
+		"Argyll" "Bute" "Ayrshire" "Renfrewshire" "Dunbartonshire" "Stirlingshire" "Clackmannanshire" "Kinross" "Ross-shire" "Inverness-shire" "Fife" "East Lothian"
+		"Midlothian" "West Lothian" "Lanarkshire" "Peeblesshire" "Selkirkshire" "Berwickshire" "Roxburghshire" "Dumfriesshire" "Kirkcudbrightshire" "Wigtownshire" "Shetland" "Orkney"
+		"Antrim" "Down" "Londonderry" "Tyrone" "Armagh" "Fermanagh" "Monmouthshire" "Glamorganshire" "Carmarthenshire" "Pembrokeshire" "Cardiganshire" "Brecknockshire"
+		"Radnorshire" "Montgomeryshire" "Denbighshire" "Flintshire" "Merionethshire" "Caernarfonshire" "Anglesey"
+	}
+}
+
+### THEME: CITIES (WORKERS' NAVY) ###
+ENG_CITIES_COMMUNIST = {
+	name = NAME_THEME_CITIES
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		"London" "Birmingham" "Leeds" "Glasgow" "Sheffield" "Bradford" "Manchester" "Edinburgh" "Liverpool" "Bristol" "Cardiff" "Belfast"
+		"Leicester" "Wakefield" "Coventry" "Nottingham" "Newcastle" "Sunderland" "Brighton" "Hove" "Kingston upon Hull" "Plymouth" "Wolverhampton" "Stoke"
+		"Derby" "Swansea" "Southampton" "Salford" "Westminster" "Portsmouth" "York" "Aberdeen" "Peterborough" "Chelmsford" "Dundee" "Oxford"
+		"Canterbury" "Newport" "St Albans" "Preston" "Lancaster" "Norwich" "Cambridge" "Gloucester" "Lisburn" "Exeter" "Winchester" "Londonderry"
+		"Carlisle" "Worcester" "Durham" "Lincoln" "Chester" "Bath" "Inverness" "Armagh" "Hereford" "Perth" "Salisbury" "Stirling"
+		"Lichfield" "Newry" "Chichester" "Ely" "Bangor" "Truro" "Ripon" "Wells" "St Asaph" "St Davids"
+		# Cathedral cities, ports and naval towns
+		"Rochester" "Dover" "Sandwich" "Folkestone" "Ramsgate" "Margate" "Hastings" "Rye" "Newhaven" "Shoreham" "Poole" "Weymouth"
+		"Lyme Regis" "Exmouth" "Teignmouth" "Dartmouth" "Falmouth" "Fowey" "Penzance" "Padstow" "Bideford" "Barnstaple" "Bridgwater" "Harwich"
+		"Ipswich" "Lowestoft" "Great Yarmouth" "King's Lynn" "Boston" "Grimsby" "Whitby" "Scarborough" "Hartlepool" "Tynemouth" "Berwick-upon-Tweed" "Chatham"
+		"Sheerness" "Gravesend" "Greenwich" "Deptford" "Woolwich" "Whitehaven" "Fleetwood" "Barrow-in-Furness" "Holyhead" "Milford Haven" "Pembroke" "Tenby"
+		"Aberystwyth" "Caernarvon" "Conway" "Beaumaris" "Fishguard" "Cardigan" "Carmarthen" "Larne" "Carrickfergus" "Coleraine"
+		# County towns and market towns
+		"Bedford" "Reading" "Aylesbury" "Colchester" "Maidstone" "Lewes" "Northampton" "Warwick" "Stafford" "Taunton" "Dorchester" "Devizes"
+		"Beverley" "Hertford" "Guildford" "Oakham" "Ludlow" "Tewkesbury" "Cheltenham" "Stamford" "Doncaster" "Kendal" "Appleby" "Huntingdon"
+		# Royal burghs and Scottish towns
+		"Linlithgow" "Dunfermline" "Kirkcaldy" "St Andrews" "Arbroath" "Peterhead" "Fraserburgh" "Banff" "Nairn" "Dingwall" "Wick" "Thurso"
+		"Kirkwall" "Lerwick" "Stornoway" "Oban" "Campbeltown" "Greenock" "Ayr" "Dumfries" "Lanark" "Leith" "Jedburgh" "Hawick"
+		"Elgin" "Forfar" "Brechin" "Dunblane" "Dunkeld"
+	}
+}
+
+### THEME: BATTLES (WORKERS' NAVY) ###
+ENG_BATTLES_COMMUNIST = {
+	name = NAME_THEME_BATTLES
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Parliamentarian victories of the Civil Wars and the Commonwealth navy (1642-1658)
+		"Edgehill" "Aylesbury" "Leeds" "Hopton Heath" "Sourton Down" "Gainsborough" "Newbury" "Heptonstall" "Winceby" "Olney Bridge" "Alton" "Nantwich"
+		"Cheriton" "Selby" "Montgomery" "Naseby" "Langport" "Rowton Heath" "Torrington" "Stow-on-the-Wold" "St Fagans" "Maidstone" "Preston" "Dunbar"
+		"Inverkeithing" "Wigan Lane" "Upton" "Worcester" "Marston Moor" "Kentish Knock" "Gabbard Bank" "Scheveningen" "Portland" "Santa Cruz de Tenerife" "Dunkirk" "Ocho Rios"
+		"Rio Nuevo"
+		"Waterloo" "Agincourt" "Cressy" "Poitiers" "Vitoria" "Salamanca" "Ramillies" "Blenheim" "Elixheim" "Oudenarde" "Lille" "Malplaquet"
+		"Schellenberg" "Verneuil" "Boyne" "Culloden" "Plassey" "Balaklava" "Rorke's Drift" "Megiddo" "Assaye" "Stamford Bridge" "Edington" "Trafalgar"
+		"Nile" "Jutland" "Sluys" "Quiberon Bay"
+		# Victories of the medieval and Tudor kingdoms
+		"Falkirk" "Halidon Hill" "Neville's Cross" "Homildon Hill" "Shrewsbury" "Evesham" "Towton" "Bosworth" "Flodden" "Pinkie"
+		# Victories of the 18th century
+		"Dettingen" "Minden" "Quebec" "Louisbourg" "Seringapatam" "Alexandria" "Maida" "Wandiwash" "Buxar" "Porto Novo"
+		# Peninsular and Napoleonic Wars
+		"Vimeiro" "Corunna" "Talavera" "Busaco" "Fuentes de Oñoro" "Albuera" "Badajoz" "Ciudad Rodrigo" "San Sebastián" "Orthez"
+		# Victorian campaigns
+		"Aliwal" "Sobraon" "Gujrat" "Alma" "Inkerman" "Sebastopol" "Lucknow" "Delhi" "Magdala" "Tel-el-Kebir" "Kandahar" "Ulundi"
+		"Omdurman" "Atbara" "Paardeberg" "Ladysmith" "Mafeking" "Kimberley"
+		# The Great War
+		"Mons" "Marne" "Aisne" "Ypres" "Somme" "Arras" "Vimy" "Messines" "Cambrai" "Amiens" "Beersheba" "Baghdad"
+		"Jerusalem" "Zeebrugge" "Heligoland" "Falkland Islands" "Dogger Bank"
+	}
+}
+
+### THEME: RIVERS (WORKERS' NAVY) ###
+ENG_RIVERS_COMMUNIST = {
+	name = NAME_THEME_RIVERS
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		"Severn" "Thames" "Trent" "Great Ouse" "Wye" "Ure" "Tay" "Clyde" "Spey" "Nene" "Bann" "Tweed"
+		"Avon" "Eden" "Dee" "Witham" "Teme" "Don" "Foyle" "Teifi" "Towy" "Ribble" "Tyne" "Derwent"
+		"Aire" "Nith" "Tees" "Medway" "Mersey"
+		# River-class frigates (1942-1944)
+		"Ballinderry" "Chelmer" "Dart" "Derg" "Ettrick" "Exe" "Itchen" "Jed" "Kale" "Ness" "Rother" "Swale"
+		"Test" "Teviot" "Waveney" "Wear" "Adur" "Annan" "Awe" "Barle" "Braid" "Cam" "Cuckmere" "Deveron"
+		"Dovey" "Evenlode" "Fal" "Findhorn" "Frome" "Glenarm" "Halladale" "Helford" "Helmsdale" "Inver" "Lagan" "Lochy"
+		"Lossie" "Meon" "Monnow" "Mourne" "Moyola" "Nadder" "Odzani" "Parret" "Plym" "Shiel" "Taff" "Tavy"
+		"Torridge" "Usk" "Windrush" "Strule"
+		# Other rivers of Britain and Ulster
+		"Humber" "Ouse" "Tamar" "Teign" "Taw" "Arun" "Stour" "Orwell" "Deben" "Blackwater" "Colne" "Crouch"
+		"Welland" "Wharfe" "Lune" "Esk" "Nidd" "Coquet" "Wansbeck" "Conwy" "Clwyd" "Neath" "Mawddach" "Cleddau"
+		"Forth" "Tummel" "Doon" "Cree" "Leven" "Garry" "Erne" "Kennet" "Cherwell" "Isis"
+	}
+}
+
+### THEME: ADMIRALS (WORKERS' NAVY) ###
+ENG_ADMIRALS_COMMUNIST = {
+	name = "Admirals & Commissioners"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Generals at sea and Admiralty commissioners of the Commonwealth (1649-1660)
+		"Blake" "Deane" "Popham" "Monck" "Penn" "Montagu" "Desborough" "Philip Jones" "Clerke" "John Stone" "William Burton" "Gookin"
+		"Kelsey" "Ayscue" "Appleton"
+		# Flag officers of the Commonwealth navy
+		"Lawson" "Badiley" "Goodson" "Bourne" "Stayner"
+		# Admirals of the Tudor and Stuart navies
+		"Hawkins" "Drake" "Howard" "Grenville" "Myngs" "Spragge" "Harman" "Narborough" "Herbert" "Russell" "Rooke" "Shovell"
+		"Benbow" "Leake"
+		# Admirals of the 18th century
+		"Norris" "Wager" "Vernon" "Anson" "Hawke" "Boscawen" "Saunders" "Pocock" "Rodney" "Keppel" "Howe" "Hood"
+		"Kempenfelt" "Hughes" "Barrington" "Duncan" "Jervis"
+		# Admirals of the Revolutionary and Napoleonic Wars
+		"Nelson" "Collingwood" "Cornwallis" "Pellew" "Saumarez" "Hardy" "Duckworth" "Cochrane" "Codrington" "Troubridge" "Keith" "Gambier"
+		"Hotham" "Calder" "Warren"
+		# Admirals of the Victorian navy and the Great War
+		"Lyons" "Seymour" "Milne" "Fisher" "Jellicoe" "Cradock" "Sturdee" "Arbuthnot" "Evan-Thomas" "Madden" "Tryon" "Hornby"
+		"Beresford" "De Robeck" "Wemyss"
+	}
+}
+
+### THEME: EXPLORERS AND NAVIGATORS (WORKERS' NAVY) ###
+ENG_EXPLORERS_COMMUNIST = {
+	name = "Explorers & Navigators"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Tudor and Stuart navigators
+		"Cabot" "Frobisher" "Raleigh" "Cavendish" "Humphrey Gilbert" "John Davis" "Willoughby" "Richard Chancellor" "Hudson" "Baffin" "Dampier"
+		# Voyagers of the 18th century
+		"James Cook" "Wallis" "Carteret" "Vancouver" "Bligh" "Flinders" "George Bass" "Mackenzie" "Hearne"
+		# Polar explorers
+		"Franklin" "William Edward Parry" "Ross" "Beechey" "Belcher" "Collinson" "McClure" "George Back" "Scott" "Shackleton" "Oates"
+		# Explorers of Africa, Asia and Australia
+		"Mungo Park" "Clapperton" "Lander" "James Bruce" "Livingstone" "Burton" "Speke" "Samuel Baker" "Stanley" "Moorcroft" "Eyre" "Sturt"
+		"FitzRoy"
+	}
+}
+
+### THEME: GENERALS (WORKERS' NAVY) ###
+ENG_GENERALS_COMMUNIST = {
+	name = "Generals"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Generals of the Civil Wars and the Stuart and Hanoverian armies
+		"Cromwell" "Fairfax" "Ireton" "Lambert" "Stanhope" "Ligonier" "Wolfe" "Amherst" "Clive" "Coote" "Eliott"
+		# Generals of the Revolutionary and Napoleonic Wars
+		"Abercromby" "Moore" "Picton" "Baird" "Uxbridge" "Lynedoch" "Cathcart" "Colborne" "Combermere" "Brock"
+		# Generals of the Victorian army
+		"Raglan" "Napier" "Gough" "Havelock" "Outram" "Nicholson" "Lawrence" "Lord Clyde" "Pollock" "Roberts" "Wolseley" "Gordon"
+		"Kitchener"
+		# Commanders of the Great War
+		"Haig" "Plumer" "Rawlinson" "Smith-Dorrien" "Byng" "Maude" "Horne"
+	}
+}
+
+### THEME: POETS AND WRITERS (WORKERS' NAVY) ###
+ENG_WRITERS_COMMUNIST = {
+	name = "Poets & Writers"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Medieval and Tudor
+		"Caedmon" "Chaucer" "Langland" "Gower" "Malory" "Spenser" "Philip Sidney" "Marlowe" "Shakespeare" "Jonson" "Hakluyt"
+		# Seventeenth and eighteenth centuries
+		"Donne" "George Herbert" "Marvell" "Milton" "Bunyan" "Dryden" "Pepys" "Defoe" "Jonathan Swift" "Alexander Pope" "Samuel Johnson" "Fielding"
+		"Smollett" "Sterne" "Goldsmith" "Sheridan" "Thomas Gray" "Cowper"
+		# Romantics and Victorians
+		"Robert Burns" "William Blake" "Wordsworth" "Coleridge" "Byron" "Shelley" "Keats" "Walter Scott" "Austen" "Marryat" "Tennyson" "Browning"
+		"Matthew Arnold" "Dickens" "Thackeray" "Bronte" "Trollope" "George Eliot" "Carlyle" "Ruskin" "Stevenson" "Meredith" "Thomas Hardy" "Conrad"
+		"Galsworthy" "Gerard Manley Hopkins" "Rupert Brooke" "Wilfred Owen"
+	}
+}
+
+### THEME: SAINTS (WORKERS' NAVY) ###
+ENG_SAINTS_COMMUNIST = {
+	name = "Saints"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Patron saints
+		"St George" "St Andrew" "St David" "St Patrick"
+		# Saints of Roman and Anglo-Saxon Britain
+		"St Alban" "St Augustine" "St Aidan" "St Cuthbert" "St Bede" "St Hilda" "St Chad" "St Cedd" "St Wilfrid" "St Dunstan" "St Swithun" "St Aldhelm"
+		"St Boniface" "St Botolph" "St Birinus" "St Alphege"
+		# Celtic saints
+		"St Columba" "St Ninian" "St Kentigern" "St Brendan" "St Brigid" "St Piran" "St Petroc" "St Illtud" "St Winifred" "St Neot" "St Ia"
+		# Medieval saints
+		"St Anselm" "St Thomas Becket" "St Hugh" "St Richard" "St Giles"
+	}
+}
+
+### THEME: ANCIENT BRITAIN (WORKERS' NAVY) ###
+ENG_ANCIENT_BRITAIN_COMMUNIST = {
+	name = "Ancient Britain"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Names of the islands
+		"Albion" "Britannia" "Caledonia" "Cambria" "Hibernia" "Dalriada"
+		# Tribes of Iron Age Britain
+		"Iceni" "Brigantes" "Trinovantes" "Catuvellauni" "Silures" "Ordovices" "Durotriges" "Dumnonii" "Atrebates" "Belgae" "Cantiaci" "Parisi"
+		"Corieltauvi" "Dobunni" "Cornovii" "Votadini" "Selgovae" "Novantae" "Damnonii" "Caledones" "Demetae" "Deceangli"
+		# Leaders of the resistance to Rome
+		"Boadicea" "Caractacus" "Togodumnus" "Calgacus" "Venutius"
+		# Roman Britain
+		"Londinium" "Eboracum" "Deva" "Isca" "Camulodunum" "Verulamium" "Aquae Sulis" "Segedunum" "Vindolanda" "Luguvalium" "Lindum" "Glevum"
+		"Rutupiae" "Segontium"
+	}
+}
+
+### THEME: SHAKESPEARE (WORKERS' NAVY) ###
+ENG_SHAKESPEARE_COMMUNIST = {
+	name = "Shakespeare"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Shakespearian-class trawlers (1940)
+		"Celia" "Coriolanus" "Fluellen" "Hamlet" "Horatio" "Juliet" "Laertes" "Ophelia" "Othello" "Romeo" "Rosalind"
+		# Other characters of the plays
+		"Falstaff" "Prospero" "Ariel" "Caliban" "Miranda" "Oberon" "Titania" "Puck" "Portia" "Viola" "Beatrice" "Benedick"
+		"Cordelia" "Iago" "Cassio" "Desdemona" "Cassius" "Antony" "Cleopatra" "Hotspur" "Mercutio" "Orsino" "Malvolio" "Jaques"
+		"Hermione" "Perdita" "Imogen" "Banquo" "Macduff" "Lysander" "Bassanio" "Petruchio" "Orlando" "Florizel" "Autolycus" "Ferdinand"
+		"Polonius" "Fortinbras" "Pericles" "Volumnia" "Lavinia" "Titus" "Timon" "Troilus" "Cressida" "Nerissa" "Hero" "Claudio"
+		"Dogberry" "Bardolph" "Glendower"
+	}
+}
+
+### THEME: VALOUR AND VIRTUES (WORKERS' NAVY) ###
+ENG_VIRTUES_COMMUNIST = {
+	name = "Valour & Virtues"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Valour and daring: adjectives of the line of battle
+		"Courageous" "Glorious" "Illustrious" "Formidable" "Victorious" "Indomitable" "Implacable" "Invincible" "Inflexible" "Indefatigable" "Irresistible" "Impregnable"
+		"Valiant" "Dauntless" "Undaunted" "Fearless" "Intrepid" "Audacious" "Gallant" "Resolute" "Redoubtable" "Relentless" "Tenacious" "Vigilant"
+		"Vindictive" "Valorous" "Matchless" "Tremendous" "Magnificent"
+		# Steadfastness and duty
+		"Steadfast" "Stalwart" "Staunch" "Loyal" "Loyalty" "Faithful" "Constant" "Constance" "Diligent" "Diligence" "Perseverance" "Endeavour"
+		"Resolution" "Defiance" "Fidelity" "Liberty" "Prudent" "Persistent" "Watchful" "Mindful" "Assiduous" "Strenuous" "Zealous" "Ardent"
+		"Fervent" "Excellent" "Superb" "Venerable" "Triumph" "Glory" "Honour" "Justice" "Fortitude"
+	}
+}
+
+### THEME: WIND, SKY AND SEA (WORKERS' NAVY) ###
+ENG_NATURE_COMMUNIST = {
+	name = "Wind, Sky & Sea"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Winds and weather
+		"Tempest" "Typhoon" "Cyclone" "Hurricane" "Tornado" "Whirlwind" "Zephyr" "Sirocco" "Mistral" "Monsoon" "Squall" "Thunderbolt"
+		"Lightning" "Thunder" "Storm" "Stormcloud" "Snowflake" "Hailstorm" "Blizzard" "Rainbow" "Aurora" "Sunbeam" "Moonbeam" "Northern Light"
+		# Stars and constellations
+		"Sirius" "Arcturus" "Antares" "Aldebaran" "Betelgeuse" "Rigel" "Capella" "Vega" "Altair" "Canopus" "Polaris" "Regulus"
+		"Castor" "Pollux" "Procyon" "Spica" "Orion" "Pegasus" "Perseus" "Andromeda" "Cassiopeia" "Cygnus" "Lyra" "Draco"
+		"Pleiades" "Comet" "Meteor" "Eclipse" "Equinox"
+		# The sea
+		"Spindrift" "Breaker" "Billow" "Surge" "Torrent" "Maelstrom" "Whirlpool" "Riptide" "Seafoam" "Spray"
+	}
+}
+
+### THEME: BIRDS (WORKERS' NAVY) ###
+ENG_BIRDS_COMMUNIST = {
+	name = "Birds"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Birds of prey and owls
+		"Eagle" "Golden Eagle" "Sea Eagle" "Osprey" "Peregrine" "Falcon" "Kestrel" "Goshawk" "Sparrowhawk" "Buzzard" "Harrier" "Red Kite"
+		"Owl" "Barn Owl" "Tawny Owl" "Eagle Owl"
+		# Seabirds
+		"Albatross" "Fulmar" "Gannet" "Cormorant" "Puffin" "Guillemot" "Razorbill" "Kittiwake" "Skua" "Petrel" "Storm Petrel" "Shearwater"
+		"Tern" "Seagull" "Herring Gull"
+		# Waders and waterfowl
+		"Heron" "Bittern" "Crane" "Curlew" "Whimbrel" "Godwit" "Redshank" "Greenshank" "Lapwing" "Plover" "Dotterel" "Oystercatcher"
+		"Sanderling" "Dunlin" "Turnstone" "Avocet" "Snipe" "Woodcock" "Swan" "Wild Goose" "Mallard" "Teal" "Widgeon" "Pintail"
+		"Shelduck" "Eider" "Merganser" "Goosander" "Grebe" "Dabchick" "Kingfisher" "Dipper"
+		# Other birds of Britain
+		"Raven" "Rook" "Jackdaw" "Chough" "Magpie" "Jay" "Nightingale" "Skylark" "Linnet" "Goldfinch" "Bullfinch" "Chaffinch"
+		"Greenfinch" "Wren" "Robin" "Thrush" "Blackbird" "Fieldfare" "Redwing" "Redstart" "Wheatear" "Stonechat" "Whitethroat" "Nightjar"
+		"Swallow" "Swift" "House Martin" "Cuckoo" "Woodpecker" "Nuthatch" "Starling" "Corncrake" "Pheasant" "Partridge" "Red Grouse" "Ptarmigan"
+		"Capercaillie" "Peacock"
+	}
+}
+
+### THEME: AQUATIC LIFE (WORKERS' NAVY) ###
+ENG_FISH_COMMUNIST = {
+	name = "Aquatic Life"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Whales, seals and other sea mammals
+		"Whale" "Narwhal" "Grampus" "Cachalot" "Rorqual" "Finwhale" "Orca" "Porpoise" "Dolphin" "Seal" "Sealion" "Walrus"
+		"Sea Otter"
+		# Sharks and rays
+		"Shark" "Porbeagle" "Thresher" "Hammerhead" "Dogfish" "Stingray" "Skate" "Sawfish"
+		# Sea fish
+		"Sturgeon" "Swordfish" "Marlin" "Tunny" "Bonito" "Albacore" "Mackerel" "Herring" "Pilchard" "Sardine" "Cod" "Haddock"
+		"Whiting" "Hake" "Halibut" "Turbot" "Plaice" "Gurnard" "Wrasse" "Conger" "Snapper" "Grouper" "Barracuda" "Tarpon"
+		"Sunfish" "Flying Fish" "Spearfish" "Starfish" "Seahorse"
+		# Fish of rivers and lakes
+		"Salmon" "Sea Trout" "Grayling" "Arctic Char" "Pike" "Bream" "Tench" "Barbel" "Chub" "Dace" "Gudgeon" "Lamprey"
+		"Sterlet"
+		# Shellfish
+		"Lobster" "Crab" "Oyster" "Nautilus" "Cuttlefish" "Octopus"
+	}
+}
+
+### THEME: WILD BEASTS (WORKERS' NAVY) ###
+ENG_BEASTS_COMMUNIST = {
+	name = "Wild Beasts"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Beasts of Britain
+		"Red Deer" "Stag" "Hart" "Hind" "Roebuck" "Badger" "Fox" "Otter" "Wolf" "Wild Boar" "Wildcat" "Pine Marten"
+		"Polecat" "Stoat" "Ferret" "Hare" "Beaver" "Bear"
+		# Beasts of the Empire
+		"Lion" "Tiger" "Leopard" "Panther" "Cheetah" "Jaguar" "Lynx" "Elephant" "Rhinoceros" "Buffalo" "Bison" "Gazelle"
+		"Antelope" "Springbok" "Eland" "Kudu" "Zebra" "Giraffe" "Hyena" "Jackal" "Mongoose" "Kangaroo" "Wallaby" "Dingo"
+		"Wolverine" "Grizzly" "Moose" "Wapiti" "Ibex" "Chamois" "Musk Ox" "Gorilla"
+	}
+}
+
+### THEME: FLOWERS (WORKERS' NAVY) ###
+ENG_FLOWERS_COMMUNIST = {
+	name = "Flowers"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Flower-class corvettes (1940-1944)
+		"Godetia" "Buttercup" "Clover" "Anemone" "Arbutus" "Asphodel" "Aubrietia" "Auricula" "Azalea" "Begonia" "Bluebell" "Campanula"
+		"Candytuft" "Carnation" "Celandine" "Clematis" "Columbine" "Convolvulus" "Coreopsis" "Crocus" "Cyclamen" "Dianella" "Dahlia" "Delphinium"
+		"Dianthus" "Gardenia" "Geranium" "Gladiolus" "Heliotrope" "Hollyhock" "Honeysuckle" "Hydrangea" "Jasmine" "Jonquil" "Larkspur" "Lavender"
+		"Lobelia" "Marguerite" "Marigold" "Mignonette" "Mimosa" "Myosotis" "Narcissus" "Nigella" "Pentstemon" "Petunia" "Polyanthus" "Primrose"
+		"Primula" "Salvia" "Snapdragon" "Snowdrop" "Sunflower" "Tulip" "Verbena" "Veronica" "Wallflower" "Zinnia" "Abelia" "Acanthus"
+		"Aconite" "Alisma" "Alyssum" "Amaranthus" "Anchusa" "Arabis" "Armeria" "Arrowhead" "Aster" "Balsam" "Bellwort" "Bergamot"
+		"Bittersweet" "Borage" "Bryony" "Burdock" "Calendula" "Camellia" "Campion" "Chrysanthemum" "Clarkia" "Coltsfoot" "Coriander" "Cowslip"
+		"Eglantine" "Erica" "Eyebright" "Fennel" "Fleur de Lys" "Freesia" "Fritillary" "Genista" "Gentian" "Gloxinia" "Heartsease" "Heather"
+		"Hepatica" "Hibiscus" "Hyacinth" "Kingcup" "Loosestrife" "Lotus" "Mallow" "Mayflower" "Meadowsweet" "Monkshood" "Montbretia" "Nasturtium"
+		"Orchis" "Oxlip" "Pennywort" "Peony" "Periwinkle" "Picotee" "Pimpernel" "Poppy" "Potentilla" "Renonculus" "Rhododendron" "Rockrose"
+		"Rose" "Samphire" "Saxifrage" "Snowberry" "Spikenard" "Spiraea" "Starwort" "Stonecrop" "Sundew" "Sweetbriar" "Tamarisk" "Thyme"
+		"Trillium" "Vervain" "Vetch" "Violet" "Windflower" "Woodruff" "Comfrey" "Cornel" "Dittany" "Linaria" "Flax" "Mandrake"
+		"Milfoil" "Nepeta" "Privet" "Rosebay" "Smilax" "Statice" "Willowherb" "Betony" "Buddleia" "Burnet" "Ceanothus" "Bugloss"
+		"Bullrush" "Charlock"
+		# Flower-class sloops of 1915-1918 (Acacia, Azalea, Arabis, Aubrietia and Anchusa classes)
+		"Daffodil" "Daphne" "Foxglove" "Iris" "Laburnum" "Lilac" "Lily" "Magnolia" "Jessamine" "Myrtle" "Amaryllis" "Berberis"
+		"Cornflower" "Lupin" "Rosemary" "Valerian" "Gaillardia" "Lychnis" "Gilia" "Ivy" "Marjoram" "Mistletoe" "Pelargonium" "Syringa"
+		"Tuberose"
+	}
+}
+
+### THEME: TREES (WORKERS' NAVY) ###
+ENG_TREES_COMMUNIST = {
+	name = "Trees"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Tree-class trawlers (1939-1940)
+		"Acacia" "Almond" "Ash" "Bay" "Birch" "Blackthorn" "Chestnut" "Deodar" "Elm" "Fir" "Hazel" "Hickory"
+		"Juniper" "Mangrove" "Olive" "Pine" "Rowan" "Walnut" "Whitethorn" "Wistaria"
+		# Other trees and woods
+		"Oak" "Alder" "Aspen" "Beech" "Cedar" "Cherry" "Cypress" "Hawthorn" "Holly" "Hornbeam" "Larch" "Laurel"
+		"Maple" "Medlar" "Poplar" "Quince" "Spruce" "Sycamore" "Teak" "Willow" "Yew" "Mulberry" "Linden" "Mahogany"
+		"Ebony" "Sandalwood" "Banyan" "Baobab" "Eucalyptus" "Kauri" "Scots Pine" "Silver Birch"
+	}
+}
+
+### THEME: GEMS (WORKERS' NAVY) ###
+ENG_GEMS_COMMUNIST = {
+	name = "Gems"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Gems and precious stones
+		"Diamond" "Ruby" "Sapphire" "Emerald" "Amethyst" "Topaz" "Opal" "Pearl" "Garnet" "Jasper" "Agate" "Onyx"
+		"Sardonyx" "Beryl" "Aquamarine" "Tourmaline" "Turquoise" "Jade" "Amber" "Coral" "Moonstone" "Bloodstone" "Carnelian" "Chrysolite"
+		"Peridot" "Zircon" "Lapis Lazuli" "Malachite" "Obsidian" "Cairngorm" "Crystal" "Citrine" "Spinel" "Chalcedony" "Jacinth" "Sardius"
+	}
+}
+
+### THEME: CASTLES (WORKERS' NAVY) ###
+ENG_CASTLES_COMMUNIST = {
+	name = "Castles"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Castle-class corvettes (1943-1945)
+		"Rising Castle" "Nunney Castle" "Hever Castle" "Guildford Castle" "Norham Castle" "Wolvesey Castle" "Tamworth Castle" "Walmer Castle" "Hedingham Castle" "Sherborne Castle" "Sandgate Castle" "Pembroke Castle"
+		"Hadleigh Castle" "Kenilworth Castle" "Allington Castle" "Bamborough Castle" "Caistor Castle" "Denbigh Castle" "Farnham Castle" "Lancaster Castle" "Oakham Castle" "Rayleigh Castle" "Alnwick Castle" "Barnard Castle"
+		"Flint Castle" "Knaresborough Castle" "Launceston Castle" "Leeds Castle" "Morpeth Castle" "Oxford Castle" "Pevensey Castle" "Scarborough Castle" "Tintagel Castle" "Amberley Castle" "Berkeley Castle" "Carisbrooke Castle"
+		"Dumbarton Castle" "Hurst Castle" "Portchester Castle" "Rushen Castle" "Shrewsbury Castle"
+		# Castle-class names cancelled in 1943-1944
+		"Alton Castle" "Appleby Castle" "Aydon Castle" "Barnwell Castle" "Beeston Castle" "Bere Castle" "Bodiam Castle" "Bolton Castle" "Bowes Castle" "Bramber Castle" "Bridgnorth Castle" "Brough Castle"
+		"Caldecot Castle" "Calshot Castle" "Canterbury Castle" "Carew Castle" "Chepstow Castle" "Chester Castle" "Christchurch Castle" "Clare Castle" "Clavering Castle" "Clitheroe Castle" "Clun Castle" "Colchester Castle"
+		"Corfe Castle" "Cornet Castle" "Cowes Castle" "Cowling Castle" "Criccieth Castle" "Cromer Castle" "Devizes Castle" "Dover Castle" "Dudley Castle" "Dunster Castle" "Egremont Castle" "Fotheringay Castle"
+		"Helmsley Castle" "Maiden Castle" "Malling Castle" "Malmesbury Castle" "Monmouth Castle" "Norwich Castle" "Oswestry Castle" "Peel Castle" "Pendennis Castle" "Raby Castle" "Rhuddlan Castle" "Saltash Castle"
+		"Thornbury Castle" "Tonbridge Castle" "Totnes Castle" "Trematon Castle" "Tutbury Castle" "Warkworth Castle" "Wigmore Castle" "York Castle"
+		# Other castles of England, Scotland, Wales and Ulster
+		"Edinburgh Castle" "Stirling Castle" "Caernarvon Castle" "Harlech Castle" "Conway Castle" "Beaumaris Castle" "Raglan Castle" "Caerphilly Castle" "Kidwelly Castle" "Dunstanburgh Castle" "Warwick Castle" "Arundel Castle"
+		"Rochester Castle" "Lewes Castle" "Framlingham Castle" "Orford Castle" "Ludlow Castle" "Richmond Castle" "Skipton Castle" "Durham Castle" "Lincoln Castle" "Newark Castle" "Tattershall Castle" "Bolsover Castle"
+		"Peveril Castle" "Restormel Castle" "St Mawes Castle" "Deal Castle" "Glamis Castle" "Urquhart Castle" "Dunnottar Castle" "Dunvegan Castle" "Tantallon Castle" "Caerlaverock Castle" "Doune Castle" "Rothesay Castle"
+		"Duart Castle" "Kilchurn Castle" "Blair Castle" "Inveraray Castle" "Cawdor Castle" "Carrickfergus Castle" "Dunluce Castle" "Enniskillen Castle"
+	}
+}
+
+### THEME: ISLES (WORKERS' NAVY) ###
+ENG_ISLES_COMMUNIST = {
+	name = "Isles"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Isles-class trawlers (1939-1945)
+		"Ailsa Craig" "Annet" "Arran" "Balta" "Bardsey" "Benbecula" "Biggal" "Bressay" "Brora" "Bruray" "Bryher" "Burra"
+		"Bute" "Caldy" "Copinsay" "Crowlin" "Cumbrae" "Damsay" "Earraid" "Eday" "Egilsay" "Ensay" "Eriskay" "Fara"
+		"Farne" "Fetlar" "Fiaray" "Filla" "Flatholm" "Flotta" "Foula" "Foulness" "Fuday" "Gairsay" "Ganilly" "Gillstone"
+		"Gorregan" "Graemsay" "Grassholm" "Gruinard" "Gulland" "Gweal" "Hannaray" "Hascosay" "Hayling" "Hellisay" "Hermetray" "Hildasay"
+		"Hoxa" "Hoy" "Hunda" "Imersay" "Inchcolm" "Inchmarnock" "Islay" "Jura" "Kerrera" "Kintyre" "Kittern" "Lindisfarne"
+		"Lingay" "Longa" "Lundy" "Mewstone" "Minalto" "Mincarlo" "Mousa" "Mull" "Neave" "Orfasy" "Oronsay" "Oxna"
+		"Pladda" "Ronaldsay" "Rosevean" "Rousay" "Ruskholm" "Rysa" "Scalpay" "Shapinsay" "Shiant" "Skokholm" "Skomer" "Skye"
+		"Sluna" "St Agnes" "St Kilda" "Staffa" "Steepholm" "Stroma" "Stronsay" "Switha" "Tiree" "Trondra" "Ulva" "Unst"
+		"Vatersay" "Wallasea" "Westray" "Whalsay" "Calvay" "Canna" "Cava" "Coll" "Colsay" "Orsay" "Rona" "Sandray"
+		"Scaravay" "Sheppey" "Shillay" "Sursay" "Tahay" "Tocogay" "Trodday" "Vaceasay" "Vallay" "Wiay" "Inchkeith" "Killegray"
+		"Sanda" "Scarba"
+		# Other islands of the British Isles
+		"Isle of Wight" "Isle of Man" "Isle of Lewis" "Barra" "North Uist" "South Uist" "Iona" "Eigg" "Lismore" "Gigha" "Colonsay" "Raasay"
+		"Sark" "Guernsey" "Herm" "Tresco" "Canvey" "Mersea" "Thanet" "Rathlin" "Fair Isle" "Brownsea" "Portsea" "Walney"
+		"Jersey" "Alderney"
+	}
+}
+
+### THEME: LOCHS AND LAKES (WORKERS' NAVY) ###
+ENG_LOCHS_COMMUNIST = {
+	name = "Lochs & Lakes"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Loch-class frigates (1944-1946)
+		"Loch Achanalt" "Loch Fada" "Loch Dunvegan" "Loch Eck" "Loch Achray" "Loch Alvie" "Loch Ard" "Loch Arkaig" "Loch Assynt" "Loch Boisdale" "Loch Craggie" "Loch Cree"
+		"Loch Fyne" "Loch Glendhu" "Loch Gorm" "Loch Insh" "Loch Katrine" "Loch Killin" "Loch Killisport" "Loch Lomond" "Loch More" "Loch Morlich" "Loch Quoich" "Loch Ruthven"
+		"Loch Scavaig" "Loch Shin" "Loch Tarbert" "Loch Torridon" "Loch Tralaig" "Loch Veyatie"
+		# Loch-class names cancelled in 1944-1945
+		"Loch Affric" "Loch Awe" "Loch Badcall" "Loch Caroy" "Loch Clunie" "Loch Creran" "Loch Doine" "Loch Earn" "Loch Enoch" "Loch Ericht" "Loch Erisort" "Loch Eye"
+		"Loch Eyenort" "Loch Fionn" "Loch Garve" "Loch Glashan" "Loch Goil" "Loch Griam" "Loch Harray" "Loch Hourn" "Loch Inchard" "Loch Ken" "Loch Kirbister" "Loch Kirkaig"
+		"Loch Kishorn" "Loch Knochie" "Loch Laro" "Loch Linfern" "Loch Linnhe" "Loch Lurgan" "Loch Lyon" "Loch Maberry" "Loch Minnick" "Loch Nell" "Loch Odairn" "Loch Ossian"
+		"Loch Ronald" "Loch Ryan" "Loch Scrivain" "Loch Sheallah" "Loch Shiel" "Loch Skaig" "Loch Skerrow" "Loch Stemster" "Loch Stenness" "Loch Striven" "Loch Sunart" "Loch Swin"
+		"Loch Tanna" "Loch Tilt" "Loch Tummell" "Loch Urgill" "Loch Vanavie" "Loch Vennacher" "Loch Watten"
+		# Other lochs and loughs
+		"Loch Ness" "Loch Maree" "Loch Leven" "Loch Etive" "Loch Ewe" "Loch Long" "Loch Rannoch" "Loch Tay" "Loch Morar" "Loch Oich" "Loch Lochy" "Lough Neagh"
+		"Lough Erne" "Lough Foyle" "Strangford Lough" "Belfast Lough"
+		# Lakes of England and Wales
+		"Windermere" "Ullswater" "Coniston" "Derwentwater" "Bassenthwaite" "Buttermere" "Thirlmere" "Wastwater" "Haweswater" "Grasmere" "Rydal Water" "Bala Lake"
+		"Llyn Padarn"
+	}
+}
+
+### THEME: HILLS AND MOUNTAINS (WORKERS' NAVY) ###
+ENG_GEOGRAPHY_COMMUNIST = {
+	name = "Hills & Mountains"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Hill-class trawlers (1940-1941)
+		"Birdlip" "Bredon" "Butser" "Duncton" "Dunkery" "Inkpen" "Portsdown" "Yestor"
+		# Mountains of Scotland
+		"Ben Nevis" "Ben Macdui" "Ben Lomond" "Ben Lawers" "Ben More" "Ben Wyvis" "Ben Hope" "Ben Loyal" "Lochnagar" "Schiehallion" "Suilven" "Cuillin"
+		"Goatfell" "Merrick" "Ben Cruachan" "Ben Vorlich" "Buachaille Etive Mor" "Grampian" "Ochil" "Pentland" "Sidlaw" "Lammermuir" "Cheviot"
+		# Mountains and fells of England
+		"Scafell" "Helvellyn" "Skiddaw" "Great Gable" "Blencathra" "Cross Fell" "Kinder Scout" "Ingleborough" "Pen-y-ghent" "Whernside" "Pendle" "Mam Tor"
+		"Wrekin" "Long Mynd" "Malvern Hills" "Leith Hill" "Box Hill" "Ditchling Beacon" "Dunstable Downs" "Bodmin Moor" "High Willhays" "Haytor" "Roseberry Topping"
+		# Mountains of Wales and Ulster
+		"Snowdon" "Cader Idris" "Tryfan" "Glyder" "Plynlimon" "Pen y Fan" "Sugar Loaf" "Arenig" "Aran Fawddwy" "Moel Siabod" "Slieve Donard" "Slieve Gullion"
+		"Sperrin" "Mourne Mountains"
+	}
+}
+
+### THEME: DANCES (WORKERS' NAVY) ###
+ENG_DANCES_COMMUNIST = {
+	name = "Dances"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Dance-class trawlers (1940), with Tarantella's 1943 name
+		"Cotillion" "Coverley" "Fandango" "Foxtrot" "Gavotte" "Hornpipe" "Mazurka" "Minuet" "Morris Dance" "Pirouette" "Polka" "Quadrille"
+		"Rumba" "Sarabande" "Saltarelo" "Sword Dance" "Tango" "Tarantella" "Valse" "Veleta" "Two Step"
+		# Dances of the British Isles
+		"Highland Fling" "Strathspey" "Lancers" "Galliard" "Pavane" "Lavolta" "Country Dance" "Schottische" "Barn Dance" "Eightsome Reel" "Clog Dance"
+		# Other dances
+		"Waltz" "Bolero" "Allemande" "Courante" "Gigue" "Chaconne" "Bourree" "Rigadoon" "Farandole" "Habanera" "Galop" "Polonaise"
+		"Quickstep" "Charleston"
+	}
+}
+
+### IDEOLOGY-GATED THEME: RADICALS AND LABOUR (communism) ###
+ENG_SOCIALISM = {
+	name = "Radicals & Labour"
+
+	for_countries = { ENG }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "WLNS "
+	fallback_name = "Ship %d"
+
+	unique = {
+		# Risings of the commons
+		"Wat Tyler" "John Ball" "Jack Straw" "Jack Cade" "Robert Kett" "Peasants' Revolt"
+		# Levellers, Diggers and the Putney Debates
+		"Lilburne" "Overton" "Walwyn" "Winstanley" "William Everard" "Rainsborough" "Sexby" "John Wildman" "Putney" "Burford"
+		# Radicals of the age of revolutions
+		"Thomas Paine" "Thomas Spence" "Cobbett" "Henry Hunt" "Thelwall" "Thomas Muir" "Carlile" "Ned Ludd" "Captain Swing" "Dic Penderyn" "Merthyr Rising" "Peterloo"
+		# Chartists and the Tolpuddle Martyrs
+		"Lovett" "Feargus O'Connor" "Bronterre O'Brien" "Ernest Jones" "John Frost" "Zephaniah Williams" "Cuffay" "Newport Rising" "People's Charter" "Tolpuddle" "George Loveless" "James Loveless"
+		"Thomas Standfield" "John Standfield" "James Hammett" "James Brine"
+		# Co-operators, socialists and the Labour movement
+		"Robert Owen" "Rochdale Pioneers" "William Morris" "Keir Hardie" "Hyndman" "Edward Carpenter" "Wollstonecraft" "Annie Besant" "Emily Davison" "Matchgirls" "Dock Strike"
+	}
+}

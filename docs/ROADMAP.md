@@ -36,7 +36,6 @@ Ranking of vanilla nations not yet covered by the mod (assessed 2026-10-10). Int
 - **`MAL`**: SS has only 2 names.
 - **`JAP`**: 79 of 269 capital-ship names duplicated, but lists are already deep.
 - **`ICE`, `ETH`, `CZE`**: no real navy to anchor names (`CZE` has one city pool and no hull groups).
-- **`ENG`**: deep enough already. If done, follow the `USA` and `FRA` approach (keep every vanilla list, repair, decouple, add pools) and check `-InspectVanilla` for tags vanilla script assigns by `name_group`.
 - **Central American tail (`DOM`, `HON`, `PAN`, `HAI`, `ELS`, `NIC`, `COS`, `GUA`, `ECU`)**: 26-40 names each, little verifiable naval history.
 
 ## Audit Queue

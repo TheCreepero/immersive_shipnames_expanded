@@ -3,5 +3,13 @@
     "zipArchiveName": "isne.zip",
     "packageLayout": "ModFolder",
     "contentDirs": [ "common" ],
-    "defaultChangeNote": "Updated ship namelists"
+    "defaultChangeNote": "Updated ship namelists",
+    "testSuites": {
+        "Knowledge": ["*.md", "docs/**", "wiki/**"],
+        "BuildScript": ["build.ps1", "tools/HoiModBuild.ps1", "tools/HoiModBuild.json", "data/ship_types_canon.json", "common/**", "descriptor.mod", "thumbnail.png", "README.md", "WORKSHOP_DESCRIPTION_GUIDELINES.md", "wiki/*.md", "docs/plans/**"],
+        "Documentation": ["build.ps1", "descriptor.mod", "thumbnail.png", "README.md", "WORKSHOP_DESCRIPTION_GUIDELINES.md", "AGENTS.md", "CLAUDE.md", "GEMINI.md", "common/units/names_ships/**", "wiki/*.md", "docs/isne-agent-guide.md", "docs/ROADMAP.md", "docs/plans/archive/**", ".claude/skills/**", ".agents/skills/**", ".claude/agents/**"],
+        "Hooks": [".claude/hooks/**", ".claude/settings.json"],
+        "Shipnames": ["build.ps1", "data/ship_types_canon.json", "common/units/names_ships/**"],
+        "none": ["assets/**", "Files/**", "scratch/**", "artifacts/**"]
+    }
 }

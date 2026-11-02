@@ -66,6 +66,17 @@ BeforeAll {
         }
     }
 
+    function Invoke-BuildInProcess([string]$Path, [hashtable]$Parameters) {
+        $global:LASTEXITCODE = 0
+        try {
+            $output = ((@(& $Path @Parameters *>&1 | ForEach-Object { "$_" }) -join "`r`n") + "`r`n")
+        } catch {
+            $output = ($_ | Out-String)
+            $global:LASTEXITCODE = 1
+        }
+        return $output
+    }
+
     function Invoke-FixtureTypeCheck([string]$Text) {
         $tempFile = [System.IO.Path]::GetTempFileName()
         try {
@@ -796,7 +807,7 @@ Describe "build.ps1 Helper: Get-ShipTypeFindings" {
 
 Describe "build.ps1 -VerifyShipTypes action" {
     It "Prints a single OK line and exits 0 when every repo namelist matches the canon" {
-        $output = (& powershell -NoProfile -File $script:BuildScriptPath -VerifyShipTypes ALL 2>&1 | Out-String).Trim()
+        $output = (Invoke-BuildInProcess $script:BuildScriptPath @{ VerifyShipTypes = 'ALL' }).Trim()
         $LASTEXITCODE | Should -Be 0
         $output | Should -Match '^ship_types OK: \d+ files, \d+ groups$'
     }
@@ -804,7 +815,7 @@ Describe "build.ps1 -VerifyShipTypes action" {
 
 Describe "build.ps1 -Audit action" {
     It "Audits an implemented nation, exits 0 and prints the summary line" {
-        $output = & powershell -NoProfile -File $script:BuildScriptPath -Audit FIN 2>&1 | Out-String
+        $output = Invoke-BuildInProcess $script:BuildScriptPath @{ Audit = 'FIN' }
         $LASTEXITCODE | Should -Be 0
         $output | Should -Match 'AUDIT SUMMARY FIN: FAIL=\d+ WARN=\d+ INFO=\d+'
     }
@@ -822,25 +833,25 @@ Describe "build.ps1 -Audit action" {
     It "Refuses an -EditNames miss with exit 1 and leaves the namelist untouched" {
         $path = Join-Path $script:RepoRoot 'common\units\names_ships\FIN_ship_names.txt'
         $before = [System.IO.File]::ReadAllText($path)
-        $output = & powershell -NoProfile -File $script:BuildScriptPath -EditNames FIN -Group RULERS -Remove 'No Such Ruler' 2>&1 | Out-String
+        $output = Invoke-BuildInProcess $script:BuildScriptPath @{ EditNames = 'FIN'; Group = 'RULERS'; Remove = 'No Such Ruler' }
         $LASTEXITCODE | Should -Be 1
         $output | Should -Match 'No Such Ruler'
         [System.IO.File]::ReadAllText($path) | Should -Be $before
     }
 
     It "Accepts hull shorthand in -Group (CL for FIN_CL_HISTORICAL)" {
-        $output = & powershell -NoProfile -File $script:BuildScriptPath -Audit FIN -Group CL -NamesOnly 2>&1 | Out-String
+        $output = Invoke-BuildInProcess $script:BuildScriptPath @{ Audit = 'FIN'; Group = 'CL'; NamesOnly = $true }
         $LASTEXITCODE | Should -Be 0
         $output | Should -Match '(?m)^FIN_CL_HISTORICAL \(\d+\): '
         $output | Should -Not -Match 'not found'
     }
 
     It "Prints a name-level diff header for -DiffNames and rejects an unknown revision" {
-        $output = & powershell -NoProfile -File $script:BuildScriptPath -DiffNames FIN 2>&1 | Out-String
+        $output = Invoke-BuildInProcess $script:BuildScriptPath @{ DiffNames = 'FIN' }
         $LASTEXITCODE | Should -Be 0
         $output | Should -Match '(?m)^Name diff FIN \(HEAD -> working tree\): \d+ changed, \d+ unchanged'
 
-        $bad = & powershell -NoProfile -File $script:BuildScriptPath -DiffNames FIN -Base 'no-such-rev-xyz' 2>&1 | Out-String
+        $bad = Invoke-BuildInProcess $script:BuildScriptPath @{ DiffNames = 'FIN'; Base = 'no-such-rev-xyz' }
         $LASTEXITCODE | Should -Be 1
         $bad | Should -Match 'Unknown git revision'
     }

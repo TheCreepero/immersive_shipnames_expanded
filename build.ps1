@@ -712,7 +712,7 @@ function Get-VanillaNameGroupRefs {
         if (-not (Test-Path $p)) { continue }
         foreach ($f in (Get-ChildItem -Path $p -Filter *.txt -Recurse -File)) {
             $text = [System.IO.File]::ReadAllText($f.FullName)
-            if ($text.IndexOf('name_group') -lt 0) { continue }
+            if ($text.IndexOf('name_group', [System.StringComparison]::Ordinal) -lt 0) { continue }
             foreach ($m in $rx.Matches($text)) { [void]$refs.Add($m.Groups[1].Value) }
         }
     }
@@ -726,6 +726,9 @@ function Get-VanillaNameGroupRefs {
 # Exonyms (Scania/Skane) are out of scope. Kept ASCII-only for Windows PowerShell 5.1.
 function Get-NameVariantKey {
     param([string]$Name)
+    if ($null -eq $script:NameVariantKeys) { $script:NameVariantKeys = [System.Collections.Generic.Dictionary[string, string]]::new([System.StringComparer]::Ordinal) }
+    $cached = $null
+    if ($script:NameVariantKeys.TryGetValue($Name, [ref]$cached)) { return $cached }
     $s = $Name.ToLowerInvariant()
     $map = @{ 0x00E6 = 'ae'; 0x00F8 = 'o'; 0x0153 = 'oe'; 0x00DF = 'ss'; 0x0142 = 'l'; 0x0111 = 'd'; 0x00F0 = 'd'; 0x00FE = 'th'; 0x0131 = 'i' }
     foreach ($code in $map.Keys) { $s = $s.Replace([string][char]$code, $map[$code]) }
@@ -748,6 +751,7 @@ function Get-NameVariantKey {
     $s = $s -replace 'ph', 'f' -replace 'th', 't' -replace 'w', 'v' -replace 'ck', 'k' -replace '[cq]', 'k' -replace 'z', 's' -replace 'y', 'i'
     $s = $s -replace 'ae', 'a' -replace 'oe', 'o' -replace 'ue', 'u'
     $s = $s -replace '([a-z])\1+', '$1'
+    $script:NameVariantKeys[$Name] = $s
     return $s
 }
 

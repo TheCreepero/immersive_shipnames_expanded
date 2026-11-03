@@ -7,7 +7,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 ## Core Rules
 
 1. **No emojis** anywhere.
-2. **Length**: Steam caps descriptions at ~17,000 characters of raw BBCode; monitor the total when adding nations.
+2. **Length**: Steam caps descriptions at 8,000 characters of raw BBCode (a longer one fails the upload with "Invalid Parameter"); stay under ~7,500 and check the total when adding nations. Name a nation's thematic lists, but give its ideological and role lists as counts.
    - Concise bullets, no long narrative blocks.
    - **Never list individual ship names**: dozens of names per class would hit the limit as nations are added.
    - No author update quote blocks (`[quote=author]...[/quote]`).
@@ -26,7 +26,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 2. **`[h1]Info:[/h1]`**: save-game compatibility; mod compatibility and namelist override clarification; mount / DLC compatibility; global notice on vanilla bug fixes, typos, duplicates, missing classes and broken fallback translations across all nations; open permissions ("Feel free to use this mod however you wish.").
 3. **Jackhall tribute & scope**: attribution and link to @Jackhall's series; note on the excluded countries.
 4. **`[h1]Included nations:[/h1]`**: one bold `[b]Nation[/b]` entry each, with exactly 2 bullets:
-   - ship-type lists: which hull categories were expanded (DD, SS, CL, CA, BB, BC, CV);
+   - ship-type lists: "all hull classes", or the hull codes (DD, SS, CL, CA, BB, BC, CV) when only some were expanded;
    - universal thematic pools added for the Ship Designer (e.g. Cities, Monarchs, Rivers, Heroes, Fauna).
 
    Bug and typo fixes stay in Info rather than repeating per nation. Never add exhaustive or repetitive unit name lists (`[i]...[/i]`).
@@ -83,91 +83,91 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 
 [h1]Included nations:[/h1]
 [b]Argentina[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 6 universal thematic lists: Cities, Provinces, Heroes, Historic Battles, Rivers, and Fauna.
 
 [b]Austria[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 11 universal thematic lists: Monarchs, Cities, Crown Lands, Rivers & Lakes, Peaks, Battles, Heroes, Folklore, Birds, Wildlife, and Virtues.
 
 [b]Brazil[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 7 universal thematic lists: Cities, States & Territories, Rivers, Heroes & Admirals, Native Peoples & Chiefs, Battles, and Fauna.
 
 [b]Canada[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
-- Added 20 universal thematic lists: Cities, Provinces & Regions, Rivers & Lakes, Capes, Isles & Straits, Mountains, Indigenous Peoples, Birds, Aquatic Life, Wildlife, Monarchs & Governors, Explorers, Heroes, Battles, Myth & Folklore, Virtues & Elements, Loyalists & Empire, and separate Confederation, Patriotes & Rebels, Reform & Co-operation, and Labour Struggle ideological pools, plus role lists for corvettes, frigates, minesweepers, and patrol vessels.
+- Expanded ship-type lists for all hull classes.
+- Added 20 universal thematic lists: Cities, Provinces & Regions, Rivers & Lakes, Capes, Isles & Straits, Mountains, Indigenous Peoples, Birds, Aquatic Life, Wildlife, Monarchs & Governors, Explorers, Heroes, Battles, Myth & Folklore, Virtues & Elements, Loyalists & Empire, and 4 ideological lists, plus 4 role lists.
 
 [b]Chile[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 7 universal thematic lists: Cities, Provinces, Heroes, Mapuche Heroes, Battles, Waterways, and Fauna.
 
 [b]Cuba[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 7 universal thematic lists: Cities, Provinces & Regions, Heroes, Battles & Dates, Mythology, Fauna, and Rivers & Waterways.
 
 [b]Denmark[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 8 universal thematic lists: Cities, Regions & Islands, Monarchs, Heroes, Norse Mythology, Birds, Aquatic Life, and Waters.
 
 [b]Finland[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 13 universal thematic lists: Rulers, Cities, Provinces, Rivers & Lakes, Landmarks, Battles, Heroes, Kalevala Mythology, Birds, Aquatic Life, Predators, Virtues, and Nature.
 
 [b]France[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV), keeping vanilla's depth, with far deeper destroyer, light cruiser and submarine lists for a full wartime building programme.
-- Added 11 universal thematic lists to vanilla's six (Regions, Cities, Colonies, Marshals, Presidents, Kings): Birds, Aquatic Life, Mythology, Rivers & Lakes, Battles, Heroes & Explorers, Wind, Sky & Sea, and separate republican, socialist, nationalist and imperial ideological pools, plus role lists for torpedo boats, avisos, mine warfare vessels, and corvettes & frigates.
+- Expanded ship-type lists for all hull classes, with far deeper destroyer, light cruiser and submarine lists.
+- Added 11 universal thematic lists to vanilla's six: Birds, Aquatic Life, Mythology, Rivers & Lakes, Battles, Heroes & Explorers, Wind, Sky & Sea, and 4 ideological lists, plus 4 role lists.
 
 [b]Iran[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 7 universal thematic lists: Mythology, Rulers, Provinces, Rivers & Lakes, Birds, Virtues, and Beasts & Predators.
 
 [b]Italy[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
-- Added 17 universal thematic lists: Regions, Cities, Colonies, Mythology, Birds, Aquatic Life, Rivers & Lakes, Geography, Rulers, Heroes & Genius, Battles, Virtues, Weather & Skies, and separate Fascist, Monarchist, Republican, and Socialist ideological pools, plus role lists for torpedo boats, scout cruisers, corvettes, minelayers, monitors, and auxiliary cruisers.
+- Expanded ship-type lists for all hull classes.
+- Added 17 universal thematic lists: Regions, Cities, Colonies, Mythology, Birds, Aquatic Life, Rivers & Lakes, Geography, Rulers, Heroes & Genius, Battles, Virtues, Weather & Skies, and 4 ideological lists, plus 6 role lists.
 
 [b]Mexico[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 13 universal thematic lists: Naval Heroes, Saints, Ports, Bodies of Water, Monarchs & Rulers, Republican Ideals, Socialist Ideals, Nationalist Ideals, Mythology, Birds, States, Cities, and Rivers.
 
 [b]Norway[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 11 universal thematic lists: Cities, Provinces, Fjords, Monarchs, Heroes, Norse Mythology, Birds, Wildlife, Fish, Natural Phenomena, and Virtues, plus a Minesweepers role list.
 
 [b]Peru[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
-- Added 14 universal thematic lists: Cities & Ports, Departments & Regions, Rivers & Lakes, Mountains, Incas & Rulers, Mythology, Battles, Heroes & Scholars, Birds, Aquatic Life, Virtues, and separate Republican, Socialist, and Nationalist ideological pools, plus a River Gunboats role list.
+- Expanded ship-type lists for all hull classes.
+- Added 14 universal thematic lists: Cities & Ports, Departments & Regions, Rivers & Lakes, Mountains, Incas & Rulers, Mythology, Battles, Heroes & Scholars, Birds, Aquatic Life, Virtues, and 3 ideological lists, plus a River Gunboats role list.
 
 [b]Philippines[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
-- Added 11 universal thematic lists: Birds & Raptors, Marine Life & Fish, Peaks & Volcanoes, Rivers, Datus & Rajahs, Patriots & Heroes, Mythology, Martial Virtues, and separate Republican, Socialist, and Nationalist ideological pools.
+- Expanded ship-type lists for all hull classes.
+- Added 11 universal thematic lists: Birds & Raptors, Marine Life & Fish, Peaks & Volcanoes, Rivers, Datus & Rajahs, Patriots & Heroes, Mythology, Martial Virtues, and 3 ideological lists.
 
 [b]Portugal[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 7 universal thematic lists: Birds, Aquatic Life, Legends, Heroes, Virtues, Monarchs, and Estado Novo.
 
 [b]Romania[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
-- Added 15 universal thematic lists: Cities & Ports, Provinces & Counties, Rivers & Lakes, Mountains, Rulers, Heroes & Scholars, Battles, Myth & Folklore, Birds, Fish, Virtues & Elements, and separate Royal House, Union & Liberty, Labour Movement, and Nationalist ideological pools, plus Torpedo Boats and Monitors & Gunboats role lists.
+- Expanded ship-type lists for all hull classes.
+- Added 15 universal thematic lists: Cities & Ports, Provinces & Counties, Rivers & Lakes, Mountains, Rulers, Heroes & Scholars, Battles, Myth & Folklore, Birds, Fish, Virtues & Elements, and 4 ideological lists, plus 2 role lists.
 
 [b]Sweden[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 10 universal thematic lists: Monarchs, Provinces, Cities, Norse Mythology, Birds, Predators, Aquatic Life, Heroes & Commanders, Virtues, and Battles, plus a Minesweepers role list.
 
 [b]Turkey[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 11 universal thematic lists: Sultans & Khans, Admirals, Cities & Ports, Provinces, Rivers, Mountains & Hills, Battles, Birds, Aquatic Life, Predators, and Virtues.
 
 [b]United Kingdom[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV), keeping vanilla's depth, with the Royal Navy's destroyer, cruiser, battleship and carrier lineages traced back through the Victorian navy to the ships of the line, for a full wartime building programme.
-- Added 23 universal thematic lists to vanilla's seven (Counties, Cities, Colonies, Kings, Battles, Rivers, Mythology): Admirals, Explorers & Navigators, Generals, Poets & Writers, Saints, Ancient Britain, Shakespeare, Valour & Virtues, Wind, Sky & Sea, Birds, Aquatic Life, Wild Beasts, Flowers, Trees, Gems, Castles, Isles, Lochs & Lakes, Hills & Mountains, Dances, and democratic, monarchist and Jacobite ideological pools, plus role lists for escort destroyers, anti-aircraft cruisers, light and escort carriers, monitors, minelayers, minesweepers, sloops, frigates, gunboats and armed merchant cruisers. The communist workers' navy lists mirrored all of it without royal names and gained a Radicals & Labour pool.
+- Expanded ship-type lists for all hull classes, with the Royal Navy's lineages traced back to the ships of the line.
+- Added 23 universal thematic lists to vanilla's seven: Admirals, Explorers & Navigators, Generals, Poets & Writers, Saints, Ancient Britain, Shakespeare, Valour & Virtues, Wind, Sky & Sea, Birds, Aquatic Life, Wild Beasts, Flowers, Trees, Gems, Castles, Isles, Lochs & Lakes, Hills & Mountains, Dances, and 3 ideological lists, plus 11 role lists. A communist Britain gets a mirrored workers' navy set without royal names.
 
 [b]United States[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV), keeping vanilla's depth and its Confederate lists, with deeper cruiser, carrier and capital-ship lists for a full wartime building programme.
-- Added 9 universal thematic lists to vanilla's six (States, Cities, Battles, Leaders, Birds, Fish): Native Nations, Rivers, Peaks, Parks & Regions, Celestial Bodies, Mythology, Virtues, Age of Sail, and separate democratic and socialist ideological pools, plus role lists for destroyer escorts, anti-aircraft cruisers, light and escort carriers, minelayers, minesweepers, patrol frigates, corvettes, gunboats, Coast Guard cutters, seaplane tenders, submarine tenders, and monitors.
+- Expanded ship-type lists for all hull classes, keeping vanilla's Confederate lists, with deeper cruiser, carrier and capital-ship lists.
+- Added 9 universal thematic lists to vanilla's six: Native Nations, Rivers, Peaks, Parks & Regions, Celestial Bodies, Mythology, Virtues, Age of Sail, and 2 ideological lists, plus 12 role lists.
 
 [b]Yugoslavia[/b]
-- Expanded ship-type lists for all hull classes (DD, SS, CL, CA, BB, BC, CV).
+- Expanded ship-type lists for all hull classes.
 - Added 9 universal thematic lists: Cities, Banovinas, Rivers, Mythology, Rulers, Heroes, Birds, Mountains, and Virtues.
 
 If you enjoy the mod, please give it a thumbs up and favorite!

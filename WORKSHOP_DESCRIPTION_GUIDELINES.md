@@ -25,8 +25,8 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 1. **Header pitch & companion mod**: the author's own intro (AI-accelerated creation, focus on nations with limited vanilla namelists) and a link to *Immersive Namelists Expanded*.
 2. **`[h1]Info:[/h1]`**: save-game compatibility; mod compatibility and namelist override clarification; mount / DLC compatibility; global notice on vanilla bug fixes, typos, duplicates, missing classes and broken fallback translations across all nations; open permissions ("Feel free to use this mod however you wish.").
 3. **Jackhall tribute & scope**: attribution and link to @Jackhall's series; note on the excluded countries.
-4. **`[h1]Included nations:[/h1]`**: one bold `[b]Nation[/b]` entry each, with exactly 2 bullets:
-   - ship-type lists: "all hull classes", or the hull codes (DD, SS, CL, CA, BB, BC, CV) when only some were expanded;
+4. **`[h1]Included nations:[/h1]`**: an intro line saying that every nation has expanded ship-type lists for all hull classes, then one bold `[b]Nation[/b]` entry each, with 1 or 2 bullets:
+   - ship-type lists, only where a nation differs from the intro line: the hull codes (DD, SS, CL, CA, BB, BC, CV) when only some were expanded, or what is deeper than elsewhere;
    - universal thematic pools added for the Ship Designer (e.g. Cities, Monarchs, Rivers, Heroes, Fauna).
 
    Bug and typo fixes stay in Info rather than repeating per nation. Never add exhaustive or repetitive unit name lists (`[i]...[/i]`).
@@ -65,111 +65,115 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 ## Current Description Template (BBCode)
 
 ```bbcode
+<!-- region:image:hero -->
+[img]https://i.imgur.com/cumSmZG.png[/img]
+<!-- /region -->
 More namelists! Used AI to speed up the creation process and help with translations. For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, Italy, Peru, Romania, Canada, the United States, France, and the United Kingdom. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
-<!-- cross-links:begin -->
-[b]More from the author[/b], all in the collection [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833590274]The Immersive Series[/url]
-<!-- cross-links:end -->
 Coming soon: [b]Immersive Air Wing Names Expanded[/b]
 
+<!-- region:image:strip-info -->
+[img]https://i.imgur.com/xQiM4do.png[/img]
+<!-- /region -->
 [h1]Info:[/h1]
+<!-- region:info:rt56,overrides-namelist,game-version,use-freely -->
+- Compatible with Road to 56 (RT56) and vanilla.
+- No hard incompatibilities. Namelists from other mods might override namelists from this mod in some cases.
+- Built for game version 1.19.
+- Feel free to use this mod however you wish.
+<!-- /region -->
 - [b]Save Game Compatible:[/b] Can be added or removed from ongoing games without issues.
-- [b]Compatible with Road to 56 (RT56) and vanilla.[/b]
 - Fully compatible with the Man the Guns (MtG) Ship Designer as well as non-DLC naval systems.
 - Fixes vanilla bugs, typos, duplicates, missing classes, and broken fallback translations across all included nations.
-- No hard incompatibilities. Namelists from other mods might override namelists from this mod in some cases but that's unlikely.
-- Feel free to use this mod however you wish.
 
 This mod is intended to expand the great series of [url=https://steamcommunity.com/workshop/filedetails/?id=2185806824]ship namelist mods[/url] by @Jackhall. This means that for now I am avoiding editing countries that have already been touched up by their mod series (Netherlands, China, Spain, Poland, Soviet Union, Greece, and Germany).
 
+<!-- region:image:strip-included-nations -->
+[img]https://i.imgur.com/zln3pgW.png[/img]
+<!-- /region -->
 [h1]Included nations:[/h1]
+Every nation below has expanded ship-type lists for all hull classes.
+
 [b]Argentina[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 6 universal thematic lists: Cities, Provinces, Heroes, Historic Battles, Rivers, and Fauna.
 
 [b]Austria[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 11 universal thematic lists: Monarchs, Cities, Crown Lands, Rivers & Lakes, Peaks, Battles, Heroes, Folklore, Birds, Wildlife, and Virtues.
 
 [b]Brazil[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 7 universal thematic lists: Cities, States & Territories, Rivers, Heroes & Admirals, Native Peoples & Chiefs, Battles, and Fauna.
 
 [b]Canada[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 20 universal thematic lists: Cities, Provinces & Regions, Rivers & Lakes, Capes, Isles & Straits, Mountains, Indigenous Peoples, Birds, Aquatic Life, Wildlife, Monarchs & Governors, Explorers, Heroes, Battles, Myth & Folklore, Virtues & Elements, Loyalists & Empire, and 4 ideological lists, plus 4 role lists.
 
 [b]Chile[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 7 universal thematic lists: Cities, Provinces, Heroes, Mapuche Heroes, Battles, Waterways, and Fauna.
 
 [b]Cuba[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 7 universal thematic lists: Cities, Provinces & Regions, Heroes, Battles & Dates, Mythology, Fauna, and Rivers & Waterways.
 
 [b]Denmark[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 8 universal thematic lists: Cities, Regions & Islands, Monarchs, Heroes, Norse Mythology, Birds, Aquatic Life, and Waters.
 
 [b]Finland[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 13 universal thematic lists: Rulers, Cities, Provinces, Rivers & Lakes, Landmarks, Battles, Heroes, Kalevala Mythology, Birds, Aquatic Life, Predators, Virtues, and Nature.
 
 [b]France[/b]
-- Expanded ship-type lists for all hull classes, with far deeper destroyer, light cruiser and submarine lists.
+- Far deeper destroyer, light cruiser and submarine lists.
 - Added 11 universal thematic lists to vanilla's six: Birds, Aquatic Life, Mythology, Rivers & Lakes, Battles, Heroes & Explorers, Wind, Sky & Sea, and 4 ideological lists, plus 4 role lists.
 
 [b]Iran[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 7 universal thematic lists: Mythology, Rulers, Provinces, Rivers & Lakes, Birds, Virtues, and Beasts & Predators.
 
 [b]Italy[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 17 universal thematic lists: Regions, Cities, Colonies, Mythology, Birds, Aquatic Life, Rivers & Lakes, Geography, Rulers, Heroes & Genius, Battles, Virtues, Weather & Skies, and 4 ideological lists, plus 6 role lists.
 
 [b]Mexico[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 13 universal thematic lists: Naval Heroes, Saints, Ports, Bodies of Water, Monarchs & Rulers, Republican Ideals, Socialist Ideals, Nationalist Ideals, Mythology, Birds, States, Cities, and Rivers.
 
 [b]Norway[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 11 universal thematic lists: Cities, Provinces, Fjords, Monarchs, Heroes, Norse Mythology, Birds, Wildlife, Fish, Natural Phenomena, and Virtues, plus a Minesweepers role list.
 
 [b]Peru[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 14 universal thematic lists: Cities & Ports, Departments & Regions, Rivers & Lakes, Mountains, Incas & Rulers, Mythology, Battles, Heroes & Scholars, Birds, Aquatic Life, Virtues, and 3 ideological lists, plus a River Gunboats role list.
 
 [b]Philippines[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 11 universal thematic lists: Birds & Raptors, Marine Life & Fish, Peaks & Volcanoes, Rivers, Datus & Rajahs, Patriots & Heroes, Mythology, Martial Virtues, and 3 ideological lists.
 
 [b]Portugal[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 7 universal thematic lists: Birds, Aquatic Life, Legends, Heroes, Virtues, Monarchs, and Estado Novo.
 
 [b]Romania[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 15 universal thematic lists: Cities & Ports, Provinces & Counties, Rivers & Lakes, Mountains, Rulers, Heroes & Scholars, Battles, Myth & Folklore, Birds, Fish, Virtues & Elements, and 4 ideological lists, plus 2 role lists.
 
 [b]Sweden[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 10 universal thematic lists: Monarchs, Provinces, Cities, Norse Mythology, Birds, Predators, Aquatic Life, Heroes & Commanders, Virtues, and Battles, plus a Minesweepers role list.
 
 [b]Turkey[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 11 universal thematic lists: Sultans & Khans, Admirals, Cities & Ports, Provinces, Rivers, Mountains & Hills, Battles, Birds, Aquatic Life, Predators, and Virtues.
 
 [b]United Kingdom[/b]
-- Expanded ship-type lists for all hull classes, with the Royal Navy's lineages traced back to the ships of the line.
+- The Royal Navy's lineages traced back to the ships of the line.
 - Added 23 universal thematic lists to vanilla's seven: Admirals, Explorers & Navigators, Generals, Poets & Writers, Saints, Ancient Britain, Shakespeare, Valour & Virtues, Wind, Sky & Sea, Birds, Aquatic Life, Wild Beasts, Flowers, Trees, Gems, Castles, Isles, Lochs & Lakes, Hills & Mountains, Dances, and 3 ideological lists, plus 11 role lists. A communist Britain gets a mirrored workers' navy set without royal names.
 
 [b]United States[/b]
-- Expanded ship-type lists for all hull classes, keeping vanilla's Confederate lists, with deeper cruiser, carrier and capital-ship lists.
+- Vanilla's Confederate lists are kept, with deeper cruiser, carrier and capital-ship lists.
 - Added 9 universal thematic lists to vanilla's six: Native Nations, Rivers, Peaks, Parks & Regions, Celestial Bodies, Mythology, Virtues, Age of Sail, and 2 ideological lists, plus 12 role lists.
 
 [b]Yugoslavia[/b]
-- Expanded ship-type lists for all hull classes.
 - Added 9 universal thematic lists: Cities, Banovinas, Rivers, Mythology, Rulers, Heroes, Birds, Mountains, and Virtues.
 
 If you enjoy the mod, please give it a thumbs up and favorite!
+
+<!-- region:buttons:wiki,github -->
+[url=https://github.com/TheCreepero/immersive_shipnames_expanded/wiki][img]https://i.imgur.com/PjdoeCx.png[/img][/url] [url=https://github.com/TheCreepero/immersive_shipnames_expanded][img]https://i.imgur.com/bdkHWVb.png[/img][/url]
+<!-- /region -->
+
+<!-- cross-links:begin -->
+[url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833590274][img]https://i.imgur.com/qJpjDyO.png[/img][/url]
+[b]More from the author[/b], all in the collection [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833590274]The Immersive Series[/url]
+[list]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
+[/list]
+<!-- cross-links:end -->
 ```

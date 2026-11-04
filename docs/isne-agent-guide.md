@@ -65,7 +65,7 @@ Every nation has two categories, plus optional role pools.
 ## 4. Documentation Sync (every add, expansion or modification)
 1. `WORKSHOP_DESCRIPTION_GUIDELINES.md`:
    - Update the nation's row in the **Repository Cross-Reference** table.
-   - Update its entry under `[h1]Included nations:[/h1]` in the 2-bullet BBCode format: "Expanded" (not "Added") ship-type lists, then "Added" universal thematic pools. Never list individual ship names. Vanilla bug and typo fixes are covered globally in the Info section.
+   - Update its entry under `[h1]Included nations:[/h1]` in the BBCode format: a first bullet on ship-type lists only where the nation differs from the intro line "Every nation below has expanded ship-type lists for all hull classes." (hull codes when only some were expanded, or what is deeper), then an "Added" bullet of universal thematic pools. Never list individual ship names. Vanilla bug and typo fixes are covered globally in the Info section.
    - Keep the header intro pitch in sync with all implemented nations.
    - No `[h1]Planned:[/h1]` section.
    - Preserve author content: header pitch, companion mod link, Info block, Jackhall tribute.

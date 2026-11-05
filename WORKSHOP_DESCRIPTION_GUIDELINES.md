@@ -94,6 +94,9 @@ This mod is intended to expand the great series of [url=https://steamcommunity.c
 <!-- /region -->
 [h1]Included nations:[/h1]
 Every nation below has expanded ship-type lists for all hull classes.
+<!-- region:image:overview -->
+[img]https://i.imgur.com/W5i2nQb.png[/img]
+<!-- /region -->
 
 [b]Argentina[/b]
 - Added 6 universal thematic lists: Cities, Provinces, Heroes, Historic Battles, Rivers, and Fauna.
@@ -154,7 +157,6 @@ Every nation below has expanded ship-type lists for all hull classes.
 - Added 11 universal thematic lists: Sultans & Khans, Admirals, Cities & Ports, Provinces, Rivers, Mountains & Hills, Battles, Birds, Aquatic Life, Predators, and Virtues.
 
 [b]United Kingdom[/b]
-- The Royal Navy's lineages traced back to the ships of the line.
 - Added 23 universal thematic lists to vanilla's seven: Admirals, Explorers & Navigators, Generals, Poets & Writers, Saints, Ancient Britain, Shakespeare, Valour & Virtues, Wind, Sky & Sea, Birds, Aquatic Life, Wild Beasts, Flowers, Trees, Gems, Castles, Isles, Lochs & Lakes, Hills & Mountains, Dances, and 3 ideological lists, plus 11 role lists. A communist Britain gets a mirrored workers' navy set without royal names.
 
 [b]United States[/b]

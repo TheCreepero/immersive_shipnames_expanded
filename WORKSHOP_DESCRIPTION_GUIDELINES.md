@@ -166,10 +166,6 @@ Every nation below has expanded ship-type lists for all hull classes.
 [b]Yugoslavia[/b]
 - Added 9 universal thematic lists: Cities, Banovinas, Rivers, Mythology, Rulers, Heroes, Birds, Mountains, and Virtues.
 
-<!-- region:buttons:wiki,github -->
-[url=https://github.com/TheCreepero/immersive_shipnames_expanded/wiki][img]https://i.imgur.com/PjdoeCx.png[/img][/url] [url=https://github.com/TheCreepero/immersive_shipnames_expanded][img]https://i.imgur.com/bdkHWVb.png[/img][/url]
-<!-- /region -->
-
 <!-- cross-links:begin -->
 [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833590274][img]https://i.imgur.com/qJpjDyO.png[/img][/url]
 [b]More from the author[/b], all in the collection [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3833590274]The Immersive Series[/url]
@@ -178,6 +174,7 @@ Every nation below has expanded ship-type lists for all hull classes.
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3807415216]Immersive Ship Names Expanded[/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3830946508]Event Pack: Finland[/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3832953557]Event Pack: France[/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3834124691]Event Pack: Poland[/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3831847770]Commanders Pack: Finland[/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3832957297]Commanders Pack: France[/url]
 [/list]

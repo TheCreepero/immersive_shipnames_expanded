@@ -22,7 +22,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 
 ## Structure of the Description
 
-1. **Header pitch & companion mod**: the author's own intro (AI-accelerated creation, focus on nations with limited vanilla namelists) and a link to *Immersive Namelists Expanded*.
+1. **Header pitch & companion mod**: the author's own intro (focus on nations with limited vanilla namelists) and a link to *Immersive Namelists Expanded*.
 2. **`[h1]Info:[/h1]`**: Road to 56, Ironman and achievements, and that new name groups show only in a new game (the standard lines of the Modding Manager); namelist override clarification; Man the Guns and non-DLC hull types; one notice on vanilla bug, typo, duplicate and fallback-translation fixes; open permissions ("Feel free to use this mod however you wish.").
 3. **Jackhall tribute & scope**: attribution and link to @Jackhall's series; note on the excluded countries.
 4. **`[h1]Included nations:[/h1]`**: an intro line saying that every nation has expanded ship-type lists for all hull classes, then one bold `[b]Nation[/b]` entry each, with 1 or 2 bullets:
@@ -68,7 +68,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 <!-- region:image:hero -->
 [img]https://i.imgur.com/cumSmZG.png[/img]
 <!-- /region -->
-More ship namelists! For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, Italy, Peru, Romania, Canada, the United States, France, and the United Kingdom. Used AI to speed up the creation process and help with translations. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
+More ship namelists! For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, Italy, Peru, Romania, Canada, the United States, France, and the United Kingdom. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
 Coming soon: [b]Immersive Air Wing Names Expanded[/b]
 
@@ -177,6 +177,7 @@ Every nation below has expanded ship-type lists for all hull classes.
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3834124691]Event Pack: Poland[/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3831847770]Commanders Pack: Finland[/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3832957297]Commanders Pack: France[/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3834744692]Commanders Pack: Poland[/url]
 [/list]
 <!-- cross-links:end -->
 ```

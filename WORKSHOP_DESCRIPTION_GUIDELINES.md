@@ -173,6 +173,7 @@ Every nation below has expanded ship-type lists for all hull classes.
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=2967389401]Immersive Namelists Expanded[/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3807415216]Immersive Ship Names Expanded[/url]
 [*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3835001150]Immersive Events Expanded[/url]
+[*][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3835004745]Immersive Commanders Expanded[/url]
 [/list]
 <!-- cross-links:end -->
 ```

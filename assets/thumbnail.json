@@ -1,6 +1,7 @@
 {
     "version": 1,
     "background": {
-        "gamePath": "integrated_dlc/dlc023_man_the_guns/gfx/loadingscreens/load_mtg.dds"
+        "artKey": "fin-minelayer-in-mist",
+        "crop": "art:square"
     }
 }

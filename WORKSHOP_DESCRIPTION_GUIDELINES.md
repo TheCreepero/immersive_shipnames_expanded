@@ -66,7 +66,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 
 ```bbcode
 <!-- region:image:hero -->
-[img]https://i.imgur.com/cumSmZG.png[/img]
+[img]https://i.imgur.com/98tdjtV.png[/img]
 <!-- /region -->
 More ship namelists! For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, Italy, Peru, Romania, Canada, the United States, France, and the United Kingdom. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 

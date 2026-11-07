@@ -50,3 +50,13 @@ Key features:
 - **Linguistic precision** — native-language diacritics, proper grammatical cases, and authentic spelling throughout
 - **Gameplay scalability** — dozens of unique entries per hull type with formatted fallback names
 - **Coverage breadth** — destroyers, torpedo boats, submarines, light cruisers, heavy cruisers, battleships, battlecruisers, and carriers
+
+## Picture credits
+
+The thumbnail and the gallery images use period photographs, colourised, then cropped and resized. Each picture links to its source record.
+
+| Picture | Shows | Used for | Credit and licence |
+|---|---|---|---|
+| [Miinalaiva Rautu.](https://www.finna.fi/Record/sa-kuva.sa-kuva%2F132980) | a Finnish navy minelayer under way in sea mist | thumbnail, gallery overview and the pages without a picture of their own | SA-kuva-arkisto (Eino Varis), CC BY 4.0 |
+| [Tykkivene ""Uusimaa"".](https://www.finna.fi/Record/sa-kuva.sa-kuva%2F69515) | an anti-aircraft gun and funnel on a Finnish navy gunboat | gallery, Finland page | SA-kuva-arkisto (A. Gustaffson), CC BY 4.0 |
+| [Columns of troop-packed LCIs trail in the wake of a Coast Guard-man...](https://commons.wikimedia.org/wiki/File:Columns_of_troop-packed_LCIs_trail_in_the_wake_of_a_Coast_Guard-manned_LST_en_route_for_the_invasion_of_Cape..._-_NARA_-_513184.tif) | a convoy of landing ships under a stormy sky, seen over the loaded bow of one | gallery, USA page | US National Archives (NARA), public domain |

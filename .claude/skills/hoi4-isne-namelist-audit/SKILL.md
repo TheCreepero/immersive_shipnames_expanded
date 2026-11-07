@@ -8,7 +8,9 @@ description: >-
 
 # ISNE Namelist Audit (Delta Upgrade)
 
-> **Mirror**: `.agents/skills/hoi4-isne-namelist-audit/SKILL.md` (Antigravity). Apply rule changes to both (`docs/isne-agent-guide.md` section 9).
+<!-- hoi-platform:mirror-note:begin -->
+> **Mirror**: `.agents/skills/hoi4-isne-namelist-audit/SKILL.md` (Antigravity) is written from this file; only the `hoi-platform` regions differ (`docs/isne-agent-guide.md` section 9).
+<!-- hoi-platform:mirror-note:end -->
 
 Entries that meet the standard stay untouched; only reported gaps are fixed. Rules: `AGENTS.md` (in context) and `docs/isne-agent-guide.md` (the guide) sections 2 to 7. The script does the mechanical checking; keep your context for judgment.
 
@@ -36,7 +38,9 @@ Entries that meet the standard stay untouched; only reported gaps are fixed. Rul
    3. `ThemeCount` fired or a pool is thin: which thematic pools to add or deepen.
 
    Findings with a prescribed fix (`CrossClass`, `CrossClassVariant`, `BBBCMirror`, `MissingHull`, `BBCarriesBC`, bucket a) are never questions; BC doctrine follows guide section 2; you draft, the researcher verifies. If none of the three applies, show the gap list and continue.
+<!-- hoi-platform:research-dispatch:begin -->
 4. **Research (one budgeted dispatch)**: `isne-audit-researcher` via the Agent tool; its frontmatter sets Sonnet, `effort: medium`, `maxTurns: 30` and web tools only. Prompt:
+<!-- hoi-platform:research-dispatch:end -->
    - country, TAG, national prefix;
    - the `-NamesOnly` lines of every bucket (c) group, every (b′) pool and all of CL/CA/BB/BC/CV (for collision checks);
    - decisions already made (collision fixes, doctrine assignments), marked "decided, don't re-check";
@@ -70,7 +74,9 @@ Entries that meet the standard stay untouched; only reported gaps are fixed. Rul
 7. **Verify**: re-run `-Audit <TAG>` until FAIL=0 and every remaining WARN is justified in the plan; then `-ValidateOnly` and `-Test`. Refresh the plan's change table with `-AuditPlan <TAG>`.
 8. **Docs delta** (guide section 4): `-SyncWiki <TAG>` updates wiki display names, sample cells (short forms expanded to the full entry) and the Home count, and lists rows to add or remove by hand plus the prose lines that mention names removed or moved since HEAD. Then by hand: README row; workshop cross-reference row and `[b]<Country>[/b]` block ("Expanded… / Added…"); the prose lines and rows `-SyncWiki` listed (edit those lines only, without reading the whole page) and any new scope note. Remove the nation's row from the Audit Queue in `docs/ROADMAP.md` (guide section 4, item 7). Do not push yet.
    Then the Workshop page, as the Modding Manager's `docs/workshop-text-style.md` (`..\..\docs\workshop-text-style.md`), section "Auditing a page", describes it: `powershell -File ..\..\Scripts\Workshop\Test-WorkshopText.ps1 -Mod "Immersive Ship Names Expanded"` (the page stays under 7,500 bytes), then `workshop-editor` in mod mode on the `[b]<Country>[/b]` block you changed, or on the whole `bbcode` block when the audit is of the page itself. Apply every REWRITE and send the block back until it is KEEP; at most three rounds, then ask the user. Record the result in the plan. The edit is already in the working tree here, so the mechanical check sees the new text; run it again after the last REWRITE.
+<!-- hoi-platform:review-dispatch:begin -->
 9. **Review**: `isne-code-reviewer` via the Agent tool with `model: "sonnet"`, passing country, TAG, the audit plan path, and: "This is an audit of an existing namelist. Follow your brief's reading economy (`-DiffNames <TAG>`, `-Audit <TAG> -NamesOnly`, `git diff` for docs; never open the namelist) and run the named-individual and English-homonym checks across the whole file. Mechanical invariants (braces, encoding, in-group duplicates, cross-class set intersection and spelling variants, ship_types canon, display-name length, docs sync) are already verified by `-Audit`, `-ValidateOnly` and `-Test`: <paste the three summary lines>. Do not re-run them. Persons in the plan's Persons verified list are sourced; fact-check only named persons not on it. Spend the review on content: named individuals, English homonyms, native forms and diacritics of new entries, display-name accuracy, and whether the plan's change table matches `-DiffNames <TAG>`." Fix every Critical and Important finding, then repeat step 7.
+<!-- hoi-platform:review-dispatch:end -->
 10. **Archive**: when the review passes, `git mv` the plan to `docs/plans/archive/`; finished plans live there, and `-Audit` reports a `PlanFile` INFO for the nation until a new plan is made.
 11. **Push & confirm**: push the wiki once, after the review fixes: `powershell -File .\wiki\push-wiki.ps1 -CommitMessage "Audit <TAG> ship namelists"`. Confirm with `git status` that the namelist, plan and docs changed as intended.
 

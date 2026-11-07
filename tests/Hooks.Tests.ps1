@@ -14,7 +14,7 @@ BeforeDiscovery {
         @{ Name = 'Edit of a plan'; Tool = 'Edit'; ToolInput = @{ file_path = 'docs\plans\2026-10-25-testland-audit.md' } }
         @{ Name = 'Edit of a namelist file'; Tool = 'Edit'; ToolInput = @{ file_path = 'common\units\names_ships\TST_ship_names.txt' } }
         @{ Name = 'Edit of a Claude Code skill'; Tool = 'Edit'; ToolInput = @{ file_path = '.claude\skills\hoi4-isne-namelist-audit\SKILL.md' } }
-        @{ Name = 'Edit of an Antigravity skill mirror (kept by hand)'; Tool = 'Edit'; ToolInput = @{ file_path = '.agents\skills\hoi4-isne-namelist-audit\SKILL.md' } }
+        @{ Name = 'Edit of an Antigravity skill mirror (its hoi-platform regions are written there)'; Tool = 'Edit'; ToolInput = @{ file_path = '.agents\skills\hoi4-isne-namelist-audit\SKILL.md' } }
         @{ Name = 'Edit of the mod''s own tests'; Tool = 'Edit'; ToolInput = @{ file_path = 'tests\Documentation.Tests.ps1' } }
         @{ Name = 'Edit of the build script'; Tool = 'Edit'; ToolInput = @{ file_path = 'build.ps1' } }
         @{ Name = 'Write into scratch'; Tool = 'Write'; ToolInput = @{ file_path = 'scratch\tst_dossier.md' } }

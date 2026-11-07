@@ -117,26 +117,12 @@ Describe "Documentation Synchronization: Wiki" {
     }
 }
 
-BeforeDiscovery {
-    $script:MirrorPairs = @(
-        @{ Claude = '.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md'; Gemini = '.agents/skills/hoi4-isne-ship-namelist-authoring/SKILL.md' }
-        @{ Claude = '.claude/skills/hoi4-isne-namelist-audit/SKILL.md'; Gemini = '.agents/skills/hoi4-isne-namelist-audit/SKILL.md' }
-    )
-}
-
 Describe "Agent Config Mirrors (docs/isne-agent-guide.md section 9)" {
     BeforeAll {
-        # Mirrors are kept line-for-line; a line may differ only when it carries tool-specific wording.
-        $script:ToolMarker = 'invoke_subagent|Agent tool|Antigravity|Claude Code|[Mm]odel:|Sonnet|flash|Mirror'
         $script:AntigravitySkills = @(
             '.agents/skills/hoi4-isne-ship-namelist-authoring/SKILL.md'
             '.agents/skills/hoi4-isne-namelist-audit/SKILL.md'
         )
-        function Get-MirrorLines([string]$RelPath) {
-            $text = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot $RelPath), [System.Text.Encoding]::UTF8)
-            $text = $text -replace 'GEMINI\.md', 'CLAUDE.md' -replace '\.agents/skills', '.claude/skills'
-            return @($text -split '\r?\n')
-        }
     }
 
     It "CLAUDE.md and GEMINI.md import AGENTS.md and AGENTS.md points to the agent guide" {
@@ -148,15 +134,12 @@ Describe "Agent Config Mirrors (docs/isne-agent-guide.md section 9)" {
         (Test-Path (Join-Path $script:RepoRoot 'docs\isne-agent-guide.md')) | Should -BeTrue
     }
 
-    It "<Gemini> mirrors <Claude> except for tool-specific lines" -TestCases $script:MirrorPairs {
-        param($Claude, $Gemini)
-        $a = Get-MirrorLines $Claude
-        $b = Get-MirrorLines $Gemini
-        $b.Count | Should -Be $a.Count -Because "mirrors must stay line-for-line; apply every rule change to both files"
-        $drift = for ($i = 0; $i -lt $a.Count; $i++) {
-            if ($a[$i] -cne $b[$i] -and -not ($a[$i] -match $script:ToolMarker -and $b[$i] -match $script:ToolMarker)) { "line $($i + 1)" }
-        }
-        $drift | Should -BeNullOrEmpty -Because "only lines with tool-specific wording may differ"
+    It "Each Antigravity skill matches its Claude Code source outside the hoi-platform regions" {
+        . (Join-Path $script:RepoRoot 'tools\HoiModBuild.ps1')
+        $mirrorStates = @(Get-ModSkillMirrorStates -RepoPath $script:RepoRoot -ExcludeSkillName @())
+        $mirrorStates.Count | Should -Be $script:AntigravitySkills.Count
+        $staleMirrors = @($mirrorStates | Where-Object { $_.State -ne 'Current' } | ForEach-Object { "$($_.Target) $($_.State): $(@($_.Problems) + @($_.DifferingFiles) -join ', ')" })
+        $staleMirrors | Should -BeNullOrEmpty -Because "edit the .claude copy and run ..\..\Scripts\Sync-ModScaffold.ps1 -ModName immersive-shipnames-expanded; only the hoi-platform regions may differ"
     }
 
     It "Audit researcher stays budgeted (effort, maxTurns, web-only tools, stated call budget)" {

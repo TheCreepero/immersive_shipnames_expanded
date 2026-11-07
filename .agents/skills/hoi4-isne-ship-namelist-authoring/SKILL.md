@@ -14,7 +14,9 @@ Research, scope, author and validate a nation's namelists. The rules live in `AG
 
 > **Upgrading an existing namelist?** Use `hoi4-isne-namelist-audit`: a delta audit (`build.ps1 -Audit <TAG>`) at a fraction of this runbook's token cost.
 >
-> **Mirror**: `.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` (Claude Code). Subagent briefs live in `.claude/agents/`. Apply rule changes to both (guide section 9).
+<!-- hoi-platform:mirror-note:begin -->
+> **Mirror**: `.claude/skills/hoi4-isne-ship-namelist-authoring/SKILL.md` (Claude Code) is the source of this file: edit it there. Only the text inside the `hoi-platform` regions is this copy's own (guide section 9). Subagent briefs live in `.claude/agents/`.
+<!-- hoi-platform:mirror-note:end -->
 
 ## 1. Plausibility in Practice
 Rigid accuracy limits lists to hulls that were actually commissioned (Finland: 2 coastal defense ships, 5 submarines), so a mobilized player or AI fleet (fleet carriers, heavy cruisers, battlecruisers, destroyers) falls back to numbered stubs. Extrapolate how the naval command would name an expanded fleet, drawing on:
@@ -90,7 +92,9 @@ Role-pool specifics beyond guide section 2C: fallback in native indefinite nomin
 - **Deep vanilla files** (USA): work as a delta. Keep every list, fix it, decouple it and add pools; pull bulk class rosters by script from list pages instead of through the researcher, and let the dossier cover conventions, decoupling rulings and verification.
 
 ### Step 1: Researcher dispatch
+<!-- hoi-platform:research-dispatch:begin -->
 Web research floods the context, so delegate it. Invoke a subagent via `invoke_subagent` (`Role: "Historical Researcher"`, `TypeName: "research"` or `"self"`, `Model: "pro"` or `"inherit"`) and have it read and follow the brief in `.claude/agents/isne-historical-researcher.md` (body below the frontmatter); do not paste the brief into your own context. Prompt: country and TAG; the Step 0 findings (anomalies, prefix, existing tags and counts); any focus (canceled programs, an ideological path, regional folklore); nation-specific role hints (e.g. a known minelayer or escort program). It returns a structured dossier; never paste raw web research into the main context.
+<!-- hoi-platform:research-dispatch:end -->
 
 **Scope checkpoint**: fold the dossier's role-pool recommendations into the scope questions (e.g. create all recommended role pools / only those at target depth / none). At most 2 questions in total.
 
@@ -171,7 +175,9 @@ Rules: guide section 2. Players field several cruiser and capital classes at onc
 ```
 
 ## 7. Review & Docs
+<!-- hoi-platform:review-dispatch:begin -->
 - **Review**: invoke a fresh subagent via `invoke_subagent` (`Role: "Code Reviewer"`, `Model: "pro"`) that reads and follows the brief in `.claude/agents/isne-code-reviewer.md`, with country, TAG, plan file (`docs/plans/<PLAN_FILE>.md`) and implementation files (`common/units/names_ships/<TAG>_ship_names.txt`, `README.md`, `WORKSHOP_DESCRIPTION_GUIDELINES.md`, `wiki/<Country>.md`, `wiki/Home.md`, `wiki/_Sidebar.md`). Fix every Critical and Important finding before reporting completion.
+<!-- hoi-platform:review-dispatch:end -->
 - **Reviewer input**: run `-Audit <TAG>`, `-ValidateOnly` and `-Test` before the review and paste their summary lines into the prompt, so the reviewer trusts them instead of re-running them; it reads the namelist through `-Audit <TAG> -NamesOnly` (and `-DiffNames <TAG>` when expanding an existing file).
 - **Docs** (guide section 4):
   - Cross-reference row: `| <TAG>_ship_names.txt | <Country> | <TAG> | Included (<Summary of highlights>) |`

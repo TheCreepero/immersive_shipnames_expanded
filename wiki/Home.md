@@ -25,6 +25,7 @@
 | [Norway](Norway) | `NOR` | 19 | `NOR_ship_names.txt` |
 | [Peru](Peru) | `PRU` | 22 | `PRU_ship_names.txt` |
 | [Philippines](Philippines) | `PHI` | 18 | `PHI_ship_names.txt` |
+| [Poland](Poland) | `POL` | 30 | `POL_ship_names.txt` |
 | [Portugal](Portugal) | `POR` | 14 | `POR_ship_names.txt` |
 | [Romania](Romania) | `ROM` | 24 | `ROM_ship_names.txt` |
 | [Sweden](Sweden) | `SWE` | 18 | `SWE_ship_names.txt` |

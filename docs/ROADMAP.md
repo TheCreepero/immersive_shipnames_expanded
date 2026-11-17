@@ -5,7 +5,7 @@ Ranking of vanilla nations not yet covered by the mod (assessed 2026-10-10). Int
 ## Method
 
 - Source: vanilla `common/units/names_ships/` (65 files), compared with the nations already in `common/units/names_ships/`.
-- Excluded: nations covered by Jackhall's series (`HOL`, `CHI`, `SPR`, `POL`, `SOV`, `GRE`, `GER`; `docs/isne-agent-guide.md` section 4, item 5).
+- Jackhall's series (`HOL`, `CHI`, `SPR`, `SOV`, `GRE`, `GER`): excluded until 2026-11-17, when ISNE dropped compatibility with it (`docs/isne-agent-guide.md` section 4, item 5). Not yet assessed below; `POL` is the first one authored.
 - Signals: vanilla list depth, cross-class duplicates (names shared between `CL`/`CA`/`BB`/`BC`/`CV`, which the mod's decoupling rule forbids), obvious bugs (mojibake, clone rosters, anachronisms), gameplay traffic, and how much verifiable naval history exists.
 - Counts are raw quoted-string counts per vanilla file. The historical claims below are a first impression, not a researched dossier: every nation still needs an `isne-historical-researcher` dossier before authoring.
 
@@ -49,5 +49,5 @@ Add a row when a legacy namelist without a passing audit is found (rank, tag, ha
 Update this file in the same task as any change it covers (`docs/isne-agent-guide.md` section 4, item 7):
 
 - Implemented nation: delete its candidate row, then follow guide section 4 (README, Steam description guidelines, wiki).
-- Vanilla state, plan or Jackhall exclusion changes: update the affected row.
+- Vanilla state or plan changes: update the affected row.
 - Legacy namelist without a passing audit: add it to the Audit Queue; delete it when the audit passes.

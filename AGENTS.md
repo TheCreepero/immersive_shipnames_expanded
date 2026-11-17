@@ -12,7 +12,8 @@ Shared rules for every mod in this tree (file encodings, build commands, engine 
 - `ship_types` only from `data/ship_types_canon.json` [NAM-010]; thematic and role pools carry none; `CL`, `CA`, `BB`, `BC` and `CV` rosters share no name.
 - Prefixes end with a space [NAM-011]; display names at most 30 to 32 characters [NAM-013]; `fallback_name` is the native naval term in the indefinite nominative; no empty `unique` or `ordered` block (a rule of this mod [NAM-006]); `link_numbering_with` never points to its own group [NAM-007].
 - Ideology pools gate only with `can_use = { has_government = ... }` (a variant set may also test `tag`) [NAM-009] [NAM-024], at most one or two per ideology per nation.
-- No fabricated names: every person is traceable to a source. Never author for Jackhall's nations (`HOL`, `CHI`, `SPR`, `POL`, `SOV`, `GRE`, `GER`).
+- No fabricated names: every person is traceable to a source.
+- Jackhall's nations (`HOL`, `CHI`, `SPR`, `POL`, `SOV`, `GRE`, `GER`) are authored like any other since 2026-11-17: ISNE no longer keeps compatibility with Jackhall's ship name mods (guide section 4, item 5).
 - `-ValidateOnly`, `-Test` and `-Audit <TAG>` clean, and the docs sync of guide section 4 (Workshop text, README table, wiki, `docs/ROADMAP.md`) done, before a namelist task is complete.
 - Before completion a fresh code reviewer is dispatched from `.claude/agents/isne-code-reviewer.md` with the country, TAG and plan path (Claude Code: `CLAUDE.md`; Antigravity: guide section 5).
 

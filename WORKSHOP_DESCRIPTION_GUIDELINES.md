@@ -12,8 +12,8 @@ Instructions and reference for maintaining the Steam Workshop description of **I
    - **Never list individual ship names**: dozens of names per class would hit the limit as nations are added.
    - No author update quote blocks (`[quote=author]...[/quote]`).
 3. **Tone**: concise, informative, direct and enthusiastic, matching the author's voice; plain bullets and structured headings; no embellishment or marketing buzzwords.
-4. **Preserve author sections**: never rewrite or regenerate the header pitch, companion mod link or Jackhall tribute. The Info section holds standard mod notes and one notice on the vanilla bug, typo, duplicate and fallback-translation fixes. For a newly implemented nation, update **only** the `[h1]Included nations:[/h1]` block and the Repository Cross-Reference table (plus the nation list in the header pitch, per `docs/isne-agent-guide.md` section 4).
-5. **Jackhall scope**: ISNE extends @Jackhall's ship namelist mod series; never author or propose namelists for nations it covers: Netherlands (`HOL`), China (`CHI`), Spain (`SPR`), Poland (`POL`), Soviet Union (`SOV`), Greece (`GRE`), Germany (`GER`).
+4. **Preserve author sections**: never rewrite or regenerate the header pitch, companion mod link or Jackhall tribute, except to keep the tribute's list of overlapping nations current (rule 5). The Info section holds standard mod notes and one notice on the vanilla bug, typo, duplicate and fallback-translation fixes. For a newly implemented nation, update **only** the `[h1]Included nations:[/h1]` block and the Repository Cross-Reference table (plus the nation list in the header pitch, per `docs/isne-agent-guide.md` section 4).
+5. **Jackhall's series**: since 2026-11-17 ISNE no longer keeps compatibility with @Jackhall's ship namelist mods. A nation both cover (Netherlands `HOL`, China `CHI`, Spain `SPR`, Poland `POL`, Soviet Union `SOV`, Greece `GRE`, Germany `GER`) is named by only one of the two mods, and the Jackhall paragraph says which nations overlap.
 6. **No `[h1]Planned:[/h1]` section.**
 7. **Language**: fix typos, misspellings, formatting anomalies and broken English; use proper diacritics in historical ship names (*Väinämöinen*, *Hämeenmaa*, *L'Audacieux*).
 8. **Steam BBCode only**: `[h1]Heading[/h1]`, `[b]...[/b]`, `[i]...[/i]` (foreign phrases, short highlights), `[url=https://...]text[/url]`, hyphen bullets (`- Item`); clean line breaks between sections and blocks.
@@ -24,7 +24,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 
 1. **Header pitch & companion mod**: the author's own intro (focus on nations with limited vanilla namelists) and a link to *Immersive Namelists Expanded*.
 2. **`[h1]Info:[/h1]`**: Road to 56, Ironman and achievements, and that new name groups show only in a new game (the standard lines of the Modding Manager); namelist override clarification; Man the Guns and non-DLC hull types; one notice on vanilla bug, typo, duplicate and fallback-translation fixes; open permissions ("Feel free to use this mod however you wish.").
-3. **Jackhall tribute & scope**: attribution and link to @Jackhall's series; note on the excluded countries.
+3. **Jackhall tribute & overlap**: attribution and link to @Jackhall's series; the nations both mods cover, and that only one mod's lists apply to each.
 4. **`[h1]Included nations:[/h1]`**: an intro line saying that every nation has expanded ship-type lists for all hull classes, then one bold `[b]Nation[/b]` entry each, with 1 or 2 bullets:
    - ship-type lists, only where a nation differs from the intro line: the hull codes (DD, SS, CL, CA, BB, BC, CV) when only some were expanded, or what is deeper than elsewhere;
    - universal thematic pools added for the Ship Designer (e.g. Cities, Monarchs, Rivers, Heroes, Fauna).
@@ -52,6 +52,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 | `NOR_ship_names.txt` | Norway | `NOR` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics, 1 Role Pool) |
 | `PER_ship_names.txt` | Iran | `PER` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
 | `PHI_ship_names.txt` | Philippines | `PHI` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics) |
+| `POL_ship_names.txt` | Poland | `POL` | Included (DD, SS, CL, CA, BB, BC, CV, 20 Thematic Topics, 3 Role Pools) |
 | `POR_ship_names.txt` | Portugal | `POR` | Included (DD, SS, CL, CA, BB, BC, CV, 7 Thematic Topics) |
 | `PRU_ship_names.txt` | Peru | `PRU` | Included (DD, SS, CL, CA, BB, BC, CV, 14 Thematic Topics, 1 Role Pool) |
 | `ROM_ship_names.txt` | Romania | `ROM` | Included (DD, SS, CL, CA, BB, BC, CV, 15 Thematic Topics, 2 Role Pools) |
@@ -68,7 +69,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 <!-- region:image:hero -->
 [img]https://i.imgur.com/98tdjtV.png[/img]
 <!-- /region -->
-More ship namelists! For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, Italy, Peru, Romania, Canada, the United States, France, and the United Kingdom. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
+More ship namelists! For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, Italy, Peru, Romania, Canada, the United States, France, the United Kingdom, and Poland. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
 Coming soon: [b]Immersive Air Wing Names Expanded[/b]
 
@@ -87,7 +88,7 @@ Coming soon: [b]Immersive Air Wing Names Expanded[/b]
 - Hull lists carry both the Man the Guns (MtG) Ship Designer hull types and the non-DLC ship types.
 - Fixes vanilla bugs, typos, duplicates, and broken fallback translations.
 
-This mod is intended to expand the great series of [url=https://steamcommunity.com/workshop/filedetails/?id=2185806824]ship namelist mods[/url] by @Jackhall. This means that for now I am avoiding editing countries that have already been touched up by their mod series (Netherlands, China, Spain, Poland, Soviet Union, Greece, and Germany).
+This mod started out as an expansion of the great series of [url=https://steamcommunity.com/workshop/filedetails/?id=2185806824]ship namelist mods[/url] by @Jackhall, and for a long time I avoided the countries their series covers. From the Poland update on, that is no longer the case. Both mods replace the same namelist file, so for Poland only one of the two is used in a game. Pick the one you prefer.
 
 <!-- region:image:strip-included-nations -->
 [img]https://i.imgur.com/zln3pgW.png[/img]
@@ -143,6 +144,9 @@ Every nation below has expanded ship-type lists for all hull classes.
 
 [b]Philippines[/b]
 - Added 11 universal thematic lists: Birds & Raptors, Marine Life & Fish, Peaks & Volcanoes, Rivers, Datus & Rajahs, Patriots & Heroes, Mythology, Martial Virtues, and 3 ideological lists.
+
+[b]Poland[/b]
+- Added 11 universal thematic lists to vanilla's nine: Hetmans, Admirals & Seafarers, Birds, Aquatic Life, Lakes & Lagoons, Mountains, Virtues, and 4 ideological lists, plus 3 role lists.
 
 [b]Portugal[/b]
 - Added 7 universal thematic lists: Birds, Aquatic Life, Legends, Heroes, Virtues, Monarchs, and Estado Novo.

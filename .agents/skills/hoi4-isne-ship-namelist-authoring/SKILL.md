@@ -72,7 +72,7 @@ Role-pool specifics beyond guide section 2C: fallback in native indefinite nomin
 
 ## 3. Research
 
-**Targets**: respect the Jackhall exclusions (guide section 4). Prioritize nations with thin or generic vanilla lists that can build mid-to-large navies (e.g. Sweden, Norway, Denmark, the Baltic states, Turkey, Argentina, Brazil, Chile, Romania, Yugoslavia).
+**Targets**: Jackhall's nations are open since 2026-11-17 (guide section 4, item 5). Prioritize nations with thin or generic vanilla lists that can build mid-to-large navies (e.g. Sweden, Norway, Denmark, the Baltic states, Turkey, Argentina, Brazil, Chile, Romania, Yugoslavia).
 
 ### Step 0: Vanilla audit
 `powershell -File .\build.ps1 -InspectVanilla <TAG>` (coverage, tags, counts, prefix, without loading the file); add `-Group <GROUP_TAG>` for one group. Record fixes for these typical Paradox anomalies:

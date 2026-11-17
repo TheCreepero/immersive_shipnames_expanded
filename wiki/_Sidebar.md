@@ -18,6 +18,7 @@
 - [Norway](Norway)
 - [Peru](Peru)
 - [Philippines](Philippines)
+- [Poland](Poland)
 - [Portugal](Portugal)
 - [Romania](Romania)
 - [Sweden](Sweden)

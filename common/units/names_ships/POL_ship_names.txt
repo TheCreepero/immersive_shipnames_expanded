@@ -1,0 +1,787 @@
+##### POLAND NAVAL NAME LISTS (ISNE) #####
+# Note: Vanilla HoI4 POL_ship_names.txt had these anomalies:
+# 1. Light and heavy cruisers shared one 22-name list; battleships, battlecruisers and carriers shared one 13-name list.
+# 2. Destroyers and cruisers mixed cities and battles with ship names; submarines held torpedo-boat names, "Kujawiak" four times.
+# 3. Missing diacritics in the hull lists ("Wisla", "Gdansk", "Pilsudski", "Sokól", "Rys"); "Józef Piłsudzki"; "Podkapracie".
+# 4. The Cities pool was a copy of the Regions pool; the battlecruiser fallback was "Krążownik" (cruiser).
+# 5. The Kings and Historical Figures pools were bound to heavy and carrier hulls; they are universal here.
+# Since 2026-11-17 this file replaces Jackhall's "Polish Ship Names" as well as vanilla's: only one of the two loads.
+
+### SHIP-TYPE SPECIFIC: DESTROYERS & ESCORTS ###
+POL_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { POL }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "ORP "
+	fallback_name = "Niszczyciel %d"
+
+	unique = {
+		# Destroyers of the navy, 1930-1945, and the two ordered in 1939
+		"Wicher" "Burza" "Grom" "Błyskawica" "Piorun" "Orkan" "Huragan" "Garland" "Ouragan"
+		# Hunt-class escort destroyers (regional peoples)
+		"Krakowiak" "Kujawiak" "Ślązak"
+		# Patrol ships of project 912 (weather)
+		"Fala" "Szkwał" "Tęcza" "Zefir" "Zorza"
+		# Storms, winds and lightning (formula of Wicher and Burza)
+		"Wichura" "Nawałnica" "Sztorm" "Zawierucha" "Zawieja" "Zamieć" "Zadymka" "Śnieżyca" "Cyklon" "Tajfun"
+		"Tornado" "Grzmot" "Gradobicie" "Ulewa" "Halny" "Monsun" "Podmuch" "Poryw" "Wir" "Kipiel"
+		"Przybój" "Meteor"
+		# Slavic gods of thunder and wind (Pogwizd as Miechowita names him)
+		"Perun" "Strzybóg" "Pogwizd"
+		# Patrol ships, torpedo boats and sub-chasers of projects 912M, 664, 200 and 663D (qualities)
+		"Czujny" "Groźny" "Zręczny" "Zwinny" "Zwrotny" "Zawzięty" "Nieugięty" "Wytrwały" "Bitny" "Bystry"
+		"Dzielny" "Dziarski" "Sprawny" "Szybki" "Odważny" "Odporny" "Bezwzględny" "Karny" "Niedościgły" "Śmiały"
+		"Błyskawiczny"
+		# Swift and martial qualities (the same formula)
+		"Mężny" "Gorliwy" "Nieustraszony" "Niezłomny" "Waleczny" "Zaciekły" "Chyży" "Rączy" "Lotny" "Hardy"
+		"Nieustępliwy" "Niezwyciężony" "Niepokonany" "Nieulękły" "Śmigły"
+		# Arms and troops of the old armies
+		"Husarz" "Ułan" "Szwoleżer" "Kosynier" "Legionista" "Szabla" "Koncerz" "Pałasz" "Buzdygan" "Nadziak"
+		"Czekan" "Kopia" "Rusznica" "Hakownica" "Bandolet" "Pawęż" "Karabela" "Szyszak" "Karacena" "Obuch"
+		"Pikinier"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: SUBMARINES ###
+POL_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { POL }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "ORP "
+	fallback_name = "Okręt podwodny %d"
+
+	unique = {
+		# Submarines of the navy, 1931-1945
+		"Wilk" "Ryś" "Żbik" "Orzeł" "Sęp" "Sokół" "Dzik" "Jastrząb"
+		# Submarines of project 613 and the Kobben class
+		"Bielik" "Kondor"
+		# Raptors and owls (formula of Orzeł, Sęp, Sokół and Jastrząb)
+		"Raróg" "Kania" "Myszołów" "Błotniak" "Pustułka" "Kobuz" "Drzemlik" "Rybołów" "Gadożer" "Trzmielojad"
+		"Puchacz" "Puszczyk"
+		# Predators of land and water (formula of Wilk, Ryś, Żbik and Dzik)
+		"Niedźwiedź" "Basior" "Odyniec" "Borsuk" "Kuna" "Gronostaj" "Wydra" "Lis" "Łasica" "Norka"
+		# Fish and sea creatures
+		"Rekin" "Orka" "Morświn" "Miecznik" "Barakuda" "Murena" "Szczupak" "Węgorz" "Dorsz" "Łosoś"
+		"Jesiotr" "Sandacz" "Okoń" "Boleń" "Troć" "Pstrąg" "Głowacica" "Miętus" "Brzana" "Płaszczka"
+		"Ośmiornica" "Kałamarnica" "Meduza"
+		# Water spirits of Slavic folklore
+		"Syrena" "Topielec" "Utopiec" "Rusałka" "Rybi Król"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: LIGHT CRUISERS ###
+POL_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { POL }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "ORP "
+	fallback_name = "Lekki krążownik %d"
+
+	unique = {
+		# Light cruisers of the navy in exile
+		"Dragon" "Conrad"
+		# River monitors of the Pińsk flotilla (cities)
+		"Warszawa" "Kraków" "Wilno" "Pińsk" "Toruń"
+		# Ports and towns of the coast
+		"Gdynia" "Gdańsk" "Puck" "Jastarnia" "Sopot" "Szczecin" "Świnoujście" "Kołobrzeg" "Darłowo" "Ustka"
+		"Łeba" "Słupsk" "Wolin" "Kamień Pomorski" "Elbląg" "Frombork" "Braniewo" "Tczew" "Grudziądz" "Chełmno"
+		# Cities of the eastern lands of the Second Republic
+		"Lwów" "Grodno" "Brześć" "Białystok" "Nowogródek" "Baranowicze" "Lida" "Wołkowysk" "Słonim" "Kobryń"
+		"Stanisławów" "Tarnopol" "Łuck" "Równe" "Kowel" "Krzemieniec" "Dubno" "Kołomyja" "Drohobycz" "Złoczów"
+		"Brody"
+		# Cities of central, southern and western Poland
+		"Poznań" "Łódź" "Wrocław" "Katowice" "Lublin" "Bydgoszcz" "Gniezno" "Kalisz" "Płock" "Włocławek"
+		"Radom" "Kielce" "Częstochowa" "Rzeszów" "Tarnów" "Przemyśl" "Zamość" "Sandomierz" "Chełm" "Opole"
+		"Cieszyn" "Gliwice" "Bielsko" "Olsztyn" "Siedlce" "Łowicz" "Piotrków Trybunalski" "Nowy Sącz" "Sieradz" "Łęczyca"
+		"Ciechanów" "Łomża" "Suwałki" "Augustów" "Krosno" "Sanok"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: HEAVY CRUISERS ###
+POL_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { POL }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "ORP "
+	fallback_name = "Ciężki krążownik %d"
+
+	unique = {
+		# Historical lands of the Crown
+		"Wielkopolska" "Małopolska" "Mazowsze" "Pomorze" "Śląsk" "Kujawy" "Podlasie" "Polesie" "Wołyń" "Podole"
+		"Ruś Czerwona" "Ruś Czarna" "Pokucie" "Roztocze" "Podhale" "Spisz" "Orawa" "Kurpie" "Suwalszczyzna" "Zagłębie"
+		# Pomeranian and Prussian lands
+		"Warmia" "Mazury" "Kaszuby" "Kociewie" "Krajna" "Pałuki" "Prusy Królewskie" "Pomezania" "Sambia"
+		# Lands of the Grand Duchy and the Baltic
+		"Żmudź" "Inflanty" "Kurlandia"
+		# Lands and duchies of the old provinces
+		"Ziemia Chełmińska" "Ziemia Dobrzyńska" "Ziemia Łęczycka" "Ziemia Sieradzka" "Ziemia Wieluńska" "Ziemia Lubuska"
+		"Ziemia Kłodzka" "Ziemia Przemyska" "Ziemia Halicka" "Ziemia Bełska" "Księstwo Siewierskie" "Księstwo Oświęcimskie"
+		"Księstwo Zatorskie"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLESHIPS ###
+POL_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { POL }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "ORP "
+	fallback_name = "Pancernik %d"
+
+	unique = {
+		# Sovereignty
+		"Rzeczpospolita" "Polonia" "Korona" "Wawel" "Józef Piłsudski"
+		# Piast dukes and kings
+		"Mieszko I" "Bolesław Chrobry" "Mieszko II" "Kazimierz Odnowiciel" "Bolesław Śmiały" "Władysław Herman"
+		"Bolesław Krzywousty" "Przemysł II" "Władysław Łokietek" "Kazimierz Wielki"
+		# Angevin and Jagiellonian monarchs
+		"Ludwik Węgierski" "Królowa Jadwiga" "Władysław Jagiełło" "Władysław Warneńczyk" "Kazimierz Jagiellończyk"
+		"Jan Olbracht" "Aleksander Jagiellończyk" "Zygmunt Stary" "Zygmunt August" "Anna Jagiellonka"
+		# Elected kings
+		"Stefan Batory" "Zygmunt III Waza" "Władysław IV Waza" "Jan Kazimierz" "Michał Korybut" "Jan III Sobieski"
+		"August II Mocny" "Stanisław Leszczyński" "August III Sas" "Stanisław August"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLECRUISERS ###
+POL_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { POL }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "ORP "
+	fallback_name = "Krążownik liniowy %d"
+
+	unique = {
+		# The royal fleet at Oliwa, 1627
+		"Rycerz Święty Jerzy" "Latający Jeleń" "Panna Wodna" "Wodnik" "Król Dawid" "Czarny Kruk" "Biały Lew" "Żółty Lew"
+		"Arka Noego" "Płomień"
+		# The Swedish Tigern, taken at Oliwa and renamed, and the Feniks of 1628
+		"Tygrys" "Feniks"
+		# The fleet of Władysław IV
+		"Prorok Samuel" "Charitas" "Strzelec" "Fortuna"
+		# Coastal fortresses and citadels
+		"Kazimierzowo" "Władysławowo" "Wisłoujście" "Westerplatte" "Kępa Oksywska" "Hel" "Modlin" "Malbork"
+		"Kamieniec Podolski" "Zbaraż" "Trembowla" "Jasna Góra" "Chocim"
+		# Waters of the sea fights
+		"Oliwa" "Zatoka Gdańska" "Zatoka Pucka" "Mierzeja Helska" "Zalew Wiślany"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: AIRCRAFT CARRIERS ###
+POL_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { POL }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "ORP "
+	fallback_name = "Lotniskowiec %d"
+
+	unique = {
+		# The fleet of Władysław IV: sun, star and eagles
+		"Wielkie Słońce" "Gwiazda" "Czarny Orzeł" "Biały Orzeł" "Nowy Czarny Orzeł" "Mały Biały Orzeł"
+		# Sky and dawn
+		"Jutrzenka" "Świt" "Zenit" "Kometa" "Gwiazda Polarna" "Księżyc" "Słońce" "Przestworza" "Błękit" "Obłok" "Niebo"
+		# Peaks of the Tatra, the Carpathians and the Sudetes
+		"Rysy" "Giewont" "Świnica" "Kasprowy Wierch" "Kościelec" "Gerlach" "Łomnica" "Krywań" "Babia Góra" "Pilsko"
+		"Śnieżka" "Śnieżnik" "Ślęża" "Łysica" "Tarnica" "Turbacz" "Radziejowa" "Trzy Korony" "Howerla" "Pop Iwan"
+		# Aviators
+		"Żwirko i Wigura" "Stanisław Skarżyński" "Bolesław Orliński" "Ludwik Idzikowski" "Franciszek Hynek" "Zbigniew Burzyński"
+	}
+}
+
+### ROLE POOL: TORPEDO BOATS ###
+POL_TORPEDO_BOATS = {
+	name = "Torpedo Boats"
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Torpedowiec %d"
+
+	unique = {
+		# Torpedo boats, the first survey ship and the M-XV submarine Kurp (regional peoples)
+		"Kaszub" "Mazur" "Podhalanin" "Góral" "Kurp" "Pomorzanin"
+		# Ethnographic groups of Poland (the same formula)
+		"Warmiak" "Kociewiak" "Borowiak" "Krajniak" "Pałuczanin" "Biskupianin" "Wielkopolanin" "Poznaniak" "Kaliszak" "Sieradzanin"
+		"Łęczycanin" "Dobrzyniak" "Chełminiak" "Lubawiak" "Księżak" "Lubliniak" "Podlasianin" "Sandomierzak" "Lasowiak" "Rzeszowiak"
+		"Lach" "Pogórzanin" "Zagórzanin" "Spiszak" "Łemko" "Bojko" "Poleszuk" "Opolanin" "Kresowiak"
+	}
+}
+
+### ROLE POOL: MINE WARFARE ###
+POL_MINESWEEPERS = {
+	name = "Mine Warfare"
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Trałowiec %d"
+
+	unique = {
+		# Minelayers
+		"Gryf" "Smok"
+		# Minesweepers of 1920 and 1935-1939 (birds)
+		"Jaskółka" "Mewa" "Rybitwa" "Czajka" "Czapla" "Żuraw"
+		# Minesweepers of project 206F (birds)
+		"Albatros" "Kormoran" "Krogulec" "Orlik" "Pelikan" "Tukan"
+		# Minesweepers of project 254 (animals)
+		"Bizon" "Bóbr" "Delfin" "Foka" "Mors" "Rosomak" "Tur" "Łoś" "Żubr"
+		# Minesweepers of project 207 (lakes)
+		"Gopło" "Gardno" "Bukowo" "Dąbie" "Jamno" "Mielno" "Wicko" "Resko" "Sarbsko" "Necko"
+		"Nakło" "Drużno" "Hańcza" "Mamry" "Wigry" "Śniardwy" "Wdzydze"
+	}
+}
+
+### ROLE POOL: RIVER FLOTILLA ###
+POL_GUNBOATS = {
+	name = "River Flotilla"
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Kanonierka %d"
+
+	unique = {
+		# Gunboats of the navy
+		"Generał Haller" "Komendant Piłsudski"
+		# Gunboats and the heavy armed cutter of the river flotilla
+		"Zaradna" "Zuchwała" "Zawzięta" "Nieuchwytny"
+		# Monitor, staff, minelaying, anti-aircraft, hospital and armed ships of the river flotilla
+		"Horodyszcze" "Admirał Sierpinek" "Admirał Dickman" "Generał Szeptycki" "Generał Sikorski" "Hetman Chodkiewicz" "Generał Sosnkowski"
+		"Mątwa" "Pancerny"
+		# Motor launches of the Pińsk flotilla, 1919
+		"Lech" "Lisowczyk" "Lizdejko"
+	}
+}
+
+### UNIVERSAL TOPIC: KINGS ###
+POL_THEME_KINGS = {
+	name = NAME_THEME_KINGS
+
+	for_countries = { POL }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Król %d"
+
+	unique = {
+		# Piast dukes and kings
+		"Mieszko I" "Bolesław I Chrobry" "Mieszko II Lambert" "Kazimierz I Odnowiciel" "Bolesław II Śmiały" "Władysław I Herman"
+		"Bolesław III Krzywousty" "Przemysł II" "Władysław I Łokietek" "Kazimierz III Wielki"
+		# Angevin and Jagiellonian monarchs
+		"Ludwik Węgierski" "Królowa Jadwiga" "Władysław II Jagiełło" "Władysław III Warneńczyk" "Kazimierz IV Jagiellończyk"
+		"Jan I Olbracht" "Aleksander Jagiellończyk" "Zygmunt I Stary" "Zygmunt II August"
+		# Elected kings
+		"Henryk Walezy" "Anna Jagiellonka" "Stefan Batory" "Zygmunt III Waza" "Władysław IV Waza" "Jan II Kazimierz Waza"
+		"Michał Korybut Wiśniowiecki" "Jan III Sobieski" "August II Mocny" "Stanisław Leszczyński" "August III Sas"
+		"Stanisław August Poniatowski"
+	}
+}
+
+### UNIVERSAL TOPIC: HISTORICAL FIGURES ###
+POL_THEME_HISTORICAL_FIGURES = {
+	name = NAME_THEME_HISTORICAL_FIGURES
+
+	for_countries = { POL }
+
+	can_use = {
+		NOT = { has_government = communism }
+	}
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Bohater %d"
+
+	unique = {
+		# Soldiers and statesmen
+		"Józef Piłsudski" "Tadeusz Kościuszko" "Józef Poniatowski" "Jan Henryk Dąbrowski" "Kazimierz Pułaski" "Józef Bem"
+		"Józef Wybicki" "Józef Haller" "Stanisław Szeptycki" "Władysław Sikorski" "Kazimierz Sosnkowski" "Władysław Anders"
+		"Stanisław Sosabowski"
+		# Scholars and scientists
+		"Mikołaj Kopernik" "Jan Heweliusz" "Maria Skłodowska-Curie" "Ignacy Łukasiewicz"
+		# Writers, composers and painters
+		"Mikołaj Rej" "Jan Kochanowski" "Ignacy Krasicki" "Adam Mickiewicz" "Juliusz Słowacki" "Cyprian Kamil Norwid"
+		"Henryk Sienkiewicz" "Bolesław Prus" "Stanisław Wyspiański" "Fryderyk Chopin" "Stanisław Moniuszko" "Jan Matejko"
+	}
+}
+
+### UNIVERSAL TOPIC: HETMANS ###
+POL_HETMANS = {
+	name = "Hetmans"
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Hetman %d"
+
+	unique = {
+		# Hetmans of the Crown
+		"Mikołaj Kamieniecki" "Mikołaj Firlej" "Jan Amor Tarnowski" "Mikołaj Sieniawski" "Jerzy Jazłowiecki" "Mikołaj Mielecki"
+		"Jan Zamoyski" "Stanisław Żółkiewski" "Stanisław Koniecpolski" "Marcin Kazanowski" "Mikołaj Potocki" "Marcin Kalinowski"
+		"Stanisław Lanckoroński" "Stanisław Rewera Potocki" "Jerzy Sebastian Lubomirski" "Stefan Czarniecki" "Dymitr Jerzy Wiśniowiecki"
+		"Stanisław Jan Jabłonowski" "Andrzej Potocki" "Feliks Kazimierz Potocki" "Hieronim Augustyn Lubomirski" "Adam Mikołaj Sieniawski"
+		"Stanisław Mateusz Rzewuski" "Józef Potocki" "Jan Klemens Branicki" "Wacław Rzewuski"
+		# Hetmans of Lithuania
+		"Konstanty Ostrogski" "Jerzy Radziwiłł" "Mikołaj Radziwiłł Rudy" "Grzegorz Chodkiewicz" "Roman Sanguszko"
+		"Jan Karol Chodkiewicz" "Krzysztof Radziwiłł Piorun" "Lew Sapieha" "Krzysztof II Radziwiłł" "Janusz Kiszka"
+		"Wincenty Gosiewski" "Paweł Jan Sapieha" "Michał Kazimierz Pac" "Michał Kazimierz Radziwiłł" "Michał Kazimierz Ogiński"
+	}
+}
+
+### UNIVERSAL TOPIC: ADMIRALS & SEAFARERS ###
+POL_ADMIRALS = {
+	name = "Admirals & Seafarers"
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Admirał %d"
+
+	unique = {
+		# Admirals and captains of the royal fleet, and Krzysztof Arciszewski (Dutch service)
+		"Arend Dickmann" "Mateusz Sierpinek" "Jakub Murrey" "Herman Witte" "Ellert Appelmann" "Wilhelm Appelmann"
+		"Jan Storch" "Aleksander Sitton" "Krzysztof Arciszewski" "Grzegorz Fentross" "Michał Starosta"
+		# Flag officers of the navy, 1918-1939
+		"Bogumił Nowotny" "Kazimierz Porębski" "Jerzy Świrski" "Józef Unrug" "Xawery Czernicki" "Wacław Kłoczkowski"
+		"Konstanty Biergiel" "Michał Borowski" "Tomasz Nejman" "Jerzy Zwierkowski"
+		# Flag officers of the navy in the war
+		"Stefan Frankowski" "Karol Korytowski" "Leon Moszczeński" "Józef Bartosik" "Romuald Nałęcz-Tymiński"
+		"Tadeusz Morgenstern-Podjazd" "Jerzy Tumaniszwili" "Włodzimierz Steyer"
+		# Commanders of destroyers and submarines, 1938-1946
+		"Jan Grudziński" "Bolesław Romanowski" "Borys Karnicki" "Bogusław Krawczyk" "Andrzej Kłopotowski"
+		"Jerzy Koziołkowski" "Eugeniusz Pławski" "Aleksander Hulewicz" "Stanisław Hryniewiecki" "Wojciech Francki" "Stefan de Walden"
+		"Tadeusz Gorazdowski" "Ludwik Lichodziejewski" "Konrad Namieśniowski" "Stanisław Dzienisiewicz"
+		# Seafarers and explorers
+		"Mariusz Zaruski" "Władysław Wagner" "Leonid Teliga" "Paweł Edmund Strzelecki" "Henryk Arctowski" "Antoni Bolesław Dobrowolski"
+	}
+}
+
+### UNIVERSAL TOPIC: BIRDS ###
+POL_BIRDS = {
+	name = "Birds"
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Ptak %d"
+
+	unique = {
+		# Raptors and owls
+		"Orzeł" "Bielik" "Sokół" "Raróg" "Jastrząb" "Kania" "Myszołów" "Błotniak" "Pustułka" "Rybołów"
+		"Gadożer" "Puchacz" "Puszczyk" "Płomykówka"
+		# Birds of water and marsh
+		"Bocian" "Żuraw" "Czapla" "Łabędź" "Perkoz" "Kormoran" "Mewa" "Rybitwa" "Czajka" "Kulik"
+		"Słonka" "Derkacz"
+		# Birds of forest and field
+		"Dudek" "Zimorodek" "Kraska" "Żołna" "Dzięcioł" "Kukułka" "Jaskółka" "Jerzyk" "Skowronek" "Słowik"
+		"Drozd" "Szpak" "Wilga" "Szczygieł" "Zięba" "Pliszka" "Mysikrólik" "Strzyżyk" "Gil" "Kruk"
+		"Wrona" "Gawron" "Sroka" "Sójka" "Głuszec" "Cietrzew" "Kuropatwa" "Przepiórka"
+	}
+}
+
+### UNIVERSAL TOPIC: AQUATIC LIFE ###
+POL_FISH = {
+	name = "Aquatic Life"
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Ryba %d"
+
+	unique = {
+		# Fish of the Baltic and its rivers
+		"Jesiotr" "Łosoś" "Troć" "Pstrąg" "Lipień" "Głowacica" "Sieja" "Sielawa" "Węgorz" "Szczupak"
+		"Sandacz" "Okoń" "Jazgarz" "Boleń" "Brzana" "Certa" "Świnka" "Kleń" "Jaź" "Leszcz"
+		"Karp" "Karaś" "Miętus" "Dorsz" "Śledź" "Szprot" "Turbot" "Belona" "Tobiasz" "Minóg"
+		"Ciernik" "Płoć" "Wzdręga" "Ukleja"
+		# Sea mammals and creatures
+		"Morświn" "Foka Szara" "Rekin" "Orka" "Płaszczka" "Ośmiornica" "Kałamarnica" "Meduza"
+	}
+}
+
+### UNIVERSAL TOPIC: LAKES ###
+POL_LAKES = {
+	name = "Lakes & Lagoons"
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Jezioro %d"
+
+	unique = {
+		# Masurian and northern lakes
+		"Śniardwy" "Mamry" "Niegocin" "Jeziorak" "Bełdany" "Tałty" "Roś" "Dargin" "Kisajno" "Wigry"
+		"Hańcza" "Drawsko" "Miedwie" "Wdzydze" "Gopło" "Drużno"
+		# Coastal lakes
+		"Łebsko" "Gardno" "Jamno" "Bukowo" "Wicko" "Sarbsko" "Kopań" "Resko"
+		# Mountain lakes
+		"Morskie Oko" "Czarny Staw" "Wielki Staw" "Mały Staw"
+		# Lakes of the eastern lands
+		"Świteź" "Narocz" "Dryświaty"
+		# Lagoons and bays
+		"Zalew Szczeciński" "Zalew Kuroński" "Zatoka Pucka"
+	}
+}
+
+### UNIVERSAL TOPIC: MOUNTAINS ###
+POL_GEOGRAPHY = {
+	name = "Mountains"
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Szczyt %d"
+
+	unique = {
+		# Ranges
+		"Tatry" "Pieniny" "Gorce" "Beskidy" "Bieszczady" "Karkonosze" "Sudety" "Czarnohora" "Gorgany" "Góry Świętokrzyskie"
+		# The Crown of Polish Mountains
+		"Rysy" "Babia Góra" "Śnieżka" "Śnieżnik" "Tarnica" "Turbacz" "Radziejowa" "Skrzyczne" "Mogielica" "Wysoka Kopa"
+		"Rudawiec" "Orlica" "Wysokie Skałki" "Wielka Sowa" "Lackowa" "Kowadło" "Jagodna" "Skalnik" "Waligóra" "Czupel"
+		"Szczeliniec Wielki" "Lubomir" "Biskupia Kopa" "Chełmiec" "Kłodzka Góra" "Skopiec" "Ślęża" "Łysica"
+		# Peaks of the Tatra
+		"Giewont" "Świnica" "Kasprowy Wierch" "Kościelec" "Kozi Wierch" "Gerlach" "Łomnica" "Krywań" "Starorobociański Wierch"
+		# Peaks of the eastern Carpathians
+		"Howerla" "Pop Iwan"
+	}
+}
+
+### UNIVERSAL TOPIC: VIRTUES ###
+POL_VIRTUES = {
+	name = "Virtues"
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Cnota %d"
+
+	unique = {
+		# Martial virtues
+		"Honor" "Męstwo" "Odwaga" "Wierność" "Dzielność" "Rycerskość" "Szlachetność" "Godność" "Hart Ducha" "Niezłomność"
+		"Wytrwałość" "Ofiarność" "Poświęcenie" "Karność" "Czujność" "Stałość" "Prawość" "Roztropność" "Braterstwo"
+		# Glory and strength
+		"Chwała" "Sława" "Duma" "Zwycięstwo" "Triumf" "Siła" "Moc" "Potęga" "Nadzieja" "Wiara" "Sprawiedliwość"
+		# Mottoes and decorations
+		"Honor i Ojczyzna" "Semper Fidelis" "Virtuti Militari"
+	}
+}
+
+### UNIVERSAL TOPIC: WEATHER ###
+POL_THEME_WEATHER = {
+	name = NAME_THEME_WEATHER
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Wicher %d"
+
+	unique = {
+		# Storms and winds
+		"Burza" "Sztorm" "Wicher" "Huragan" "Orkan" "Szkwał" "Halny" "Tornado" "Wichura" "Nawałnica"
+		"Zawierucha" "Zawieja" "Cyklon" "Tajfun" "Monsun" "Bryza" "Zefir"
+		# Thunder and lightning
+		"Błyskawica" "Piorun" "Grom" "Grzmot"
+		# Snow, hail, rain and frost
+		"Zamieć" "Śnieżyca" "Zadymka" "Grad" "Gradobicie" "Ulewa" "Mgła" "Szron" "Szadź"
+		# Light of the sky
+		"Zorza" "Tęcza"
+	}
+}
+
+### UNIVERSAL TOPIC: RIVERS ###
+POL_THEME_RIVERS = {
+	name = NAME_THEME_RIVERS
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Rzeka %d"
+
+	unique = {
+		# The Vistula and its basin
+		"Wisła" "Bug" "Narew" "San" "Wieprz" "Pilica" "Bzura" "Brda" "Wda" "Drwęca"
+		"Dunajec" "Raba" "Soła" "Skawa" "Poprad" "Nida" "Wisłok" "Wisłoka" "Wkra" "Liwiec"
+		"Biebrza" "Nogat" "Motława" "Radunia"
+		# The Oder and its basin
+		"Odra" "Warta" "Noteć" "Prosna" "Obra" "Gwda" "Drawa" "Bóbr" "Kwisa" "Nysa Łużycka" "Barycz" "Mała Panew"
+		# Rivers of the coast
+		"Rega" "Parsęta" "Słupia" "Łeba" "Reda" "Łyna" "Pasłęka"
+		# Rivers of the eastern lands
+		"Niemen" "Wilia" "Szczara" "Czarna Hańcza" "Prypeć" "Horyń" "Styr" "Jasiołda" "Muchawiec" "Dniestr" "Zbrucz"
+	}
+}
+
+### UNIVERSAL TOPIC: ANIMALS ###
+POL_THEME_ANIMALS = {
+	name = NAME_THEME_ANIMALS
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Zwierzę %d"
+
+	unique = {
+		# Beasts of the forest and the mountains
+		"Wilk" "Ryś" "Żbik" "Niedźwiedź" "Dzik" "Żubr" "Tur" "Łoś" "Jeleń" "Sarna"
+		"Kozica" "Świstak" "Bóbr" "Borsuk" "Lis" "Wydra" "Kuna" "Gronostaj"
+		# Birds
+		"Orzeł" "Sęp" "Sokół" "Jastrząb" "Bielik" "Albatros" "Czapla" "Mewa" "Rybitwa" "Kormoran" "Czajka" "Jaskółka" "Żuraw"
+		# Fish and sea beasts
+		"Rekin" "Szczupak"
+		# Heraldic beasts
+		"Gryf"
+	}
+}
+
+### UNIVERSAL TOPIC: REGIONS ###
+POL_THEME_REGIONS = {
+	name = NAME_THEME_REGIONS
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Region %d"
+
+	unique = {
+		"Mazowsze" "Kujawy" "Małopolska" "Wielkopolska" "Śląsk" "Pomorze" "Podlasie" "Polesie" "Świętokrzyskie" "Wileńszczyzna"
+		"Podhale" "Podkarpacie" "Warmia" "Mazury" "Kaszuby" "Kociewie" "Wołyń" "Podole" "Pokucie" "Roztocze"
+		"Spisz" "Orawa" "Kurpie" "Nowogródczyzna" "Lubelszczyzna"
+	}
+}
+
+### UNIVERSAL TOPIC: CITIES ###
+POL_THEME_CITIES = {
+	name = NAME_THEME_CITIES
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Miasto %d"
+
+	unique = {
+		# Capitals and great cities
+		"Warszawa" "Kraków" "Gniezno" "Poznań" "Wilno" "Lwów" "Łódź" "Gdańsk" "Gdynia" "Toruń"
+		"Lublin" "Wrocław" "Katowice" "Bydgoszcz" "Częstochowa" "Białystok" "Grodno" "Płock" "Kalisz" "Kielce"
+		# Towns of the Crown
+		"Sandomierz" "Zamość" "Przemyśl" "Tarnów" "Rzeszów" "Radom" "Włocławek" "Łowicz" "Łęczyca" "Sieradz"
+		"Piotrków Trybunalski" "Nowy Sącz" "Chełm" "Siedlce" "Łomża" "Suwałki" "Augustów" "Cieszyn" "Tczew" "Puck"
+		# Towns of the eastern lands
+		"Brześć" "Pińsk" "Nowogródek" "Łuck" "Równe" "Krzemieniec" "Tarnopol" "Stanisławów" "Kołomyja" "Drohobycz"
+	}
+}
+
+### UNIVERSAL TOPIC: BATTLES ###
+POL_THEME_BATTLES = {
+	name = NAME_THEME_BATTLES
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Bitwa %d"
+
+	unique = {
+		# Piast and Jagiellonian wars
+		"Cedynia" "Psie Pole" "Legnica" "Płowce" "Grunwald" "Koronowo" "Warna" "Orsza" "Obertyn"
+		# Wars of the Commonwealth
+		"Połock" "Psków" "Byczyna" "Kircholm" "Kłuszyn" "Smoleńsk" "Chocim" "Oliwa" "Beresteczko" "Warka"
+		"Połonka" "Cudnów" "Wiedeń" "Parkany"
+		# Insurrections and the Napoleonic wars
+		"Racławice" "Raszyn" "Fuengirola" "Somosierra" "Olszynka Grochowska" "Stoczek" "Iganie"
+		# The wars of 1918-1920 and 1939-1945
+		"Zadwórze" "Radzymin" "Komarów" "Mokra" "Wizna" "Kock" "Narwik" "Tobruk" "Monte Cassino" "Falaise"
+	}
+}
+
+### UNIVERSAL TOPIC: SLAVIC MYTHOLOGY ###
+POL_THEME_SLAVIC_MYTHOLOGY = {
+	name = NAME_THEME_SLAVIC_MYTHOLOGY
+
+	for_countries = { POL }
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Licho %d"
+
+	unique = {
+		"Strzyga" "Aitwar" "Baba" "Bannik" "Bazyliszek" "Bełt" "Bezkost" "Bieda" "Bies" "Błędny Ognik"
+		"Błotnik" "Bobak" "Buka" "Bogunka" "Borowy" "Leszy" "Brzegina" "Buc" "Bzionek" "Chochlik"
+		"Chowaniec" "Cicha" "Cmentarna Baba" "Czart" "Boruta" "Fugas" "Hejdasz" "Iskrzycki" "Rokita" "Dobrochoczy"
+		"Dola" "Domowik" "Dworowy" "Dziad" "Dziewiątko" "Dziwożona" "Fajerman" "Gnieciuch" "Gryf" "Gumiennik"
+		"Homen" "Jaroszek" "Jędza" "Julki" "Kania" "Klabaternik" "Kłobuk" "Kocmołuch" "Krasnoludek" "Król Wężów"
+		"Latawiec" "Licho" "Łapiduch" "Newka" "Mamuna" "Maruda" "Matoha" "Miernik" "Mlekowy Żmij" "Morowa Dziewica"
+		"Mróz" "Mrucek" "Nocnica" "Ognisty Koń" "Paskudnik" "Pieniężny Chłopczyk" "Plonek" "Płanetnik" "Płonnik" "Południca"
+		"Poroniec" "Przyłożnik" "Rodzanica" "Rusałka" "Rybi Król" "Skarbnik" "Skuła" "Smęda" "Smok" "Spaleniec"
+		"Kręciek" "Stradczę" "Stukacz" "Syrena" "Szalińc" "Szarlej" "Szątopierz" "Śmierć" "Świetle" "Tęsknica"
+		"Trusia" "Utopiec" "Wąpierz" "Wielkolud" "Wieszczy" "Wietrzyca" "Wilkołak" "Wiła" "Wisielec" "Wodnik"
+		"Zmora" "Żmij"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: REPUBLICAN IDEALS ###
+POL_REPUBLICAN_IDEALS = {
+	name = "Republican Ideals"
+
+	for_countries = { POL }
+
+	can_use = {
+		has_government = democratic
+	}
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Ideał %d"
+
+	unique = {
+		# The reformers and the Four-Year Sejm, 1740-1794
+		"Konstytucja 3 Maja" "Sejm Czteroletni" "Kuźnica Kołłątajowska" "Hugo Kołłątaj" "Ignacy Potocki" "Stanisław Małachowski"
+		"Stanisław Staszic" "Stanisław Konarski" "Insurekcja Kościuszkowska" "Uniwersał Połaniecki" "Jan Kiliński" "Bartosz Głowacki"
+		# The national uprisings and the democrats
+		"Powstanie Listopadowe" "Powstanie Styczniowe" "Wiosna Ludów" "Rząd Narodowy" "Towarzystwo Demokratyczne Polskie"
+		"Joachim Lelewel" "Edward Dembowski" "Piotr Ściegienny" "Romuald Traugutt" "Emilia Plater" "Za Wolność Naszą i Waszą"
+		# The Second Republic
+		"Gabriel Narutowicz" "Sejm Ustawodawczy" "Konstytucja Marcowa" "Niepodległość" "Wolność" "Równość"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: COMMONWEALTH ###
+POL_MONARCHISM = {
+	name = "Commonwealth"
+
+	for_countries = { POL }
+
+	can_use = {
+		has_government = neutrality
+	}
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Korona %d"
+
+	unique = {
+		# The realm and its unions
+		"Rzeczpospolita Obojga Narodów" "Korona Królestwa Polskiego" "Wielkie Księstwo Litewskie" "Unia w Krewie" "Unia Horodelska"
+		"Unia Lubelska" "Hołd Pruski"
+		# The laws of the nobles' commonwealth
+		"Sejm Walny" "Złota Wolność" "Wolna Elekcja" "Pacta Conventa" "Artykuły Henrykowskie" "Konfederacja Warszawska"
+		"Przywilej Koszycki" "Statuty Litewskie"
+		# Dynasties, regalia and seats
+		"Piastowie" "Jagiellonowie" "Wazowie" "Szczerbiec" "Korona Chrobrego" "Order Orła Białego" "Pogoń" "Zamek Królewski"
+		"Wilanów" "Akademia Krakowska" "Husaria" "Sarmacja"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: SOCIALISM ###
+POL_SOCIALISM = {
+	name = "Labour Movement"
+
+	for_countries = { POL }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Towarzysz %d"
+
+	unique = {
+		"Ludwik Waryński" "Stefan Okrzeja" "Marcin Kasprzak" "Julian Marchlewski" "Feliks Dzierżyński" "Róża Luksemburg"
+		"Leon Jogiches" "Jarosław Dąbrowski" "Walery Wróblewski" "Bronisław Wesołowski" "Wielki Proletariat" "SDKPiL"
+		"Czerwony Sztandar" "Warszawianka 1905" "Międzynarodówka" "Rewolucja 1905" "Powstanie Łódzkie" "Republika Tarnobrzeska"
+		"Komuna Paryska" "Sierp i Młot"
+	}
+}
+
+### IDEOLOGY-GATED UNIVERSAL TOPIC: NATIONALISM ###
+POL_NATIONALISM = {
+	name = "Nationalist Ideals"
+
+	for_countries = { POL }
+
+	can_use = {
+		has_government = fascism
+	}
+
+	type = ship
+
+	prefix = "ORP "
+	fallback_name = "Naród %d"
+
+	unique = {
+		# Organisations, parties and press of the National Democracy, 1887-1921
+		"Zygmunt Miłkowski" "Liga Polska" "Zet" "Liga Narodowa" "Przegląd Wszechpolski" "Narodowa Demokracja"
+		"Stronnictwo Narodowo-Demokratyczne" "Przegląd Narodowy" "Związek Ludowo-Narodowy"
+		"Komitet Narodowy Polski" "Związek Obrony Kresów Zachodnich"
+		# Resistance to germanisation and the uprisings of 1918-1921
+		"Rota" "Pomnik Grunwaldzki" "Wóz Drzymały" "Strajk Wrzesiński" "Powstanie Sejneńskie" "Powstanie Wielkopolskie" "Powstanie Śląskie" "Orlęta Lwowskie" "Zaślubiny z Morzem"
+	}
+}

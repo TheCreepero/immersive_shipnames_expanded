@@ -83,6 +83,7 @@ Development rules live in `AGENTS.md` (short form; `GEMINI.md` and `CLAUDE.md` i
 | `NOR` | Norway | `NOR_ship_names.txt` |
 | `PER` | Iran | `PER_ship_names.txt` |
 | `PHI` | Philippines | `PHI_ship_names.txt` |
+| `POL` | Poland | `POL_ship_names.txt` |
 | `POR` | Portugal | `POR_ship_names.txt` |
 | `PRU` | Peru | `PRU_ship_names.txt` |
 | `ROM` | Romania | `ROM_ship_names.txt` |

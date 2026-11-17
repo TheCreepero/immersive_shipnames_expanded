@@ -68,13 +68,13 @@ Every nation has two categories, plus optional role pools.
    - Update its entry under `[h1]Included nations:[/h1]` in the BBCode format: a first bullet on ship-type lists only where the nation differs from the intro line "Every nation below has expanded ship-type lists for all hull classes." (hull codes when only some were expanded, or what is deeper), then an "Added" bullet of universal thematic pools. Never list individual ship names. Vanilla bug and typo fixes are covered globally in the Info section.
    - Keep the header intro pitch in sync with all implemented nations.
    - No `[h1]Planned:[/h1]` section.
-   - Preserve author content: header pitch, companion mod link, Info block, Jackhall tribute.
+   - Preserve author content: header pitch, companion mod link, Info block, Jackhall tribute (whose list of overlapping nations is kept current, item 5).
 2. `README.md`: add new tags and source files to the **Included Nations Summary** table.
 3. `wiki/`: add or update `wiki/<Nation>.md` (full namelist tables and historical context); update `wiki/Home.md` and `wiki/_Sidebar.md` for a new nation; push with `powershell -File .\wiki\push-wiki.ps1`.
 4. Steam description: no emojis; stay under ~7,500 characters (Steam rejects more than 8,000) (concise bullets, no ship names, no `[quote=author]` blocks); concise, direct tone, consistent past tense, varied verbs (not repeated "fixed"), no tautologies ("expanded ... expansion fleets"); Steam BBCode only (`[h1]`, `[b]`, `[i]`, `[url]`, `- ` bullets).
-5. Jackhall scope: never author or propose namelists for nations covered by Jackhall's series: Netherlands (`HOL`), China (`CHI`), Spain (`SPR`), Poland (`POL`), Soviet Union (`SOV`), Greece (`GRE`), Germany (`GER`).
+5. Jackhall's series: since 2026-11-17 ISNE no longer keeps compatibility with Jackhall's ship name mods, and the nations they cover (Netherlands `HOL`, China `CHI`, Spain `SPR`, Poland `POL`, Soviet Union `SOV`, Greece `GRE`, Germany `GER`) are authored like any other, under the vanilla filename. Both mods then ship the same file, so only one of them names that nation's ships [LOAD-010] [LOAD-014]; the Workshop text's Jackhall paragraph says so and names the nations ISNE covers.
 6. When the user asks for an updated description in chat, output the complete ready-to-copy BBCode block plus a concise summary of the changes.
-7. `docs/ROADMAP.md`: update it in the same task as any change it covers. An implemented nation loses its candidate row; a changed vanilla state, plan or Jackhall exclusion updates the affected row; a legacy namelist without a passing audit is added to the Audit Queue and removed when `hoi4-isne-namelist-audit` passes.
+7. `docs/ROADMAP.md`: update it in the same task as any change it covers. An implemented nation loses its candidate row; a changed vanilla state or plan updates the affected row; a legacy namelist without a passing audit is added to the Audit Queue and removed when `hoi4-isne-namelist-audit` passes.
 
 ## 5. Build & Validation
 All commands take the form `powershell -File .\build.ps1 <switch>`.

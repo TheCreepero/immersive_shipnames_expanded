@@ -96,7 +96,7 @@ This mod started out as an expansion of the great series of [url=https://steamco
 [h1]Included nations:[/h1]
 Every nation below has expanded ship-type lists for all hull classes.
 <!-- region:image:overview -->
-[img]https://i.imgur.com/W5i2nQb.png[/img]
+[img]https://i.imgur.com/mVECEQr.png[/img]
 <!-- /region -->
 
 [b]Argentina[/b]

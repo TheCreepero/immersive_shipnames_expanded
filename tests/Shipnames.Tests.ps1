@@ -17,7 +17,7 @@ BeforeAll {
         if ($fnMatch.Success) { . ([ScriptBlock]::Create($fnMatch.Groups[1].Value)) }
     }
 
-    $script:NamelistFiles = Get-ChildItem -Path $script:NamelistDir -Filter "*_ship_names.txt"
+    $script:NamelistFiles = Get-ChildItem -Path $script:NamelistDir -Filter "*_ship_name*.txt"
 }
 
 Describe "Ship Namelist Files: Global Invariants" {
@@ -60,10 +60,10 @@ Describe "Ship Namelist Files: Global Invariants" {
 
 Describe "Ship Namelist Files: Per-File Invariants" {
     BeforeAll {
-        $files = Get-ChildItem -Path (Join-Path (Resolve-Path (Join-Path $PSScriptRoot "..")) "common\units\names_ships") -Filter "*_ship_names.txt"
+        $files = Get-ChildItem -Path (Join-Path (Resolve-Path (Join-Path $PSScriptRoot "..")) "common\units\names_ships") -Filter "*_ship_name*.txt"
     }
 
-    Context "File: <_.Name>" -ForEach (Get-ChildItem -Path (Join-Path (Resolve-Path (Join-Path $PSScriptRoot "..")) "common\units\names_ships") -Filter "*_ship_names.txt") {
+    Context "File: <_.Name>" -ForEach (Get-ChildItem -Path (Join-Path (Resolve-Path (Join-Path $PSScriptRoot "..")) "common\units\names_ships") -Filter "*_ship_name*.txt") {
         BeforeAll {
             $script:CurrentFile = $_
             $script:RawBytes = [System.IO.File]::ReadAllBytes($script:CurrentFile.FullName)

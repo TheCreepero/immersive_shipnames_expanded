@@ -86,7 +86,9 @@ Role-pool specifics beyond guide section 2C: fallback in native indefinite nomin
 - **Shadow duplication** (CA or BC a verbatim copy of CL or BB plus 1–2 names); **mirrored capital stubs** (the same 5 ships reversed between BB and BC, sloops as dreadnoughts); **excessive class duplication** (one list of states copied across CL, CA, BB, BC, CV).
 - **Doctrinal formulas** worth keeping (Argentina: submarines after provinces starting with "S").
 - **Anachronisms** (divisions or cities created after 1945).
-- **Prefix usage** (e.g. `NRB `, or none).
+- **Prefix usage** (e.g. `NRB `, or none; Germany prefixes only its Imperial set).
+- **File name**: vanilla names every file `<TAG>_ship_names.txt` except Germany's `GER_ship_name.txt`; when `-InspectVanilla` finds no file, look in the vanilla folder and add the name to `Get-NamelistFileName` in `build.ps1`.
+- **Numbered types and `ordered` lists** (Germany's `Z`, `U`, `T` and `M` boats): read `history/units/<TAG>_*naval*.txt` first. Where a start date names ships by `ordered_name = <number>`, vanilla's entry numbers and their texts must stay; where it gives fixed names, begin a numbered list behind them and put starting ships last in a named list (guide section 2, Depth).
 - **Tags vanilla script assigns** (printed under the table): starting variants and focus rewards pick a list with `name_group`, so those tags must stay defined (guide section 7). A hull-bound sub-type list among them (the USA's `USA_CVL_HISTORICAL`) becomes a role pool under its vanilla tag; add the suffix to `Get-RolePoolSuffixes`.
 - **Regime-variant hull sets** (the USA's Confederate lists): keep and repair, never extend or rebuild, unless the author asks for a mirror of the main set (ENG's communist lists; guide section 2D).
 - **Deep vanilla files** (USA): work as a delta. Keep every list, fix it, decouple it and add pools; pull bulk class rosters by script from list pages instead of through the researcher, and let the dossier cover conventions, decoupling rulings and verification.

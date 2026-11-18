@@ -5,7 +5,7 @@ Ranking of vanilla nations not yet covered by the mod (assessed 2026-10-10). Int
 ## Method
 
 - Source: vanilla `common/units/names_ships/` (65 files), compared with the nations already in `common/units/names_ships/`.
-- Jackhall's series (`HOL`, `CHI`, `SPR`, `SOV`, `GRE`, `GER`): excluded until 2026-11-17, when ISNE dropped compatibility with it (`docs/isne-agent-guide.md` section 4, item 5). Not yet assessed below; `POL` is the first one authored.
+- Jackhall's series (`HOL`, `CHI`, `SPR`, `SOV`, `GRE`): excluded until 2026-11-17, when ISNE dropped compatibility with it (`docs/isne-agent-guide.md` section 4, item 5). Not yet assessed below; `POL` (2026-11-17) and `GER` (2026-11-18) are authored.
 - Signals: vanilla list depth, cross-class duplicates (names shared between `CL`/`CA`/`BB`/`BC`/`CV`, which the mod's decoupling rule forbids), obvious bugs (mojibake, clone rosters, anachronisms), gameplay traffic, and how much verifiable naval history exists.
 - Counts are raw quoted-string counts per vanilla file. The historical claims below are a first impression, not a researched dossier: every nation still needs an `isne-historical-researcher` dossier before authoring.
 

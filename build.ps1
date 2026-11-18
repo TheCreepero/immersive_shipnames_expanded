@@ -645,10 +645,15 @@ function Get-NamelistGroups {
                 $entries = [regex]::Matches($uniqueM.Groups[1].Value, '"([^"]+)"')
                 $names = @($entries | ForEach-Object { $_.Groups[1].Value })
                 $samples = @($names | Select-Object -First 3)
-            } elseif ($orderedM.Success) {
+            }
+            if ($orderedM.Success) {
+                # A group may hold both blocks; the engine uses the unique names first [NAM-022], so they lead the
+                # list here as well
                 $entries = [regex]::Matches($orderedM.Groups[1].Value, '(\d+)\s*=\s*(?:\{\s*)?"([^"]+)"')
-                $names = @($entries | ForEach-Object { $_.Groups[2].Value })
-                $samples = @($entries | Select-Object -First 3 | ForEach-Object { "$($_.Groups[1].Value)=$($_.Groups[2].Value)" })
+                $names = @($names) + @($entries | ForEach-Object { $_.Groups[2].Value })
+                if ($samples.Count -eq 0) {
+                    $samples = @($entries | Select-Object -First 3 | ForEach-Object { "$($_.Groups[1].Value)=$($_.Groups[2].Value)" })
+                }
             }
 
             $nameRaw = if ($nameM.Success) { $nameM.Groups[1].Value.Trim() } else { "" }
@@ -689,12 +694,27 @@ function Get-RolePoolSuffixes {
         'SEAPLANE_TENDERS',
         'CRUISER_SUBMARINES', 'COASTAL_SUBMARINES', 'MINELAYING_SUBMARINES',
         'AUXILIARY_CRUISERS', 'TRAINING_SHIPS', 'ICEBREAKERS', 'SUBMARINE_TENDERS', 'STATE_YACHTS',
-        'AA_CRUISERS',
+        'AA_CRUISERS', 'TENDERS',
         # Vanilla tags that vanilla script still assigns with name_group (USA: the starting Oglala Class and the
         # focus-built Casablanca Class; FRA: the starting Bourrasque and Le Hardi classes; ENG: the starting monitors
-        # and anti-aircraft cruisers), so the role pool keeps its vanilla tag instead of the catalogue suffix
-        'MINELAYERS_HISTORICAL', 'CVL_HISTORICAL', 'DE_HISTORICAL', 'BM_HISTORICAL', 'CLAA_HISTORICAL'
+        # and anti-aircraft cruisers; GER: the starting Deutschland Class and Type 24 and the focus-built merchant
+        # raiders), so the role pool keeps its vanilla tag instead of the catalogue suffix
+        'MINELAYERS_HISTORICAL', 'CVL_HISTORICAL', 'DE_HISTORICAL', 'BM_HISTORICAL', 'CLAA_HISTORICAL',
+        'PZ_HISTORICAL', 'TB_HISTORICAL', 'MR_HISTORICAL',
+        # Vanilla sub-type tags of Germany that no script assigns; kept for saves that hold them [NAM-019]
+        'MS_HISTORICAL', 'CS_HISTORICAL'
     )
+}
+
+# --- Helper: File name of a TAG's ship namelist ---
+# The mod file must carry the vanilla file's exact name to shadow it [LOAD-010]. Vanilla names every file
+# <TAG>_ship_names.txt except the ones listed here (Germany's is singular).
+function Get-NamelistFileName {
+    param([string]$Tag)
+    $irregular = @{ 'GER' = 'GER_ship_name.txt' }
+    $Tag = $Tag.ToUpper().Trim()
+    if ($irregular.ContainsKey($Tag)) { return $irregular[$Tag] }
+    return "${Tag}_ship_names.txt"
 }
 
 # --- Helper: Name group tags of a TAG that vanilla script assigns with name_group (history files, focus and decision rewards) ---
@@ -1102,11 +1122,20 @@ function Get-NamelistAuditFindings {
     $vPrefixes = if ($null -ne $VanillaGroups) { @($VanillaGroups | Where-Object { $_.Prefix } | ForEach-Object { $_.Prefix } | Select-Object -Unique) } else { @() }
     if ($vPrefixes.Count -gt 1) {
         Add-Finding 'INFO' 'PrefixScheme' '-' "Vanilla hull-specific prefixes: $(($vPrefixes | ForEach-Object { "'$_'" }) -join ', '); parity checked per group"
+        # Vanilla may prefix only a regime-variant set (GER: 'SMS ' and 'SM ' on the Imperial lists, none on the main set);
+        # a group without a prefix then fails only where vanilla's own group, or the variant set it copies into, has one
+        $vUnprefixed = @($VanillaGroups | Where-Object { -not $_.Prefix })
         foreach ($g in $Groups) {
             $short = $g.GroupTag -replace "^$([regex]::Escape($Tag))_", ''
             $v = @($VanillaGroups | Where-Object { $_.GroupTag -eq $g.GroupTag }) | Select-Object -First 1
             if (-not $g.Prefix) {
-                Add-Finding 'FAIL' 'PrefixInconsistent' $g.GroupTag "No prefix; vanilla prefixes every group"
+                if ($v -and $v.Prefix) {
+                    Add-Finding 'FAIL' 'PrefixInconsistent' $g.GroupTag "No prefix; vanilla's group has '$($v.Prefix)'"
+                } elseif ($vUnprefixed.Count -eq 0) {
+                    Add-Finding 'FAIL' 'PrefixInconsistent' $g.GroupTag "No prefix; vanilla prefixes every group"
+                } elseif (-not $v -and $g.Class -eq 'VARIANT') {
+                    Add-Finding 'FAIL' 'PrefixInconsistent' $g.GroupTag "No prefix; the groups of vanilla's variant set carry one"
+                }
             } elseif ($v -and $v.Prefix -and $v.Prefix -ne $g.Prefix) {
                 Add-Finding 'WARN' 'VanillaPrefix' $g.GroupTag "Vanilla prefix '$($v.Prefix)' vs mod '$($g.Prefix)'; keep parity or document why"
             } elseif (-not $v -and $g.Prefix -notin $vPrefixes) {
@@ -1182,8 +1211,9 @@ function Get-NamelistAuditFindings {
                 Add-Finding 'FAIL' 'DocsWorkshopBlock' '-' "No [b]$country[/b] block under Included nations"
             } else {
                 $bullets = @($blockM.Groups[1].Value -split '\r?\n' | Where-Object { $_ -match '^-' })
-                if ($bullets.Count -ne 2 -or $bullets[0] -notmatch '^- Expanded' -or $bullets[1] -notmatch '^- Added') {
-                    Add-Finding 'WARN' 'DocsWorkshopFormat' '-' "[b]$country[/b] block is not the 2-bullet 'Expanded... / Added...' format ($($bullets.Count) bullets)"
+                # Guide section 4: an optional first bullet on the ship-type lists, then the "Added" bullet of thematic pools
+                if ($bullets.Count -lt 1 -or $bullets.Count -gt 2 -or $bullets[-1] -notmatch '^- Added') {
+                    Add-Finding 'WARN' 'DocsWorkshopFormat' '-' "[b]$country[/b] block is not 1 or 2 bullets ending with an 'Added...' bullet ($($bullets.Count) bullets)"
                 }
             }
 
@@ -1197,7 +1227,7 @@ function Get-NamelistAuditFindings {
                 $missing = @($Groups | Where-Object { $wiki -notmatch "\b$([regex]::Escape($_.GroupTag))\b" } | ForEach-Object { $_.GroupTag })
                 if ($missing.Count -gt 0) { Add-Finding 'WARN' 'DocsWikiGroups' '-' "Wiki page does not mention: $(Format-NameList $missing)" }
                 $known = @($Groups | ForEach-Object { $_.GroupTag })
-                $stale = @([regex]::Matches($wiki, "\b$([regex]::Escape($Tag))_[A-Z][A-Z_]*\b") | ForEach-Object { $_.Value } | Select-Object -Unique | Where-Object { $known -notcontains $_ -and $_ -ne "${Tag}_ship_names" })
+                $stale = @([regex]::Matches($wiki, "\b$([regex]::Escape($Tag))_[A-Z][A-Z_]*\b") | ForEach-Object { $_.Value } | Select-Object -Unique | Where-Object { $known -notcontains $_ -and $_ -notmatch "^${Tag}_ship_names?$" })
                 if ($stale.Count -gt 0) { Add-Finding 'WARN' 'DocsWikiStale' '-' "Wiki page mentions groups not in file: $(Format-NameList $stale)" }
 
                 # Sample names in each group's table row (last cell) must still exist in that group;
@@ -1323,7 +1353,7 @@ function Invoke-VerifyShipTypes {
     $files = if ($Tag -eq 'ALL') {
         @(Get-ChildItem -Path $dir -Filter *.txt)
     } else {
-        $p = Join-Path $dir "${Tag}_ship_names.txt"
+        $p = Join-Path $dir (Get-NamelistFileName -Tag $Tag)
         if (-not (Test-Path $p)) { Write-Host "FAIL namelist not found: $p"; return 1 }
         @(Get-Item $p)
     }
@@ -1443,7 +1473,7 @@ function Invoke-NamelistAudit {
     )
 
     $Tag = $Tag.ToUpper().Trim()
-    $modFile = Join-Path $RepoDir "common\units\names_ships\${Tag}_ship_names.txt"
+    $modFile = Join-Path $RepoDir "common\units\names_ships\$(Get-NamelistFileName -Tag $Tag)"
     if (-not (Test-Path $modFile)) {
         Write-Err "Mod namelist not found: $modFile"
         exit 1
@@ -1483,7 +1513,7 @@ function Invoke-NamelistAudit {
 
     $findings = Get-TagAuditFindings -Tag $Tag -Groups $groups -CustomHoi4Dir $CustomHoi4Dir
 
-    Write-Host "ISNE audit: ${Tag}_ship_names.txt ($($groups.Count) groups)" -ForegroundColor Cyan
+    Write-Host "ISNE audit: $(Get-NamelistFileName -Tag $Tag) ($($groups.Count) groups)" -ForegroundColor Cyan
     $table = $groups | Select-Object @{ n = 'Group'; e = { $_.GroupTag -replace "^${Tag}_", '' } }, Class,
         @{ n = 'Count'; e = { "$($_.Count)/$($_.Target)" } }, Prefix, Fallback,
         @{ n = 'Name'; e = { if ($_.NameIsLiteral) { $_.ThemeName } else { '(loc key)' } } }
@@ -1507,7 +1537,7 @@ function Get-TagAuditFindings {
     $vanillaGroups = $null
     $hoi4Dir = Find-Hoi4Install -CustomPath $CustomHoi4Dir
     if ($hoi4Dir) {
-        foreach ($c in @("${Tag}_ship_names.txt", "${Tag}_names_ships.txt")) {
+        foreach ($c in @((Get-NamelistFileName -Tag $Tag), "${Tag}_names_ships.txt")) {
             $vp = Join-Path $hoi4Dir "common\units\names_ships\$c"
             if (Test-Path $vp) { $vanillaGroups = Get-NamelistGroups -Path $vp; break }
         }
@@ -1694,9 +1724,9 @@ function Invoke-NamelistEdit {
     )
 
     $Tag = $Tag.ToUpper().Trim()
-    $modFile = Join-Path $RepoDir "common\units\names_ships\${Tag}_ship_names.txt"
+    $modFile = Join-Path $RepoDir "common\units\names_ships\$(Get-NamelistFileName -Tag $Tag)"
     if (-not (Test-Path $modFile)) { Write-Err "Mod namelist not found: $modFile"; return 1 }
-    $split = { param($s) @(if ($s) { $s -split ';' | ForEach-Object { $_.Trim() } | Where-Object { $_ } }) }
+    $split ={ param($s) @(if ($s) { $s -split ';' | ForEach-Object { $_.Trim() } | Where-Object { $_ } }) }
     $adds = & $split $AddList; $removes = & $split $RemoveList; $renames = & $split $RenameList; $sectionRenames = & $split $RenameSectionList
     if (($adds.Count + $removes.Count + $renames.Count + $sectionRenames.Count) -eq 0) { Write-Err "Nothing to do: pass -Add, -Remove, -Rename and/or -RenameSection"; return 1 }
 
@@ -1851,7 +1881,7 @@ function Get-TagNamelistDiff {
         [string]$Tag,
         [string]$BaseRev
     )
-    $rel = "common/units/names_ships/${Tag}_ship_names.txt"
+    $rel = "common/units/names_ships/$(Get-NamelistFileName -Tag $Tag)"
     $modFile = Join-Path $RepoDir $rel
     if (-not (Test-Path $modFile)) { throw "Mod namelist not found: $modFile" }
 
@@ -1953,7 +1983,7 @@ function New-AuditPlanText {
     )
     $l = [System.Collections.Generic.List[string]]::new()
     $l.Add("# $Country ($Tag) Namelist Audit - $Date"); $l.Add('')
-    $l.Add("File: ``common/units/names_ships/${Tag}_ship_names.txt``"); $l.Add('')
+    $l.Add("File: ``common/units/names_ships/$(Get-NamelistFileName -Tag $Tag)``"); $l.Add('')
     $l.Add("## Initial report (``-Audit $Tag``)")
     $l.Add("- $Summary")
     foreach ($f in $FindingLines) { $l.Add("- $f") }
@@ -2105,7 +2135,7 @@ function Find-WikiProseMentions {
 function Invoke-SyncWiki {
     param([string]$Tag)
     $Tag = $Tag.ToUpper().Trim()
-    $modFile = Join-Path $RepoDir "common\units\names_ships\${Tag}_ship_names.txt"
+    $modFile = Join-Path $RepoDir "common\units\names_ships\$(Get-NamelistFileName -Tag $Tag)"
     if (-not (Test-Path $modFile)) { Write-Err "Mod namelist not found: $modFile"; return 1 }
     $country = Get-CountryName -Tag $Tag
     if (-not $country) { Write-Err "README.md has no row for $Tag"; return 1 }
@@ -2178,7 +2208,7 @@ function Invoke-InspectVanilla {
 
     $Tag = $Tag.ToUpper().Trim()
     $candidates = @(
-        (Join-Path $hoi4Dir "common\units\names_ships\${Tag}_ship_names.txt"),
+        (Join-Path $hoi4Dir "common\units\names_ships\$(Get-NamelistFileName -Tag $Tag)"),
         (Join-Path $hoi4Dir "common\units\names_ships\${Tag}_names_ships.txt")
     )
 

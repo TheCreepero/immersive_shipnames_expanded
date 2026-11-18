@@ -16,7 +16,7 @@ BeforeAll {
 
     $script:Canon = [System.IO.File]::ReadAllText((Join-Path $script:RepoRoot "data\ship_types_canon.json"), [System.Text.Encoding]::UTF8) | ConvertFrom-Json
 
-    foreach ($fn in @('Get-NamelistGroups', 'Get-NamelistAuditFindings', 'Get-ShipTypeFindings', 'Get-ShipTypeCanon', 'Get-RolePoolSuffixes', 'Get-VanillaNameGroupRefs', 'Get-NameVariantKey', 'Edit-NamelistGroupText', 'Compare-NamelistGroupSets', 'Format-NamelistDiff',
+    foreach ($fn in @('Get-NamelistFileName', 'Get-NamelistGroups', 'Get-NamelistAuditFindings', 'Get-ShipTypeFindings', 'Get-ShipTypeCanon', 'Get-RolePoolSuffixes', 'Get-VanillaNameGroupRefs', 'Get-NameVariantKey', 'Edit-NamelistGroupText', 'Compare-NamelistGroupSets', 'Format-NamelistDiff',
             'Resolve-GroupTag', 'Get-GroupSections', 'Get-PersonKeyWords', 'Get-OrphanHeaderLines', 'Format-PlanChangeTable',
             'Set-PlanChangeTable', 'New-AuditPlanText', 'Update-WikiGroupRows', 'Format-AuditFindingLines', 'Format-AuditSummary',
             'Find-WikiProseMentions')) {
@@ -288,6 +288,53 @@ Describe "build.ps1 Helper: Get-NamelistAuditFindings" {
         finally {
             if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
         }
+    }
+
+    It "Accepts an unprefixed main set when vanilla prefixes only its variant set (GER: SMS on the Imperial lists)" {
+        $vanillaText = (New-FixtureGroup 'TST_DD_HISTORICAL' 'ship_hull_light destroyer' @('Vd')) +
+            (New-FixtureGroup 'TST_DD_IMPERIAL' 'ship_hull_light destroyer' @('Vi') 'TMS ') +
+            (New-FixtureGroup 'TST_SS_IMPERIAL' 'ship_hull_submarine submarine' @('Vs') 'TM ')
+        $imperial = (New-FixtureGroup 'TST_DD_IMPERIAL' 'ship_hull_light destroyer' (New-NameRange 'Di' 100) 'TMS ') +
+            (New-FixtureGroup 'TST_SS_IMPERIAL' 'ship_hull_submarine submarine' (New-NameRange 'Si' 60) 'TM ')
+        $text = (Get-CompliantFixtureText -Prefix '') + $imperial
+        $tempFile = [System.IO.Path]::GetTempFileName()
+        try {
+            [System.IO.File]::WriteAllText($tempFile, $vanillaText, (New-Object System.Text.UTF8Encoding $false))
+            $vanilla = Get-NamelistGroups -Path $tempFile
+            [System.IO.File]::WriteAllText($tempFile, $text, (New-Object System.Text.UTF8Encoding $false))
+            $findings = Get-NamelistAuditFindings -Groups (Get-NamelistGroups -Path $tempFile) -Tag 'TST' -VanillaGroups $vanilla -Canon $script:Canon
+            @($findings | Where-Object { $_.Check -eq 'PrefixInconsistent' }).Count | Should -Be 0
+
+            # A vanilla group that loses its prefix still fails
+            $dropped = $text -replace '(TST_SS_IMPERIAL = \{\n[^\n]*\n[^\n]*\n)\tprefix = "TM "\n', '$1'
+            [System.IO.File]::WriteAllText($tempFile, $dropped, (New-Object System.Text.UTF8Encoding $false))
+            $findings = Get-NamelistAuditFindings -Groups (Get-NamelistGroups -Path $tempFile) -Tag 'TST' -VanillaGroups $vanilla -Canon $script:Canon
+            $f = @($findings | Where-Object { $_.Check -eq 'PrefixInconsistent' })
+            $f.Count | Should -Be 1
+            $f[0].Group | Should -Be 'TST_SS_IMPERIAL'
+        }
+        finally {
+            if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
+        }
+    }
+
+    It "Counts a group's unique names and its ordered entries together, unique names first" {
+        $text = "TST_TB_HISTORICAL = {`n`tname = NAME_THEME_HISTORICAL_TB`n`tfallback_name = `"T-%d`"`n`tunique = { `"Wolf`" `"Luchs`" }`n`tordered = {`n`t`t1 = { `"T-1`" }`n`t`t2 = { `"T-2`" }`n`t`t3 = { `"T-3`" }`n`t}`n}`n"
+        $tempFile = [System.IO.Path]::GetTempFileName()
+        try {
+            [System.IO.File]::WriteAllText($tempFile, $text, (New-Object System.Text.UTF8Encoding $false))
+            $g = Get-NamelistGroups -Path $tempFile | Where-Object { $_.GroupTag -eq 'TST_TB_HISTORICAL' }
+            @($g.Names).Count | Should -Be 5
+            ($g.Names -join ',') | Should -Be 'Wolf,Luchs,T-1,T-2,T-3'
+        }
+        finally {
+            if (Test-Path $tempFile) { Remove-Item -Force $tempFile }
+        }
+    }
+
+    It "Resolves a nation's namelist file name, vanilla's irregular ones included" {
+        Get-NamelistFileName -Tag 'FIN' | Should -Be 'FIN_ship_names.txt'
+        Get-NamelistFileName -Tag 'ger' | Should -Be 'GER_ship_name.txt'
     }
 
     It "Grades depth as FAIL below floor and WARN between floor and target" {

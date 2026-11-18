@@ -47,6 +47,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 | `ENG_ship_names.txt` | United Kingdom | `ENG` | Included (DD, SS, CL, CA, BB, BC, CV, 30 Thematic Topics, 11 Role Pools, 43 communist WLNS lists mirroring the HMS lists) |
 | `FIN_ship_names.txt` | Finland | `FIN` | Included (DD, SS, CL, CA, BB, BC, CV, 13 Thematic Topics) |
 | `FRA_ship_names.txt` | France | `FRA` | Included (DD, SS, CL, CA, BB, BC, CV, 17 Thematic Topics, 4 Role Pools) |
+| `GER_ship_name.txt` | Germany | `GER` | Included (DD, SS, CL, CA, BB, BC, CV, 36 Thematic Topics, 10 Role Pools, 49 Imperial SMS lists mirroring the main lists) |
 | `ITA_ship_names.txt` | Italy | `ITA` | Included (DD, SS, CL, CA, BB, BC, CV, 17 Thematic Topics, 6 Role Pools) |
 | `MEX_ship_names.txt` | Mexico | `MEX` | Included (DD, SS, CL, CA, BB, BC, CV, 13 Thematic Topics) |
 | `NOR_ship_names.txt` | Norway | `NOR` | Included (DD, SS, CL, CA, BB, BC, CV, 11 Thematic Topics, 1 Role Pool) |
@@ -69,7 +70,7 @@ Instructions and reference for maintaining the Steam Workshop description of **I
 <!-- region:image:hero -->
 [img]https://i.imgur.com/98tdjtV.png[/img]
 <!-- /region -->
-More ship namelists! For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, Italy, Peru, Romania, Canada, the United States, France, the United Kingdom, and Poland. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
+More ship namelists! For now I've got Finland, Austria, Brazil, Argentina, Chile, Denmark, Sweden, Norway, Cuba, Turkey, Yugoslavia, Mexico, the Philippines, Iran, Portugal, Italy, Peru, Romania, Canada, the United States, France, the United Kingdom, Poland, and Germany. In the future I intend to prioritize nations that have at least some potential to have a large navy in game (Tannu Tuva probably won't get a namelist update in a while, sorry :/), but don't have a large enough namelist pool to accommodate that.
 
 Coming soon: [b]Immersive Air Wing Names Expanded[/b]
 
@@ -88,7 +89,7 @@ Coming soon: [b]Immersive Air Wing Names Expanded[/b]
 - Hull lists carry both the Man the Guns (MtG) Ship Designer hull types and the non-DLC ship types.
 - Fixes vanilla bugs, typos, duplicates, and broken fallback translations.
 
-This mod started out as an expansion of the great series of [url=https://steamcommunity.com/workshop/filedetails/?id=2185806824]ship namelist mods[/url] by @Jackhall, and for a long time I avoided the countries their series covers. From the Poland update on, that is no longer the case. Both mods replace the same namelist file, so for Poland only one of the two is used in a game. Pick the one you prefer.
+This mod started out as an expansion of the great series of [url=https://steamcommunity.com/workshop/filedetails/?id=2185806824]ship namelist mods[/url] by @Jackhall, and for a long time I avoided the countries their series covers. From the Poland update on, that is no longer the case. Both mods replace the same namelist file, so for Poland and Germany only one of the two is used in a game. Pick the one you prefer.
 
 <!-- region:image:strip-included-nations -->
 [img]https://i.imgur.com/zln3pgW.png[/img]
@@ -126,6 +127,10 @@ Every nation below has expanded ship-type lists for all hull classes.
 [b]France[/b]
 - Far deeper destroyer, light cruiser and submarine lists.
 - Added 11 universal thematic lists to vanilla's six: Birds, Aquatic Life, Mythology, Rivers & Lakes, Battles, Heroes & Explorers, Wind, Sky & Sea, and 4 ideological lists, plus 4 role lists.
+
+[b]Germany[/b]
+- Submarines, torpedo boats and minesweepers are numbered, as in the German navies.
+- Added 25 universal thematic lists to vanilla's five and 5 ideological lists, plus 10 role lists and a mirrored Imperial SMS set.
 
 [b]Iran[/b]
 - Added 7 universal thematic lists: Mythology, Rulers, Provinces, Rivers & Lakes, Birds, Virtues, and Beasts & Predators.

@@ -1,0 +1,4332 @@
+##### GERMANY NAVAL NAME LISTS (ISNE) #####
+# The file carries vanilla's own file name, GER_ship_name.txt (singular), so that it replaces the vanilla file.
+# Two sets, as in vanilla. The Reichsmarine and Kriegsmarine lists carry no prefix and are open to every
+# government, so no change of government renames the fleet. The Kaiserliche Marine lists (prefix SMS, submarines SM)
+# are open to non-aligned and democratic Germany, the two governments under which the Kaiser can reign; every role
+# and thematic list has an SMS copy, and the seven hull lists of that set carry the Imperial rosters.
+# Destroyers from Z23, submarines, torpedo boats, minesweepers and fleet escorts are numbered, as the German navies
+# numbered them. The ordered entries keep vanilla's numbers, because the 1939 start names its ships by them
+# (destroyers 1 to 21, torpedo boats 201 to 211, submarines 1 to 61), and the fallback continues after the last one.
+# Names of ships the game starts with stand last in their lists, as in vanilla.
+# GER_PZ, GER_TB, GER_MS, GER_CS, GER_CVL and GER_MR_HISTORICAL keep their vanilla tags as universal role pools;
+# vanilla history and a decision assign GER_PZ, GER_TB and GER_MR with the seven hull groups.
+# Within each set the CL, CA, BB, BC and CV lists share no name, and no role pool shares a name with them.
+
+##### REICHSMARINE AND KRIEGSMARINE (no prefix): every government #####
+
+### SHIP-TYPE SPECIFIC: DESTROYERS (Z1 to Z22 with their names, numbered from Z23; vanilla's entry numbers, which the 1939 start uses) ###
+GER_DD_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_DESTROYERS
+
+	for_countries = { GER }
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	fallback_name = "Z%d"
+
+	ordered = {
+		1 = { "Z1 Leberecht Maass" }
+		2 = { "Z2 Georg Thiele" }
+		3 = { "Z3 Max Schultz" }
+		4 = { "Z4 Richard Beitzen" }
+		5 = { "Z5 Paul Jacobi" }
+		6 = { "Z6 Theodor Riedel" }
+		7 = { "Z7 Hermann Schoemann" }
+		8 = { "Z8 Bruno Heinemann" }
+		9 = { "Z9 Wolfgang Zenker" }
+		10 = { "Z10 Hans Lody" }
+		11 = { "Z11 Bernd von Arnim" }
+		12 = { "Z12 Erich Giese" }
+		13 = { "Z13 Erich Koellner" }
+		14 = { "Z14 Friedrich Ihn" }
+		15 = { "Z15 Erich Steinbrinck" }
+		16 = { "Z16 Friedrich Eckoldt" }
+		17 = { "Z17 Diether von Roeder" }
+		18 = { "Z18 Hans Lüdemann" }
+		19 = { "Z19 Hermann Künne" }
+		20 = { "Z20 Karl Galster" }
+		21 = { "Z21 Wilhelm Heidkamp" }
+		22 = { "Z22 Anton Schmitt" }
+		23 = { "Z23" }
+		24 = { "Z24" }
+		25 = { "Z25" }
+		26 = { "Z26" }
+		27 = { "Z27" }
+		28 = { "Z28" }
+		29 = { "Z29" }
+		30 = { "Z30" }
+		31 = { "Z31" }
+		32 = { "Z32" }
+		33 = { "Z33" }
+		34 = { "Z34" }
+		35 = { "Z35" }
+		36 = { "Z36" }
+		37 = { "Z37" }
+		38 = { "Z38" }
+		39 = { "Z39" }
+		40 = { "Z40" }
+		41 = { "Z41" }
+		42 = { "Z42" }
+		43 = { "Z43" }
+		44 = { "Z44" }
+		45 = { "Z45" }
+		46 = { "Z46" }
+		47 = { "Z47" }
+		48 = { "Z48" }
+		49 = { "Z49" }
+		50 = { "Z50" }
+		51 = { "Z51" }
+		52 = { "Z52" }
+		53 = { "Z53" }
+		54 = { "Z54" }
+		55 = { "Z55" }
+		56 = { "Z56" }
+		57 = { "Z57" }
+		58 = { "Z58" }
+		59 = { "Z59" }
+		60 = { "Z60" }
+		61 = { "Z61" }
+		62 = { "Z62" }
+		63 = { "Z63" }
+		64 = { "Z64" }
+		65 = { "Z65" }
+		66 = { "Z66" }
+		67 = { "Z67" }
+		68 = { "Z68" }
+		69 = { "Z69" }
+		70 = { "Z70" }
+		71 = { "Z71" }
+		72 = { "Z72" }
+		73 = { "Z73" }
+		74 = { "Z74" }
+		75 = { "Z75" }
+		76 = { "Z76" }
+		77 = { "Z77" }
+		78 = { "Z78" }
+		79 = { "Z79" }
+		80 = { "Z80" }
+		81 = { "Z81" }
+		82 = { "Z82" }
+		83 = { "Z83" }
+		84 = { "Z84" }
+		85 = { "Z85" }
+		86 = { "Z86" }
+		87 = { "Z87" }
+		88 = { "Z88" }
+		89 = { "Z89" }
+		90 = { "Z90" }
+		91 = { "Z91" }
+		92 = { "Z92" }
+		93 = { "Z93" }
+		94 = { "Z94" }
+		95 = { "Z95" }
+		96 = { "Z96" }
+		97 = { "Z97" }
+		98 = { "Z98" }
+		99 = { "Z99" }
+		100 = { "Z100" }
+	}
+}
+
+### SHIP-TYPE SPECIFIC: SUBMARINES (numbered; the entries begin behind the boats of the 1936 start, U-1 to U-13 and U-17) ###
+GER_SS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_SUBMARINES
+
+	for_countries = { GER }
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	fallback_name = "U-%d"
+
+	ordered = {
+		18 = { "U-18" }
+		19 = { "U-19" }
+		20 = { "U-20" }
+		21 = { "U-21" }
+		22 = { "U-22" }
+		23 = { "U-23" }
+		24 = { "U-24" }
+		25 = { "U-25" }
+		26 = { "U-26" }
+		27 = { "U-27" }
+		28 = { "U-28" }
+		29 = { "U-29" }
+		30 = { "U-30" }
+		31 = { "U-31" }
+		32 = { "U-32" }
+		33 = { "U-33" }
+		34 = { "U-34" }
+		35 = { "U-35" }
+		36 = { "U-36" }
+		37 = { "U-37" }
+		38 = { "U-38" }
+		39 = { "U-39" }
+		40 = { "U-40" }
+		41 = { "U-41" }
+		42 = { "U-42" }
+		43 = { "U-43" }
+		44 = { "U-44" }
+		45 = { "U-45" }
+		46 = { "U-46" }
+		47 = { "U-47" }
+		48 = { "U-48" }
+		49 = { "U-49" }
+		50 = { "U-50" }
+		51 = { "U-51" }
+		52 = { "U-52" }
+		53 = { "U-53" }
+		54 = { "U-54" }
+		55 = { "U-55" }
+		56 = { "U-56" }
+		57 = { "U-57" }
+		58 = { "U-58" }
+		59 = { "U-59" }
+		60 = { "U-60" }
+		61 = { "U-61" }
+		62 = { "U-62" }
+		63 = { "U-63" }
+		64 = { "U-64" }
+		65 = { "U-65" }
+		66 = { "U-66" }
+		67 = { "U-67" }
+		68 = { "U-68" }
+		69 = { "U-69" }
+		70 = { "U-70" }
+		71 = { "U-71" }
+		72 = { "U-72" }
+		73 = { "U-73" }
+		74 = { "U-74" }
+		75 = { "U-75" }
+		76 = { "U-76" }
+		77 = { "U-77" }
+		78 = { "U-78" }
+		79 = { "U-79" }
+		80 = { "U-80" }
+		81 = { "U-81" }
+		82 = { "U-82" }
+		83 = { "U-83" }
+		84 = { "U-84" }
+		85 = { "U-85" }
+		86 = { "U-86" }
+		87 = { "U-87" }
+		88 = { "U-88" }
+		89 = { "U-89" }
+		90 = { "U-90" }
+		91 = { "U-91" }
+		92 = { "U-92" }
+		93 = { "U-93" }
+		94 = { "U-94" }
+		95 = { "U-95" }
+		96 = { "U-96" }
+		97 = { "U-97" }
+		98 = { "U-98" }
+		99 = { "U-99" }
+		100 = { "U-100" }
+		101 = { "U-101" }
+		102 = { "U-102" }
+		103 = { "U-103" }
+		104 = { "U-104" }
+		105 = { "U-105" }
+		106 = { "U-106" }
+		107 = { "U-107" }
+		108 = { "U-108" }
+		109 = { "U-109" }
+		110 = { "U-110" }
+		111 = { "U-111" }
+		112 = { "U-112" }
+		113 = { "U-113" }
+		114 = { "U-114" }
+		115 = { "U-115" }
+		116 = { "U-116" }
+		117 = { "U-117" }
+		118 = { "U-118" }
+		119 = { "U-119" }
+		120 = { "U-120" }
+		121 = { "U-121" }
+		122 = { "U-122" }
+		123 = { "U-123" }
+		124 = { "U-124" }
+		125 = { "U-125" }
+		126 = { "U-126" }
+		127 = { "U-127" }
+		128 = { "U-128" }
+		129 = { "U-129" }
+		130 = { "U-130" }
+		131 = { "U-131" }
+		132 = { "U-132" }
+		133 = { "U-133" }
+		134 = { "U-134" }
+		135 = { "U-135" }
+		136 = { "U-136" }
+		137 = { "U-137" }
+		138 = { "U-138" }
+		139 = { "U-139" }
+		140 = { "U-140" }
+		141 = { "U-141" }
+		142 = { "U-142" }
+		143 = { "U-143" }
+		144 = { "U-144" }
+		145 = { "U-145" }
+		146 = { "U-146" }
+		147 = { "U-147" }
+		148 = { "U-148" }
+		149 = { "U-149" }
+		150 = { "U-150" }
+	}
+}
+
+### SHIP-TYPE SPECIFIC: LIGHT CRUISERS ###
+GER_CL_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CL
+
+	for_countries = { GER }
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	fallback_name = "Leichter Kreuzer %d"
+
+	unique = {
+		# Cities of the Kleine Kreuzer of 1903-1918
+		"München" "Berlin" "Hamburg" "Stuttgart" "Bremen" "Lübeck" "Stettin" "Dresden" "Mainz" "Augsburg" "Magdeburg"
+		"Breslau" "Stralsund" "Frankfurt" "Rostock" "Elbing" "Regensburg" "Wiesbaden" "Kolberg" "Pillau"
+		# Expansion: large cities of the Reich (the Reichsmarine's formula)
+		"Kiel" "Wilhelmshaven" "Düsseldorf" "Dortmund" "Essen" "Duisburg" "Bochum" "Wuppertal" "Gelsenkirchen" "Mannheim"
+		"Chemnitz" "Halle" "Kassel" "Aachen" "Krefeld" "Münster" "Erfurt" "Potsdam" "Darmstadt" "Würzburg" "Heidelberg"
+		"Freiburg" "Osnabrück" "Saarbrücken" "Bielefeld" "Bonn" "Koblenz" "Trier" "Ulm" "Heilbronn" "Pforzheim" "Ludwigshafen"
+		"Kaiserslautern" "Ingolstadt" "Fürth" "Erlangen" "Göttingen" "Hildesheim" "Paderborn" "Hagen" "Hamm" "Herne" "Bottrop"
+		"Recklinghausen" "Oberhausen" "Mülheim" "Solingen" "Remscheid" "Leverkusen" "Neuss" "München-Gladbach" "Offenbach"
+		"Reutlingen" "Jena" "Zwickau" "Cottbus" "Schwerin" "Flensburg" "Bremerhaven" "Siegen"
+		# Expansion: cities of the eastern provinces
+		"Tilsit" "Allenstein" "Insterburg" "Stolp" "Köslin" "Swinemünde" "Liegnitz" "Oppeln" "Gleiwitz" "Beuthen" "Ratibor"
+		"Glogau" "Küstrin" "Schneidemühl" "Gera" "Fulda" "Harburg" "Altona"
+		# Cities lost in 1919 or joined to the Reich after 1936
+		"Danzig" "Straßburg" "Graudenz" "Mülhausen" "Memel" "Wien" "Graz" "Linz" "Innsbruck" "Salzburg"
+		# Reichsmarine cruisers of 1925-1934, last because the game starts with them
+		"Emden" "Königsberg" "Karlsruhe" "Köln" "Leipzig" "Nürnberg"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: HEAVY CRUISERS ###
+GER_CA_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CA
+
+	for_countries = { GER }
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	fallback_name = "Schwerer Kreuzer %d"
+
+	unique = {
+		# Admiral Hipper class
+		"Admiral Hipper" "Blücher" "Prinz Eugen" "Seydlitz" "Lützow"
+		# Names of the armoured and first-class cruisers of 1897-1904
+		"Prinz Adalbert" "Friedrich Carl" "Prinz Heinrich" "Hertha" "Freya" "Vineta"
+		# Expansion: commanders of the Frederician and Liberation wars (the Hipper class formula)
+		"Zieten" "Graf Schwerin" "Keith" "Winterfeldt" "Der Alte Dessauer" "Prinz Louis Ferdinand" "Schill"
+		"Tauentzien von Wittenberg" "Kleist von Nollendorf" "Bülow von Dennewitz" "Boyen" "Grolman" "Courbière" "Kalckreuth"
+		"Wrangel" "Thielmann" "Krauseneck" "Müffling" "Lottum" "Borstell" "Röder" "Colomb" "Belling" "Möllendorff" "Fouqué"
+		"Ferdinand von Braunschweig" "Sparr"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLESHIPS ###
+GER_BB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BB
+
+	for_countries = { GER }
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	fallback_name = "Schlachtschiff %d"
+
+	unique = {
+		# Kriegsmarine battleships
+		"Scharnhorst" "Gneisenau" "Bismarck" "Tirpitz"
+		# Names in circulation for the H class, none of them official
+		"Friedrich der Große" "Ulrich von Hutten" "Götz von Berlichingen"
+		# Linienschiffe kept by the Reichsmarine
+		"Hannover" "Hessen" "Braunschweig" "Elsaß" "Lothringen" "Preußen" "Zähringen"
+		# States and provinces of the battle line of 1891-1917
+		"Brandenburg" "Schwaben" "Mecklenburg" "Pommern" "Nassau" "Westfalen" "Rheinland" "Posen" "Helgoland" "Ostfriesland"
+		"Thüringen" "Oldenburg" "Bayern" "Baden" "Sachsen" "Württemberg"
+		# Expansion: states, provinces and marches
+		"Ostpreußen" "Westpreußen" "Hessen-Nassau" "Anhalt" "Lippe" "Hohenzollern" "Franken" "Holstein" "Friesland" "Kurmark"
+		"Neumark" "Uckermark" "Lausitz" "Vogtland" "Saarland" "Pfalz" "Kurhessen" "Oberschlesien" "Niederschlesien" "Ermland"
+		"Masuren" "Samland" "Dithmarschen" "Waldeck" "Schaumburg" "Grenzmark"
+		# Expansion: founders and champions of the old Reich (the Hutten and Berlichingen formula)
+		"Großer Kurfürst" "Karl der Große" "Otto der Große" "Heinrich der Löwe" "Albrecht der Bär" "Franz von Sickingen"
+		"Georg von Frundsberg" "Freiherr vom Stein" "Hardenberg" "Arminius" "Widukind"
+		# The two Linienschiffe in service, last because the game starts with them
+		"Schlesien" "Schleswig-Holstein"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: BATTLECRUISERS ###
+GER_BC_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_BC
+
+	for_countries = { GER }
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	fallback_name = "Schlachtkreuzer %d"
+
+	unique = {
+		# Große Kreuzer of 1903-1915 whose names the Kriegsmarine left free
+		"Von der Tann" "Moltke" "Goeben" "Derfflinger" "Hindenburg" "Roon" "Yorck"
+		# Expansion: field marshals and chiefs of staff (the formula of the Große Kreuzer)
+		"Clausewitz" "Schlieffen" "Waldersee" "Blumenthal" "Steinmetz" "Werder" "Edwin von Manteuffel"
+		"Vogel von Falckenstein" "Constantin von Alvensleben" "Herwarth von Bittenfeld" "Kirchbach" "Voigts-Rhetz" "Fransecky"
+		"Zastrow" "Tümpling" "Falkenhayn" "Woyrsch" "Eichhorn" "Haeseler" "Emmich" "Beseler" "Georg von der Marwitz"
+		"Linsingen" "Hutier" "Einem" "Kluck" "Max Hoffmann" "Fritz von Below" "Karl von Bülow" "Max von Hausen"
+		# Expansion: historic flagships
+		"Adler von Lübeck" "Friedrich Wilhelm zu Pferde" "Wappen von Hamburg" "Peter von Danzig" "Bunte Kuh" "Barbarossa"
+		"Erzherzog Johann" "Markgraf von Brandenburg"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: AIRCRAFT CARRIERS ###
+GER_CV_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_CARRIERS
+
+	for_countries = { GER }
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	fallback_name = "Flugzeugträger %d"
+
+	unique = {
+		# Graf Zeppelin class; Peter Strasser is the name in circulation for Flugzeugträger B, never official
+		"Graf Zeppelin" "Peter Strasser"
+		# Names of the Luftwaffe's air-sea rescue tenders (naval and army airmen of 1914-18 and after)
+		"Richthofen" "Boelcke" "Immelmann" "Gunther Plüschow" "Hans Rolshoven" "Karl Meyer" "Max Stinsky"
+		"Bernhard von Tschirschky" "Hans Albrecht Wedel"
+		# Expansion: pioneers of flight and airship commanders
+		"Otto Lilienthal" "Heinrich Mathy" "Hermann Kraushaar" "Max Dietrich" "Werner Peterson" "Kurt Frankenburg"
+		"Viktor Schütze" "Ludwig Bockholt" "Hans Bartsch von Sigsfeld" "Friedrich Wölfert" "Paul Haenlein" "Oskar Erbslöh"
+		"Karl Jatho" "Hugo Junkers" "Günther von Hünefeld"
+		# Expansion: airmen fallen or dead by 1936
+		"Werner Voß" "Kurt Wolff" "Karl Allmenröder" "Heinrich Gontermann" "Rudolf Berthold" "Lothar von Richthofen"
+		"Erich Löwenhardt" "Fritz Rumey" "Kurt Wüsthoff" "Hans-Joachim Buddecke" "Walter von Bülow-Bothkamp" "Paul Bäumer"
+		"Emil Schäfer" "Otto Kissenberth" "Adolf von Tutschek" "Hans Kirschstein" "Max von Müller" "Wilhelm Frankl"
+		"Albert Dossenbach" "Hans Berr" "Otto Parschau" "Kurt Wintgens" "Max von Mulzer" "Gustav Leffers" "Walter Höhndorf"
+	}
+}
+
+### ROLE: PANZERSCHIFFE (vanilla tag; the starting Deutschland class uses it) ###
+GER_PZ_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_PZ
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Panzerschiff %d"
+
+	unique = {
+		# Deutschland class
+		"Admiral Scheer" "Admiral Graf Spee"
+		# Expansion: admirals dead by 1936 (the class formula)
+		"Admiral Knorr" "Admiral Stosch" "Admiral Pohl" "Admiral Capelle" "Admiral Holtzendorff" "Admiral Koester"
+		"Admiral Usedom" "Admiral Hollmann" "Admiral Ludwig von Schröder" "Admiral Baudissin" "Admiral Ingenohl"
+		"Admiral Jachmann" "Admiral Diederichs" "Admiral Thomsen" "Admiral Büchsel" "Admiral Senden-Bibran"
+		"Admiral Bendemann" "Admiral Fischel" "Admiral Batsch" "Admiral Henk" "Admiral Livonius" "Admiral Werner"
+		"Admiral Monts" "Admiral von der Goltz" "Admiral Valois" "Admiral Deinhard" "Admiral Karl Paschen" "Admiral Heeringen"
+		"Admiral Truppel" "Admiral Mauve"
+		# The name ship of the class, last because the game starts with her
+		"Deutschland"
+	}
+}
+
+### ROLE: TORPEDO BOATS (vanilla tag; the starting Type 24 uses it, and the 1939 start names its boats by the entries 201 to 211) ###
+GER_TB_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_TB
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "T%d"
+
+	ordered = {
+		1 = { "T1" }
+		2 = { "T2" }
+		3 = { "T3" }
+		4 = { "T4" }
+		5 = { "T5" }
+		6 = { "T6" }
+		7 = { "T7" }
+		8 = { "T8" }
+		9 = { "T9" }
+		10 = { "T10" }
+		11 = { "T11" }
+		12 = { "T12" }
+		13 = { "T13" }
+		14 = { "T14" }
+		15 = { "T15" }
+		16 = { "T16" }
+		17 = { "T17" }
+		18 = { "T18" }
+		19 = { "T19" }
+		20 = { "T20" }
+		21 = { "T21" }
+		22 = { "T22" }
+		23 = { "T23" }
+		24 = { "T24" }
+		25 = { "T25" }
+		26 = { "T26" }
+		27 = { "T27" }
+		28 = { "T28" }
+		29 = { "T29" }
+		30 = { "T30" }
+		31 = { "T31" }
+		32 = { "T32" }
+		33 = { "T33" }
+		34 = { "T34" }
+		35 = { "T35" }
+		36 = { "T36" }
+		37 = { "T37" }
+		38 = { "T38" }
+		39 = { "T39" }
+		40 = { "T40" }
+		41 = { "T41" }
+		42 = { "T42" }
+		43 = { "T43" }
+		44 = { "T44" }
+		45 = { "T45" }
+		46 = { "T46" }
+		47 = { "T47" }
+		48 = { "T48" }
+		49 = { "T49" }
+		50 = { "T50" }
+		51 = { "T51" }
+		52 = { "T52" }
+		53 = { "T53" }
+		54 = { "T54" }
+		55 = { "T55" }
+		56 = { "T56" }
+		57 = { "T57" }
+		58 = { "T58" }
+		59 = { "T59" }
+		60 = { "T60" }
+		61 = { "T61" }
+		62 = { "T62" }
+		63 = { "T63" }
+		64 = { "T64" }
+		65 = { "T65" }
+		66 = { "T66" }
+		67 = { "T67" }
+		68 = { "T68" }
+		69 = { "T69" }
+		70 = { "T70" }
+		71 = { "T71" }
+		72 = { "T72" }
+		73 = { "T73" }
+		74 = { "T74" }
+		75 = { "T75" }
+		76 = { "T76" }
+		77 = { "T77" }
+		78 = { "T78" }
+		79 = { "T79" }
+		80 = { "T80" }
+		81 = { "T81" }
+		82 = { "T82" }
+		83 = { "T83" }
+		84 = { "T84" }
+		85 = { "T85" }
+		86 = { "T86" }
+		87 = { "T87" }
+		88 = { "T88" }
+		89 = { "T89" }
+		90 = { "T90" }
+		91 = { "T91" }
+		92 = { "T92" }
+		93 = { "T93" }
+		94 = { "T94" }
+		95 = { "T95" }
+		96 = { "T96" }
+		97 = { "T97" }
+		98 = { "T98" }
+		99 = { "T99" }
+		100 = { "T100" }
+		101 = { "T101" }
+		102 = { "T102" }
+		103 = { "T103" }
+		104 = { "T104" }
+		105 = { "T105" }
+		106 = { "T106" }
+		107 = { "T107" }
+		108 = { "T108" }
+		109 = { "T109" }
+		110 = { "T110" }
+		111 = { "T111" }
+		112 = { "T112" }
+		113 = { "T113" }
+		114 = { "T114" }
+		115 = { "T115" }
+		116 = { "T116" }
+		117 = { "T117" }
+		118 = { "T118" }
+		119 = { "T119" }
+		120 = { "T120" }
+		121 = { "T121" }
+		122 = { "T122" }
+		123 = { "T123" }
+		124 = { "T124" }
+		125 = { "T125" }
+		126 = { "T126" }
+		127 = { "T127" }
+		128 = { "T128" }
+		129 = { "T129" }
+		130 = { "T130" }
+		131 = { "T131" }
+		132 = { "T132" }
+		133 = { "T133" }
+		134 = { "T134" }
+		135 = { "T135" }
+		136 = { "T136" }
+		137 = { "T137" }
+		138 = { "T138" }
+		139 = { "T139" }
+		140 = { "T140" }
+		141 = { "T141" }
+		142 = { "T142" }
+		143 = { "T143" }
+		144 = { "T144" }
+		145 = { "T145" }
+		146 = { "T146" }
+		147 = { "T147" }
+		148 = { "T148" }
+		149 = { "T149" }
+		150 = { "T150" }
+		151 = { "T151" }
+		152 = { "T152" }
+		153 = { "T153" }
+		154 = { "T154" }
+		155 = { "T155" }
+		156 = { "T156" }
+		157 = { "T157" }
+		158 = { "T158" }
+		159 = { "T159" }
+		160 = { "T160" }
+		161 = { "T161" }
+		162 = { "T162" }
+		163 = { "T163" }
+		164 = { "T164" }
+		165 = { "T165" }
+		166 = { "T166" }
+		167 = { "T167" }
+		168 = { "T168" }
+		169 = { "T169" }
+		170 = { "T170" }
+		171 = { "T171" }
+		172 = { "T172" }
+		173 = { "T173" }
+		174 = { "T174" }
+		175 = { "T175" }
+		176 = { "T176" }
+		177 = { "T177" }
+		178 = { "T178" }
+		179 = { "T179" }
+		180 = { "T180" }
+		181 = { "T181" }
+		182 = { "T182" }
+		183 = { "T183" }
+		184 = { "T184" }
+		185 = { "T185" }
+		186 = { "T186" }
+		187 = { "T187" }
+		188 = { "T188" }
+		189 = { "T189" }
+		190 = { "T190" }
+		191 = { "T191" }
+		192 = { "T192" }
+		193 = { "T193" }
+		194 = { "T194" }
+		195 = { "T195" }
+		196 = { "T196" }
+		197 = { "T197" }
+		198 = { "T198" }
+		199 = { "T199" }
+		200 = { "T200" }
+		201 = { "Möwe" }
+		202 = { "Albatros" }
+		203 = { "Seeadler" }
+		204 = { "Greif" }
+		205 = { "Falke" }
+		206 = { "Kondor" }
+		207 = { "Wolf" }
+		208 = { "Iltis" }
+		209 = { "Luchs" }
+		210 = { "Jaguar" }
+		211 = { "Tiger" }
+		212 = { "Leopard" }
+	}
+}
+
+### ROLE: MINESWEEPERS (vanilla tag; numbered) ###
+GER_MS_HISTORICAL = {
+	name = NAME_THEME_HISTORICAL_MINESWEEPERS
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "M%d"
+
+	ordered = {
+		1 = { "M1" }
+		2 = { "M2" }
+		3 = { "M3" }
+		4 = { "M4" }
+		5 = { "M5" }
+		6 = { "M6" }
+		7 = { "M7" }
+		8 = { "M8" }
+		9 = { "M9" }
+		10 = { "M10" }
+		11 = { "M11" }
+		12 = { "M12" }
+		13 = { "M13" }
+		14 = { "M14" }
+		15 = { "M15" }
+		16 = { "M16" }
+		17 = { "M17" }
+		18 = { "M18" }
+		19 = { "M19" }
+		20 = { "M20" }
+		21 = { "M21" }
+		22 = { "M22" }
+		23 = { "M23" }
+		24 = { "M24" }
+		25 = { "M25" }
+		26 = { "M26" }
+		27 = { "M27" }
+		28 = { "M28" }
+		29 = { "M29" }
+		30 = { "M30" }
+		31 = { "M31" }
+		32 = { "M32" }
+		33 = { "M33" }
+		34 = { "M34" }
+		35 = { "M35" }
+		36 = { "M36" }
+		37 = { "M37" }
+		38 = { "M38" }
+		39 = { "M39" }
+		40 = { "M40" }
+		41 = { "M41" }
+		42 = { "M42" }
+		43 = { "M43" }
+		44 = { "M44" }
+		45 = { "M45" }
+		46 = { "M46" }
+		47 = { "M47" }
+		48 = { "M48" }
+		49 = { "M49" }
+		50 = { "M50" }
+		51 = { "M51" }
+		52 = { "M52" }
+		53 = { "M53" }
+		54 = { "M54" }
+		55 = { "M55" }
+		56 = { "M56" }
+		57 = { "M57" }
+		58 = { "M58" }
+		59 = { "M59" }
+		60 = { "M60" }
+		61 = { "M61" }
+		62 = { "M62" }
+		63 = { "M63" }
+		64 = { "M64" }
+		65 = { "M65" }
+		66 = { "M66" }
+		67 = { "M67" }
+		68 = { "M68" }
+		69 = { "M69" }
+		70 = { "M70" }
+		71 = { "M71" }
+		72 = { "M72" }
+		73 = { "M73" }
+		74 = { "M74" }
+		75 = { "M75" }
+		76 = { "M76" }
+		77 = { "M77" }
+		78 = { "M78" }
+		79 = { "M79" }
+		80 = { "M80" }
+	}
+}
+
+### ROLE: FLEET ESCORTS (Flottenbegleiter, numbered) ###
+GER_ESCORT_DESTROYERS = {
+	name = "Fleet Escorts"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "F%d"
+
+	ordered = {
+		1 = { "F1" }
+		2 = { "F2" }
+		3 = { "F3" }
+		4 = { "F4" }
+		5 = { "F5" }
+		6 = { "F6" }
+		7 = { "F7" }
+		8 = { "F8" }
+		9 = { "F9" }
+		10 = { "F10" }
+		11 = { "F11" }
+		12 = { "F12" }
+		13 = { "F13" }
+		14 = { "F14" }
+		15 = { "F15" }
+		16 = { "F16" }
+		17 = { "F17" }
+		18 = { "F18" }
+		19 = { "F19" }
+		20 = { "F20" }
+		21 = { "F21" }
+		22 = { "F22" }
+		23 = { "F23" }
+		24 = { "F24" }
+		25 = { "F25" }
+		26 = { "F26" }
+		27 = { "F27" }
+		28 = { "F28" }
+		29 = { "F29" }
+		30 = { "F30" }
+	}
+}
+
+### ROLE: MERCHANT RAIDERS (vanilla tag; a focus assigns it) ###
+GER_MR_HISTORICAL = {
+	name = "Merchant Raiders"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Hilfskreuzer %d"
+
+	unique = {
+		# Hilfskreuzer of 1939-1945
+		"Orion" "Atlantis" "Widder" "Thor" "Pinguin" "Stier" "Komet" "Kormoran" "Michel" "Coronel" "Hansa" "Doggerbank"
+		# Hilfskreuzer of 1914-1918
+		"Kaiser Wilhelm der Große" "Cap Trafalgar" "Kronprinz Wilhelm" "Prinz Eitel Friedrich" "Geier" "Victoria Luise"
+		"Ayesha" "Libau"
+	}
+}
+
+### ROLE: AUXILIARY CARRIERS (vanilla tag) ###
+GER_CVL_HISTORICAL = {
+	name = "Auxiliary Carriers"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Hilfsflugzeugträger %d"
+
+	unique = {
+		# Conversion projects of 1942 and of 1918
+		"Weser" "Jade" "Elbe" "Europa" "Ausonia"
+		# Catapult ships and seaplane carriers
+		"Schwabenland" "Friesenland" "Answald" "Santa Elena" "Oswald"
+		# Expansion: rivers and bays of the German coasts (the formula of 1942)
+		"Ems" "Eider" "Trave" "Oder" "Schlei" "Peene" "Pregel" "Nogat" "Hunte" "Oste" "Stör" "Recknitz" "Ryck" "Uecker"
+		"Dievenow" "Dollart" "Leda" "Treene" "Schwentine"
+	}
+}
+
+### ROLE: MINELAYERS ###
+GER_MINELAYERS = {
+	name = "Minelayers"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Minenschiff %d"
+
+	unique = {
+		# Minenschiffe and minelayers of 1939-1945
+		"Tannenberg" "Hansestadt Danzig" "Königin Luise" "Kaiser" "Roland" "Cobra" "Brummer" "Bremse" "Skagerrak" "Ostmark"
+		"Drache" "Juminda" "Kiebitz" "Kehrwieder" "Passat" "Lauting" "Otter" "Irben" "Zeus" "Wullenwever" "Xanten"
+		"Versailles" "Niedersachsen" "Adjutant" "Togo" "Kamerun" "Dietrich von Bern" "Westmark"
+		# Minelayers of 1906-1918
+		"Nautilus" "Pelikan"
+	}
+}
+
+### ROLE: GUNBOATS AND AVISOS ###
+GER_GUNBOATS = {
+	name = "Gunboats & Avisos"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Kanonenboot %d"
+
+	unique = {
+		# Gunboats of 1860-1903 (Jäger, Camaeleon, Wolf, Habicht and Iltis classes)
+		"Eber" "Habicht" "Adler" "Hyäne" "Fuchs" "Hay" "Jäger" "Natter" "Pfeil" "Salamander" "Schwalbe" "Scorpion" "Sperber"
+		"Wespe" "Basilisk" "Blitz" "Camaeleon" "Cyclop" "Delphin" "Meteor"
+		# Armoured gunboats of 1876-1881 (Wespe class)
+		"Biene" "Mücke" "Viper" "Crocodill" "Hummel"
+		# Avisos and fleet tenders
+		"Wacht" "Jagd" "Hela" "Grille" "Loreley" "Pommerania" "Preußischer Adler" "Kaiseradler"
+		# River gunboats of the China station
+		"Vaterland" "Vorwärts" "Schamien"
+	}
+}
+
+### ROLE: TENDERS AND ESCORT SHIPS ###
+GER_TENDERS = {
+	name = "Tenders"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Begleitschiff %d"
+
+	unique = {
+		# Schnellboot tenders (colonial names)
+		"Tsingtau" "Tanga" "Carl Peters" "Adolf Lüderitz" "Hermann von Wißmann" "Gustav Nachtigal" "Buea"
+		# U-boat tenders (rivers, submarine pioneers and commanders)
+		"Saar" "Lech" "Isar" "Donau" "Weichsel" "Mosel" "Warnow" "Havel" "Neiße" "Wilhelm Bauer" "Waldemar Kophamel"
+		"Otto Wünsche" "Erwin Waßner" "Acheron"
+		# Räumboot tenders and trials vessels (seafarers of the Hanse and of Brandenburg)
+		"Von der Groeben" "Raule" "Brommy" "Nettelbeck" "Von der Lippe" "Alders" "Hille" "Jungingen" "Störtebeker"
+		"Claus von Bevern" "Paul Beneke" "Johann Wittenborg" "Sundevall" "Eduard Jungmann" "Hugo Zeye"
+		# Fleet tenders
+		"Nordsee" "Taku" "Frauenlob" "Gazelle" "Hecht" "Arkona"
+	}
+}
+
+### ROLE: SCOUT CRUISERS (vanilla tag; towns, as the cruisers carry cities) ###
+GER_CS_HISTORICAL = {
+	name = "Scout Cruisers"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Spähkreuzer %d"
+
+	unique = {
+		# Towns of the Reich (vanilla's roster without the towns founded or merged after 1936)
+		"Dessau" "Witten" "Görlitz" "Esslingen" "Neumünster" "Castrop-Rauxel" "Gladbeck" "Plauen" "Lüdenscheid" "Ludwigsburg"
+		"Worms" "Gütersloh" "Gießen" "Lünen" "Bamberg" "Herford" "Bayreuth" "Delmenhorst" "Detmold" "Weimar" "Neuwied"
+		"Konstanz" "Lüneburg" "Hattingen" "Hoyerswerda" "Schweinfurt" "Iserlohn" "Celle" "Gotha" "Wismar" "Merseburg"
+		"Velbert" "Hanau" "Dinslaken" "Pirmasens" "Tübingen" "Aschaffenburg" "Düren" "Moers" "Herten" "Landshut" "Eisenach"
+		"Freiberg" "Unna" "Bergisch Gladbach" "Hilden" "Rheine" "Ahlen" "Riesa" "Heidenheim" "Bad Salzuflen" "Bocholt"
+		"Minden" "Göppingen" "Pirna" "Marburg" "Hameln" "Cuxhaven" "Greifswald" "Zeitz" "Altenburg" "Halberstadt" "Schönebeck"
+		"Weißenfels" "Neubrandenburg" "Meißen" "Bernburg" "Wesel" "Mühlhausen" "Kempten" "Gummersbach" "Nordhausen" "Ratingen"
+		"Nordhorn" "Schwäbisch Gmünd" "Bautzen" "Friedrichshafen" "Kleve" "Neunkirchen" "Zittau" "Coburg" "Euskirchen"
+		"Bad Kreuznach" "Speyer" "Freital" "Bad Homburg" "Kamen" "Sindelfingen" "Lippstadt" "Frankenthal" "Singen" "Amberg"
+		"Elmshorn" "Brühl" "Radebeul" "Wolfenbüttel" "Bünde" "Goslar" "Kempen" "Stolberg" "Dorsten" "Greiz" "Saarlouis"
+		"Lemgo" "Kaufbeuren" "Idar-Oberstein" "Eschweiler" "Naumburg" "Straubing" "Soest" "Güstrow" "Baden-Baden"
+		"Aschersleben" "Rosenheim" "Aalen" "Wetzlar" "Stendal" "Köthen" "Itzehoe" "Böblingen" "Datteln" "Pinneberg"
+		"Neu-Isenburg" "Rendsburg" "Schwedt" "Schwelm" "Lörrach" "Siegburg" "Gevelsberg" "Saalfeld" "Ansbach" "Offenburg"
+		"Memmingen" "Höxter" "Zweibrücken" "Stade" "Wernigerode" "Homburg" "Sangerhausen" "Schleswig" "Glauchau" "Ravensburg"
+		"Rudolstadt" "Suhl" "Lingen" "Landau" "Königswinter" "Peine" "Fürstenwalde" "Passau" "Quedlinburg" "Mettmann"
+		"Eisleben" "Plettenberg" "Menden" "Rastatt" "Rathenow" "Sonneberg" "Weinheim" "Wedel" "Freising" "Borken" "Apolda"
+		"Fellbach" "Luckenwalde" "Arnstadt" "Kornwestheim" "Nordenham" "Neu-Ulm" "Döbeln" "Neustrelitz" "Backnang"
+		"Grevenbroich" "Bensheim" "Goch" "Beckum" "Helmstedt" "Geislingen" "Bruchsal" "Andernach" "Wermelskirchen"
+		"Tuttlingen" "Schwabach" "Gronau" "Coesfeld" "Staßfurt" "Meiningen" "Biberach" "Oberursel" "Lindau" "Husum" "Leonberg"
+		"Lahr" "Werl" "Uelzen"
+		# Expansion: old towns of the provinces
+		"Garmisch-Partenkirchen" "Wittenberg" "Torgau" "Eberswalde" "Neuruppin" "Prenzlau" "Stargard" "Kolmar" "Lauenburg"
+		"Rügenwalde" "Anklam" "Wolgast" "Demmin" "Pasewalk" "Tangermünde" "Salzwedel" "Havelberg" "Einbeck" "Northeim"
+		"Duderstadt" "Nienburg" "Verden" "Buxtehude" "Emmerich" "Jülich" "Wittlich" "Bingen" "Boppard" "Limburg" "Dillenburg"
+		"Friedberg" "Büdingen" "Wertheim" "Rothenburg" "Dinkelsbühl" "Nördlingen" "Donauwörth" "Eichstätt" "Weiden"
+		"Deggendorf" "Traunstein" "Füssen" "Mosbach" "Sigmaringen" "Rottweil" "Ellwangen" "Annaberg" "Schneeberg" "Marienberg"
+		"Löbau" "Kamenz" "Guben" "Forst" "Spremberg" "Landsberg" "Bunzlau" "Hirschberg" "Schweidnitz" "Brieg" "Neustadt"
+		"Rastenburg" "Lyck" "Osterode" "Braunsberg" "Marienwerder"
+	}
+}
+
+### THEME: ANIMALS (vanilla tag; beasts of prey and wildlife) ###
+GER_THEME_ANIMALS = {
+	name = NAME_THEME_ANIMALS
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Torpedoboote 1924, gunboats of 1860-1903
+		"Wolf" "Iltis" "Luchs" "Tiger" "Jaguar" "Leopard" "Panther" "Löwe" "Eber" "Hyäne" "Fuchs"
+		# Vanilla's beasts
+		"Gepard" "Bär" "Wiesel" "Wisent" "Puma" "Otter" "Biber" "Bison" "Elch" "Dachs" "Hirsch" "Steinbock" "Zebra" "Hermelin"
+		"Nerz" "Zobel" "Ozelot" "Marder"
+		# Wildlife of the German lands
+		"Wildkatze" "Braunbär" "Auerochse" "Rothirsch" "Damhirsch" "Gämse" "Murmeltier" "Baummarder" "Steinmarder"
+		"Fischotter" "Keiler" "Wildschwein" "Mufflon" "Frettchen" "Rotfuchs" "Feldhase" "Igel"
+		# Beasts of the north and of the colonies
+		"Eisbär" "Vielfraß" "Rentier" "Polarfuchs" "Silberfuchs" "Schakal" "Büffel" "Nashorn" "Elefant" "Antilope" "Gnu"
+	}
+}
+
+### THEME: BIRDS ###
+GER_BIRDS = {
+	name = "Birds"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Torpedoboote 1923, Bussard-class cruisers, gunboats and minelayers
+		"Möwe" "Seeadler" "Albatros" "Greif" "Kondor" "Falke" "Bussard" "Geier" "Kormoran" "Schwalbe" "Sperber" "Habicht"
+		"Adler" "Kiebitz" "Pelikan" "Fasan" "Flamingo"
+		# Vanilla's birds
+		"Rabe" "Reiher" "Storch" "Kranich"
+		# Birds of prey and owls
+		"Steinadler" "Fischadler" "Wanderfalke" "Turmfalke" "Baumfalke" "Rotmilan" "Schwarzmilan" "Wiesenweihe" "Rohrweihe"
+		"Mäusebussard" "Uhu" "Waldkauz" "Schleiereule" "Steinkauz"
+		# Seabirds, waders and waterfowl
+		"Silbermöwe" "Sturmmöwe" "Lachmöwe" "Mantelmöwe" "Heringsmöwe" "Eismöwe" "Raubmöwe" "Seeschwalbe" "Küstenseeschwalbe"
+		"Trottellumme" "Tordalk" "Alk" "Basstölpel" "Eissturmvogel" "Sturmschwalbe" "Austernfischer" "Brachvogel"
+		"Regenpfeifer" "Säbelschnäbler" "Rotschenkel" "Kampfläufer" "Eiderente" "Eisente" "Brandgans" "Graugans" "Saatgans"
+		"Singschwan" "Wildschwan" "Schwan" "Rohrdommel" "Löffler" "Haubentaucher"
+		# Birds of wood and field
+		"Eisvogel" "Lerche" "Nachtigall" "Drossel" "Amsel" "Zaunkönig" "Pirol" "Specht" "Kuckuck" "Auerhahn" "Birkhahn"
+		"Wachtel" "Elster" "Eichelhäher" "Dohle" "Krähe" "Kolkrabe"
+	}
+}
+
+### THEME: FISH AND SEA LIFE (vanilla tag) ###
+GER_THEME_FISH = {
+	name = "Fish & Sea Life"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Vanilla's fish
+		"Zander" "Wels" "Hering" "Aal" "Hecht" "Flunder" "Dorsch" "Hai" "Stachelrochen" "Neunauge" "Bitterling" "Lachs"
+		"Barsch" "Kabeljau" "Forelle" "Stör" "Barbe" "Schleie" "Sardine" "Grundel" "Makrele" "Heilbutt" "Seezunge" "Knurrhahn"
+		"Delphin" "Wal"
+		# Fish of river and lake
+		"Karpfen" "Rotauge" "Rotfeder" "Döbel" "Brasse" "Karausche" "Gründling" "Elritze" "Äsche" "Huchen" "Saibling" "Renke"
+		"Maräne" "Güster" "Ukelei" "Bachforelle" "Meerforelle"
+		# Fish of the sea
+		"Scholle" "Steinbutt" "Rotbarsch" "Seelachs" "Wittling" "Seehecht" "Rochen" "Dornhai" "Katzenhai" "Heringshai"
+		"Hammerhai" "Schwertfisch" "Sägefisch" "Thunfisch" "Seeteufel" "Petermännchen" "Sprotte" "Stint" "Seeskorpion"
+		"Seenadel" "Seepferd" "Stichling" "Kliesche" "Leng" "Hornhecht" "Meeräsche" "Muräne"
+		# Sea mammals and other sea life
+		"Tümmler" "Schweinswal" "Pottwal" "Blauwal" "Finnwal" "Buckelwal" "Narwal" "Schwertwal" "Seehund" "Kegelrobbe"
+		"Seelöwe" "Walross" "Krake" "Tintenfisch" "Hummer" "Krabbe" "Seestern" "Seeigel" "Qualle" "Seeschlange"
+	}
+}
+
+### THEME: INSECTS AND REPTILES ###
+GER_INSECTS = {
+	name = "Insects & Reptiles"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Wespe-class armoured gunboats, gunboats of 1860, Brummer and Bremse
+		"Wespe" "Viper" "Biene" "Mücke" "Scorpion" "Basilisk" "Camaeleon" "Crocodill" "Salamander" "Natter" "Hummel" "Brummer"
+		"Bremse" "Drache" "Grille" "Tarantel" "Libelle" "Eidechse"
+		# Insects and spiders
+		"Hornisse" "Ameise" "Spinne" "Kreuzspinne" "Hirschkäfer" "Maikäfer" "Heuschrecke" "Zikade" "Termite" "Moskito"
+		"Skarabäus" "Gottesanbeterin"
+		# Reptiles and amphibians
+		"Kobra" "Kreuzotter" "Ringelnatter" "Schlange" "Blindschleiche" "Molch" "Kröte" "Unke" "Schildkröte" "Leguan" "Python"
+		"Mamba" "Klapperschlange" "Gecko" "Kaiman" "Alligator" "Waran"
+	}
+}
+
+### THEME: WIND AND WEATHER ###
+GER_NATURE = {
+	name = "Wind & Weather"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Avisos, tenders and patrol vessels
+		"Blitz" "Pfeil" "Strahl" "Welle" "Polarfront" "Nordwind" "Woge"
+		# Winds
+		"Monsun" "Orkan" "Taifun" "Sturm" "Sturmwind" "Wirbelwind" "Westwind" "Südwind" "Ostwind" "Seewind" "Föhn" "Bora"
+		"Mistral" "Schirokko" "Brise" "Windsbraut" "Tornado" "Hurrikan"
+		# Weather and sea
+		"Gewitter" "Donner" "Donnerkeil" "Wetterleuchten" "Hagel" "Frost" "Nordlicht" "Polarlicht" "Morgenrot" "Abendrot"
+		"Regenbogen" "Brandung" "Sturmflut" "Springflut" "Flut" "Ebbe" "Dünung" "Gischt" "Wirbel" "Seegang"
+	}
+}
+
+### THEME: STARS AND PLANETS ###
+GER_STARS = {
+	name = "Stars & Planets"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Navigation training ships, raiders, survey ships and transports
+		"Spica" "Regulus" "Nordstern" "Nadir" "Wega" "Castor" "Pollux" "Orion" "Komet" "Meteor" "Planet" "Antares" "Algol"
+		# Stars
+		"Sirius" "Rigel" "Aldebaran" "Atair" "Arkturus" "Capella" "Deneb" "Gemma" "Mira" "Beteigeuze" "Prokyon" "Polarstern"
+		"Morgenstern" "Abendstern" "Sternschnuppe"
+		# Constellations
+		"Kassiopeia" "Andromeda" "Pegasus" "Perseus" "Herkules" "Zentaur" "Phönix" "Leier" "Plejaden" "Großer Wagen"
+		"Kreuz des Südens" "Widder" "Stier" "Zwillinge" "Krebs" "Jungfrau" "Waage" "Wassermann"
+		# Planets
+		"Merkur" "Venus" "Mars" "Jupiter" "Saturn" "Uranus" "Neptun" "Pluto" "Luna"
+	}
+}
+
+### THEME: RIVERS AND LAKES (vanilla tag) ###
+GER_THEME_RIVERS = {
+	name = "Rivers & Lakes"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Vanilla's rivers
+		"Weser" "Jade" "Elbe" "Rhein" "Recknitz" "Neiße" "Main" "Trave" "Uecker" "Donau" "Oder" "Inn" "Isar" "Maas" "Ruhr"
+		"Spree" "Mosel" "Wupper" "Saar" "Neckar" "Sauer" "Warnow" "Aller" "Fulda" "Werra" "Alster" "Havel"
+		# Rhine, Ems and Weser basins
+		"Lahn" "Nahe" "Kinzig" "Murg" "Tauber" "Kocher" "Jagst" "Regnitz" "Pegnitz" "Nidda" "Eder" "Diemel" "Lippe" "Emscher"
+		"Ems" "Hase" "Hunte" "Leine" "Oker" "Wümme" "Ahr" "Erft" "Nette" "Kyll"
+		# Elbe and Oder basins, Baltic rivers
+		"Saale" "Mulde" "Unstrut" "Ilm" "Bode" "Schwarze Elster" "Elde" "Stör" "Oste" "Ilmenau" "Eider" "Treene" "Schlei"
+		"Peene" "Tollense" "Trebel" "Ryck" "Dahme" "Rhin" "Warthe" "Netze" "Bober" "Weichsel" "Nogat" "Pregel" "Memel" "Alle"
+		"Passarge" "Persante" "Rega" "Wipper"
+		# Danube basin
+		"Lech" "Iller" "Altmühl" "Naab" "Regen" "Salzach" "Wörnitz" "Vils" "Amper" "Loisach"
+		# Lakes and lagoons
+		"Bodensee" "Müritz" "Chiemsee" "Ammersee" "Tegernsee" "Walchensee" "Königssee" "Starnberger See" "Schweriner See"
+		"Plöner See" "Steinhuder Meer" "Wittensee" "Westensee" "Frisches Haff" "Kurisches Haff" "Stettiner Haff"
+	}
+}
+
+### THEME: STATES AND PROVINCES ###
+GER_PROVINCES = {
+	name = "States & Provinces"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# States of the Reich
+		"Preußen" "Bayern" "Sachsen" "Württemberg" "Baden" "Hessen" "Thüringen" "Mecklenburg" "Oldenburg" "Braunschweig"
+		"Anhalt" "Lippe" "Schaumburg-Lippe" "Waldeck"
+		# Prussian provinces
+		"Ostpreußen" "Westpreußen" "Brandenburg" "Pommern" "Schlesien" "Oberschlesien" "Niederschlesien" "Posen" "Hannover"
+		"Schleswig-Holstein" "Westfalen" "Rheinland" "Hessen-Nassau" "Hohenzollern" "Grenzmark"
+		# Old lands and marches
+		"Franken" "Schwaben" "Pfalz" "Kurpfalz" "Kurhessen" "Nassau" "Holstein" "Schleswig" "Lauenburg" "Friesland"
+		"Ostfriesland" "Dithmarschen" "Kurmark" "Neumark" "Altmark" "Uckermark" "Prignitz" "Lausitz" "Vogtland" "Ermland"
+		"Masuren" "Samland" "Kurland" "Livland" "Elsaß" "Lothringen" "Saarland" "Breisgau" "Allgäu" "Emsland" "Münsterland"
+		"Sauerland" "Oberpfalz" "Niederbayern" "Oberbayern" "Rheinhessen" "Oberhessen" "Eichsfeld" "Wendland" "Angeln"
+	}
+}
+
+### THEME: HANSEATIC TOWNS ###
+GER_HANSE = {
+	name = "Hanseatic Towns"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# The Wendish and Pomeranian towns
+		"Lübeck" "Hamburg" "Bremen" "Rostock" "Stralsund" "Wismar" "Lüneburg" "Greifswald" "Stettin" "Kolberg" "Anklam"
+		"Demmin" "Stargard" "Stolp" "Rügenwalde" "Kiel" "Stade" "Buxtehude"
+		# The Prussian and Livonian towns
+		"Danzig" "Elbing" "Thorn" "Königsberg" "Braunsberg" "Kulm" "Reval" "Dorpat"
+		# The Saxon and Brandenburg towns
+		"Braunschweig" "Magdeburg" "Goslar" "Hildesheim" "Göttingen" "Einbeck" "Hameln" "Hannover" "Halberstadt" "Quedlinburg"
+		"Halle" "Erfurt" "Nordhausen" "Mühlhausen" "Stendal" "Salzwedel" "Tangermünde" "Berlin" "Frankfurt an der Oder"
+		"Breslau"
+		# The Westphalian and Rhenish towns
+		"Köln" "Dortmund" "Soest" "Münster" "Osnabrück" "Paderborn" "Herford" "Lemgo" "Lippstadt" "Unna" "Hamm" "Duisburg"
+		"Wesel" "Emmerich" "Neuss"
+		# Kontore and trading posts
+		"Brügge" "Bergen" "Nowgorod" "Stalhof" "Visby" "Schonen"
+	}
+}
+
+### THEME: ISLANDS AND COASTS ###
+GER_ISLANDS = {
+	name = "Islands & Coasts"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# North Sea islands
+		"Helgoland" "Sylt" "Föhr" "Amrum" "Pellworm" "Nordstrand" "Borkum" "Juist" "Norderney" "Baltrum" "Langeoog"
+		"Spiekeroog" "Wangerooge" "Neuwerk" "Scharhörn" "Trischen" "Mellum" "Memmert" "Hooge" "Langeneß" "Oland" "Gröde"
+		"Süderoog"
+		# Baltic islands
+		"Rügen" "Usedom" "Wollin" "Fehmarn" "Hiddensee" "Poel" "Ummanz" "Vilm" "Ruden" "Greifswalder Oie"
+		# Headlands, peninsulas and coasts
+		"Arkona" "Jasmund" "Wittow" "Mönchgut" "Stubbenkammer" "Darß" "Zingst" "Fischland" "Eiderstedt" "Butjadingen"
+		"Wursten" "Kehdingen" "Hadeln" "Schwansen" "Wagrien" "Holnis" "Bülk" "Dornbusch" "Darßer Ort" "Rixhöft" "Brüsterort"
+		"Hela" "Frische Nehrung" "Kurische Nehrung"
+		# Sea areas, bights and sands
+		"Deutsche Bucht" "Kieler Bucht" "Lübecker Bucht" "Pommersche Bucht" "Danziger Bucht" "Jadebusen" "Dollart"
+		"Wattenmeer" "Amrumbank" "Borkumriff" "Adlergrund" "Stollergrund" "Kalkgrund" "Knechtsand"
+	}
+}
+
+### THEME: MOUNTAINS AND RANGES ###
+GER_GEOGRAPHY = {
+	name = "Mountains & Ranges"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Peaks
+		"Zugspitze" "Watzmann" "Hochkönig" "Wendelstein" "Nebelhorn" "Brocken" "Feldberg" "Belchen" "Schneekoppe" "Zobten"
+		"Großer Arber" "Fichtelberg" "Ochsenkopf" "Schneeberg" "Wasserkuppe" "Kreuzberg" "Inselsberg" "Kyffhäuser"
+		"Großer Feldberg" "Hohe Acht" "Erbeskopf" "Donnersberg" "Kahler Asten" "Hermannshöhe" "Drachenfels" "Ölberg"
+		"Hohentwiel" "Staufen" "Kandel" "Hornisgrinde" "Lilienstein" "Oybin" "Königstuhl"
+		# Ranges and forests
+		"Harz" "Schwarzwald" "Odenwald" "Spessart" "Taunus" "Eifel" "Hunsrück" "Westerwald" "Rhön" "Vogelsberg"
+		"Thüringer Wald" "Frankenwald" "Fichtelgebirge" "Erzgebirge" "Riesengebirge" "Isergebirge" "Eulengebirge"
+		"Bayerischer Wald" "Böhmerwald" "Steigerwald" "Haardt" "Pfälzerwald" "Solling" "Deister" "Süntel" "Siebengebirge"
+		"Wetterstein" "Karwendel" "Allgäuer Alpen" "Schwäbische Alb" "Fränkische Alb" "Sachsenwald" "Lüneburger Heide"
+		"Rothaargebirge" "Ebbegebirge" "Wiehengebirge" "Elbsandsteingebirge"
+	}
+}
+
+### THEME: CASTLES AND FORTRESSES ###
+GER_CASTLES = {
+	name = "Castles & Forts"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Castles of the Reich
+		"Wartburg" "Burg Hohenzollern" "Hohenstaufen" "Trifels" "Marksburg" "Rheinfels" "Stolzenfels" "Rheinstein" "Sooneck"
+		"Lahneck" "Eltz" "Cochem" "Hohenschwangau" "Neuschwanstein" "Lichtenstein" "Sigmaringen" "Burghausen" "Trausnitz"
+		"Plassenburg" "Veste Coburg" "Heldburg" "Leuchtenburg" "Rudelsburg" "Saaleck" "Kriebstein" "Stolpen" "Albrechtsburg"
+		"Moritzburg" "Dankwarderode" "Kaiserpfalz" "Wachenburg" "Hohkönigsburg" "Hardenburg" "Limburg" "Greifenstein"
+		"Hohenneuffen"
+		# Castles of the Teutonic Order
+		"Marienburg" "Marienwerder" "Rheden" "Mewe" "Heilsberg" "Rößel" "Allenstein" "Neidenburg" "Ortelsburg" "Lochstädt"
+		"Balga" "Ragnit" "Memelburg" "Schwetz" "Gollub"
+		# Fortresses
+		"Ehrenbreitstein" "Königstein" "Spandau" "Küstrin" "Glatz" "Silberberg" "Cosel" "Jülich" "Rastatt" "Germersheim"
+		"Hohenasperg" "Rothenberg" "Wülzburg" "Festung Rosenberg" "Marienberg" "Wilhelmstein" "Friedrichsort" "Feste Boyen"
+		"Feste Courbière" "Weichselmünde" "Dömitz" "Peitz" "Petersberg"
+	}
+}
+
+### THEME: COLONIES AND STATIONS ###
+GER_COLONIES = {
+	name = "Colonies"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# The protectorates of 1884-1919
+		"Kamerun" "Togo" "Samoa" "Kiautschou" "Deutsch-Ostafrika" "Deutsch-Südwestafrika" "Deutsch-Neuguinea"
+		"Kaiser-Wilhelmsland" "Bismarck-Archipel" "Neupommern" "Neumecklenburg" "Karolinen" "Marianen" "Marshallinseln"
+		"Palau" "Nauru"
+		# Stations, ports and places of Africa
+		"Daressalam" "Bagamoyo" "Lindi" "Kilwa" "Tabora" "Kigoma" "Muansa" "Kilimandscharo" "Windhuk" "Swakopmund"
+		"Lüderitzbucht" "Keetmanshoop" "Okahandja" "Omaruru" "Otavi" "Tsumeb" "Grootfontein" "Waterberg" "Duala" "Buea"
+		"Kribi" "Jaunde" "Garua" "Lome" "Kamina" "Atakpame" "Sansibar" "Witu"
+		# Stations of East Asia and the Pacific
+		"Tsingtau" "Taku" "Apia" "Sawaii" "Upolu" "Rabaul" "Herbertshöhe" "Friedrich-Wilhelmshafen" "Finschhafen" "Ponape"
+		"Jaluit" "Saipan" "Angaur" "Truk"
+		# Ships of the colonial lines taken into the navy
+		"Urundi" "Ubena" "Wangoni" "Usambara"
+	}
+}
+
+### THEME: EMPERORS AND KINGS ###
+GER_RULERS = {
+	name = "Emperors & Kings"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Emperors and kings of the old Reich
+		"Karl der Große" "Ludwig der Deutsche" "Heinrich der Vogler" "Otto der Große" "Otto II." "Otto III." "Heinrich II."
+		"Konrad II." "Heinrich III." "Heinrich IV." "Lothar von Supplinburg" "Konrad III." "Friedrich Barbarossa"
+		"Heinrich VI." "Philipp von Schwaben" "Otto IV." "Friedrich II. von Staufen" "Rudolf von Habsburg" "Adolf von Nassau"
+		"Heinrich VII." "Ludwig der Bayer" "Karl IV." "Sigismund" "Maximilian I." "Karl V."
+		# Brandenburg and Prussia
+		"Albrecht der Bär" "Friedrich Eisenzahn" "Albrecht Achilles" "Joachim Nestor" "Joachim Hektor" "Johann Sigismund"
+		"Großer Kurfürst" "Friedrich I." "Der Soldatenkönig" "Friedrich der Große" "Friedrich Wilhelm II."
+		"Friedrich Wilhelm III." "Friedrich Wilhelm IV." "Königin Luise" "Wilhelm I." "Friedrich III."
+		# Other German houses
+		"Heinrich der Löwe" "Heinrich der Stolze" "Otto von Wittelsbach" "Friedrich der Siegreiche" "Friedrich der Weise"
+		"Moritz von Sachsen" "August der Starke" "König Albert" "Eberhard im Bart" "Philipp der Großmütige" "Max Emanuel"
+		"Türkenlouis" "Ludwig I. von Bayern" "Ludwig II. von Bayern" "Prinzregent Luitpold" "Carl August" "Ernst August"
+	}
+}
+
+### THEME: GENERALS AND FIELD MARSHALS ###
+GER_GENERALS = {
+	name = "Generals"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Thirty Years' War and the Turkish wars
+		"Tilly" "Wallenstein" "Pappenheim" "Bernhard von Weimar" "Derfflinger" "Sparr" "Prinz Eugen"
+		# Wars of Frederick the Great
+		"Der Alte Dessauer" "Graf Schwerin" "Keith" "Seydlitz" "Zieten" "Winterfeldt" "Fouqué" "Ferdinand von Braunschweig"
+		"Prinz Heinrich von Preußen" "Belling" "Möllendorff"
+		# Wars of Liberation
+		"Blücher" "Gneisenau" "Scharnhorst" "Yorck" "Bülow von Dennewitz" "Kleist von Nollendorf" "Tauentzien von Wittenberg"
+		"Boyen" "Clausewitz" "Grolman" "Lützow" "Schill" "Thielmann" "Wrede"
+		# Wars of unification
+		"Moltke" "Roon" "Wrangel" "Steinmetz" "Edwin von Manteuffel" "Goeben" "Werder" "Blumenthal" "Vogel von Falckenstein"
+		"Von der Tann" "Constantin von Alvensleben" "Kirchbach" "Fransecky"
+		# The World War
+		"Hindenburg" "Schlieffen" "Falkenhayn" "Emmich" "Woyrsch" "Kluck" "Beseler" "Georg von der Marwitz" "Linsingen"
+		"Hutier" "Eichhorn" "Max Hoffmann" "Haeseler" "Einem" "Fritz von Below" "Goltz Pascha" "Liman von Sanders"
+		"Karl von Bülow" "Max von Hausen"
+	}
+}
+
+### THEME: SEAFARERS AND ADMIRALS ###
+GER_ADMIRALS = {
+	name = "Seafarers"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Captains, mayors and privateers of the Hanse
+		"Störtebeker" "Gödeke Michels" "Paul Beneke" "Simon von Utrecht" "Johann Wittenborg" "Jürgen Wullenwever"
+		"Bruno von Warendorp" "Hinrich Castorp" "Ditmar Koel" "Berend Karpfanger"
+		# The Brandenburg navy
+		"Benjamin Raule" "Von der Groeben" "Claus von Bevern" "Thomas Alders"
+		# Reichsflotte and Prussian navy
+		"Karl Rudolf Brommy" "Arnold Duckwitz" "Prinz Adalbert" "Eduard von Jachmann" "Jan Schröder" "Reinhold von Werner"
+		"Ludwig von Henk" "Karl Ferdinand Batsch" "Wilhelm Bauer"
+		# The Imperial navy
+		"Alfred von Tirpitz" "Reinhard Scheer" "Franz von Hipper" "Graf Spee" "Albrecht von Stosch" "Eduard von Knorr"
+		"Hans von Koester" "Prinz Heinrich" "Otto von Diederichs" "Hugo von Pohl" "Henning von Holtzendorff"
+		"Friedrich von Ingenohl" "Felix von Bendemann"
+		# Shipowners and builders
+		"Albert Ballin" "Adolph Woermann" "Ferdinand Laeisz" "Hermann Henrich Meier" "Johann Cesar Godeffroy"
+		"Ferdinand Schichau" "Hermann Blohm" "Ernst Voss" "Georg Howaldt"
+	}
+}
+
+### THEME: NAVAL HEROES ###
+GER_HEROES = {
+	name = "Naval Heroes"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# The namesakes of the destroyers Z1 to Z22
+		"Leberecht Maass" "Georg Thiele" "Max Schultz" "Richard Beitzen" "Paul Jacobi" "Theodor Riedel" "Hermann Schoemann"
+		"Bruno Heinemann" "Wolfgang Zenker" "Hans Lody" "Bernd von Arnim" "Erich Giese" "Erich Koellner" "Friedrich Ihn"
+		"Erich Steinbrinck" "Friedrich Eckoldt" "Diether von Roeder" "Hans Lüdemann" "Hermann Künne" "Karl Galster"
+		"Wilhelm Heidkamp" "Anton Schmitt"
+		# U-boat commanders (the names of the U-cruisers of 1918 and of the flotillas of 1935-39 among them)
+		"Otto Weddigen" "Walther Schwieger" "Reinhold Saltzwedel" "Johannes Lohs" "Bernd Wegener" "Claus Hansen"
+		"Herbert Pustkuchen" "Egewolf von Berckheim" "Rudolf Schneider" "Hans Joachim Emsmann" "Paul Hundius" "Curt Beitzen"
+		"Hans Valentiner" "Paul Wagenführ" "Graf von Schmettow" "Victor Dieckmann" "Ernst Voigt" "Rudolf Seuffer"
+		"Ernst Rosenow" "Otto Wünsche" "Waldemar Kophamel" "Kurt Schapler" "Theodor Schultz" "Ernst Steindorff" "Werner Löwe"
+		"Thomas Bieber" "Cäsar Bauer" "Gustav Buch" "Erich Hecht" "Karsten von Heydebreck" "Erwin Weisbach" "Fritz Wernicke"
+		# Cruiser captains and others
+		"Karl von Müller" "Erich Köhler" "Fritz Lüdecke"
+	}
+}
+
+### THEME: EXPLORERS AND NAVIGATORS ###
+GER_EXPLORERS = {
+	name = "Explorers"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Navigators and voyagers
+		"Martin Behaim" "Georg Forster" "Reinhold Forster" "Adelbert von Chamisso" "Carsten Niebuhr" "Georg Wilhelm Steller"
+		"Engelbert Kaempfer" "Philipp Franz von Siebold" "Krusenstern" "Bellingshausen" "Otto von Kotzebue"
+		"Ferdinand von Wrangel" "Eduard Dallmann" "Carl Koldewey" "Georg von Neumayer" "Alfred Wegener" "Carl Chun"
+		# Travellers of Africa
+		"Heinrich Barth" "Gerhard Rohlfs" "Eduard Vogel" "Gustav Nachtigal" "Georg Schweinfurth" "Emin Pascha"
+		"Karl Klaus von der Decken" "Johann Ludwig Krapf" "Johannes Rebmann" "Hans Meyer" "Franz Stuhlmann" "Paul Pogge"
+		"Wilhelm Junker" "Oskar Lenz"
+		# Travellers of Asia, the Americas and Australia
+		"Alexander von Humboldt" "Ferdinand von Richthofen" "Ludwig Leichhardt" "Maximilian zu Wied" "Robert Schomburgk"
+		"Hermann Schlagintweit" "Adolf Bastian" "Karl von den Steinen" "Theodor Koch-Grünberg"
+		# Survey and research ships
+		"Gazelle" "Valdivia"
+	}
+}
+
+### THEME: SCIENTISTS AND INVENTORS ###
+GER_SCIENTISTS = {
+	name = "Scientists"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Astronomers, mathematicians and physicists
+		"Kopernikus" "Kepler" "Regiomontanus" "Leibniz" "Otto von Guericke" "Fahrenheit" "Gauß" "Bessel" "Fraunhofer" "Ohm"
+		"Wilhelm Weber" "Robert Mayer" "Clausius" "Kirchhoff" "Helmholtz" "Heinrich Hertz" "Röntgen" "Ferdinand Braun"
+		"Riemann" "Adolf Slaby"
+		# Chemists, physicians and naturalists
+		"Paracelsus" "Agricola" "Albertus Magnus" "Liebig" "Wöhler" "Bunsen" "Kekulé" "Robert Koch" "Virchow" "Behring"
+		"Paul Ehrlich" "Hahnemann" "Haeckel" "Böttger" "Tschirnhaus"
+		# Inventors and engineers
+		"Gutenberg" "Peter Henlein" "Senefelder" "Friedrich Koenig" "Karl Drais" "Philipp Reis" "Werner von Siemens"
+		"Rudolf Diesel" "Carl Benz" "Gottlieb Daimler" "Nikolaus Otto" "Wilhelm Maybach" "August Borsig" "Alfred Krupp"
+		"Carl von Linde" "Ernst Abbe" "Carl Zeiss"
+	}
+}
+
+### THEME: POETS AND THINKERS ###
+GER_WRITERS = {
+	name = "Poets & Thinkers"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Poets of the Middle Ages and the Reformation
+		"Walther von der Vogelweide" "Wolfram von Eschenbach" "Hartmann von Aue" "Gottfried von Straßburg" "Hans Sachs"
+		"Martin Luther" "Melanchthon" "Gryphius" "Grimmelshausen"
+		# Classics and Romantics
+		"Goethe" "Schiller" "Lessing" "Herder" "Klopstock" "Wieland" "Hölderlin" "Novalis" "Heinrich von Kleist" "Jean Paul"
+		"Eichendorff" "Uhland" "Theodor Körner" "Ernst Moritz Arndt" "Brüder Grimm" "E. T. A. Hoffmann" "Hauff" "Heine"
+		"Mörike" "Droste-Hülshoff" "Fallersleben"
+		# Poets of the coast and of the nineteenth century
+		"Hebbel" "Theodor Storm" "Fontane" "Raabe" "Fritz Reuter" "Klaus Groth" "Liliencron" "Gorch Fock" "Hermann Löns"
+		"Rilke" "Stefan George" "Wilhelm Busch"
+		# Thinkers
+		"Meister Eckhart" "Kant" "Fichte" "Hegel" "Schelling" "Schopenhauer" "Nietzsche" "Wilhelm von Humboldt"
+		# Painters and builders
+		"Albrecht Dürer" "Holbein" "Cranach" "Grünewald" "Riemenschneider" "Veit Stoß" "Caspar David Friedrich" "Menzel"
+		"Schinkel" "Schlüter" "Balthasar Neumann"
+	}
+}
+
+### THEME: COMPOSERS ###
+GER_COMPOSERS = {
+	name = "Composers"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Baroque
+		"Heinrich Schütz" "Praetorius" "Dietrich Buxtehude" "Pachelbel" "Telemann" "Bach" "Händel" "Graun" "Hasse" "Quantz"
+		"Philipp Emanuel Bach"
+		# Classical and Romantic
+		"Gluck" "Haydn" "Mozart" "Beethoven" "Weber" "Schubert" "Mendelssohn" "Schumann" "Wagner" "Brahms" "Bruckner" "Spohr"
+		"Loewe" "Marschner" "Lortzing" "Nicolai" "Flotow" "Meyerbeer" "Cornelius" "Bruch" "Raff" "Silcher" "Zelter"
+		# Turn of the century
+		"Hugo Wolf" "Mahler" "Reger" "Humperdinck" "Johann Strauß"
+	}
+}
+
+### THEME: KNIGHTS AND ORDERS ###
+GER_KNIGHTS = {
+	name = "Knights & Orders"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Grand Masters and a Landmeister of the Teutonic Order
+		"Hermann von Salza" "Hermann von Balk" "Konrad von Thüringen" "Poppo von Osterna" "Anno von Sangerhausen"
+		"Hartmann von Heldrungen" "Siegfried von Feuchtwangen" "Karl von Trier" "Werner von Orseln" "Luther von Braunschweig"
+		"Dietrich von Altenburg" "Winrich von Kniprode" "Konrad von Wallenrode" "Konrad von Jungingen" "Ulrich von Jungingen"
+		"Heinrich von Plauen" "Michael Küchmeister" "Albrecht von Brandenburg-Ansbach"
+		# Imperial knights and captains of the Landsknechte
+		"Ulrich von Hutten" "Götz von Berlichingen" "Franz von Sickingen" "Georg von Frundsberg" "Florian Geyer"
+		"Schertlin von Burtenbach" "Wilhelm von Grumbach" "Eppelein von Gailingen"
+		# Margraves and champions of the Middle Ages
+		"Hermann Billung" "Markgraf Gero" "Konrad der Rote" "Otto von Northeim"
+		# Orders and men-at-arms
+		"Deutschritter" "Schwertbrüder" "Johanniter" "Ordensritter" "Kreuzritter" "Reichsritter" "Landsknecht" "Doppelsöldner"
+		"Hochmeister" "Komtur" "Ordensmarschall"
+	}
+}
+
+### THEME: GERMANIC TRIBES AND THEIR LEADERS ###
+GER_TRIBES = {
+	name = "Germanic Tribes"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Leaders and kings
+		"Arminius" "Marbod" "Ariovist" "Thusnelda" "Civilis" "Ermanarich" "Athanarich" "Fritigern" "Wulfila" "Alarich"
+		"Geiserich" "Gelimer" "Theoderich" "Odoaker" "Totila" "Teja" "Alboin" "Chlodwig" "Radbod" "Widukind"
+		# Tribes of Tacitus' Germania
+		"Cherusker" "Chatten" "Brukterer" "Marser" "Sugambrer" "Bataver" "Chauken" "Hermunduren" "Semnonen" "Markomannen"
+		"Quaden" "Sueben" "Ubier" "Usipeter" "Tenkterer" "Kimbern" "Teutonen" "Ambronen"
+		# Peoples of the migrations
+		"Goten" "Ostgoten" "Westgoten" "Vandalen" "Burgunder" "Langobarden" "Gepiden" "Heruler" "Rugier" "Skiren" "Alemannen"
+		"Bajuwaren" "Thüringer" "Friesen" "Jüten" "Warnen" "Wikinger" "Waräger" "Normannen"
+	}
+}
+
+### THEME: GERMANIC MYTHOLOGY (vanilla tag) ###
+GER_THEME_GERMANIC = {
+	name = NAME_THEME_GERMANIC_MYTHOLOGY
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Gods of the continental Germans (Merseburg charms, Tacitus, inscriptions)
+		"Wotan" "Donar" "Ziu" "Frija" "Volla" "Phol" "Balder" "Sunna" "Sinthgunt" "Saxnot" "Nerthus" "Tamfana" "Baduhenna"
+		"Nehalennia" "Hludana" "Mannus" "Tuisto" "Ostara" "Holda" "Perchta"
+		# Vanilla's Norse names
+		"Tyr" "Thrym" "Ägir" "Ran" "Atla" "Hödur" "Hymir" "Bor" "Bragi" "Vili" "Thrud" "Idun" "Lodur" "Mani"
+		# Gods of the north in German form
+		"Odin" "Thor" "Freyr" "Freyja" "Frigg" "Loki" "Heimdall" "Njörd" "Skadi" "Sif" "Forseti" "Widar" "Wali" "Ull" "Hönir"
+		"Mimir" "Nanna" "Gefion" "Hermod" "Magni" "Modi" "Hel"
+		# Beasts, places and things of the myths
+		"Fenrir" "Sleipnir" "Hugin" "Munin" "Geri" "Freki" "Midgard" "Asgard" "Walhall" "Bifröst" "Mjölnir" "Gungnir"
+		"Yggdrasil" "Gjallarhorn" "Draupnir" "Skidbladnir" "Hringhorni" "Niflheim" "Muspelheim" "Surt" "Ymir" "Walküre"
+		"Norne" "Urd" "Skuld" "Werdandi" "Midgardschlange"
+	}
+}
+
+### THEME: HEROIC SAGAS ###
+GER_SAGAS = {
+	name = "Heroic Sagas"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Siegfried-class coastal defence ships, saga names of minelayers, minesweepers and Danube guard ships
+		"Siegfried" "Beowulf" "Frithjof" "Hildebrand" "Hagen" "Volker" "Dietrich von Bern" "Alberich" "Balmung" "Bechelaren"
+		# The Nibelungs
+		"Kriemhild" "Brünhild" "Gunther" "Gernot" "Giselher" "Rüdiger" "Etzel" "Dankwart" "Ortwin" "Sieglinde" "Siegmund"
+		"Sigurd" "Fafnir" "Mime" "Regin" "Nibelung" "Nothung" "Isenstein" "Gibich" "Ute" "Sigi" "Wälsung"
+		# Dietrich, Gudrun and Walther
+		"Wolfhart" "Heime" "Witege" "Wolfdietrich" "Ortnit" "Laurin" "Ecke" "Hadubrand" "Walther" "Hildegund"
+		"Wieland der Schmied" "Kudrun" "Wate" "Horand" "Hettel" "Hilde" "Herwig" "Hartmut" "Ortrun"
+		# Knights of the courtly epics
+		"Roland" "Parzival" "Lohengrin" "Tannhäuser" "Tristan" "Isolde" "Gawan" "Titurel" "Iwein" "Erec" "Herzog Ernst"
+		"König Rother"
+	}
+}
+
+### THEME: LEGENDS AND FAIRY TALES ###
+GER_LEGENDS = {
+	name = "Legends & Tales"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Ship names: avisos, corvettes, a torpedo boat, torpedo transports
+		"Loreley" "Undine" "Nixe" "Vineta" "Schneewittchen" "Max" "Moritz" "Rugard"
+		# Legends of land and sea
+		"Rübezahl" "Till Eulenspiegel" "Münchhausen" "Doktor Faust" "Mephisto" "Rattenfänger" "Frau Holle" "Rheingold"
+		"Rheintöchter" "Erlkönig" "Freischütz" "Wilde Jagd" "Wilder Jäger" "Heinzelmännchen" "Klabautermann"
+		"Fliegender Holländer" "Schimmelreiter" "Peter Schlemihl" "Nöck" "Meerjungfrau" "Irrlicht" "Kobold" "Zwergkönig"
+		"Rheinnixe" "Wassernixe" "Elfenkönig" "Knecht Ruprecht" "Sandmann" "Nussknacker"
+		# Tales of the Brothers Grimm
+		"Rumpelstilzchen" "Dornröschen" "Aschenputtel" "Rotkäppchen" "Rapunzel" "Hänsel" "Gretel" "Froschkönig"
+		"Hans im Glück" "Gestiefelter Kater" "Bremer Stadtmusikanten" "Tapferes Schneiderlein" "Eiserner Heinrich"
+		"Schneeweißchen" "Rosenrot" "König Drosselbart"
+	}
+}
+
+### THEME: CLASSICAL MYTH (names of the old corvettes, frigates and small cruisers) ###
+GER_CLASSICAL = {
+	name = "Classical Myth"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Corvettes, frigates, small cruisers, gunboats, tenders and anti-aircraft ships
+		"Niobe" "Nymphe" "Thetis" "Ariadne" "Amazone" "Medusa" "Najade" "Augusta" "Victoria" "Nautilus" "Cyclop" "Triton"
+		"Acheron" "Hermes" "Zephir" "Notus" "Vulkan" "Zeus"
+		# Goddesses, nymphs and heroines
+		"Minerva" "Diana" "Juno" "Vesta" "Ceres" "Flora" "Aurora" "Hebe" "Iris" "Daphne" "Galathea" "Danae" "Nereide" "Sirene"
+		"Kalypso" "Kirke" "Penelope" "Andromache" "Kassandra" "Elektra" "Iphigenie" "Antigone" "Eurydike" "Psyche" "Pandora"
+		"Pallas" "Athene" "Artemis" "Aphrodite" "Hera" "Demeter" "Persephone" "Selene" "Eos" "Nike" "Amphitrite"
+		# The Muses
+		"Klio" "Kalliope" "Urania" "Terpsichore" "Thalia" "Melpomene" "Euterpe" "Erato" "Polyhymnia"
+		# Gods, titans and heroes
+		"Poseidon" "Apollo" "Ares" "Hephaistos" "Helios" "Prometheus" "Atlas" "Okeanos" "Proteus" "Nereus" "Aiolos" "Boreas"
+		"Achilles" "Ajax" "Odysseus" "Hektor" "Theseus" "Jason" "Argo" "Argonaut" "Chimära" "Sphinx" "Charybdis" "Skylla"
+	}
+}
+
+### THEME: FAMOUS BATTLES (vanilla tag) ###
+GER_THEME_BATTLE = {
+	name = NAME_THEME_BATTLES
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Vanilla's battles
+		"Skagerrak" "Teutoburger Wald" "Flandern" "Verdun" "Sedan" "Königgrätz" "Leuthen" "Soor" "Tannenberg" "Kesselsdorf"
+		"Pirmasens" "Großbeeren" "La Rothière" "Kulm" "Belle-Alliance" "Düppel" "Trautenau" "Helgoland" "Doggerbank" "Coronel"
+		"Penang"
+		# Middle Ages and the old Reich
+		"Lechfeld" "Riade" "Bornhöved" "Hemmingstedt" "Mühldorf" "Worringen" "Fehrbellin" "Warschau" "Höchstädt" "Zenta"
+		"Belgrad" "Turin"
+		# Wars of Frederick the Great
+		"Mollwitz" "Hohenfriedberg" "Roßbach" "Zorndorf" "Prag" "Liegnitz" "Torgau" "Freiberg" "Krefeld" "Minden"
+		# Wars of Liberation
+		"Katzbach" "Dennewitz" "Wartenburg" "Möckern" "Völkerschlacht" "Hagelberg" "Nollendorf" "Laon" "Ligny"
+		# Wars of unification
+		"Eckernförde" "Missunde" "Alsen" "Nachod" "Skalitz" "Gitschin" "Kissingen" "Weißenburg" "Wörth" "Spichern"
+		"Mars-la-Tour" "Gravelotte" "St. Privat" "Metz" "Orléans" "Le Mans" "Belfort" "St. Quentin"
+		# The World War
+		"Lüttich" "Namur" "Antwerpen" "Lodz" "Brzeziny" "Gorlice" "Nowogeorgiewsk" "Kowno" "Riga" "Ösel" "Karfreit" "Cambrai"
+		"Kemmel" "Chemin des Dames" "Tanga"
+	}
+}
+
+### THEME: HISTORIC SHIPS ###
+GER_HISTORIC_SHIPS = {
+	name = "Historic Ships"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Ships of the Hanse
+		"Adler von Lübeck" "Bunte Kuh" "Peter von Danzig" "Jesus von Lübeck" "Wappen von Hamburg" "Leopoldus Primus"
+		"Admiralität von Hamburg"
+		# The Brandenburg navy
+		"Friedrich Wilhelm zu Pferde" "Kurprinz" "Dorothea" "Roter Löwe" "Goldener Löwe" "Morian" "Markgraf von Brandenburg"
+		"Rummelpot" "Friede"
+		# The Reichsflotte of 1848
+		"Barbarossa" "Erzherzog Johann" "Hansa" "Der Königliche Ernst August" "Großherzog von Oldenburg" "Deutschland"
+		"Frankfurt"
+		# The Prussian navy
+		"Arcona" "Preußischer Adler" "Mercur" "König Wilhelm"
+		# Sail training ships and great sailing ships
+		"Passat" "Pamir" "Padua" "Peking" "Priwall" "Potosi" "Herzogin Cecilie" "Großherzogin Elisabeth" "Rickmer Rickmers"
+		# Cruisers and boats of the World War
+		"Emden" "Dresden" "Karlsruhe" "Ayesha" "U-Deutschland"
+	}
+}
+
+### THEME: VIRTUES AND WATCHWORDS ###
+GER_VIRTUES = {
+	name = "Virtues"
+
+	for_countries = { GER }
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Ship names: torpedo boats of 1882, gunboats, avisos, tenders
+		"Flink" "Kühn" "Scharf" "Schütze" "Sicher" "Tapfer" "Vorwärts" "Jäger" "Wacht" "Jagd" "Rival" "Pionier" "Frauenlob"
+		"Vaterland"
+		# Expansion: virtues
+		"Treue" "Ehre" "Mut" "Kühnheit" "Tapferkeit" "Stärke" "Kraft" "Sieg" "Zuversicht" "Eintracht" "Pflicht" "Heimat"
+		"Standhaft" "Unverzagt" "Wagemut" "Furchtlos" "Unermüdlich" "Wachsam" "Wehrhaft" "Trutz" "Schneidig" "Rasch" "Stolz"
+		"Eisern" "Zäh" "Entschlossen" "Beharrlich" "Verwegen" "Tollkühn" "Kampfbereit"
+		# Expansion: fighters and guardians
+		"Draufgänger" "Sturmbock" "Vorkämpfer" "Bahnbrecher" "Wegbereiter" "Sieger" "Rächer" "Wächter" "Hüter" "Kämpfer"
+		"Streiter" "Recke" "Degen" "Schild" "Schwert"
+	}
+}
+
+##### IDEOLOGY POOLS #####
+
+### IDEOLOGY-GATED TOPIC: COMMUNISM, REVOLUTIONARY MINDS (vanilla tag) ###
+GER_PEOPLE_COMMUNIST = {
+	name = NAME_THEME_COMMUNIST_PEOPLE
+
+	for_countries = { GER }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Founders and Spartacists
+		"Karl Marx" "Friedrich Engels" "Karl Liebknecht" "Rosa Luxemburg" "Leo Jogiches" "Eugen Leviné" "Franz Mehring"
+		"Clara Zetkin" "August Bebel" "Wilhelm Liebknecht" "Wilhelm Weitling" "Moses Hess" "Wilhelm Wolff" "Joseph Weydemeyer"
+		"Karl Schapper" "Joseph Moll" "Johann Philipp Becker" "Friedrich Adolph Sorge" "Joseph Dietzgen" "Ernst Meyer"
+		# Sailors and fighters of 1917-1934
+		"Max Reichpietsch" "Albin Köbis" "Rudolf Egelhofer" "Max Hoelz" "John Schehr" "Ernst Thälmann"
+		# Peasants' War and the poets of 1848
+		"Thomas Müntzer" "Florian Geyer" "Jörg Ratgeb" "Joß Fritz" "Hans Böhm" "Wendel Hipler" "Michael Gaismair"
+		"Georg Büchner" "Georg Weerth" "Georg Herwegh" "Ferdinand Freiligrath"
+	}
+}
+
+### IDEOLOGY-GATED TOPIC: COMMUNISM, REVOLUTIONARY SLOGANS (vanilla tag) ###
+GER_THEME_COMMUNIST_SLOGANS = {
+	name = NAME_THEME_COMMUNIST_SLOGANS
+
+	for_countries = { GER }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Vanilla's slogans, repaired
+		"Die Rote Fahne" "Die Internationale" "Proletarier aller Länder" "Die Freiheit" "Roter Oktober" "Gegen den Faschismus"
+		"Gegen die Bourgeoisie" "Gegen den Imperialismus" "Es lebe Spartakus" "Permanente Revolution"
+		"Antifaschistische Aktion" "Gegen den Strom" "Räterepublik" "Arbeitertribüne" "Klassenkampf" "Kieler Matrosenaufstand"
+		"Sozialistische Republik" "Einheitsfront" "Kronstadt" "Strahlende Zukunft"
+		# Watchwords of the revolution of 1918 and of the KPD
+		"Rotfront" "Spartakus" "Rote Matrosen" "Kieler Matrosen" "Volksmarinedivision" "Novemberrevolution" "Rätemacht"
+		"Weltrevolution" "Arbeitermacht" "Solidarität" "Rotes Banner" "Roter Stern" "Rote Garde" "Rote Ruhrarmee"
+		"Märzkämpfer" "Pariser Kommune" "Hammer und Sichel" "Brüder zur Sonne" "Diktatur des Proletariats" "Aurora" "Potemkin"
+	}
+}
+
+### IDEOLOGY-GATED TOPIC: COMMUNISM, VOLKSMARINE VESSELS (vanilla tag; names the East German navy gave from 1950) ###
+GER_THEME_COMMUNIST_DDR = {
+	name = NAME_THEME_COMMUNIST_VOLKSMARINE
+
+	for_countries = { GER }
+
+	can_use = {
+		has_government = communism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Coastal defence ships and corvettes named after towns
+		"Rostock" "Berlin" "Halle" "Dresden" "Stralsund" "Wismar" "Parchim" "Perleberg" "Bützow" "Prenzlau"
+		"Ribnitz-Damgarten" "Waren" "Teterow" "Ludwigslust" "Lübz" "Bad Doberan" "Güstrow" "Grevesmühlen" "Gadebusch" "Bergen"
+		"Angermünde"
+		# Minesweepers and landing ships named after towns
+		"Ueckermünde" "Sassnitz" "Peenemünde" "Dranske" "Graal-Müritz" "Ahrenshoop" "Altentreptow" "Anklam" "Bansin" "Bernau"
+		"Boltenhagen" "Demmin" "Eisleben" "Gransee" "Greifswald" "Grimmen" "Kühlungsborn" "Kyritz" "Malchin" "Neuruppin"
+		"Neustrelitz" "Oranienburg" "Pasewalk" "Prerow" "Pritzwalk" "Röbel" "Sternberg" "Templin" "Wittstock" "Wolgast"
+		"Zingst" "Zerbst" "Cottbus" "Eisenhüttenstadt" "Hoyerswerda" "Neubrandenburg" "Schwedt"
+		# Fast attack craft named after the dead of the resistance
+		"Hans Beimler" "Willi Bänsch" "Adam Kuckhoff" "Albert Gast" "Anton Saefkow" "Artur Becker" "Arvid Harnack"
+		"August Lüttgens" "Bernhard Bästlein" "Bruno Kühn" "Erich Kuttner" "Ernst Grube" "Ernst Schneller" "Etkar André"
+		"Fiete Schulze" "Paul Eisenschneider" "Paul Wieczorek" "Fritz Behn" "Josef Römer" "Walter Krämer"
+		# Coasts and classes
+		"Jasmund" "Nordperd" "Südperd" "Hiddensee" "Rügen" "Usedom" "Poel" "Darss" "Wittow" "Altmark" "Havelland" "Vogtland"
+		"Lumme" "Libelle" "Krake" "Komet" "Eismöwe" "Raubmöwe" "Nordwind" "Freundschaft"
+	}
+}
+
+### IDEOLOGY-GATED TOPIC: DEMOCRACY, REPUBLIC AND LIBERTY ###
+GER_REPUBLICAN_IDEALS = {
+	name = "Republic & Liberty"
+
+	for_countries = { GER }
+
+	can_use = {
+		has_government = democratic
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Watchwords of 1832, 1848 and 1919
+		"Einigkeit" "Recht" "Freiheit" "Schwarz-Rot-Gold" "Paulskirche" "Reichsverfassung" "Grundrechte" "Volkssouveränität"
+		"Bürgerrecht" "Hambacher Fest" "Wartburgfest" "Märzrevolution" "Völkerfrühling" "Burschenschaft" "Vormärz"
+		"Nationalversammlung" "Weimarer Verfassung" "Republik" "Demokratie" "Reichsbanner" "Reichstag" "Volksstaat"
+		"Freistaat" "Rechtsstaat" "Parlament" "Bundesstaat" "Verfassung" "Bürgerwehr"
+		# Ideals
+		"Gleichheit" "Brüderlichkeit" "Toleranz" "Aufklärung" "Menschenrecht" "Pressefreiheit" "Gewissensfreiheit" "Frieden"
+		"Völkerbund" "Verständigung" "Gemeinwohl" "Selbstverwaltung" "Deutsche Einheit" "Deutschlandlied"
+	}
+}
+
+### IDEOLOGY-GATED TOPIC: DEMOCRACY, MEN OF 1848 AND OF WEIMAR ###
+GER_DEMOCRATS = {
+	name = "1848 & Weimar"
+
+	for_countries = { GER }
+
+	can_use = {
+		has_government = democratic
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# The Paulskirche and the risings of 1848-49
+		"Heinrich von Gagern" "Robert Blum" "Friedrich Hecker" "Gustav Struve" "Carl Schurz" "Franz Sigel" "Lorenz Brentano"
+		"Jakob Venedey" "Arnold Ruge" "Johann Jacoby" "Eduard Simson" "Karl Mathy" "Friedrich Dahlmann" "Jacob Grimm"
+		"Georg Gervinus" "Karl von Rotteck" "Carl Theodor Welcker" "Friedrich Bassermann" "Adam von Itzstein" "Franz Raveaux"
+		"Wilhelm Jordan" "Arnold Duckwitz"
+		# Liberals and parliamentarians of the Empire
+		"Hermann Schulze-Delitzsch" "Eugen Richter" "Ludwig Bamberger" "Theodor Mommsen" "Ludwig Windthorst"
+		"Friedrich Naumann" "Max Weber" "Ludwig Frank"
+		# The Republic of Weimar
+		"Friedrich Ebert" "Hugo Preuß" "Walther Rathenau" "Matthias Erzberger" "Gustav Stresemann" "Conrad Haußmann"
+		"Friedrich von Payer" "Hugo Haase" "Hermann Müller" "Constantin Fehrenbach" "Eduard Bernstein"
+	}
+}
+
+### IDEOLOGY-GATED TOPIC: MONARCHISM, CROWN AND EMPIRE ###
+GER_MONARCHISM = {
+	name = "Crown & Empire"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Titles and regalia
+		"Kaiser" "Kaiserin" "Kronprinz" "Kronprinzessin" "Kaiseradler" "Reichsadler" "Reichskrone" "Kaiserkrone" "Reichsapfel"
+		"Kaiserstandarte" "Schwarzer Adler" "Roter Adler" "Eisernes Kreuz" "Pour le Mérite" "Suum cuique" "Gott mit uns"
+		"Preußens Gloria"
+		# The imperial house: liners, cruisers, yachts and minelayers of these names
+		"Kaiser Wilhelm der Große" "Kaiser Friedrich III." "Kaiser Wilhelm II." "Kaiserin Augusta" "Kaiserin Auguste Victoria"
+		"Kaiserin Friedrich" "Königin Luise" "Kronprinz Wilhelm" "Kronprinzessin Cecilie" "Prinz Heinrich" "Prinz Adalbert"
+		"Prinz Eitel Friedrich" "Prinz Oskar" "Prinz Joachim" "Prinz Waldemar" "Prinz Sigismund" "Prinzeß Wilhelm"
+		"Victoria Louise" "Prinzregent Luitpold" "König Albert" "König Wilhelm" "Großherzogin Elisabeth"
+		# Corvettes named after the princesses of the German houses
+		"Carola" "Olga" "Marie" "Sophie" "Alexandrine" "Charlotte" "Luise" "Elisabeth" "Irene"
+		# Yachts and residences
+		"Hohenzollern" "Meteor" "Iduna" "Sanssouci" "Rominten" "Cadinen" "Hubertusstock" "Achilleion"
+	}
+}
+
+### IDEOLOGY-GATED TOPIC: MONARCHISM, PRINCELY HOUSES ###
+GER_DYNASTIES = {
+	name = "Princely Houses"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Houses that gave their names to the Linienschiffe of 1900-1901
+		"Wittelsbach" "Wettin" "Zähringen"
+		# Imperial and royal houses
+		"Karolinger" "Ottonen" "Salier" "Staufer" "Welfen" "Habsburg" "Luxemburger" "Zollern" "Askanier" "Obotrit" "Greifen"
+		"Piasten" "Billunger" "Babenberger"
+		# Princely houses of the Empire
+		"Württemberg" "Nassau" "Oranien" "Holstein-Gottorp" "Strelitz" "Reuß" "Schwarzburg" "Lippe" "Waldeck" "Anhalt"
+		"Brabant" "Sachsen-Coburg" "Sachsen-Weimar" "Sachsen-Meiningen" "Sachsen-Altenburg" "Braunschweig-Lüneburg"
+		"Thurn und Taxis" "Fürstenberg" "Hohenlohe" "Leiningen" "Solms" "Stolberg" "Fugger" "Battenberg" "Wied" "Isenburg"
+	}
+}
+
+### IDEOLOGY-GATED TOPIC: FASCISM (names that vessels of 1933-45 carried, and the Reichsgaue vanilla used) ###
+GER_FASCISM = {
+	name = "Third Reich"
+
+	for_countries = { GER }
+
+	can_use = {
+		has_government = fascism
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Sail training ships, a liner and names in circulation of 1933-1941
+		"Horst Wessel" "Albert Leo Schlageter" "Herbert Norkus" "Wilhelm Gustloff" "Großdeutschland" "Der Deutsche"
+		# Reichsgaue and party districts
+		"Moselland" "Weser-Ems" "Oberdonau" "Niederdonau" "Wartheland" "Westmark" "Ostmark" "Tirol-Vorarlberg" "Sudetenland"
+		"Kurhessen" "Oberrhein" "Steiermark" "Kärnten" "Danzig-Westpreußen" "Mainfranken" "Köln-Aachen" "Halle-Merseburg"
+		"Magdeburg-Anhalt" "Süd-Hannover-Braunschweig" "Ost-Hannover" "Westfalen-Nord" "Westfalen-Süd" "München-Oberbayern"
+		"Bayerische Ostmark" "Württemberg-Hohenzollern" "Mark Brandenburg" "Hessen-Nassau" "Franken" "Schwaben"
+	}
+}
+
+##### KAISERLICHE MARINE (SMS): non-aligned and democratic governments #####
+
+### SHIP-TYPE SPECIFIC: IMPERIAL DESTROYERS (Große Torpedoboote, yard letter and number as built or ordered 1911-1918) ###
+GER_DD_IMPERIAL = {
+	name = NAME_THEME_IMPERIAL_DD
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	ship_types = { ship_hull_light destroyer }
+
+	prefix = "SMS "
+	fallback_name = "S %d"
+
+	ordered = {
+		1 = { "V 1" }
+		2 = { "V 2" }
+		3 = { "V 3" }
+		4 = { "V 4" }
+		5 = { "V 5" }
+		6 = { "V 6" }
+		7 = { "G 7" }
+		8 = { "G 8" }
+		9 = { "G 9" }
+		10 = { "G 10" }
+		11 = { "G 11" }
+		12 = { "G 12" }
+		13 = { "S 13" }
+		14 = { "S 14" }
+		15 = { "S 15" }
+		16 = { "S 16" }
+		17 = { "S 17" }
+		18 = { "S 18" }
+		19 = { "S 19" }
+		20 = { "S 20" }
+		21 = { "S 21" }
+		22 = { "S 22" }
+		23 = { "S 23" }
+		24 = { "S 24" }
+		25 = { "V 25" }
+		26 = { "V 26" }
+		27 = { "V 27" }
+		28 = { "V 28" }
+		29 = { "V 29" }
+		30 = { "V 30" }
+		31 = { "S 31" }
+		32 = { "S 32" }
+		33 = { "S 33" }
+		34 = { "S 34" }
+		35 = { "S 35" }
+		36 = { "S 36" }
+		37 = { "G 37" }
+		38 = { "G 38" }
+		39 = { "G 39" }
+		40 = { "G 40" }
+		41 = { "G 41" }
+		42 = { "G 42" }
+		43 = { "V 43" }
+		44 = { "V 44" }
+		45 = { "V 45" }
+		46 = { "V 46" }
+		47 = { "V 47" }
+		48 = { "V 48" }
+		49 = { "S 49" }
+		50 = { "S 50" }
+		51 = { "S 51" }
+		52 = { "S 52" }
+		53 = { "S 53" }
+		54 = { "S 54" }
+		55 = { "S 55" }
+		56 = { "S 56" }
+		57 = { "S 57" }
+		58 = { "S 58" }
+		59 = { "S 59" }
+		60 = { "S 60" }
+		61 = { "S 61" }
+		62 = { "S 62" }
+		63 = { "S 63" }
+		64 = { "S 64" }
+		65 = { "S 65" }
+		66 = { "S 66" }
+		67 = { "V 67" }
+		68 = { "V 68" }
+		69 = { "V 69" }
+		70 = { "V 70" }
+		71 = { "V 71" }
+		72 = { "V 72" }
+		73 = { "V 73" }
+		74 = { "V 74" }
+		75 = { "V 75" }
+		76 = { "V 76" }
+		77 = { "V 77" }
+		78 = { "V 78" }
+		79 = { "V 79" }
+		80 = { "V 80" }
+		81 = { "V 81" }
+		82 = { "V 82" }
+		83 = { "V 83" }
+		84 = { "V 84" }
+		85 = { "G 85" }
+		86 = { "G 86" }
+		87 = { "G 87" }
+		88 = { "G 88" }
+		89 = { "G 89" }
+		90 = { "G 90" }
+		91 = { "G 91" }
+		92 = { "G 92" }
+		93 = { "G 93" }
+		94 = { "G 94" }
+		95 = { "G 95" }
+		96 = { "G 96" }
+		97 = { "B 97" }
+		98 = { "B 98" }
+		99 = { "V 99" }
+		100 = { "V 100" }
+		101 = { "G 101" }
+		102 = { "G 102" }
+		103 = { "G 103" }
+		104 = { "G 104" }
+		105 = { "V 105" }
+		106 = { "V 106" }
+		107 = { "V 107" }
+		108 = { "V 108" }
+		109 = { "B 109" }
+		110 = { "B 110" }
+		111 = { "B 111" }
+		112 = { "B 112" }
+		113 = { "S 113" }
+		114 = { "S 114" }
+		115 = { "S 115" }
+		116 = { "V 116" }
+		117 = { "V 117" }
+		118 = { "V 118" }
+		119 = { "G 119" }
+		120 = { "G 120" }
+		121 = { "G 121" }
+		122 = { "B 122" }
+		123 = { "B 123" }
+		124 = { "B 124" }
+		125 = { "V 125" }
+		126 = { "V 126" }
+		127 = { "V 127" }
+		128 = { "V 128" }
+		129 = { "V 129" }
+		130 = { "V 130" }
+		131 = { "S 131" }
+		132 = { "S 132" }
+		133 = { "S 133" }
+		134 = { "S 134" }
+		135 = { "S 135" }
+		136 = { "S 136" }
+		137 = { "S 137" }
+		138 = { "S 138" }
+		139 = { "S 139" }
+		140 = { "V 140" }
+		141 = { "V 141" }
+		142 = { "V 142" }
+		143 = { "V 143" }
+		144 = { "V 144" }
+		145 = { "H 145" }
+		146 = { "H 146" }
+		147 = { "H 147" }
+		148 = { "G 148" }
+		149 = { "G 149" }
+		150 = { "G 150" }
+		151 = { "Ww 151" }
+		152 = { "S 152" }
+		153 = { "S 153" }
+		154 = { "S 154" }
+		155 = { "S 155" }
+		156 = { "S 156" }
+		157 = { "S 157" }
+		158 = { "V 158" }
+		159 = { "V 159" }
+		160 = { "V 160" }
+		161 = { "V 161" }
+		162 = { "V 162" }
+		163 = { "V 163" }
+		164 = { "V 164" }
+		165 = { "V 165" }
+		166 = { "H 166" }
+		167 = { "H 167" }
+		168 = { "H 168" }
+		169 = { "H 169" }
+		170 = { "V 170" }
+		171 = { "V 171" }
+		172 = { "V 172" }
+		173 = { "V 173" }
+		174 = { "V 174" }
+		175 = { "V 175" }
+		176 = { "V 176" }
+		177 = { "V 177" }
+		178 = { "S 178" }
+		179 = { "S 179" }
+		180 = { "S 180" }
+		181 = { "S 181" }
+		182 = { "S 182" }
+		183 = { "S 183" }
+		184 = { "S 184" }
+		185 = { "S 185" }
+		186 = { "H 186" }
+		187 = { "H 187" }
+		188 = { "H 188" }
+		189 = { "H 189" }
+		190 = { "H 190" }
+		191 = { "H 191" }
+		192 = { "H 192" }
+		193 = { "H 193" }
+		194 = { "H 194" }
+		195 = { "H 195" }
+		196 = { "H 196" }
+		197 = { "H 197" }
+		198 = { "H 198" }
+		199 = { "H 199" }
+		200 = { "H 200" }
+		201 = { "H 201" }
+		202 = { "H 202" }
+		203 = { "V 203" }
+		204 = { "V 204" }
+		205 = { "V 205" }
+		206 = { "V 206" }
+		207 = { "V 207" }
+		208 = { "V 208" }
+		209 = { "V 209" }
+		210 = { "V 210" }
+		211 = { "S 211" }
+		212 = { "S 212" }
+		213 = { "S 213" }
+		214 = { "S 214" }
+		215 = { "S 215" }
+		216 = { "S 216" }
+		217 = { "S 217" }
+		218 = { "S 218" }
+		219 = { "S 219" }
+		220 = { "S 220" }
+		221 = { "S 221" }
+		222 = { "S 222" }
+		223 = { "S 223" }
+	}
+}
+
+### SHIP-TYPE SPECIFIC: IMPERIAL SUBMARINES (numbered) ###
+GER_SS_IMPERIAL = {
+	name = NAME_THEME_IMPERIAL_SUBMARINES
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	ship_types = { ship_hull_submarine submarine }
+
+	prefix = "SM "
+	fallback_name = "U-%d"
+
+	ordered = {
+		1 = { "U-1" }
+		2 = { "U-2" }
+		3 = { "U-3" }
+		4 = { "U-4" }
+		5 = { "U-5" }
+		6 = { "U-6" }
+		7 = { "U-7" }
+		8 = { "U-8" }
+		9 = { "U-9" }
+		10 = { "U-10" }
+		11 = { "U-11" }
+		12 = { "U-12" }
+		13 = { "U-13" }
+		14 = { "U-14" }
+		15 = { "U-15" }
+		16 = { "U-16" }
+		17 = { "U-17" }
+		18 = { "U-18" }
+		19 = { "U-19" }
+		20 = { "U-20" }
+		21 = { "U-21" }
+		22 = { "U-22" }
+		23 = { "U-23" }
+		24 = { "U-24" }
+		25 = { "U-25" }
+		26 = { "U-26" }
+		27 = { "U-27" }
+		28 = { "U-28" }
+		29 = { "U-29" }
+		30 = { "U-30" }
+		31 = { "U-31" }
+		32 = { "U-32" }
+		33 = { "U-33" }
+		34 = { "U-34" }
+		35 = { "U-35" }
+		36 = { "U-36" }
+		37 = { "U-37" }
+		38 = { "U-38" }
+		39 = { "U-39" }
+		40 = { "U-40" }
+		41 = { "U-41" }
+		42 = { "U-42" }
+		43 = { "U-43" }
+		44 = { "U-44" }
+		45 = { "U-45" }
+		46 = { "U-46" }
+		47 = { "U-47" }
+		48 = { "U-48" }
+		49 = { "U-49" }
+		50 = { "U-50" }
+		51 = { "U-51" }
+		52 = { "U-52" }
+		53 = { "U-53" }
+		54 = { "U-54" }
+		55 = { "U-55" }
+		56 = { "U-56" }
+		57 = { "U-57" }
+		58 = { "U-58" }
+		59 = { "U-59" }
+		60 = { "U-60" }
+		61 = { "U-61" }
+		62 = { "U-62" }
+		63 = { "U-63" }
+		64 = { "U-64" }
+		65 = { "U-65" }
+		66 = { "U-66" }
+		67 = { "U-67" }
+		68 = { "U-68" }
+		69 = { "U-69" }
+		70 = { "U-70" }
+		71 = { "U-71" }
+		72 = { "U-72" }
+		73 = { "U-73" }
+		74 = { "U-74" }
+		75 = { "U-75" }
+		76 = { "U-76" }
+		77 = { "U-77" }
+		78 = { "U-78" }
+		79 = { "U-79" }
+		80 = { "U-80" }
+		81 = { "U-81" }
+		82 = { "U-82" }
+		83 = { "U-83" }
+		84 = { "U-84" }
+		85 = { "U-85" }
+		86 = { "U-86" }
+		87 = { "U-87" }
+		88 = { "U-88" }
+		89 = { "U-89" }
+		90 = { "U-90" }
+		91 = { "U-91" }
+		92 = { "U-92" }
+		93 = { "U-93" }
+		94 = { "U-94" }
+		95 = { "U-95" }
+		96 = { "U-96" }
+		97 = { "U-97" }
+		98 = { "U-98" }
+		99 = { "U-99" }
+		100 = { "U-100" }
+		101 = { "U-101" }
+		102 = { "U-102" }
+		103 = { "U-103" }
+		104 = { "U-104" }
+		105 = { "U-105" }
+		106 = { "U-106" }
+		107 = { "U-107" }
+		108 = { "U-108" }
+		109 = { "U-109" }
+		110 = { "U-110" }
+		111 = { "U-111" }
+		112 = { "U-112" }
+		113 = { "U-113" }
+		114 = { "U-114" }
+		115 = { "U-115" }
+		116 = { "U-116" }
+		117 = { "U-117" }
+		118 = { "U-118" }
+		119 = { "U-119" }
+		120 = { "U-120" }
+		121 = { "U-121" }
+		122 = { "U-122" }
+		123 = { "U-123" }
+		124 = { "U-124" }
+		125 = { "U-125" }
+		126 = { "U-126" }
+		127 = { "U-127" }
+		128 = { "U-128" }
+		129 = { "U-129" }
+		130 = { "U-130" }
+		131 = { "U-131" }
+		132 = { "U-132" }
+		133 = { "U-133" }
+		134 = { "U-134" }
+		135 = { "U-135" }
+		136 = { "U-136" }
+		137 = { "U-137" }
+		138 = { "U-138" }
+		139 = { "U-139" }
+		140 = { "U-140" }
+		141 = { "U-141" }
+		142 = { "U-142" }
+		143 = { "U-143" }
+		144 = { "U-144" }
+		145 = { "U-145" }
+		146 = { "U-146" }
+		147 = { "U-147" }
+		148 = { "U-148" }
+		149 = { "U-149" }
+		150 = { "U-150" }
+	}
+}
+
+### SHIP-TYPE SPECIFIC: IMPERIAL LIGHT CRUISERS ###
+GER_CL_IMPERIAL = {
+	name = NAME_THEME_IMPERIAL_CL
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	ship_types = { ship_hull_cruiser light_cruiser }
+
+	prefix = "SMS "
+	fallback_name = "Kleiner Kreuzer %d"
+
+	unique = {
+		# Gazelle class, Gefion and Irene
+		"Gazelle" "Niobe" "Nymphe" "Thetis" "Ariadne" "Amazone" "Medusa" "Frauenlob" "Arcona" "Undine" "Gefion" "Irene"
+		# Kleine Kreuzer of 1903-1918
+		"Bremen" "Hamburg" "Berlin" "Lübeck" "München" "Leipzig" "Danzig" "Königsberg" "Nürnberg" "Stuttgart" "Stettin"
+		"Dresden" "Emden" "Kolberg" "Mainz" "Cöln" "Augsburg" "Magdeburg" "Breslau" "Straßburg" "Stralsund" "Karlsruhe"
+		"Rostock" "Graudenz" "Regensburg" "Pillau" "Elbing" "Wiesbaden" "Frankfurt" "Brummer" "Bremse"
+		# Expansion: large cities of the Reich (the Reichsmarine's formula)
+		"Kiel" "Wilhelmshaven" "Düsseldorf" "Dortmund" "Essen" "Duisburg" "Bochum" "Wuppertal" "Gelsenkirchen" "Mannheim"
+		"Chemnitz" "Halle" "Kassel" "Aachen" "Krefeld" "Münster" "Erfurt" "Potsdam" "Darmstadt" "Würzburg" "Heidelberg"
+		"Freiburg" "Osnabrück" "Saarbrücken" "Bielefeld" "Bonn" "Koblenz" "Trier" "Ulm" "Heilbronn" "Pforzheim" "Ludwigshafen"
+		"Kaiserslautern" "Ingolstadt" "Fürth" "Erlangen" "Göttingen" "Hildesheim" "Paderborn" "Hamm" "Herne" "Bottrop"
+		"Recklinghausen" "Oberhausen" "Mülheim" "Solingen" "Remscheid" "Leverkusen" "Neuss" "München-Gladbach" "Offenbach"
+		"Reutlingen" "Jena" "Zwickau" "Cottbus" "Schwerin" "Flensburg" "Bremerhaven" "Siegen"
+		# Expansion: cities of the eastern provinces
+		"Tilsit" "Allenstein" "Insterburg" "Stolp" "Köslin" "Swinemünde" "Liegnitz" "Oppeln" "Gleiwitz" "Beuthen" "Ratibor"
+		"Glogau" "Küstrin" "Schneidemühl" "Gera" "Fulda" "Harburg" "Altona"
+		# Cities of the Empire's borderlands and of Austria
+		"Metz" "Thorn" "Bromberg" "Kattowitz" "Mülhausen" "Kolmar" "Memel" "Wien" "Graz" "Linz" "Innsbruck" "Salzburg"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: IMPERIAL HEAVY CRUISERS (armoured cruisers and coastal defence ships) ###
+GER_CA_IMPERIAL = {
+	name = NAME_THEME_IMPERIAL_CA
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	ship_types = { ship_hull_cruiser heavy_cruiser }
+
+	prefix = "SMS "
+	fallback_name = "Panzerkreuzer %d"
+
+	unique = {
+		# Armoured cruisers of 1897-1908
+		"Fürst Bismarck" "Prinz Heinrich" "Prinz Adalbert" "Friedrich Carl" "Roon" "Yorck" "Blücher"
+		# First-class cruisers of 1892-1898 and cruiser frigates
+		"Kaiserin Augusta" "Victoria Louise" "Hertha" "Freya" "Vineta" "Hansa" "Stosch" "Stein"
+		# Siegfried-class coastal defence ships
+		"Siegfried" "Beowulf" "Frithjof" "Heimdall" "Hildebrand" "Hagen" "Odin" "Ägir"
+		# Vanilla's cruisers of a restored Empire
+		"Admiral Hipper" "Prinz Eugen"
+		# Expansion: commanders of the Frederician and Liberation wars (the Hipper class formula)
+		"Zieten" "Graf Schwerin" "Keith" "Winterfeldt" "Der Alte Dessauer" "Prinz Louis Ferdinand" "Schill"
+		"Tauentzien von Wittenberg" "Kleist von Nollendorf" "Bülow von Dennewitz" "Boyen" "Grolman" "Courbière" "Kalckreuth"
+		"Wrangel" "Thielmann" "Krauseneck" "Müffling" "Lottum" "Borstell" "Röder" "Colomb" "Belling" "Möllendorff" "Fouqué"
+		"Ferdinand von Braunschweig" "Sparr"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: IMPERIAL BATTLESHIPS ###
+GER_BB_IMPERIAL = {
+	name = NAME_THEME_IMPERIAL_BB
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	ship_types = { ship_hull_heavy battleship }
+
+	prefix = "SMS "
+	fallback_name = "Linienschiff %d"
+
+	unique = {
+		# Großlinienschiffe of 1908-1917
+		"Bayern" "Baden" "Sachsen" "Württemberg" "König" "Großer Kurfürst" "Markgraf" "Kronprinz" "Kaiser"
+		"Friedrich der Große" "Kaiserin" "König Albert" "Prinzregent Luitpold" "Helgoland" "Ostfriesland" "Thüringen"
+		"Oldenburg" "Nassau" "Westfalen" "Rheinland" "Posen"
+		# Linienschiffe of 1891-1906
+		"Deutschland" "Hannover" "Pommern" "Schlesien" "Schleswig-Holstein" "Braunschweig" "Elsaß" "Hessen" "Preußen"
+		"Lothringen" "Wittelsbach" "Wettin" "Zähringen" "Schwaben" "Mecklenburg" "Kaiser Friedrich III." "Kaiser Wilhelm II."
+		"Kaiser Wilhelm der Große" "Kaiser Barbarossa" "Kaiser Karl der Große" "Brandenburg" "Kurfürst Friedrich Wilhelm"
+		"Weißenburg" "Wörth"
+		# Ironclads of 1864-1868 whose names were not given again
+		"König Wilhelm" "Arminius"
+		# Vanilla's battleships of a restored Empire
+		"Tirpitz" "Ulrich von Hutten" "Götz von Berlichingen" "Vaterland" "Franken" "Holstein"
+		# Expansion: states and provinces
+		"Ostpreußen" "Westpreußen" "Hessen-Nassau" "Anhalt" "Lippe" "Hohenzollern" "Friesland" "Waldeck" "Schaumburg" "Reuß"
+		"Schwarzburg" "Kurmark" "Neumark" "Lausitz" "Vogtland" "Pfalz" "Kurhessen" "Ermland" "Masuren" "Samland"
+		# Expansion: emperors, kings and princes
+		"Kaiser Otto der Große" "Kaiser Heinrich" "Kaiser Maximilian" "Kaiser Rudolf von Habsburg" "König Friedrich Wilhelm"
+		"König Ludwig" "König Johann" "König Georg" "Großherzog Friedrich" "Kurfürst Joachim" "Markgraf Albrecht"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: IMPERIAL BATTLECRUISERS ###
+GER_BC_IMPERIAL = {
+	name = NAME_THEME_IMPERIAL_BC
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	ship_types = { ship_hull_heavy battle_cruiser }
+
+	prefix = "SMS "
+	fallback_name = "Großer Kreuzer %d"
+
+	unique = {
+		# Große Kreuzer of 1909-1917, Mackensen and Ersatz Yorck classes
+		"Von der Tann" "Moltke" "Goeben" "Seydlitz" "Derfflinger" "Lützow" "Hindenburg" "Mackensen" "Graf Spee"
+		"Prinz Eitel Friedrich" "Scharnhorst" "Gneisenau"
+		# Vanilla's battlecruiser of a restored Empire
+		"Holtzendorff"
+		# Expansion: field marshals and chiefs of staff (the formula of the Große Kreuzer)
+		"Clausewitz" "Schlieffen" "Waldersee" "Blumenthal" "Steinmetz" "Werder" "Edwin von Manteuffel"
+		"Vogel von Falckenstein" "Constantin von Alvensleben" "Herwarth von Bittenfeld" "Kirchbach" "Voigts-Rhetz" "Fransecky"
+		"Zastrow" "Tümpling" "Falkenhayn" "Woyrsch" "Eichhorn" "Haeseler" "Emmich" "Beseler" "Georg von der Marwitz"
+		"Linsingen" "Hutier" "Einem" "Kluck" "Max Hoffmann" "Fritz von Below" "Karl von Bülow" "Max von Hausen"
+		# Expansion: historic flagships
+		"Adler von Lübeck" "Friedrich Wilhelm zu Pferde" "Wappen von Hamburg" "Peter von Danzig" "Bunte Kuh"
+		"Erzherzog Johann" "Markgraf von Brandenburg"
+	}
+}
+
+### SHIP-TYPE SPECIFIC: IMPERIAL AIRCRAFT CARRIERS ###
+GER_CV_IMPERIAL = {
+	name = NAME_THEME_IMPERIAL_CARRIERS
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	ship_types = { ship_hull_carrier carrier }
+
+	prefix = "SMS "
+	fallback_name = "Flugzeugträger %d"
+
+	unique = {
+		# Vanilla's carriers of a restored Empire
+		"Graf Zeppelin" "Peter Strasser" "Richthofen" "Boelcke" "Immelmann" "Otto Lilienthal"
+		# Naval and army airmen of 1914-18 and after
+		"Gunther Plüschow" "Hans Rolshoven" "Karl Meyer" "Max Stinsky" "Bernhard von Tschirschky" "Hans Albrecht Wedel"
+		# Expansion: pioneers of flight and airship commanders
+		"Heinrich Mathy" "Hermann Kraushaar" "Max Dietrich" "Werner Peterson" "Kurt Frankenburg" "Viktor Schütze"
+		"Ludwig Bockholt" "Hans Bartsch von Sigsfeld" "Friedrich Wölfert" "Paul Haenlein" "Oskar Erbslöh" "Karl Jatho"
+		"Hugo Junkers" "Günther von Hünefeld"
+		# Expansion: airmen fallen or dead by 1936
+		"Werner Voß" "Kurt Wolff" "Karl Allmenröder" "Heinrich Gontermann" "Rudolf Berthold" "Lothar von Richthofen"
+		"Erich Löwenhardt" "Fritz Rumey" "Kurt Wüsthoff" "Hans-Joachim Buddecke" "Walter von Bülow-Bothkamp" "Paul Bäumer"
+		"Emil Schäfer" "Otto Kissenberth" "Adolf von Tutschek" "Hans Kirschstein" "Max von Müller" "Wilhelm Frankl"
+		"Albert Dossenbach" "Hans Berr" "Otto Parschau" "Kurt Wintgens" "Max von Mulzer" "Gustav Leffers" "Walter Höhndorf"
+	}
+}
+
+### ROLE: PANZERSCHIFFE (vanilla tag; the starting Deutschland class uses it) (IMPERIAL) ###
+GER_PZ_IMPERIAL = {
+	name = "SMS Panzerschiffe"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Panzerschiff %d"
+
+	unique = {
+		# Deutschland class
+		"Admiral Scheer" "Admiral Graf Spee"
+		# Expansion: admirals dead by 1936 (the class formula)
+		"Admiral Knorr" "Admiral Stosch" "Admiral Pohl" "Admiral Capelle" "Admiral Holtzendorff" "Admiral Koester"
+		"Admiral Usedom" "Admiral Hollmann" "Admiral Ludwig von Schröder" "Admiral Baudissin" "Admiral Ingenohl"
+		"Admiral Jachmann" "Admiral Diederichs" "Admiral Thomsen" "Admiral Büchsel" "Admiral Senden-Bibran"
+		"Admiral Bendemann" "Admiral Fischel" "Admiral Batsch" "Admiral Henk" "Admiral Livonius" "Admiral Werner"
+		"Admiral Monts" "Admiral von der Goltz" "Admiral Valois" "Admiral Deinhard" "Admiral Karl Paschen" "Admiral Heeringen"
+		"Admiral Truppel" "Admiral Mauve"
+	}
+}
+
+### ROLE: TORPEDO BOATS (vanilla tag; the starting Type 24 uses it, and the 1939 start names its boats by the entries 201 to 211) (IMPERIAL) ###
+GER_TB_IMPERIAL = {
+	name = "SMS Torpedo Boats"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "T%d"
+
+	ordered = {
+		1 = { "T1" }
+		2 = { "T2" }
+		3 = { "T3" }
+		4 = { "T4" }
+		5 = { "T5" }
+		6 = { "T6" }
+		7 = { "T7" }
+		8 = { "T8" }
+		9 = { "T9" }
+		10 = { "T10" }
+		11 = { "T11" }
+		12 = { "T12" }
+		13 = { "T13" }
+		14 = { "T14" }
+		15 = { "T15" }
+		16 = { "T16" }
+		17 = { "T17" }
+		18 = { "T18" }
+		19 = { "T19" }
+		20 = { "T20" }
+		21 = { "T21" }
+		22 = { "T22" }
+		23 = { "T23" }
+		24 = { "T24" }
+		25 = { "T25" }
+		26 = { "T26" }
+		27 = { "T27" }
+		28 = { "T28" }
+		29 = { "T29" }
+		30 = { "T30" }
+		31 = { "T31" }
+		32 = { "T32" }
+		33 = { "T33" }
+		34 = { "T34" }
+		35 = { "T35" }
+		36 = { "T36" }
+		37 = { "T37" }
+		38 = { "T38" }
+		39 = { "T39" }
+		40 = { "T40" }
+		41 = { "T41" }
+		42 = { "T42" }
+		43 = { "T43" }
+		44 = { "T44" }
+		45 = { "T45" }
+		46 = { "T46" }
+		47 = { "T47" }
+		48 = { "T48" }
+		49 = { "T49" }
+		50 = { "T50" }
+		51 = { "T51" }
+		52 = { "T52" }
+		53 = { "T53" }
+		54 = { "T54" }
+		55 = { "T55" }
+		56 = { "T56" }
+		57 = { "T57" }
+		58 = { "T58" }
+		59 = { "T59" }
+		60 = { "T60" }
+		61 = { "T61" }
+		62 = { "T62" }
+		63 = { "T63" }
+		64 = { "T64" }
+		65 = { "T65" }
+		66 = { "T66" }
+		67 = { "T67" }
+		68 = { "T68" }
+		69 = { "T69" }
+		70 = { "T70" }
+		71 = { "T71" }
+		72 = { "T72" }
+		73 = { "T73" }
+		74 = { "T74" }
+		75 = { "T75" }
+		76 = { "T76" }
+		77 = { "T77" }
+		78 = { "T78" }
+		79 = { "T79" }
+		80 = { "T80" }
+		81 = { "T81" }
+		82 = { "T82" }
+		83 = { "T83" }
+		84 = { "T84" }
+		85 = { "T85" }
+		86 = { "T86" }
+		87 = { "T87" }
+		88 = { "T88" }
+		89 = { "T89" }
+		90 = { "T90" }
+		91 = { "T91" }
+		92 = { "T92" }
+		93 = { "T93" }
+		94 = { "T94" }
+		95 = { "T95" }
+		96 = { "T96" }
+		97 = { "T97" }
+		98 = { "T98" }
+		99 = { "T99" }
+		100 = { "T100" }
+		101 = { "T101" }
+		102 = { "T102" }
+		103 = { "T103" }
+		104 = { "T104" }
+		105 = { "T105" }
+		106 = { "T106" }
+		107 = { "T107" }
+		108 = { "T108" }
+		109 = { "T109" }
+		110 = { "T110" }
+		111 = { "T111" }
+		112 = { "T112" }
+		113 = { "T113" }
+		114 = { "T114" }
+		115 = { "T115" }
+		116 = { "T116" }
+		117 = { "T117" }
+		118 = { "T118" }
+		119 = { "T119" }
+		120 = { "T120" }
+		121 = { "T121" }
+		122 = { "T122" }
+		123 = { "T123" }
+		124 = { "T124" }
+		125 = { "T125" }
+		126 = { "T126" }
+		127 = { "T127" }
+		128 = { "T128" }
+		129 = { "T129" }
+		130 = { "T130" }
+		131 = { "T131" }
+		132 = { "T132" }
+		133 = { "T133" }
+		134 = { "T134" }
+		135 = { "T135" }
+		136 = { "T136" }
+		137 = { "T137" }
+		138 = { "T138" }
+		139 = { "T139" }
+		140 = { "T140" }
+		141 = { "T141" }
+		142 = { "T142" }
+		143 = { "T143" }
+		144 = { "T144" }
+		145 = { "T145" }
+		146 = { "T146" }
+		147 = { "T147" }
+		148 = { "T148" }
+		149 = { "T149" }
+		150 = { "T150" }
+		151 = { "T151" }
+		152 = { "T152" }
+		153 = { "T153" }
+		154 = { "T154" }
+		155 = { "T155" }
+		156 = { "T156" }
+		157 = { "T157" }
+		158 = { "T158" }
+		159 = { "T159" }
+		160 = { "T160" }
+		161 = { "T161" }
+		162 = { "T162" }
+		163 = { "T163" }
+		164 = { "T164" }
+		165 = { "T165" }
+		166 = { "T166" }
+		167 = { "T167" }
+		168 = { "T168" }
+		169 = { "T169" }
+		170 = { "T170" }
+		171 = { "T171" }
+		172 = { "T172" }
+		173 = { "T173" }
+		174 = { "T174" }
+		175 = { "T175" }
+		176 = { "T176" }
+		177 = { "T177" }
+		178 = { "T178" }
+		179 = { "T179" }
+		180 = { "T180" }
+		181 = { "T181" }
+		182 = { "T182" }
+		183 = { "T183" }
+		184 = { "T184" }
+		185 = { "T185" }
+		186 = { "T186" }
+		187 = { "T187" }
+		188 = { "T188" }
+		189 = { "T189" }
+		190 = { "T190" }
+		191 = { "T191" }
+		192 = { "T192" }
+		193 = { "T193" }
+		194 = { "T194" }
+		195 = { "T195" }
+		196 = { "T196" }
+		197 = { "T197" }
+		198 = { "T198" }
+		199 = { "T199" }
+		200 = { "T200" }
+		201 = { "Möwe" }
+		202 = { "Albatros" }
+		203 = { "Seeadler" }
+		204 = { "Greif" }
+		205 = { "Falke" }
+		206 = { "Kondor" }
+		207 = { "Wolf" }
+		208 = { "Iltis" }
+		209 = { "Luchs" }
+		210 = { "Jaguar" }
+		211 = { "Tiger" }
+		212 = { "Leopard" }
+	}
+}
+
+### ROLE: MINESWEEPERS (vanilla tag; numbered) (IMPERIAL) ###
+GER_MS_IMPERIAL = {
+	name = "SMS Minesweepers"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "M%d"
+
+	ordered = {
+		1 = { "M1" }
+		2 = { "M2" }
+		3 = { "M3" }
+		4 = { "M4" }
+		5 = { "M5" }
+		6 = { "M6" }
+		7 = { "M7" }
+		8 = { "M8" }
+		9 = { "M9" }
+		10 = { "M10" }
+		11 = { "M11" }
+		12 = { "M12" }
+		13 = { "M13" }
+		14 = { "M14" }
+		15 = { "M15" }
+		16 = { "M16" }
+		17 = { "M17" }
+		18 = { "M18" }
+		19 = { "M19" }
+		20 = { "M20" }
+		21 = { "M21" }
+		22 = { "M22" }
+		23 = { "M23" }
+		24 = { "M24" }
+		25 = { "M25" }
+		26 = { "M26" }
+		27 = { "M27" }
+		28 = { "M28" }
+		29 = { "M29" }
+		30 = { "M30" }
+		31 = { "M31" }
+		32 = { "M32" }
+		33 = { "M33" }
+		34 = { "M34" }
+		35 = { "M35" }
+		36 = { "M36" }
+		37 = { "M37" }
+		38 = { "M38" }
+		39 = { "M39" }
+		40 = { "M40" }
+		41 = { "M41" }
+		42 = { "M42" }
+		43 = { "M43" }
+		44 = { "M44" }
+		45 = { "M45" }
+		46 = { "M46" }
+		47 = { "M47" }
+		48 = { "M48" }
+		49 = { "M49" }
+		50 = { "M50" }
+		51 = { "M51" }
+		52 = { "M52" }
+		53 = { "M53" }
+		54 = { "M54" }
+		55 = { "M55" }
+		56 = { "M56" }
+		57 = { "M57" }
+		58 = { "M58" }
+		59 = { "M59" }
+		60 = { "M60" }
+		61 = { "M61" }
+		62 = { "M62" }
+		63 = { "M63" }
+		64 = { "M64" }
+		65 = { "M65" }
+		66 = { "M66" }
+		67 = { "M67" }
+		68 = { "M68" }
+		69 = { "M69" }
+		70 = { "M70" }
+		71 = { "M71" }
+		72 = { "M72" }
+		73 = { "M73" }
+		74 = { "M74" }
+		75 = { "M75" }
+		76 = { "M76" }
+		77 = { "M77" }
+		78 = { "M78" }
+		79 = { "M79" }
+		80 = { "M80" }
+	}
+}
+
+### ROLE: FLEET ESCORTS (Flottenbegleiter, numbered) (IMPERIAL) ###
+GER_ESCORT_DESTROYERS_IMPERIAL = {
+	name = "SMS Fleet Escorts"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "F%d"
+
+	ordered = {
+		1 = { "F1" }
+		2 = { "F2" }
+		3 = { "F3" }
+		4 = { "F4" }
+		5 = { "F5" }
+		6 = { "F6" }
+		7 = { "F7" }
+		8 = { "F8" }
+		9 = { "F9" }
+		10 = { "F10" }
+		11 = { "F11" }
+		12 = { "F12" }
+		13 = { "F13" }
+		14 = { "F14" }
+		15 = { "F15" }
+		16 = { "F16" }
+		17 = { "F17" }
+		18 = { "F18" }
+		19 = { "F19" }
+		20 = { "F20" }
+		21 = { "F21" }
+		22 = { "F22" }
+		23 = { "F23" }
+		24 = { "F24" }
+		25 = { "F25" }
+		26 = { "F26" }
+		27 = { "F27" }
+		28 = { "F28" }
+		29 = { "F29" }
+		30 = { "F30" }
+	}
+}
+
+### ROLE: MERCHANT RAIDERS (vanilla tag; a focus assigns it) (IMPERIAL) ###
+GER_MR_IMPERIAL = {
+	name = "SMS Merchant Raiders"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Hilfskreuzer %d"
+
+	unique = {
+		# Hilfskreuzer of 1939-1945
+		"Orion" "Atlantis" "Widder" "Thor" "Pinguin" "Stier" "Komet" "Kormoran" "Michel" "Coronel" "Doggerbank"
+		# Hilfskreuzer of 1914-1918
+		"Cap Trafalgar" "Kronprinz Wilhelm" "Geier" "Victoria Luise" "Ayesha" "Libau"
+	}
+}
+
+### ROLE: AUXILIARY CARRIERS (vanilla tag) (IMPERIAL) ###
+GER_CVL_IMPERIAL = {
+	name = "SMS Auxiliary Carriers"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Hilfsflugzeugträger %d"
+
+	unique = {
+		# Conversion projects of 1942 and of 1918
+		"Weser" "Jade" "Elbe" "Europa" "Ausonia"
+		# Catapult ships and seaplane carriers
+		"Schwabenland" "Friesenland" "Answald" "Santa Elena" "Oswald"
+		# Expansion: rivers and bays of the German coasts (the formula of 1942)
+		"Ems" "Eider" "Trave" "Oder" "Schlei" "Peene" "Pregel" "Nogat" "Hunte" "Oste" "Stör" "Recknitz" "Ryck" "Uecker"
+		"Dievenow" "Dollart" "Leda" "Treene" "Schwentine"
+	}
+}
+
+### ROLE: MINELAYERS (IMPERIAL) ###
+GER_MINELAYERS_IMPERIAL = {
+	name = "SMS Minelayers"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Minenschiff %d"
+
+	unique = {
+		# Minenschiffe and minelayers of 1939-1945
+		"Tannenberg" "Hansestadt Danzig" "Königin Luise" "Roland" "Cobra" "Skagerrak" "Ostmark" "Drache" "Juminda" "Kiebitz"
+		"Kehrwieder" "Passat" "Lauting" "Otter" "Irben" "Zeus" "Wullenwever" "Xanten" "Versailles" "Niedersachsen" "Adjutant"
+		"Togo" "Kamerun" "Dietrich von Bern" "Westmark"
+		# Minelayers of 1906-1918
+		"Nautilus" "Pelikan"
+	}
+}
+
+### ROLE: GUNBOATS AND AVISOS (IMPERIAL) ###
+GER_GUNBOATS_IMPERIAL = {
+	name = "SMS Gunboats & Avisos"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Kanonenboot %d"
+
+	unique = {
+		# Gunboats of 1860-1903 (Jäger, Camaeleon, Wolf, Habicht and Iltis classes)
+		"Eber" "Habicht" "Adler" "Hyäne" "Fuchs" "Hay" "Jäger" "Natter" "Pfeil" "Salamander" "Schwalbe" "Scorpion" "Sperber"
+		"Wespe" "Basilisk" "Blitz" "Camaeleon" "Cyclop" "Delphin" "Meteor"
+		# Armoured gunboats of 1876-1881 (Wespe class)
+		"Biene" "Mücke" "Viper" "Crocodill" "Hummel"
+		# Avisos and fleet tenders
+		"Wacht" "Jagd" "Hela" "Grille" "Loreley" "Pommerania" "Preußischer Adler" "Kaiseradler"
+		# River gunboats of the China station
+		"Vorwärts" "Schamien"
+	}
+}
+
+### ROLE: TENDERS AND ESCORT SHIPS (IMPERIAL) ###
+GER_TENDERS_IMPERIAL = {
+	name = "SMS Tenders"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Begleitschiff %d"
+
+	unique = {
+		# Schnellboot tenders (colonial names)
+		"Tsingtau" "Tanga" "Carl Peters" "Adolf Lüderitz" "Hermann von Wißmann" "Gustav Nachtigal" "Buea"
+		# U-boat tenders (rivers, submarine pioneers and commanders)
+		"Saar" "Lech" "Isar" "Donau" "Weichsel" "Mosel" "Warnow" "Havel" "Neiße" "Wilhelm Bauer" "Waldemar Kophamel"
+		"Otto Wünsche" "Erwin Waßner" "Acheron"
+		# Räumboot tenders and trials vessels (seafarers of the Hanse and of Brandenburg)
+		"Von der Groeben" "Raule" "Brommy" "Nettelbeck" "Von der Lippe" "Alders" "Hille" "Jungingen" "Störtebeker"
+		"Claus von Bevern" "Paul Beneke" "Johann Wittenborg" "Sundevall" "Eduard Jungmann" "Hugo Zeye"
+		# Fleet tenders
+		"Nordsee" "Taku" "Hecht" "Arkona"
+	}
+}
+
+### ROLE: SCOUT CRUISERS (vanilla tag; towns, as the cruisers carry cities) (IMPERIAL) ###
+GER_CS_IMPERIAL = {
+	name = "SMS Scout Cruisers"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Spähkreuzer %d"
+
+	unique = {
+		# Towns of the Reich (vanilla's roster without the towns founded or merged after 1936)
+		"Dessau" "Witten" "Görlitz" "Esslingen" "Neumünster" "Castrop-Rauxel" "Gladbeck" "Plauen" "Lüdenscheid" "Ludwigsburg"
+		"Worms" "Gütersloh" "Gießen" "Lünen" "Bamberg" "Herford" "Bayreuth" "Delmenhorst" "Detmold" "Weimar" "Neuwied"
+		"Konstanz" "Lüneburg" "Hattingen" "Hoyerswerda" "Schweinfurt" "Iserlohn" "Celle" "Gotha" "Wismar" "Merseburg"
+		"Velbert" "Hanau" "Dinslaken" "Pirmasens" "Tübingen" "Aschaffenburg" "Düren" "Moers" "Herten" "Landshut" "Eisenach"
+		"Freiberg" "Unna" "Bergisch Gladbach" "Hilden" "Rheine" "Ahlen" "Riesa" "Heidenheim" "Bad Salzuflen" "Bocholt"
+		"Minden" "Göppingen" "Pirna" "Marburg" "Hameln" "Cuxhaven" "Greifswald" "Zeitz" "Altenburg" "Halberstadt" "Schönebeck"
+		"Weißenfels" "Neubrandenburg" "Meißen" "Bernburg" "Wesel" "Mühlhausen" "Kempten" "Gummersbach" "Nordhausen" "Ratingen"
+		"Nordhorn" "Schwäbisch Gmünd" "Bautzen" "Friedrichshafen" "Kleve" "Neunkirchen" "Zittau" "Coburg" "Euskirchen"
+		"Bad Kreuznach" "Speyer" "Freital" "Bad Homburg" "Kamen" "Sindelfingen" "Lippstadt" "Frankenthal" "Singen" "Amberg"
+		"Elmshorn" "Brühl" "Radebeul" "Wolfenbüttel" "Bünde" "Goslar" "Kempen" "Stolberg" "Dorsten" "Greiz" "Saarlouis"
+		"Lemgo" "Kaufbeuren" "Idar-Oberstein" "Eschweiler" "Naumburg" "Straubing" "Soest" "Güstrow" "Baden-Baden"
+		"Aschersleben" "Rosenheim" "Aalen" "Wetzlar" "Stendal" "Köthen" "Itzehoe" "Böblingen" "Datteln" "Pinneberg"
+		"Neu-Isenburg" "Rendsburg" "Schwedt" "Schwelm" "Lörrach" "Siegburg" "Gevelsberg" "Saalfeld" "Ansbach" "Offenburg"
+		"Memmingen" "Höxter" "Zweibrücken" "Stade" "Wernigerode" "Homburg" "Sangerhausen" "Schleswig" "Glauchau" "Ravensburg"
+		"Rudolstadt" "Suhl" "Lingen" "Landau" "Königswinter" "Peine" "Fürstenwalde" "Passau" "Quedlinburg" "Mettmann"
+		"Eisleben" "Plettenberg" "Menden" "Rastatt" "Rathenow" "Sonneberg" "Weinheim" "Wedel" "Freising" "Borken" "Apolda"
+		"Fellbach" "Luckenwalde" "Arnstadt" "Kornwestheim" "Nordenham" "Neu-Ulm" "Döbeln" "Neustrelitz" "Backnang"
+		"Grevenbroich" "Bensheim" "Goch" "Beckum" "Helmstedt" "Geislingen" "Bruchsal" "Andernach" "Wermelskirchen"
+		"Tuttlingen" "Schwabach" "Gronau" "Coesfeld" "Staßfurt" "Meiningen" "Biberach" "Oberursel" "Lindau" "Husum" "Leonberg"
+		"Lahr" "Werl" "Uelzen"
+		# Expansion: old towns of the provinces
+		"Garmisch-Partenkirchen" "Wittenberg" "Torgau" "Eberswalde" "Neuruppin" "Prenzlau" "Stargard" "Lauenburg" "Rügenwalde"
+		"Anklam" "Wolgast" "Demmin" "Pasewalk" "Tangermünde" "Salzwedel" "Havelberg" "Einbeck" "Northeim" "Duderstadt"
+		"Nienburg" "Verden" "Buxtehude" "Emmerich" "Jülich" "Wittlich" "Bingen" "Boppard" "Limburg" "Dillenburg" "Friedberg"
+		"Büdingen" "Wertheim" "Rothenburg" "Dinkelsbühl" "Nördlingen" "Donauwörth" "Eichstätt" "Weiden" "Deggendorf"
+		"Traunstein" "Füssen" "Mosbach" "Sigmaringen" "Rottweil" "Ellwangen" "Annaberg" "Schneeberg" "Marienberg" "Löbau"
+		"Kamenz" "Guben" "Forst" "Spremberg" "Landsberg" "Bunzlau" "Hirschberg" "Schweidnitz" "Brieg" "Neustadt" "Rastenburg"
+		"Lyck" "Osterode" "Braunsberg" "Marienwerder"
+	}
+}
+
+### THEME: ANIMALS (vanilla tag; beasts of prey and wildlife) (IMPERIAL) ###
+GER_THEME_ANIMALS_IMPERIAL = {
+	name = "SMS Animals"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Torpedoboote 1924, gunboats of 1860-1903
+		"Wolf" "Iltis" "Luchs" "Tiger" "Jaguar" "Leopard" "Panther" "Löwe" "Eber" "Hyäne" "Fuchs"
+		# Vanilla's beasts
+		"Gepard" "Bär" "Wiesel" "Wisent" "Puma" "Otter" "Biber" "Bison" "Elch" "Dachs" "Hirsch" "Steinbock" "Zebra" "Hermelin"
+		"Nerz" "Zobel" "Ozelot" "Marder"
+		# Wildlife of the German lands
+		"Wildkatze" "Braunbär" "Auerochse" "Rothirsch" "Damhirsch" "Gämse" "Murmeltier" "Baummarder" "Steinmarder"
+		"Fischotter" "Keiler" "Wildschwein" "Mufflon" "Frettchen" "Rotfuchs" "Feldhase" "Igel"
+		# Beasts of the north and of the colonies
+		"Eisbär" "Vielfraß" "Rentier" "Polarfuchs" "Silberfuchs" "Schakal" "Büffel" "Nashorn" "Elefant" "Antilope" "Gnu"
+	}
+}
+
+### THEME: BIRDS (IMPERIAL) ###
+GER_BIRDS_IMPERIAL = {
+	name = "SMS Birds"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Torpedoboote 1923, Bussard-class cruisers, gunboats and minelayers
+		"Möwe" "Seeadler" "Albatros" "Greif" "Kondor" "Falke" "Bussard" "Geier" "Kormoran" "Schwalbe" "Sperber" "Habicht"
+		"Adler" "Kiebitz" "Pelikan" "Fasan" "Flamingo"
+		# Vanilla's birds
+		"Rabe" "Reiher" "Storch" "Kranich"
+		# Birds of prey and owls
+		"Steinadler" "Fischadler" "Wanderfalke" "Turmfalke" "Baumfalke" "Rotmilan" "Schwarzmilan" "Wiesenweihe" "Rohrweihe"
+		"Mäusebussard" "Uhu" "Waldkauz" "Schleiereule" "Steinkauz"
+		# Seabirds, waders and waterfowl
+		"Silbermöwe" "Sturmmöwe" "Lachmöwe" "Mantelmöwe" "Heringsmöwe" "Eismöwe" "Raubmöwe" "Seeschwalbe" "Küstenseeschwalbe"
+		"Trottellumme" "Tordalk" "Alk" "Basstölpel" "Eissturmvogel" "Sturmschwalbe" "Austernfischer" "Brachvogel"
+		"Regenpfeifer" "Säbelschnäbler" "Rotschenkel" "Kampfläufer" "Eiderente" "Eisente" "Brandgans" "Graugans" "Saatgans"
+		"Singschwan" "Wildschwan" "Schwan" "Rohrdommel" "Löffler" "Haubentaucher"
+		# Birds of wood and field
+		"Eisvogel" "Lerche" "Nachtigall" "Drossel" "Amsel" "Zaunkönig" "Pirol" "Specht" "Kuckuck" "Auerhahn" "Birkhahn"
+		"Wachtel" "Elster" "Eichelhäher" "Dohle" "Krähe" "Kolkrabe"
+	}
+}
+
+### THEME: FISH AND SEA LIFE (vanilla tag) (IMPERIAL) ###
+GER_THEME_FISH_IMPERIAL = {
+	name = "SMS Fish & Sea Life"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Vanilla's fish
+		"Zander" "Wels" "Hering" "Aal" "Hecht" "Flunder" "Dorsch" "Hai" "Stachelrochen" "Neunauge" "Bitterling" "Lachs"
+		"Barsch" "Kabeljau" "Forelle" "Stör" "Barbe" "Schleie" "Sardine" "Grundel" "Makrele" "Heilbutt" "Seezunge" "Knurrhahn"
+		"Delphin" "Wal"
+		# Fish of river and lake
+		"Karpfen" "Rotauge" "Rotfeder" "Döbel" "Brasse" "Karausche" "Gründling" "Elritze" "Äsche" "Huchen" "Saibling" "Renke"
+		"Maräne" "Güster" "Ukelei" "Bachforelle" "Meerforelle"
+		# Fish of the sea
+		"Scholle" "Steinbutt" "Rotbarsch" "Seelachs" "Wittling" "Seehecht" "Rochen" "Dornhai" "Katzenhai" "Heringshai"
+		"Hammerhai" "Schwertfisch" "Sägefisch" "Thunfisch" "Seeteufel" "Petermännchen" "Sprotte" "Stint" "Seeskorpion"
+		"Seenadel" "Seepferd" "Stichling" "Kliesche" "Leng" "Hornhecht" "Meeräsche" "Muräne"
+		# Sea mammals and other sea life
+		"Tümmler" "Schweinswal" "Pottwal" "Blauwal" "Finnwal" "Buckelwal" "Narwal" "Schwertwal" "Seehund" "Kegelrobbe"
+		"Seelöwe" "Walross" "Krake" "Tintenfisch" "Hummer" "Krabbe" "Seestern" "Seeigel" "Qualle" "Seeschlange"
+	}
+}
+
+### THEME: INSECTS AND REPTILES (IMPERIAL) ###
+GER_INSECTS_IMPERIAL = {
+	name = "SMS Insects & Reptiles"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Wespe-class armoured gunboats, gunboats of 1860, Brummer and Bremse
+		"Wespe" "Viper" "Biene" "Mücke" "Scorpion" "Basilisk" "Camaeleon" "Crocodill" "Salamander" "Natter" "Hummel" "Brummer"
+		"Bremse" "Drache" "Grille" "Tarantel" "Libelle" "Eidechse"
+		# Insects and spiders
+		"Hornisse" "Ameise" "Spinne" "Kreuzspinne" "Hirschkäfer" "Maikäfer" "Heuschrecke" "Zikade" "Termite" "Moskito"
+		"Skarabäus" "Gottesanbeterin"
+		# Reptiles and amphibians
+		"Kobra" "Kreuzotter" "Ringelnatter" "Schlange" "Blindschleiche" "Molch" "Kröte" "Unke" "Schildkröte" "Leguan" "Python"
+		"Mamba" "Klapperschlange" "Gecko" "Kaiman" "Alligator" "Waran"
+	}
+}
+
+### THEME: WIND AND WEATHER (IMPERIAL) ###
+GER_NATURE_IMPERIAL = {
+	name = "SMS Wind & Weather"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Avisos, tenders and patrol vessels
+		"Blitz" "Pfeil" "Strahl" "Welle" "Polarfront" "Nordwind" "Woge"
+		# Winds
+		"Monsun" "Orkan" "Taifun" "Sturm" "Sturmwind" "Wirbelwind" "Westwind" "Südwind" "Ostwind" "Seewind" "Föhn" "Bora"
+		"Mistral" "Schirokko" "Brise" "Windsbraut" "Tornado" "Hurrikan"
+		# Weather and sea
+		"Gewitter" "Donner" "Donnerkeil" "Wetterleuchten" "Hagel" "Frost" "Nordlicht" "Polarlicht" "Morgenrot" "Abendrot"
+		"Regenbogen" "Brandung" "Sturmflut" "Springflut" "Flut" "Ebbe" "Dünung" "Gischt" "Wirbel" "Seegang"
+	}
+}
+
+### THEME: STARS AND PLANETS (IMPERIAL) ###
+GER_STARS_IMPERIAL = {
+	name = "SMS Stars & Planets"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Navigation training ships, raiders, survey ships and transports
+		"Spica" "Regulus" "Nordstern" "Nadir" "Wega" "Castor" "Pollux" "Orion" "Komet" "Meteor" "Planet" "Antares" "Algol"
+		# Stars
+		"Sirius" "Rigel" "Aldebaran" "Atair" "Arkturus" "Capella" "Deneb" "Gemma" "Mira" "Beteigeuze" "Prokyon" "Polarstern"
+		"Morgenstern" "Abendstern" "Sternschnuppe"
+		# Constellations
+		"Kassiopeia" "Andromeda" "Pegasus" "Perseus" "Herkules" "Zentaur" "Phönix" "Leier" "Plejaden" "Großer Wagen"
+		"Kreuz des Südens" "Widder" "Stier" "Zwillinge" "Krebs" "Jungfrau" "Waage" "Wassermann"
+		# Planets
+		"Merkur" "Venus" "Mars" "Jupiter" "Saturn" "Uranus" "Neptun" "Pluto" "Luna"
+	}
+}
+
+### THEME: RIVERS AND LAKES (vanilla tag) (IMPERIAL) ###
+GER_THEME_RIVERS_IMPERIAL = {
+	name = "SMS Rivers & Lakes"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Vanilla's rivers
+		"Weser" "Jade" "Elbe" "Rhein" "Recknitz" "Neiße" "Main" "Trave" "Uecker" "Donau" "Oder" "Inn" "Isar" "Maas" "Ruhr"
+		"Spree" "Mosel" "Wupper" "Saar" "Neckar" "Sauer" "Warnow" "Aller" "Fulda" "Werra" "Alster" "Havel"
+		# Rhine, Ems and Weser basins
+		"Lahn" "Nahe" "Kinzig" "Murg" "Tauber" "Kocher" "Jagst" "Regnitz" "Pegnitz" "Nidda" "Eder" "Diemel" "Lippe" "Emscher"
+		"Ems" "Hase" "Hunte" "Leine" "Oker" "Wümme" "Ahr" "Erft" "Nette" "Kyll"
+		# Elbe and Oder basins, Baltic rivers
+		"Saale" "Mulde" "Unstrut" "Ilm" "Bode" "Schwarze Elster" "Elde" "Stör" "Oste" "Ilmenau" "Eider" "Treene" "Schlei"
+		"Peene" "Tollense" "Trebel" "Ryck" "Dahme" "Rhin" "Warthe" "Netze" "Bober" "Weichsel" "Nogat" "Pregel" "Memel" "Alle"
+		"Passarge" "Persante" "Rega" "Wipper"
+		# Danube basin
+		"Lech" "Iller" "Altmühl" "Naab" "Regen" "Salzach" "Wörnitz" "Vils" "Amper" "Loisach"
+		# Lakes and lagoons
+		"Bodensee" "Müritz" "Chiemsee" "Ammersee" "Tegernsee" "Walchensee" "Königssee" "Starnberger See" "Schweriner See"
+		"Plöner See" "Steinhuder Meer" "Wittensee" "Westensee" "Frisches Haff" "Kurisches Haff" "Stettiner Haff"
+	}
+}
+
+### THEME: STATES AND PROVINCES (IMPERIAL) ###
+GER_PROVINCES_IMPERIAL = {
+	name = "SMS States & Provinces"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# States of the Reich
+		"Preußen" "Bayern" "Sachsen" "Württemberg" "Baden" "Hessen" "Thüringen" "Mecklenburg" "Oldenburg" "Braunschweig"
+		"Anhalt" "Lippe" "Schaumburg-Lippe" "Waldeck"
+		# Prussian provinces
+		"Ostpreußen" "Westpreußen" "Brandenburg" "Pommern" "Schlesien" "Oberschlesien" "Niederschlesien" "Posen" "Hannover"
+		"Schleswig-Holstein" "Westfalen" "Rheinland" "Hessen-Nassau" "Hohenzollern" "Grenzmark"
+		# Old lands and marches
+		"Franken" "Schwaben" "Pfalz" "Kurpfalz" "Kurhessen" "Nassau" "Holstein" "Schleswig" "Lauenburg" "Friesland"
+		"Ostfriesland" "Dithmarschen" "Kurmark" "Neumark" "Altmark" "Uckermark" "Prignitz" "Lausitz" "Vogtland" "Ermland"
+		"Masuren" "Samland" "Kurland" "Livland" "Elsaß" "Lothringen" "Saarland" "Breisgau" "Allgäu" "Emsland" "Münsterland"
+		"Sauerland" "Oberpfalz" "Niederbayern" "Oberbayern" "Rheinhessen" "Oberhessen" "Eichsfeld" "Wendland" "Angeln"
+	}
+}
+
+### THEME: HANSEATIC TOWNS (IMPERIAL) ###
+GER_HANSE_IMPERIAL = {
+	name = "SMS Hanseatic Towns"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# The Wendish and Pomeranian towns
+		"Lübeck" "Hamburg" "Bremen" "Rostock" "Stralsund" "Wismar" "Lüneburg" "Greifswald" "Stettin" "Kolberg" "Anklam"
+		"Demmin" "Stargard" "Stolp" "Rügenwalde" "Kiel" "Stade" "Buxtehude"
+		# The Prussian and Livonian towns
+		"Danzig" "Elbing" "Thorn" "Königsberg" "Braunsberg" "Kulm" "Reval" "Dorpat"
+		# The Saxon and Brandenburg towns
+		"Braunschweig" "Magdeburg" "Goslar" "Hildesheim" "Göttingen" "Einbeck" "Hameln" "Hannover" "Halberstadt" "Quedlinburg"
+		"Halle" "Erfurt" "Nordhausen" "Mühlhausen" "Stendal" "Salzwedel" "Tangermünde" "Berlin" "Frankfurt an der Oder"
+		"Breslau"
+		# The Westphalian and Rhenish towns
+		"Köln" "Dortmund" "Soest" "Münster" "Osnabrück" "Paderborn" "Herford" "Lemgo" "Lippstadt" "Unna" "Hamm" "Duisburg"
+		"Wesel" "Emmerich" "Neuss"
+		# Kontore and trading posts
+		"Brügge" "Bergen" "Nowgorod" "Stalhof" "Visby" "Schonen"
+	}
+}
+
+### THEME: ISLANDS AND COASTS (IMPERIAL) ###
+GER_ISLANDS_IMPERIAL = {
+	name = "SMS Islands & Coasts"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# North Sea islands
+		"Helgoland" "Sylt" "Föhr" "Amrum" "Pellworm" "Nordstrand" "Borkum" "Juist" "Norderney" "Baltrum" "Langeoog"
+		"Spiekeroog" "Wangerooge" "Neuwerk" "Scharhörn" "Trischen" "Mellum" "Memmert" "Hooge" "Langeneß" "Oland" "Gröde"
+		"Süderoog"
+		# Baltic islands
+		"Rügen" "Usedom" "Wollin" "Fehmarn" "Hiddensee" "Poel" "Ummanz" "Vilm" "Ruden" "Greifswalder Oie"
+		# Headlands, peninsulas and coasts
+		"Arkona" "Jasmund" "Wittow" "Mönchgut" "Stubbenkammer" "Darß" "Zingst" "Fischland" "Eiderstedt" "Butjadingen"
+		"Wursten" "Kehdingen" "Hadeln" "Schwansen" "Wagrien" "Holnis" "Bülk" "Dornbusch" "Darßer Ort" "Rixhöft" "Brüsterort"
+		"Hela" "Frische Nehrung" "Kurische Nehrung"
+		# Sea areas, bights and sands
+		"Deutsche Bucht" "Kieler Bucht" "Lübecker Bucht" "Pommersche Bucht" "Danziger Bucht" "Jadebusen" "Dollart"
+		"Wattenmeer" "Amrumbank" "Borkumriff" "Adlergrund" "Stollergrund" "Kalkgrund" "Knechtsand"
+	}
+}
+
+### THEME: MOUNTAINS AND RANGES (IMPERIAL) ###
+GER_GEOGRAPHY_IMPERIAL = {
+	name = "SMS Mountains & Ranges"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Peaks
+		"Zugspitze" "Watzmann" "Hochkönig" "Wendelstein" "Nebelhorn" "Brocken" "Feldberg" "Belchen" "Schneekoppe" "Zobten"
+		"Großer Arber" "Fichtelberg" "Ochsenkopf" "Schneeberg" "Wasserkuppe" "Kreuzberg" "Inselsberg" "Kyffhäuser"
+		"Großer Feldberg" "Hohe Acht" "Erbeskopf" "Donnersberg" "Kahler Asten" "Hermannshöhe" "Drachenfels" "Ölberg"
+		"Hohentwiel" "Staufen" "Kandel" "Hornisgrinde" "Lilienstein" "Oybin" "Königstuhl"
+		# Ranges and forests
+		"Harz" "Schwarzwald" "Odenwald" "Spessart" "Taunus" "Eifel" "Hunsrück" "Westerwald" "Rhön" "Vogelsberg"
+		"Thüringer Wald" "Frankenwald" "Fichtelgebirge" "Erzgebirge" "Riesengebirge" "Isergebirge" "Eulengebirge"
+		"Bayerischer Wald" "Böhmerwald" "Steigerwald" "Haardt" "Pfälzerwald" "Solling" "Deister" "Süntel" "Siebengebirge"
+		"Wetterstein" "Karwendel" "Allgäuer Alpen" "Schwäbische Alb" "Fränkische Alb" "Sachsenwald" "Lüneburger Heide"
+		"Rothaargebirge" "Ebbegebirge" "Wiehengebirge" "Elbsandsteingebirge"
+	}
+}
+
+### THEME: CASTLES AND FORTRESSES (IMPERIAL) ###
+GER_CASTLES_IMPERIAL = {
+	name = "SMS Castles & Forts"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Castles of the Reich
+		"Wartburg" "Burg Hohenzollern" "Hohenstaufen" "Trifels" "Marksburg" "Rheinfels" "Stolzenfels" "Rheinstein" "Sooneck"
+		"Lahneck" "Eltz" "Cochem" "Hohenschwangau" "Neuschwanstein" "Lichtenstein" "Sigmaringen" "Burghausen" "Trausnitz"
+		"Plassenburg" "Veste Coburg" "Heldburg" "Leuchtenburg" "Rudelsburg" "Saaleck" "Kriebstein" "Stolpen" "Albrechtsburg"
+		"Moritzburg" "Dankwarderode" "Kaiserpfalz" "Wachenburg" "Hohkönigsburg" "Hardenburg" "Limburg" "Greifenstein"
+		"Hohenneuffen"
+		# Castles of the Teutonic Order
+		"Marienburg" "Marienwerder" "Rheden" "Mewe" "Heilsberg" "Rößel" "Allenstein" "Neidenburg" "Ortelsburg" "Lochstädt"
+		"Balga" "Ragnit" "Memelburg" "Schwetz" "Gollub"
+		# Fortresses
+		"Ehrenbreitstein" "Königstein" "Spandau" "Küstrin" "Glatz" "Silberberg" "Cosel" "Jülich" "Rastatt" "Germersheim"
+		"Hohenasperg" "Rothenberg" "Wülzburg" "Festung Rosenberg" "Marienberg" "Wilhelmstein" "Friedrichsort" "Feste Boyen"
+		"Feste Courbière" "Weichselmünde" "Dömitz" "Peitz" "Petersberg"
+	}
+}
+
+### THEME: COLONIES AND STATIONS (IMPERIAL) ###
+GER_COLONIES_IMPERIAL = {
+	name = "SMS Colonies"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# The protectorates of 1884-1919
+		"Kamerun" "Togo" "Samoa" "Kiautschou" "Deutsch-Ostafrika" "Deutsch-Südwestafrika" "Deutsch-Neuguinea"
+		"Kaiser-Wilhelmsland" "Bismarck-Archipel" "Neupommern" "Neumecklenburg" "Karolinen" "Marianen" "Marshallinseln"
+		"Palau" "Nauru"
+		# Stations, ports and places of Africa
+		"Daressalam" "Bagamoyo" "Lindi" "Kilwa" "Tabora" "Kigoma" "Muansa" "Kilimandscharo" "Windhuk" "Swakopmund"
+		"Lüderitzbucht" "Keetmanshoop" "Okahandja" "Omaruru" "Otavi" "Tsumeb" "Grootfontein" "Waterberg" "Duala" "Buea"
+		"Kribi" "Jaunde" "Garua" "Lome" "Kamina" "Atakpame" "Sansibar" "Witu"
+		# Stations of East Asia and the Pacific
+		"Tsingtau" "Taku" "Apia" "Sawaii" "Upolu" "Rabaul" "Herbertshöhe" "Friedrich-Wilhelmshafen" "Finschhafen" "Ponape"
+		"Jaluit" "Saipan" "Angaur" "Truk"
+		# Ships of the colonial lines taken into the navy
+		"Urundi" "Ubena" "Wangoni" "Usambara"
+	}
+}
+
+### THEME: EMPERORS AND KINGS (IMPERIAL) ###
+GER_RULERS_IMPERIAL = {
+	name = "SMS Emperors & Kings"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Emperors and kings of the old Reich
+		"Karl der Große" "Ludwig der Deutsche" "Heinrich der Vogler" "Otto der Große" "Otto II." "Otto III." "Heinrich II."
+		"Konrad II." "Heinrich III." "Heinrich IV." "Lothar von Supplinburg" "Konrad III." "Friedrich Barbarossa"
+		"Heinrich VI." "Philipp von Schwaben" "Otto IV." "Friedrich II. von Staufen" "Rudolf von Habsburg" "Adolf von Nassau"
+		"Heinrich VII." "Ludwig der Bayer" "Karl IV." "Sigismund" "Maximilian I." "Karl V."
+		# Brandenburg and Prussia
+		"Albrecht der Bär" "Friedrich Eisenzahn" "Albrecht Achilles" "Joachim Nestor" "Joachim Hektor" "Johann Sigismund"
+		"Großer Kurfürst" "Friedrich I." "Der Soldatenkönig" "Friedrich der Große" "Friedrich Wilhelm II."
+		"Friedrich Wilhelm III." "Friedrich Wilhelm IV." "Königin Luise" "Wilhelm I." "Friedrich III."
+		# Other German houses
+		"Heinrich der Löwe" "Heinrich der Stolze" "Otto von Wittelsbach" "Friedrich der Siegreiche" "Friedrich der Weise"
+		"Moritz von Sachsen" "August der Starke" "König Albert" "Eberhard im Bart" "Philipp der Großmütige" "Max Emanuel"
+		"Türkenlouis" "Ludwig I. von Bayern" "Ludwig II. von Bayern" "Prinzregent Luitpold" "Carl August" "Ernst August"
+	}
+}
+
+### THEME: GENERALS AND FIELD MARSHALS (IMPERIAL) ###
+GER_GENERALS_IMPERIAL = {
+	name = "SMS Generals"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Thirty Years' War and the Turkish wars
+		"Tilly" "Wallenstein" "Pappenheim" "Bernhard von Weimar" "Derfflinger" "Sparr" "Prinz Eugen"
+		# Wars of Frederick the Great
+		"Der Alte Dessauer" "Graf Schwerin" "Keith" "Seydlitz" "Zieten" "Winterfeldt" "Fouqué" "Ferdinand von Braunschweig"
+		"Prinz Heinrich von Preußen" "Belling" "Möllendorff"
+		# Wars of Liberation
+		"Blücher" "Gneisenau" "Scharnhorst" "Yorck" "Bülow von Dennewitz" "Kleist von Nollendorf" "Tauentzien von Wittenberg"
+		"Boyen" "Clausewitz" "Grolman" "Lützow" "Schill" "Thielmann" "Wrede"
+		# Wars of unification
+		"Moltke" "Roon" "Wrangel" "Steinmetz" "Edwin von Manteuffel" "Goeben" "Werder" "Blumenthal" "Vogel von Falckenstein"
+		"Von der Tann" "Constantin von Alvensleben" "Kirchbach" "Fransecky"
+		# The World War
+		"Hindenburg" "Schlieffen" "Falkenhayn" "Emmich" "Woyrsch" "Kluck" "Beseler" "Georg von der Marwitz" "Linsingen"
+		"Hutier" "Eichhorn" "Max Hoffmann" "Haeseler" "Einem" "Fritz von Below" "Goltz Pascha" "Liman von Sanders"
+		"Karl von Bülow" "Max von Hausen"
+	}
+}
+
+### THEME: SEAFARERS AND ADMIRALS (IMPERIAL) ###
+GER_ADMIRALS_IMPERIAL = {
+	name = "SMS Seafarers"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Captains, mayors and privateers of the Hanse
+		"Störtebeker" "Gödeke Michels" "Paul Beneke" "Simon von Utrecht" "Johann Wittenborg" "Jürgen Wullenwever"
+		"Bruno von Warendorp" "Hinrich Castorp" "Ditmar Koel" "Berend Karpfanger"
+		# The Brandenburg navy
+		"Benjamin Raule" "Von der Groeben" "Claus von Bevern" "Thomas Alders"
+		# Reichsflotte and Prussian navy
+		"Karl Rudolf Brommy" "Arnold Duckwitz" "Prinz Adalbert" "Eduard von Jachmann" "Jan Schröder" "Reinhold von Werner"
+		"Ludwig von Henk" "Karl Ferdinand Batsch" "Wilhelm Bauer"
+		# The Imperial navy
+		"Alfred von Tirpitz" "Reinhard Scheer" "Franz von Hipper" "Graf Spee" "Albrecht von Stosch" "Eduard von Knorr"
+		"Hans von Koester" "Prinz Heinrich" "Otto von Diederichs" "Hugo von Pohl" "Henning von Holtzendorff"
+		"Friedrich von Ingenohl" "Felix von Bendemann"
+		# Shipowners and builders
+		"Albert Ballin" "Adolph Woermann" "Ferdinand Laeisz" "Hermann Henrich Meier" "Johann Cesar Godeffroy"
+		"Ferdinand Schichau" "Hermann Blohm" "Ernst Voss" "Georg Howaldt"
+	}
+}
+
+### THEME: NAVAL HEROES (IMPERIAL) ###
+GER_HEROES_IMPERIAL = {
+	name = "SMS Naval Heroes"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# The namesakes of the destroyers Z1 to Z22
+		"Leberecht Maass" "Georg Thiele" "Max Schultz" "Richard Beitzen" "Paul Jacobi" "Theodor Riedel" "Hermann Schoemann"
+		"Bruno Heinemann" "Wolfgang Zenker" "Hans Lody" "Bernd von Arnim" "Erich Giese" "Erich Koellner" "Friedrich Ihn"
+		"Erich Steinbrinck" "Friedrich Eckoldt" "Diether von Roeder" "Hans Lüdemann" "Hermann Künne" "Karl Galster"
+		"Wilhelm Heidkamp" "Anton Schmitt"
+		# U-boat commanders (the names of the U-cruisers of 1918 and of the flotillas of 1935-39 among them)
+		"Otto Weddigen" "Walther Schwieger" "Reinhold Saltzwedel" "Johannes Lohs" "Bernd Wegener" "Claus Hansen"
+		"Herbert Pustkuchen" "Egewolf von Berckheim" "Rudolf Schneider" "Hans Joachim Emsmann" "Paul Hundius" "Curt Beitzen"
+		"Hans Valentiner" "Paul Wagenführ" "Graf von Schmettow" "Victor Dieckmann" "Ernst Voigt" "Rudolf Seuffer"
+		"Ernst Rosenow" "Otto Wünsche" "Waldemar Kophamel" "Kurt Schapler" "Theodor Schultz" "Ernst Steindorff" "Werner Löwe"
+		"Thomas Bieber" "Cäsar Bauer" "Gustav Buch" "Erich Hecht" "Karsten von Heydebreck" "Erwin Weisbach" "Fritz Wernicke"
+		# Cruiser captains and others
+		"Karl von Müller" "Erich Köhler" "Fritz Lüdecke"
+	}
+}
+
+### THEME: EXPLORERS AND NAVIGATORS (IMPERIAL) ###
+GER_EXPLORERS_IMPERIAL = {
+	name = "SMS Explorers"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Navigators and voyagers
+		"Martin Behaim" "Georg Forster" "Reinhold Forster" "Adelbert von Chamisso" "Carsten Niebuhr" "Georg Wilhelm Steller"
+		"Engelbert Kaempfer" "Philipp Franz von Siebold" "Krusenstern" "Bellingshausen" "Otto von Kotzebue"
+		"Ferdinand von Wrangel" "Eduard Dallmann" "Carl Koldewey" "Georg von Neumayer" "Alfred Wegener" "Carl Chun"
+		# Travellers of Africa
+		"Heinrich Barth" "Gerhard Rohlfs" "Eduard Vogel" "Gustav Nachtigal" "Georg Schweinfurth" "Emin Pascha"
+		"Karl Klaus von der Decken" "Johann Ludwig Krapf" "Johannes Rebmann" "Hans Meyer" "Franz Stuhlmann" "Paul Pogge"
+		"Wilhelm Junker" "Oskar Lenz"
+		# Travellers of Asia, the Americas and Australia
+		"Alexander von Humboldt" "Ferdinand von Richthofen" "Ludwig Leichhardt" "Maximilian zu Wied" "Robert Schomburgk"
+		"Hermann Schlagintweit" "Adolf Bastian" "Karl von den Steinen" "Theodor Koch-Grünberg"
+		# Survey and research ships
+		"Gazelle" "Valdivia"
+	}
+}
+
+### THEME: SCIENTISTS AND INVENTORS (IMPERIAL) ###
+GER_SCIENTISTS_IMPERIAL = {
+	name = "SMS Scientists"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Astronomers, mathematicians and physicists
+		"Kopernikus" "Kepler" "Regiomontanus" "Leibniz" "Otto von Guericke" "Fahrenheit" "Gauß" "Bessel" "Fraunhofer" "Ohm"
+		"Wilhelm Weber" "Robert Mayer" "Clausius" "Kirchhoff" "Helmholtz" "Heinrich Hertz" "Röntgen" "Ferdinand Braun"
+		"Riemann" "Adolf Slaby"
+		# Chemists, physicians and naturalists
+		"Paracelsus" "Agricola" "Albertus Magnus" "Liebig" "Wöhler" "Bunsen" "Kekulé" "Robert Koch" "Virchow" "Behring"
+		"Paul Ehrlich" "Hahnemann" "Haeckel" "Böttger" "Tschirnhaus"
+		# Inventors and engineers
+		"Gutenberg" "Peter Henlein" "Senefelder" "Friedrich Koenig" "Karl Drais" "Philipp Reis" "Werner von Siemens"
+		"Rudolf Diesel" "Carl Benz" "Gottlieb Daimler" "Nikolaus Otto" "Wilhelm Maybach" "August Borsig" "Alfred Krupp"
+		"Carl von Linde" "Ernst Abbe" "Carl Zeiss"
+	}
+}
+
+### THEME: POETS AND THINKERS (IMPERIAL) ###
+GER_WRITERS_IMPERIAL = {
+	name = "SMS Poets & Thinkers"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Poets of the Middle Ages and the Reformation
+		"Walther von der Vogelweide" "Wolfram von Eschenbach" "Hartmann von Aue" "Gottfried von Straßburg" "Hans Sachs"
+		"Martin Luther" "Melanchthon" "Gryphius" "Grimmelshausen"
+		# Classics and Romantics
+		"Goethe" "Schiller" "Lessing" "Herder" "Klopstock" "Wieland" "Hölderlin" "Novalis" "Heinrich von Kleist" "Jean Paul"
+		"Eichendorff" "Uhland" "Theodor Körner" "Ernst Moritz Arndt" "Brüder Grimm" "E. T. A. Hoffmann" "Hauff" "Heine"
+		"Mörike" "Droste-Hülshoff" "Fallersleben"
+		# Poets of the coast and of the nineteenth century
+		"Hebbel" "Theodor Storm" "Fontane" "Raabe" "Fritz Reuter" "Klaus Groth" "Liliencron" "Gorch Fock" "Hermann Löns"
+		"Rilke" "Stefan George" "Wilhelm Busch"
+		# Thinkers
+		"Meister Eckhart" "Kant" "Fichte" "Hegel" "Schelling" "Schopenhauer" "Nietzsche" "Wilhelm von Humboldt"
+		# Painters and builders
+		"Albrecht Dürer" "Holbein" "Cranach" "Grünewald" "Riemenschneider" "Veit Stoß" "Caspar David Friedrich" "Menzel"
+		"Schinkel" "Schlüter" "Balthasar Neumann"
+	}
+}
+
+### THEME: COMPOSERS (IMPERIAL) ###
+GER_COMPOSERS_IMPERIAL = {
+	name = "SMS Composers"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Baroque
+		"Heinrich Schütz" "Praetorius" "Dietrich Buxtehude" "Pachelbel" "Telemann" "Bach" "Händel" "Graun" "Hasse" "Quantz"
+		"Philipp Emanuel Bach"
+		# Classical and Romantic
+		"Gluck" "Haydn" "Mozart" "Beethoven" "Weber" "Schubert" "Mendelssohn" "Schumann" "Wagner" "Brahms" "Bruckner" "Spohr"
+		"Loewe" "Marschner" "Lortzing" "Nicolai" "Flotow" "Meyerbeer" "Cornelius" "Bruch" "Raff" "Silcher" "Zelter"
+		# Turn of the century
+		"Hugo Wolf" "Mahler" "Reger" "Humperdinck" "Johann Strauß"
+	}
+}
+
+### THEME: KNIGHTS AND ORDERS (IMPERIAL) ###
+GER_KNIGHTS_IMPERIAL = {
+	name = "SMS Knights & Orders"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Grand Masters and a Landmeister of the Teutonic Order
+		"Hermann von Salza" "Hermann von Balk" "Konrad von Thüringen" "Poppo von Osterna" "Anno von Sangerhausen"
+		"Hartmann von Heldrungen" "Siegfried von Feuchtwangen" "Karl von Trier" "Werner von Orseln" "Luther von Braunschweig"
+		"Dietrich von Altenburg" "Winrich von Kniprode" "Konrad von Wallenrode" "Konrad von Jungingen" "Ulrich von Jungingen"
+		"Heinrich von Plauen" "Michael Küchmeister" "Albrecht von Brandenburg-Ansbach"
+		# Imperial knights and captains of the Landsknechte
+		"Ulrich von Hutten" "Götz von Berlichingen" "Franz von Sickingen" "Georg von Frundsberg" "Florian Geyer"
+		"Schertlin von Burtenbach" "Wilhelm von Grumbach" "Eppelein von Gailingen"
+		# Margraves and champions of the Middle Ages
+		"Hermann Billung" "Markgraf Gero" "Konrad der Rote" "Otto von Northeim"
+		# Orders and men-at-arms
+		"Deutschritter" "Schwertbrüder" "Johanniter" "Ordensritter" "Kreuzritter" "Reichsritter" "Landsknecht" "Doppelsöldner"
+		"Hochmeister" "Komtur" "Ordensmarschall"
+	}
+}
+
+### THEME: GERMANIC TRIBES AND THEIR LEADERS (IMPERIAL) ###
+GER_TRIBES_IMPERIAL = {
+	name = "SMS Germanic Tribes"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Leaders and kings
+		"Arminius" "Marbod" "Ariovist" "Thusnelda" "Civilis" "Ermanarich" "Athanarich" "Fritigern" "Wulfila" "Alarich"
+		"Geiserich" "Gelimer" "Theoderich" "Odoaker" "Totila" "Teja" "Alboin" "Chlodwig" "Radbod" "Widukind"
+		# Tribes of Tacitus' Germania
+		"Cherusker" "Chatten" "Brukterer" "Marser" "Sugambrer" "Bataver" "Chauken" "Hermunduren" "Semnonen" "Markomannen"
+		"Quaden" "Sueben" "Ubier" "Usipeter" "Tenkterer" "Kimbern" "Teutonen" "Ambronen"
+		# Peoples of the migrations
+		"Goten" "Ostgoten" "Westgoten" "Vandalen" "Burgunder" "Langobarden" "Gepiden" "Heruler" "Rugier" "Skiren" "Alemannen"
+		"Bajuwaren" "Thüringer" "Friesen" "Jüten" "Warnen" "Wikinger" "Waräger" "Normannen"
+	}
+}
+
+### THEME: GERMANIC MYTHOLOGY (vanilla tag) (IMPERIAL) ###
+GER_THEME_GERMANIC_IMPERIAL = {
+	name = "SMS Germanic Myth"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Gods of the continental Germans (Merseburg charms, Tacitus, inscriptions)
+		"Wotan" "Donar" "Ziu" "Frija" "Volla" "Phol" "Balder" "Sunna" "Sinthgunt" "Saxnot" "Nerthus" "Tamfana" "Baduhenna"
+		"Nehalennia" "Hludana" "Mannus" "Tuisto" "Ostara" "Holda" "Perchta"
+		# Vanilla's Norse names
+		"Tyr" "Thrym" "Ägir" "Ran" "Atla" "Hödur" "Hymir" "Bor" "Bragi" "Vili" "Thrud" "Idun" "Lodur" "Mani"
+		# Gods of the north in German form
+		"Odin" "Thor" "Freyr" "Freyja" "Frigg" "Loki" "Heimdall" "Njörd" "Skadi" "Sif" "Forseti" "Widar" "Wali" "Ull" "Hönir"
+		"Mimir" "Nanna" "Gefion" "Hermod" "Magni" "Modi" "Hel"
+		# Beasts, places and things of the myths
+		"Fenrir" "Sleipnir" "Hugin" "Munin" "Geri" "Freki" "Midgard" "Asgard" "Walhall" "Bifröst" "Mjölnir" "Gungnir"
+		"Yggdrasil" "Gjallarhorn" "Draupnir" "Skidbladnir" "Hringhorni" "Niflheim" "Muspelheim" "Surt" "Ymir" "Walküre"
+		"Norne" "Urd" "Skuld" "Werdandi" "Midgardschlange"
+	}
+}
+
+### THEME: HEROIC SAGAS (IMPERIAL) ###
+GER_SAGAS_IMPERIAL = {
+	name = "SMS Heroic Sagas"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Siegfried-class coastal defence ships, saga names of minelayers, minesweepers and Danube guard ships
+		"Siegfried" "Beowulf" "Frithjof" "Hildebrand" "Hagen" "Volker" "Dietrich von Bern" "Alberich" "Balmung" "Bechelaren"
+		# The Nibelungs
+		"Kriemhild" "Brünhild" "Gunther" "Gernot" "Giselher" "Rüdiger" "Etzel" "Dankwart" "Ortwin" "Sieglinde" "Siegmund"
+		"Sigurd" "Fafnir" "Mime" "Regin" "Nibelung" "Nothung" "Isenstein" "Gibich" "Ute" "Sigi" "Wälsung"
+		# Dietrich, Gudrun and Walther
+		"Wolfhart" "Heime" "Witege" "Wolfdietrich" "Ortnit" "Laurin" "Ecke" "Hadubrand" "Walther" "Hildegund"
+		"Wieland der Schmied" "Kudrun" "Wate" "Horand" "Hettel" "Hilde" "Herwig" "Hartmut" "Ortrun"
+		# Knights of the courtly epics
+		"Roland" "Parzival" "Lohengrin" "Tannhäuser" "Tristan" "Isolde" "Gawan" "Titurel" "Iwein" "Erec" "Herzog Ernst"
+		"König Rother"
+	}
+}
+
+### THEME: LEGENDS AND FAIRY TALES (IMPERIAL) ###
+GER_LEGENDS_IMPERIAL = {
+	name = "SMS Legends & Tales"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Ship names: avisos, corvettes, a torpedo boat, torpedo transports
+		"Loreley" "Undine" "Nixe" "Vineta" "Schneewittchen" "Max" "Moritz" "Rugard"
+		# Legends of land and sea
+		"Rübezahl" "Till Eulenspiegel" "Münchhausen" "Doktor Faust" "Mephisto" "Rattenfänger" "Frau Holle" "Rheingold"
+		"Rheintöchter" "Erlkönig" "Freischütz" "Wilde Jagd" "Wilder Jäger" "Heinzelmännchen" "Klabautermann"
+		"Fliegender Holländer" "Schimmelreiter" "Peter Schlemihl" "Nöck" "Meerjungfrau" "Irrlicht" "Kobold" "Zwergkönig"
+		"Rheinnixe" "Wassernixe" "Elfenkönig" "Knecht Ruprecht" "Sandmann" "Nussknacker"
+		# Tales of the Brothers Grimm
+		"Rumpelstilzchen" "Dornröschen" "Aschenputtel" "Rotkäppchen" "Rapunzel" "Hänsel" "Gretel" "Froschkönig"
+		"Hans im Glück" "Gestiefelter Kater" "Bremer Stadtmusikanten" "Tapferes Schneiderlein" "Eiserner Heinrich"
+		"Schneeweißchen" "Rosenrot" "König Drosselbart"
+	}
+}
+
+### THEME: CLASSICAL MYTH (names of the old corvettes, frigates and small cruisers) (IMPERIAL) ###
+GER_CLASSICAL_IMPERIAL = {
+	name = "SMS Classical Myth"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Corvettes, frigates, small cruisers, gunboats, tenders and anti-aircraft ships
+		"Niobe" "Nymphe" "Thetis" "Ariadne" "Amazone" "Medusa" "Najade" "Augusta" "Victoria" "Nautilus" "Cyclop" "Triton"
+		"Acheron" "Hermes" "Zephir" "Notus" "Vulkan" "Zeus"
+		# Goddesses, nymphs and heroines
+		"Minerva" "Diana" "Juno" "Vesta" "Ceres" "Flora" "Aurora" "Hebe" "Iris" "Daphne" "Galathea" "Danae" "Nereide" "Sirene"
+		"Kalypso" "Kirke" "Penelope" "Andromache" "Kassandra" "Elektra" "Iphigenie" "Antigone" "Eurydike" "Psyche" "Pandora"
+		"Pallas" "Athene" "Artemis" "Aphrodite" "Hera" "Demeter" "Persephone" "Selene" "Eos" "Nike" "Amphitrite"
+		# The Muses
+		"Klio" "Kalliope" "Urania" "Terpsichore" "Thalia" "Melpomene" "Euterpe" "Erato" "Polyhymnia"
+		# Gods, titans and heroes
+		"Poseidon" "Apollo" "Ares" "Hephaistos" "Helios" "Prometheus" "Atlas" "Okeanos" "Proteus" "Nereus" "Aiolos" "Boreas"
+		"Achilles" "Ajax" "Odysseus" "Hektor" "Theseus" "Jason" "Argo" "Argonaut" "Chimära" "Sphinx" "Charybdis" "Skylla"
+	}
+}
+
+### THEME: FAMOUS BATTLES (vanilla tag) (IMPERIAL) ###
+GER_THEME_BATTLE_IMPERIAL = {
+	name = "SMS Famous Battles"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Vanilla's battles
+		"Skagerrak" "Teutoburger Wald" "Flandern" "Verdun" "Sedan" "Königgrätz" "Leuthen" "Soor" "Tannenberg" "Kesselsdorf"
+		"Pirmasens" "Großbeeren" "La Rothière" "Kulm" "Belle-Alliance" "Düppel" "Trautenau" "Helgoland" "Doggerbank" "Coronel"
+		"Penang"
+		# Middle Ages and the old Reich
+		"Lechfeld" "Riade" "Bornhöved" "Hemmingstedt" "Mühldorf" "Worringen" "Fehrbellin" "Warschau" "Höchstädt" "Zenta"
+		"Belgrad" "Turin"
+		# Wars of Frederick the Great
+		"Mollwitz" "Hohenfriedberg" "Roßbach" "Zorndorf" "Prag" "Liegnitz" "Torgau" "Freiberg" "Krefeld" "Minden"
+		# Wars of Liberation
+		"Katzbach" "Dennewitz" "Wartenburg" "Möckern" "Völkerschlacht" "Hagelberg" "Nollendorf" "Laon" "Ligny"
+		# Wars of unification
+		"Eckernförde" "Missunde" "Alsen" "Nachod" "Skalitz" "Gitschin" "Kissingen" "Weißenburg" "Wörth" "Spichern"
+		"Mars-la-Tour" "Gravelotte" "St. Privat" "Metz" "Orléans" "Le Mans" "Belfort" "St. Quentin"
+		# The World War
+		"Lüttich" "Namur" "Antwerpen" "Lodz" "Brzeziny" "Gorlice" "Nowogeorgiewsk" "Kowno" "Riga" "Ösel" "Karfreit" "Cambrai"
+		"Kemmel" "Chemin des Dames" "Tanga"
+	}
+}
+
+### THEME: HISTORIC SHIPS (IMPERIAL) ###
+GER_HISTORIC_SHIPS_IMPERIAL = {
+	name = "SMS Historic Ships"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Ships of the Hanse
+		"Adler von Lübeck" "Bunte Kuh" "Peter von Danzig" "Jesus von Lübeck" "Wappen von Hamburg" "Leopoldus Primus"
+		"Admiralität von Hamburg"
+		# The Brandenburg navy
+		"Friedrich Wilhelm zu Pferde" "Kurprinz" "Dorothea" "Roter Löwe" "Goldener Löwe" "Morian" "Markgraf von Brandenburg"
+		"Rummelpot" "Friede"
+		# The Reichsflotte of 1848
+		"Barbarossa" "Erzherzog Johann" "Hansa" "Der Königliche Ernst August" "Großherzog von Oldenburg" "Deutschland"
+		"Frankfurt"
+		# The Prussian navy
+		"Arcona" "Preußischer Adler" "Mercur" "König Wilhelm"
+		# Sail training ships and great sailing ships
+		"Passat" "Pamir" "Padua" "Peking" "Priwall" "Potosi" "Herzogin Cecilie" "Großherzogin Elisabeth" "Rickmer Rickmers"
+		# Cruisers and boats of the World War
+		"Emden" "Dresden" "Karlsruhe" "Ayesha" "U-Deutschland"
+	}
+}
+
+### THEME: VIRTUES AND WATCHWORDS (IMPERIAL) ###
+GER_VIRTUES_IMPERIAL = {
+	name = "SMS Virtues"
+
+	for_countries = { GER }
+
+	can_use = {
+		OR = {
+			has_government = neutrality
+			has_government = democratic
+		}
+	}
+
+	type = ship
+	# Omit ship_types for universal hull availability
+
+	prefix = "SMS "
+	fallback_name = "Schiff %d"
+
+	unique = {
+		# Ship names: torpedo boats of 1882, gunboats, avisos, tenders
+		"Flink" "Kühn" "Scharf" "Schütze" "Sicher" "Tapfer" "Vorwärts" "Jäger" "Wacht" "Jagd" "Rival" "Pionier" "Frauenlob"
+		"Vaterland"
+		# Expansion: virtues
+		"Treue" "Ehre" "Mut" "Kühnheit" "Tapferkeit" "Stärke" "Kraft" "Sieg" "Zuversicht" "Eintracht" "Pflicht" "Heimat"
+		"Standhaft" "Unverzagt" "Wagemut" "Furchtlos" "Unermüdlich" "Wachsam" "Wehrhaft" "Trutz" "Schneidig" "Rasch" "Stolz"
+		"Eisern" "Zäh" "Entschlossen" "Beharrlich" "Verwegen" "Tollkühn" "Kampfbereit"
+		# Expansion: fighters and guardians
+		"Draufgänger" "Sturmbock" "Vorkämpfer" "Bahnbrecher" "Wegbereiter" "Sieger" "Rächer" "Wächter" "Hüter" "Kämpfer"
+		"Streiter" "Recke" "Degen" "Schild" "Schwert"
+	}
+}

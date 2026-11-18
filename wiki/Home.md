@@ -19,6 +19,7 @@
 | [Denmark](Denmark) | `DEN` | 15 | `DEN_ship_names.txt` |
 | [Finland](Finland) | `FIN` | 20 | `FIN_ship_names.txt` |
 | [France](France) | `FRA` | 28 | `FRA_ship_names.txt` |
+| [Germany](Germany) | `GER` | 102 | `GER_ship_name.txt` |
 | [Iran](Iran) | `PER` | 14 | `PER_ship_names.txt` |
 | [Italy](Italy) | `ITA` | 30 | `ITA_ship_names.txt` |
 | [Mexico](Mexico) | `MEX` | 20 | `MEX_ship_names.txt` |

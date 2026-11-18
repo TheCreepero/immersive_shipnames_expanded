@@ -78,6 +78,7 @@ Development rules live in `AGENTS.md` (short form; `GEMINI.md` and `CLAUDE.md` i
 | `ENG` | United Kingdom | `ENG_ship_names.txt` |
 | `FIN` | Finland | `FIN_ship_names.txt` |
 | `FRA` | France | `FRA_ship_names.txt` |
+| `GER` | Germany | `GER_ship_name.txt` |
 | `ITA` | Italy | `ITA_ship_names.txt` |
 | `MEX` | Mexico | `MEX_ship_names.txt` |
 | `NOR` | Norway | `NOR_ship_names.txt` |

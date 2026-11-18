@@ -11,8 +11,9 @@ BeforeAll {
     $script:WorkshopGuidePath = Join-Path $script:RepoRoot "WORKSHOP_DESCRIPTION_GUIDELINES.md"
     $script:NamelistDir = Join-Path $script:RepoRoot "common\units\names_ships"
 
-    # Extract all distinct TAGs from <TAG>_ship_names.txt (or legacy ISNE_<TAG>_*.txt)
-    $files = Get-ChildItem -Path $script:NamelistDir -Filter "*_ship_names.txt"
+    # Extract all distinct TAGs from <TAG>_ship_names.txt (or legacy ISNE_<TAG>_*.txt); Germany's vanilla file is
+    # GER_ship_name.txt, singular
+    $files = Get-ChildItem -Path $script:NamelistDir -Filter "*_ship_name*.txt"
     $script:ImplementedTags = [System.Collections.Generic.HashSet[string]]::new()
     foreach ($f in $files) {
         if ($f.Name -match '^(?:ISNE_)?([A-Z0-9]{3})_') {
@@ -107,7 +108,7 @@ Describe "Documentation Synchronization: Wiki" {
         foreach ($tag in $script:ImplementedTags) {
             $tagMatched = $false
             foreach ($wc in $wikiContents) {
-                if ($wc -match "\b(?:ISNE_)?${tag}_ship_names\.txt\b" -or $wc -match "\($tag\)") {
+                if ($wc -match "\b(?:ISNE_)?${tag}_ship_names?\.txt\b" -or $wc -match "\($tag\)") {
                     $tagMatched = $true
                     break
                 }

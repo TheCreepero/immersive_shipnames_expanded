@@ -83,7 +83,7 @@ Coming soon: [b]Immersive Air Wing Names Expanded[/b]
 - Not Ironman/Achievement compatible.
 - New name groups show only in a new game.
 - No hard incompatibilities. Namelists from other mods might override namelists from this mod in some cases.
-- Built for game version 1.19.
+- Built for game version 1.20.
 - Feel free to use this mod however you wish.
 <!-- /region -->
 - Hull lists carry both the Man the Guns (MtG) Ship Designer hull types and the non-DLC ship types.
